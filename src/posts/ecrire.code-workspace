@@ -1,0 +1,55 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"frontMatter.taxonomy.tags": [
+			"agile",
+			"anthologie",
+			"architecture de l'information",
+			"architecture",
+			"concept",
+			"conception",
+			"critique",
+			"données",
+			"droit",
+			"features",
+			"futur",
+			"graphisme",
+			"histoire",
+			"inclusion",
+			"jeu vidéo",
+			"litterature",
+			"mac",
+			"mobile",
+			"objets",
+			"place du concepteur",
+			"politique",
+			"procédural",
+			"prototypage",
+			"recherche",
+			"réflexions",
+			"responsive",
+			"RGPD",
+			"sciences cognitives",
+			"sécurité",
+			"sketch",
+			"stratégie",
+			"systemes complexes",
+			"tout ce qui bouge",
+			"travaux",
+			"typographie",
+			"utilisateurs",
+			"UX",
+			"veille",
+			"vie privée",
+			"ville",
+			"VR",
+			"Windows phone",
+			"windows"
+		],
+		"frontMatter.taxonomy.categories": []
+	}
+}

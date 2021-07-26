@@ -1,0 +1,20 @@
+<span class="mx-1 text-xl font-light sm:mx-2 " >~</span>
+
+<div class="inline tagpills">
+  {% for tag in tags %}
+    {# Knock out the first iteration of the loop to drop the default "post" tag generated in `posts/posts.json`. #}
+    {# If there's a better/easier way of doing this, please LMK.  #}
+    {% if not loop.first %}
+      <div class="inline-block my-auto">
+        <a title="mot clé {{ tag }}" aria-label="mot clé {{ tag }}" href="{{ '/tags/' | url}}{{tag | slug  }}/"
+        class=" no-underline hover:underline text-accent2">{{ tag[0]|upper}}{{tag.slice(1)}}</a>
+        {% if not loop.last %}
+          <span class="mx-1 text-xl font-light sm:mx-2 sm:inline" >~</span>
+        {% endif %}
+
+      </div>
+
+    {% endif %}
+
+  {% endfor %}
+</div>

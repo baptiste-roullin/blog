@@ -1,0 +1,18 @@
+<div class="flex flex-wrap items-center pt-6 tagpills md:pt-2">
+  {% for tag in tags %}
+    {# Knock out the first iteration of the loop to drop the default "post" tag generated in `posts/posts.json`. #}
+    {# If there's a better/easier way of doing this, please LMK.  #}
+    {% if not loop.first %}
+      <div class="inline-block my-3 sm:my-2  min-w-1/2 sm:min-w-min">
+        <a title="mot clé {{ tag }}" aria-label="mot clé {{ tag }}" href="{{ '/tags/' | url}}{{tag | slug  }}/"
+        class="font-medium  label text-accent2">{{ tag[0]|upper}}{{tag.slice(1)}}</a>
+        {% if not loop.last %}
+          <span class="hidden sm:inline mx-4 text-xl font-light text-gray-500 " >~</span>
+        {% endif %}
+
+      </div>
+
+    {% endif %}
+
+  {% endfor %}
+</div>

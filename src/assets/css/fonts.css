@@ -1,0 +1,108 @@
+/*@font-face {
+    font-family: 'Brandon';
+    src: local('Brandon Text Light Italic'), local('BrandonText-LightItalic'),
+        url('/assets/css/fonts/brandontext-lightitalic.woff2') format('woff2');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}*/
+
+/*@font-face {
+    font-family: 'Brandon';
+    src: local('Brandon Text Black Italic'), local('BrandonText-BlackItalic'),
+        url('/assets/css/fonts/brandontext-blackitalic.woff2') format('woff2');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+*/
+/*@font-face {
+    font-family: 'Brandon';
+    src: local('Brandon Text Black'), local('BrandonText-Black'),
+        url('/assets/css/fonts/brandontext-black.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+*/
+@font-face {
+    font-family: 'Brandon';
+    src: local('Brandon Text Bold'), local('BrandonText-Bold'),
+        url('/assets/css/fonts/brandontext-bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Brandon';
+    src: local('Brandon Text Bold Italic'), local('BrandonText-BoldItalic'),
+        url('/assets/css/fonts/brandontext-bolditalic.woff2') format('woff2');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Brandon';
+    src: local('Brandon Text Light'), local('BrandonText-Light'),
+        url('/assets/css/fonts/brandontext-light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Brandon';
+    src: local('Brandon Text Regular'), local('BrandonText-Regular'),
+        url('/assets/css/fonts/brandontext-regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Brandon';
+    src: local('Brandon Text Regular Italic'), local('BrandonText-RegularItalic'),
+        url('/assets/css/fonts/brandontext-regularitalic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+/*
+@font-face {
+    font-family: 'Brandon';
+    src: local('Brandon Text Thin Italic'), local('BrandonText-ThinItalic'),
+        url('/assets/css/fonts/brandontext-thinitalic.woff2') format('woff2');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}*/
+
+/*@font-face {
+    font-family: 'Brandon';
+    src: local('Brandon Text Thin'), local('BrandonText-Thin'),
+        url('/assets/css/fonts/brandontext-thin.woff2') format('woff2');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}*/
+
+@font-face {
+    font-family: 'Brandon';
+    src: local('Brandon Text Medium'), local('BrandonText-Medium'),
+        url('/assets/css/fonts/brandontext-medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/*@font-face {
+    font-family: 'Brandon';
+    src: local('Brandon Text Medium Italic'), local('BrandonText-MediumItalic'),
+        url('/assets/css/fonts/brandontext-mediumitalic.woff2') format('woff2');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}*/
+

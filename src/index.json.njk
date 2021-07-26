@@ -1,0 +1,7 @@
+---
+permalink: /index.min.json
+eleventyExcludeFromCollections: true,
+
+---
+
+{{ collections.publishedPosts | searchIndex | dump   | safe }}

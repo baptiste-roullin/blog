@@ -1,0 +1,25 @@
+
+
+
+.article {
+	 h2, h3, h4, h5 {
+		display: flex;
+		position: relative;
+		padding-left: 2em;
+		left: -2em;
+		&:hover a {
+			display: inline-block;
+
+		}
+	}
+	.deeplink {
+		position: absolute;
+		left:0;
+		display: none;
+		padding:0 .5em;
+		@apply text-accent2;
+	}
+}
+
+
+

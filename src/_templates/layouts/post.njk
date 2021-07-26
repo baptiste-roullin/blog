@@ -1,0 +1,57 @@
+---
+layout: base
+---
+
+<div class="template-post-main">
+	{% if hero.image %}
+
+		{% set heroComponent = ['components/hero-', hero.type, '.njk'] %}
+
+		{% include heroComponent | join %}
+
+	{% else %}
+
+	{% endif %}
+
+	<article class="post-main  my-20 prose lg:prose-xl prose-lg article {{ structure.g_proseWidth }}">
+
+		{% if not hero.image %}
+			<header class="">
+				<h1 class="text-gray-700">{{ seo.title or title }}</h1>
+				<div class="text-sm UI sm:text-base">
+					<time datetime="{{ page.date | dateToFormat("yyyy-MM-dd") }}">
+						{{ page.date | dateToFormat("dd LLLL yyyy") }}
+					</time>
+					{% include "components/tagpills-inline.njk" %}
+
+				</div>
+			</header>
+		{% endif %}
+
+		<div class="my-16 post-main">{{ content | safe }}</div>
+
+	</article>
+
+	<footer class="mt-16 mb-6 text-xl md:text-2xl lg:3xl ">
+
+		{# ===== Previous and Next =====  #}
+		<div class="border-t mt-4 pt-4 {{ colors.borderCustom.color or colors.borderDefault.color }} md:flex-row md:flex md:justify-between">
+			{% set nextPost = collections.publishedPosts | getPreviousCollectionItem(page) %}
+			{% set previousPost = collections.publishedPosts | getNextCollectionItem(page) %}
+			<div class="py-2 sm:py-0">
+				{% if previousPost %}
+					<a class=" hover:underline text-accent2" href="{{ previousPost.url | url }}">
+          ← {{ previousPost.data.title }}
+					</a>
+				{% endif %}
+			</div>
+			<div class="py-2 text-right sm:py-0">
+				{% if nextPost %}
+					<a class="hover:underline text-accent2" href="{{ nextPost.url | url}}">
+						{{ nextPost.data.title }} →
+          </a>
+				{% endif %}
+			</div>
+		</div>
+	</footer>
+</div>

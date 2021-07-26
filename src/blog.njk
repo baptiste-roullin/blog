@@ -1,0 +1,51 @@
+---
+title: Tous les articles
+date: 2020-08-05
+description: The Posts List display is controled in /src/_data/structure.js and ships with 4 options.
+layout: page
+eleventyNavigation:
+  key: main
+  title: Textes
+  order: 1    # order to display in the nav
+seo:
+  title: Tous les articles
+  description:
+pagination:
+  data: collections.publishedPosts
+  size: 40
+  alias: posts
+  reverse: true
+postListItemStyle:
+  complete: true
+  showPagination: true
+
+---
+
+<div class="blog-wrapper">
+<span class="mb-3 label sm-text"><a class="underline" href="https://observablehq.com/@xenomachina/truchet-tiles-variant-intertwined-quarter-circles"> Source du code</a> générant les images de vignette par défaut. </span>
+
+  <form class="search " id="search-form" aria-controls="post-list">
+    <div class="flex flex-col sm:w-1/2 field">
+      <label for="searchField" class="label">Rechercher</label>
+      <div class="relative">
+        <input type="search"  class="w-full p-2 border-gray-600 rounded-md " placeholder="" id="searchField"/>
+        <input type="image" name="submit" src="/assets/UI/search.svg" border="0" class="absolute h-10 p-2 right-2">
+      </div>
+    </div>
+    <p id="noResultsFound" class="py-4 text-base" style="display: none" role="alert">
+      Aucun résultat.
+    </p>
+  </form>
+  {% set postslist = posts %}
+
+  {% include 'components/postslist.njk' %}
+
+  <div class=" lg:container-wide">
+    <hr class="my-8">
+
+    <h3 class"text-gray-700">Tous les thèmes</h3>
+    {% set tags = collections.tagList %}
+    {% include "components/tagpills.njk" %}
+  </div>
+</div>
+<script  src="/assets/scripts/{{hashes_js['search.js']}}" defer></script>

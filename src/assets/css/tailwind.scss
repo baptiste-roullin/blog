@@ -1,0 +1,146 @@
+
+
+--root {
+	--navbar-height:1;
+}
+
+@layer base {
+
+	body {
+		background-color: #fdfcfb;
+	}
+	body .UI a {
+	font-weight: inherit;
+	font-size: inherit;
+	color: inherit;
+	text-decoration: inherit;
+
+
+}
+	body h1,
+	body h2,
+	body h3,
+	body h4,
+	body h5,
+	body h6 {
+		padding:0
+	}
+
+
+	h1 {
+		@apply font-bold text-gray-700;
+		@apply text-4xl;
+	}
+	h2 {
+		@apply font-bold text-gray-700;
+		@apply pt-12 text-3xl;
+
+	}
+	h3 {
+		@apply text-2xl;
+		@apply font-bold text-gray-700;
+
+	}
+	h4 {
+		@apply text-xl;
+		@apply font-bold text-gray-500;
+
+	}
+	h5 {
+		@apply text-lg;
+		@apply font-bold text-gray-500;
+
+	}
+
+	a,
+	li a,
+	dd a {
+/*		@apply font-medium text-indigo-700;
+*/		text-decoration-skip-ink: auto;
+	}
+
+}
+
+@layer utilities {
+  @variants responsive {
+	.container-wide {
+		margin-left: calc(30% - 30vw);
+		margin-right: calc(30% - 30vw);
+		position: relative
+	}
+
+	.container-full {
+		width: 100vw;
+		position: relative;
+		margin-left: -50vw;
+		left: 50%;
+	}
+  }
+}
+
+@layer components {
+	.label {
+		@apply text-base my-2 text-gray-700
+	}
+	.cta {
+   		@apply block px-8 py-4 m-auto font-medium no-underline bg-gray-200 rounded-full shadow-md max-w-max focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75 hover:text-gray-800 hover:bg-gray-300 ;
+	}
+	.cta-secondary {
+		@apply relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-600 transition duration-150 ease-in-out border border-gray-300 rounded-md hover:text-accent2 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:border-accent2 active:text-gray-600 active:bg-gray-100
+	}
+	.cta-heading {
+		@apply text-xl font-medium leading-6 lg:leading-7 lg:text-2xl text-accent2
+	}
+}
+
+.page {
+	h1, h2, h3, h3, h5 {
+		padding:0
+	}
+}
+
+#content {
+	min-height: 20em;
+}
+
+
+.wrapper > p:first-of-type {
+	@apply p-0 m-0;
+}
+
+
+pre code {
+	@apply bg-transparent border-0 rounded-none;
+}
+
+
+.post-list img , .search-list img {
+	max-width: 30%;
+	object-fit: cover;
+	margin-right:3%;
+	cursor: pointer;
+}
+
+
+
+.truchet-rotate canvas {
+	transition: transform .2s ease-out;
+	cursor: pointer;
+	margin: 0
+}
+
+@media screen and (max-width:768px){
+	.post-list li , .search-list li{
+	flex-direction: column;
+	}
+
+	.post-list img , .search-list img{
+
+		max-width: 100%;
+		object-fit: cover;
+		padding-right:0%;
+		padding-bottom:.7em;
+		height: 18vh;}
+}
+
+

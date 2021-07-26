@@ -1,0 +1,59 @@
+---
+title: Bon bah voilà, je m'appelle Baptiste et voici mon site
+layout: page
+date: 2020-08-05
+description: # used for page excerpts and META (will be overwritten if SEO used below)
+permalink: index.html
+postListItemStyle:
+  complete: false
+  showPagination: false
+
+---
+
+<div class="{{ structure.g_pageWidth }} ">
+
+
+  {% if seo.description %}
+    <div class="p-2 {{ colors.borderCustom.borders or colors.borderDefault.borders }} {{ colors.borderCustom.color or colors.borderDefault.color }}">
+      {{ seo.description }}
+    {% endif %}
+
+    <section class="mb-16">
+      <h2>Bafouilles</h2>
+      {% set postslist = collections.publishedPosts | reverse | slice(0, 3) %}
+
+      {% include 'components/postslist.njk' %}
+
+      <a href="/blog" class="text-xl font-medium leading-7 text-accent2 lg:text-2xl hover:underline ">Voir tout <span aria-hidden="true">⤳</span></a>
+    </section>
+    <hr class="my-8">
+
+    <section class="mb-16">
+      <h2>Bidouilles</h2>
+      <ul class="project-list " >
+        {% for project in projects | reverse | slice(0, 5) %}
+          <li class="my-8 list-none project">
+            <a class="cta-heading name " href="{{project.link}}">{{project.name}}</a>
+            {#<img class="picture" src="{{project.img}}"></img>#}
+            <p class="label description">{{project.description}}</p>
+          </li>
+        {% endfor %}
+      </ul>
+      <a href="/projets" class="text-xl font-medium leading-7 text-accent2 lg:text-2xl hover:underline">Voir tout <span aria-hidden="true">⤳</span></a>
+    </section>
+    <hr class="my-8">
+
+    <section class="">
+      <h2>Ailleurs</h2>
+      <ul class="ailleurs-list " >
+        {% for item in ailleurs %}
+          <li class="my-8 list-none ailleurs">
+            <a class="cta-heading" href="{{item.link}}">{{item.name}}</a>
+            {#<img class="picture" src="{{item.img}}"></img>#}
+            <div class="hidden label description">{{item.description}}</div>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+  </div>
