@@ -145,13 +145,13 @@ cf. postcss.config.js pour le CSS
 			const response = await api().library('user', meta.zoteroProfileID).tags(id).items().get();
 		}
 		else {
-			const response = await api().library('user', meta.zoteroProfileID).collection(id).items().get();
+			//	const response = await api().library('user', meta.zoteroProfileID).collection(id).items().get();
 
 		}
-		const items = await response.getData();
-		njk.configure('src/_templates/components/', { autoescape: true, trimBlocks: true, lstripBlocks: true });
+		//	const items = await response.getData();
+		//njk.configure('src/_templates/components/', { autoescape: true, trimBlocks: true, lstripBlocks: true });
 
-		return njk.render('zotero.njk', { items: items });
+		//return njk.render('zotero.njk', { items: items });
 	})
 
 	eleventyConfig.addNunjucksAsyncShortcode('observable', async function (id) {
