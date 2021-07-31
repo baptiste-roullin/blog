@@ -9,9 +9,6 @@ const imagesResponsiver = require("eleventy-plugin-images-responsiver");
 require('dotenv').config()
 const embedEverything = require("eleventy-plugin-embed-everything");
 
-const meta = require('./src/_data/meta.js');
-const njk = require('nunjucks')
-const api = require('zotero-api-client');
 
 
 
@@ -127,11 +124,9 @@ cf. postcss.config.js pour le CSS
 	 * Paired Shortcodes
 	 * @link https://www.11ty.dev/docs/languages/nunjucks/#paired-shortcode
 	 */
-	const pairedshortcodes = require('./src/utils/paired-shortcodes.js')
+	const pairedshortcodes = require('./src/utils/pairedShortcodes.js')
 	Object.keys(pairedshortcodes).forEach((shortcodeName) => {
-		eleventyConfig.addPairedShortcode(
-			shortcodeName,
-			pairedshortcodes[shortcodeName]
+		eleventyConfig.addPairedShortcode(shortcodeName, pairedshortcodes[shortcodeName]
 		)
 	})
 
@@ -140,32 +135,14 @@ cf. postcss.config.js pour le CSS
 	 *
 	 * @link https://www.11ty.dev/docs/languages/nunjucks/#asynchronous-shortcodes
 	 */
-	eleventyConfig.addNunjucksAsyncShortcode('zotero', async function (type, id) {
-		if (type === 'tag') {
-			const response = await api().library('user', meta.zoteroProfileID).tags(id).items().get();
-		}
-		else {
-			//	const response = await api().library('user', meta.zoteroProfileID).collection(id).items().get();
 
-		}
-		//	const items = await response.getData();
-		//njk.configure('src/_templates/components/', { autoescape: true, trimBlocks: true, lstripBlocks: true });
+	const asyncShortcodes = require('./src/utils/AsyncShortcodes.js')
 
-		//return njk.render('zotero.njk', { items: items });
+	Object.keys(asyncShortcodes).forEach((shortcodeName) => {
+		eleventyConfig.addNunjucksAsyncShortcode(shortcodeName, asyncShortcodes[shortcodeName])
 	})
 
-	eleventyConfig.addNunjucksAsyncShortcode('observable', async function (id) {
-		return `<div id="observablehq-tileDebase-${id}"></div>
 
-				<script type="module">
-				import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-				import define from "https://api.observablehq.com/@saint-loup/test.js?v=3";
-				new Runtime().module(define, name => {
-				if (name === "tileDebase") return new Inspector(document.querySelector('#observablehq-tileDebase-${id}'));
-				});
-				</script>
-				`
-	})
 	/**
 	 * Add layout aliases
 	 * @link https://www.11ty.dev/docs/layouts/#layout-aliasing

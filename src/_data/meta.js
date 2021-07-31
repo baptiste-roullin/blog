@@ -11,7 +11,8 @@ module.exports = {
 	locale: 'fr_FR',
 	author: 'Baptiste Roullin',
 	authorEmail: '',
-	zoteroProfileID: "5883126",
+	zoteroProfileID: process.env.zoteroProfileID || '',
+	zoteroAPIKey: process.env.zoteroAPIKey || ''
 
 
 
