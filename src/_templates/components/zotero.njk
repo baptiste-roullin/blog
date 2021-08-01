@@ -2,6 +2,10 @@
 	{% for item in items %}
 		<li>
 			<a href="{{item.url}}">{{item.title}}</a>
+			<div>
+				<span>{{item.date}}   –   </span>
+				<span>{{item.abstractNote}}</span>
+			</div>
 		</li>
 	{% endfor %}
 </ul>
