@@ -30,8 +30,15 @@ module.exports = {
 
 			if (collection) {
 				const collectionObject = colls.getData().filter(coll => coll.name === collection)[0]
+
+				if (!collectionObject) {
+					throw Error('catégorie inconnue')
+				}
+
 				var requestedCollection = collectionObject.key
-				var articles = await lib.collections(requestedCollection).items().get({ limit: limit, itemType: '-attachment' })
+
+				var articles = await lib.collections(requestedCollection).items().top().get({ limit: limit, itemType: '-note' })
+
 				const totalCount = articles.response.headers.get('total-results')
 				if (totalCount) {
 					let offsetList = []
@@ -42,8 +49,8 @@ module.exports = {
 
 					}
 					const mapper = async offset => {
-						const articles = await lib.collections(requestedCollection).items().get(
-							{ limit: limit, start: offset, itemType: '-attachment' })
+						const articles = await lib.collections(requestedCollection).items().top().get(
+							{ limit: limit, start: offset, itemType: '-note' })
 						return articles.getData()
 					}
 
@@ -60,7 +67,12 @@ module.exports = {
 
 			}
 			console.log(items.length)
+			items.forEach(item => {
+				if (!(item.title)) {
+					console.log(item)
+				}
 
+			});
 			if (requestedTag) {
 				items = items.filter(item =>
 					item.tags.some(tag => tag.tag === requestedTag)
