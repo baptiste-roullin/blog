@@ -10,15 +10,18 @@ hero:
   alt: ""
 
 ---
+<!--# SHS
+
+
+{% zotero "SHS",  "" %}-->
 
 # Consentement
 
-
 {% zotero "Consentement",  "" %}
 
+<!--
 
-# SHS
+# Droit
 
-{% zotero "SHS",  "" %}
-
+{% zotero "Droit",  "" %}-->
 

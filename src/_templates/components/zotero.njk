@@ -1,11 +1,23 @@
+{# PAS DE LIGNE VIDE #}
 <ul class="zotero-list">
 	{% for item in items %}
-		<li>
+		<li x-data="{ open: false }">
 			<a href="{{item.url}}">{{item.title}}</a>
-			<div>
-				<span>{{item.date}}   –   </span>
-				<span>{{item.abstractNote}}</span>
+			<div  class="text-base">
+				{% if item.parsedDate and item.itemType !== "webpage" %}
+					<span>{{item.parsedDate | dateToFormat("yyyy") }}</span>
+				{% endif %}
+				{% if item.parsedDate and item.abstractNote and item.itemType !== "webpage" %}
+					<span class="mx-2">—</span>
+				{% endif %}
+				{% if item.abstractNote %}
+					<button class="underline" @click="open = !open">Résumé</button>
+				{% endif %}
 			</div>
+			{% if item.abstractNote %}
+				<div class="text-base" x-show="open">{{item.abstractNote}}
+				</div>
+			{% endif %}
 		</li>
 	{% endfor %}
 </ul>

@@ -4,13 +4,26 @@ const meta = require('../_data/meta.js');
 //const parse = require('parse-link-header');
 //promise.all mais avec un paramètre pour limiter le nombre de requêtes parallèles
 const pMap = require('p-map');
+const dateToFormat = require('./dateToFormat.js');
 
 
 // TODO
-// trim marche pas
-// formater date
+
 // cas avec champs vides
 // auteurs en array
+
+
+
+
+function normalizeDate(articles) {
+	return articles.raw.map(item => {
+		item.data.parsedDate = item.meta.parsedDate
+		return item.data
+	});
+}
+
+
+
 
 module.exports = {
 	zotero: async function (collection, requestedTag,) {
@@ -24,7 +37,8 @@ module.exports = {
 			return
 		}
 		try {
-			const limit = 30;
+
+			const options = { locale: 'fr-FR', itemType: '-note', sort: 'date', limit: 30 }
 			const lib = await api(meta.zoteroAPIKey).library('user', meta.zoteroProfileID)
 			const colls = await lib.collections().get()
 
@@ -37,33 +51,33 @@ module.exports = {
 
 				var requestedCollection = collectionObject.key
 
-				var articles = await lib.collections(requestedCollection).items().top().get({ limit: limit, itemType: '-note' })
+				var articles = await lib.collections(requestedCollection).items().top().get(options)
 
 				const totalCount = articles.response.headers.get('total-results')
 				if (totalCount) {
 					let offsetList = []
 					let index = 0
 					while (index < totalCount) {
-						index = index + limit
+						index = index + options.limit
 						offsetList.push(index)
-
 					}
+
 					const mapper = async offset => {
 						const articles = await lib.collections(requestedCollection).items().top().get(
-							{ limit: limit, start: offset, itemType: '-note' })
-						return articles.getData()
+							{ start: offset, ...options })
+						return normalizeDate(articles)
 					}
 
 					//promise.all mais avec un paramètre pour limiter le nombre de requêtes parallèles
 					var remainingArticles = await pMap(offsetList, mapper, { concurrency: 20 })
-					var items = articles.getData().concat(...remainingArticles)
+					var items = normalizeDate(articles).concat(...remainingArticles)
 				}
 				else {
-					var items = articles.getData()
+					var items = normalizeDate(articles)
 				}
 			}
 			else {
-				var articles = await lib.items().get({ limit: 27 })
+				var articles = await lib.items().get(options)
 
 			}
 			console.log(items.length)
@@ -71,18 +85,18 @@ module.exports = {
 				if (!(item.title)) {
 					console.log(item)
 				}
-
 			});
 			if (requestedTag) {
 				items = items.filter(item =>
 					item.tags.some(tag => tag.tag === requestedTag)
 				)
 			}
-
 		} catch (error) {
 			console.log(error);
 		}
 		const env = njk.configure('src/_templates/components/', { autoescape: true, trimBlocks: true, lstripBlocks: true });
+		env.addFilter('dateToFormat', require('./dateToFormat.js'))
+
 		return await env.render('zotero.njk', { items: items });
 	}
 }
