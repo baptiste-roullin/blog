@@ -4,7 +4,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "dev:webpack": "webpack --watch  --mode development",
-    "dev:eleventy": "eleventy --incremental --serve",
+    "dev:eleventy": "eleventy --serve",
     "dev:postcss": "postcss src/assets/css/main.css -o dist/assets/css/main.css --watch",
     "dev": "npm-run-all clean --parallel dev:* --print-label",
     "build:webpack": "webpack  --mode production",
