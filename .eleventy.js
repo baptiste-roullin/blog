@@ -137,7 +137,6 @@ cf. postcss.config.js pour le CSS
 	 */
 
 	const asyncShortcodes = require('./src/utils/AsyncShortcodes.js')
-
 	Object.keys(asyncShortcodes).forEach((shortcodeName) => {
 		eleventyConfig.addNunjucksAsyncShortcode(shortcodeName, asyncShortcodes[shortcodeName])
 	})
