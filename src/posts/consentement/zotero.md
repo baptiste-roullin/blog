@@ -9,6 +9,8 @@ hero:
   alt: ""
 ---
 
+L'image de couverture est une [vraie bande dessinée](https://drawnandquarterly.com/terms-and-conditions)
+
 ## Généralités
 
 {% zotero "Consentement",  "généralités" %}
