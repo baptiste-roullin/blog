@@ -136,7 +136,7 @@ cf. postcss.config.js pour le CSS
 	 * @link https://www.11ty.dev/docs/languages/nunjucks/#asynchronous-shortcodes
 	 */
 
-	const asyncShortcodes = require('./src/utils/AsyncShortcodes.js')
+	const asyncShortcodes = require('./src/utils/asyncShortcodes.js')
 	Object.keys(asyncShortcodes).forEach((shortcodeName) => {
 		eleventyConfig.addNunjucksAsyncShortcode(shortcodeName, asyncShortcodes[shortcodeName])
 	})
