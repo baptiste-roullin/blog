@@ -1,9 +1,9 @@
 {# PAS DE LIGNE VIDE #}
 <ul class="zotero-list UI">
 	{% for item in items %}
-		<li x-data="{ open: false }" class="mb-4 text-lg">
-			<a href="{{item.url}}" class="font-medium no-underline  hover:underline">{{item.title}}</a>
-			<div class="text-base">
+		<li x-data="{ open: false }" class="mb-5 text-lg sm:mb-4">
+			<a href="{{item.url}}" class="font-medium lg:no-underline hover:underline">{{item.title}}</a>
+			<div class="text-base sm:mt-0">
 				{% if item.parsedDate and item.itemType !== "webpage" %}
 					<span>{{item.parsedDate | dateToFormat("yyyy") }}</span>
 				{% endif %}
@@ -11,11 +11,11 @@
 					<span class="mx-2">—</span>
 				{% endif %}
 				{% if item.abstractNote %}
-					<button class="underline" @click="open = !open">Résumé</button>
+					<button class="pt-2 underline " @click="open = !open">Résumé</button>
 				{% endif %}
 			</div>
 			{% if item.abstractNote %}
-				<div class="text-base" x-show="open">{{item.abstractNote}}
+				<div class="text-base" x-transition.duration.100ms x-show="open">{{item.abstractNote}}
 				</div>
 			{% endif %}
 		</li>

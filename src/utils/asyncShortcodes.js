@@ -5,9 +5,17 @@ const meta = require('../_data/meta.js');
 //promise.all mais avec un paramètre pour limiter le nombre de requêtes parallèles
 const pMap = require('p-map');
 
-function normalizeDate(articles) {
+function enrichArticle(articles) {
 	return articles.raw.map(item => {
 		item.data.parsedDate = item.meta.parsedDate
+		//if (item.meta.numChildren) {
+		//	downloadchildren
+		//	foreach
+		//		if type = attachment
+		//			if childUrl include pdf
+		//				item.data.attachmentURL = childUrl
+		//	)
+		//}
 		return item.data
 	});
 }
@@ -52,15 +60,15 @@ module.exports = {
 					const mapper = async offset => {
 						const articles = await lib.collections(requestedCollection).items().top().get(
 							{ start: offset, ...options })
-						return normalizeDate(articles)
+						return enrichArticle(articles)
 					}
 
 					//promise.all mais avec un paramètre pour limiter le nombre de requêtes parallèles
 					var remainingArticles = await pMap(offsetList, mapper, { concurrency: 20 })
-					var items = normalizeDate(articles).concat(...remainingArticles)
+					var items = enrichArticle(articles).concat(...remainingArticles)
 				}
 				else {
-					var items = normalizeDate(articles)
+					var items = enrichArticle(articles)
 				}
 			}
 			else {
