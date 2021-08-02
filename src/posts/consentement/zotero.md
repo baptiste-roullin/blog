@@ -5,10 +5,9 @@ draft: true
 richPicture: true
 hero:
   type: split  # options: carousel, graphic, video, split (text & image)
-  image: maxwell.jpg
+  image: TOS.jpg
   alt: ""
 ---
-
 
 ## Généralités
 
