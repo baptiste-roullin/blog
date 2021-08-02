@@ -1,15 +1,23 @@
 ---
-title: "Bibliographie sur le consentement et la vie privée"
-date: 2021-05-16
-draft: true
+title: Bibliographie sur le consentement et la vie privée
+date: 2021-08-02T00:00:00.000Z
+draft: false
 richPicture: true
+tags:
+  - RGPD
+  - droit
+  - vie privée
+  - utilisateurs
 hero:
-  type: split  # options: carousel, graphic, video, split (text & image)
+  type: split
   image: TOS.jpg
-  alt: ""
+  alt: ''
 ---
 
-L'image de couverture est une [vraie bande dessinée](https://drawnandquarterly.com/terms-and-conditions)
+
+Une compilation d'articles, principalement académiques, sur le sujet du consentement dans le cadre du RGPD et du respect de la vie privée.
+
+L'image de couverture est une [vraie bande dessinée](https://drawnandquarterly.com/terms-and-conditions).
 
 ## Généralités
 
