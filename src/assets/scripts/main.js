@@ -1,7 +1,8 @@
-const alpine = require('alpinejs')
-
+/*const Alpine  = require('alpinejs')
+window.Alpine = Alpine
+Alpine.start()
+*/
 require('./nav.js')();
-
 require('./spin.js')();
 
 /*const axios = require('axios').default;
