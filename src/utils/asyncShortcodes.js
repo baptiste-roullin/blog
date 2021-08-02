@@ -4,16 +4,6 @@ const meta = require('../_data/meta.js');
 //const parse = require('parse-link-header');
 //promise.all mais avec un paramètre pour limiter le nombre de requêtes parallèles
 const pMap = require('p-map');
-const dateToFormat = require('./dateToFormat.js');
-
-
-// TODO
-
-// cas avec champs vides
-// auteurs en array
-
-
-
 
 function normalizeDate(articles) {
 	return articles.raw.map(item => {
@@ -21,9 +11,6 @@ function normalizeDate(articles) {
 		return item.data
 	});
 }
-
-
-
 
 module.exports = {
 	zotero: async function (collection, requestedTag,) {

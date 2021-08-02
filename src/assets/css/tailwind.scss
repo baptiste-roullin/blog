@@ -9,11 +9,12 @@
 	body {
 		background-color: #fdfcfb;
 	}
-	body .UI a {
+	body .UI a, body .UI li {
 	font-weight: inherit;
 	font-size: inherit;
 	color: inherit;
 	text-decoration: inherit;
+	margin: inherit;
 
 
 }

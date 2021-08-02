@@ -1,8 +1,8 @@
 {# PAS DE LIGNE VIDE #}
-<ul class="zotero-list">
+<ul class="zotero-list UI">
 	{% for item in items %}
-		<li x-data="{ open: false }">
-			<a href="{{item.url}}">{{item.title}}</a>
+		<li x-data="{ open: false }" class="mb-4">
+			<a href="{{item.url}}" class="no-underline hover:underline">{{item.title}}</a>
 			<div  class="text-base">
 				{% if item.parsedDate and item.itemType !== "webpage" %}
 					<span>{{item.parsedDate | dateToFormat("yyyy") }}</span>
