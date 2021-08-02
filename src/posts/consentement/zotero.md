@@ -7,7 +7,6 @@ hero:
   type: split  # options: carousel, graphic, video, split (text & image)
   image: maxwell.jpg
   alt: ""
-
 ---
 
 
