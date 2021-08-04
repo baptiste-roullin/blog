@@ -15,9 +15,16 @@
 				{% if item.abstractNote %}
 					<button class="pt-2 text-gray-600 underline sm:pt-0 " @click="open = !open">Résumé</button>
 				{% endif %}
+				{% if item.attachmentURL %}
+					<span class="pt-2 text-gray-600 underline sm:pt-0 ">
+						<a  href="{{item.attachmentURL}}">PDF</a>
+					</span>
+				{% endif %}
 			</div>
 			{% if item.abstractNote %}
-				<div class="text-base" x-transition.scale.origin.top x-transition.duration.100ms x-show="open">{{item.abstractNote}}
+				<span class="mx-2">—</span>
+
+				<div class="text-base" x-transition.duration.100ms x-show="open">{{item.abstractNote}}
 				</div>
 			{% endif %}
 		</li>

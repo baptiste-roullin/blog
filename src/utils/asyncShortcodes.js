@@ -1,24 +1,41 @@
 const njk = require('nunjucks')
 const api = require('zotero-api-client');
 const meta = require('../_data/meta.js');
-//const parse = require('parse-link-header');
 //promise.all mais avec un paramètre pour limiter le nombre de requêtes parallèles
 const pMap = require('p-map');
 
-function enrichArticle(articles) {
-	return articles.raw.map(item => {
-		item.data.parsedDate = item.meta.parsedDate
-		//if (item.meta.numChildren) {
-		//	downloadchildren
-		//	foreach
-		//		if type = attachment
-		//			if childUrl include pdf
-		//				item.data.attachmentURL = childUrl
-		//	)
-		//}
-		return item.data
-	});
+
+
+async function enrichArticle(articles, lib) {
+	try {
+		const mapper = async item => {
+			item.data.parsedDate = item.meta.parsedDate
+			if (item.meta.numChildren) {
+				const attachments = await lib.items(item.key).children().get({ itemType: 'attachment' })
+				const data = attachments.getData()
+
+				data.forEach(attachment => {
+					if (attachment.itemType === 'attachment' && new RegExp(/(.pdf$|.pdf?)/).test(attachment.url)) {
+						item.data.attachmentURL = attachment.url
+					}
+				})
+			}
+			return item.data
+		}
+		const enriched = await pMap(articles.raw, mapper)
+		/*		if (enriched.length > 0) {
+					return enriched
+				}
+				else {
+					return articles.raw.data
+				}*/
+		return enriched
+	} catch (error) {
+	}
 }
+
+
+
 
 module.exports = {
 	zotero: async function (collection, requestedTag,) {
@@ -60,38 +77,43 @@ module.exports = {
 					const mapper = async offset => {
 						const articles = await lib.collections(requestedCollection).items().top().get(
 							{ start: offset, ...options })
-						return enrichArticle(articles)
+						return await enrichArticle(articles, lib)
 					}
 
 					//promise.all mais avec un paramètre pour limiter le nombre de requêtes parallèles
 					var remainingArticles = await pMap(offsetList, mapper, { concurrency: 20 })
-					var items = enrichArticle(articles).concat(...remainingArticles)
+					var items = remainingArticles.concat(...remainingArticles)
 				}
 				else {
-					var items = enrichArticle(articles)
+					var items = await enrichArticle(articles, lib)
 				}
 			}
 			else {
-				var articles = await lib.items().get(options)
-
+				var items = await enrichArticle(articles, lib)
 			}
-			console.log(items.length)
-			items.forEach(item => {
-				if (!(item.title)) {
-					console.log(item)
+			if (!items) {
+				console.log(articles)
+			}
+			else {
+				console.log(items.length)
+				//items.forEach(item => {
+				//	if (!(item?.title)) {
+				//		console.log(item?.title)
+				//	}
+				//});
+				if (requestedTag) {
+					items = items.filter(item =>
+						item?.tags?.some(tag => tag.tag === requestedTag)
+					)
 				}
-			});
-			if (requestedTag) {
-				items = items.filter(item =>
-					item.tags.some(tag => tag.tag === requestedTag)
-				)
 			}
 		} catch (error) {
 			console.log(error);
 		}
+
+
 		const env = njk.configure('src/_templates/components/', { autoescape: true, trimBlocks: true, lstripBlocks: true });
 		env.addFilter('dateToFormat', require('./dateToFormat.js'))
-
 		return await env.render('zotero.njk', { items: items });
 	}
 }
