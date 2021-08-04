@@ -1,15 +1,16 @@
 const njk = require('nunjucks')
 const api = require('zotero-api-client');
 const meta = require('../_data/meta.js');
+
 //promise.all mais avec un paramètre pour limiter le nombre de requêtes parallèles
 const pMap = require('p-map');
 
 
-
-async function enrichArticle(articles, lib) {
+async function addDataToArticles(articles, lib) {
 	try {
 		const mapper = async item => {
 			item.data.parsedDate = item.meta.parsedDate
+
 			if (item.meta.numChildren) {
 				const attachments = await lib.items(item.key).children().get({ itemType: 'attachment' })
 				const data = attachments.getData()
@@ -48,25 +49,38 @@ module.exports = {
 			console.log(new Error("L'identifiant de profil Zotero est manquant."))
 			return
 		}
-		try {
 
-			const options = { locale: 'fr-FR', itemType: '-note', sort: 'date', limit: 30 }
+		try {
+			const options = {
+				locale: 'fr-FR',
+				itemType: '-note',
+				sort: 'date',
+				limit: 100
+			}
+
+			// Les informations d'accès sont dans un fichier .env
 			const lib = await api(meta.zoteroAPIKey).library('user', meta.zoteroProfileID)
 			const colls = await lib.collections().get()
 
 			if (collection) {
-				const collectionObject = colls.getData().filter(coll => coll.name === collection)[0]
 
+				//On requête la liste complète des collections pour en extraire l'ID de la collection demandée.
+				const collectionObject = colls.getData().filter(coll => coll.name === collection)[0]
 				if (!collectionObject) {
 					throw Error('catégorie inconnue')
 				}
-
 				var requestedCollection = collectionObject.key
+
 
 				var articles = await lib.collections(requestedCollection).items().top().get(options)
 
+				// Si il y a plus de résultats que le nombre max requété, l'API renvoie :
+				//  - un header avec le nombre total
+				//  - des infos de pagination dans le header Links, qu'on n'utilise pas ici.
 				const totalCount = articles.response.headers.get('total-results')
 				if (totalCount) {
+
+					// on construit une liste de tous les offsets pour envoyer un batch de requêtes
 					let offsetList = []
 					let index = 0
 					while (index < totalCount) {
@@ -77,7 +91,7 @@ module.exports = {
 					const mapper = async offset => {
 						const articles = await lib.collections(requestedCollection).items().top().get(
 							{ start: offset, ...options })
-						return await enrichArticle(articles, lib)
+						return await addDataToArticles(articles, lib)
 					}
 
 					//promise.all mais avec un paramètre pour limiter le nombre de requêtes parallèles
@@ -85,11 +99,11 @@ module.exports = {
 					var items = remainingArticles.concat(...remainingArticles)
 				}
 				else {
-					var items = await enrichArticle(articles, lib)
+					var items = await addDataToArticles(articles, lib)
 				}
 			}
 			else {
-				var items = await enrichArticle(articles, lib)
+				var items = await addDataToArticles(articles, lib)
 			}
 			if (!items) {
 				console.log(articles)
