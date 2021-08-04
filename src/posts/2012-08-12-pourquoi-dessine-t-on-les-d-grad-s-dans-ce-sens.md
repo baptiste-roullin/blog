@@ -5,7 +5,7 @@ tags:
   - "graphisme"
   - "recherche"
   - "sciences cognitives"
-  hero:
+hero:
   type: split  # options: carousel, graphic, video, split (text & image)
   image: using-button-gradients.png
   alt: ""
