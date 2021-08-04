@@ -1,4 +1,5 @@
-{# PAS DE LIGNE VIDE #}
+{# PAS DE LIGNE VIDE OU D'ESPACES CONSÉCUTIFS #}
+{# Cela évite que le HTML généré soit détecté comme du markdown  #}
 <ul class="mb-5 zotero-list UI sm:mb-3">
 	{% for item in items %}
 		<li x-data="{ open: false }">
