@@ -40,7 +40,7 @@ module.exports = async function zotero(collection, requestedTag,) {
 
 	// Appel d'un fichier de conf global qui appele ensuite les infos de connexion à l'API d'un fichier .env.
 	const meta = require('../_data/meta.js');
-	const options = { locale: 'fr-FR', itemType: '-note', sort: 'date', limit: 30 }
+	const options = { locale: 'fr-FR', itemType: '-note', sort: 'date', limit: 30, tag: requestedTag || '' }
 	const lib = api(meta.zoteroAPIKey).library('user', meta.zoteroProfileID)
 
 
@@ -57,8 +57,6 @@ module.exports = async function zotero(collection, requestedTag,) {
 
 		if (!collection && !requestedTag) {
 			console.log(new Error('merci de spécifier une collection ou un tag'))
-
-
 			return
 		}
 
@@ -70,11 +68,19 @@ module.exports = async function zotero(collection, requestedTag,) {
 				throw Error('catégorie inconnue')
 			}
 			var requestedCollection = collectionObject.key
+
+			// top() : pour avoir seulement les article et pas les documents enfants.
+			// get() : pour indiquer qu'on veut une requête GET et concrètement récupérer les données
+			var firstPageItems = await lib.collections(requestedCollection).items().top().get(options)
+		}
+		else {
+			var firstPageItems = await lib.items().top().get(options)
 		}
 
-		// top() : pour avoir seulement les article et pas les documents enfants.
-		// get() : pour indiquer qu'on veut une requête GET et concrètement récupérer les données
-		firstPageItems = await lib.collections(requestedCollection || undefined).items().top().get(options)
+		if (!firstPageItems.raw.length === 0) {
+			console.log("Zotero : collection vide")
+		}
+
 		const totalCount = firstPageItems.response.headers.get('total-results')
 
 		// Pagination
@@ -97,7 +103,6 @@ module.exports = async function zotero(collection, requestedTag,) {
 					return await lib.collections(requestedCollection).items().top().get(
 						{ start: offset, ...options })
 				}
-
 				var otherPagesItems = await pMap(offsetList, mapper, { concurrency: 20 })
 
 				// l'API renvoie un tableau d'objets. On extrait de chaque élement du tableau la clé "raw"
@@ -110,15 +115,7 @@ module.exports = async function zotero(collection, requestedTag,) {
 				var items = firstPageItems.raw.concat(concatenedOtherItems)
 			}
 		}
-		if (!items) {
-			console.log(firstPageItems)
-		}
 
-		if (requestedTag) {
-			items = items.filter(item =>
-				item?.data.tags?.some(tag => tag.tag === requestedTag)
-			)
-		}
 
 		// Cette fonction récupère des données supplémentaires
 		// - une date parsée par Zotero, qu'on espère plus propre que le champ d'origine
