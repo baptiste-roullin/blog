@@ -1,6 +1,6 @@
 ---
-title: "Intégrer dans Eleventy des listes d'articles tirées de Zotero"
-date: 2021-08-26
+title: "Intégrer dans un blog Eleventy des listes d'articles tirées de Zotero"
+date: 2021-08-06
 tags:
   - "tout ce qui bouge"
   - "eleventy"
