@@ -1,7 +1,8 @@
 const Image = require("@11ty/eleventy-img");
 const path = require("path");
-const { promisify } = require("util");
-const imageSize = require('image-size');
+const { promisify } = require("util")
+
+const imageSize = promisify(require('image-size'));
 module.exports = {
 
 	default: {
@@ -29,47 +30,46 @@ module.exports = {
 			const intermediaryPath = "src/assets/imagesToProcess/" + path.basename(originalPath)
 
 			try {
-				imageDimensions = imageSize(intermediaryPath);
+				const imageDimensions = await imageSize(intermediaryPath);
 				image.setAttribute('width', imageDimensions.width);
 				image.setAttribute('height', imageDimensions.height);
+				const options = {
+					sharpWebpOptions: {
+						quality: 90,
+					},
+					widths: [360, 750, imageDimensions.width, 1140, 1530, 1920],
+					dryRun: false,
+					formats: ['webp', 'jpeg'],
+					urlPath: '/assets/imagesToProcess/',
+					outputDir: './dist/assets/generatedImages/',
+					filenameFormat: function (id, src, width, format, options) {
+						const extension = path.extname(src);
+						const name = path.basename(src, extension);
+						const modifiedFormat = (format === 'jpeg' ? 'jpg' : format);
+						return `${name}-${width}.${modifiedFormat}`;
+					}
+				}
+
+
+
+
+				/*		const exists = promisify(require("fs").exists);
+						if (!(await exists(intermediaryPath))) {
+							console.log(intermediaryPath + 'debug : existe pas')
+						}*/
+				await Image(decodeURI(intermediaryPath), options);
+
+
+
+				image.dataset.responsiver = image.className;
+				//image.dataset.responsiveruRL = metadata.jpg.url;
+				image.dataset.size = image.className;
+
 			}
 			catch (e) {
 				console.log("debug:    " + e)
 			}
 
-
-			const options = {
-				sharpWebpOptions: {
-					quality: 90,
-				},
-				widths: [360, 750, imageDimensions.width, 1140, 1530, 1920],
-				dryRun: false,
-				formats: ['webp', 'jpeg'],
-				urlPath: '/assets/imagesToProcess/',
-				outputDir: './dist/assets/generatedImages/',
-				filenameFormat: function (id, src, width, format, options) {
-					const extension = path.extname(src);
-					const name = path.basename(src, extension);
-					const modifiedFormat = (format === 'jpeg' ? 'jpg' : format);
-					return `${name}-${width}.${modifiedFormat}`;
-				}
-			}
-
-			try {
-				/*		const exists = promisify(require("fs").exists);
-						if (!(await exists(intermediaryPath))) {
-							console.log(intermediaryPath + 'debug : existe pas')
-						}*/
-				const stats = await Image(decodeURI(intermediaryPath), options);
-
-			}
-			catch (e) {
-				console.log("debug:     " + e)
-			}
-
-			image.dataset.responsiver = image.className;
-			//image.dataset.responsiveruRL = metadata.jpg.url;
-			image.dataset.size = image.className;
 
 		},
 		runAfter: (image, document) => {

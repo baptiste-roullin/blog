@@ -91,7 +91,7 @@ module.exports = async function zotero(collection, ...requestedTags) {
 				// on construit une liste de tous les offsets pour envoyer un batch de requêtes
 				// Par exemple s'il y a 1000 items, on va demander les items à partir du centième, puis du deux-centième, puis du trois-centième...
 				// Les items de 0 à 100 ont déjà été obtenus plus haut.
-				let offsetList = []
+				let offsetList: Number[] = []
 				let index = 0
 				while (index < totalCount) {
 					index = index + options.limit
@@ -123,7 +123,7 @@ module.exports = async function zotero(collection, ...requestedTags) {
 		// Cette fonction récupère des données supplémentaires
 		// - une date parsée par Zotero, qu'on espère plus propre que le champ d'origine
 		// - un lien direct vers un PDF, tiré des pièces jointes.
-		const completedItems = await addDataToItems(items)
+		const completedItems: Object[] = await addDataToItems(items)
 
 
 		// Ce templating étant à part d'Eleventy, on doit recréer un environnement Nunjucks

@@ -8,6 +8,7 @@ declare global {
 const elasticlunr = require("elasticlunr");
 require('./lunr.stemmer.support.js')(elasticlunr);
 require('./lunr.fr.js')(elasticlunr);
+//@ts-ignore
 import postlistitem from '../../../src/_templates/components/postlistitem.njk'
 
 
@@ -16,7 +17,7 @@ import postlistitem from '../../../src/_templates/components/postlistitem.njk'
 
 async function search(e) {
 	e.preventDefault();
-	const value = this[0].value
+	const value = e.target[0].value
 
 	const results = window
 		.searchIndex
@@ -30,10 +31,10 @@ async function search(e) {
 				content: { boost: 2 },
 			}
 		});
-	const noResultsEl = document.getElementById("noResultsFound");
-	const container = document.querySelector('.post-wrapper');
-	const postList = container.children[0] as HTMLElement
-	const searchList = container.children[1] as HTMLElement
+	const noResultsEl = document.getElementById("noResultsFound")!;
+	const container = document.querySelector('.post-wrapper')!;
+	const postList = container!.children[0] as HTMLElement
+	const searchList = container!.children[1] as HTMLElement
 
 	if (!value) {
 		console.log('champ vide')
@@ -45,7 +46,7 @@ async function search(e) {
 		postList.style.display = 'none';
 		searchList.style.display = 'block';
 		while (searchList.hasChildNodes()) {
-			searchList.removeChild(searchList.lastChild)
+			searchList.removeChild(searchList.lastChild!)
 		}
 		if (results.length > 0) {
 
@@ -89,10 +90,10 @@ async function search(e) {
 
 };
 
-document.getElementById("search-form")
+document.getElementById("search-form")!
 	.addEventListener("submit", search);
 
-document.getElementById("search-form")
+document.getElementById("search-form")!
 	.addEventListener("input", async function () {
 		if (!window.searchIndex) {
 			const rawIndex = await fetch("/index.min.json")

@@ -26,7 +26,7 @@ module.exports = {
     truchet: path.resolve(__dirname, 'src/truchet.js'),
     'truchet-dom': path.resolve(__dirname, 'src/assets/scripts/truchet-dom.js'),
     main: path.resolve(__dirname, 'src/assets/scripts/main.js'),
-    search: path.resolve(__dirname, 'src/assets/scripts/search.js'),
+    search: path.resolve(__dirname, 'src/assets/scripts/search.ts'),
     richPicture: path.resolve(__dirname, 'src/assets/scripts/richPicture.js'),
   },
 
@@ -40,6 +40,11 @@ module.exports = {
 
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
       {
         test: /\.njk$/,
         use: [
@@ -70,7 +75,7 @@ module.exports = {
   },
   plugins: [
     new WebpackAssetsManifest({
-            output: '../../../src/_data/hashes_js.json'
+      output: '../../../src/_data/hashes_js.json'
     }),
     new CopyPlugin({
       patterns: [
