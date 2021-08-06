@@ -12,7 +12,7 @@ Comme promise.all, effectue des requête en parallèle et renvoie une promesse d
 */
 const pMap = require('p-map');
 
-module.exports = async function zotero(collection, requestedTag,) {
+module.exports = async function zotero(collection, ...requestedTags) {
 
 	async function addDataToItems(items) {
 
@@ -40,7 +40,7 @@ module.exports = async function zotero(collection, requestedTag,) {
 
 	// Appel d'un fichier de conf global qui appele ensuite les infos de connexion à l'API d'un fichier .env.
 	const meta = require('../_data/meta.js');
-	const options = { locale: 'fr-FR', itemType: '-note', sort: 'date', limit: 30, tag: requestedTag || '' }
+	const options = { locale: 'fr-FR', itemType: '-note', sort: 'date', limit: 30, tag: requestedTags || '' }
 	const lib = api(meta.zoteroAPIKey).library('user', meta.zoteroProfileID)
 
 
@@ -113,8 +113,14 @@ module.exports = async function zotero(collection, requestedTag,) {
 				}, [])
 				// ... et l'ajoute aux résultats du premier appel
 				var items = firstPageItems.raw.concat(concatenedOtherItems)
+				console.log(items);
+
+			}
+			else {
+				var items = firstPageItems.raw
 			}
 		}
+
 
 
 		// Cette fonction récupère des données supplémentaires
