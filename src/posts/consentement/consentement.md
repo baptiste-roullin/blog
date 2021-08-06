@@ -21,19 +21,7 @@ L'image de couverture est une [vraie bande dessinée](https://drawnandquarterly.
 
 ## Généralités
 
-{% zotero "Consentement",  "généralités" %}
 
-## Conception
-
-{% zotero "Consentement",  "conception" %}
-
-## Visualisation
-
-{% zotero "Consentement",  "dataviz" %}
-
-## Théorie
-
-{% zotero "Consentement",  "théorie" %}
 
 ## Études statistiques, psycho et comportementales
 
