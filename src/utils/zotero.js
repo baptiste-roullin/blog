@@ -5,7 +5,7 @@ const njk = require('nunjucks')
 const api = require('zotero-api-client');
 
 /*
-Comme promise.all, effectue  mais avec un paramètre pour limiter le nombre de requêtes parallèles
+Comme promise.all, effectue des requête en parallèle et renvoie une promesse de tableau de résultats. Avec en plus des options, notamment une pour limiter le nombre de requêtes parallèles
 @param input — Iterated over concurrently in the mapper function.
 @param mapper — Function which is called for every item in input. Expected to return a Promise or value.
 @returns — A Promise that is fulfilled when all promises in input and ones returned from mapper are fulfilled, or rejects if any of the promises reject. The fulfilled value is an Array of the fulfilled values returned from mapper in input order.
@@ -116,6 +116,10 @@ module.exports = async function zotero(collection, requestedTag,) {
 				item?.data.tags?.some(tag => tag.tag === requestedTag)
 			)
 		}
+
+		// Cette fonction récupère des données supplémentaires
+		// - une date parsée par Zotero, qu'on espère plus propre que le champ d'origine
+		// - un lien direct vers un PDF, tiré des pièces jointes.
 		const completedItems = await addDataToItems(items)
 
 
