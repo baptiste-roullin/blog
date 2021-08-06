@@ -17,7 +17,7 @@ module.exports = async function (canvas, tileCanvas, params, mode) {
 
 
 	var height = canvas.height = params?.height || 280
-	width = canvas.width = params?.width || 400
+	var width = canvas.width = params?.width || 400
 	var seed = params?.seed || Math.random();
 	var tile_size = params?.tile_size || rand.intBetween(40, 80)
 	var saturation = params?.saturation || 30;

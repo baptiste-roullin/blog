@@ -2,7 +2,7 @@ const remove = require('remove-markdown');
 
 const { DateTime, Settings } = require('luxon')
 const slugify = require('./slugify.js');
-const cleanCSS = require('clean-css')
+//const cleanCSS = require('clean-css')
 const md = require('./markdown.js')
 const elasticlunr = require("elasticlunr");
 require('./lunr.stemmer.support.js')(elasticlunr);
@@ -42,11 +42,12 @@ module.exports = {
 	searchIndex: (collection) => {
 		// what fields we'd like our index to consist of
 		var index = elasticlunr(function () {
+			//@ts-ignore
 			this.use(lunr.fr);
-			this.addField("title", { boost: 8 })
-			this.addField("description", { boost: 5 })
-			this.addField("tags", { boost: 5 })
-			this.addField("content", { boost: 2 })
+			this.addField("title")
+			this.addField("description")
+			this.addField("tags")
+			this.addField("content")
 			this.setRef("url");
 		})
 

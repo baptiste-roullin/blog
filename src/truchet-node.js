@@ -3,7 +3,8 @@ module.exports = async function (slug) {
 
 	const { createCanvas } = require('canvas')
 	const fs = require('fs')
-	const { pipeline } = require('stream/promises');
+	const promises = require('stream');
+	const pipeline = promises.pipeline
 	const truchet = require('./truchet.js')
 
 	//const path = 'dist/assets/generatedImages/truchet-' + slug + '.png'
@@ -14,6 +15,7 @@ module.exports = async function (slug) {
 		createCanvas(400, 280), createCanvas(400, 280), null, 'node')
 	await pipeline(
 		tileCanvas.createPNGStream({ compressionLevel: 2 }),
-		fs.createWriteStream(path)
+		fs.createWriteStream(path),
+		function () { }
 	)
 }

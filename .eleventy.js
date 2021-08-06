@@ -9,7 +9,9 @@ const imagesResponsiver = require("eleventy-plugin-images-responsiver");
 require('dotenv').config()
 const embedEverything = require("eleventy-plugin-embed-everything");
 
-
+require('ts-node').register({
+	project: 'tsconfig.json',
+});
 
 
 module.exports = function (eleventyConfig) {

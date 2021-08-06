@@ -1,3 +1,10 @@
+declare global {
+	interface Window {
+		searchIndex: any;
+	}
+}
+
+
 const elasticlunr = require("elasticlunr");
 require('./lunr.stemmer.support.js')(elasticlunr);
 require('./lunr.fr.js')(elasticlunr);
@@ -15,16 +22,22 @@ async function search(e) {
 		.searchIndex
 		.search(value, {
 			bool: "OR",
-			expand: true
+			expand: true,
+			fields: {
+				title: { boost: 8 },
+				description: { boost: 5 },
+				tags: { boost: 5 },
+				content: { boost: 2 },
+			}
 		});
 	const noResultsEl = document.getElementById("noResultsFound");
 	const container = document.querySelector('.post-wrapper');
-	const postList = container.children[0];
-	const searchList = container.children[1];
+	const postList = container.children[0] as HTMLElement
+	const searchList = container.children[1] as HTMLElement
 
 	if (!value) {
 		console.log('champ vide')
-		postList.style.display = 'block';
+		postList.style.display = 'block'
 		searchList.style.display = 'none';
 
 	}

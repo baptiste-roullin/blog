@@ -3,10 +3,11 @@ const md = require('./markdown.js')
 module.exports = {
 
 
-	richpicture: function (data, type) {
+	richpicture: function (data) {
 		let content = md.render(data)
+		let width = ''
 		if (data.match(/\!\[/g).length > 1) {
-			var width = 'container-wide'
+			width = 'container-wide'
 		}
 
 		return `<div class="rich-picture ${width} " >${content}</div>`;

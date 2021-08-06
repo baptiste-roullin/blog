@@ -54,7 +54,7 @@ module.exports = async function zotero(collection, ...requestedTags) {
 			return
 		}
 
-		if (!collection && !requestedTag) {
+		if (!collection && !requestedTags) {
 			console.log(new Error('merci de spécifier une collection ou un tag'))
 			return
 		}
@@ -76,7 +76,7 @@ module.exports = async function zotero(collection, ...requestedTags) {
 			var firstPageItems = await lib.items().top().get(options)
 		}
 
-		if (!firstPageItems.raw.length === 0) {
+		if (firstPageItems.raw.length === 0) {
 			console.log("Zotero : collection vide")
 		}
 
