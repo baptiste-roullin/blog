@@ -3,7 +3,22 @@
 var makeRandomGenerator = require('random-seed');
 var d3 = require("d3-color")
 
-module.exports = async function (canvas, tileCanvas, params, mode) {
+
+interface Params {
+	height: number
+	width: number
+	twist: number
+	scramble: number
+	saturation: number
+	curve_thickness: number
+	border: string
+	hue_amplitude: number
+	hue_phase: number
+	background: string
+	grid_alpha: number
+	[key: string]: string | number
+}
+module.exports = async function (canvas: HTMLCanvasElement, tileCanvas: HTMLCanvasElement, params: Params, mode: string) {
 	const rand = makeRandomGenerator.create()
 
 	/*
@@ -16,7 +31,7 @@ module.exports = async function (canvas, tileCanvas, params, mode) {
 	*/
 
 
-	var height = canvas.height = params?.height || 280
+	var height = (canvas.height) = params?.height || 280
 	var width = canvas.width = params?.width || 400
 	var seed = params?.seed || Math.random();
 	var tile_size = params?.tile_size || rand.intBetween(40, 80)
@@ -39,12 +54,12 @@ module.exports = async function (canvas, tileCanvas, params, mode) {
 
 	var segments = curves_per_tile + 1;
 
-	const globalCanvas = canvas.getContext('2d');
+	const globalCanvas = canvas.getContext('2d')!;
 	globalCanvas.fillStyle = "#fff";
 	globalCanvas.fillRect(0, 0, width, height);
 
 
-	const tileContext = tileCanvas.getContext('2d');
+	const tileContext = tileCanvas.getContext('2d')!;
 	tileCanvas.width = tile_size
 	tileCanvas.height = tile_size
 	const rForm = makeRandomGenerator("form:" + seed)
@@ -65,7 +80,7 @@ module.exports = async function (canvas, tileCanvas, params, mode) {
 
 
 
-		const curves = []
+		const curves: Array<[number, number, number]> = []
 		//		chaque segment est composé d'une courbe intérieur et d'une courbe extérieure)
 
 		// pour chaque segment, ajoute une courbe à un tableau curves
@@ -91,12 +106,12 @@ module.exports = async function (canvas, tileCanvas, params, mode) {
 				return twist_this ? tile_size - z : z;
 			}
 
-			const curve =
+			const curve: [number, number, number] =
 				[twist_i ? k : i,
 				do_twist(twist_i, tx),
 					ty
 				]
-			curves.push(curve);
+			curves.push(curve, curve);
 			if (k != i) {
 				curves.push([twist_k ? i : k, do_twist(twist_k, tx), ty]);
 				curves.unshift([twist_k ? i : k, do_twist(twist_k, tile_size - tx), tile_size - ty]);

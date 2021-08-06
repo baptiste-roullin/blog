@@ -1,7 +1,6 @@
-const Image = require("@11ty/eleventy-img");
+const transformPicture = require("@11ty/eleventy-img");
 const path = require("path");
 const { promisify } = require("util")
-
 const imageSize = promisify(require('image-size'));
 module.exports = {
 
@@ -57,7 +56,7 @@ module.exports = {
 						if (!(await exists(intermediaryPath))) {
 							console.log(intermediaryPath + 'debug : existe pas')
 						}*/
-				await Image(decodeURI(intermediaryPath), options);
+				await transformPicture(decodeURI(intermediaryPath), options);
 
 
 

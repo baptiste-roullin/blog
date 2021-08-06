@@ -1,3 +1,5 @@
+import { MultiReadResponse, RawItem } from '../../types/zotero'
+
 const njk = require('nunjucks')
 
 // Documentation de l'API : https://www.zotero.org/support/dev/web_api/v3/basics
@@ -12,7 +14,7 @@ Comme promise.all, effectue des requête en parallèle et renvoie une promesse d
 */
 const pMap = require('p-map');
 
-module.exports = async function zotero(collection, ...requestedTags) {
+async function zotero(collection: string, ...requestedTags: string[]) {
 
 	async function addDataToItems(items) {
 
@@ -54,7 +56,7 @@ module.exports = async function zotero(collection, ...requestedTags) {
 			return
 		}
 
-		if (!collection && !requestedTags) {
+		if (!collection && requestedTags.length === 0) {
 			console.log(new Error('merci de spécifier une collection ou un tag'))
 			return
 		}
@@ -70,21 +72,23 @@ module.exports = async function zotero(collection, ...requestedTags) {
 
 			// top() : pour avoir seulement les article et pas les documents enfants.
 			// get() : pour indiquer qu'on veut une requête GET et concrètement récupérer les données
-			var firstPageItems = await lib.collections(requestedCollection).items().top().get(options)
+			var firstPageItems: MultiReadResponse = await lib.collections(requestedCollection).items().top().get(options)
 		}
 		else {
-			var firstPageItems = await lib.items().top().get(options)
+			var firstPageItems: MultiReadResponse = await lib.items().top().get(options)
 		}
 
 		if (firstPageItems.raw.length === 0) {
 			console.log("Zotero : collection vide")
 		}
 
-		const totalCount = firstPageItems.response.headers.get('total-results')
+		const totalCount = Number(firstPageItems.response.headers.get('total-results'))
 
 		// Pagination
 		// On teste s'il y a plus de résultats que le nombre max requété
 		//  L'API renvoie aussi des nfos de pagination dans le header Links, qu'on n'utilise pas ici.
+		let items: RawItem[] = []
+
 		if (totalCount) {
 			if (totalCount > options.limit) {
 
@@ -98,7 +102,7 @@ module.exports = async function zotero(collection, ...requestedTags) {
 					offsetList.push(index)
 				}
 
-				const mapper = async offset => {
+				const mapper = async (offset): Promise<MultiReadResponse> => {
 					return await lib.collections(requestedCollection).items().top().get(
 						{ start: offset, ...options })
 				}
@@ -111,19 +115,18 @@ module.exports = async function zotero(collection, ...requestedTags) {
 					return accumulator.concat(obj.raw)
 				}, [])
 				// ... et l'ajoute aux résultats du premier appel
-				var items = firstPageItems.raw.concat(concatenedOtherItems)
-				console.log(items);
+				items = firstPageItems.raw.concat(concatenedOtherItems)
 
 			}
 			else {
-				var items = firstPageItems.raw
+				items = firstPageItems.raw
 			}
 		}
 
 		// Cette fonction récupère des données supplémentaires
 		// - une date parsée par Zotero, qu'on espère plus propre que le champ d'origine
 		// - un lien direct vers un PDF, tiré des pièces jointes.
-		const completedItems: Object[] = await addDataToItems(items)
+		const completedItems: RawItem[] = await addDataToItems(items)
 
 
 		// Ce templating étant à part d'Eleventy, on doit recréer un environnement Nunjucks
@@ -147,6 +150,8 @@ module.exports = async function zotero(collection, ...requestedTags) {
 		console.log(error);
 	}
 
-
-
 }
+
+
+
+module.exports = zotero

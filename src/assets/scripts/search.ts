@@ -1,9 +1,4 @@
-declare global {
-	interface Window {
-		searchIndex: any;
-	}
-}
-
+//@ts-nocheck
 
 const elasticlunr = require("elasticlunr");
 require('./lunr.stemmer.support.js')(elasticlunr);
