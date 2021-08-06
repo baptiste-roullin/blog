@@ -56,6 +56,9 @@ module.exports = async function zotero(collection, requestedTag,) {
 		}
 
 		if (!collection && !requestedTag) {
+			console.log(new Error('merci de spécifier une collection ou un tag'))
+
+
 			return
 		}
 
@@ -124,12 +127,17 @@ module.exports = async function zotero(collection, requestedTag,) {
 
 
 		// Ce templating étant à part d'Eleventy, on doit recréer un environnement Nunjucks
+
 		// base du chemin utilisé ensuite par render()
 		const env = njk.configure('src/_templates/components/',
-			// options
+
+			// options, notamment pour supprimer les vides inutiles.
 			{ autoescape: true, trimBlocks: true, lstripBlocks: true });
+
 		// Ajout d'un filtre utilisé par zotero.njk
 		env.addFilter('dateToFormat', require('./dateToFormat.js'))
+
+		//génération du HTML
 		return await env.render('zotero.njk', { items: completedItems });
 
 	} catch (error) {

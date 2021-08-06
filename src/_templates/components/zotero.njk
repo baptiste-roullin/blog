@@ -9,15 +9,13 @@
 			<div class="text-base ">
 				{% if item.parsedDate and item.itemType !== "webpage" %}
 					<span>{{item.parsedDate | dateToFormat("yyyy") }}</span>
-				{% endif %}
-				{% if item.parsedDate and item.abstractNote and item.itemType !== "webpage" %}
-					<span class="mx-2">—</span>
+					<span class="mx-2 last:hidden first:hidden">—</span>
 				{% endif %}
 				{% if item.abstractNote %}
 					<button class="pt-2 text-gray-600 underline sm:pt-0 " @click="open = !open">Résumé</button>
+					<span class="mx-2 last:hidden first:hidden">—</span>
 				{% endif %}
 				{% if item.attachmentURL %}
-					<span class="mx-2">—</span>
 					<span class="pt-2 text-gray-600 underline sm:pt-0 ">
 						<a  href="{{item.attachmentURL}}">PDF</a>
 					</span>
