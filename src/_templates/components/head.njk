@@ -9,7 +9,13 @@
 
 {#- General #}
 <meta name="author" content="{{ meta.author }}"/>
-<meta name="description" content="{{ description | removeMD or meta.siteDescription }}"/>
+{% if layout == 'post' %}
+  <meta name="description" content="{{ description | removeMD  }}"/>
+{% else %}
+  <meta name="description" content="{{ description | removeMD or meta.siteDescription }}"/>
+
+{% endif %}
+
 {#- Open Graph #}
 <meta property="og:site_name" content="{{ meta.siteName }}"/>
 <meta property="og:title" content="{{ seo.title or title }}"/>
