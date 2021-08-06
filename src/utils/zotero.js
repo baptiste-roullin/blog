@@ -45,7 +45,6 @@ module.exports = async function zotero(collection, ...requestedTags) {
 
 
 	try {
-
 		if (!meta.zoteroAPIKey) {
 			console.log(new Error("La clé d'API pour Zotero est manquante"))
 			return
@@ -120,8 +119,6 @@ module.exports = async function zotero(collection, ...requestedTags) {
 				var items = firstPageItems.raw
 			}
 		}
-
-
 
 		// Cette fonction récupère des données supplémentaires
 		// - une date parsée par Zotero, qu'on espère plus propre que le champ d'origine
