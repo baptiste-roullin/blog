@@ -59,8 +59,9 @@
 		"./src/",
 		"./src/utils",
 		"types",
-		".eleventy.js"
-, "tsconfig.webpack.json"	],
+		".eleventy.js",
+		"tsconfig.front.json"
+	],
 	"exclude": [
 		"./src/assets/scripts",
 	]

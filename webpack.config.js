@@ -51,7 +51,7 @@ module.exports = {
         loader: 'ts-loader',
         exclude: /node_modules/,
         options: {
-          configFile: "tsconfig.webpack.json",
+          configFile: "tsconfig.front.json",
           transpileOnly: true
         }
       },
