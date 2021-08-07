@@ -1,16 +1,26 @@
+
 const markdownIt = require('markdown-it')({ html: true })
 const svgColorDefault = 'text-indigo-500'
 
 module.exports = {
-	truchet: function (args, style) {
-		return `<canvas   class='truchet-canvas ${style}' data-args='${JSON.stringify(args)}' ></canvas>`
+	truchet: require('../truchet/truchet-shortcode.js'),
+	truchetList: function (args) {
+		const truchet = require('../truchet/truchet-shortcode.js')
+		let elements = ""
+		for (let index = 1; index < 16; index++) {
+			elements +=
+				"<li class='inline'>" +
+				truchet({ width: 100, height: 100, tile_size: 100, hue_amplitude: 1, seed: "efzfàà", curves_per_tile: 5 })
+			'</li>'
+		}
+		return `<ul class='truchet-rotate UI p-0 m-0 '>${elements}</ul `
 	},
 	project: function (name, link, img, description) {
 		return `<div class="project flex flex-col overflow-hidden rounded-lg shadow-lg">
-							<h3 class="name"><a href="${link}">${name}</a></h3>
-							<img class="picture" src="${img}"></img>
-							<span class="description">${description}</span>
-						</div>`;
+					<h3 class="name"><a href="${link}">${name}</a></h3>
+					<img class="picture" src="${img}"></img>
+					<span class="description">${description}</span>
+				</div>`;
 	},
 	/**
 	 * ===== SVGs =====

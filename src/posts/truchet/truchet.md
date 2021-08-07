@@ -1,6 +1,6 @@
 ---
 title: "truchet"
-date: 2021-05-16
+date: 2021-08-16
 tags:
   - "tout ce qui bouge"
   - "procédural"
@@ -21,11 +21,10 @@ Que ce sont donc ces jolis motifs en vignettes ?
 {% truchet    { width:100,	height:100,	tile_size: 100,	seed: 'qszzsqq',  hue_amplitude:1 	 }, 'inline m-4' %}{% truchet   { width:100,	height:100,	tile_size: 100,	seed: 'qsqsqq',  hue_amplitude:1  }, 'inline m-4' %}
 
 
-{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %}{% truchet    { width:100,	height:100,	tile_size: 100,  hue_amplitude:1	 }, 'inline m-4' %} {class="truchet-rotate"}
 
 
+{% truchetList	  %}
 
 
 ​	https://observablehq.com/@xenomachina/truchet-tiles-variant-intertwined-quarter-circles
-
 

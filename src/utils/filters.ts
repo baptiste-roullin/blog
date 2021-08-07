@@ -1,4 +1,7 @@
+import ElasticLunr from "elasticlunr";
+
 const remove = require('remove-markdown');
+
 
 const { DateTime, Settings } = require('luxon')
 const slugify = require('./slugify.js');
@@ -34,14 +37,12 @@ module.exports = {
 		});
 	},
 
-
-
 	slice: function (arr, a, b = 5) {
 		return arr.slice(a, b);
 	},
-	searchIndex: (collection) => {
-		// what fields we'd like our index to consist of
-		var index = elasticlunr(function () {
+	searchIndex: function (collection) {
+
+		function callback(this: ElasticLunr.Index<any>) {
 			//@ts-ignore
 			this.use(lunr.fr);
 			this.addField("title")
@@ -49,7 +50,10 @@ module.exports = {
 			this.addField("tags")
 			this.addField("content")
 			this.setRef("url");
-		})
+		}
+
+		// what fields we'd like our index to consist of
+		var index: ElasticLunr.Index<any> = elasticlunr(callback)
 
 		// loop through each page and add it to the index
 		collection.forEach((page) => {

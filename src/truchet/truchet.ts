@@ -17,6 +17,7 @@ interface Params {
 	background: string
 	grid_alpha: number
 	[key: string]: string | number
+	curves_per_tile: number
 }
 module.exports = async function (canvas: HTMLCanvasElement, tileCanvas: HTMLCanvasElement, params: Params, mode: string) {
 	const rand = makeRandomGenerator.create()
@@ -31,7 +32,7 @@ module.exports = async function (canvas: HTMLCanvasElement, tileCanvas: HTMLCanv
 	*/
 
 
-	var height = (canvas.height) = params?.height || 280
+	var height = canvas.height = params?.height || 280
 	var width = canvas.width = params?.width || 400
 	var seed = params?.seed || Math.random();
 	var tile_size = params?.tile_size || rand.intBetween(40, 80)

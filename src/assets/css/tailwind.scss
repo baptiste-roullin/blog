@@ -9,14 +9,19 @@
 	body {
 		background-color: #fdfcfb;
 	}
-	body .UI a, body .UI li {
+	body #content .UI a, body #content .UI li {
 	font-weight: inherit;
 	font-size: inherit;
 	color: inherit;
 	text-decoration: inherit;
 	margin: inherit;
+	padding: inherit;
 
+}
 
+body .UI li:before {
+	display:none;
+	width: 0;
 }
 	body h1,
 	body h2,
@@ -124,11 +129,7 @@ pre code {
 
 
 
-.truchet-rotate canvas {
-	transition: transform .2s ease-out;
-	cursor: pointer;
-	margin: 0
-}
+
 
 @media screen and (max-width:768px){
 	.post-list li , .search-list li{
@@ -144,4 +145,18 @@ pre code {
 		height: 18vh;}
 }
 
+
+
+.truchet-rotate canvas {
+	transition: transform .2s ease-out;
+	cursor: pointer;
+	margin: 0
+}
+
+.truchet-rotate {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+grid-gap: 0;
+ p-0 m-0
+}
 

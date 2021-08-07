@@ -33,7 +33,6 @@ module.exports = {
     richPicture: path.resolve(__dirname, 'src/assets/scripts/richPicture.js'),
     spin: path.resolve(__dirname, 'src/assets/scripts/spin.ts'),
     nav: path.resolve(__dirname, 'src/assets/scripts/nav.ts'),
-
   },
 
 

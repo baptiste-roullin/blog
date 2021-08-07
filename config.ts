@@ -68,7 +68,6 @@ cf. postcss.config.js pour le CSS
 	 * @link https://www.11ty.dev/docs/plugins/
 	 */
 
-	config.addPlugin(pluginRss)
 	config.addPlugin(pluginNavigation)
 	config.addPlugin(syntaxHighlight)
 	config.addPlugin(embedEverything, {
@@ -79,13 +78,14 @@ cf. postcss.config.js pour le CSS
 		config.addPlugin(imagesResponsiver, require('./src/utils/images-responsiver-config.ts'))
 		config.addPlugin(require('./src/utils/gif-converter.js'))
 	}
+	config.addPlugin(pluginRss)
 
 
 	/**
 	 * Filters
 	 * @link https://www.11ty.io/docs/filters/
 	 */
-	const filters = require('./src/utils/filters.js')
+	const filters = require('./src/utils/filters.ts')
 
 	Object.keys(filters).forEach((filterName) => {
 		config.addFilter(filterName, filters[filterName])

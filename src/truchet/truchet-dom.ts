@@ -1,6 +1,5 @@
-//@ts-nocheck
-window.truchet = require('./truchet.ts');
 
+window.truchet = require('./truchet.ts');
 
 document.addEventListener('DOMContentLoaded', async function () {
 	[...document.querySelectorAll('canvas')].forEach(async (el) => {
@@ -13,11 +12,9 @@ document.addEventListener('DOMContentLoaded', async function () {
 			el,
 			document.createElement('canvas'),
 			params, null);
-
 	})
 }
 	, false);
-
 
 [...document.querySelectorAll('.truchet-canvas')].forEach(el => {
 	let rotate = 0;
