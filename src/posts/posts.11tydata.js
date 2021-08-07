@@ -1,4 +1,4 @@
-var truchetNode = require('../truchet-node.js');
+var truchetNode = require('../truchet/truchet-node.js');
 
 module.exports = {
   layout: "post",

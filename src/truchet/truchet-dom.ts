@@ -1,5 +1,5 @@
 //@ts-nocheck
-window.truchet = require('../../truchet.ts');
+window.truchet = require('./truchet.ts');
 
 
 document.addEventListener('DOMContentLoaded', async function () {
