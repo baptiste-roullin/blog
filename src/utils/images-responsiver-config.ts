@@ -1,7 +1,6 @@
 const transformPicture = require("@11ty/eleventy-img");
 const path = require("path");
-const { promisify } = require("util")
-const imageSize = promisify(require('image-size'));
+const imageSize = require('image-size')
 module.exports = {
 
 	default: {
@@ -29,7 +28,7 @@ module.exports = {
 			const intermediaryPath = "src/assets/imagesToProcess/" + path.basename(originalPath)
 
 			try {
-				const imageDimensions = await imageSize(intermediaryPath);
+				const imageDimensions = imageSize(intermediaryPath);
 				image.setAttribute('width', imageDimensions.width);
 				image.setAttribute('height', imageDimensions.height);
 				const options = {
@@ -49,16 +48,11 @@ module.exports = {
 					}
 				}
 
-
-
-
 				/*		const exists = promisify(require("fs").exists);
 						if (!(await exists(intermediaryPath))) {
 							console.log(intermediaryPath + 'debug : existe pas')
 						}*/
 				await transformPicture(decodeURI(intermediaryPath), options);
-
-
 
 				image.dataset.responsiver = image.className;
 				//image.dataset.responsiveruRL = metadata.jpg.url;
@@ -68,8 +62,6 @@ module.exports = {
 			catch (e) {
 				console.log("debug:    " + e)
 			}
-
-
 		},
 		runAfter: (image, document) => {
 			//image.setAttribute('src', image.dataset.responsiveruRL);

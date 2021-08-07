@@ -46,15 +46,13 @@ cf. postcss.config.js pour le CSS
 
 */
 
-	//config.addPassthroughCopy({ 'src/assets/images/*.gif': 'assets/images' });
+
 	//On copie tels quels les média avec chemins relatifs ou absolus dans /dist, qu'ils puissent être lus par du balisage non-transformé (sans srcset ou gif -> vidéo)
 
 	config.addPassthroughCopy({ 'src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}': 'assets/generatedImages' })
 	config.addPassthroughCopy({ 'src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}': 'assets/generatedImages' })
 
-
 	config.addPassthroughCopy('src/assets/docs/')
-
 
 	config.addPassthroughCopy('src/posts/**/*.gif')
 	config.addPassthroughCopy('src/*.ico')
@@ -73,7 +71,6 @@ cf. postcss.config.js pour le CSS
 	config.addPlugin(pluginRss)
 	config.addPlugin(pluginNavigation)
 	config.addPlugin(syntaxHighlight)
-	//config.addPlugin(pageAssetsPlugin, { mode: "parse", postsMatching: "src/posts/*/*.md", });
 	config.addPlugin(embedEverything, {
 		use: ['vimeo', 'youtube', 'twitter'], twitter: { options: { align: 'center' } }
 	});
@@ -81,7 +78,6 @@ cf. postcss.config.js pour le CSS
 	if (process.env.NODE_ENV === "production") {
 		config.addPlugin(imagesResponsiver, require('./src/utils/images-responsiver-config.ts'))
 		config.addPlugin(require('./src/utils/gif-converter.js'))
-
 	}
 
 
@@ -151,9 +147,6 @@ cf. postcss.config.js pour le CSS
 
 	//config.addLayoutAlias('home', 'layouts/home.njk')
 
-
-
-
 	/**
 	MARKDOWN
 	*/
@@ -171,14 +164,11 @@ cf. postcss.config.js pour le CSS
 
 
 
-
-
 	/**
  * Collections
  * ============================
 
  */
-
 
 	const publishedPosts = (post) => { return !post.data.draft }
 

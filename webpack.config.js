@@ -87,36 +87,36 @@ module.exports = {
     new WebpackAssetsManifest({
       output: '../../../src/_data/hashes_js.json'
     }),
-    //new CopyPlugin({
-    //  patterns: [
-    //    //On copie média avec chemins relatifs ou absolus dans un dossier unique intermédiaire, que les scripts puissent processer
-    //    {
-    //      from: "posts/**/*.{png,webp,gif,mp4,jpg,jpeg}",
-    //      context: "src",
-    //      to({ context, absoluteFilename }) {
-    //        return `${context}/assets/imagesToProcess/[name][ext]`;
-    //      },
-    //    },
-    //    {
-    //      from: "assets/images/*",
-    //      context: "src",
-    //      to({ context, absoluteFilename }) {
-    //        return `${context}/assets/imagesToProcess/[name][ext]`;
-    //      },
-    //    },
-    //    {
-    //      from: "assets/UI/*",
-    //      context: "src",
-    //      to({ context, absoluteFilename }) {
-    //        return `${context}/assets/imagesToProcess/[name][ext]`;
-    //      },
-    //    },
+    new CopyPlugin({
+      patterns: [
+        //On copie média avec chemins relatifs ou absolus dans un dossier unique intermédiaire, que les scripts puissent processer
+        {
+          from: "posts/**/*.{png,webp,gif,mp4,jpg,jpeg}",
+          context: "src",
+          to({ context, absoluteFilename }) {
+            return `${context}/assets/imagesToProcess/[name][ext]`;
+          },
+        },
+        {
+          from: "assets/images/*",
+          context: "src",
+          to({ context, absoluteFilename }) {
+            return `${context}/assets/imagesToProcess/[name][ext]`;
+          },
+        },
+        {
+          from: "assets/UI/*",
+          context: "src",
+          to({ context, absoluteFilename }) {
+            return `${context}/assets/imagesToProcess/[name][ext]`;
+          },
+        },
 
-    //  ],
-    //  options: {
-    //    concurrency: 100,
-    //  },
-    //})
+      ],
+      options: {
+        concurrency: 100,
+      },
+    })
 
   ],
 }
