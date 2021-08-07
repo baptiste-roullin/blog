@@ -1,9 +1,6 @@
 {
   "name": "tout-ce-qui-bouge",
   "version": "0.2.0",
-  "workspaces": [
-    "./src/assets/scripts/"
-  ],
   "scripts": {
     "clean": "rimraf dist",
     "dev:webpack": "webpack --watch  --mode development",

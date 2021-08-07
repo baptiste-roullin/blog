@@ -1,6 +1,4 @@
-module.exports = function () {
-
-
+export default function nav() {
 
 	function toggleNav(menuBar) {
 

@@ -2,10 +2,15 @@
 window.Alpine = Alpine
 Alpine.start()
 */
-/*//@ts-ignore
-require('./nav.ts')();
-//@ts-ignore
-require('./spin.ts')();*/
+
+
+
+import nav from './nav'
+import spin from './spin'
+
+nav()
+spin()
+
 
 /*const axios = require('axios').default;
 document.querySelector("#contact").addEventListener('submit', async function () {

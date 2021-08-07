@@ -1,4 +1,4 @@
-module.exports = function () {
+export default function spin() {
 
 	document.querySelector('#site-title')!.addEventListener('mouseover', function (e) {
 		const target = e.target! as HTMLElement
