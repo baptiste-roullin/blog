@@ -9,20 +9,22 @@
 	body {
 		background-color: #fdfcfb;
 	}
-	body #content .UI a, body #content .UI li {
-	font-weight: inherit;
-	font-size: inherit;
-	color: inherit;
-	text-decoration: inherit;
-	margin: inherit;
-	padding: inherit;
 
+
+	body #content .UI a, body #content .UI ul, body #content .UI li {
+		font-weight: inherit;
+		font-size: inherit;
+		color: inherit;
+		text-decoration: inherit;
+		margin: inherit;
+		padding: inherit;
 }
 
-body .UI li:before {
-	display:none;
-	width: 0;
-}
+	body .UI ul li::before {
+		display:none;
+		width: 0;
+	}
+
 	body h1,
 	body h2,
 	body h3,
@@ -127,10 +129,6 @@ pre code {
 	cursor: pointer;
 }
 
-
-
-
-
 @media screen and (max-width:768px){
 	.post-list li , .search-list li{
 	flex-direction: column;
@@ -145,18 +143,18 @@ pre code {
 		height: 18vh;}
 }
 
-
-
-.truchet-rotate canvas {
+.truchet-rotate  {
 	transition: transform .2s ease-out;
 	cursor: pointer;
 	margin: 0
 }
 
-.truchet-rotate {
+.truchet {
 display: grid;
 grid-template-columns: repeat(4, 1fr);
 grid-gap: 0;
- p-0 m-0
+margin: 0;
+padding: 0
+
 }
 

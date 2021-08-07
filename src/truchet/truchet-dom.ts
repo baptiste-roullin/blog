@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 }
 	, false);
 
-[...document.querySelectorAll('.truchet-canvas')].forEach(el => {
+[...document.querySelectorAll('.truchet-rotate')].forEach(el => {
 	let rotate = 0;
 	el.addEventListener('click', function (e) {
 		rotate += 90;
