@@ -1,7 +1,7 @@
 module.exports = {
-	truchetItem: function (args, style = 'block m-auto') {
+	truchetItem: function (args, style = 'block m-auto w-full') {
 		return `<canvas
-		class='	${style}'
+		class='${style}'
 		data-args='${JSON.stringify(args)}'
 	>
 	</canvas>`
