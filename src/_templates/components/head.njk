@@ -55,11 +55,14 @@
 
 {% if meta.env === "production" %}
   <script  src="/assets/scripts/{{hashes_js['main.js']}}" defer></script>
+  {% if layout === "post-canvas" %}
+    <script  src="/assets/scripts/{{hashes_js['truchet-dom.js']}}" defer></script>
+
+  {% endif %}
+
 {% else %}
   <script  src="/assets/scripts/main.js" defer></script>
-{% endif %}
 
-{% if layout === "post-canvas" %}
   <script  src="/assets/scripts/truchet-dom.js" defer></script>
 
 {% endif %}

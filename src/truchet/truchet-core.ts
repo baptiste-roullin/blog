@@ -51,8 +51,6 @@ module.exports = async function (canvas: HTMLCanvasElement, tileCanvas: HTMLCanv
 	var curves_per_tile = params?.curves_per_tile || rand.intBetween(3, 7);
 
 
-
-
 	var segments = curves_per_tile + 1;
 
 	const globalCanvas = canvas.getContext('2d')!;
