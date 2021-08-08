@@ -11,9 +11,9 @@ module.exports = {
 	truchetList: function (args) {
 		let elements = ""
 		const length = 300
-		for (let index = 0; index < 16; index++) {
-			elements += "<li class='inline m-0 p-0'>" + module.exports.truchetItem({ width: length, height: length, tile_size: length, hue_amplitude: 1, seed: "efzfàà", curves_per_tile: 5 }) + '</li>'
+		for (let index = 0; index < 25; index++) {
+			elements += "<li class='inline m-0 p-0 w-full'>" + module.exports.truchetItem({ width: length, height: length, tile_size: length, hue_amplitude: 1, seed: "efzfàà", curves_per_tile: 5 }, 'w-full') + '</li>'
 		}
-		return " <div class='UI m-0 p-0' ><ul class='truchet'>" + elements + "</ul></div>"
+		return " <div class='UI m-0 p-0  ><ul class='truchet'>" + elements + "</ul></div>"
 	}
 }
