@@ -24,8 +24,7 @@ La page d'accueil charge en ~250ms. Environnement : Firefox 89, pas de cache, r�
 
 - Insertion auto de guillemets bas et d'espaces fines non-sécables.
 - Insertion facile de n	otes de bas de pages
-- Dans un article, survoler un inter-titre fait apparaitre un lien. Ce lien fournit une URL d'ancre permettant d'ouvrir la page directement à ce titre.
-
+- Liens profonds : Dans un article, survoler un inter-titre fait apparaitre un lien. Ce lien fournit une ancre permettant d'ouvrir la page directement à ce titre.
 
 
 ## Média
@@ -36,5 +35,4 @@ La page d'accueil charge en ~250ms. Environnement : Firefox 89, pas de cache, r�
 - Compression et conversion auto d'images en .webp. Fallback en jpg si le navigateur ne supporte pas le format, géré coté serveur, avec une technique adaptée [de ceci](https://github.com/cdowdy/Nginx-Content-Negotiation/blob/master/nginx.conf)
 - Génération auto du balisage pour images responsive et des images correspondantes, au bonnes dimensions.
 - Génération auto de la légende d'imge (<figcaption> à partir de l'attribut `title`)
- - Génération de ` <figure> ... <figcaption>légende de l'image</figcaption></figure>` avec le markdown suivant : `![](url "légende de l'image")`
-
+- Génération de ` <figure> ... <figcaption>légende de l'image</figcaption></figure>` avec le markdown suivant : `![](url "légende de l'image")`
