@@ -6,7 +6,7 @@ module.exports = async function (slug) {
 	const promises = require('stream');
 	const pipeline = promises.pipeline
 	//@ts-ignore
-	const truchet = require('./truchet.ts')
+	const truchet = require('./truchet-core.ts')
 
 	//const path = 'dist/assets/generatedImages/truchet-' + slug + '.png'
 	const path = 'src/assets/imagesToProcess/truchet-' + slug + '.png'
