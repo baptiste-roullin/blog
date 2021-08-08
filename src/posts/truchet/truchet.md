@@ -14,9 +14,9 @@ hero:
   image: truchet.png
 ---
 
-Quand un post comprend une jolie image, je la spécifie comme "mise en avant" et elle se retrouve en vignette dans la [page de liste](blog-screenshot-truchet.png). Que faire quand il n'y a pas d'image ? Laisser un vide ou avoir une image par défaut, toujours la même, ne serait pas très élégant. Pour obtenir des images variées mais avec une unité de style,  la génération procédurale est l'approche parfaite. Elle permet de générer des formes en alliant une trame de base et des paramètres aléatoires. On va l'appliquer à une technique bien connue en histoire de l'art : le pavage d'un espace en le remplissant avec des carreaux de base.
+Quand un post comprend une jolie image, je la spécifie comme "mise en avant" et elle se retrouve en vignette dans la [page de liste](/blog). Que faire quand il n'y a pas d'image ? Laisser un vide ou avoir une image par défaut, toujours la même, ne serait pas très élégant. Pour obtenir des images variées mais avec une unité de style,  la génération procédurale est l'approche parfaite. Elle permet de générer des formes en alliant une trame de base et des paramètres aléatoires. On va l'appliquer à une technique bien connue en histoire de l'art : le pavage d'un espace en le remplissant avec des carreaux de base.
 
-Ici on utilise des motifs dits de Truchet, du nom du savant éponyme : [Sébastien Truchet](https://fr.wikipedia.org/wiki/S%C3%A9bastien_Truchet), ingénieur hydraulique, mathématicien, typographe. Oui, rien que ça. Il est notamment à l'origine des eaux de Versaille, du premier point typographique et de Times News Roman, au moins partiellement et indirectement.
+Ici on utilise des motifs dits de Truchet, du nom du savant éponyme : [Sébastien Truchet](https://fr.wikipedia.org/wiki/S%C3%A9bastien_Truchet), ingénieur hydraulique, mathématicien, typographe... Rien que ça. Il est notamment à l'origine des eaux de Versaille, du premier point typographique et de Times News Roman, au moins partiellement et indirectement.
 
 ## L'idée d'origine
 
@@ -90,9 +90,9 @@ Quand on lit [l'article](toutcequibouge.net/assets/docs/smith.pdf) où Smith int
 
 ## Détails techniques
 
-Ce blog est statique : les pages sont crées à l'avance par un serveur Node qui tourne juste le temps de la génération, pas quand vous visitez le site. Lors de cette phase de compilation, les images sont générées. Les images de la section "[Chez Bibi](#chez-bibi)", elles, créées à la volée par votre navigateur. D'ailleurs ce ne sont pas des fichiers mais des éléments `<canvas>`.
+Ce blog est statique : les pages sont crées à l'avance par un serveur Node qui tourne juste le temps de la génération, pas quand vous visitez le site. Lors de cette phase de compilation, les motifs de Truchet sont générées. Ceux de la section "[Chez Bibi](#chez-bibi)", eux, sont créés à la volée par votre navigateur. D'ailleurs ce ne sont pas des fichiers d'image mais des éléments `<canvas>`.
 
-Dans les deux cas, le coeur du code est le même : [truchet-core.ts](https://github.com/baptiste-roullin/blog/tree/dev/src/truchet). C'est tout l'intérêt d'utiliser Javascript pour le front et le back. D'ailleurs, pour pouvoir dessiner des pixels sur un `<canvas>`, il faut l'API Canvas. De base, Node ne sait pas ce que c'est : c'est une [technologie de navigateur](https://developer.mozilla.org/en-US/docs/Web/API) dont il n'a pas besoin. De même, il ne sait pas ce qu'est un élement `<img>` ou un click de souris. Pas grave, Canvas a été [ré-implémenté](https://www.npmjs.com/package/canvas) pour Node.
+Dans les deux cas, le cœur du code est le même : [truchet-core.ts](https://github.com/baptiste-roullin/blog/tree/dev/src/truchet). C'est tout l'intérêt d'utiliser Javascript pour le front et le back. D'ailleurs, pour pouvoir dessiner des pixels sur un `<canvas>`, il faut l'API Canvas. De base, Node ne sait pas ce que c'est : c'est une [technologie de navigateur](https://developer.mozilla.org/en-US/docs/Web/API) dont il n'a pas besoin. De même, il ne sait pas ce qu'est un élément `<img>` ou un click de souris. Pas grave, Canvas a été [ré-implémenté](https://www.npmjs.com/package/canvas) pour Node.
 
 
 
