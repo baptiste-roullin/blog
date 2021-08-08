@@ -1,4 +1,5 @@
 
+// @ts-nocheck
 const PhotoSwipe = require('photoswipe')
 const PhotoSwipeUI_Default = require('photoswipe/dist/photoswipe-ui-default.js')
 
@@ -14,8 +15,7 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
 			numNodes = thumbElements.length,
 			items = [],
 			figureEl,
-			linkEl,
-			item;
+			linkEl
 
 		for (var i = 0; i < numNodes; i++) {
 
@@ -27,14 +27,17 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
 			}
 
 			linkEl = figureEl.children[0]; // <a> element
-			img = linkEl.children[0];
+			var img = linkEl.children[0];
 
 			// create slide object
-			item = {
+			const item = {
 				src: linkEl.getAttribute('href'),
 				orig_src: linkEl.getAttribute('href'),
 				width: img.width,
-				height: img.height
+				height: img.height,
+				el: figureEl, // save link to element for getThumbBoundsFn
+				title: '',
+				msrc: ''
 
 
 			};
@@ -48,7 +51,7 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
 				item.msrc = linkEl.children[0].getAttribute('src');
 			}
 
-			item.el = figureEl; // save link to element for getThumbBoundsFn
+
 			items.push(item);
 		}
 
@@ -100,6 +103,7 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
 
 		if (index >= 0) {
 			// open PhotoSwipe if valid index found
+			//@ts-ignore
 			openPhotoSwipe(index, clickedGallery);
 		}
 		return false;
@@ -203,10 +207,10 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
 
 		// responsive images
 		// create variable that will store real size of viewport
-		var realViewportWidth,
-			imageSize = "small",
-			firstResize = true,
-			imageSrcWillChange;
+		//var realViewportWidth,
+		//	imageSize = "small",
+		//	firstResize = true,
+		//	imageSrcWillChange;
 
 		// beforeResize event fires each time size of gallery viewport updates
 		/*	gallery.listen('beforeResize', function () {

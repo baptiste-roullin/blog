@@ -1,4 +1,4 @@
-var truchetNode = require('../truchet-node.js');
+var truchetNode = require('../truchet/truchet-node.js');
 
 module.exports = {
   layout: "post",
@@ -11,15 +11,14 @@ module.exports = {
   eleventyComputed: {
 
     placeholderImage: async (data) => {
-   if (data.draft !== true )
-      {   if (data.hero === undefined || data.hero === {}) {
-        await truchetNode(data.page.fileSlug).catch(console.error);
+      if (data.draft !== true) {
+        if (data.hero === undefined || data.hero === {}) {
+          await truchetNode(data.page.fileSlug).catch(console.error);
+          return true
+        }
+        else { return false }
       }
-      else { return false }
-    }
-    else {
-
-    }
+      return false
     },
 
     relative: (data) => {

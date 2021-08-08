@@ -22,24 +22,38 @@ module.exports = {
       publicPath: false
     }
   },
+  resolve: {
+    extensions: ['.ts', '.js'],
+  },
   entry: {
-    truchet: path.resolve(__dirname, 'src/truchet.js'),
-    'truchet-dom': path.resolve(__dirname, 'src/assets/scripts/truchet-dom.js'),
-    main: path.resolve(__dirname, 'src/assets/scripts/main.js'),
+    truchet: path.resolve(__dirname, 'src/truchet/truchet-core.ts'),
+    'truchet-dom': path.resolve(__dirname, 'src/truchet/truchet-dom.ts'),
+    main: path.resolve(__dirname, 'src/assets/scripts/main.ts'),
     search: path.resolve(__dirname, 'src/assets/scripts/search.js'),
     richPicture: path.resolve(__dirname, 'src/assets/scripts/richPicture.js'),
+    spin: path.resolve(__dirname, 'src/assets/scripts/spin.ts'),
+    nav: path.resolve(__dirname, 'src/assets/scripts/nav.ts'),
   },
 
 
   output: {
     path: path.resolve(__dirname, 'dist/assets/scripts'),
     /*    détournement du publicpatch*/
-    publicPath: path.resolve(__dirname, 'src'),
+    //publicPath: path.resolve(__dirname, 'src'),
     filename: () => (process.env.NODE_ENV === "production" ? '[name].[contenthash].js' : '[name].js')
   },
 
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/,
+        options: {
+          configFile: "tsconfig.front.json",
+          transpileOnly: true
+        }
+      },
       {
         test: /\.njk$/,
         use: [
@@ -70,7 +84,7 @@ module.exports = {
   },
   plugins: [
     new WebpackAssetsManifest({
-            output: '../../../src/_data/hashes_js.json'
+      output: '../../../src/_data/hashes_js.json'
     }),
     new CopyPlugin({
       patterns: [

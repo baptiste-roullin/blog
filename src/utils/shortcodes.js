@@ -1,17 +1,11 @@
+
 const markdownIt = require('markdown-it')({ html: true })
 const svgColorDefault = 'text-indigo-500'
+const truchet = require('../truchet/truchet-shortcode.js')
 
 module.exports = {
-	truchet: function (args, style) {
-		return `<canvas   class='truchet-canvas ${style}' data-args='${JSON.stringify(args)}' ></canvas>`
-	},
-	project: function (name, link, img, description) {
-		return `<div class="project flex flex-col overflow-hidden rounded-lg shadow-lg">
-							<h3 class="name"><a href="${link}">${name}</a></h3>
-							<img class="picture" src="${img}"></img>
-							<span class="description">${description}</span>
-						</div>`;
-	},
+	truchetItem: truchet.truchetItem,
+	truchetList: truchet.truchetList,
 	/**
 	 * ===== SVGs =====
    * This shortcode is used in layouts and can be used in .md content.

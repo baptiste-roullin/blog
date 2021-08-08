@@ -21,6 +21,7 @@ const markdownItAnchorOptions = {
 	},
 };
 
+/*
 // taken from https://gist.github.com/rodneyrehm/4feec9af8a8635f7de7cb1754f146a39
 function getHeadingLevel(tagName) {
 	if (tagName[0].toLowerCase() === 'h') {
@@ -62,7 +63,7 @@ function markdownItHeadingLevel(md, options) {
 		}
 	});
 }
-
+*/
 
 let options = {
 	html: true,

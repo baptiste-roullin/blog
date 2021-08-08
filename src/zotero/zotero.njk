@@ -1,0 +1,30 @@
+{# PAS DE LIGNE VIDE OU D'ESPACES CONSÉCUTIFS #}
+{# Cela évite que le HTML généré soit détecté comme du markdown  #}
+<ul class="mb-5 zotero-list UI sm:mb-3">
+	{% for item in items %}
+		<li x-data="{ open: false }">
+			<span class="m-0 text-lg underline lg:text-xl sm:no-underline hover:underline">
+				<a href="{{item.url}}" >{{item.title}}</a>
+			</span>
+			<div class="text-base ">
+				{% if item.parsedDate and item.itemType !== "webpage" %}
+					<span>{{item.parsedDate | dateToFormat("yyyy") }}</span>
+					<span class="mx-2 last:hidden first:hidden">~</span>
+				{% endif %}
+				{% if item.abstractNote %}
+					<button class="pt-2 text-gray-600 underline sm:pt-0 " @click="open = !open">Résumé</button>
+					<span class="mx-2 last:hidden first:hidden">~</span>
+				{% endif %}
+				{% if item.attachmentURL %}
+					<span class="pt-2 text-gray-600 underline sm:pt-0 ">
+						<a  href="{{item.attachmentURL}}">PDF</a>
+					</span>
+				{% endif %}
+			</div>
+			{% if item.abstractNote %}
+				<div class="text-base" x-transition.duration.100ms x-show="open">{{item.abstractNote}}
+				</div>
+			{% endif %}
+		</li>
+	{% endfor %}
+</ul>
