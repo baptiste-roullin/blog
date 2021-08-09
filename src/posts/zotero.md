@@ -4,7 +4,7 @@ date: 2021-08-06
 tags:
   - "tout ce qui bouge"
   - "eleventy"
-description: "Comment importer une collection d'articles depuis Zotero et l'afficher dans Eleventy"
+description: "Comment importer une collection d'articles depuis Zotero et l'afficher dans Eleventy."
 templateEngineOverride: md
 hero:
   type: split
