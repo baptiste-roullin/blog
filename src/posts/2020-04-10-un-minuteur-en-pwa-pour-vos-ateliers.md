@@ -44,6 +44,6 @@ Mais il est parfait pour minuter du collage de post-it.
 
 App en Vue.js, avec vue-cli et le [module cli-plugin-pwa](https://www.npmjs.com/package/@vue/cli-plugin-pwa) qui se charge d'une bonne partie de la transformation en PWA.
 
-Si vous voulez rire, [le code est ici](https://github.com/Saint-loup/timer).
+Si vous voulez rire, [le code est ici](https://github.com/baptiste-roullin/timer).
 
 PWA : _[progressive web application](https://developer.mozilla.org/fr/docs/Web/Progressive_web_apps)_. Un ensemble de technologies permettant d'enrichir une page web de fonctions réservées traditionnellement à des applications natives et locales. Notifications, fonctions hors-ligne, accès aux périphériques, etc,

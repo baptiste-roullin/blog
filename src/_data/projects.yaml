@@ -4,7 +4,7 @@
   img: assets/images/home/axure.png
   description: Une expérimentation pour maquetter… dans une maquette.
 - name: Bot invisible
-  link: 'https://github.com/Saint-loup/botinvisible'
+  link: 'https://github.com/baptiste-roullin/botinvisible'
   img:
   description: Le seul bot appeliste de la planète.
 - name: Calculateur de ticket resto

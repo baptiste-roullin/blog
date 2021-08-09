@@ -8,7 +8,7 @@ tags:
 draft: false
 layout: post-canvas
 richPicture: true
-description: "Générer procéduralement une image de substitution quand un article n'a pas d'image principale, par le truchement des motifs de Truchet"
+description: "Générer procéduralement une image de substitution quand un article n'a pas d'image principale, par le truchement des motifs de Truchet."
 hero:
   type: split
   image: truchet.png

@@ -112,9 +112,11 @@ module.exports = {
 						figcaption: {
 							textAlign: "center"
 						},
+						a: { fontWeight: 'normal' },
 						blockquote: {
 							fontWeight: 'normal',
 						},
+
 						code: {
 							fontSize: '.8em',
 							border: 'none',
