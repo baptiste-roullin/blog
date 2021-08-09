@@ -11,11 +11,11 @@ hero:
 
 ---
 
-Résumé : j'ai créé un [plugin Sketch](https://github.com/Saint-loup/typographie-frenchy#readme) pour respecter automatiquement les règles typo, espaces insécables et bien plus.
+Résumé : j'ai créé un [plugin Sketch](https://github.com/baptiste-roullin/typographie-frenchy#readme) pour respecter automatiquement les règles typo, espaces insécables et bien plus.
 
 [icone du plugin](/assets/images/Icon_ombre2.png)
 
-[Typographie frenchy](https://github.com/Saint-loup/typographie-frenchy#readme){.cta}
+[Typographie frenchy](https://github.com/baptiste-roullin/typographie-frenchy#readme){.cta}
 
 Tout a commencé par une interface comme celle-ci :
 

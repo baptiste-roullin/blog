@@ -53,7 +53,7 @@
     "markdown-it": "^11.0.1",
     "markdown-it-anchor": "^7.0.2",
     "markdown-it-attrs": "^4.0.0",
-    "markdown-it-blockquote-cite": "github:saint-loup/markdown-it-blockquote-cite#master",
+    "markdown-it-blockquote-cite": "github:baptiste-roullin/markdown-it-blockquote-cite#master",
     "markdown-it-container": "^3.0.0",
     "markdown-it-footnote": "^3.0.2",
     "markdown-it-image-figures": "^1.0.1",
