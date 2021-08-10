@@ -1,3 +1,10 @@
+// TODO mettre en cache requêtes
+// TODO	Afficher auteurs
+// TODO	Rendre paramétrable infos d'articles à afficher
+// TODO	Format biblio APA https://www.npmjs.com/package/citation-js
+
+
+
 import { MultiReadResponse, RawItem } from '../../types/zotero'
 
 const njk = require('nunjucks')

@@ -5,6 +5,11 @@ layout: page
 draft: true
 ---
 
+{# TODO formulaire de contact
+https://github.com/nextcloud/forms/blob/master/docs/API.md
+
+En attente de nextcloud/forms#805 #}
+
 <div class="relative bg-white">
   <div class="relative mx-auto max-w-7xl lg:grid lg:grid-cols-5">
 
@@ -15,24 +20,24 @@ draft: true
           <div>
             <label for="name" >Nom</label>
             <div class="relative ">
-              <input required id="name" name="name" type="text" class="rounded-md shadow-sm block w-full px-4 py-3 mb-6 placeholder-gray-500 transition duration-150 ease-in-out form-input">
+              <input required id="name" name="name" type="text" class="block w-full px-4 py-3 mb-6 placeholder-gray-500 transition duration-150 ease-in-out rounded-md shadow-sm form-input">
             </div>
           </div>
           <div>
             <label for="email" >Email</label>
             <div class="relative ">
-              <input required id="email" name="email" type="email" class="rounded-md shadow-sm block w-full px-4 py-3 mb-6 placeholder-gray-500 transition duration-150 ease-in-out form-input" >
+              <input required id="email" name="email" type="email" class="block w-full px-4 py-3 mb-6 placeholder-gray-500 transition duration-150 ease-in-out rounded-md shadow-sm form-input" >
             </div>
           </div>
 
           <div>
             <label for="message" >Message</label>
             <div class="relative ">
-              <textarea required id="message" name="message" rows="4" class="rounded-md shadow-sm block w-full px-4 py-3 mb-6 placeholder-gray-500 transition duration-150 ease-in-out form-input" ></textarea>
+              <textarea required id="message" name="message" rows="4" class="block w-full px-4 py-3 mb-6 placeholder-gray-500 transition duration-150 ease-in-out rounded-md shadow-sm form-input" ></textarea>
             </div>
           </div>
           <div class="">
-              <button  type="submit" class="inline-flex rounded-md shadow-sm py-4 px-6 my-4 rounded-lg">Envoyer
+            <button  type="submit" class="inline-flex px-6 py-4 my-4 rounded-md rounded-lg shadow-sm">Envoyer
               </button >
           </div>
         </form>
@@ -42,28 +47,30 @@ draft: true
 </div>
 
 <script>
-document.querySelector("#contact").addEventListener( 'submit', async function () {
+  document
+    .querySelector("#contact")
+    .addEventListener('submit', async function () {
       event.preventDefault();
-  const res = await fetch('https://nuage.toutcequibouge.net/ocs/v2.php/apps/forms/api/v1/submission/insert', {
-    method: 'POST',
-    mode: 'cors',
-    headers: {
-     'Content-Type': 'application/json; charset=UTF-8',
-    'OCS-APIRequest':'true',
-    'Referrer-Policy': 'origin'
-    },
-    body: JSON.stringify(Object.fromEntries(new FormData(this)))
-  });
-})
+      const res = await fetch('https://nuage.toutcequibouge.net/ocs/v2.php/apps/forms/api/v1/submission/insert', {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json; charset=UTF-8',
+          'OCS-APIRequest': 'true',
+          'Referrer-Policy': 'origin'
+        },
+        body: JSON.stringify(Object.fromEntries(new FormData(this)))
+      });
+    })
 
-document.querySelector("#contact").addEventListener('formdata', (e) => {
-  console.log('formdata fired');
+  document
+    .querySelector("#contact")
+    .addEventListener('formdata', (e) => {
+      console.log('formdata fired');
 
-  // Get the form data from the event object
-  let data = e.formData;
-  JSON.stringify(Object.fromEntries(e.formData))
+      // Get the form data from the event object
+      let data = e.formData;
+      JSON.stringify(Object.fromEntries(e.formData))
 
-
-});
-
+    });
 </script>
