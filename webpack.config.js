@@ -65,8 +65,8 @@ module.exports = {
                 'src/_templates/utils'
 
               ], filters: {
-                dateToFormat: path.resolve('src/utils/dateToFormat.js'),
-                removeMD: path.resolve('src/utils/removeMD.js')
+                dateToFormat: path.resolve('src/filters/dateToFormat.js'),
+                removeMD: path.resolve('src/filters/removeMD.js')
 
               }
             }

@@ -3,7 +3,7 @@ const markdownItContainer = require('markdown-it-container');
 const markdownIt = require('markdown-it')
 const markdownItFootnote = require('markdown-it-footnote');
 const markdownItAnchor = require('markdown-it-anchor');
-const slugify = require('./slugify.js');
+const slugify = require('./filters/slugify.js');
 const imageFigures = require('markdown-it-image-figures');
 //const bracketedSpans = require('markdown-it-bracketed-spans');
 

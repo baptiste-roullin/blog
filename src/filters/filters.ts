@@ -6,7 +6,7 @@ const remove = require('remove-markdown');
 const { DateTime, Settings } = require('luxon')
 const slugify = require('./slugify.js');
 //const cleanCSS = require('clean-css')
-const md = require('./markdown.js')
+const md = require('../markdown.js')
 const elasticlunr = require("elasticlunr");
 require('./lunr.stemmer.support.js')(elasticlunr);
 require('./lunr.fr.js')(elasticlunr);

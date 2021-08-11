@@ -1,4 +1,4 @@
-const md = require('./markdown.js')
+const md = require('../markdown.js')
 
 module.exports = {
 

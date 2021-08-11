@@ -4,9 +4,6 @@ const pluginRss = require('@11ty/eleventy-plugin-rss')
 const pluginNavigation = require('@11ty/eleventy-navigation')
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const yaml = require("js-yaml");
-
-//const svgsprite = require('./src/utils/svgsprite')
-//const pageAssetsPlugin = require('eleventy-plugin-page-assets');
 const imagesResponsiver = require("eleventy-plugin-images-responsiver");
 require('dotenv').config()
 const embedEverything = require("eleventy-plugin-embed-everything");
@@ -75,8 +72,8 @@ cf. postcss.config.js pour le CSS
 	});
 
 	if (process.env.NODE_ENV === "production") {
-		config.addPlugin(imagesResponsiver, require('./src/utils/images-responsiver-config.ts'))
-		config.addPlugin(require('./src/utils/gif-converter.js'))
+		config.addPlugin(imagesResponsiver, require('./src/transforms/images-responsiver-config.ts'))
+		config.addPlugin(require('./src/transforms/gif-converter.js'))
 	}
 	config.addPlugin(pluginRss)
 
@@ -85,7 +82,7 @@ cf. postcss.config.js pour le CSS
 	 * Filters
 	 * @link https://www.11ty.io/docs/filters/
 	 */
-	const filters = require('./src/utils/filters.ts')
+	const filters = require('./src/filters/filters.ts')
 
 	Object.keys(filters).forEach((filterName) => {
 		config.addFilter(filterName, filters[filterName])
@@ -96,7 +93,8 @@ cf. postcss.config.js pour le CSS
 	 * Transforms
 	 * @link https://www.11ty.io/docs/config/#transforms
 	 */
-	/*const transforms = require('./src/utils/transforms.js')
+	// l'activer pète tout.
+	/*const transforms = require('./src/transforms/transforms.js')
 
 	Object.keys(transforms).forEach((transformName) => {
 		config.addTransform(transformName, transforms[transformName])
@@ -107,7 +105,7 @@ cf. postcss.config.js pour le CSS
 	 * Shortcodes
 	 * @link https://www.11ty.io/docs/shortcodes/
 	 */
-	const shortcodes = require('./src/utils/shortcodes.js')
+	const shortcodes = require('./src/shortcodes/shortcodes.js')
 
 	Object.keys(shortcodes).forEach((shortcodeName) => {
 		config.addShortcode(shortcodeName, shortcodes[shortcodeName])
@@ -117,7 +115,7 @@ cf. postcss.config.js pour le CSS
 	 * Paired Shortcodes
 	 * @link https://www.11ty.dev/docs/languages/nunjucks/#paired-shortcode
 	 */
-	const pairedshortcodes = require('./src/utils/pairedShortcodes.js')
+	const pairedshortcodes = require('./src/shortcodes/pairedShortcodes.js')
 	Object.keys(pairedshortcodes).forEach((shortcodeName) => {
 		config.addPairedShortcode(shortcodeName, pairedshortcodes[shortcodeName]
 		)
@@ -129,7 +127,7 @@ cf. postcss.config.js pour le CSS
 	 * @link https://www.11ty.dev/docs/languages/nunjucks/#asynchronous-shortcodes
 	 */
 
-	const asyncShortcodes = require('./src/utils/asyncShortcodes.js')
+	const asyncShortcodes = require('./src/shortcodes/asyncShortcodes.js')
 	Object.keys(asyncShortcodes).forEach((shortcodeName) => {
 		config.addNunjucksAsyncShortcode(shortcodeName, asyncShortcodes[shortcodeName])
 	})
@@ -159,7 +157,7 @@ cf. postcss.config.js pour le CSS
 		excerpt_separator: "<!-- excerpt -->"
 	});
 
-	const md = require('./src/utils/markdown.js')
+	const md = require('./src/markdown.js')
 	config.setLibrary('md', md);
 
 
@@ -175,7 +173,6 @@ cf. postcss.config.js pour le CSS
 
 	config.addCollection("publishedPosts", function (collection: Collection): Item[] {
 
-		//const collec = collection.getFilteredByGlob("./src/posts/**/*.md").filter(publishedPosts);
 
 		const collec = collection.getFilteredByTag("post").filter(publishedPosts)
 		/*	collec.forEach(item => {
