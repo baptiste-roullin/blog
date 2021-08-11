@@ -12,4 +12,4 @@ hero:
   alt: Chateau ambulant réduit à une plateforme avec deux image. Image du film de Miyazaki
 ---
 
-Ce blog existe depuis fiou, 2012. Les sources sont même [sur Github](https://github.com/Saint-loup/blog). Documentation et réflexions à venir.
+Ce blog existe depuis fiou, 2012. Les sources sont même [sur Github](https://github.com/baptiste-roullin/blog). Documentation et réflexions à venir.

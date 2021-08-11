@@ -6,3 +6,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+/* TOTO libellés flottant
+.field.filled ~ label, .field:focus ~ label, span .field.filled ~ label, span .field:focus ~ label {
+top: .1em;
+color: grey;
+font-size: 15px;
+}
+ */
