@@ -63,7 +63,7 @@ async function search(e) {
 						url,
 						data: {
 							hero: {
-								image: '/assets/generatedImages/' + hero.image
+								image: '/assets/generatedImages/' + hero?.image
 							},
 							title,
 							description,
