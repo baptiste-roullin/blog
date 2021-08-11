@@ -45,7 +45,6 @@ async function search(e) {
 		}
 		if (results.length > 0) {
 
-			console.log('results')
 			noResultsEl.style.display = "none";
 			results.map((r) => {
 				const doc = window.searchIndex.documentStore.getDoc(r.ref)
@@ -54,7 +53,9 @@ async function search(e) {
 
 				if (doc.hero) {
 					var { hero } = doc
-				}
+
+				console.log("debug :", image)
+
 				const el = postlistitem({
 					postListItemStyle: {
 						complete: 'complete'
@@ -62,7 +63,9 @@ async function search(e) {
 					post: {
 						url,
 						data: {
-							hero: hero,
+							hero: {
+								image: '/assets/generatedImages/' + hero.image
+							} },
 							title,
 							description,
 							page: {
