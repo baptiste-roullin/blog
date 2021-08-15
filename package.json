@@ -42,7 +42,6 @@
     "cssnano": "^4.1.10",
     "d3-color": "^2.0.0",
     "dotenv": "^8.2.0",
-    "eleventy-plugin-compress": "github:baptiste-roullin/eleventy-plugin-compress",
     "eleventy-plugin-embed-everything": "^1.13.1",
     "eleventy-plugin-images-responsiver": "^1.8.2",
     "ffmpeg-static": "^4.4.0",

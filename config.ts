@@ -222,10 +222,10 @@ cf. postcss.config.js pour le CSS
 		});*/
 
 
-	const { compress } = require('eleventy-plugin-compress');
+	//const { compress } = require('eleventy-plugin-compress');
 
 
-	config.addPlugin(compress);
+	//config.addPlugin(compress);
 
 
 
