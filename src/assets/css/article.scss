@@ -5,20 +5,18 @@
 	 h2, h3, h4, h5 {
 		display: flex;
 		position: relative;
-		padding-left: 2em;
-		left: -2em;
-		&:hover a {
-			display: inline-block;
+			& .header-anchor:hover::before, & .header-anchor:focus::before {
+			content:'§︎';
+			position: absolute;
+			left:-1.5em;
 
+			@apply text-accent2;
 		}
+			& a.header-anchor {
+				text-decoration: none;
+			}
 	}
-	.deeplink {
-		position: absolute;
-		left:0;
-		display: none;
-		padding:0 .5em;
-		@apply text-accent2;
-	}
+
 }
 
 

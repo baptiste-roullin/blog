@@ -12,9 +12,7 @@ const MarkdownBlockquoteCite = require('markdown-it-blockquote-cite');
 
 // https://www.toptal.com/designers/htmlarrows/punctuation/section-sign/
 const markdownItAnchorOptions = {
-	permalink: true,
-	permalinkClass: 'deeplink',
-	permalinkSymbol: '&#xa7;&#xFE0E;',
+	permalink: markdownItAnchor.permalink.headerLink(),
 	level: [2, 3, 4],
 	slugify: function (s) {
 		return slugify(s);
