@@ -88,6 +88,7 @@ cf. postcss.config.js pour le CSS
 		config.addFilter(filterName, filters[filterName])
 	})
 
+	//config.addNunjucksAsyncFilter("searchIndex", require('./src/search/search-back'));
 
 	/**
 	 * Transforms
@@ -219,6 +220,15 @@ cf. postcss.config.js pour le CSS
 	/*	config.addCollection("catList", function (collectionApi) {
 			return collectionApi.getFilteredByTag("travaux");
 		});*/
+
+
+	const { compress } = require('eleventy-plugin-compress');
+
+	module.exports = (eleventyConfig) => {
+		eleventyConfig.addPlugin(compress, {
+			/* Optional options. */
+		});
+	};
 
 
 	return {
