@@ -3,5 +3,5 @@
 
 module.exports = {
 	// @ts-ignore
-	zotero: require('../zotero/zotero')
+	zotero: require('../features/zotero/zotero')
 }

@@ -5,7 +5,7 @@
 
 
 
-import { MultiReadResponse, RawItem } from '../../types/zotero'
+import { MultiReadResponse, RawItem } from '../../../types/zotero'
 
 const njk = require('nunjucks')
 
@@ -48,7 +48,7 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 	}
 
 	// Appel d'un fichier de conf global qui appele ensuite les infos de connexion à l'API d'un fichier .env.
-	const meta = require('../_data/meta.js');
+	const meta = require('../../_data/meta.js');
 	const options = { locale: 'fr-FR', itemType: '-note', sort: 'date', limit: 30, tag: requestedTags || '' }
 	const lib = api(meta.zoteroAPIKey).library('user', meta.zoteroProfileID)
 
@@ -145,7 +145,7 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 			{ autoescape: true, trimBlocks: true, lstripBlocks: true });
 
 		// Ajout d'un filtre utilisé par zotero.njk
-		env.addFilter('dateToFormat', require('../filters/dateToFormat.js'))
+		env.addFilter('dateToFormat', require('../../filters/dateToFormat.js'))
 
 		//génération du HTML
 		return await env.render('zotero.njk', { items: completedItems });

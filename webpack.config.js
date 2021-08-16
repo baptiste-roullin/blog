@@ -26,8 +26,8 @@ module.exports = {
     extensions: ['.ts', '.js'],
   },
   entry: {
-    truchet: path.resolve(__dirname, 'src/truchet/truchet-core.ts'),
-    'truchet-dom': path.resolve(__dirname, 'src/truchet/truchet-dom.ts'),
+    truchet: path.resolve(__dirname, 'src/features/truchet/truchet-core.ts'),
+    'truchet-dom': path.resolve(__dirname, 'src/features/truchet/truchet-dom.ts'),
     main: path.resolve(__dirname, 'src/assets/scripts/main.ts'),
     search: path.resolve(__dirname, 'src/assets/scripts/search.js'),
     richPicture: path.resolve(__dirname, 'src/assets/scripts/richPicture.js'),
