@@ -139,7 +139,7 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 		// Ce templating étant à part d'Eleventy, on doit recréer un environnement Nunjucks
 
 		// base du chemin utilisé ensuite par render()
-		const env = njk.configure('./src/zotero',
+		const env = njk.configure('./src/features/zotero',
 
 			// options, notamment pour supprimer les vides inutiles.
 			{ autoescape: true, trimBlocks: true, lstripBlocks: true });

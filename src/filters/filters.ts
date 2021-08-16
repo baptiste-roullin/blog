@@ -24,6 +24,13 @@ module.exports = {
 
 		return collection.filter(item => { return !item?.data?.[field] })
 	},
+	cleanHeaderAnchors: (content) => {
+		if (content === undefined) {
+			return '';
+		}
+		const regex = /<a class="header-anchor"((?!(<\/a>)).|\n)+<\/a>/gm;
+		return content.replace(regex, '');
+	},
 	similarPosts: function (collection, path, categories) {
 
 		const getSimilarCategories = function (categoriesA, categoriesB) {

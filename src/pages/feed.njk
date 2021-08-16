@@ -9,11 +9,6 @@
   }
 }
 ---
-
-{# TODO Fix liens images #}
-
-{# TODO virer deeplinks #}
-
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 	<title>{{ meta.siteName }}</title>
@@ -27,12 +22,13 @@
 	</author>
 	{%- for post in collections.publishedPosts | reverse | slice(0, 20) %}
 		{% set absolutePostUrl %}{{ post.url | url | absoluteUrl(meta.siteURL) }}{% endset %}
+		{% set imageURL %}{{ "/assets/generatedImages/" | url | absoluteUrl(meta.siteURL) }}{% endset %}
 		<entry>
 			<title>{{ post.data.title }}</title>
 			<link href="{{ absolutePostUrl }}"/>
 			<updated>{{ post.date | dateToRfc3339 }}</updated>
 			<id>{{ absolutePostUrl }}</id>
-			<content type="text/html" mode="escaped">{{ post.templateContent  | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
+			<content type="text/html" mode="escaped">{{ post.templateContent | cleanHeaderAnchors  | htmlToAbsoluteUrls(imageURL) }}</content>
 		</entry>
 	{%- endfor %}
 </feed>
