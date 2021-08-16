@@ -1,8 +1,8 @@
 
 
 
-.article {
-	 h2, h3, h4, h5 {
+/*.article {
+	 .heading-wrapper {
 		display: flex;
 		position: relative;
 			& .header-anchor:hover::before, & .header-anchor:focus::before {
@@ -12,11 +12,35 @@
 
 			@apply text-accent2;
 		}
-			& a.header-anchor {
+			& .header-anchor {
 				text-decoration: none;
 			}
 	}
 
+}*/
+
+.article {
+	 .heading-wrapper {
+		display: flex;
+		position: relative;
+		padding-left: 2em;
+		left: -2em;
+		align-items: center;
+		&:hover .header-anchor   {
+			display: inline-block;
+		}
+		> * {
+			margin:0
+		}
+	}
+	.header-anchor  {
+		position: absolute;
+		left:0;
+		display: none;
+		padding:0 .5em;
+		font-size:1.2em;
+		@apply text-accent2;
+	}
 }
 
 
