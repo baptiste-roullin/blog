@@ -72,6 +72,7 @@
     "rimraf": "^3.0.2",
     "simple-nunjucks-loader": "^3.1.0",
     "srcset": "^4.0.0",
+    "tailwindcss": "^2.2.7",
     "tailwindcss-textshadow": "^2.1.3",
     "ts-loader": "^9.2.5",
     "ts-node": "^10.1.0",
@@ -88,8 +89,7 @@
   "dependencies": {
     "alpinejs": "^3.2.2",
     "elasticlunr": "github:weixsong/elasticlunr.js#v0.9.6",
-    "photoswipe": "^4.1.3",
-    "tailwindcss": "^2.1.1"
+    "photoswipe": "^4.1.3"
   },
   "_moduleAliases": {
     "@src": "./src",

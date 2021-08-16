@@ -6,12 +6,15 @@ module.exports = {
 
 	},
 	mode: 'jit',
-	purge: [
-		'./src/**/*.html',
-		'./src/**/*.njk',
-		'./src/**/*.md',
-		'./src/_data/structure.js',
-	],
+	purge: {
+		safelist: ['sr-only'],
+		content: [
+			'./src/**/*.html',
+			'./src/**/*.njk',
+			'./src/**/*.md',
+			'./src/_data/structure.js',
+		]
+	},
 	theme: {
 		fontFamily: {
 			sans: [
