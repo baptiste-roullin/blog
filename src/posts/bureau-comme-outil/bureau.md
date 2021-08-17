@@ -99,6 +99,8 @@ Historiquement et presque poétiquement, on retourne aux origines de l'informati
 
 C'est aussi un passage de l'individuel au collectif : on ne travaille jamais seul et il ne faut pas se focaliser sur les interactions humain-machine mais sur des interactions humain-humain permises par des machines. Concevoir des [collecticiels](https://fr.wikipedia.org/wiki/Groupware), pas des logiciels.
 
+<video controls="" src="https://dynamicland.org/Videos/1-1-overview.mov"></video>
+
 ## L'espace (mental)
 
 Le meilleur angle à mon avis, c'est de considérer le bureau non pas sous l'angle des fonctions qu'il remplit mais de l'espace mental qu'il permet. j'entends par là que nos pensée sont facilitées et structurées par les outils que nous utilisons et qui forment autant de prothèses cognitives. Une arborescence
@@ -106,4 +108,12 @@ Le meilleur angle à mon avis, c'est de considérer le bureau non pas sous l'ang
 http://cognitivemedium.com/tat/index.html
 
 bureau complet. puisdivision du travail=> bureau plat sans tiroir, le travailleur n'est qu'un rouage, un mesager amène et emporte ses docs
+
+
+
+
+
+Tub desk, doté d'un rangement complet de fiches indexées. apogére du travailleur autonome avec sa documentation personnelle.
+
+puis division du travail=> bureau plat sans tiroir, encore moins tiroir fermé. le travailleur n'est qu'un rouage, un mesager amène et emporte ses docs
 

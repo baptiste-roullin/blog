@@ -19,6 +19,7 @@
 			"critique",
 			"données",
 			"droit",
+			"eleventy",
 			"features",
 			"futur",
 			"graphisme",
@@ -50,6 +51,21 @@
 			"ville",
 			"windows"
 		],
-		"frontMatter.taxonomy.categories": []
+		"frontMatter.taxonomy.categories": [],
+		"[markdown]": {
+			"editor.fontSize": 14,
+			"editor.lineHeight": 26,
+			"editor.wordWrap": "wordWrapColumn"
+		},
+		"frontMatter.content.folders": [
+			{
+				"title": "posts",
+				"fsPath": "/Users/baptiste/dev/blog/src/posts",
+				"paths": [
+					"/Users/baptiste/dev/blog/src/posts",
+					"\\Users\\baptiste\\dev\\blog\\src\\posts"
+				]
+			}
+		]
 	}
 }
