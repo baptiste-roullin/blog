@@ -3,8 +3,6 @@
 // TODO	Rendre paramétrable infos d'articles à afficher
 // TODO	Format biblio APA https://www.npmjs.com/package/citation-js
 
-
-
 import { MultiReadResponse, RawItem } from '../../../types/zotero'
 
 const njk = require('nunjucks')
@@ -21,7 +19,24 @@ Comme promise.all, effectue des requête en parallèle et renvoie une promesse d
 */
 const pMap = require('p-map');
 
+const { AssetCache } = require("@11ty/eleventy-cache-assets");
+
+
 async function zotero(collection: string, ...requestedTags: string[]) {
+
+
+	async function cache(cacheObject, duration: string, req) {
+		if (cacheObject.isCacheValid(duration)) {
+			console.log("cache valide");
+
+			return cacheObject.getCachedValue();
+		}
+		else {
+			return await cacheObject.save(await req(), "json");
+		}
+
+	}
+
 
 	async function addDataToItems(items) {
 
@@ -70,8 +85,13 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 
 		//On requête la liste complète des collections pour en extraire l'ID de la collection demandée.
 		if (collection) {
-			const colls = await lib.collections().get()
-			const collectionObject = colls.getData().filter(coll => coll.name === collection)[0]
+			let cacheObject = new AssetCache("collections", { duration: "7d" });
+			const collectionsCallback = async () => {
+				const res: MultiReadResponse = await lib.collections().get()
+				return res.getData()
+			}
+			const colls = await cache(cacheObject, "1d", collectionsCallback)
+			const collectionObject = colls.filter(coll => coll.name === collection)[0]
 			if (!collectionObject) {
 				throw Error('catégorie inconnue')
 			}

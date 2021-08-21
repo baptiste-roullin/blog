@@ -5,6 +5,7 @@
     "clean": "rimraf dist",
     "dev:webpack": "webpack --watch  --mode development",
     "dev:eleventy": "eleventy --serve",
+    "debug:eleventy": "DEBUG=EleventyCacheAssets* eleventy --serve",
     "dev:postcss": "postcss src/assets/css/main.css -o dist/assets/css/main.css --watch",
     "dev": "npm-run-all clean --parallel dev:* --print-label",
     "build:webpack": "webpack  --mode production",
@@ -14,6 +15,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy-cache-assets": "^2.3.0",
     "@11ty/eleventy-img": "^0.8.0",
     "@11ty/eleventy-navigation": "^0.1.6",
     "@11ty/eleventy-plugin-rss": "github:baptiste-roullin/eleventy-plugin-rss",
