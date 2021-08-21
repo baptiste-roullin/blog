@@ -15,6 +15,7 @@ hero:
   alt: ''
 ---
 
+
 On peut faire l'histoire du bureau sous plusieurs : arts décoratifs, organisation de [l'espace de travail](https://www.theguardian.com/books/2014/jul/03/cubed-secret-history-workplace-nikil-saval-review)
 
 Les premières interfaces graphiques pour le grand public ont inventé la métaphore du bureau, c'est-à-dire l'idée que l'utilisateur dispose d'une surface vierge sur laquelle il peut poser son travail. L'utilisateur se retrouvait ainsi face à des notions connues et concrètes (fichiers, dossiers, corbeille).
