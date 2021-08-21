@@ -17,7 +17,10 @@ Comme promise.all, effectue des requête en parallèle et renvoie une promesse d
 @param mapper — Function which is called for every item in input. Expected to return a Promise or value.
 @returns — A Promise that is fulfilled when all promises in input and ones returned from mapper are fulfilled, or rejects if any of the promises reject. The fulfilled value is an Array of the fulfilled values returned from mapper in input order.
 */
-const pMap = require('p-map');
+import pMap from 'p-map';
+
+const { AssetCache } = require("@11ty/eleventy-cache-assets");
+
 
 const { AssetCache } = require("@11ty/eleventy-cache-assets");
 
@@ -25,13 +28,17 @@ const { AssetCache } = require("@11ty/eleventy-cache-assets");
 async function zotero(collection: string, ...requestedTags: string[]) {
 
 
-	async function cache(cacheObject, duration: string, req) {
+	async function cache(key, duration: string, req) {
+		const cacheObject = new AssetCache(key, '.cache', { duration: duration }),
+
 		if (cacheObject.isCacheValid(duration)) {
 			console.log("cache valide");
 
 			return cacheObject.getCachedValue();
 		}
 		else {
+			console.log("création cache");
+
 			return await cacheObject.save(await req(), "json");
 		}
 
@@ -62,9 +69,50 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 
 	}
 
+
+
+
+	async function getOtherPages(totalCount) {
+		// on construit une liste de tous les offsets pour envoyer un batch de requêtes
+		// Par exemple s'il y a 1000 items, on va demander les items à partir du centième, puis du deux-centième, puis du trois-centième...
+		// Les items de 0 à 100 ont déjà été obtenus plus haut.
+		let offsetList: Number[] = []
+		let index = 0
+		while (index < totalCount) {
+			index = index + options.limit
+			offsetList.push(index)
+		}
+
+		const mapper = async (offset): Promise<MultiReadResponse> => {
+			return await lib.collections(requestedCollection).items().top().get(
+				{ start: offset, ...options })
+		}
+
+
+
+		var otherPagesItems = await pMap(offsetList, mapper, { concurrency: 20 })
+
+		// l'API renvoie un tableau d'objets. On extrait de chaque élement du tableau la clé "raw"
+		// L'API a une méthode .getData() qui fournit directement un tableau des items. On ne peut pas l'utiliser et concaténer ces tableaux
+		// Car la fonction addDataToItems() a besoin de certaines données présentes dans .raw.meta et pas via .getData()
+		const concatenedOtherItems = otherPagesItems.reduce((accumulator: RawItem[], obj) => {
+			return accumulator.concat(obj.raw)
+		}, [])
+
+		// ... et l'ajoute aux résultats du premier appel
+		return firstPageItems.raw.concat(concatenedOtherItems)
+	}
+
+
 	// Appel d'un fichier de conf global qui appele ensuite les infos de connexion à l'API d'un fichier .env.
 	const meta = require('../../_data/meta.js');
-	const options = { locale: 'fr-FR', itemType: '-note', sort: 'date', limit: 30, tag: requestedTags || '' }
+	const options = {
+		locale: 'fr-FR',
+		itemType: '-note',
+		sort: 'date',
+		limit: 5,
+		tag: requestedTags || ''
+	}
 	const lib = api(meta.zoteroAPIKey).library('user', meta.zoteroProfileID)
 
 
@@ -85,17 +133,19 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 
 		//On requête la liste complète des collections pour en extraire l'ID de la collection demandée.
 		if (collection) {
-			let cacheObject = new AssetCache("collections", { duration: "7d" });
 			const collectionsCallback = async () => {
 				const res: MultiReadResponse = await lib.collections().get()
 				return res.getData()
 			}
-			const colls = await cache(cacheObject, "1d", collectionsCallback)
+			const colls = await cache("collections", "1d", collectionsCallback)
+
 			const collectionObject = colls.filter(coll => coll.name === collection)[0]
 			if (!collectionObject) {
 				throw Error('catégorie inconnue')
 			}
 			var requestedCollection = collectionObject.key
+
+
 
 			// top() : pour avoir seulement les article et pas les documents enfants.
 			// get() : pour indiquer qu'on veut une requête GET et concrètement récupérer les données
@@ -119,30 +169,7 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 		if (totalCount) {
 			if (totalCount > options.limit) {
 
-				// on construit une liste de tous les offsets pour envoyer un batch de requêtes
-				// Par exemple s'il y a 1000 items, on va demander les items à partir du centième, puis du deux-centième, puis du trois-centième...
-				// Les items de 0 à 100 ont déjà été obtenus plus haut.
-				let offsetList: Number[] = []
-				let index = 0
-				while (index < totalCount) {
-					index = index + options.limit
-					offsetList.push(index)
-				}
-
-				const mapper = async (offset): Promise<MultiReadResponse> => {
-					return await lib.collections(requestedCollection).items().top().get(
-						{ start: offset, ...options })
-				}
-				var otherPagesItems = await pMap(offsetList, mapper, { concurrency: 20 })
-
-				// l'API renvoie un tableau d'objets. On extrait de chaque élement du tableau la clé "raw"
-				// L'API a une méthode .getData() qui fournit directement un tableau des items. On ne peut pas l'utiliser et concaténer ces tableaux
-				// Car la fonction addDataToItems() a besoin de certaines données présentes dans .raw.meta et pas via .getData()
-				const concatenedOtherItems = otherPagesItems.reduce((accumulator, obj) => {
-					return accumulator.concat(obj.raw)
-				}, [])
-				// ... et l'ajoute aux résultats du premier appel
-				items = firstPageItems.raw.concat(concatenedOtherItems)
+				items = await cache("allPages", "7d", (totalCount) => getOtherPages)
 
 			}
 			else {
