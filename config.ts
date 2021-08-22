@@ -8,6 +8,7 @@ const imagesResponsiver = require("eleventy-plugin-images-responsiver");
 require('dotenv').config()
 const embedEverything = require("eleventy-plugin-embed-everything");
 
+
 module.exports = function (config: Config): UserConfig {
 
 	/**
@@ -88,7 +89,12 @@ cf. postcss.config.js pour le CSS
 		config.addFilter(filterName, filters[filterName])
 	})
 
-	//config.addNunjucksAsyncFilter("searchIndex", require('./src/search/search-back'));
+	/*	const asyncFilters = require('./src/filters/asyncFilters.ts')
+		Object.keys(asyncFilters).forEach((filterName) => {
+			config.addNunjucksAsyncFilter(filterName, filters[filterName])
+		})
+	*/
+
 
 	/**
 	 * Transforms

@@ -4,6 +4,7 @@ const imageSize = require('image-size')
 module.exports = {
 
 	default: {
+		// TODO : Tester cache. Par exemple "truchet-interet legitime.jpg" est-il mis en cache une seule fois.
 		selector: '#content :not(picture)  > img[src]:not([srcset]):not([src$=".svg"]):not([src$=".gif"])',
 		minWidth: 360,
 		maxWidth: 1920,
