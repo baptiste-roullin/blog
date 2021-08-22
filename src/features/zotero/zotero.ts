@@ -22,14 +22,10 @@ import pMap from 'p-map';
 const { AssetCache } = require("@11ty/eleventy-cache-assets");
 
 
-const { AssetCache } = require("@11ty/eleventy-cache-assets");
-
-
 async function zotero(collection: string, ...requestedTags: string[]) {
 
-
 	async function cache(key, duration: string, req) {
-		const cacheObject = new AssetCache(key, '.cache', { duration: duration }),
+		const cacheObject = new AssetCache(key, '.cache', { duration: duration })
 
 		if (cacheObject.isCacheValid(duration)) {
 			console.log("cache valide");
@@ -41,9 +37,7 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 
 			return await cacheObject.save(await req(), "json");
 		}
-
 	}
-
 
 	async function addDataToItems(items) {
 
@@ -70,8 +64,6 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 	}
 
 
-
-
 	async function getOtherPages(totalCount) {
 		// on construit une liste de tous les offsets pour envoyer un batch de requêtes
 		// Par exemple s'il y a 1000 items, on va demander les items à partir du centième, puis du deux-centième, puis du trois-centième...
@@ -87,8 +79,6 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 			return await lib.collections(requestedCollection).items().top().get(
 				{ start: offset, ...options })
 		}
-
-
 
 		var otherPagesItems = await pMap(offsetList, mapper, { concurrency: 20 })
 
