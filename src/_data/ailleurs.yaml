@@ -1,9 +1,4 @@
 ---
-- name: Twitter
-  link: https://twitter.com/saint_loup
-  img:
-  description:
-
 - name: Mastodon
   link: https://mastodon.social/@Saint_loup
   img:
