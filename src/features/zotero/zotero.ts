@@ -10,7 +10,6 @@ const njk = require('nunjucks')
 // Documentation de l'API : https://www.zotero.org/support/dev/web_api/v3/basics
 // Client : 				https://github.com/tnajdek/zotero-api-client
 const api = require('zotero-api-client');
-
 /*
 Comme promise.all, effectue des requête en parallèle et renvoie une promesse de tableau de résultats. Avec en plus des options, notamment une pour limiter le nombre de requêtes parallèles
 @param input — Iterated over concurrently in the mapper function.
@@ -19,25 +18,10 @@ Comme promise.all, effectue des requête en parallèle et renvoie une promesse d
 */
 import pMap from 'p-map';
 
-const { AssetCache } = require("@11ty/eleventy-cache-assets");
 
+import cache from '../../utils/caching'
 
 async function zotero(collection: string, ...requestedTags: string[]) {
-
-	async function cache(key, duration: string, req) {
-		const cacheObject = new AssetCache(key, '.cache', { duration: duration })
-
-		if (cacheObject.isCacheValid(duration)) {
-			console.log("cache valide");
-
-			return cacheObject.getCachedValue();
-		}
-		else {
-			console.log("création cache");
-
-			return await cacheObject.save(await req(), "json");
-		}
-	}
 
 	async function addDataToItems(items) {
 
@@ -45,7 +29,11 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 			try {
 				item.data.parsedDate = item.meta.parsedDate
 				if (item.meta.numChildren) {
-					const attachments = await lib.items(item.key).children().get({ itemType: 'attachment' })
+					const attachments =
+
+						await cache("attachments", "7d", 'json', async function () {
+							return await lib.items(item.key).children().get({ itemType: 'attachment' })
+						})
 					const data = attachments.getData()
 
 					data.forEach(attachment => {
@@ -60,11 +48,9 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 			}
 		}
 		return await pMap(items, mapper, { concurrency: 20 })
-
 	}
 
-
-	async function getOtherPages(totalCount) {
+	async function getOtherPages(totalCount, options) {
 		// on construit une liste de tous les offsets pour envoyer un batch de requêtes
 		// Par exemple s'il y a 1000 items, on va demander les items à partir du centième, puis du deux-centième, puis du trois-centième...
 		// Les items de 0 à 100 ont déjà été obtenus plus haut.
@@ -79,7 +65,6 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 			return await lib.collections(requestedCollection).items().top().get(
 				{ start: offset, ...options })
 		}
-
 		var otherPagesItems = await pMap(offsetList, mapper, { concurrency: 20 })
 
 		// l'API renvoie un tableau d'objets. On extrait de chaque élement du tableau la clé "raw"
@@ -105,7 +90,6 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 	}
 	const lib = api(meta.zoteroAPIKey).library('user', meta.zoteroProfileID)
 
-
 	try {
 		if (!meta.zoteroAPIKey) {
 			console.log(new Error("La clé d'API pour Zotero est manquante"))
@@ -124,17 +108,21 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 		//On requête la liste complète des collections pour en extraire l'ID de la collection demandée.
 		if (collection) {
 			const collectionsCallback = async () => {
-				const res: MultiReadResponse = await lib.collections().get()
-				return res.getData()
+				try {
+					const res: MultiReadResponse = await lib.collections().get()
+					return res.getData()
+				} catch (error) {
+					throw error
+				}
+
 			}
-			const colls = await cache("collections", "1d", collectionsCallback)
+			const colls = await cache("collections", "1d", 'json', collectionsCallback)
 
 			const collectionObject = colls.filter(coll => coll.name === collection)[0]
 			if (!collectionObject) {
 				throw Error('catégorie inconnue')
 			}
 			var requestedCollection = collectionObject.key
-
 
 
 			// top() : pour avoir seulement les article et pas les documents enfants.
@@ -148,7 +136,6 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 		if (firstPageItems.raw.length === 0) {
 			console.log("Zotero : collection vide")
 		}
-
 		const totalCount = Number(firstPageItems.response.headers.get('total-results'))
 
 		// Pagination
@@ -158,9 +145,7 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 
 		if (totalCount) {
 			if (totalCount > options.limit) {
-
-				items = await cache("allPages", "7d", (totalCount) => getOtherPages)
-
+				items = await cache("allPages", "7d", "json", getOtherPages.bind(null, totalCount, options))
 			}
 			else {
 				items = firstPageItems.raw
@@ -171,7 +156,6 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 		// - une date parsée par Zotero, qu'on espère plus propre que le champ d'origine
 		// - un lien direct vers un PDF, tiré des pièces jointes.
 		const completedItems: RawItem[] = await addDataToItems(items)
-
 
 		// Ce templating étant à part d'Eleventy, on doit recréer un environnement Nunjucks
 
@@ -195,7 +179,5 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 	}
 
 }
-
-
 
 module.exports = zotero
