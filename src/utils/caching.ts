@@ -5,12 +5,12 @@ export default async function (key: string, duration: string, type: "json" | "bu
 	const cacheObject = new AssetCache(key, '.cache', { duration: duration, type: type })
 
 	if (cacheObject.isCacheValid(duration)) {
-		//	console.log("cache valide");
+		console.log("cache valide");
 
 		return cacheObject.getCachedValue();
 	}
 	else {
-		//	console.log("création cache");
+		console.log("création cache");
 		try {
 			return await req()
 		} catch (error) {
