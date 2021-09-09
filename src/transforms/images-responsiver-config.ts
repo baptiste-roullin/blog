@@ -1,6 +1,8 @@
 const transformPicture = require("@11ty/eleventy-img");
 const path = require("path");
 const imageSize = require('image-size')
+
+const meta = require('../_data/meta.js')
 module.exports = {
 
 	default: {
@@ -16,7 +18,7 @@ module.exports = {
 			src = src.
 				replace(
 					/\/assets\/images\//,
-					'/assets/generatedImages/'
+					meta.siteURL+'/assets/generatedImages/'
 				).
 				replace(
 					/^(.*)(\.[^\.]+)$/,

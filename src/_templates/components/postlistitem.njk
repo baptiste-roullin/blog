@@ -1,12 +1,12 @@
 <li class="flex my-12">
-	<img onclick="window.location.href='{{post.url}}'"  loading="lazy" alt="{{post.data.hero.alt}}"
+	<img onclick="window.location.href='{{meta.siteURL}}{{post.url}}'"  loading="lazy" alt="{{post.data.hero.alt}}"
 				src="{{  post.data.hero.image if post.data.hero.image else  'truchet-'+ post.data.page.fileSlug + '.png' }}"
 				>
 	<div>
 
 		{# Post Title  #}
 		<H2 class="mb-1 leading-6 lg:mb-3 cta-heading">
-			<a href="{{ post.url }}" class="block hover:underline">
+			<a href="{{meta.siteURL}}{{ post.url }}" class="block hover:underline">
 				{{ post.data.title }}
 			</a>
 		</H2>
