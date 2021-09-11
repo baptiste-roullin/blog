@@ -2,7 +2,6 @@
 title: "Quand le mépris se déguise en empathie"
 date: 2013-04-12
 tags:
-  - "features"
   - "utilisateurs"
 
 ---
