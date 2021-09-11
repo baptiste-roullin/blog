@@ -7,76 +7,94 @@ permalink: index.html
 postListItemStyle:
   complete: false
   showPagination: false
-
 ---
 
 
 
-{# TODO mettre en avant les features #}
-<div class="{{ structure.g_pageWidth }} ">
+<div class="{{ structure.g_pageWidth }} flex flex-col gap-4">
 
-    <section class="mb-16">
-      <h2>features</h2>
-{%- for post in collections.features | reverse |  slice(0, 3) -%}
-<li class="flex flex-col my-2 bg-white shadow-md">
-	<img width="400px" height="300px" onclick="window.location.href='{{post.url}}'"  loading="lazy" alt="{{post.data.hero.alt}}"
-				src="{{  post.data.hero.image if post.data.hero.image else  'truchet-'+ post.data.page.fileSlug + '.png' }}"
-				>
-	<div>
-		<h3 class="mb-1 leading-6 lg:mb-3 cta-heading">
-			<a href="{{ post.url }}" class="block hover:underline">
-				{{ post.data.title }}
-			</a>
-		</h3>
-	</div>
-</li>
+  <section class="">
+    <div class="flex flex-row items-end justify-between mb-2 text-white text-shadow-lg-dark">
+      <h2 class="">Bafouilles récentes</h2>
+      <a href="/blog" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
+    </div>
 
+            {% set postslist = collections.publishedPosts | reverse | slice(0, 3) %}
 
-
-
-{%- endfor -%}
+    <ul class="flex flex-col gap-2 card-container sm:gap-3 project-list">
+    {%- for post in postslist -%}
+      <li class=" card-base">
+        <img  class="object-cover w-full rounded-t-sm cursor-pointer h-52 " onclick="window.location.href='{{post.url}}'"  loading="lazy" alt="{{post.data.hero.alt}}"
+              src="{{  post.data.hero.image if post.data.hero.image else  'truchet-'+ post.data.page.fileSlug + '.png' }}"
+              >
+        <h3 class="leading-6 lg:mb-3 cta-card">
+          <a href="{{ post.url }}" class="block hover:underline hover:text-accent">
+            {{ post.data.title }}
+          </a>
+        </h3>
+      </li>
+  {%- endfor -%}
+    </ul>
   </section>
-    <section class="mb-16">
-      <h2>Bafouilles</h2>
-        <ul class="project-list">
-        {% set postslist = collections.publishedPosts | reverse | slice(0, 3) %}
-        {% include 'components/postslist.njk' %}
-</ul>
-      <a href="/blog" class="text-xl font-medium leading-7 text-accent2 lg:text-2xl hover:underline ">Voir tout <span aria-hidden="true">⤳</span></a>
-    </section>
-    <hr class="my-8">
 
-    <section class="mb-16">
-      <h2>Bidouilles</h2>
-      <ul class="project-list">
-        {% for project in projects | reverse | slice(0, 5) %}
-          <li class="my-8 list-none project">
-            <a class="cta-heading name " href="{{project.link}}">{{project.name}}</a>
-            {#<img class="picture" src="{{project.img}}"></img>#}
-            <p class="label description">{{project.description}}</p>
-          </li>
-        {% endfor %}
-      </ul>
-      <a href="/projets" class="text-xl font-medium leading-7 text-accent2 lg:text-2xl hover:underline">Voir tout <span aria-hidden="true">⤳</span></a>
-    </section>
-    <hr class="my-8">
+  <section class="">
+    <div class="flex flex-row items-end justify-between mb-2 text-white text-shadow-lg-dark">
+      <h2 >Bafouilles dont je suis content</h2>
+            <a href="/tags/features" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
+    </div>
+    <ul class="project-list card-container">
+    {%- for post in collections.features | reverse |  slice(0, 3) -%}
+      <li class="flex flex-col gap-2 card-base sm:gap-3">
+        <img  class="object-cover w-full rounded-t-sm cursor-pointer h-52 " onclick="window.location.href='{{post.url}}'"  loading="lazy" alt="{{post.data.hero.alt}}"
+              src="{{  post.data.hero.image if post.data.hero.image else  'truchet-'+ post.data.page.fileSlug + '.png' }}"
+              >
+        <h3 class="leading-6 lg:mb-3 cta-card">
+          <a href="{{ post.url }}" class="block hover:underline hover:text-accent">
+            {{ post.data.title }}
+          </a>
+        </h3>
+      </li>
+  {%- endfor -%}
+    </ul>
+  </section>
 
-    <section class="">
-      <h2>Ailleurs</h2>
-      <ul class="ailleurs-list " >
+
+  <section class="">
+    <div class="flex flex-row items-end justify-between mb-2 text-white text-shadow-lg-dark">
+      <h2 class="">Bidouilles</h2>
+            <a href="/projets" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
+    </div>
+
+    <ul class=" card-container project-list">
+      {% for project in projects | reverse | slice(0, 5) %}
+    <li class="flex flex-col gap-2 list-none project card-base sm:gap-3 ">
+       <img onclick="window.location.href='{{project.link}}'"  loading="lazy" class="object-cover m-auto cursor-pointer picture" src="{{project.img}}">
+        <h3 class="leading-6 cta-card">
+          <a href="{{ project.link }}" class="block hover:underline hover:text-accent">
+            {{ project.name }}
+          </a>
+        </h3>
+          <p class="label description">{{project.description}}</p>
+    </li>
+    {% endfor %}
+    </ul>
+  </section>
+
+  <div class="card-container">
+    <section class="card-base">
+    <h2 >Ailleurs</h2>
+      <ul class=" ailleurs-list" >
         {% for item in ailleurs %}
           <li class="my-8 list-none ailleurs">
-            <a class="cta-heading" href="{{item.link}}">{{item.name}}</a>
-            {#<img class="picture" src="{{item.img}}"></img>#}
+            <a class="cta-heading hover:underline hover:text-accent" href="{{item.link}}">{{item.name}}</a>
             <div class="hidden label description">{{item.description}}</div>
           </li>
         {% endfor %}
       </ul>
     </section>
-
-    <section>
-      <h2>Me contacter</h2>
-      <p class="my-8 text-lg"><code> baptiste [À] toutcequibouge [point] net</code></p>
+    <section class="card-base">
+      <h2 class="">Me contacter</h2>
+      <p class="my-8 prose prose-xl"><code> baptiste [À] toutcequibouge [point] net</code></p>
     </section>
-
   </div>
+</div>

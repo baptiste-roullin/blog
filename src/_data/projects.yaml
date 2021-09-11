@@ -1,7 +1,7 @@
 ---
 - name: Méta Axure
   link: /blog/2015/12/meta-axure-un-outil-de-maquettage-cree-avec-un-outil-de-maquettage/
-  img: assets/images/home/axure.png
+  img: assets/UI/axure.png
   description: Une expérimentation pour maquetter… dans une maquette.
 - name: Bot invisible
   link: 'https://github.com/baptiste-roullin/botinvisible'
@@ -25,15 +25,15 @@
   description: Recensement de tous ces cas où Google Search essaie de nous fournir la réponse sans que l'on ait à cliquer sur un résultat.
 - name: Data from clipboard
   link: "/blog/2019/12/un-plugin-sketch-pour-importer-du-contenu-depuis-le-presse-papier/"
-  img: assets/images/home/data-from-clipboard.png
+  img: assets/UI/cp.png
   description: Un plugin Sketch pour importer du contenu depuis le presse-papier.
 - name: Plugin de typographie pour Sketch
   link: /blog/2019/02/un-plugin-de-typographie-francaise-pour-sketch/
-  img: assets/images/home/typo.png
+  img: assets/UI/typo.png
   description: Répandez du bonheur et des espaces insécables autour de vous.
 - name: Timer
   link: /blog/2020/04/un-minuteur-en-pwa-pour-vos-ateliers/
-  img:
+  img: assets/UI/pwa.png
   description: Un minuteur en PWA pour vos ateliers.
 - name: Table basse
   link: /blog/2020/12/jai-fait-un-truc/

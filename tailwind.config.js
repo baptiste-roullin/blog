@@ -61,7 +61,7 @@ module.exports = {
 
 			},
 			spacing: {
-				'per-lg': '4%',
+				'per-lg': '2%',
 				'per': '2%',
 			},
 			fontSize: {
