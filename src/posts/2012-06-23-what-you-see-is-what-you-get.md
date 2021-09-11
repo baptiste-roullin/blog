@@ -1,9 +1,8 @@
 ---
-title: "What you see is what you get"
-date: 2012-06-23
+title: What you see is what you get
+date: 2012-06-23T00:00:00.000Z
 tags:
-  - "features"
-
+- systemes complexes
 ---
 
 J’aime [voir la musique](http://www.youtube.com/watch?v=rRgXUFnfKIY) (chaque couleur représente un instrument).

@@ -66,6 +66,12 @@
 					"\\Users\\baptiste\\dev\\blog\\src\\posts"
 				]
 			}
+		],
+		"frontMatter.content.pageFolders": [
+			{
+				"title": "posts",
+				"path": "[[workspace]]"
+			}
 		]
 	}
 }

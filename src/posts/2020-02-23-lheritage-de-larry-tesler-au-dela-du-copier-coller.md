@@ -5,6 +5,7 @@ tags:
   - "conception"
   - "histoire"
   - "utilisateurs"
+  - "features"
 hero:
   type: split  # options: carousel, graphic, video, split (text & image)
   image: "souris_btn.png"
