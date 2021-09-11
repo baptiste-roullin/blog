@@ -5,11 +5,11 @@
 	<div>
 
 		{# Post Title  #}
-		<H2 class="mb-1 leading-6 lg:mb-3 cta-heading">
+		<h2 class="mb-1 leading-6 lg:mb-3 cta-heading">
 			<a href="{{ post.url }}" class="block hover:underline">
 				{{ post.data.title }}
 			</a>
-		</H2>
+		</h2>
 		<time class=" label lg:my-2" datetime="{{ post.data.page.date | dateToFormat("yyyy-MM-dd") }}">
 			{{ post.data.page.date | dateToFormat("dd LLLL yyyy") }}
 		</time>

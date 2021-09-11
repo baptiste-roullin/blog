@@ -8,12 +8,12 @@
   class="template-{{layout}} text-gray-900 sans">
 		{#    <div hidden>{% svgsprite %}</div>
 #}
-		<div class=" min-h-screen mx-auto container-2xl">
+		<div class="min-h-screen mx-auto  container-2xl">
 			{% include "components/nav.njk" %}
 
 			<main
       id="content"
-       class=" mb-10 {{" " if layout == 'post'}} sm:px-per-lg px-per  relative flex-grow block max-w-full transition-all duration-300 ease-out " id="content">
+       class=" mb-10 {{" " if layout == 'post'}} {{'bg-dark' if page.fileSlug == 'home'}} sm:px-per-lg px-per  relative flex-grow block max-w-full transition-all duration-300 ease-out " id="content">
 				{{ content | safe }}
 			</main>
 
@@ -31,8 +31,6 @@
 			</style>
 			<script  src="/assets/scripts/{{hashes_js['richPicture.js']}}" defer></script>
 		{% endif %}
-
-
 
 	</body>
 </html>

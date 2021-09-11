@@ -3,8 +3,9 @@ layout: base
 tags: pages
 ---
 
-<div class="max-w-5xl mx-auto my-12 page">
-  <h1 class="text-gray-700">{{ seo.title or title }}</h1>
+<div class="max-w-5xl py-12 mx-auto page     {{'text-white text-shadow-lg-dark' if page.fileSlug == 'home'}}">
+  <h1 class="text-gray-700 {{' text-shadow-lg-dark' if page.fileSlug == 'home'}}">{{ seo.title or title }}
+  </h1>
   <hr class="my-8">
 
   {% if seo.description %}

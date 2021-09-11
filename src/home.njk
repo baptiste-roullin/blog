@@ -11,28 +11,44 @@ postListItemStyle:
 ---
 
 
+
 {# TODO mettre en avant les features #}
 <div class="{{ structure.g_pageWidth }} ">
 
+    <section class="mb-16">
+      <h2>features</h2>
+{%- for post in collections.features | reverse |  slice(0, 3) -%}
+<li class="flex flex-col my-2 bg-white shadow-md">
+	<img width="400px" height="300px" onclick="window.location.href='{{post.url}}'"  loading="lazy" alt="{{post.data.hero.alt}}"
+				src="{{  post.data.hero.image if post.data.hero.image else  'truchet-'+ post.data.page.fileSlug + '.png' }}"
+				>
+	<div>
+		<h3 class="mb-1 leading-6 lg:mb-3 cta-heading">
+			<a href="{{ post.url }}" class="block hover:underline">
+				{{ post.data.title }}
+			</a>
+		</h3>
+	</div>
+</li>
 
-  {% if seo.description %}
-    <div class="p-2 {{ colors.borderCustom.borders or colors.borderDefault.borders }} {{ colors.borderCustom.color or colors.borderDefault.color }}">
-      {{ seo.description }}
-    {% endif %}
 
+
+
+{%- endfor -%}
+  </section>
     <section class="mb-16">
       <h2>Bafouilles</h2>
-      {% set postslist = collections.publishedPosts | reverse | slice(0, 3) %}
-
-      {% include 'components/postslist.njk' %}
-
+        <ul class="project-list">
+        {% set postslist = collections.publishedPosts | reverse | slice(0, 3) %}
+        {% include 'components/postslist.njk' %}
+</ul>
       <a href="/blog" class="text-xl font-medium leading-7 text-accent2 lg:text-2xl hover:underline ">Voir tout <span aria-hidden="true">⤳</span></a>
     </section>
     <hr class="my-8">
 
     <section class="mb-16">
       <h2>Bidouilles</h2>
-      <ul class="project-list " >
+      <ul class="project-list">
         {% for project in projects | reverse | slice(0, 5) %}
           <li class="my-8 list-none project">
             <a class="cta-heading name " href="{{project.link}}">{{project.name}}</a>
@@ -56,6 +72,11 @@ postListItemStyle:
           </li>
         {% endfor %}
       </ul>
+    </section>
+
+    <section>
+      <h2>Me contacter</h2>
+      <p class="my-8 text-lg"><code> baptiste [À] toutcequibouge [point] net</code></p>
     </section>
 
   </div>

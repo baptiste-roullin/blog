@@ -190,7 +190,7 @@ cf. postcss.config.js pour le CSS
 		return collec
 	});
 
-
+	//TODO remplacer par map pour stocker un compteur d'articles par tag.
 	config.addCollection('tagList', function (collection: Collection): any {
 		let tagSet = new Set()
 
