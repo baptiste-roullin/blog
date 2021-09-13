@@ -13,7 +13,7 @@
 
 			<main
       id="content"
-       class=" pb-10 {{" " if layout == 'post'}} {{'bg-dark' if page.fileSlug == 'home'}} sm:px-per-lg px-per  relative flex-grow block max-w-full transition-all duration-300 ease-out " id="content">
+       class="  {{'bg-dark' if page.fileSlug == 'home'}} sm:px-per-lg px-per  relative flex-grow block max-w-full transition-all duration-300 ease-out " id="content">
 				{{ content | safe }}
 			</main>
 
@@ -26,10 +26,17 @@
 			{% include "src/assets/css/photoswipe/photoswipe.css" %}
 			{% include "src/assets/css/photoswipe/skin.css" %}
 			{% endset %}
+
 			<style>
 				{{css | minify('css') | safe}}
 			</style>
 			<script  src="/assets/scripts/{{hashes_js['richPicture.js']}}" defer></script>
+		{% endif %}
+		{% if "post" in tags %}
+			{{tags | log}}
+
+			<script  src="/assets/scripts/{{hashes_js['arrowWidth.js']}}" defer></script>
+
 		{% endif %}
 
 	</body>
