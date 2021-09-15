@@ -51,6 +51,9 @@ module.exports = {
 
 				'full': '100vh',
 			},
+			maxWidth: {
+				'8xl': '90rem'
+			},
 			minWidth: {
 
 				'1/4': '25%',
@@ -61,7 +64,7 @@ module.exports = {
 
 			},
 			spacing: {
-				'per-lg': '2%',
+				'per-lg': '4%',
 				'per': '2%',
 			},
 			fontSize: {
