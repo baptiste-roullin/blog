@@ -220,7 +220,7 @@ cf. postcss.config.js pour le CSS
 			}
 		})
 
-		return [...tagSet]
+		return [...tagSet].sort()
 	})
 
 	/*	config.addCollection("catList", function (collectionApi) {
