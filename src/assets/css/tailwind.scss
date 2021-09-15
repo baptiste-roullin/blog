@@ -105,7 +105,7 @@ body #content h2 {
 	.card-container {
 		display:grid;
 		gap: 1em;
-		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
 
 	}
 
@@ -117,22 +117,22 @@ body #content h2 {
 		width: var(--pagination-length-left);
 		height: 2.5px;
 		background: white;
-		bottom: 6px;
-		left: 0;
+		bottom: 8px;
+		left: 2px;
 	}
 
 	.pagination-right a:after {
-		right: 0;
+		right: 2px;
 		content: "";
 		position: absolute;
 		width: var(--pagination-length-right);
-		height: 2.5px;
+		height: 2px;
 		background: white;
-		bottom: 6px;
+		bottom: 8px;
 	}
 
 	.label {
-		@apply text-base my-2 text-gray-700
+		@apply text-xl my-2 text-gray-700
 	}
 	.cta {
    		@apply block px-8 py-4 m-auto font-medium no-underline bg-gray-200 rounded-full shadow-md max-w-max focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75 hover:text-gray-800 hover:bg-gray-300 ;
