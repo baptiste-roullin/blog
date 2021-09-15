@@ -1,7 +1,6 @@
 ---
 layout: base
 ---
-{# https://github.com/bezoerb/text-metrics #}
 <div class="template-post-main">
 	{% if hero.image %}
 		{% set heroComponent = ['components/hero-', hero.type, '.njk'] %}
@@ -38,7 +37,7 @@ layout: base
 					<a class="text-white hover:underline text-shadow-lg-dark hover:text-accent2" href="{{ previousPost.url | url }}">
 						{{ previousPost.data.title }}
 					</a>
-					<img class="self-start w-3 h-full rotate-180" src="/assets/UI/pointe.svg">
+					<img style="width:14px" class="self-start h-full rotate-180" src="/assets/UI/pointe.svg">
 				{% endif %}
 			</div>
 			<div class="relative flex flex-col gap-3 text-right sm:gap-4 lg:w-1/2 sm:py-0 pagination-right">
@@ -46,7 +45,7 @@ layout: base
 					<a class="h-full text-white hover:underline text-shadow-lg-dark hover:text-accent2" href="{{ nextPost.url | url}}">
 						{{ nextPost.data.title }}
 					</a>
-					<img class="self-end w-3" src="/assets/UI/pointe.svg">
+					<img style="width:14px" class="self-end " src="/assets/UI/pointe.svg">
 				{% endif %}
 			</div>
 		</div>
