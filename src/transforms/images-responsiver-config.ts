@@ -17,7 +17,7 @@ module.exports = {
 			}
 			src = src.
 				replace(
-					/\/assets\/images\//,
+					/\/assets\/*.\//,
 					'/assets/generatedImages/'
 				).
 				replace(
