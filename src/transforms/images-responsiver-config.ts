@@ -1,12 +1,11 @@
 const transformPicture = require("@11ty/eleventy-img");
 const path = require("path");
 const imageSize = require('image-size')
-import cache from '../utils/caching'
-
 module.exports = {
+
 	default: {
 		// TODO : Tester cache. Par exemple "truchet-interet legitime.jpg" est-il mis en cache une seule fois.
-		selector: '.template-post :not(picture)  > img[src]:not([srcset]):not([src$=".svg"]):not([src$=".gif"])',
+		selector: '#content :not(picture)  > img[src]:not([srcset]):not([src$=".svg"]):not([src$=".gif"])',
 		minWidth: 360,
 		maxWidth: 1920,
 		fallbackWidth: 750,
@@ -25,14 +24,7 @@ module.exports = {
 					'$1-' + width + '.jpg')
 			return src
 		},
-		runBefore: async (image) => {
-
-			async function cachingImages(intermediaryPath: string, options: {}) {
-
-
-				return await transformPicture(decodeURI(intermediaryPath), options);
-			}
-
+		runBefore: async (image, document) => {
 			let originalPath = image.getAttribute('src')
 			const intermediaryPath = "src/assets/imagesToProcess/" + path.basename(originalPath)
 
@@ -57,15 +49,14 @@ module.exports = {
 					}
 				}
 
-				/*		const exists = pr	omisify(require("fs").exists);
+				/*		const exists = promisify(require("fs").exists);
 						if (!(await exists(intermediaryPath))) {
 							console.log(intermediaryPath + 'debug : existe pas')
 						}*/
-				//await transformPicture(decodeURI(intermediaryPath), options);
-				//@ts-ignore
-				await cache("cachingImages", "7d", "buffer", cachingImages.bind(null, intermediaryPath, options))
+				await transformPicture(decodeURI(intermediaryPath), options);
+
 				image.dataset.responsiver = image.className;
-				//image.dataset*.md.responsiveruRL = metadata.jpg.url;
+				//image.dataset.responsiveruRL = metadata.jpg.url;
 				image.dataset.size = image.className;
 
 			}
@@ -80,8 +71,10 @@ module.exports = {
 				const link = document.createElement("a");
 				link.setAttribute("href", image.getAttribute('src'));
 				link.appendChild(image.cloneNode(true));
+
 				image.replaceWith(link);
 			}
+
 		},
 		steps: 5,
 		classes: ['img-default'],
