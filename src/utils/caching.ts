@@ -10,7 +10,7 @@ export default async function (key: string, duration: string, type: "json" | "bu
 		return cacheObject.getCachedValue();
 	}
 	else {
-		console.log("création cache");
+		//console.log("création cache");
 		try {
 			return await req()
 		} catch (error) {

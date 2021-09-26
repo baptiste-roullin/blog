@@ -19,11 +19,11 @@ postListItemStyle:
       <a href="/blog" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
     </div>
 
-            {% set postslist = collections.publishedPosts | reverse | slice(0, 3) %}
+            {% set postslist = collections.publishedPosts | reverse | slice(0, 4) %}
 
     <ul class="flex flex-col gap-2 card-container sm:gap-3 project-list">
     {%- for post in postslist -%}
-      <li class=" card-base">
+      <li class="p-0 card-base">
         <img  class="object-cover w-full rounded-t-sm cursor-pointer h-52 " onclick="window.location.href='{{post.url}}'"  loading="lazy" alt="{{post.data.hero.alt}}"
               src="{{  post.data.hero.image if post.data.hero.image else  'truchet-'+ post.data.page.fileSlug + '.png' }}"
               >
@@ -43,8 +43,8 @@ postListItemStyle:
             <a href="/tags/features" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
     </div>
     <ul class="project-list card-container">
-    {%- for post in collections.features | reverse |  slice(0, 3) -%}
-      <li class="flex flex-col gap-2 card-base sm:gap-3">
+    {%- for post in collections.features | reverse |  slice(0, 4) -%}
+      <li class="p-0 card-base ">
         <img  class="object-cover w-full rounded-t-sm cursor-pointer h-52 " onclick="window.location.href='{{post.url}}'"  loading="lazy" alt="{{post.data.hero.alt}}"
               src="{{  post.data.hero.image if post.data.hero.image else  'truchet-'+ post.data.page.fileSlug + '.png' }}"
               >
@@ -83,7 +83,7 @@ postListItemStyle:
   <div class="card-container">
     <section class="card-base">
     <h2 >Ailleurs</h2>
-      <ul class=" ailleurs-list" >
+      <ul class="flex gap-12 ailleurs-list" >
         {% for item in ailleurs %}
           <li class="my-8 list-none ailleurs">
             <a class="cta-heading hover:underline hover:text-accent" href="{{item.link}}">{{item.name}}</a>
