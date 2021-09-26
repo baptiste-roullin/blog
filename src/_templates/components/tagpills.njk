@@ -1,10 +1,14 @@
 <div class="flex flex-wrap items-center pt-6 tagpills md:pt-2">
   {% for tag in tags %}
+    {% set tagValue = tag[0] %}
+    {% set tagCount = tag[1] %}
     {# Knock out the first iteration of the loop to drop the default "post" tag generated in `posts/posts.json`. #}
     {% if not loop.first %}
       <div class="inline-block my-3 sm:my-2 min-w-1/2 sm:min-w-min">
-        <a title="mot clé {{ tag }}" aria-label="mot clé {{ tag }}" href="{{ '/tags/' | url}}{{tag | slug  }}/"
-        class="font-medium label text-accent2">{{ tag[0]|upper}}{{tag.slice(1)}}</a>
+        <a title="mot clé {{ tagValue }}" aria-label="mot clé {{ tagValue }}" href="{{ '/tags/' | url}}{{tagValue | slug  }}/"
+        class="label text-accent2">{{ tagValue[0]|upper}}{{tagValue.slice(1)}}
+        </a>
+        <span class="">❨{{tagCount}}❩</span>
         {% if not loop.last %}
           <span class="hidden mx-4 text-xl font-light text-gray-500 sm:inline " >~</span>
         {% endif %}

@@ -190,15 +190,14 @@ cf. postcss.config.js pour le CSS
 		return collec
 	});
 
-	//TODO remplacer par map pour stocker un compteur d'articles par tag.
 	config.addCollection('tagList', function (collection: Collection): any {
-		let tagSet = new Set()
+		let tagDictionary: Map<string, number> = new Map()
 
 		collection.getFilteredByTag("post").filter(publishedPosts).forEach(function (item) {
 			//@ts-ignore
 			if ('tags' in item.data) {
 				//@ts-ignore
-				let tags = item.data.tags
+				let tags: string[] = item.data.tags
 
 				tags = tags.filter(function (item) {
 					switch (item) {
@@ -215,12 +214,18 @@ cf. postcss.config.js pour le CSS
 				})
 
 				for (const tag of tags) {
-					tagSet.add(tag)
+					if (tagDictionary.has(tag)) {
+						const oldValue = tagDictionary.get(tag)!
+						tagDictionary.set(tag, oldValue + 1)
+					}
+					else {
+						tagDictionary.set(tag, 1)
+					}
 				}
 			}
 		})
 
-		return [...tagSet].sort()
+		return new Map([...tagDictionary.entries()].filter(el => el[1] > 1).sort((a, b) => b[1] - a[1]))
 	})
 
 	/*	config.addCollection("catList", function (collectionApi) {
