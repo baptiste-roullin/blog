@@ -32,12 +32,15 @@
 			</style>
 			<script  src="/assets/scripts/{{hashes_js['richPicture.js']}}" defer></script>
 		{% endif %}
-		{% if "post" in tags %}
-			{{tags | log}}
 
-			<script  src="/assets/scripts/{{hashes_js['arrowWidth.js']}}" defer></script>
+		{% for tag in tags %}
 
-		{% endif %}
+			{% if tag === "post" %}
+
+				<script  src="/assets/scripts/{{hashes_js['arrowWidth.js']}}" defer></script>
+
+			{% endif %}
+		{% endfor %}
 
 	</body>
 </html>
