@@ -1,5 +1,5 @@
 const transformPicture = require("@11ty/eleventy-img");
-const path = require("path");
+import path from "path";
 const imageSize = require('image-size')
 module.exports = {
 

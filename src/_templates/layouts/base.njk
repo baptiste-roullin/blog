@@ -13,10 +13,9 @@
 
 			<main
       id="content"
-       class="  {{'bg-dark' if page.fileSlug == 'home'}} sm:px-per-lg px-per  relative flex-grow block max-w-full transition-all duration-300 ease-out " id="content">
+       class="  {{'bg-dark-lighter' if page.fileSlug == 'home'}} sm:px-per-lg px-per  relative flex-grow block max-w-full transition-all duration-300 ease-out " id="content">
 				{{ content | safe }}
 			</main>
-
 			{% include "components/footer.njk" %}
 		</div>
 		{% if richPicture === true %}
@@ -32,15 +31,16 @@
 			</style>
 			<script  src="/assets/scripts/{{hashes_js['richPicture.js']}}" defer></script>
 		{% endif %}
+		{% if "post" in tags %}
 
-		{% for tag in tags %}
+			{% for tag in tags %}
 
-			{% if tag === "post" %}
+				{% if tag === "post" %}
 
-				<script  src="/assets/scripts/{{hashes_js['arrowWidth.js']}}" defer></script>
+					<script  src="/assets/scripts/{{hashes_js['arrowWidth.js']}}" defer></script>
 
-			{% endif %}
-		{% endfor %}
+				{% endif %}
+			{% endfor %}
 
-	</body>
-</html>
+		</body>
+	</html>

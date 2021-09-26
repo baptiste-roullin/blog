@@ -30,7 +30,7 @@ const shell = require("any-shell-escape");
 const exec = promisify(require("child_process").exec);
 const pathToFfmpeg = require("ffmpeg-static");
 const { parseHTML } = require('linkedom');
-const path = require("path");
+import path  from "path";
 
 
 async function convert(filename, outPath) {
