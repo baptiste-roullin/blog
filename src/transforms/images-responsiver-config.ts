@@ -32,6 +32,7 @@ module.exports = {
 				const imageDimensions = imageSize(intermediaryPath);
 				image.setAttribute('width', imageDimensions.width);
 				image.setAttribute('height', imageDimensions.height);
+
 				const options = {
 					sharpWebpOptions: {
 						quality: 90,
@@ -71,7 +72,8 @@ module.exports = {
 				const link = document.createElement("a");
 				link.setAttribute("href", image.getAttribute('src'));
 				link.appendChild(image.cloneNode(true));
-
+				link.setAttribute('data-pswp-width', image.width);
+				link.setAttribute('data-pswp-height', image.height);
 				image.replaceWith(link);
 			}
 

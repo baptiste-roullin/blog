@@ -19,11 +19,10 @@
 			{% include "components/footer.njk" %}
 		</div>
 		{% if richPicture === true %}
-			{% include "../components/rich-picture.njk" %}
 
 			{% set css %}
-			{% include "src/assets/css/photoswipe/photoswipe.css" %}
-			{% include "src/assets/css/photoswipe/skin.css" %}
+			{% include "../../../node_modules/photoswipe/dist/photoswipe.css" %}
+
 			{% endset %}
 
 			<style>
