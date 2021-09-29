@@ -1,16 +1,11 @@
 ---
 layout: base
 ---
-
 <div class="template-post-main">
 	{% if hero.image %}
-
 		{% set heroComponent = ['components/hero-', hero.type, '.njk'] %}
-
 		{% include heroComponent | join %}
-
 	{% else %}
-
 	{% endif %}
 
 	<article class="post-main  my-20 prose lg:prose-xl prose-lg article {{ structure.g_proseWidth }}">
@@ -27,29 +22,30 @@ layout: base
 				</div>
 			</header>
 		{% endif %}
-
 		<div class="my-16 post-main">{{ content | safe }}</div>
-
 	</article>
 
-	<footer class="mt-16 mb-6 text-xl md:text-2xl lg:3xl ">
+	{% set nextPost = collections.publishedPosts | getPreviousCollectionItem(page) %}
+	{% set previousPost = collections.publishedPosts | getNextCollectionItem(page) %}
 
+	<footer class="relative mt-16 text-xl d-mb-10 md:text-2xl lg:3xl ">
+		<div class="h-full decor-dark bg-dark-lighter"></div>
 		{# ===== Previous and Next =====  #}
-		<div class="border-t mt-4 pt-4 {{ colors.borderCustom.color or colors.borderDefault.color }} md:flex-row md:flex md:justify-between">
-			{% set nextPost = collections.publishedPosts | getPreviousCollectionItem(page) %}
-			{% set previousPost = collections.publishedPosts | getNextCollectionItem(page) %}
-			<div class="py-2 sm:py-0">
+		<div class="relative flex flex-col px-2 py-8 post-pagination lg:py-12 lg:px-4 md:flex-row gap-7 md:justify-between">
+			<div class="relative flex flex-col gap-3 sm:gap-4 lg:w-1/2 sm:py-0 pagination-left">
 				{% if previousPost %}
-					<a class=" hover:underline text-accent2" href="{{ previousPost.url | url }}">
-          ← {{ previousPost.data.title }}
+					<a class="text-white hover:underline text-shadow-lg-dark hover:text-accent2" href="{{ previousPost.url | url }}">
+						{{ previousPost.data.title }}
 					</a>
+					<img style="width:14px" class="self-start h-full rotate-180" src="/assets/UI/pointe.svg">
 				{% endif %}
 			</div>
-			<div class="py-2 text-right sm:py-0">
+			<div class="relative flex flex-col gap-3 text-right sm:gap-4 lg:w-1/2 sm:py-0 pagination-right">
 				{% if nextPost %}
-					<a class="hover:underline text-accent2" href="{{ nextPost.url | url}}">
-						{{ nextPost.data.title }} →
-          </a>
+					<a class="h-full text-white hover:underline text-shadow-lg-dark hover:text-accent2" href="{{ nextPost.url | url}}">
+						{{ nextPost.data.title }}
+					</a>
+					<img style="width:14px" class="self-end " src="/assets/UI/pointe.svg">
 				{% endif %}
 			</div>
 		</div>

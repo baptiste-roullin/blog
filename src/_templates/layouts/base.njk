@@ -5,18 +5,17 @@
 
 	</head>
 	<body
-  class="template-{{layout}} text-gray-900 sans">
+  class="template-{{layout}} page-{{page.fileSlug}} text-gray-900 sans">
 		{#    <div hidden>{% svgsprite %}</div>
 #}
-		<div class=" min-h-screen mx-auto container-2xl">
+		<div class="min-h-screen mx-auto container-2xl">
 			{% include "components/nav.njk" %}
 
 			<main
       id="content"
-       class=" mb-10 {{" " if layout == 'post'}} sm:px-per-lg px-per  relative flex-grow block max-w-full transition-all duration-300 ease-out " id="content">
+       class="relative flex-grow block max-w-full transition-all duration-300 ease-out  sm:px-per-lg px-per" id="content">
 				{{ content | safe }}
 			</main>
-
 			{% include "components/footer.njk" %}
 		</div>
 		{% if richPicture === true %}
@@ -26,13 +25,18 @@
 			{% include "src/assets/css/photoswipe/photoswipe.css" %}
 			{% include "src/assets/css/photoswipe/skin.css" %}
 			{% endset %}
+
 			<style>
 				{{css | minify('css') | safe}}
 			</style>
 			<script  src="/assets/scripts/{{hashes_js['richPicture.js']}}" defer></script>
 		{% endif %}
 
-
+		{% for tag in tags %}
+			{% if tag === "post" %}
+				<script  src="/assets/scripts/{{hashes_js['arrowWidth.js']}}" defer></script>
+			{% endif %}
+		{% endfor %}
 
 	</body>
 </html>

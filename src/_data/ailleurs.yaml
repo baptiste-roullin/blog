@@ -1,4 +1,9 @@
 ---
+- name: Mastodon
+  link: https://mastodon.social/@Saint_loup
+  img:
+  description:
+
 - name: Github
   link: https://github.com/baptiste-roullin
   img:

@@ -8,6 +8,7 @@ const imagesResponsiver = require("eleventy-plugin-images-responsiver");
 require('dotenv').config()
 const embedEverything = require("eleventy-plugin-embed-everything");
 
+
 module.exports = function (config: Config): UserConfig {
 
 	/**
@@ -73,7 +74,7 @@ cf. postcss.config.js pour le CSS
 
 	if (process.env.NODE_ENV === "production") {
 		config.addPlugin(imagesResponsiver, require('./src/transforms/images-responsiver-config.ts'))
-		config.addPlugin(require('./src/transforms/gif-converter.js'))
+		config.addPlugin(require('./src/transforms/gif-converter.ts'))
 	}
 	config.addPlugin(pluginRss)
 
@@ -88,7 +89,12 @@ cf. postcss.config.js pour le CSS
 		config.addFilter(filterName, filters[filterName])
 	})
 
-	//config.addNunjucksAsyncFilter("searchIndex", require('./src/search/search-back'));
+	/*	const asyncFilters = require('./src/filters/asyncFilters.ts')
+		Object.keys(asyncFilters).forEach((filterName) => {
+			config.addNunjucksAsyncFilter(filterName, filters[filterName])
+		})
+	*/
+
 
 	/**
 	 * Transforms
@@ -184,15 +190,14 @@ cf. postcss.config.js pour le CSS
 		return collec
 	});
 
-
 	config.addCollection('tagList', function (collection: Collection): any {
-		let tagSet = new Set()
+		let tagDictionary: Map<string, number> = new Map()
 
 		collection.getFilteredByTag("post").filter(publishedPosts).forEach(function (item) {
 			//@ts-ignore
 			if ('tags' in item.data) {
 				//@ts-ignore
-				let tags = item.data.tags
+				let tags: string[] = item.data.tags
 
 				tags = tags.filter(function (item) {
 					switch (item) {
@@ -209,12 +214,18 @@ cf. postcss.config.js pour le CSS
 				})
 
 				for (const tag of tags) {
-					tagSet.add(tag)
+					if (tagDictionary.has(tag)) {
+						const oldValue = tagDictionary.get(tag)!
+						tagDictionary.set(tag, oldValue + 1)
+					}
+					else {
+						tagDictionary.set(tag, 1)
+					}
 				}
 			}
 		})
 
-		return [...tagSet]
+		return new Map([...tagDictionary.entries()].filter(el => el[1] > 1).sort((a, b) => b[1] - a[1]))
 	})
 
 	/*	config.addCollection("catList", function (collectionApi) {

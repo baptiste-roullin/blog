@@ -5,6 +5,7 @@
     "clean": "rimraf dist",
     "dev:webpack": "webpack --watch  --mode development",
     "dev:eleventy": "eleventy --serve",
+    "debug:eleventy": "DEBUG=EleventyCacheAssets* eleventy",
     "dev:postcss": "postcss src/assets/css/main.css -o dist/assets/css/main.css --watch",
     "dev": "npm-run-all clean --parallel dev:* --print-label",
     "build:webpack": "webpack  --mode production",
@@ -14,6 +15,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy-cache-assets": "^2.3.0",
     "@11ty/eleventy-img": "^0.8.0",
     "@11ty/eleventy-navigation": "^0.1.6",
     "@11ty/eleventy-plugin-rss": "github:baptiste-roullin/eleventy-plugin-rss",
@@ -52,10 +54,10 @@
     "markdown-it": "^11.0.1",
     "markdown-it-anchor": "^8.1.2",
     "markdown-it-attrs": "^4.0.0",
-    "markdown-it-blockquote-cite": "github:baptiste-roullin/markdown-it-blockquote-cite#master",
+    "markdown-it-blockquote-cite": "github:baptiste-roullin/markdown-it-blockquote-cite",
     "markdown-it-container": "^3.0.0",
     "markdown-it-footnote": "^3.0.2",
-    "markdown-it-image-figures": "^1.0.1",
+    "markdown-it-image-figures": "^2.0.0",
     "module-alias": "^2.2.2",
     "npm-run-all": "^4.1.5",
     "p-map": "^4.0.0",
@@ -88,7 +90,8 @@
   "dependencies": {
     "alpinejs": "^3.2.2",
     "elasticlunr": "github:weixsong/elasticlunr.js#v0.9.6",
-    "photoswipe": "^4.1.3"
+    "photoswipe": "github:dimsemenov/photoswipe#v5-beta",
+    "text-metrics": "^2.0.9"
   },
   "_moduleAliases": {
     "@src": "./src",

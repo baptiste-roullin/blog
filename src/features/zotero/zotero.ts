@@ -3,8 +3,6 @@
 // TODO	Rendre paramétrable infos d'articles à afficher
 // TODO	Format biblio APA https://www.npmjs.com/package/citation-js
 
-
-
 import { MultiReadResponse, RawItem } from '../../../types/zotero'
 
 const njk = require('nunjucks')
@@ -12,14 +10,16 @@ const njk = require('nunjucks')
 // Documentation de l'API : https://www.zotero.org/support/dev/web_api/v3/basics
 // Client : 				https://github.com/tnajdek/zotero-api-client
 const api = require('zotero-api-client');
-
 /*
 Comme promise.all, effectue des requête en parallèle et renvoie une promesse de tableau de résultats. Avec en plus des options, notamment une pour limiter le nombre de requêtes parallèles
 @param input — Iterated over concurrently in the mapper function.
 @param mapper — Function which is called for every item in input. Expected to return a Promise or value.
 @returns — A Promise that is fulfilled when all promises in input and ones returned from mapper are fulfilled, or rejects if any of the promises reject. The fulfilled value is an Array of the fulfilled values returned from mapper in input order.
 */
-const pMap = require('p-map');
+import pMap from 'p-map';
+
+
+import cache from '../../utils/caching'
 
 async function zotero(collection: string, ...requestedTags: string[]) {
 
@@ -29,7 +29,11 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 			try {
 				item.data.parsedDate = item.meta.parsedDate
 				if (item.meta.numChildren) {
-					const attachments = await lib.items(item.key).children().get({ itemType: 'attachment' })
+					const attachments =
+
+						await cache("attachments", "7d", 'json', async function () {
+							return await lib.items(item.key).children().get({ itemType: 'attachment' })
+						})
 					const data = attachments.getData()
 
 					data.forEach(attachment => {
@@ -44,14 +48,47 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 			}
 		}
 		return await pMap(items, mapper, { concurrency: 20 })
-
 	}
+
+	async function getOtherPages(totalCount, options) {
+		// on construit une liste de tous les offsets pour envoyer un batch de requêtes
+		// Par exemple s'il y a 1000 items, on va demander les items à partir du centième, puis du deux-centième, puis du trois-centième...
+		// Les items de 0 à 100 ont déjà été obtenus plus haut.
+		let offsetList: Number[] = []
+		let index = 0
+		while (index < totalCount) {
+			index = index + options.limit
+			offsetList.push(index)
+		}
+
+		const mapper = async (offset): Promise<MultiReadResponse> => {
+			return await lib.collections(requestedCollection).items().top().get(
+				{ start: offset, ...options })
+		}
+		var otherPagesItems = await pMap(offsetList, mapper, { concurrency: 20 })
+
+		// l'API renvoie un tableau d'objets. On extrait de chaque élement du tableau la clé "raw"
+		// L'API a une méthode .getData() qui fournit directement un tableau des items. On ne peut pas l'utiliser et concaténer ces tableaux
+		// Car la fonction addDataToItems() a besoin de certaines données présentes dans .raw.meta et pas via .getData()
+		const concatenedOtherItems = otherPagesItems.reduce((accumulator: RawItem[], obj) => {
+			return accumulator.concat(obj.raw)
+		}, [])
+
+		// ... et l'ajoute aux résultats du premier appel
+		return firstPageItems.raw.concat(concatenedOtherItems)
+	}
+
 
 	// Appel d'un fichier de conf global qui appele ensuite les infos de connexion à l'API d'un fichier .env.
 	const meta = require('../../_data/meta.js');
-	const options = { locale: 'fr-FR', itemType: '-note', sort: 'date', limit: 30, tag: requestedTags || '' }
+	const options = {
+		locale: 'fr-FR',
+		itemType: '-note',
+		sort: 'date',
+		limit: 5,
+		tag: requestedTags || ''
+	}
 	const lib = api(meta.zoteroAPIKey).library('user', meta.zoteroProfileID)
-
 
 	try {
 		if (!meta.zoteroAPIKey) {
@@ -70,12 +107,23 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 
 		//On requête la liste complète des collections pour en extraire l'ID de la collection demandée.
 		if (collection) {
-			const colls = await lib.collections().get()
-			const collectionObject = colls.getData().filter(coll => coll.name === collection)[0]
+			const collectionsCallback = async () => {
+				try {
+					const res: MultiReadResponse = await lib.collections().get()
+					return res.getData()
+				} catch (error) {
+					throw error
+				}
+
+			}
+			const colls = await cache("collections", "1d", 'json', collectionsCallback)
+
+			const collectionObject = colls.filter(coll => coll.name === collection)[0]
 			if (!collectionObject) {
 				throw Error('catégorie inconnue')
 			}
 			var requestedCollection = collectionObject.key
+
 
 			// top() : pour avoir seulement les article et pas les documents enfants.
 			// get() : pour indiquer qu'on veut une requête GET et concrètement récupérer les données
@@ -88,7 +136,6 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 		if (firstPageItems.raw.length === 0) {
 			console.log("Zotero : collection vide")
 		}
-
 		const totalCount = Number(firstPageItems.response.headers.get('total-results'))
 
 		// Pagination
@@ -98,32 +145,7 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 
 		if (totalCount) {
 			if (totalCount > options.limit) {
-
-				// on construit une liste de tous les offsets pour envoyer un batch de requêtes
-				// Par exemple s'il y a 1000 items, on va demander les items à partir du centième, puis du deux-centième, puis du trois-centième...
-				// Les items de 0 à 100 ont déjà été obtenus plus haut.
-				let offsetList: Number[] = []
-				let index = 0
-				while (index < totalCount) {
-					index = index + options.limit
-					offsetList.push(index)
-				}
-
-				const mapper = async (offset): Promise<MultiReadResponse> => {
-					return await lib.collections(requestedCollection).items().top().get(
-						{ start: offset, ...options })
-				}
-				var otherPagesItems = await pMap(offsetList, mapper, { concurrency: 20 })
-
-				// l'API renvoie un tableau d'objets. On extrait de chaque élement du tableau la clé "raw"
-				// L'API a une méthode .getData() qui fournit directement un tableau des items. On ne peut pas l'utiliser et concaténer ces tableaux
-				// Car la fonction addDataToItems() a besoin de certaines données présentes dans .raw.meta et pas via .getData()
-				const concatenedOtherItems = otherPagesItems.reduce((accumulator, obj) => {
-					return accumulator.concat(obj.raw)
-				}, [])
-				// ... et l'ajoute aux résultats du premier appel
-				items = firstPageItems.raw.concat(concatenedOtherItems)
-
+				items = await cache("allPages", "7d", "json", getOtherPages.bind(null, totalCount, options))
 			}
 			else {
 				items = firstPageItems.raw
@@ -134,7 +156,6 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 		// - une date parsée par Zotero, qu'on espère plus propre que le champ d'origine
 		// - un lien direct vers un PDF, tiré des pièces jointes.
 		const completedItems: RawItem[] = await addDataToItems(items)
-
 
 		// Ce templating étant à part d'Eleventy, on doit recréer un environnement Nunjucks
 
@@ -158,7 +179,5 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 	}
 
 }
-
-
 
 module.exports = zotero

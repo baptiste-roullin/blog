@@ -5,7 +5,7 @@ tags:
   - "features"
   - "histoire"
   - "mac"
-
+  - "bureau"
 ---
 
 Les raisons du succès des interfaces graphiques sont bien connues : des objets visuels simples (fenêtre, icônes, menus et pointeurs), permettant un panel d'actions limitées et explicites, organisés par une métaphore cohérente : des documents rassemblés en dossier, posés sur le bureau pour les affaires courantes et rangés dans des casiers pour le reste.

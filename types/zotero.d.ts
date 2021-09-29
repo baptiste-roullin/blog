@@ -2,6 +2,7 @@
 export interface MultiReadResponse {
 	raw: RawItem[];
 	response: Response
+	getData: () => []
 
 }
 
