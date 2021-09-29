@@ -45,7 +45,7 @@
 <link rel="icon" type="image/png" href="/assets/UI/favicon.png" sizes="32x32">
 
 {#- RSS Feed #}
-<link type="application/atom+xml" rel="alternate"  title="RSS Feed for {{ meta.siteName }}"  href="{{meta.siteURL}}/rss" title="{{ meta.siteName }} XML Feed">
+<link type="application/atom+xml" rel="alternate"  title="RSS Feed for {{ meta.siteName }}"  href="/rss" title="{{ meta.siteName }} XML Feed">
 
 {% set css %}
 {% include "src/assets/css/fonts.css" %}
@@ -54,20 +54,20 @@
   {{css | minify('css') | safe}}
 </style>
 
-<link rel="stylesheet" href="{{meta.siteURL}}/assets/css/{{hashes_css['main.css']}}"/>
+<link rel="stylesheet" href="/assets/css/{{hashes_css['main.css']}}"/>
 
 <script defer src="https://unpkg.com/alpinejs@3.2.2/dist/cdn.min.js"></script>
 
 {% if meta.env === "production" %}
-  <script  src="{{meta.siteURL}}/assets/scripts/{{hashes_js['main.js']}}" defer></script>
+  <script  src="/assets/scripts/{{hashes_js['main.js']}}" defer></script>
   {% if layout === "post-canvas" %}
-    <script  src="{{meta.siteURL}}/assets/scripts/{{hashes_js['truchet-dom.js']}}" defer></script>
+    <script  src="/assets/scripts/{{hashes_js['truchet-dom.js']}}" defer></script>
 
   {% endif %}
 
 {% else %}
-  <script  src="{{meta.siteURL}}/assets/scripts/main.js" defer></script>
+  <script  src="/assets/scripts/main.js" defer></script>
 
-  <script  src="{{meta.siteURL}}/assets/scripts/truchet-dom.js" defer></script>
+  <script  src="/assets/scripts/truchet-dom.js" defer></script>
 
 {% endif %}

@@ -1,18 +1,18 @@
-<div class="flex items-center justify-between px-0 py-3 border-t border-gray-200 container-wide sm:px-0">
+<div class="flex items-center justify-between px-0 py-3 border-t border-gray-200  container-wide sm:px-0">
 
   {# PAGINATION PRÉCÉDENT / SUIVAANT #}
 
   <div class="flex justify-between flex-1 ">
     <div>
       {% if pagination.href.previous %}
-        <a href="{{meta.siteURL}}/{{ pagination.href.previous }}" class="cta-secondary">
+        <a href="{{ pagination.href.previous }}" class="cta-secondary">
       Précédent
     </a>
       {% endif %}
     </div>
     <div>
       {% if pagination.href.next %}
-        <a href="{{meta.siteURL}}/{{ pagination.href.next }}" class="cta-secondary">
+        <a href="{{ pagination.href.next }}" class="cta-secondary">
       Suivant
     </a>
       {% endif %}
