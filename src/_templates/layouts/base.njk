@@ -13,17 +13,16 @@
 
 			<main
       id="content"
-       class="relative flex-grow block max-w-full transition-all duration-300 ease-out  sm:px-per-lg px-per" id="content">
+       class="relative flex-grow block max-w-full transition-all duration-300 ease-out sm:px-per-lg px-per" id="content">
 				{{ content | safe }}
 			</main>
 			{% include "components/footer.njk" %}
 		</div>
 		{% if richPicture === true %}
-			{% include "../components/rich-picture.njk" %}
 
 			{% set css %}
-			{% include "src/assets/css/photoswipe/photoswipe.css" %}
-			{% include "src/assets/css/photoswipe/skin.css" %}
+			{% include "../../../node_modules/photoswipe/dist/photoswipe.css" %}
+
 			{% endset %}
 
 			<style>

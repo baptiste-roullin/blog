@@ -1,8 +1,16 @@
 
 // @ts-nocheck
-const PhotoSwipe = require('photoswipe')
-const PhotoSwipeUI_Default = require('photoswipe/dist/photoswipe-ui-default.js')
+import PhotoSwipeLightbox from 'photoswipe/dist/photoswipe-lightbox.esm.js';
+import PhotoSwipe from 'photoswipe/dist/photoswipe.esm.js';
 
+
+//TODO : tweak interface et ajouter attribut src
+const lightbox = new PhotoSwipeLightbox({
+	gallery: '.rich-picture',
+	children: 'figure',
+	pswpModule: PhotoSwipe
+});
+lightbox.init();
 
 var initPhotoSwipeFromDOM = function (gallerySelector) {
 
@@ -310,4 +318,4 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
 	}
 };
 
-initPhotoSwipeFromDOM('.rich-picture');
+//initPhotoSwipeFromDOM('.rich-picture');

@@ -165,7 +165,7 @@ cf. postcss.config.js pour le CSS
 	});
 
 	const md = require('./src/markdown.js')
-	config.setLibrary('md', md);
+	config.setLibrary('md', require('./src/markdown.js'));
 
 
 
