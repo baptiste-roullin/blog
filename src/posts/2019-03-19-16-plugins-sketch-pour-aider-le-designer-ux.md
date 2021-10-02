@@ -23,7 +23,7 @@ Connection Flow Arrows
 
 ## Plans de travail
 
-[Artboard Titles](https://github.com/asivura/sketch-artboard-titles) : vous exportez votre grand wireflow et là paf, les titres d’écrans sont minuscules et illisibles. Pas grave : ce plugin ajoute au dessus de chaque plan de travail un calque précisant son nom.
+[Artboard Titles](https://github.com/asivura/sketch-artboard-titles) : vous exportez votre grand wireflow et là paf, les titres d'écrans sont minuscules et illisibles. Pas grave : ce plugin ajoute au dessus de chaque plan de travail un calque précisant son nom.
 
 Deux plugins d'organisation automatiquement des plans de travail : [Artboard Manager](https://github.com/bomberstudios/artboard-manager) et [Artboard Tools](https://github.com/frankko/Artboard-Tools). Le premier fonctionne en continu et a plus d'options de style. Le second doit être actionné manuellement et a plus d'options de disposition.
 
