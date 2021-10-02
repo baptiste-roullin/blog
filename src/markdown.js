@@ -3,6 +3,8 @@ const markdownItContainer = require('markdown-it-container');
 const markdownIt = require('markdown-it')
 const markdownItFootnote = require('markdown-it-footnote');
 const slugify = require('./filters/slugify.js');
+
+// passer en import ESM fout la merde.
 const imageFigures = require('markdown-it-image-figures');
 
 const MarkdownBlockquoteCite = require('markdown-it-blockquote-cite');
