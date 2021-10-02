@@ -161,6 +161,7 @@ cf. postcss.config.js pour le CSS
 		excerpt: true,
 		// Optional, default is "---"
 		excerpt_alias: 'description',
+		//Si <!-- excerpt --> est présent, sa valeur remplit le tag description, pas page.description.
 		excerpt_separator: "<!-- excerpt -->"
 	});
 
