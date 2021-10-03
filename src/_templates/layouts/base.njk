@@ -13,11 +13,12 @@
 
 			<main
       id="content"
-       class="  {{'bg-dark-lighter' if page.fileSlug == 'home'}} sm:px-per-lg px-per  relative flex-grow block max-w-full transition-all duration-300 ease-out " id="content">
+       class="relative flex-grow block max-w-full transition-all duration-300 ease-out sm:px-per-lg px-per" id="content">
 				{{ content | safe }}
 			</main>
 			{% include "components/footer.njk" %}
 		</div>
+
 		{% if richPicture === true %}
 			{% include "../components/rich-picture.njk" %}
 

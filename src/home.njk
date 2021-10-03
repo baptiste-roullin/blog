@@ -14,20 +14,20 @@ postListItemStyle:
 <div class="{{ structure.g_pageWidth }} flex flex-col gap-8 sm:gap-16">
 
   <section class="">
-    <div class="flex flex-row items-end justify-between mb-2 text-white text-shadow-lg-dark">
+    <div class="flex flex-row items-end justify-between mb-2 ">
       <h2 class="">Bafouilles récentes</h2>
       <a href="/blog" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
     </div>
 
             {% set postslist = collections.publishedPosts | reverse | slice(0, 4) %}
 
-    <ul class="gap-2 card-container sm:gap-3 project-list">
+    <ul class="gap-2 sm:gap-3 project-list">
     {%- for post in postslist -%}
-      <li class="p-0 card-base">
+      <li class="p-0 ">
         <img  class="object-cover w-full rounded-t-sm cursor-pointer h-52 " onclick="window.location.href='{{post.url}}'"  loading="lazy" alt="{{post.data.hero.alt}}"
               src="{{  post.data.hero.image if post.data.hero.image else  'truchet-'+ post.data.page.fileSlug + '.png' }}"
               >
-        <h3 class="m-3 leading-6 sm:m-4 cta-card">
+        <h3 class="my-3 sm:my-4 cta-heading">
           <a href="{{ post.url }}" class="block hover:underline hover:text-accent">
             {{ post.data.title }}
           </a>
@@ -38,17 +38,17 @@ postListItemStyle:
   </section>
 
   <section class="">
-    <div class="flex flex-row items-end justify-between mb-2 text-white text-shadow-lg-dark">
+    <div class="flex flex-row items-end justify-between mb-2 ">
       <h2 >Bafouilles dont je suis content</h2>
             <a href="/tags/features" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
     </div>
-    <ul class="project-list card-container">
+    <ul class="project-list">
     {%- for post in collections.features | reverse |  slice(0, 4) -%}
-      <li class="p-0 card-base ">
+      <li class="p-0 ">
         <img  class="object-cover w-full rounded-t-sm cursor-pointer h-52 " onclick="window.location.href='{{post.url}}'"  loading="lazy" alt="{{post.data.hero.alt}}"
               src="{{  post.data.hero.image if post.data.hero.image else  'truchet-'+ post.data.page.fileSlug + '.png' }}"
               >
-        <h3 class="m-3 leading-6 sm:m-4 cta-card">
+        <h3 class="my-3 sm:my-4 cta-heading">
           <a href="{{ post.url }}" class="block hover:underline hover:text-accent">
             {{ post.data.title }}
           </a>
@@ -60,16 +60,16 @@ postListItemStyle:
 
 
   <section class="">
-    <div class="flex flex-row items-end justify-between mb-2 text-white text-shadow-lg-dark">
+    <div class="flex flex-row items-end justify-between mb-2 ">
       <h2 class="">Bidouilles</h2>
             <a href="/projets" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
     </div>
 
-    <ul class=" card-container project-list">
+    <ul class=" project-list">
       {% for project in projects | reverse | slice(0, 5) %}
-    <li class="flex flex-col gap-3 list-none project card-base sm:gap-4 ">
+    <li class="flex flex-col gap-3 list-none project sm:gap-4 ">
        <img onclick="window.location.href='{{project.link}}'"  loading="lazy" class="object-cover m-auto cursor-pointer picture" src="{{project.img}}">
-        <h3 class="leading-6 cta-card">
+        <h3 class="leading-6 cta-heading">
           <a href="{{ project.link }}" class="block hover:underline hover:text-accent">
             {{ project.name }}
           </a>
@@ -81,7 +81,7 @@ postListItemStyle:
   </section>
 
   <div class="card-container">
-    <section class="card-base">
+    <section class="">
     <h2 >Ailleurs</h2>
       <ul class="flex gap-12 ailleurs-list" >
         {% for item in ailleurs %}
@@ -92,7 +92,7 @@ postListItemStyle:
         {% endfor %}
       </ul>
     </section>
-    <section class="card-base">
+    <section class="">
       <h2 class="">Me contacter</h2>
       <p class="my-8 prose prose-xl"><code> baptiste [À] toutcequibouge [point] net</code></p>
     </section>
