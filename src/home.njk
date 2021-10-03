@@ -68,7 +68,11 @@ postListItemStyle:
     <ul class=" project-list">
       {% for project in projects | reverse | slice(0, 5) %}
     <li class="flex flex-col gap-3 list-none project sm:gap-4 ">
-       <img onclick="window.location.href='{{project.link}}'"  loading="lazy" class="object-cover m-auto cursor-pointer picture" src="{{project.img}}">
+
+    {% if project.img %}
+        <img onclick="window.location.href='{{project.link}}'"  loading="lazy" class="object-cover m-auto cursor-pointer picture"  src="{{project.img}}">
+    {% endif %}
+
         <h3 class="leading-6 cta-heading">
           <a href="{{ project.link }}" class="block hover:underline hover:text-accent">
             {{ project.name }}
