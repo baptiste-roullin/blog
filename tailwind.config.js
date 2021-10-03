@@ -41,6 +41,10 @@ module.exports = {
 		},
 
 		extend: {
+			maxWidth: {
+				'8xl': '90rem',
+				'9xl': '100rem',
+			},
 			minHeight: {
 
 				'1/4h': '25vh',
@@ -48,6 +52,7 @@ module.exports = {
 				'1/2h': '50vh',
 
 				'3/4h': '75vh',
+
 
 				'full': '100vh',
 			},
