@@ -44,6 +44,10 @@ module.exports = {
 			maxWidth: {
 				'8xl': '90rem',
 				'9xl': '100rem',
+				'1/3': '33%',
+				'1/4': '25%',
+
+
 			},
 			minHeight: {
 
@@ -85,7 +89,8 @@ module.exports = {
 					lighter: 'hsl(202, 70%, 20%)'
 				},
 				'accent': 'hsl(5, 77%, 37%)',
-				'accent2': 'hsl(31, 67%, 34%)'
+				'accent2': 'hsl(31, 67%, 34%)',
+				'accent-light': '#fff4ed'
 			},
 			typography: (theme) => ({
 				'xl': {

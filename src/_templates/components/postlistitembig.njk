@@ -1,0 +1,40 @@
+<li class="relative card-base ">
+
+	<img
+		class="object-cover h-40 cursor-pointer rounded-l-md max-w-1/4"
+		onclick="window.location.href='{{post.url}}'"
+		loading="lazy"
+		alt="{{post.data.hero.alt}}"
+   		src="{{  post.data.hero.image if post.data.hero.image else  'truchet-'+ post.data.page.fileSlug + '.png' }}"
+              >
+
+	<div>
+	{% if   page.fileSlug == 'home' %}
+		{% set hx = '3' %}
+ 	{% else %}
+		{% set hx = '2' %}
+	 {% endif %}
+
+		<h{{hx}} class="my-3 sm:my-4 cta-heading">
+			<a
+			href="{{ post.url }}"
+			class="block hover:underline hover:text-accent2">
+				{{ post.data.title }}
+			</a>
+		<h{{hx}}/>
+
+		{% if  page.fileSlug == 'blog'%}
+			<time class=" label lg:my-2" datetime="{{ post.data.page.date | dateToFormat("yyyy-MM-dd") }}">
+				{{ post.data.page.date | dateToFormat("dd LLLL yyyy") }}
+			</time>
+
+			{% if post.data.description or post.data.page.description %}
+				<span class="inline mx-2 text-xl font-light text-gray-500 " >~</span>
+				<span class="label">
+					{{ post.data.description |  removeMD}}
+				</span>
+			{% endif %}
+		{% endif %}
+
+	</div>
+</li>

@@ -14,46 +14,29 @@ postListItemStyle:
 <div class="{{ structure.g_pageWidth }} flex flex-col gap-8 sm:gap-16">
 
   <section class="">
-    <div class="flex flex-row items-end justify-between mb-2 ">
-      <h2 class="">Bafouilles récentes</h2>
+    <div class="flex flex-row items-end justify-between mb-8 ">
+      <h2 class="text-2xl lg:text-3xl">Bafouilles récentes</h2>
       <a href="/blog" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
     </div>
 
-            {% set postslist = collections.publishedPosts | reverse | slice(0, 4) %}
+      {% set postslist = collections.publishedPosts | reverse | slice(0, 3) %}
 
-    <ul class="gap-2 sm:gap-3 project-list">
+    <ul class="flex flex-col gap-8 lg:gap-12 sm:gap-3 project-list">
     {%- for post in postslist -%}
-      <li class="p-0 ">
-        <img  class="object-cover w-full rounded-t-sm cursor-pointer h-52 " onclick="window.location.href='{{post.url}}'"  loading="lazy" alt="{{post.data.hero.alt}}"
-              src="{{  post.data.hero.image if post.data.hero.image else  'truchet-'+ post.data.page.fileSlug + '.png' }}"
-              >
-        <h3 class="my-3 sm:my-4 cta-heading">
-          <a href="{{ post.url }}" class="block hover:underline hover:text-accent">
-            {{ post.data.title }}
-          </a>
-        </h3>
-      </li>
+    	{% include 'components/postlistitembig.njk' %}
+
   {%- endfor -%}
     </ul>
   </section>
 
   <section class="">
     <div class="flex flex-row items-end justify-between mb-2 ">
-      <h2 >Bafouilles dont je suis content</h2>
+      <h2  class="text-2xl lg:text-3xl">Bafouilles dont je suis content</h2>
             <a href="/tags/features" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
     </div>
-    <ul class="project-list">
-    {%- for post in collections.features | reverse |  slice(0, 4) -%}
-      <li class="p-0 ">
-        <img  class="object-cover w-full rounded-t-sm cursor-pointer h-52 " onclick="window.location.href='{{post.url}}'"  loading="lazy" alt="{{post.data.hero.alt}}"
-              src="{{  post.data.hero.image if post.data.hero.image else  'truchet-'+ post.data.page.fileSlug + '.png' }}"
-              >
-        <h3 class="my-3 sm:my-4 cta-heading">
-          <a href="{{ post.url }}" class="block hover:underline hover:text-accent">
-            {{ post.data.title }}
-          </a>
-        </h3>
-      </li>
+    <ul class="flex flex-col gap-8 project-list lg:gap-12">
+    {%- for post in collections.features | reverse |  slice(0, 3) -%}
+    	{% include 'components/postlistitembig.njk' %}
   {%- endfor -%}
     </ul>
   </section>
@@ -61,13 +44,13 @@ postListItemStyle:
 
   <section class="">
     <div class="flex flex-row items-end justify-between mb-2 ">
-      <h2 class="">Bidouilles</h2>
+      <h2 class="text-2xl lg:text-3xl">Bidouilles</h2>
             <a href="/projets" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
     </div>
 
-    <ul class=" project-list">
+    <ul class="flex flex-col gap-8 project-list">
       {% for project in projects | reverse | slice(0, 5) %}
-    <li class="flex flex-col gap-3 list-none project sm:gap-4 ">
+    <li class="flex flex-col gap-3 list-none card-base project sm:gap-4 ">
 
     {% if project.img %}
         <img onclick="window.location.href='{{project.link}}'"  loading="lazy" class="object-cover m-auto cursor-pointer picture"  src="{{project.img}}">
@@ -85,18 +68,18 @@ postListItemStyle:
   </section>
 
   <div class="card-container">
-    <section class="">
+    <section class="card-base ">
     <h2 >Ailleurs</h2>
       <ul class="flex gap-12 ailleurs-list" >
         {% for item in ailleurs %}
-          <li class="my-8 list-none ailleurs">
+          <li class="my-8 list-none ailleurs ">
             <a class="cta-heading hover:underline hover:text-accent" href="{{item.link}}">{{item.name}}</a>
             <div class="hidden label description">{{item.description}}</div>
           </li>
         {% endfor %}
       </ul>
     </section>
-    <section class="">
+    <section class="card-base ">
       <h2 class="">Me contacter</h2>
       <p class="my-8 prose prose-xl"><code> baptiste [À] toutcequibouge [point] net</code></p>
     </section>

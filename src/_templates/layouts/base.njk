@@ -5,19 +5,17 @@
 
 	</head>
 	<body
-  class="template-{{layout}} page-{{page.fileSlug}} text-gray-900 sans">
+  class="template-{{layout}} page-{{page.fileSlug}} text-gray-900 sans min-h-screen mx-auto container-2xl">
 		{#    <div hidden>{% svgsprite %}</div>
 #}
-		<div class="min-h-screen mx-auto container-2xl">
-			{% include "components/nav.njk" %}
+		{% include "components/nav.njk" %}
 
-			<main
+		<main
       id="content"
        class="relative flex-grow block max-w-full transition-all duration-300 ease-out sm:px-per-lg px-per" id="content">
-				{{ content | safe }}
-			</main>
-			{% include "components/footer.njk" %}
-		</div>
+			{{ content | safe }}
+		</main>
+		{% include "components/footer.njk" %}
 
 		{% if richPicture === true %}
 			{% include "../components/rich-picture.njk" %}
@@ -26,7 +24,6 @@
 			{% include "src/assets/css/photoswipe/photoswipe.css" %}
 			{% include "src/assets/css/photoswipe/skin.css" %}
 			{% endset %}
-
 			<style>
 				{{css | minify('css') | safe}}
 			</style>
@@ -38,6 +35,5 @@
 				<script  src="/assets/scripts/{{hashes_js['arrowWidth.js']}}" defer></script>
 			{% endif %}
 		{% endfor %}
-
 	</body>
 </html>

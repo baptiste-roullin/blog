@@ -4,9 +4,8 @@ tags: pages
 ---
 
 <div class="max-w-6xl py-12 mx-auto xl:max-w-9xl page ">
-  <h1 class="text-gray-700 ">{{ seo.title or title }}
+  <h1 class="my-20 text-gray-700  lg:text-4xl text-3xl ">{{ seo.title or title }}
   </h1>
-  <hr class="my-8">
 
   {% if seo.description %}
     <div class="{{ colors.borderCustom.borders or colors.borderDefault.borders }} {{ colors.borderCustom.color or colors.borderDefault.color }}">
@@ -14,6 +13,6 @@ tags: pages
     </div>
   {% endif %}
 
-  <div class="">{{ content | safe }}</div>
+  {{ content | safe }}
 
 </div>
