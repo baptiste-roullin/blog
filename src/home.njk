@@ -1,5 +1,5 @@
 ---
-title: Bon bah voilà, je m'appelle Baptiste et voici mon site
+title: Bon bah salut, moi c'est Baptiste
 layout: page
 date: 2020-08-05
 description: # used for page excerpts and META (will be overwritten if SEO used below)
@@ -9,19 +9,19 @@ postListItemStyle:
   showPagination: false
 ---
 
-
-
 <div class="{{ structure.g_pageWidth }} flex flex-col gap-8 sm:gap-16">
 
+
+{# RÉCENTS #}
   <section class="">
-    <div class="flex flex-row items-end justify-between mb-8 ">
+    <div class="flex flex-col items-start justify-between mb-2 sm:flex-row sm:items-end md:mb-6 ">
       <h2 class="text-2xl lg:text-3xl">Bafouilles récentes</h2>
       <a href="/blog" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
     </div>
 
       {% set postslist = collections.publishedPosts | reverse | slice(0, 3) %}
 
-    <ul class="flex flex-col gap-8 lg:gap-12 sm:gap-3 project-list">
+    <ul class="flex flex-col gap-3 lg:gap-8 sm:gap-4 post-list">
     {%- for post in postslist -%}
     	{% include 'components/postlistitembig.njk' %}
 
@@ -29,12 +29,14 @@ postListItemStyle:
     </ul>
   </section>
 
+
+{# FEATURES #}
   <section class="">
-    <div class="flex flex-row items-end justify-between mb-2 ">
+    <div class="flex flex-col items-start justify-between mb-2 sm:flex-row sm:items-end md:mb-6">
       <h2  class="text-2xl lg:text-3xl">Bafouilles dont je suis content</h2>
             <a href="/tags/features" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
     </div>
-    <ul class="flex flex-col gap-8 project-list lg:gap-12">
+    <ul class="flex flex-col gap-3 lg:gap-8 sm:gap-4 post-list">
     {%- for post in collections.features | reverse |  slice(0, 3) -%}
     	{% include 'components/postlistitembig.njk' %}
   {%- endfor -%}
@@ -42,46 +44,56 @@ postListItemStyle:
   </section>
 
 
+{# PROJETS #}
   <section class="">
-    <div class="flex flex-row items-end justify-between mb-2 ">
+    <div class="flex flex-col items-start justify-between mb-2 sm:flex-row sm:items-end md:mb-6">
       <h2 class="text-2xl lg:text-3xl">Bidouilles</h2>
-            <a href="/projets" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
+        <a href="/projets" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
     </div>
 
-    <ul class="flex flex-col gap-8 project-list">
+    <ul class="max-w-lg gap-8 m-auto md:m-0 md:max-w-none card-container project-list">
       {% for project in projects | reverse | slice(0, 5) %}
-    <li class="flex flex-col gap-3 list-none card-base project sm:gap-4 ">
+    <li class="flex flex-col gap-4 p-4 list-none card-base project lg:gap-5 lg:p-5">
 
     {% if project.img %}
-        <img onclick="window.location.href='{{project.link}}'"  loading="lazy" class="object-cover m-auto cursor-pointer picture"  src="{{project.img}}">
+        <img onclick="window.location.href='{{project.link}}'"  loading="lazy"
+        class="object-cover m-auto cursor-pointer picture"  src="{{project.img}}">
     {% endif %}
 
-        <h3 class="leading-6 cta-heading">
+        <h3 class=" cta-heading">
           <a href="{{ project.link }}" class="block hover:underline hover:text-accent">
             {{ project.name }}
           </a>
         </h3>
-          <p class="label description">{{project.description}}</p>
+          <p class="text-center label description">{{project.description}}</p>
     </li>
     {% endfor %}
     </ul>
   </section>
 
-  <div class="card-container">
-    <section class="card-base ">
+
+
+
+   <div class="card-container">
+
+   {# AILLEURS #}
+    <section class="flex-col items-start p-7 card-base">
     <h2 >Ailleurs</h2>
-      <ul class="flex gap-12 ailleurs-list" >
+      <ul class="flex flex-col items-start gap-8 lg:flex-row ailleurs-list" >
         {% for item in ailleurs %}
-          <li class="my-8 list-none ailleurs ">
-            <a class="cta-heading hover:underline hover:text-accent" href="{{item.link}}">{{item.name}}</a>
-            <div class="hidden label description">{{item.description}}</div>
+          <li class="list-none ">
+            <a
+            class="text-2xl ailleurs cta-heading hover:underline hover:text-accent2"
+            href="{{item.link}}">{{item.name}}</a>
           </li>
         {% endfor %}
       </ul>
     </section>
-    <section class="card-base ">
+
+    {# CONTACT #}
+    <section class="flex-col items-start p-7 card-base">
       <h2 class="">Me contacter</h2>
-      <p class="my-8 prose prose-xl"><code> baptiste [À] toutcequibouge [point] net</code></p>
+      <p class="prose prose-xl"><code> baptiste [À] toutcequibouge [point] net</code></p>
     </section>
   </div>
 </div>
