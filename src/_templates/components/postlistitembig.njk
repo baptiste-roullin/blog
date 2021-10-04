@@ -9,11 +9,11 @@
               >
 
 	<div>
-	{% if   page.fileSlug == 'home' %}
-		{% set hx = '3' %}
- 	{% else %}
-		{% set hx = '2' %}
-	 {% endif %}
+		{% if page.fileSlug == 'home' %}
+			{% set hx = '3' %}
+		{% else %}
+			{% set hx = '2' %}
+		{% endif %}
 
 		<h{{hx}} class="my-3 sm:my-4 cta-heading">
 			<a
@@ -21,16 +21,16 @@
 			class="block hover:underline hover:text-accent2">
 				{{ post.data.title }}
 			</a>
-		<h{{hx}}/>
+		</h{{hx}}>
 
-		{% if  page.fileSlug == 'blog'%}
-			<time class=" label lg:my-2" datetime="{{ post.data.page.date | dateToFormat("yyyy-MM-dd") }}">
+		{% if postListItemStyle.complete %}
+			<time class="text-lg label lg:my-2" datetime="{{ post.data.page.date | dateToFormat("yyyy-MM-dd") }}">
 				{{ post.data.page.date | dateToFormat("dd LLLL yyyy") }}
 			</time>
 
 			{% if post.data.description or post.data.page.description %}
 				<span class="inline mx-2 text-xl font-light text-gray-500 " >~</span>
-				<span class="label">
+				<span class="text-lg label ">
 					{{ post.data.description |  removeMD}}
 				</span>
 			{% endif %}

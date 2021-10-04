@@ -21,9 +21,7 @@
 		padding: inherit;
 }
 
-body #content h2 {
-	color:inherit
-}
+
 
 	body ul.UI li::before {
 		display:none;
@@ -98,7 +96,7 @@ body #content h2 {
 @layer components {
 
 	.card-base {
-		@apply flex items-center p-0 rounded-md gap-7 bg-accent-light shadow-sm
+		@apply flex items-center p-0 rounded-md gap-7 bg-accent-light shadow-lg sm:shadow-sm
 	}
 
 	.card-item {
@@ -107,7 +105,7 @@ body #content h2 {
 	.card-container {
 		display:grid;
 		gap: 1em;
-		grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
 
 	}
 
@@ -144,7 +142,7 @@ body #content h2 {
 	}
 	.cta-heading {
 		color: hsl(30.8, 95%, 17.3%);
-		@apply text-2xl font-medium leading-6 lg:leading-10 lg:text-4xl
+		@apply text-2xl md:text-3xl font-medium leading-6 lg:leading-10 lg:text-4xl
 	}
 		.cta-card {
 		@apply text-lg font-normal leading-6 lg:leading-7 lg:text-xl text-accent2
