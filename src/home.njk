@@ -53,11 +53,14 @@ postListItemStyle:
 
     <ul class="max-w-lg gap-8 m-auto md:m-0 md:max-w-none card-container project-list">
       {% for project in projects | reverse | slice(0, 5) %}
-    <li class="flex flex-col gap-4 p-4 list-none card-base project lg:gap-5 lg:p-5">
+    <li class="flex flex-col gap-5 p-5 text-center list-none card-base project lg:gap-8 lg:p-8">
 
     {% if project.img %}
-        <img onclick="window.location.href='{{project.link}}'"  loading="lazy"
-        class="object-cover m-auto cursor-pointer picture"  src="{{project.img}}">
+        <img
+        onclick="window.location.href='{{project.link}}'"
+        loading="lazy"
+        class="object-cover w-full mx-auto cursor-pointer picture"
+        src="{{project.img}}">
     {% endif %}
 
         <h3 class=" cta-heading">
@@ -65,7 +68,7 @@ postListItemStyle:
             {{ project.name }}
           </a>
         </h3>
-          <p class="text-center label description">{{project.description}}</p>
+          <p class=" label description">{{project.description}}</p>
     </li>
     {% endfor %}
     </ul>
