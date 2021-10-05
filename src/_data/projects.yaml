@@ -5,8 +5,8 @@
   description: Une expérimentation pour maquetter… dans une maquette.
 - name: Bot invisible
   link: 'https://github.com/baptiste-roullin/botinvisible'
-
   description: Le seul bot appeliste de la planète.
+
 - name: Calculateur de ticket resto
   link: /blog/2016/05/lecons-ergonomiques-et-techniques-d-un-projet-perso/
 
@@ -37,9 +37,11 @@
   description: Un minuteur en PWA pour vos ateliers.
 - name: Table basse
   link: /blog/2020/12/jai-fait-un-truc/
+  img: /assets/images/tb.jpg
 
   description: Ma vie culturelle en mosaïque.
 - name: Ce blog
   link: /tags/tout-ce-qui-bouge/
+  img: /assets/images/moving_castle.png
 
   description: depuis 2012, la vache.
