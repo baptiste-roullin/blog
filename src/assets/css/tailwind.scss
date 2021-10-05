@@ -144,6 +144,11 @@
 		color: hsl(30.8, 95%, 17.3%);
 		@apply text-2xl md:text-3xl font-medium leading-6 lg:leading-10 lg:text-4xl
 	}
+	.cta-heading2 {
+		color: hsl(30.8, 95%, 17.3%);
+		@apply text-2xl md:text-2xl font-medium leading-6 lg:leading-10 lg:text-3xl
+	}
+
 		.cta-card {
 		@apply text-lg font-normal leading-6 lg:leading-7 lg:text-xl text-accent2
 	}
@@ -171,11 +176,9 @@ pre code {
 
 
 .post-list img , .search-list img {
-	width: 30%;
 	object-fit: cover;
 	margin-right:3%;
 	cursor: pointer;
-	max-height: 17em;
 }
 
 @media screen and (max-width:768px){
