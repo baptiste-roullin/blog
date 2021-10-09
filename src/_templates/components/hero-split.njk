@@ -1,16 +1,16 @@
 <header class="relative flex flex-col h-auto mb-8 lg:flex-row hero-split lg:mb-18">
   <div class=" decor-dark h-2/3"></div>
   <div
-        class="flex flex-col m-8 mx-auto prose lg:justify-center text-gray-50 lg:w-1/2 prose-l lg:text-left"
+        class="flex flex-col m-8 mx-auto lg:justify-center text-gray-50 lg:w-1/2 lg:text-left"
       >
     {# TODO fix font-size h1 #}
     <h1
-            class=" text-shadow-lg-dark text-5xl font-semibold leading-10 lg:mr-8 {{ heroSettings.headingTextColor or 'text-white' }} sm:text-5xl sm:leading-none md:text-6xl lg:text-5xl xl:text-6xl"
+        class=" text-shadow-lg-dark text-5xl font-semibold leading-10 lg:mr-8 {{ heroSettings.headingTextColor or 'text-white' }} sm:text-2xl sm:leading-none md:text-3xl lg:text-4xl xl:text-5xl"
           >
       {{ title | safe }}
     </h1>
 
-    <div class="text-base sm:text-lg UI text-gray-50">
+    <div class="pt-4 text-base sm:text-lg UI text-gray-50">
       <time datetime="{{ page.date | dateToFormat("yyyy-MM-dd") }}">
         {{ page.date | dateToFormat("dd LLL yyyy") }}
       </time>

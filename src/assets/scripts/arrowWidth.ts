@@ -2,7 +2,7 @@ const textMetrics = require('text-metrics');
 
 
 function arrowWidth(e) {
-	const root = document.querySelector<HTMLElement>('.post-pagination ') ;
+	const root = document.querySelector<HTMLElement>('.post-pagination ');
 	const links = root.querySelectorAll("a")
 	//const width = window.getComputedStyle(links[0]).width.slice(0, -2)
 
@@ -28,6 +28,6 @@ window.addEventListener("resize", function (e) {
 	clearTimeout(resizeTimer);
 	resizeTimer = setTimeout(function () {
 		arrowWidth(e)
-	}, 250);
+	}, 100);
 
 })

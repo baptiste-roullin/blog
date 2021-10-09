@@ -1,21 +1,8 @@
 <section id="post-list"  class="mt-8 post-wrapper ">
 	<div class=post-list-wrapper>
-		<ul class="post-list">
+		<ul class="flex flex-col gap-8 post-list ">
 			{% for post in postslist %}
-				{% if postListItemStyle.complete %}
-					{% include 'components/postlistitem.njk' %}
-				{% else %}
-					<li class="mb-8">
-						<H2 class="cta-heading">
-							<a href="{{ post.url }}" class="block hover:underline">
-								{{ post.data.title }}
-							</a>
-						</H2>
-						<time class="block label " datetime="{{ post.data.page.date | dateToFormat("yyyy-MM-dd") }}">
-							{{ post.data.page.date | dateToFormat("dd LLLL yyyy") }}
-						</time>
-					</li>
-				{% endif %}
+				{% include 'components/postlistitembig.njk' %}
 			{% endfor %}
 		</ul>
 

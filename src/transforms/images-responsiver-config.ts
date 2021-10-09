@@ -15,24 +15,22 @@ module.exports = {
 
 	default: {
 		// TODO : Tester cache. Par exemple "truchet-interet legitime.jpg" est-il mis en cache une seule fois.
-		selector: '#content :not(picture)  > img[src]:not([srcset]):not([src$=".svg"]):not([src$=".gif"])',
+		selector: ":not(.page-home) #content :not(picture)  > img[src]:not([srcset]):not([src$='.svg']):not([src$='.gif'])",
 		minWidth: 360,
 		maxWidth: 1920,
 		fallbackWidth: 750,
 		sizes: '(max-width: 60rem) 90vw, 60rem',
 		resizedImageUrl: (src, width) => {
-			if (!(new RegExp('^/').test(src))) {
+			if (!(new RegExp('^/').test(src)) || src !== "") {
 				src = "/assets/generatedImages/" + src
 			}
-			src = src.
+			return src.
 				replace(
-					/\/assets\/*.\//,
-					'/assets/generatedImages/'
-				).
+					/\/assets\/.*\//,
+					'/assets/generatedImages/').
 				replace(
 					/^(.*)(\.[^\.]+)$/,
 					'$1-' + width + '.jpg')
-			return src
 		},
 		runBefore: async (image, document) => {
 			let originalPath = image.getAttribute('src')
@@ -42,6 +40,7 @@ module.exports = {
 				const imageDimensions = imageSize(intermediaryPath);
 				image.setAttribute('width', imageDimensions.width);
 				image.setAttribute('height', imageDimensions.height);
+
 				const options = {
 					sharpWebpOptions: {
 						quality: 90,
@@ -79,12 +78,15 @@ module.exports = {
 			//let caption = image.getAttribute("title");
 			if (image.closest('.rich-picture')) {
 				const link = document.createElement("a");
+				link.setAttribute("data-pswp-srcset", image.getAttribute('srcset'));
+
 				link.setAttribute("href", image.getAttribute('src'));
 				link.appendChild(image.cloneNode(true));
-
+				link.setAttribute('data-pswp-width', image.width);
+				link.setAttribute('data-pswp-height', image.height);
 				image.replaceWith(link);
-			}
 
+			}
 		},
 		steps: 5,
 		classes: ['img-default'],

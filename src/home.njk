@@ -1,5 +1,5 @@
 ---
-title: Bon bah voilà, je m'appelle Baptiste et voici mon site
+title: Bon bah salut, moi c'est Baptiste
 layout: page
 date: 2020-08-05
 description: # used for page excerpts and META (will be overwritten if SEO used below)
@@ -9,92 +9,78 @@ postListItemStyle:
   showPagination: false
 ---
 
-
+<div class="{{ structure.g_pageWidth }} flex flex-col gap-8 sm:gap-16">
 
 <div class="{{ structure.g_pageWidth }} flex flex-col gap-8 sm:gap-16">
 
+{# RÉCENTS #}
   <section class="">
-    <div class="flex flex-row items-end justify-between mb-2 text-white text-shadow-lg-dark">
-      <h2 class="">Bafouilles récentes</h2>
+    <div class="flex flex-col items-start justify-between mb-4 sm:flex-row sm:items-end md:mb-6 ">
+      <h2 class="text-2xl lg:text-3xl">Bafouilles récentes</h2>
       <a href="/blog" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
     </div>
 
-            {% set postslist = collections.publishedPosts | reverse | slice(0, 4) %}
+      {% set postslist = collections.publishedPosts | reverse | slice(0, 3) %}
 
-    <ul class="gap-2 card-container sm:gap-3 project-list">
+    <ul class="flex flex-col gap-8 post-list">
     {%- for post in postslist -%}
-      <li class="p-0 card-base">
-        <img  class="object-cover w-full rounded-t-sm cursor-pointer h-52 " onclick="window.location.href='{{post.url}}'"  loading="lazy" alt="{{post.data.hero.alt}}"
-              src="{{  post.data.hero.image if post.data.hero.image else  'truchet-'+ post.data.page.fileSlug + '.png' }}"
-              >
-        <h3 class="m-3 leading-6 sm:m-4 cta-card">
-          <a href="{{ post.url }}" class="block hover:underline hover:text-accent">
-            {{ post.data.title }}
-          </a>
-        </h3>
-      </li>
+    	{% include 'components/postlistitembig.njk' %}
+
   {%- endfor -%}
     </ul>
   </section>
 
+
+{# FEATURES #}
   <section class="">
-    <div class="flex flex-row items-end justify-between mb-2 text-white text-shadow-lg-dark">
-      <h2 >Bafouilles dont je suis content</h2>
+    <div class="flex flex-col items-start justify-between mb-4 sm:flex-row sm:items-end md:mb-6">
+      <h2  class="text-2xl lg:text-3xl">Bafouilles dont je suis content</h2>
             <a href="/tags/features" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
     </div>
-    <ul class="project-list card-container">
-    {%- for post in collections.features | reverse |  slice(0, 4) -%}
-      <li class="p-0 card-base ">
-        <img  class="object-cover w-full rounded-t-sm cursor-pointer h-52 " onclick="window.location.href='{{post.url}}'"  loading="lazy" alt="{{post.data.hero.alt}}"
-              src="{{  post.data.hero.image if post.data.hero.image else  'truchet-'+ post.data.page.fileSlug + '.png' }}"
-              >
-        <h3 class="m-3 leading-6 sm:m-4 cta-card">
-          <a href="{{ post.url }}" class="block hover:underline hover:text-accent">
-            {{ post.data.title }}
-          </a>
-        </h3>
-      </li>
+    <ul class="flex flex-col gap-8 post-list">
+    {%- for post in collections.features | reverse |  slice(0, 3) -%}
+    	{% include 'components/postlistitembig.njk' %}
   {%- endfor -%}
     </ul>
   </section>
 
 
+{# PROJETS #}
   <section class="">
-    <div class="flex flex-row items-end justify-between mb-2 text-white text-shadow-lg-dark">
-      <h2 class="">Bidouilles</h2>
-            <a href="/projets" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
+    <div class="flex flex-col items-start justify-between mb-4 sm:flex-row sm:items-end md:mb-6">
+      <h2 class="text-2xl lg:text-3xl">Bidouilles</h2>
+        <a href="/projets" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
     </div>
 
-    <ul class=" card-container project-list">
+    <ul class="max-w-lg gap-8 m-auto md:gap-6 2xl:gap-8 md:m-0 md:max-w-none card-container project-list">
       {% for project in projects | reverse | slice(0, 5) %}
-    <li class="flex flex-col gap-3 list-none project card-base sm:gap-4 ">
-       <img onclick="window.location.href='{{project.link}}'"  loading="lazy" class="object-cover m-auto cursor-pointer picture" src="{{project.img}}">
-        <h3 class="leading-6 cta-card">
-          <a href="{{ project.link }}" class="block hover:underline hover:text-accent">
-            {{ project.name }}
-          </a>
-        </h3>
-          <p class="label description">{{project.description}}</p>
-    </li>
+        	{% include 'components/project.njk' %}
+
     {% endfor %}
     </ul>
   </section>
 
-  <div class="card-container">
-    <section class="card-base">
+
+   <div class="card-container">
+
+   {# AILLEURS #}
+    <section class="flex-col items-start p-7 card-base">
     <h2 >Ailleurs</h2>
-      <ul class="flex gap-12 ailleurs-list" >
+      <ul class="flex flex-col items-start gap-6 xl:gap-8 lg:flex-row ailleurs-list" >
         {% for item in ailleurs %}
-          <li class="my-8 list-none ailleurs">
-            <a class="cta-heading hover:underline hover:text-accent" href="{{item.link}}">{{item.name}}</a>
-            <div class="hidden label description">{{item.description}}</div>
+          <li class="list-none ">
+            <a
+            class="text-2xl ailleurs cta-heading hover:underline hover:text-accent2"
+            href="{{item.link}}">{{item.name}}</a>
           </li>
         {% endfor %}
       </ul>
     </section>
-    <section class="card-base">
+
+    {# CONTACT #}
+    <section class="flex-col items-start p-7 card-base">
       <h2 class="">Me contacter</h2>
-      <p class="my-8 prose prose-xl"><code> baptiste [À] toutcequibouge [point] net</code></p>
+      <p class="prose prose-xl"><code> baptiste [À] toutcequibouge [point] net</code></p>
     </section>
   </div>
 </div>

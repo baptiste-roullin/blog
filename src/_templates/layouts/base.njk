@@ -5,25 +5,22 @@
 
 	</head>
 	<body
-  class="template-{{layout}} page-{{page.fileSlug}} text-gray-900 sans">
-		{#    <div hidden>{% svgsprite %}</div>
-#}
-		<div class="min-h-screen mx-auto container-2xl">
-			{% include "components/nav.njk" %}
+  class="template-{{layout}} page-{{page.fileSlug}} text-gray-900 sans min-h-screen mx-auto container-2xl">
 
-			<main
+		{% include "components/nav.njk" %}
+
+		<main
       id="content"
-       class="  {{'bg-dark-lighter' if page.fileSlug == 'home'}} sm:px-per-lg px-per  relative flex-grow block max-w-full transition-all duration-300 ease-out " id="content">
-				{{ content | safe }}
-			</main>
-			{% include "components/footer.njk" %}
-		</div>
+       class="relative flex-grow block max-w-full transition-all duration-300 ease-out sm:px-per-lg px-per" id="content">
+			{{ content | safe }}
+		</main>
+		{% include "components/footer.njk" %}
+
 		{% if richPicture === true %}
-			{% include "../components/rich-picture.njk" %}
 
 			{% set css %}
-			{% include "src/assets/css/photoswipe/photoswipe.css" %}
-			{% include "src/assets/css/photoswipe/skin.css" %}
+			{% include "../../../node_modules/photoswipe/dist/photoswipe.css" %}
+
 			{% endset %}
 
 			<style>

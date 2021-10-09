@@ -14,7 +14,7 @@ Il y a derrière cette critique une incompréhension de ce qui fait l’attrait 
 
 Je ne dis pas que ce nouveau service de Facebook est une idée géniale, ni que j’ai envie de voir l’écran de verrouillage de mon téléphone se remplir d’images de 9Gag ou de photos de soirée sans filtre anti-yeux rouges (argh !). La chose importante, c’est que ces images sont signifiantes pour moi. Le reste est une question de paramétrage : j’imagine qu’il y aura un minimum d’options de filtrage, comme actuellement sur Facebook.com.
 
-Il y a évidemment une question de degré : on peut accepter un flot de contenu de qualité variable, tant que ça reste sur Facebook et pourtant refuser l’idée que ça envahisse tout votre téléphone. Mais chacun son truc. Il y a bien des manières d’être social et de le montrer. Si vous n’êtes pas du genre à chatter toute la journée ou à mettre des photographies de votre entourage en économiseur d’écran, vous n’êtes sans doute pas la cible de Home.
+Il y a évidemment une question de degré : on peut accepter un flot de contenu de qualité variable, tant que ça reste sur Facebook et pourtant refuser l’idée que ça envahisse tout votre téléphone. Mais chacun son truc. Il y a bien des manières d’être social et de le montrer. Si vous n’êtes pas du genre à chatter toute la journée ou à mettre des photographies de votre entourage en économiseur d'écran, vous n’êtes sans doute pas la cible de Home.
 
 * * *
 
