@@ -37,11 +37,10 @@
   description: Un minuteur en PWA pour vos ateliers.
 - name: Table basse
   link: /blog/2020/12/jai-fait-un-truc/
-  img: /assets/images/tb.jpg
+  img: /assets/images/tb_square.jpg
 
   description: Ma vie culturelle en mosaïque.
 - name: Ce blog
   link: /tags/tout-ce-qui-bouge/
-  img: /assets/images/moving_castle.png
-
+  img: /assets/images/moving_castle_square.png
   description: depuis 2012, la vache.

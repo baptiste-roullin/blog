@@ -49,6 +49,9 @@ module.exports = {
 
 
 			},
+			borderRadius: {
+				'4xl': '3rem'
+			},
 			minHeight: {
 
 				'1/4h': '25vh',
