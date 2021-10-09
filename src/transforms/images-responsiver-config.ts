@@ -1,6 +1,16 @@
+require('dotenv').config()
 const transformPicture = require("@11ty/eleventy-img");
 import path from "path";
 const imageSize = require('image-size')
+
+const formats = (
+	process.env.NODE_ENV === "production"
+		?
+		['webp', 'jpeg']
+		:
+		['jpeg']
+)
+
 module.exports = {
 
 	default: {
@@ -38,7 +48,7 @@ module.exports = {
 					},
 					widths: [360, 750, imageDimensions.width, 1140, 1530, 1920],
 					dryRun: false,
-					formats: ['webp', 'jpeg'],
+					formats: formats,
 					urlPath: '/assets/imagesToProcess/',
 					outputDir: './dist/assets/generatedImages/',
 					filenameFormat: function (id, src, width, format, options) {
