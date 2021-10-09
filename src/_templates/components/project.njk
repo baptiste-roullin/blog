@@ -1,17 +1,20 @@
-<li class="flex flex-col gap-4 p-5 text-center list-none card-base project lg:gap-6 lg:p-8">
+<li class="flex flex-col gap-4 p-5 text-center list-none transition-all duration-300 hover:shadow-md card-base project lg:gap-6 lg:p-8">
 
   {% if project.img %}
-    <div
+    <img
         onclick="window.location.href='{{project.link}}'"
-        class="w-1/2 h-0 mx-auto bg-center bg-cover cursor-pointer picture"
-        style="padding-top:50%; background-image: url({{project.img}})"></div>
+        loading="lazy"
+        class="object-cover w-3/4 mx-auto cursor-pointer rounded-4xl picture"
+        src="{{project.img}}">
 
   {% endif %}
 
-  <h3 class=" cta-heading">
-    <a href="{{ project.link }}" class="block hover:underline hover:text-accent">
-      {{ project.name }}
-    </a>
-  </h3>
-  <p class="m-0 label description">{{project.description}}</p>
+  <div class="flex flex-col justify-between h-full gap-4 lg:gap-6 ">
+    <h3 class=" cta-heading">
+      <a href="{{ project.link }}" class="block hover:underline hover:text-accent2">
+        {{ project.name }}
+      </a>
+    </h3>
+    <p class="m-0 label description">{{project.description}}</p>
+  </div>
 </li>

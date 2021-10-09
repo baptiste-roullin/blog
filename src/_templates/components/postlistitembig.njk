@@ -1,4 +1,4 @@
-<li class="relative shadow cursor-pointer card-base hover:shadow-md">
+<li class="relative transition-all duration-300 shadow cursor-pointer card-base hover:shadow-md">
 
 	<img
 		class="object-cover w-1/3 h-40 rounded-l-md"
@@ -15,7 +15,7 @@
 			{% set hx = '2' %}
 		{% endif %}
 
-		<h{{hx}} class="my-3 sm:my-4 cta-heading{{2}}">
+		<h{{hx}} class="my-3 sm:my-4 {{ 'cta-heading' if page.fileSlug == 'home' else 'cta-heading2' }}">
 			<a
 			href="{{ post.url }}"
 			class="block hover:underline hover:text-accent2">
