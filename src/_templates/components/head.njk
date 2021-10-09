@@ -13,12 +13,9 @@
 {% if layout == 'post' %}
   {# TODO ajouter date #}
 
-  {# TODO meta description : ajouter excerpt si pas de description dans le frontmatter.  #}
-
   <meta name="description" content="{{ description | removeMD  }}"/>
 {% else %}
   <meta name="description" content="{{ description | removeMD or meta.siteDescription }}"/>
-
 {% endif %}
 
 {#- Open Graph #}

@@ -1,7 +1,8 @@
 <section id="post-list"  class="mt-8 post-wrapper ">
 	<div class=post-list-wrapper>
-		<ul class="post-list">
+		<ul class="flex flex-col gap-8 post-list  ">
 			{% for post in postslist %}
+<<<<<<< HEAD
 				{% if postListItemStyle.complete %}
 					{% include 'components/postlistitem.njk' %}
 				{% else %}
@@ -16,6 +17,9 @@
 						</time>
 					</li>
 				{% endif %}
+=======
+				{% include 'components/postlistitembig.njk' %}
+>>>>>>> home
 			{% endfor %}
 		</ul>
 

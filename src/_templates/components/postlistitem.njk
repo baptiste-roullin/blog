@@ -10,19 +10,25 @@
 				{{ post.data.title }}
 			</a>
 		</h2>
+<<<<<<< HEAD
 		<time class=" label lg:my-2" datetime="{{ post.data.page.date | dateToFormat("yyyy-MM-dd") }}">
 			{{ post.data.page.date | dateToFormat("dd LLLL yyyy") }}
 		</time>
+=======
+>>>>>>> home
 
-		{% if post.data.description or post.data.page.description %}
-			<span class="inline mx-2 text-xl font-light text-gray-500 " >~</span>
-			<span class="label">
-				{{ post.data.description |  removeMD}}
-				{{ post.data.page.description | removeMD }}
-			</span>
+		{% if  page.fileSlug == 'blog'%}
+			<time class=" label lg:my-2" datetime="{{ post.data.page.date | dateToFormat("yyyy-MM-dd") }}">
+				{{ post.data.page.date | dateToFormat("dd LLLL yyyy") }}
+			</time>
+
+			{% if post.data.description or post.data.page.description %}
+				<span class="inline mx-2 text-xl font-light text-gray-500 " >~</span>
+				<span class="label">
+					{{ post.data.description |  removeMD}}
+				</span>
+			{% endif %}
 		{% endif %}
+
 	</div>
 </li>
-{% if not loop.last %}
-	<hr class="hidden my-4 container-full sm:block">
-{% endif %}

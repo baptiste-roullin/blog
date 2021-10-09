@@ -41,6 +41,17 @@ module.exports = {
 		},
 
 		extend: {
+			maxWidth: {
+				'8xl': '90rem',
+				'9xl': '100rem',
+				'1/3': '33%',
+				'1/4': '25%',
+
+
+			},
+			borderRadius: {
+				'4xl': '3rem'
+			},
 			minHeight: {
 
 				'1/4h': '25vh',
@@ -48,6 +59,7 @@ module.exports = {
 				'1/2h': '50vh',
 
 				'3/4h': '75vh',
+
 
 				'full': '100vh',
 			},
@@ -71,6 +83,7 @@ module.exports = {
 				"lg-dark": "3px 3px 6px rgb(0 0 0 / 46%), 0 0 5px rgb(15 3 86 / 42%)"
 			},
 			boxShadow: {
+				"flat": "0 7px 5px -2px rgba(100, 0, 0, 0.25)",
 				"lg-dark":
 					"0 1.3px 1.9px rgba(0, 0, 0, 0.1),  0 3.3px 4.9px rgba(0, 0, 0, 0.133),  0 6.7px 9.9px rgba(0, 0, 0, 0.167),  0 13.9px 20.4px rgba(0, 0, 0, 0.207),  0 38px 56px rgba(0, 0, 0, 0.2);"
 			},
@@ -80,7 +93,8 @@ module.exports = {
 					lighter: 'hsl(202, 70%, 20%)'
 				},
 				'accent': 'hsl(5, 77%, 37%)',
-				'accent2': 'hsl(31, 67%, 34%)'
+				'accent2': 'hsl(31, 67%, 34%)',
+				'accent-light': '#fff4ed'
 			},
 			typography: (theme) => ({
 				'xl': {
