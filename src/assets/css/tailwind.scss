@@ -81,7 +81,7 @@
 	position: absolute;
 	@apply bg-dark;
 	width: 100vw;
-	height: inherit;
+
 	z-index: -1;
 	overflow: hidden;
 	margin-left: calc(50% - 50vw);
@@ -247,10 +247,10 @@ padding: 0
 	top: -5rem;
 	}*/
 
-.nav-selected {
+/*.nav-selected {
 	&:after {
 		content:'';
-		width:100%;
+		width:140%;
 		height:4px;
 		@apply bg-accent;
 		position:absolute;
@@ -266,7 +266,9 @@ padding: 0
 		bottom: -.2em;
 
 	}
-}
+}*/
+
+
 
 @media screen and (max-width:640px){
 	#menu-offcanvas:after {
