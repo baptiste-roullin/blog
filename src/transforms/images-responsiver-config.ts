@@ -5,11 +5,7 @@ module.exports = {
 
 	default: {
 		// TODO : Tester cache. Par exemple "truchet-interet legitime.jpg" est-il mis en cache une seule fois.
-<<<<<<< HEAD
-		selector: '#content :not(picture)  > img[src]:not([srcset]):not([src$=".svg"]):not([src$=".gif"])',
-=======
 		selector: ":not(.page-home) #content :not(picture)  > img[src]:not([srcset]):not([src$='.svg']):not([src$='.gif'])",
->>>>>>> home
 		minWidth: 360,
 		maxWidth: 1920,
 		fallbackWidth: 750,
@@ -20,14 +16,8 @@ module.exports = {
 			}
 			return src.
 				replace(
-<<<<<<< HEAD
-					/\/assets\/*.\//,
-					'/assets/generatedImages/'
-				).
-=======
 					/\/assets\/.*\//,
 					'/assets/generatedImages/').
->>>>>>> home
 				replace(
 					/^(.*)(\.[^\.]+)$/,
 					'$1-' + width + '.jpg')
