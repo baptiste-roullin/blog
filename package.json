@@ -84,9 +84,6 @@
     "webpack-cli": "^4.6.0",
     "zotero-api-client": "^0.36.0"
   },
-  "optionalDependencies": {
-    "spotlight-noindex": "^1.1.1"
-  },
   "dependencies": {
     "alpinejs": "^3.2.2",
     "elasticlunr": "github:weixsong/elasticlunr.js#v0.9.6",

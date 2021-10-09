@@ -1,18 +1,17 @@
 <li class="flex flex-col gap-4 p-5 text-center list-none card-base project lg:gap-6 lg:p-8">
 
-    {% if project.img %}
-        <img
+  {% if project.img %}
+    <div
         onclick="window.location.href='{{project.link}}'"
-        loading="lazy"
-        class="object-cover w-full max-w-xs mx-auto cursor-pointer lg:max-w-md picture"
-        src="{{project.img}}">
+        class="w-1/2 h-0 mx-auto bg-center bg-cover cursor-pointer picture"
+        style="padding-top:50%; background-image: url({{project.img}})"></div>
 
-    {% endif %}
+  {% endif %}
 
-        <h3 class=" cta-heading">
-          <a href="{{ project.link }}" class="block hover:underline hover:text-accent">
-            {{ project.name }}
-          </a>
-        </h3>
-          <p class="m-0 label description">{{project.description}}</p>
-    </li>
+  <h3 class=" cta-heading">
+    <a href="{{ project.link }}" class="block hover:underline hover:text-accent">
+      {{ project.name }}
+    </a>
+  </h3>
+  <p class="m-0 label description">{{project.description}}</p>
+</li>
