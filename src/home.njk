@@ -14,14 +14,14 @@ postListItemStyle:
 
 {# RÉCENTS #}
   <section class="">
-    <div class="flex flex-col items-start justify-between mb-2 sm:flex-row sm:items-end md:mb-6 ">
+    <div class="flex flex-col items-start justify-between mb-4 sm:flex-row sm:items-end md:mb-6 ">
       <h2 class="text-2xl lg:text-3xl">Bafouilles récentes</h2>
       <a href="/blog" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
     </div>
 
       {% set postslist = collections.publishedPosts | reverse | slice(0, 3) %}
 
-    <ul class="flex flex-col gap-3 lg:gap-8 sm:gap-4 post-list">
+    <ul class="flex flex-col gap-8 post-list">
     {%- for post in postslist -%}
     	{% include 'components/postlistitembig.njk' %}
 
@@ -32,11 +32,11 @@ postListItemStyle:
 
 {# FEATURES #}
   <section class="">
-    <div class="flex flex-col items-start justify-between mb-2 sm:flex-row sm:items-end md:mb-6">
+    <div class="flex flex-col items-start justify-between mb-4 sm:flex-row sm:items-end md:mb-6">
       <h2  class="text-2xl lg:text-3xl">Bafouilles dont je suis content</h2>
             <a href="/tags/features" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
     </div>
-    <ul class="flex flex-col gap-3 lg:gap-8 sm:gap-4 post-list">
+    <ul class="flex flex-col gap-8 post-list">
     {%- for post in collections.features | reverse |  slice(0, 3) -%}
     	{% include 'components/postlistitembig.njk' %}
   {%- endfor -%}
@@ -46,12 +46,12 @@ postListItemStyle:
 
 {# PROJETS #}
   <section class="">
-    <div class="flex flex-col items-start justify-between mb-2 sm:flex-row sm:items-end md:mb-6">
+    <div class="flex flex-col items-start justify-between mb-4 sm:flex-row sm:items-end md:mb-6">
       <h2 class="text-2xl lg:text-3xl">Bidouilles</h2>
         <a href="/projets" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
     </div>
 
-    <ul class="max-w-lg gap-6 m-auto 2xl:gap-8 md:m-0 md:max-w-none card-container project-list">
+    <ul class="max-w-lg gap-8 m-auto md:gap-6 2xl:gap-8 md:m-0 md:max-w-none card-container project-list">
       {% for project in projects | reverse | slice(0, 5) %}
         	{% include 'components/project.njk' %}
 
