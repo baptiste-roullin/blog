@@ -52,7 +52,7 @@ Essayez vous-même : cliquez sur un carreau pour le faire pivoter et voir que ç
 
 ## Autres exemples
 
-Voici d'autres résultats très différents, obtenus uniquement en jouant sur quelques paramètres. Pour essayer vous-même, aller voir cet [outil interactif](https://observablehq.com/@xenomachina/truchet-tiles-variant-intertwined-quarter-circles). (À qui j'ai beaucoup emprunté, techniquement et visuellement). L'auteur ajoute en plus des paramètres pour délier chaque arc concentrique et ainsi créer un effet de "[tressage](twist-scramble)" plus ou moins échevelé, suivant à quel point on pousse les paramètres *twist* et *scramble*.
+Voici d'autres résultats très différents, obtenus uniquement en jouant sur quelques paramètres. Pour essayer vous-même, aller voir cet [outil interactif](https://observablehq.com/@xenomachina/truchet-tiles-variant-intertwined-quarter-circles). (À qui j'ai beaucoup emprunté, techniquement et visuellement). L'auteur ajoute en plus des paramètres pour délier chaque arc concentrique et ainsi créer un effet de "[tressage](twist-scramble.png)" plus ou moins échevelé, suivant à quel point on pousse les paramètres *twist* et *scramble*.
 
 {% richpicture %}
 

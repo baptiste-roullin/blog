@@ -1,5 +1,5 @@
 ---
-title: Bon bah voilà, je m'appelle Baptiste et voici mon site
+title: Bon bah salut, moi c'est Baptiste
 layout: page
 date: 2020-08-05
 description: # used for page excerpts and META (will be overwritten if SEO used below)
@@ -7,53 +7,79 @@ permalink: index.html
 postListItemStyle:
   complete: false
   showPagination: false
-
 ---
 
-<div class="{{ structure.g_pageWidth }} ">
+<div class="{{ structure.g_pageWidth }} flex flex-col gap-16 sm:gap-24">
 
 
-  {% if seo.description %}
-    <div class="p-2 {{ colors.borderCustom.borders or colors.borderDefault.borders }} {{ colors.borderCustom.color or colors.borderDefault.color }}">
-      {{ seo.description }}
-    {% endif %}
+{# RÉCENTS #}
+  <section class="">
+    <div class="flex flex-col items-start justify-between mb-4 sm:flex-row sm:items-end md:mb-6 ">
+      <h2 class="text-2xl lg:text-3xl">Bafouilles récentes</h2>
+      <a href="/blog" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
+    </div>
 
-    <section class="mb-16">
-      <h2>Bafouilles</h2>
       {% set postslist = collections.publishedPosts | reverse | slice(0, 3) %}
 
-      {% include 'components/postslist.njk' %}
+    <ul class="flex flex-col gap-8 post-list">
+    {%- for post in postslist -%}
+    	{% include 'components/postlistitembig.njk' %}
 
-      <a href="/blog" class="text-xl font-medium leading-7 text-accent2 lg:text-2xl hover:underline ">Voir tout <span aria-hidden="true">⤳</span></a>
-    </section>
-    <hr class="my-8">
+  {%- endfor -%}
+    </ul>
+  </section>
 
-    <section class="mb-16">
-      <h2>Bidouilles</h2>
-      <ul class="project-list " >
-        {% for project in projects | reverse | slice(0, 5) %}
-          <li class="my-8 list-none project">
-            <a class="cta-heading name " href="{{project.link}}">{{project.name}}</a>
-            {#<img class="picture" src="{{project.img}}"></img>#}
-            <p class="label description">{{project.description}}</p>
-          </li>
-        {% endfor %}
-      </ul>
-      <a href="/projets" class="text-xl font-medium leading-7 text-accent2 lg:text-2xl hover:underline">Voir tout <span aria-hidden="true">⤳</span></a>
-    </section>
-    <hr class="my-8">
 
-    <section class="">
-      <h2>Ailleurs</h2>
-      <ul class="ailleurs-list " >
+{# FEATURES #}
+  <section class="">
+    <div class="flex flex-col items-start justify-between mb-4 sm:flex-row sm:items-end md:mb-6">
+      <h2  class="text-2xl lg:text-3xl">Bafouilles dont je suis content</h2>
+            <a href="/tags/features" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
+    </div>
+    <ul class="flex flex-col gap-8 post-list">
+    {%- for post in collections.features | reverse |  slice(0, 3) -%}
+    	{% include 'components/postlistitembig.njk' %}
+  {%- endfor -%}
+    </ul>
+  </section>
+
+
+{# PROJETS #}
+  <section class="">
+    <div class="flex flex-col items-start justify-between mb-4 sm:flex-row sm:items-end md:mb-6">
+      <h2 class="text-2xl lg:text-3xl">Bidouilles</h2>
+        <a href="/projets" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
+    </div>
+
+    <ul class="max-w-lg gap-8 m-auto md:gap-6 2xl:gap-8 md:m-0 md:max-w-none card-container project-list">
+      {% for project in projects | reverse | slice(0, 5) %}
+        	{% include 'components/project.njk' %}
+
+    {% endfor %}
+    </ul>
+  </section>
+
+
+   <div class="card-container">
+
+   {# AILLEURS #}
+    <section class="flex-col items-start p-7 card-base">
+    <h2 >Ailleurs</h2>
+      <ul class="flex flex-col items-start gap-6 xl:gap-8 lg:flex-row ailleurs-list" >
         {% for item in ailleurs %}
-          <li class="my-8 list-none ailleurs">
-            <a class="cta-heading" href="{{item.link}}">{{item.name}}</a>
-            {#<img class="picture" src="{{item.img}}"></img>#}
-            <div class="hidden label description">{{item.description}}</div>
+          <li class="list-none ">
+            <a
+            class="text-2xl ailleurs cta-heading hover:underline hover:text-accent2"
+            href="{{item.link}}">{{item.name}}</a>
           </li>
         {% endfor %}
       </ul>
     </section>
 
+    {# CONTACT #}
+    <section class="flex-col items-start p-7 card-base">
+      <h2 class="">Me contacter</h2>
+      <p class="prose prose-xl"><code> baptiste [À] toutcequibouge [point] net</code></p>
+    </section>
   </div>
+</div>

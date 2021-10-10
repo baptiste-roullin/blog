@@ -1,3 +1,5 @@
+
+
 /*@font-face {
     font-family: 'Brandon';
     src: local('Brandon Text Light Italic'), local('BrandonText-LightItalic'),
@@ -106,3 +108,18 @@
     font-display: swap;
 }*/
 
+@font-face {
+    font-family: 'Brandon Display';
+    src: url('/assets/css/fonts/brandondisplay-medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Brandon Display';
+    src: url('/assets/css/fonts/brandondisplay-bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}

@@ -4,7 +4,6 @@ date: 2013-02-04
 tags:
   - "features"
   - "histoire"
-
 ---
 
 S’il y a une chose dont manquent les débats actuels sur le skeuomorphisme et ce qu’on appelle le _flat design_, c’est de recul historique.
@@ -27,7 +26,7 @@ Par exemple, il soutient que l’imprimerie est devenue mature quand sa typograp
 
 Ce qui est assez drôle, c’est que le mouvement [Arts & Crafts](http://en.wikipedia.org/wiki/Arts_and_Crafts_movement), que j’ai évoqué et que Tschichold trouvait kitsch, est né lui aussi en réaction au mauvais goût de son temps. Mais avec une grosse différence : l’adversaire n’était plus le passéisme mais au contraire la montée du machinisme. En effet, les tenants de ce courant valorisaient la confection manuelle et rejetaient les ornementations artificielles créées par les machines, par exemple la lithographie imitant le rendu de la gravure sur bois. Selon eux, les décorations ne devaient pas trahir le matériau utilisé. Cela fait beaucoup penser aux logiciels qui sont censés « assumer leur nature purement numérique » et ont par conséquent des interfaces _flat_. Les gens font des logiciels comme ils veulent, mais je trouve que se réclamer d’une prétendue essence du numérique est un [mauvais argument](http://toutcequibouge.net/2012/10/un-exemple-de-fantasme-sur-le-num-rique/).
 
-Il y a en architecture un principe très proche de ce respect des matériaux: « [Truth to materials](http://en.wikipedia.org/wiki/Truth_to_materials) ». Plus généralement, on retrouve dans ce domaine une opposition similaire entre courant [fonctionnaliste](http://en.wikipedia.org/wiki/Form_follows_function) et courant post-moderne. Ce dernier n’hésite pas à juxtaposer les influences et les formes, par exemple le fronton de la tour Sony à New-York (ex-AT&T Building), dans un maniérisme qui me rappelle le lecteur de cassettes utilisé en fond d’écrans de l’application de podcasts d’iOS. Pour quelque chose de plus bigarré, on peut aller voir [la maison](http://www.greatbuildings.com/buildings/Venice_Beach_House.html) faite par Gehry à Venice Beach.
+Il y a en architecture un principe très proche de ce respect des matériaux: « [Truth to materials](http://en.wikipedia.org/wiki/Truth_to_materials) ». Plus généralement, on retrouve dans ce domaine une opposition similaire entre courant [fonctionnaliste](http://en.wikipedia.org/wiki/Form_follows_function) et courant post-moderne. Ce dernier n’hésite pas à juxtaposer les influences et les formes, par exemple le fronton de la tour Sony à New-York (ex-AT&T Building), dans un maniérisme qui me rappelle le lecteur de cassettes utilisé en fond d'écrans de l’application de podcasts d’iOS. Pour quelque chose de plus bigarré, on peut aller voir [la maison](http://www.greatbuildings.com/buildings/Venice_Beach_House.html) faite par Gehry à Venice Beach.
 
 ![](/assets/images/sony_building_by_david_shankbone_crop.jpg "Bâtiment de  Philipp Johnson. Photo de David Shankbone, [CC-BY-SA-3.0](http://creativecommons.org/licenses/by-sa/3.0/), via Wikimedia Commons.")
 

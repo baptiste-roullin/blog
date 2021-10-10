@@ -2,24 +2,52 @@ const markdownItAttributes = require('markdown-it-attrs');
 const markdownItContainer = require('markdown-it-container');
 const markdownIt = require('markdown-it')
 const markdownItFootnote = require('markdown-it-footnote');
-const markdownItAnchor = require('markdown-it-anchor');
-const slugify = require('./slugify.js');
+const slugify = require('./filters/slugify.js');
 const imageFigures = require('markdown-it-image-figures');
-//const bracketedSpans = require('markdown-it-bracketed-spans');
 
 const MarkdownBlockquoteCite = require('markdown-it-blockquote-cite');
 
 
-// https://www.toptal.com/designers/htmlarrows/punctuation/section-sign/
-const markdownItAnchorOptions = {
-	permalink: true,
-	permalinkClass: 'deeplink',
-	permalinkSymbol: '&#xa7;&#xFE0E;',
-	level: [2, 3, 4],
-	slugify: function (s) {
-		return slugify(s);
-	},
+
+const anchor = (md, options) => {
+
+	const defaultOptions = {
+		divClass: 'heading-wrapper',
+		anchorClass: 'header-anchor',
+	};
+
+	options = Object.assign({}, defaultOptions, options);
+
+	md.renderer.rules.heading_open = function (tokens, index) {
+		const contentToken = tokens[index + 1];
+		const slug = slugify(contentToken.content);
+
+		if (tokens[index].tag === 'h2') {
+			return `
+      <div class="${options.divClass}">
+        <${tokens[index].tag} id="${slug}">`;
+		}
+		return `<${tokens[index].tag}>`;
+	};
+
+	md.renderer.rules.heading_close = function (tokens, index) {
+		const contentToken = tokens[index - 1];
+		const slug = slugify(contentToken.content);
+
+		if (tokens[index].tag === 'h2') {
+			return `
+      </${tokens[index].tag}>
+        <a class="${options.anchorClass}" href="#${slug}">
+          <span aria-hidden="true">§︎</span>
+          <span class="sr-only">Section avec le titre : ${contentToken.content}</span>
+        </a>
+      </div>`;
+		}
+		return `</${tokens[index].tag}>`;
+	};
 };
+
+
 
 /*
 // taken from https://gist.github.com/rodneyrehm/4feec9af8a8635f7de7cb1754f146a39
@@ -77,7 +105,7 @@ const md = markdownIt(options)
 	.disable('code')
 	//	.use(markdownItHeadingLevel, { firstLevel: 2 })
 	.use(markdownItFootnote)
-	.use(markdownItAnchor, markdownItAnchorOptions)
+	.use(anchor)
 	.use(markdownItAttributes)
 	.use(MarkdownBlockquoteCite)
 	.use(markdownItContainer, 'info')

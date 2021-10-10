@@ -1,5 +1,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>{{ seo.title or title }}  | {{ meta.siteName }}</title>
 
 {# set image paths here so user/editor doesn't have to deal with full paths #}
@@ -10,10 +11,11 @@
 {#- General #}
 <meta name="author" content="{{ meta.author }}"/>
 {% if layout == 'post' %}
+  {# TODO ajouter date #}
+
   <meta name="description" content="{{ description | removeMD  }}"/>
 {% else %}
   <meta name="description" content="{{ description | removeMD or meta.siteDescription }}"/>
-
 {% endif %}
 
 {#- Open Graph #}

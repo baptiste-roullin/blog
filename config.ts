@@ -4,12 +4,10 @@ const pluginRss = require('@11ty/eleventy-plugin-rss')
 const pluginNavigation = require('@11ty/eleventy-navigation')
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const yaml = require("js-yaml");
-
-//const svgsprite = require('./src/utils/svgsprite')
-//const pageAssetsPlugin = require('eleventy-plugin-page-assets');
 const imagesResponsiver = require("eleventy-plugin-images-responsiver");
 require('dotenv').config()
 const embedEverything = require("eleventy-plugin-embed-everything");
+
 
 module.exports = function (config: Config): UserConfig {
 
@@ -75,8 +73,8 @@ cf. postcss.config.js pour le CSS
 	});
 
 	if (process.env.NODE_ENV === "production") {
-		config.addPlugin(imagesResponsiver, require('./src/utils/images-responsiver-config.ts'))
-		config.addPlugin(require('./src/utils/gif-converter.js'))
+		config.addPlugin(imagesResponsiver, require('./src/transforms/images-responsiver-config.ts'))
+		config.addPlugin(require('./src/transforms/gif-converter.ts'))
 	}
 	config.addPlugin(pluginRss)
 
@@ -85,18 +83,25 @@ cf. postcss.config.js pour le CSS
 	 * Filters
 	 * @link https://www.11ty.io/docs/filters/
 	 */
-	const filters = require('./src/utils/filters.ts')
+	const filters = require('./src/filters/filters.ts')
 
 	Object.keys(filters).forEach((filterName) => {
 		config.addFilter(filterName, filters[filterName])
 	})
+
+	/*	const asyncFilters = require('./src/filters/asyncFilters.ts')
+		Object.keys(asyncFilters).forEach((filterName) => {
+			config.addNunjucksAsyncFilter(filterName, filters[filterName])
+		})
+	*/
 
 
 	/**
 	 * Transforms
 	 * @link https://www.11ty.io/docs/config/#transforms
 	 */
-	/*const transforms = require('./src/utils/transforms.js')
+	// l'activer pète tout.
+	/*const transforms = require('./src/transforms/transforms.js')
 
 	Object.keys(transforms).forEach((transformName) => {
 		config.addTransform(transformName, transforms[transformName])
@@ -107,7 +112,7 @@ cf. postcss.config.js pour le CSS
 	 * Shortcodes
 	 * @link https://www.11ty.io/docs/shortcodes/
 	 */
-	const shortcodes = require('./src/utils/shortcodes.js')
+	const shortcodes = require('./src/shortcodes/shortcodes.js')
 
 	Object.keys(shortcodes).forEach((shortcodeName) => {
 		config.addShortcode(shortcodeName, shortcodes[shortcodeName])
@@ -117,7 +122,7 @@ cf. postcss.config.js pour le CSS
 	 * Paired Shortcodes
 	 * @link https://www.11ty.dev/docs/languages/nunjucks/#paired-shortcode
 	 */
-	const pairedshortcodes = require('./src/utils/pairedShortcodes.js')
+	const pairedshortcodes = require('./src/shortcodes/pairedShortcodes.js')
 	Object.keys(pairedshortcodes).forEach((shortcodeName) => {
 		config.addPairedShortcode(shortcodeName, pairedshortcodes[shortcodeName]
 		)
@@ -129,7 +134,7 @@ cf. postcss.config.js pour le CSS
 	 * @link https://www.11ty.dev/docs/languages/nunjucks/#asynchronous-shortcodes
 	 */
 
-	const asyncShortcodes = require('./src/utils/asyncShortcodes.js')
+	const asyncShortcodes = require('./src/shortcodes/asyncShortcodes.js')
 	Object.keys(asyncShortcodes).forEach((shortcodeName) => {
 		config.addNunjucksAsyncShortcode(shortcodeName, asyncShortcodes[shortcodeName])
 	})
@@ -156,11 +161,12 @@ cf. postcss.config.js pour le CSS
 		excerpt: true,
 		// Optional, default is "---"
 		excerpt_alias: 'description',
+		//Si <!-- excerpt --> est présent, sa valeur remplit le tag description, pas page.description.
 		excerpt_separator: "<!-- excerpt -->"
 	});
 
-	const md = require('./src/utils/markdown.js')
-	config.setLibrary('md', md);
+	const md = require('./src/markdown.js')
+	config.setLibrary('md', require('./src/markdown.js'));
 
 
 
@@ -175,7 +181,6 @@ cf. postcss.config.js pour le CSS
 
 	config.addCollection("publishedPosts", function (collection: Collection): Item[] {
 
-		//const collec = collection.getFilteredByGlob("./src/posts/**/*.md").filter(publishedPosts);
 
 		const collec = collection.getFilteredByTag("post").filter(publishedPosts)
 		/*	collec.forEach(item => {
@@ -186,15 +191,14 @@ cf. postcss.config.js pour le CSS
 		return collec
 	});
 
-
 	config.addCollection('tagList', function (collection: Collection): any {
-		let tagSet = new Set()
+		let tagDictionary: Map<string, number> = new Map()
 
 		collection.getFilteredByTag("post").filter(publishedPosts).forEach(function (item) {
 			//@ts-ignore
 			if ('tags' in item.data) {
 				//@ts-ignore
-				let tags = item.data.tags
+				let tags: string[] = item.data.tags
 
 				tags = tags.filter(function (item) {
 					switch (item) {
@@ -211,17 +215,28 @@ cf. postcss.config.js pour le CSS
 				})
 
 				for (const tag of tags) {
-					tagSet.add(tag)
+					if (tagDictionary.has(tag)) {
+						const oldValue = tagDictionary.get(tag)!
+						tagDictionary.set(tag, oldValue + 1)
+					}
+					else {
+						tagDictionary.set(tag, 1)
+					}
 				}
 			}
 		})
 
-		return [...tagSet]
+		return new Map([...tagDictionary.entries()].filter(el => el[1] > 1).sort((a, b) => b[1] - a[1]))
 	})
 
 	/*	config.addCollection("catList", function (collectionApi) {
 			return collectionApi.getFilteredByTag("travaux");
 		});*/
+
+
+	//const { compress } = require('eleventy-plugin-compress');
+	//config.addPlugin(compress);
+
 
 
 	return {

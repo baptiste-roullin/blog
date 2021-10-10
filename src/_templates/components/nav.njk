@@ -40,18 +40,16 @@
 
     {# =======    ENTRÉES MENU DESKTOP      ========= #}
 
-    <div class="hidden m-auto sm:m-0 sm:flex sm:items-center">
+    <div class="hidden gap-8 m-auto sm:m-0 sm:flex sm:items-center xl:gap-12 ">
 
       {% for entry in navPages %}
-        <a href="{{ entry.url | url }}"  class="
-            flex ml-8 xl:ml-12 h-full relative text-shadow text-xl font-medium items-center focus:outline-none focus:text-accent  text-gray-100
-            {% if entry.url in page.url %}
-              nav-selected
-            {% else %}
-              hover:text-accent
-            {% endif %}
-            ">
-          {{ entry.title }}
+        <a href="{{ entry.url | url }}"
+        class="relative items-center h-full text-xl font-medium text-gray-100 group text-shadow focus:text-white focus:group-accent">
+          <span style="width:140%;"
+          class="flex items-center justify-center h-full
+               {{ 'underline' if entry.url in page.url }}
+              group-hover:text-white group-hover:bg-accent transition-all duration-300
+          ">{{ entry.title }}</span>
         </a>
       {% endfor %}
     </div>

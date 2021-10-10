@@ -1,0 +1,17 @@
+---
+title: Projets, bidouilles, trucs
+date: 2020-08-05
+layout: page
+eleventyNavigation:
+  key: main
+  title: Projets #  as it will appear in the nav
+  order: 2    # order to display in the nav
+
+---
+
+<ul class="max-w-lg gap-8 m-auto md:m-0 md:max-w-none card-container project-list">
+	{% for project in projects | reverse %}
+		{% include 'components/project.njk' %}
+
+	{% endfor %}
+</ul>

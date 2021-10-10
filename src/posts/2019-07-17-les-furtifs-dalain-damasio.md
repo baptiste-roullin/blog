@@ -4,6 +4,7 @@ date: 2019-07-17
 tags:
   - "futur"
   - "litterature"
+  - "features"
 hero:
   type: split  # options: carousel, graphic, video, split (text & image)
   image: "1-uFzbZEP0dfQZzBpgwPndGA-e1582155605785.jpeg"

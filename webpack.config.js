@@ -26,13 +26,15 @@ module.exports = {
     extensions: ['.ts', '.js'],
   },
   entry: {
-    truchet: path.resolve(__dirname, 'src/truchet/truchet-core.ts'),
-    'truchet-dom': path.resolve(__dirname, 'src/truchet/truchet-dom.ts'),
+    truchet: path.resolve(__dirname, 'src/features/truchet/truchet-core.ts'),
+    'truchet-dom': path.resolve(__dirname, 'src/features/truchet/truchet-dom.ts'),
     main: path.resolve(__dirname, 'src/assets/scripts/main.ts'),
     search: path.resolve(__dirname, 'src/assets/scripts/search.js'),
-    richPicture: path.resolve(__dirname, 'src/assets/scripts/richPicture.js'),
+    richPicture: path.resolve(__dirname, 'src/assets/scripts/richPicture.ts'),
     spin: path.resolve(__dirname, 'src/assets/scripts/spin.ts'),
     nav: path.resolve(__dirname, 'src/assets/scripts/nav.ts'),
+    arrowWidth: path.resolve(__dirname, 'src/assets/scripts/arrowWidth.ts'),
+
   },
 
 
@@ -65,8 +67,8 @@ module.exports = {
                 'src/_templates/utils'
 
               ], filters: {
-                dateToFormat: path.resolve('src/utils/dateToFormat.js'),
-                removeMD: path.resolve('src/utils/removeMD.js')
+                dateToFormat: path.resolve('src/filters/dateToFormat.js'),
+                removeMD: path.resolve('src/filters/removeMD.js')
 
               }
             }
