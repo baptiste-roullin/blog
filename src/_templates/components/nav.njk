@@ -48,8 +48,7 @@
           <span style="width:140%;"
           class="flex items-center justify-center h-full
                {{ 'underline' if entry.url in page.url }}
-
-              group-hover:text-white group-hover:bg-accent
+              group-hover:text-white group-hover:bg-accent transition-all duration-300
           ">{{ entry.title }}</span>
         </a>
       {% endfor %}

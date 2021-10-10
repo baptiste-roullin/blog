@@ -79,9 +79,7 @@
 
 .decor-dark {
 	position: absolute;
-	@apply bg-dark;
 	width: 100vw;
-
 	z-index: -1;
 	overflow: hidden;
 	margin-left: calc(50% - 50vw);
