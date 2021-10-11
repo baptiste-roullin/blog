@@ -166,11 +166,11 @@
 	/* TODO : supprimer text-xl, augmenter font-size */
 	.cta-heading {
 		color: hsl(30.8, 95%, 17.3%);
-		@apply text-xl md:text-3xl font-medium leading-6 lg:leading-10 lg:text-4xl
+		@apply  text-lg-bis md:text-3xl font-medium leading-7 lg:leading-10 lg:text-4xl
 	}
 	.cta-heading2 {
 		color: hsl(30.8, 95%, 17.3%);
-		@apply text-xl md:text-2xl font-medium leading-6 lg:leading-10 lg:text-3xl
+		@apply  text-lg-bis md:text-2xl font-medium leading-7 lg:leading-10 lg:text-3xl
 	}
 
 	.cta-card {

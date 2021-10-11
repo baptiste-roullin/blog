@@ -96,6 +96,9 @@ module.exports = {
 				'accent2': 'hsl(31, 67%, 34%)',
 				'accent-light': '#fff4ed'
 			},
+			fontSize: {
+				'xl-bis': "1.4rem"
+			},
 			typography: (theme) => ({
 				'xl': {
 					css: {
