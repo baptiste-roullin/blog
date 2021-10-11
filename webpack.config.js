@@ -26,14 +26,15 @@ module.exports = {
     extensions: ['.ts', '.js'],
   },
   entry: {
-    truchet: path.resolve(__dirname, 'src/features/truchet/truchet-core.ts'),
-    'truchet-dom': path.resolve(__dirname, 'src/features/truchet/truchet-dom.ts'),
-    main: path.resolve(__dirname, 'src/assets/scripts/main.ts'),
+    main: path.resolve(__dirname, 'src/assets/scripts/main.js'),
     search: path.resolve(__dirname, 'src/assets/scripts/search.js'),
     richPicture: path.resolve(__dirname, 'src/assets/scripts/richPicture.ts'),
     spin: path.resolve(__dirname, 'src/assets/scripts/spin.ts'),
     nav: path.resolve(__dirname, 'src/assets/scripts/nav.ts'),
     arrowWidth: path.resolve(__dirname, 'src/assets/scripts/arrowWidth.ts'),
+    truchet: path.resolve(__dirname, 'src/features/truchet/truchet-core.ts'),
+    'truchet-dom': path.resolve(__dirname, 'src/features/truchet/truchet-dom.ts'),
+
 
   },
 

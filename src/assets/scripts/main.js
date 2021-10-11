@@ -1,14 +1,12 @@
-/*const Alpine  = require('alpinejs')
+import Alpine from 'alpinejs'
 window.Alpine = Alpine
 Alpine.start()
-*/
-
 
 
 import nav from './nav'
-import spin from './spin'
-
 nav()
+
+import spin from './spin'
 spin()
 
 
