@@ -17,7 +17,7 @@ postListItemStyle:
   showPagination: false
 permalink: /tags/{{ tag | slug }}/
 eleventyComputed:
-  title: 'Articles à propos de : "{{ tag }}”'
+  title: 'Articles à propos de : "{{ tag }}"'
 ---
 
 {% set postslist = collections[tag] | frontMatterFilter("draft") | reverse %}
