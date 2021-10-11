@@ -1,5 +1,5 @@
 const markdownItAttributes = require('markdown-it-attrs');
-const markdownItContainer = require('markdown-it-container');
+//const markdownItContainer = require('markdown-it-container');
 const markdownIt = require('markdown-it')
 const markdownItFootnote = require('markdown-it-footnote');
 const slugify = require('./filters/slugify.js');
@@ -108,7 +108,7 @@ const md = markdownIt(options)
 	.use(anchor)
 	.use(markdownItAttributes)
 	.use(MarkdownBlockquoteCite)
-	.use(markdownItContainer, 'info')
+	//.use(markdownItContainer, 'info')
 	.use(imageFigures, { figcaption: true });
 
 
