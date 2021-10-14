@@ -77,7 +77,9 @@ module.exports = {
 				'per': '2%',
 			},
 			fontSize: {
-				'2-half-xl': '1.65rem',
+				'xl-bis': '1.65rem',
+				'lg-bis': "1.4rem"
+
 			},
 			textShadow: {
 				"lg-dark": "3px 3px 6px rgb(0 0 0 / 46%), 0 0 5px rgb(15 3 86 / 42%)"
@@ -96,9 +98,7 @@ module.exports = {
 				'accent2': 'hsl(31, 67%, 34%)',
 				'accent-light': '#fff4ed'
 			},
-			fontSize: {
-				'xl-bis': "1.4rem"
-			},
+
 			typography: (theme) => ({
 				'xl': {
 					css: {
