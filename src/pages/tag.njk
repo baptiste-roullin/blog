@@ -20,15 +20,9 @@ eleventyComputed:
   title: 'Articles à propos de : "{{ tag }}"'
 ---
 
+{% set tags = collections.tagList %}
+
+{% include "components/tagpills.njk" %}
+
 {% set postslist = collections[tag] | frontMatterFilter("draft") | reverse %}
-
 {% include 'components/postslist.njk' %}
-
-<div class="my-16 border-t border-gray-300 container-wide">
-  <h3 class="text-gray-700">Tous les mots clés</h3>
-  {% set tags = collections.tagList %}
-  {% set block = true %}
-
-  {% include "components/tagpills.njk" %}
-
-</div>
