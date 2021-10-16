@@ -1,4 +1,4 @@
-/* TODO : hover manquants sur logo, nav, footer, tags... */
+/* TODO : hover manquants sur logo... */
 
 --root {
 	--navbar-height:1;
@@ -118,7 +118,7 @@
 @layer components {
 
 	.card-base {
-		@apply flex items-center p-0 rounded-md md:shadow hover:shadow-flat sm:gap-5 lg:gap-7 bg-accent-light shadow-flat sm:shadow-sm transition-all duration-300
+		@apply flex items-center p-0 rounded-md md:shadow hover:shadow-flat gap-4 sm:gap-5 lg:gap-7 bg-accent-light shadow-flat sm:shadow-sm transition-all duration-300
 	}
 
 	.card-item {
@@ -126,8 +126,9 @@
 	}
 	.card-container {
 		display:grid;
-		gap: 1em;
 		grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+		@apply gap-16
+
 
 	}
 
@@ -163,7 +164,6 @@
 	.cta-secondary {
 		@apply relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-600 transition duration-150 ease-in-out border border-gray-300 rounded-md hover:text-accent2 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:border-accent2 active:text-gray-600 active:bg-gray-100
 	}
-	/* TODO : supprimer text-xl, augmenter font-size */
 	.cta-heading {
 		color: hsl(30.8, 95%, 17.3%);
 		@apply  text-lg-bis md:text-3xl font-medium leading-7 lg:leading-10 lg:text-4xl
