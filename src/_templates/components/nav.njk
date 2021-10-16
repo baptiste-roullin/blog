@@ -40,13 +40,13 @@
 
     {# =======    ENTRÉES MENU DESKTOP      ========= #}
 
-    <div class="hidden gap-8 m-auto sm:m-0 sm:flex sm:items-center xl:gap-12 " style="padding-right:1vw;">
+    <div class="hidden gap-8 m-auto sm:m-0 sm:flex sm:items-center xl:gap-12 pr-[1vw]">
 
       {% for entry in navPages %}
         <a href="{{ entry.url | url }}"
         class="relative items-center h-full text-xl font-medium text-gray-100 group text-shadow focus:text-white focus:group-accent">
-          <span style="width:140%;"
-          class="flex items-center justify-center h-full
+          <span
+          class="w-[140%] flex items-center justify-center h-full
                {{ 'underline' if entry.url in page.url }}
               group-hover:text-white group-hover:bg-accent transition-all duration-300
           ">{{ entry.title }}</span>
