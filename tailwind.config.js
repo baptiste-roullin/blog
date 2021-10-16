@@ -132,7 +132,14 @@ module.exports = {
 						figcaption: {
 							textAlign: "center"
 						},
-						a: { fontWeight: 'normal' },
+						a: {
+							fontWeight: 'normal',
+							transition: 'all .15s ease-in',
+							'&:hover': {
+								color: theme('colors.accent2'),
+							},
+						},
+
 						blockquote: {
 							fontWeight: 'normal',
 						},
