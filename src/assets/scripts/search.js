@@ -34,12 +34,13 @@ async function search(e) {
 
 	if (!value) {
 		console.log('champ vide')
-		postList.style.display = 'block'
+		postList.style.display = 'flex'
 		searchList.style.display = 'none';
 	}
 	else {
 		postList.style.display = 'none';
-		searchList.style.display = 'block';
+		searchList.style.display = 'flex';
+		searchList.classList.add("flex-col", "gap-8", "my-10", "post-list")
 		while (searchList.hasChildNodes()) {
 			searchList.removeChild(searchList.lastChild)
 		}

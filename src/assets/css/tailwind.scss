@@ -118,7 +118,7 @@
 @layer components {
 
 	.card-base {
-		@apply flex items-center p-0 rounded-md md:shadow hover:shadow-flat gap-4 sm:gap-5 lg:gap-7 bg-accent-light shadow-flat sm:shadow-sm transition-all duration-300
+		@apply flex items-center p-0 rounded-md md:shadow hover:shadow-flat gap-6 lg:gap-10 bg-accent-light shadow-flat sm:shadow-sm transition-all duration-300
 	}
 
 	.card-item {
