@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 /*TODO trier et filtrer tag par nombre d'article */
-
+/* TODO Fix certaines images */
 const elasticlunr = require("elasticlunr");
 require('./lunr.stemmer.support.js')(elasticlunr);
 require('./lunr.fr.js')(elasticlunr);
