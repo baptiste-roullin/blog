@@ -12,7 +12,7 @@ seo:
   description:
 pagination:
   data: collections.publishedPosts
-  size: 40
+  size: 30
   alias: posts
   reverse: true
 postListItemStyle:
@@ -20,7 +20,7 @@ postListItemStyle:
   showPagination: true
 
 ---
-{# TODO anciennes images : attribut alt #}
+{# TODO anciennes images : attribut alt  #}
 <div class="blog-wrapper">
   {% set tags = collections.tagList %}
   {% include "components/tagpills.njk" %}
@@ -40,7 +40,6 @@ postListItemStyle:
   {% set postslist = posts %}
 
   {% include 'components/postslist.njk' %}
-
 
 </div>
 <script  src="/assets/scripts/{{hashes_js['search.js']}}" defer></script>
