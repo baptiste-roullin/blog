@@ -18,9 +18,10 @@
 .rich-picture  {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, max-content));
-  grid-gap: .5em;
+
   padding: 0;
-justify-content: center;
+  justify-content: center;
+  @apply md:gap-4;
 }
 
 .rich-picture figure > a {
@@ -38,11 +39,18 @@ justify-content: center;
   object-position: 50% 50%;
 }
 
+
+.pswp__button.pswp__button--zoom {
+  display: none;
+}
+
 .prose .rich-picture li:before
 {
 content:none
 
 }
+
+
 
 @supports (grid-template-rows: masonry) {
   .rich-picture {
