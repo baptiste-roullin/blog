@@ -34,8 +34,6 @@ module.exports = {
     arrowWidth: path.resolve(__dirname, 'src/assets/scripts/arrowWidth.ts'),
     truchet: path.resolve(__dirname, 'src/features/truchet/truchet-core.ts'),
     'truchet-dom': path.resolve(__dirname, 'src/features/truchet/truchet-dom.ts'),
-
-
   },
 
 
@@ -106,13 +104,7 @@ module.exports = {
             return `${context}/assets/imagesToProcess/[name][ext]`;
           },
         },
-        {
-          from: "assets/UI/*",
-          context: "src",
-          to({ context, absoluteFilename }) {
-            return `${context}/assets/imagesToProcess/[name][ext]`;
-          },
-        },
+
 
       ],
       options: {
