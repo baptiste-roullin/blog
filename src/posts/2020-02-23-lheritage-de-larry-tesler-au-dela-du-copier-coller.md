@@ -59,7 +59,7 @@ Inspiré par Pentti Kanerva, Tesler abolit ces modes en inversant le modèle d'i
 
 La complexité a été ainsi déplacée des modes au presse-papier : celui-ci stocke de l'information sans l'afficher à l'utilisateur, ce qui occasionne parfois des surprises. Mais globalement, copier et coller étant souvent concomitants, on a beaucoup gagné au change.
 
-![Capture d'écran de Mac OS 9, avec un éditeur de texte ouvert dans lequel il est écrit "Larry Tesler 1945-2020")](/assets/images/Capture-d’écran-2020-02-22-à-18.53.08.png "Réalisé avec cet [émulateur](https://jamesfriend.com.au/pce-js/)"
+![Capture d'écran de Mac OS 9, avec un éditeur de texte ouvert dans lequel il est écrit "Larry Tesler 1945-2020")](/assets/images/tesler0.png "Réalisé avec cet [émulateur](https://jamesfriend.com.au/pce-js/)"
 )
 
 

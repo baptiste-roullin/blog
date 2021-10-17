@@ -8,7 +8,8 @@ tags:
   - "utilisateurs"
 hero:
   type: split  # options: carousel, graphic, video, split (text & image)
-  image: "2019-11-23_13h31_18-1-scaled.jpg"
+  image: "bartle0.jpg"
+  alt: "Les quatre profils du modèle de Bartle : Tueur, Social, Explorateur, Collectionneur"
 ---
 
 _Sur la psychologie des joueurs et les travaux de Nick Yee et Quantic Foundry._
@@ -21,9 +22,7 @@ _Sur la psychologie des joueurs et les travaux de Nick Yee et Quantic Foundry._
 
 Le [modèle de Bartle](https://en.wikipedia.org/wiki/Bartle_taxonomy_of_player_types) est une typologie des joueurs très populaires. Datant de 1996 et tiré de données sur des participants à des MMORPG, il est très limité et se retrouve remplacé par des théories plus fines.
 
-![Les quatre profils du modèle de Bartle : Tueur, Social, Explorateur, Collectionneur](/assets/images/2019-11-23_13h31_18.jpg)
 
-Les quatre profils : Tueur, Social, Explorateur, Collectionneur
 
 Ses problèmes sont multiples :
 
@@ -89,7 +88,7 @@ L'opposé d'un joueur compétitif n'est pas quelqu'un qui aime jouer tout seul m
 
 Attention aux oppositions trompeuses entre jeunes et vieux : certaines courbes ne sont pas monotones, si bien qu'un joueur de 60 peut être plus proche d'un joueur de 15 que de 40 ans.
 
-![Evolution du défi à travers l'âge](/assets/images/Capture-d’écran-2019-11-27-à-20.19.22.png)
+![Evolution du défi à travers l'âge](/assets/images/bartle4.png)
 
 ### Pouvoir
 
@@ -113,7 +112,7 @@ Pas juste exploration géographique mais découverte des limites du jeu (des rè
 
 Ce graphique montre à la fois la variabilité entre cultures et l'importance d'avoir une _baseline_ : comparé à la Chine, les USA paraissent dans la moyenne en tout.
 
-![Différences entre USA et Chine ](/assets/images/Capture-d’écran-2019-11-27-à-20.16.16.png)
+![Différences entre USA et Chine ](/assets/images/bartle2.png)
 
 ## En 1971, déjà…
 

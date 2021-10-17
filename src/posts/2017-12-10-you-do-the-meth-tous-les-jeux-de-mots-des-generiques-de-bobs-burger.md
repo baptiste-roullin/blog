@@ -17,6 +17,9 @@ Vous voyez dans le générique des Simpsons le texte que Bart écrit depuis 25 s
 Il y a 126 photogrammes pour 134 épisodes (de la S1 au milieu de la S8), ce qui fait 8 épisodes sans générique.
 
 
+
+{% richpicture %}
+
 ![](/assets/images/Bobs-Burgers-S01E01-Human-Flesh.png '')
 
 ![](/assets/images/Bobs-Burgers-S01E02-Crawl-Space.png '')
@@ -271,5 +274,6 @@ Il y a 126 photogrammes pour 134 épisodes (de la S1 au milieu de la S8), ce qui
 
 ![](/assets/images/Bobs-Burgers-S08E05-Thanks-Hoarding.png '')
 
+{% endrichpicture %}
 
 Et c'est tout.

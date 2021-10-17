@@ -59,7 +59,7 @@ Il y a d'abord la table de navigation, utilisée avec feutre effaçable, rapport
 
 Ce genre de réflexion effectuée directement sur papier a été qualifiée "[d'action épistémique](https://onlinelibrary.wiley.com/doi/pdf/10.1207/s15516709cog1804_1)" (PDF) par Kirsch et Maglio, qui ont étudié le comportement de joueurs face à Tetris. Ces actions n'ont pas d'autre but que d'aider à la résolution de problème, par exemple pour vérifier si une pièce va s'adapter aux autres il est plus simple de la pivote à l'écran que dans sa tête.
 
-![](/assets/images/Capture-d’écran-2020-02-08-à-11.25.42.png)
+![](/assets/images/tetris.png)
 
 Des zoids tout à fait mignons dessinés à la main en 1994
 
@@ -79,9 +79,9 @@ Cet usage du papier est aussi documenté dans les cockpits d'avion, [voir ce pap
 
 {% richpicture gallery %}
 
-![](/assets/images/Capture-d’écran-2020-02-08-à-10.53.48.png)
+![](/assets/images/cognition1.png)
 
-![](/assets/images/Capture-d’écran-2020-02-08-à-10.53.00.png)
+![](/assets/images/cognition0.png)
 
 {% endrichpicture %}
 
