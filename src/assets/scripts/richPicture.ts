@@ -3,8 +3,6 @@
 import PhotoSwipeLightbox from 'photoswipe/dist/photoswipe-lightbox.esm.js';
 import PhotoSwipe from 'photoswipe/dist/photoswipe.esm.js';
 
-
-//TODO : tweak interface et ajouter attribut src
 const lightbox = new PhotoSwipeLightbox({
 	gallery: '.rich-picture',
 	children: 'figure',
@@ -153,17 +151,18 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
 		items = parseThumbnailElements(galleryElement);
 
 		options = {
+			zoomSVG: '',
+			zoom: false,
+			closeOnVerticalDrag: true,
 			closeOnScroll: false,
 			closeEl: true,
 			captionEl: true,
 			fullscreenEl: false,
-			zoomEl: false,
 			initialZoomLevel: 'fit',
 			secondaryZoomLevel: 'fill',
 			shareEl: false,
 			counterEl: true,
 			arrowEl: true,
-			preloaderEl: true,
 			clickToCloseNonZoomable: true,
 			tapToClose: false,
 			// define gallery index (for URL)

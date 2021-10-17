@@ -33,20 +33,20 @@
       </svg>
 
       <div id="site-title-text"
-        class=" tracking-tight ml-4 lg:ml-8 relative bottom-0.5 sm:bottom-auto flex font-medium content-center text-shadow-lg-dark text-2-half-xl sm:text-3lg lg:text-4xl text-gray-100">
+        class=" tracking-tight ml-4 lg:ml-8 relative bottom-0.5 sm:bottom-auto flex font-medium content-center text-shadow-lg-dark text-xl-bis sm:text-3lg lg:text-4xl text-gray-100">
         Tout ce qui bouge
         </div>
     </a>
 
     {# =======    ENTRÉES MENU DESKTOP      ========= #}
 
-    <div class="hidden gap-8 m-auto sm:m-0 sm:flex sm:items-center xl:gap-12 ">
+    <div class="hidden gap-8 m-auto sm:m-0 sm:flex sm:items-center xl:gap-12 pr-[1vw]">
 
       {% for entry in navPages %}
         <a href="{{ entry.url | url }}"
         class="relative items-center h-full text-xl font-medium text-gray-100 group text-shadow focus:text-white focus:group-accent">
-          <span style="width:140%;"
-          class="flex items-center justify-center h-full
+          <span
+          class="w-[140%] flex items-center justify-center h-full
                {{ 'underline' if entry.url in page.url }}
               group-hover:text-white group-hover:bg-accent transition-all duration-300
           ">{{ entry.title }}</span>
