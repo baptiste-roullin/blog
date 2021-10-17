@@ -2,8 +2,6 @@ const md = require('../markdown.js')
 
 module.exports = {
 
-
-	// TODO Margin entre deux rich-picture sur mobile. passer en flex ?
 	richpicture: function (data) {
 		let content = md.render(data)
 		let width = ''
