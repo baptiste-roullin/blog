@@ -37,7 +37,7 @@ postListItemStyle:
             <a href="/tags/features" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
     </div>
     <ul class="flex flex-col gap-8 post-list">
-    {%- for post in collections.features | reverse |  slice(0, 3) -%}
+    {%- for post in collections.features | shuffle |  slice(0, 3) -%}
     	{% include 'components/postlistitembig.njk' %}
   {%- endfor -%}
     </ul>
