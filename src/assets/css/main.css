@@ -1,7 +1,6 @@
-@import "./fonts.scss";
+@import "./fonts.css";
 @import "./article.scss";
 @import "./images.scss";
-@import "./prism-okaidia.css";
 @import "./tailwind.scss";
 @tailwind base;
 @tailwind components;
