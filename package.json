@@ -70,12 +70,12 @@
     "webpack": "^5.33.2",
     "webpack-assets-manifest": "^5.0.6",
     "webpack-cli": "^4.6.0",
-    "zotero-api-client": "^0.36.0"
+    "zotero-api-client": "^0.36.0",
+    "linkedom": "^0.13.0"
   },
   "dependencies": {
     "alpinejs": "^3.4.2",
     "elasticlunr": "github:weixsong/elasticlunr.js#v0.9.6",
-    "linkedom": "^0.13.0",
     "photoswipe": "github:dimsemenov/photoswipe#v5-beta",
     "text-metrics": "^2.0.9"
   },
