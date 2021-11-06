@@ -19,13 +19,12 @@ J'essaye d'y enregistrer et classer des papiers et articles de blog sur des suje
 
 Zotero a une interface en ligne et si un profil est public, tout le monde peut consulter les listes établies par ce profil. Mais comment faire si je veux intégrer à un post que j'écris une liste spécifique (par exemple une combinaison de catégories et de tags), en appui d'un propos quelconque ? Il y a quelques plugins, [notamment pour Wordpress](https://www.zotero.org/support/plugins#website_integration), mais je suis sous Eleventy.
 
-C'est là qu'intervient [l'API](https://www.zotero.org/support/dev/web_api/v3/basics
-) de Zotero et [ce client](https://github.com/tnajdek/zotero-api-client) en Javascript qui facilite le dialogue avec celle-ci.
+C'est là qu'intervient [l'API](https://www.zotero.org/support/dev/web_api/v3/basics) de Zotero et [ce client](https://github.com/tnajdek/zotero-api-client) en Javascript qui facilite le dialogue avec celle-ci.
 
 J'ai écrit un script, à invoquer simplement dans le corps d'un post avec un "shortcode" (un raccourci qui exécute un script), de la sorte :
 
 
-```liquid
+```
 {% zotero "collection", "tag 1", "tag 2", "tag n"  %}
 ```
 

@@ -2,7 +2,6 @@ import { Config, Item, UserConfig, Collection } from './types/eleventy';
 
 const pluginRss = require('@11ty/eleventy-plugin-rss')
 const pluginNavigation = require('@11ty/eleventy-navigation')
-const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const yaml = require("js-yaml");
 const imagesResponsiver = require("eleventy-plugin-images-responsiver");
 require('dotenv').config()
@@ -67,7 +66,6 @@ cf. postcss.config.js pour le CSS
 	 */
 
 	config.addPlugin(pluginNavigation)
-	config.addPlugin(syntaxHighlight)
 	config.addPlugin(embedEverything, {
 		use: ['vimeo', 'youtube', 'twitter'], twitter: { options: { align: 'center' } }
 	});

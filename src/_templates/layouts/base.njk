@@ -18,13 +18,8 @@
 
 		{% if richPicture === true %}
 
-			{% set css %}
-			{% include "../../../node_modules/photoswipe/dist/photoswipe.css" %}
-
-			{% endset %}
-
 			<style>
-				{{css | minify('css') | safe}}
+				{% include "../../../node_modules/photoswipe/dist/photoswipe.css" %}
 			</style>
 			<script  src="/assets/scripts/{{hashes_js['richPicture.js']}}" defer></script>
 		{% endif %}
