@@ -10,15 +10,16 @@ module.exports = {
   author: "{{ meta.author }}",
   eleventyComputed: {
 
-    placeholderImage: async (data) => {
+    collatedImage: async (data) => {
+      const slug = data.page.fileSlug
       if (data.draft !== true) {
         if (data.hero === undefined || data.hero === {}) {
-          await truchetNode(data.page.fileSlug).catch(console.error);
-          return true
+          await truchetNode(slug).catch(console.error);
+          return `truchet-${slug}.png`
         }
-        else { return false }
+        else { return data.hero.image }
       }
-      return false
+      return undefined
     },
 
     relative: (data) => {

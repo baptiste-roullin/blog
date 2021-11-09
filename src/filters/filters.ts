@@ -40,7 +40,7 @@ function search(collection) {
 			//on accède au contenu en  markdown et on le transforme en texte brut.
 			content: remove(page.template.frontMatter.content),
 			date: page.data.date,
-			hero: page.data.hero,
+			collatedImage: page.data.collatedImage,
 			fileSlug: page.fileSlug
 		});
 
@@ -135,16 +135,16 @@ module.exports = {
 	},
 
 
-/*	minify: (data, format) => {
-		switch (format) {
-			case 'css':
-				return pd.cssmin(data)
-			case 'json':
-				return pd.jsonmin(data)
+	/*	minify: (data, format) => {
+			switch (format) {
+				case 'css':
+					return pd.cssmin(data)
+				case 'json':
+					return pd.jsonmin(data)
 
-			default:
-				throw new Error("format non supporté")
-		}
+				default:
+					throw new Error("format non supporté")
+			}
 
-	}*/
+		}*/
 }
