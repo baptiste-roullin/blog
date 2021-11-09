@@ -86,15 +86,15 @@ module.exports = {
 			return arr.slice(a, b);
 		}
 		else if (isMap(arr)) {
-			const tableau = [...arr.entries()].slice(a, b)
-			return tableau
+			return [...arr.entries()].slice(a, b);
 		}
+
 		else {
-			console.log(arr)
 			console.error("filtre slice : argument n'est pas un tableau")
 			return ""
 		}
-	},
+	}
+	,
 
 	searchIndex: (process.env.SEARCH === "false" ? () => "[RECHERCHE DÉSACTIVÉE]" : search)
 	,
