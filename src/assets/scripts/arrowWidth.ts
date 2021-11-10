@@ -19,9 +19,7 @@ function arrowWidth(e) {
 	}
 }
 
-
 window.addEventListener("load", arrowWidth)
-
 
 var resizeTimer;
 window.addEventListener("resize", function (e) {

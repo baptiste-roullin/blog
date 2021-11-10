@@ -1,6 +1,6 @@
 export default function nav() {
 
-	function toggleNav(menuBar) {
+	function toggleNav() {
 
 		const offCanvas = document.querySelector('#menu-offcanvas')!
 		const buttonState = document.querySelectorAll('#menu-bar button svg')
@@ -22,7 +22,7 @@ export default function nav() {
 			offCanvas.classList.remove('anim-nav-opened')
 			window.scrollBy({
 				behavior: 'smooth',
-				top: menuBar.offsetTop,
+				top: offCanvas.clientHeight,
 			});
 		}
 	}
@@ -35,8 +35,8 @@ export default function nav() {
 			top: menuBar.offsetTop,
 		});
 
-		button.addEventListener("click", function (menuBar) {
-			return toggleNav(menuBar)
+		button.addEventListener("click", function (e) {
+			return toggleNav(e.target)
 		}
 		)
 

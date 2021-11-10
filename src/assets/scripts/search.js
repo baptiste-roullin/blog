@@ -1,7 +1,5 @@
 // @ts-nocheck
 
-/*TODO trier et filtrer tag par nombre d'article */
-/* TODO Fix certaines images */
 const elasticlunr = require("elasticlunr");
 require('./lunr.stemmer.support.js')(elasticlunr);
 require('./lunr.fr.js')(elasticlunr);
@@ -38,21 +36,14 @@ function renderResults(refs, value) {
 
 				const doc = window.searchIndex.documentStore.getDoc(ref)
 
-				let { url, title, description, date, fileSlug, } = doc;
+				let { url, title, description, date, fileSlug, collatedImage } = doc;
 
-				if (doc.hero) {
-					var { hero } = doc
-				}
 				const el = postlistitem({
-					postListItemStyle: {
-						complete: 'complete'
-					},
+					postListItemStyle: { complete: 'complete' },
 					post: {
 						url,
 						data: {
-							hero: {
-								image: '/assets/generatedImages/' + hero?.image
-							},
+							collatedImage: collatedImage,
 							title,
 							description,
 							page: {
