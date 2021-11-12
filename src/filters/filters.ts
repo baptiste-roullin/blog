@@ -85,15 +85,15 @@ module.exports = {
 			return arr.slice(a, b);
 		}
 		else if (isMap(arr)) {
-			return [...arr.entries()].slice(a, b);
+			const tableau = [...arr.entries()].slice(a, b)
+			return tableau
 		}
-
 		else {
+			console.log(arr)
 			console.error("filtre slice : argument n'est pas un tableau")
 			return ""
 		}
-	}
-	,
+	},
 
 	shuffle: function (array) {
 

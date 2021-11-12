@@ -23,43 +23,30 @@ postListItemStyle:
 {# TODO anciennes images : attribut alt  #}
 <div class="blog-wrapper">
 
-  <style>
-    .tag-wrapper .tagpills,
-    .tag-wrapper button {
-      display: inline-block;
+  <div class="tag-wrapper" x-data="{ open: false }">
+    {% set allTags = collections.tagList %}
+    {% set tags = allTags | slice(0, 5) %}
+    {% include "components/tagpills.njk" %}
+    <button class="pt-2 text-gray-600 underline sm:pt-0 " @click="open = !open">Voir tout</button>
+    <span class="tag-list-all" x-transition.duration.150ms x-show="open">
+      {% set tags = allTags | slice(5) %}
+      {{tags | log}}
+      {% include "components/tagpills.njk" %}
+    </span>
+  </div>
 
-    }
-  </style>
-
-  <form class="flex gap-16 search" id="search-form" aria-controls="post-list">
-    <div class="flex flex-col sm:w-1/3 field">
-      {#      <label for="searchField" class="label">Filtre </label>
-#}
-
+  <form class="search " id="search-form" aria-controls="post-list">
+    <div class="flex flex-col sm:w-1/2 field">
+      <label for="searchField" class="label">Rechercher</label>
       <div class="relative">
         <input type="search"  class="w-full p-2 border-gray-600 rounded-md " placeholder="" id="searchField"/>
         <input type="image" name="submit" src="/assets/UI/search.svg" border="0" class="absolute h-10 p-2 right-2">
       </div>
     </div>
-
-    <div class="tag-wrapper" x-data="{ open: false }">
-
-      {% set allTags = collections.tagList %}
-      {% set tags = allTags | slice(0, 5) %}
-      {% include "components/tagpills.njk" %}
-      <button class="pt-2 text-gray-600 underline sm:pt-0 " @click="open = !open">Voir tout</button>
-      <span class="tag-list-all" x-transition.duration.150ms x-show="open">
-        {% set tags = allTags | slice(5) %}
-        {% include "components/tagpills.njk" %}
-      </span>
-    </div>
-
-  </form>
-
-  <p id="noResultsFound" class="hidden py-4 text-base" role="alert">
+    <p id="noResultsFound" class="hidden py-4 text-base" role="alert">
       Aucun résultat.
     </p>
-
+  </form>
   {% set postslist = posts %}
 
   {% include 'components/postslist.njk' %}
