@@ -25,7 +25,7 @@ C'est là qu'intervient [l'API](https://www.zotero.org/support/dev/web_api/v3/ba
 J'ai écrit un script, à invoquer simplement dans le corps d'un post avec un "shortcode" (un raccourci qui exécute un script), de la sorte :
 
 
-```liquid
+```
 {% zotero "collection", "tag 1", "tag 2", "tag n"  %}
 ```
 
