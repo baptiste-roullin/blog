@@ -78,21 +78,8 @@ module.exports = {
 		});
 	},
 
-	slice: function (arr, a, b = undefined) {
-		const isMap = require('is-map');
-
-		if (Array.isArray(arr)) {
-			return arr.slice(a, b);
-		}
-		else if (isMap(arr)) {
-			const tableau = [...arr.entries()].slice(a, b)
-			return tableau
-		}
-		else {
-			console.log(arr)
-			console.error("filtre slice : argument n'est pas un tableau")
-			return ""
-		}
+	slice: function (arr, a, b = 5) {
+		return arr.slice(a, b);
 	},
 
 	shuffle: function (array) {
@@ -147,16 +134,16 @@ module.exports = {
 	},
 
 
-	/*	minify: (data, format) => {
-			switch (format) {
-				case 'css':
-					return pd.cssmin(data)
-				case 'json':
-					return pd.jsonmin(data)
+/*	minify: (data, format) => {
+		switch (format) {
+			case 'css':
+				return pd.cssmin(data)
+			case 'json':
+				return pd.jsonmin(data)
 
-				default:
-					throw new Error("format non supporté")
-			}
+			default:
+				throw new Error("format non supporté")
+		}
 
-		}*/
+	}*/
 }
