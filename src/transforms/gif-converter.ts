@@ -26,10 +26,11 @@
 
 const { promisify } = require("util");
 const { join } = require("path");
+const shell = require("any-shell-escape");
 const exec = promisify(require("child_process").exec);
 const pathToFfmpeg = require("ffmpeg-static");
 const { parseHTML } = require('linkedom');
-import path from "path";
+import path  from "path";
 
 
 async function convert(filename, outPath) {
@@ -39,11 +40,9 @@ async function convert(filename, outPath) {
 	if (await exists(convertedName)) {
 		return convertedName;
 	}
-
-	// See https://engineering.giphy.com/how-to-make-gifs-with-ffmpeg/
-
-	/*const command = shell([
+	const command = shell([
 		pathToFfmpeg,
+		// See https://engineering.giphy.com/how-to-make-gifs-with-ffmpeg/
 		"-y",
 		"-v",
 		"error",
@@ -60,8 +59,7 @@ async function convert(filename, outPath) {
 		"-pix_fmt",
 		"yuv420p",
 		join('dist/', outPath, convertedName), // output path
-	]);*/
-	const command = `${pathToFfmpeg} -y -v error -i \"${join('src/', filename)}\" -filter_complex \"[0:v] crop=trunc(iw/2)*2:trunc(ih/2)*2, fps=15\" -vsync 0 -f mp4 -pix_fmt yuv420p \"${join('dist/', outPath, convertedName)}\"`
+	]);
 	try {
 		await exec(command);
 	} catch (e) {

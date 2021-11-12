@@ -1,0 +1,22 @@
+<li
+class="flex flex-col gap-4 p-5 text-center list-none transition-all duration-300 cursor-pointer hover:shadow-flat card-base project lg:gap-6 lg:p-8"
+onclick="window.location.href='{{project.link}}'"
+>
+
+  {% if project.img %}
+    <img
+        loading="lazy"
+        class="object-cover w-3/4 mx-auto cursor-pointer rounded-4xl picture"
+        src="{{project.img}}">
+
+  {% endif %}
+
+  <div class="flex flex-col justify-between h-full gap-4 lg:gap-6 ">
+    <h3 class=" cta-heading">
+      <a href="{{ project.link }}" class="block hover:underline hover:text-accent2">
+        {{ project.name }}
+      </a>
+    </h3>
+    <p class="m-0 label description">{{project.description}}</p>
+  </div>
+</li>

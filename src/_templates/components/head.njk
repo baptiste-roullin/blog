@@ -44,6 +44,13 @@
 {#- RSS Feed #}
 <link type="application/atom+xml" rel="alternate"  title="RSS Feed for {{ meta.siteName }}"  href="/rss" title="{{ meta.siteName }} XML Feed">
 
+{% set css %}
+{% include "src/assets/css/fonts.css" %}
+{% endset %}
+<style>
+  {{css | minify('css') | safe}}
+</style>
+
 <link rel="stylesheet" href="/assets/css/{{hashes_css['main.css']}}"/>
 
 {% if meta.env === "production" %}

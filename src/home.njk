@@ -52,8 +52,8 @@ postListItemStyle:
     </div>
 
     <ul class="max-w-lg gap-8 m-auto md:gap-6 2xl:gap-8 md:m-0 md:max-w-none card-container project-list">
-      {% for projet in projets | reverse | slice(0, 5) %}
-        	{% include 'components/projet.njk' %}
+      {% for project in projects | reverse | slice(0, 5) %}
+        	{% include 'components/project.njk' %}
 
     {% endfor %}
     </ul>
