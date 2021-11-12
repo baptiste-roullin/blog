@@ -48,14 +48,22 @@ async function search(e) {
 			results.map((r) => {
 				const doc = window.searchIndex.documentStore.getDoc(r.ref)
 
-				let { url, title, description, date, fileSlug, collatedImage } = doc;
+				let { url, title, description, date, fileSlug, } = doc;
 
+				if (doc.hero) {
+					var { hero } = doc
+
+				}
 				const el = postlistitem({
-					postListItemStyle: { complete: 'complete' },
+					postListItemStyle: {
+						complete: 'complete'
+					},
 					post: {
 						url,
 						data: {
-							collatedImage: collatedImage,
+							hero: {
+								image: '/assets/generatedImages/' + hero?.image
+							},
 							title,
 							description,
 							page: {
