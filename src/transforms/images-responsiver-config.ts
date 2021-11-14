@@ -1,6 +1,7 @@
 require('dotenv').config()
 const transformPicture = require("@11ty/eleventy-img");
 import path from "path";
+import { decode } from "punycode";
 const imageSize = require('image-size')
 
 const formats = (
@@ -10,6 +11,10 @@ const formats = (
 		:
 		['jpeg']
 )
+
+function normalizePath(str) {
+	return decodeURI(str.replace(/^\s(.*)\s$/g, "$1"))
+}
 
 module.exports = {
 
@@ -33,7 +38,7 @@ module.exports = {
 					'$1-' + width + '.jpg')
 		},
 		runBefore: async (image, document) => {
-			let originalPath = image.getAttribute('src')
+			let originalPath = normalizePath(image.getAttribute('src'))
 			const intermediaryPath = "src/assets/imagesToProcess/" + path.basename(originalPath)
 
 			try {
@@ -62,7 +67,7 @@ module.exports = {
 						if (!(await exists(intermediaryPath))) {
 							console.log(intermediaryPath + 'debug : existe pas')
 						}*/
-				await transformPicture(decodeURI(intermediaryPath), options);
+				await transformPicture(intermediaryPath, options);
 
 				image.dataset.responsiver = image.className;
 				//image.dataset.responsiveruRL = metadata.jpg.url;

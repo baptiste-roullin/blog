@@ -40,7 +40,7 @@ function search(collection) {
 			//on accède au contenu en  markdown et on le transforme en texte brut.
 			content: remove(page.template.frontMatter.content),
 			date: page.data.date,
-			hero: page.data.hero,
+			collatedImage: page.data.collatedImage,
 			fileSlug: page.fileSlug
 		});
 
