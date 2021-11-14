@@ -3,11 +3,6 @@
 
 <title>{{ seo.title or title }}  | {{ meta.siteName }}</title>
 
-{# set image paths here so user/editor doesn't have to deal with full paths #}
-{%- set ogImage -%}
-{{ meta.siteImage }}
-{%- endset -%}
-
 {#- General #}
 <meta name="author" content="{{ meta.author }}"/>
 {% if layout == 'post' %}
@@ -24,8 +19,8 @@
 <meta property="og:description" content="{{ description | removeMD or meta.siteDescription }}"/>
 <meta property="og:url" content="{{meta.siteURL}}{{  page.url  }}"/>
 <meta property="og:locale" content="{{ meta.locale }}"/>
-{% if layout == 'post' and hero.image %}
-  <meta property="og:image" content="{{meta.siteURL}}/assets/generatedImages/{{hero.image}} "/>
+{% if layout == 'post' %}
+  <meta property="og:image" content="{{meta.siteURL}}/assets/generatedImages/{{collatedImage}} "/>
 {% else %}
   <meta property="og:image" content="{{meta.siteURL}}/{{ meta.image}}"/>
 {% endif %}

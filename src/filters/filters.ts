@@ -37,13 +37,12 @@ function search(collection) {
 			title: page.data.title,
 			description: page.data.description,
 			tags: page.data.tags,
-			//on accède au contenu en  markdown et on le transforme en texte brut.
+			//on accède au contenu en markdown et on le transforme en texte brut.
 			content: remove(page.template.frontMatter.content),
 			date: page.data.date,
 			collatedImage: page.data.collatedImage,
 			fileSlug: page.fileSlug
 		});
-
 	});
 	return index.toJSON();
 }
