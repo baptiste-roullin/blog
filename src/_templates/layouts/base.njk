@@ -1,39 +1,34 @@
 <!DOCTYPE html>
 <html lang="fr" class="font-sans">
-	<head>
-		{%- include "components/head.njk" %}
+  <head>
+    {%- include "components/head.njk" %}
 
-	</head>
-	<body
+  </head>
+  <body
   class="template-{{layout}} page-{{page.fileSlug}} text-gray-900 sans min-h-screen mx-auto container-2xl">
 
-		{% include "components/nav.njk" %}
+    {% include "components/nav.njk" %}
 
-		<main
+    <main
       id="content"
        class="relative flex-grow block max-w-full transition-all duration-300 ease-out sm:px-per-lg px-per" id="content">
-			{{ content | safe }}
-		</main>
-		{% include "components/footer.njk" %}
+      {{ content | safe }}
+    </main>
+    {% include "components/footer.njk" %}
 
-		{% if richPicture === true %}
+    {% if richPicture === true %}
 
-			{% set css %}
-			{% include "../../../node_modules/photoswipe/dist/photoswipe.css" %}
+      <style>
+        {% include "../../../node_modules/photoswipe/dist/photoswipe.css" %}
+      </style>
+      <script  src="/assets/scripts/{{hashes_js['richPicture.js']}}" defer></script>
+    {% endif %}
 
-			{% endset %}
+    {% for tag in tags %}
+      {% if tag === "post" %}
+        <script  src="/assets/scripts/{{hashes_js['arrowWidth.js']}}" defer></script>
+      {% endif %}
+    {% endfor %}
 
-			<style>
-				{{css | minify('css') | safe}}
-			</style>
-			<script  src="/assets/scripts/{{hashes_js['richPicture.js']}}" defer></script>
-		{% endif %}
-
-		{% for tag in tags %}
-			{% if tag === "post" %}
-				<script  src="/assets/scripts/{{hashes_js['arrowWidth.js']}}" defer></script>
-			{% endif %}
-		{% endfor %}
-
-	</body>
+  </body>
 </html>

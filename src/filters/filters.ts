@@ -12,7 +12,6 @@ const elasticlunr = require("elasticlunr");
 require('./lunr.stemmer.support.js')(elasticlunr);
 require('./lunr.fr.js')(elasticlunr);
 Settings.defaultLocale = "fr";
-var pd = require('pretty-data').pd;
 
 function search(collection) {
 
@@ -133,17 +132,4 @@ module.exports = {
 		return slugify(string)
 	},
 
-
-	minify: (data, format) => {
-		switch (format) {
-			case 'css':
-				return pd.cssmin(data)
-			case 'json':
-				return pd.jsonmin(data)
-
-			default:
-				throw new Error("format non supporté")
-		}
-
-	}
 }
