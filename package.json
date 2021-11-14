@@ -73,7 +73,7 @@
     "webpack-assets-manifest": "^5.0.6",
     "webpack-cli": "^4.6.0",
     "webpack": "^5.33.2",
-    "zotero-api-client": "^0.36.0",
+    "zotero-api-client": "^0.36.0"
   },
   "dependencies": {
     "alpinejs": "^3.4.2",
