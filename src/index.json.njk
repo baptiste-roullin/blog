@@ -1,7 +1,8 @@
 ---
 permalink: /index.min.json
 eleventyExcludeFromCollections: true,
-
 ---
 
-{{ collections.publishedPosts | searchIndex | dump   | safe }}
+{% if meta.env === 'production' %}
+	{{ collections.publishedPosts | searchIndex | dump   | safe }}
+{% endif %}

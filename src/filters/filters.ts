@@ -1,17 +1,17 @@
-import ElasticLunr from "elasticlunr";
 
 const remove = require('remove-markdown');
-require('dotenv').config()
-
 
 const { DateTime, Settings } = require('luxon')
 const slugify = require('./slugify.js');
 //const cleanCSS = require('clean-css')
 const md = require('../markdown.js')
+
+import ElasticLunr from "elasticlunr";
 const elasticlunr = require("elasticlunr");
 require('./lunr.stemmer.support.js')(elasticlunr);
 require('./lunr.fr.js')(elasticlunr);
 Settings.defaultLocale = "fr";
+
 
 function search(collection) {
 
@@ -101,7 +101,7 @@ module.exports = {
 		return array;
 	},
 
-	searchIndex: (process.env.SEARCH === "false" ? () => "[RECHERCHE DÉSACTIVÉE]" : search)
+	searchIndex: search
 	,
 
 	// Add markdownify filter with Markdown-it configuration
