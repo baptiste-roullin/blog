@@ -1,5 +1,5 @@
 
-module.exports = async function (slug) {
+module.exports = async function (slug, width, height) {
 
 	const { createCanvas } = require('canvas')
 	const fs = require('fs')
@@ -8,12 +8,11 @@ module.exports = async function (slug) {
 	//@ts-ignore
 	const truchet = require('./truchet-core.ts')
 
-	//const path = 'dist/assets/generatedImages/truchet-' + slug + '.png'
 	const path = 'src/assets/imagesToProcess/truchet-' + slug + '.png'
 
 
 	const tileCanvas = await truchet(
-		createCanvas(480, 320), createCanvas(480, 320), null, 'node')
+		createCanvas(width, height), createCanvas(width, height), { height: height, width: width }, 'node')
 	await pipeline(
 		tileCanvas.createPNGStream({ compressionLevel: 2 }),
 		fs.createWriteStream(path),

@@ -14,7 +14,7 @@ module.exports = {
       const slug = data.page.fileSlug
       if (data.draft !== true) {
         if (data.hero === undefined || data.hero === {}) {
-          await truchetNode(slug).catch(console.error);
+          await truchetNode(slug, 400, 280).catch(console.error);
           return `truchet-${slug}.png`
         }
         else { return data.hero.image }
