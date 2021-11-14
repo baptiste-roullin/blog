@@ -130,6 +130,8 @@ interface Item extends Page {
 }
 
 export interface Collection {
+   items: Item[];
+
    getAll(): Item[];
 
    /**
