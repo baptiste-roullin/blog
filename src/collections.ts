@@ -34,6 +34,7 @@ module.exports = {
 						case 'travaux':
 						case 'features':
 						case 'publishedposts':
+						case 'listeprojets':
 							return false
 					}
 					return true
