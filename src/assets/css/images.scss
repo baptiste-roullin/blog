@@ -18,7 +18,6 @@
 .rich-picture  {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, max-content));
-
   padding: 0;
   justify-content: center;
   @apply md:gap-4;

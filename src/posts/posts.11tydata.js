@@ -12,12 +12,22 @@ module.exports = {
 
     collatedImage: async (data) => {
       const slug = data.page.fileSlug
+      const hero = data.hero
       if (data.draft !== true) {
-        if (data.hero === undefined || data.hero === {}) {
+        if (hero === undefined || hero === {}) {
           await truchetNode(slug, 400, 280).catch(console.error);
           return `truchet-${slug}.png`
         }
-        else { return data.hero.image }
+        else {
+          const isGif = /\.gif$/
+          if (isGif.test(hero.image)) {
+            return "/assets/generatedImages/" + hero.image
+
+          }
+          else {
+            return hero.image
+          }
+        }
       }
       return undefined
     },
