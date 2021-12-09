@@ -2,16 +2,15 @@
   "name": "tout-ce-qui-bouge",
   "version": "0.2.0",
   "scripts": {
-    "clean": "rimraf dist",
     "dev:webpack": "webpack --watch  --mode development",
     "dev:eleventy": "eleventy --serve",
-    "debug:eleventy": "DEBUG=EleventyCacheAssets* eleventy --quiet",
+    "debug:eleventy": "DEBUG=EleventyCacheAssets* eleventy --incremental --quiet",
     "dev:postcss": "postcss src/assets/css/main.css -o dist/assets/css/main.css --watch",
-    "dev": "npm-run-all clean --parallel dev:* --print-label",
+    "dev": "npm-run-all --parallel dev:* --print-label",
     "build:webpack": "webpack  --mode production",
     "build:postcss": "cross-env NODE_ENV=production postcss --verbose src/assets/css/main.css -o dist/assets/css/main.css",
-    "build:eleventy": "cross-env NODE_ENV=production eleventy  --quiet",
-    "build": "run-s clean build:* --print-label"
+    "build:eleventy": "cross-env NODE_ENV=production eleventy --incremental --quiet",
+    "build": "run-s build:* --print-label"
   },
   "devDependencies": {
     "@11ty/eleventy-cache-assets": "^2.3.0",
