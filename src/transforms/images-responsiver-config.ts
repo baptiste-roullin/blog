@@ -1,8 +1,6 @@
 require('dotenv').config()
 const transformPicture = require("@11ty/eleventy-img");
 import path from "path";
-import { decode } from "punycode";
-const imageSize = require('image-size')
 
 const formats = (
 	process.env.NODE_ENV === "production"
@@ -31,7 +29,7 @@ module.exports = {
 				src = "/assets/generatedImages/" + src
 			}
 
-			//image placée dans un dossier /assets/*, et dont le chemin dans le fichier .md contient déjà "assets/"
+			//image placée dans un dossier /assets/*, et dans le fichier .md son chemin contient déjà "assets/"
 			return src.
 				replace(
 					/\/assets\/.*\//,
@@ -46,6 +44,8 @@ module.exports = {
 		classes: ['img-default'],
 		attributes: { loading: 'lazy', },
 	},
+
+
 
 	postList: {
 		minWidth: 400,
@@ -67,38 +67,18 @@ module.exports = {
 	}
 }
 
-function runAfter(image, document) {
-
-
-	if (image.closest('.rich-picture')) {
-		const link = document.createElement("a");
-		link.setAttribute("data-pswp-srcset", image.getAttribute('srcset'));
-
-		link.setAttribute("href", image.getAttribute('src'));
-		link.appendChild(image.cloneNode(true));
-		link.setAttribute('data-pswp-width', image.width);
-		link.setAttribute('data-pswp-height', image.height);
-		image.replaceWith(link);
-	}
-}
-
 
 async function runBefore(image, document) {
 	let originalPath = normalizePath(image.getAttribute('src'))
 	const intermediaryPath = "src/assets/imagesToProcess/" + path.basename(originalPath)
 
 	try {
-		const imageDimensions = await imageSize(intermediaryPath);
-		image.setAttribute('width', imageDimensions.width);
-		image.setAttribute('height', imageDimensions.height);
-
 		const options = {
 			sharpWebpOptions: {
 				quality: 90,
 			},
-
-			//widths: [400, 750, imageDimensions.width, 1140, 1530, 1920],
-			widths: [400, 750, 1140, 1530, 1920],
+			//	widths: [400, 750, imageDimensions.width, 1140, 1540, 1920],
+			widths: [400, 780, 1160, 1540, 1920],
 			dryRun: false,
 			formats: formats,
 			urlPath: '/assets/imagesToProcess/',
@@ -124,6 +104,20 @@ async function runBefore(image, document) {
 
 	}
 	catch (e) {
-		console.log("debug:    " + originalPath + "  " + e)
+		console.log("debug:    " + originalPath + e)
+	}
+
+}
+
+function runAfter(image, document) {
+	if (image.closest('.rich-picture')) {
+		const link = document.createElement("a");
+		link.setAttribute("data-pswp-srcset", image.getAttribute('srcset'));
+
+		link.setAttribute("href", image.getAttribute('src'));
+		link.appendChild(image.cloneNode(true));
+		link.setAttribute('data-pswp-width', image.width);
+		link.setAttribute('data-pswp-height', image.height);
+		image.replaceWith(link);
 	}
 }
