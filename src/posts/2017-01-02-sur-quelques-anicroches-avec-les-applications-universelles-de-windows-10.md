@@ -74,4 +74,4 @@ Plus fondamentalement, ce bouton retour est gênant dans son principe. Dans un e
 
 Contrairement aux problèmes précédents, cette fonction est moins une erreur basique qu'une réponse inadaptée à une question compliquée. J’aurais simplement préféré que Microsoft ajoute ce bouton au cas par cas, quand c'était vraiment nécessaire : Word et Courrier n'en ont pas, Groove Music n'aurait pas dû en avoir, mais le Store en a un et c'est justifié vu la profondeur de son arborescence. Voici comment Apple ajoute un bouton retour global à certaines applications (Photos, Mac App Store).
 
-![photos_01_mac-100577934-orig](/assets/images/photos_01_mac-100577934-orig.png)
+![](/assets/images/photos_01_mac.png)
