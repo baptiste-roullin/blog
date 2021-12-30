@@ -2,6 +2,20 @@ require('dotenv').config()
 const transformPicture = require("@11ty/eleventy-img");
 import path from "path";
 
+
+
+function normalizePath(str) {
+	return decodeURI(str.replace(/^\s(.*)\s$/g, "$1"))
+}
+
+function urlRewrite(src, width) {
+	const fullPath = '/assets/generatedImages/' + path.basename(src)
+	return fullPath.
+		replace(
+			/^(.*)(\.[^\.]+)$/,
+			'$1-' + width + '.jpg')
+}
+
 const formats = (
 	process.env.NODE_ENV === "production"
 		?
@@ -9,64 +23,6 @@ const formats = (
 		:
 		['jpeg']
 )
-
-function normalizePath(str) {
-	return decodeURI(str.replace(/^\s(.*)\s$/g, "$1"))
-}
-
-module.exports = {
-
-	default: {
-		// TODO : Tester cache. Par exemple "truchet-interet legitime.jpg" est-il mis en cache une seule fois.
-		selector: "#content :not(picture)  > img[src]:not([srcset]):not([src$='.svg']):not([src$='.gif'])",
-		minWidth: 400,
-		maxWidth: 1920,
-		fallbackWidth: 750,
-		sizes: '(max-width: 60rem) 90vw, 60rem',
-		resizedImageUrl: (src, width) => {
-			// image relative, placée dans le même dosssier qu'un post
-			if (!(new RegExp('^/').test(src)) || src !== "") {
-				src = "/assets/generatedImages/" + src
-			}
-
-			//image placée dans un dossier /assets/*, et dans le fichier .md son chemin contient déjà "assets/"
-			return src.
-				replace(
-					/\/assets\/.*\//,
-					'/assets/generatedImages/').
-				replace(
-					/^(.*)(\.[^\.]+)$/,
-					'$1-' + width + '.jpg')
-		},
-		runBefore: runBefore,
-		runAfter: runAfter,
-		steps: 5,
-		classes: ['img-default'],
-		attributes: { loading: 'lazy', },
-	},
-
-
-
-	postList: {
-		minWidth: 400,
-		maxWidth: 750,
-		fallbackWidth: 400,
-		resizedImageUrl: (src, width) => {
-			src = '/assets/generatedImages/' + src
-			const path = src.
-				replace(
-					/^(.*)(\.[^\.]+)$/,
-					'$1-' + width + '.jpg')
-			return path
-		},
-		runBefore: runBefore,
-		runAfter: runAfter,
-		steps: 2,
-		classes: ['postList'],
-		attributes: { loading: 'lazy', },
-	}
-}
-
 
 async function runBefore(image, document) {
 	let originalPath = normalizePath(image.getAttribute('src'))
@@ -119,5 +75,37 @@ function runAfter(image, document) {
 		link.setAttribute('data-pswp-width', image.width);
 		link.setAttribute('data-pswp-height', image.height);
 		image.replaceWith(link);
+	}
+}
+
+
+
+module.exports = {
+
+	default: {
+		// TODO : Tester cache. Par exemple "truchet-interet legitime.jpg" est-il mis en cache une seule fois.
+		selector: "#content :not(picture)  > img[src]:not([srcset]):not([src$='.svg']):not([src$='.gif'])",
+		minWidth: 400,
+		maxWidth: 1920,
+		fallbackWidth: 750,
+		sizes: '(max-width: 60rem) 90vw, 60rem',
+		resizedImageUrl: urlRewrite,
+		runBefore: runBefore,
+		runAfter: runAfter,
+		steps: 5,
+		classes: ['img-default'],
+		attributes: { loading: 'lazy', },
+	},
+
+	postList: {
+		minWidth: 400,
+		maxWidth: 750,
+		fallbackWidth: 400,
+		resizedImageUrl: urlRewrite,
+		runBefore: runBefore,
+		runAfter: runAfter,
+		steps: 2,
+		classes: ['postList'],
+		attributes: { loading: 'lazy', },
 	}
 }
