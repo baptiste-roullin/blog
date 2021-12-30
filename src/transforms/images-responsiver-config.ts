@@ -26,13 +26,8 @@ module.exports = {
 		fallbackWidth: 750,
 		sizes: '(max-width: 60rem) 90vw, 60rem',
 		resizedImageUrl: (src, width) => {
-			if (!(new RegExp('^/').test(src)) || src !== "") {
-				src = "/assets/generatedImages/" + src
-			}
-			return src.
-				replace(
-					/\/assets\/.*\//,
-					'/assets/generatedImages/').
+			const fullPath = '/assets/generatedImages/' + path.basename(src)
+			return fullPath.
 				replace(
 					/^(.*)(\.[^\.]+)$/,
 					'$1-' + width + '.jpg')
