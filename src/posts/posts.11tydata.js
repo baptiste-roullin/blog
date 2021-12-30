@@ -32,15 +32,5 @@ module.exports = {
       return undefined
     },
 
-    relative: (data) => {
-      return (
-        (new RegExp('posts/.*/.*$')).test(data.page.filePathStem)
-          ?
-          true
-          :
-          false
-      )
-
-    }
   }
 };
