@@ -10,7 +10,7 @@ module.exports = {
   author: "{{ meta.author }}",
   eleventyComputed: {
 
-    collatedImage: async (data) => {
+    collatedHeroImage: async (data) => {
       const slug = data.page.fileSlug
       const hero = data.hero
       if (data.draft !== true) {
