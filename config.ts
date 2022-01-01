@@ -8,13 +8,6 @@ const embedEverything = require("eleventy-plugin-embed-everything");
 
 module.exports = function (config: Config): UserConfig {
 
-	/**
-	 * Opts in to a full deep merge when combining the Data Cascade.
-	 * Per the link below, "This will likely become the default in an upcoming major version."
-	 * So I'm going to implement it now.
-	 */
-	config.setDataDeepMerge(true)
-
 
 	/**
  * Custom Watch Targets
