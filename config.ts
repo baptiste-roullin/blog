@@ -92,15 +92,6 @@ cf. postcss.config.js pour le CSS
 	*/
 
 
-	/**
-	 * Transforms
-	 */
-	/*const transforms = require('./src/transforms/transforms.js')
-
-	Object.keys(transforms).forEach((transformName) => {
-		config.addTransform(transformName, transforms[transformName])
-	})
-*/
 
 	/**
 	 * Shortcodes
