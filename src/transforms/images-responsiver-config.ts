@@ -1,7 +1,6 @@
 require('dotenv').config()
 const transformPicture = require("@11ty/eleventy-img");
 import path from "path";
-import { decode } from "punycode";
 const imageSize = require('image-size')
 
 const formats = (
@@ -122,6 +121,6 @@ async function runBefore(image, document) {
 
 	}
 	catch (e) {
-		console.log("debug:    " + originalPath + "  " + e)
+		console.log("debug images-resp: " + originalPath + "  " + e)
 	}
 }

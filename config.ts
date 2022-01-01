@@ -3,7 +3,6 @@ import { Config, UserConfig, } from './types/eleventy';
 const pluginRss = require('@11ty/eleventy-plugin-rss')
 const pluginNavigation = require('@11ty/eleventy-navigation')
 const yaml = require("js-yaml");
-const imagesResponsiver = require("eleventy-plugin-images-responsiver");
 require('dotenv').config()
 const embedEverything = require("eleventy-plugin-embed-everything");
 
@@ -75,7 +74,10 @@ cf. postcss.config.js pour le CSS
 	});
 
 	if (process.env.NODE_ENV === "production") {
-		config.addPlugin(imagesResponsiver, require('./src/transforms/images-responsiver-config.ts'))
+		config.addPlugin(
+			require('./src/transforms/images-responsiver-transform.ts'),
+			require('./src/transforms/images-responsiver-config.ts'))
+
 		config.addPlugin(require('./src/transforms/gif-converter.ts'))
 	}
 	config.addPlugin(pluginRss)
