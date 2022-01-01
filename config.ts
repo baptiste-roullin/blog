@@ -85,12 +85,6 @@ cf. postcss.config.js pour le CSS
 		config.addFilter(filterName, filters[filterName])
 	})
 
-	/*	const asyncFilters = require('./src/filters/asyncFilters.ts')
-		Object.keys(asyncFilters).forEach((filterName) => {
-			config.addNunjucksAsyncFilter(filterName, filters[filterName])
-		})
-	*/
-
 
 
 	/**
