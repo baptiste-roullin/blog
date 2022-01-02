@@ -1,20 +1,7 @@
 require('dotenv').config()
 const transformPicture = require("@11ty/eleventy-img");
 import path from "path";
-
-
-
-function normalizePath(str) {
-	return decodeURI(str.replace(/^\s(.*)\s$/g, "$1"))
-}
-
-function urlRewrite(src, width) {
-	const fullPath = '/assets/generatedImages/' + path.basename(src)
-	return fullPath.
-		replace(
-			/^(.*)(\.[^\.]+)$/,
-			'$1-' + width + '.jpg')
-}
+const imageSize = require('image-size')
 
 const formats = (
 	process.env.NODE_ENV === "production"
@@ -24,17 +11,27 @@ const formats = (
 		['jpeg']
 )
 
-async function runBefore(image, document) {
+function normalizePath(str) {
+	return decodeURI(str.replace(/^\s(.*)\s$/g, "$1"))
+}
+
+
+
+
+function runBefore(image, document) {
 	let originalPath = normalizePath(image.getAttribute('src'))
 	const intermediaryPath = "src/assets/imagesToProcess/" + path.basename(originalPath)
 
 	try {
+		const imageDimensions = imageSize(intermediaryPath);
+		image.setAttribute('width', imageDimensions.width);
+		image.setAttribute('height', imageDimensions.height);
+
 		const options = {
 			sharpWebpOptions: {
 				quality: 90,
 			},
-			//	widths: [400, 750, imageDimensions.width, 1140, 1540, 1920],
-			widths: [400, 780, 1160, 1540, 1920],
+			widths: [360, 750, imageDimensions.width, 1140, 1530, 1920],
 			dryRun: false,
 			formats: formats,
 			urlPath: '/assets/imagesToProcess/',
@@ -47,25 +44,22 @@ async function runBefore(image, document) {
 			}
 		}
 
-		/*		const exists = promisify(require("fs").exists);
-				if (!(await exists(intermediaryPath))) {
-					console.log(intermediaryPath + 'debug : existe pas')
-				}*/
-		await transformPicture(intermediaryPath, options);
+		transformPicture(intermediaryPath, options);
 
-		//image.dataset.responsiver = image.className;
-
+		image.dataset.responsiver = image.className;
 		//image.dataset.responsiveruRL = metadata.jpg.url;
 		image.dataset.size = image.className;
 
 	}
 	catch (e) {
-		console.log("debug:    " + originalPath + e)
+		console.log("debug images-resp: " + originalPath + "  " + e)
 	}
-
 }
 
+
 function runAfter(image, document) {
+	//image.setAttribute('src', image.dataset.responsiveruRL);
+	//let caption = image.getAttribute("title");
 	if (image.closest('.rich-picture')) {
 		const link = document.createElement("a");
 		link.setAttribute("data-pswp-srcset", image.getAttribute('srcset'));
@@ -79,33 +73,51 @@ function runAfter(image, document) {
 }
 
 
-
 module.exports = {
 
 	default: {
 		// TODO : Tester cache. Par exemple "truchet-interet legitime.jpg" est-il mis en cache une seule fois.
-		selector: "#content :not(picture)  > img[src]:not([srcset]):not([src$='.svg']):not([src$='.gif'])",
-		minWidth: 400,
+		selector: " #content :not(picture)  > img[src]:not([srcset]):not([src$='.svg']):not([src$='.gif'])",
+		minWidth: 360,
 		maxWidth: 1920,
 		fallbackWidth: 750,
 		sizes: '(max-width: 60rem) 90vw, 60rem',
-		resizedImageUrl: urlRewrite,
+		resizedImageUrl: (src, width) => {
+			const fullPath = '/assets/generatedImages/' + path.basename(src)
+			return fullPath.
+				replace(
+					/^(.*)(\.[^\.]+)$/,
+					'$1-' + width + '.jpg')
+		},
 		runBefore: runBefore,
 		runAfter: runAfter,
 		steps: 5,
 		classes: ['img-default'],
 		attributes: { loading: 'lazy', },
 	},
-
-	postList: {
-		minWidth: 400,
-		maxWidth: 750,
-		fallbackWidth: 400,
-		resizedImageUrl: urlRewrite,
-		runBefore: runBefore,
-		runAfter: runAfter,
-		steps: 2,
-		classes: ['postList'],
-		attributes: { loading: 'lazy', },
-	}
+	/*
+		"post-list": {
+			selector: " .post-list :not(picture)  > img[src]:not([srcset]):not([src$='.svg']):not([src$='.gif'])",
+			minWidth: 420,
+			maxWidth: 420,
+			fallbackWidth: 420,
+			sizes: '(max-width: 60rem) 90vw, 60rem',
+			resizedImageUrl: (src, width) => {
+				if (!(new RegExp('^/').test(src)) || src !== "") {
+					src = "/assets/generatedImages/" + src
+				}
+				return src.
+					replace(
+						/\/assets\/.*\//,
+						'/assets/generatedImages/').
+					replace(
+						/^(.*)(\.[^\.]+)$/,
+						'$1-' + width + '.jpg')
+			},
+			runBefore: runBefore,
+			runAfter: runAfter,
+			steps: 5,
+			classes: ['img-default'],
+			attributes: { loading: 'lazy', },
+		}*/
 }

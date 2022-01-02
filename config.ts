@@ -3,18 +3,10 @@ import { Config, UserConfig, } from './types/eleventy';
 const pluginRss = require('@11ty/eleventy-plugin-rss')
 const pluginNavigation = require('@11ty/eleventy-navigation')
 const yaml = require("js-yaml");
-const imagesResponsiver = require("eleventy-plugin-images-responsiver");
 require('dotenv').config()
 const embedEverything = require("eleventy-plugin-embed-everything");
 
 module.exports = function (config: Config): UserConfig {
-
-	/**
-	 * Opts in to a full deep merge when combining the Data Cascade.
-	 * Per the link below, "This will likely become the default in an upcoming major version."
-	 * So I'm going to implement it now.
-	 */
-	config.setDataDeepMerge(true)
 
 
 	/**
@@ -75,9 +67,13 @@ cf. postcss.config.js pour le CSS
 	});
 
 	if (process.env.NODE_ENV === "production") {
-		config.addPlugin(imagesResponsiver, require('./src/transforms/images-responsiver-config.ts'))
+		config.addPlugin(
+			require('./src/transforms/images-responsiver-transform.js'),
+			require('./src/transforms/images-responsiver-config.ts')
+		)
 		config.addPlugin(require('./src/transforms/gif-converter.ts'))
 	}
+
 	config.addPlugin(pluginRss)
 
 
@@ -90,22 +86,7 @@ cf. postcss.config.js pour le CSS
 		config.addFilter(filterName, filters[filterName])
 	})
 
-	/*	const asyncFilters = require('./src/filters/asyncFilters.ts')
-		Object.keys(asyncFilters).forEach((filterName) => {
-			config.addNunjucksAsyncFilter(filterName, filters[filterName])
-		})
-	*/
 
-
-	/**
-	 * Transforms
-	 */
-	/*const transforms = require('./src/transforms/transforms.js')
-
-	Object.keys(transforms).forEach((transformName) => {
-		config.addTransform(transformName, transforms[transformName])
-	})
-*/
 
 	/**
 	 * Shortcodes
