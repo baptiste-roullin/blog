@@ -68,11 +68,12 @@ cf. postcss.config.js pour le CSS
 
 	if (process.env.NODE_ENV === "production") {
 		config.addPlugin(
-			require('./src/transforms/images-responsiver-transform.ts'),
-			require('./src/transforms/images-responsiver-config.ts'))
-
+			require('./src/transforms/images-responsiver-transform.js'),
+			require('./src/transforms/images-responsiver-config.ts')
+		)
 		config.addPlugin(require('./src/transforms/gif-converter.ts'))
 	}
+
 	config.addPlugin(pluginRss)
 
 

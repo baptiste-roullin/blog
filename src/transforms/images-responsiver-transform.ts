@@ -1,11 +1,11 @@
 'use strict';
 
-const imagesResponsiver = require('images-resp');
+const lib = require('images-responsiver-lib');
 let imagesResponsiverOptions;
 
 const imagesResponsiverTransform = (content, outputPath) => {
 	if (outputPath && outputPath.endsWith('.html')) {
-		return imagesResponsiver(content, imagesResponsiverOptions);
+		return lib(content, imagesResponsiverOptions);
 	}
 	return content;
 };

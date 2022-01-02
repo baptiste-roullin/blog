@@ -83,7 +83,7 @@ function runAfter(image, document) {
 }
 
 
-async function runBefore(image, document) {
+function runBefore(image, document) {
 	let originalPath = normalizePath(image.getAttribute('src'))
 	const intermediaryPath = "src/assets/imagesToProcess/" + path.basename(originalPath)
 
@@ -109,11 +109,7 @@ async function runBefore(image, document) {
 			}
 		}
 
-		/*		const exists = promisify(require("fs").exists);
-				if (!(await exists(intermediaryPath))) {
-					console.log(intermediaryPath + 'debug : existe pas')
-				}*/
-		await transformPicture(intermediaryPath, options);
+		transformPicture(intermediaryPath, options);
 
 		image.dataset.responsiver = image.className;
 		//image.dataset.responsiveruRL = metadata.jpg.url;
