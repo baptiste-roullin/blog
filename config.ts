@@ -6,7 +6,17 @@ const yaml = require("js-yaml");
 require('dotenv').config()
 const embedEverything = require("eleventy-plugin-embed-everything");
 
+const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
+
+
+
 module.exports = function (config: Config): UserConfig {
+
+	config.addPlugin(EleventyServerlessBundlerPlugin, {
+		name: "possum", // The serverless function name from your permalink object
+		functionsDir: "./",
+	});
+
 
 
 	/**
