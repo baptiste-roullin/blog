@@ -8,6 +8,7 @@ src/_data/hashes_js.json
 
 
 .eleventyignore
+package-lock.json
 
 .sync_*
 

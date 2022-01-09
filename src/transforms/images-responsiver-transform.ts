@@ -1,6 +1,6 @@
 'use strict';
 
-const lib = require('images-responsiver-lib');
+const lib = require('./images-responsiver-lib.js');
 let imagesResponsiverOptions;
 
 const imagesResponsiverTransform = (content, outputPath) => {
