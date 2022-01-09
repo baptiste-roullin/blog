@@ -34,8 +34,6 @@ cf. postcss.config.js pour le CSS
 
 	//On copie tels quels les média avec chemins relatifs ou absolus dans /dist, qu'ils puissent être lus par du balisage non-transformé (sans srcset ou gif -> vidéo)
 
-	config.addPassthroughCopy({ 'src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}': 'assets/generatedImages' })
-	config.addPassthroughCopy({ 'src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}': 'assets/generatedImages' })
 
 	config.addPassthroughCopy('src/assets/docs/')
 
@@ -46,6 +44,24 @@ cf. postcss.config.js pour le CSS
 	config.addPassthroughCopy('src/assets/UI')
 
 	config.setUseGitIgnore(false)
+
+
+	if (process.env.NODE_ENV === "production") {
+		config.addPassthroughCopy({ 'src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}': 'assets/generatedImages' })
+		config.addPassthroughCopy({ 'src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}': 'assets/generatedImages' })
+
+		config.addPlugin(
+			require('./src/transforms/images-responsiver-transform'),
+			require('./src/transforms/images-responsiver-config')
+		)
+		config.addPlugin(require('./src/transforms/gif-converter.ts'))
+	}
+	else {
+		config.addPassthroughCopy('src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}')
+		config.addPassthroughCopy('src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}')
+
+	}
+
 
 
 	/**
@@ -66,13 +82,6 @@ cf. postcss.config.js pour le CSS
 		use: ['vimeo', 'youtube', 'twitter'], twitter: { options: { align: 'center' } }
 	});
 
-	if (process.env.NODE_ENV === "production") {
-		config.addPlugin(
-			require('./src/transforms/images-responsiver-transform.js'),
-			require('./src/transforms/images-responsiver-config.ts')
-		)
-		config.addPlugin(require('./src/transforms/gif-converter.ts'))
-	}
 
 	config.addPlugin(pluginRss)
 
