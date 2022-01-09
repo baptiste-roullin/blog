@@ -11,7 +11,7 @@
 			"DOM",
 			"DOM.Iterable",
 		] /* Specify library files to be included in the compilation. */,
-		"checkJs": true /* Report errors in .js files. */,
+		"checkJs": false /* Report errors in .js files. */,
 		"allowJs": true,
 		"declaration": true, /* Generates corresponding '.d.ts' file. */
 		"declarationMap": true, /* Generates a sourcemap for each corresponding '.d.ts' file. */
