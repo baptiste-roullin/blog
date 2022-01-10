@@ -1,5 +1,7 @@
 //@ts-nocheck
 
+// https://github.com/nhoizey/images-responsiver/
+
 const { parseHTML } = require('linkedom');
 
 const deepmerge = require('deepmerge');
