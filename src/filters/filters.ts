@@ -1,3 +1,4 @@
+//@ts-nocheck
 
 const remove = require('remove-markdown');
 
@@ -6,7 +7,6 @@ const slugify = require('./slugify.js');
 //const cleanCSS = require('clean-css')
 const md = require('../markdown.js')
 
-import ElasticLunr from "elasticlunr";
 const elasticlunr = require("elasticlunr");
 require('./lunr.stemmer.support.js')(elasticlunr);
 require('./lunr.fr.js')(elasticlunr);
@@ -15,7 +15,7 @@ Settings.defaultLocale = "fr";
 
 function search(collection) {
 
-	function callback(this: ElasticLunr.Index<any>) {
+	function callback() {
 		//@ts-ignore
 		this.use(lunr.fr);
 		this.addField("title")
@@ -26,7 +26,7 @@ function search(collection) {
 	}
 
 	// what fields we'd like our index to consist of
-	var index: ElasticLunr.Index<any> = elasticlunr(callback)
+	var index = elasticlunr(callback)
 
 	// loop through each page and add it to the index
 	collection.forEach((page) => {
