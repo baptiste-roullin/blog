@@ -129,7 +129,7 @@ cf. postcss.config.js pour le CSS
 	/**
 	MARKDOWN
 	*/
-	config.addDataExtension("yaml", contents => yaml.safeLoad(contents));
+	config.addDataExtension("yaml", contents => yaml.load(contents));
 
 	config.setFrontMatterParsingOptions({
 		excerpt: true,
