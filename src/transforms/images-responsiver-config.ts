@@ -23,6 +23,8 @@ function runBefore(image, document) {
 	const intermediaryPath = "src/assets/imagesToProcess/" + path.basename(originalPath)
 
 	try {
+		// TODO : Tester cache. Par exemple "truchet-interet legitime.jpg" est-il mis en cache une seule fois.
+
 		const imageDimensions = imageSize(intermediaryPath);
 		image.setAttribute('width', imageDimensions.width);
 		image.setAttribute('height', imageDimensions.height);
@@ -121,3 +123,5 @@ module.exports = {
 			attributes: { loading: 'lazy', },
 		}*/
 }
+
+
