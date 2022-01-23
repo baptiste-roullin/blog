@@ -1,36 +1,70 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>{{ seo.title or title }}  | {{ meta.siteName }}</title>
+<title>{{  title }}  | {{ meta.siteName }}</title>
 
 {#- General #}
-<meta name="author" content="{{ meta.author }}"/>
-{% if layout == 'post' %}
-  {# TODO ajouter date https://developers.google.com/search/docs/advanced/appearance/publication-dates #}
 
-  <meta name="description" content="{{ description | removeMD  }}"/>
+{% if r/^post-?/g.test(layout) %}
+  {% set postImage = meta.siteURL + '/assets/generatedImages/' + collatedHeroImage %}
+  {% set pageURL = meta.siteURL + page.url %}
+
+  <script type="application/ld+json" charset="UTF-8">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "{{title |  removeMD | safe}}",
+      "image": "{{postImage}}",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Baptiste Roullin",
+        "url": "{{meta.siteURL }}"
+      },
+      "url": "{{pageURL}}",
+      "datePublished": "{{page.date | dateISOFormat}}",
+      "dateCreated": "{{page.date | dateISOFormat}}",
+      "description": "{{description | removeMD | safe}}",
+      "author": {
+        "@type": "Person",
+        "name": "{{meta.author}}",
+        "url": "{{meta.siteURL}}"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{meta.siteURL}}/blog"
+      }
+    }
+  </script>
+
+  <meta property="og:image" content=" {{postImage}}"/>
+
+  <meta name="description" content="{{ description | removeMD   }}"/>
+  <meta property="og:description" content="{{ description | removeMD  }}"/>
+  <meta property='og:type' content='article'/>
+  <meta property='article:author' content='{{meta.author}}'/>
+  <meta property='article:publisher' content='{{meta.siteURL}}'/>
+
 {% else %}
   <meta name="description" content="{{ description | removeMD or meta.siteDescription }}"/>
+  <meta property="og:description" content="{{ description | removeMD or meta.siteDescription }}"/>
+  <meta property="og:image" content="{{meta.siteURL}}/{{ meta.image}}"/>
 {% endif %}
 
 {#- Open Graph #}
+
+<meta name="author" content="{{ meta.author }}"/>
 <meta property="og:site_name" content="{{ meta.siteName }}"/>
-<meta property="og:title" content="{{ seo.title or title }}"/>
-<meta property="og:description" content="{{ description | removeMD or meta.siteDescription }}"/>
+<meta property="og:title" content="{{  title }}"/>
 <meta property="og:url" content="{{meta.siteURL}}{{  page.url  }}"/>
 <meta property="og:locale" content="{{ meta.locale }}"/>
-{% if layout == 'post' %}
-  <meta property="og:image" content="{{meta.siteURL}}/assets/generatedImages/{{collatedHeroImage}} "/>
-{% else %}
-  <meta property="og:image" content="{{meta.siteURL}}/{{ meta.image}}"/>
-{% endif %}
 
 {#- Twitter Card #}
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:site" content="{{ meta.siteName}}"/>
 <meta name="twitter:creator" content="{{ meta.author }}"/>
-<meta name="twitter:title" content="{{ seo.title or title }}"/>
+<meta name="twitter:title" content="{{  title }}"/>
 <meta name="twitter:description" content="{{ description or meta.siteDescription }}"/>
+
 {#- Favicon #}
 {#<link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/favicon/apple-touch-icon.png' | url }}">#}
 <link rel="icon" type="image/svg+xml" href="/assets/UI/favicon.svg">
@@ -45,12 +79,9 @@
   <script  src="/assets/scripts/{{hashes_js['main.js']}}" defer></script>
   {% if layout === "post-canvas" %}
     <script  src="/assets/scripts/{{hashes_js['truchet-dom.js']}}" defer></script>
-
   {% endif %}
 
 {% else %}
   <script  src="/assets/scripts/main.js" defer></script>
-
   <script  src="/assets/scripts/truchet-dom.js" defer></script>
-
 {% endif %}
