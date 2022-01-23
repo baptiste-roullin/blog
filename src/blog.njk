@@ -23,18 +23,6 @@ postListItemStyle:
 {# TODO anciennes images : attribut alt  #}
 <div class="blog-wrapper">
 
-  <form class="search " id="search-form" aria-controls="post-list">
-    <div class="flex flex-col sm:w-1/2 field">
-      <label for="searchField" class="label">Rechercher</label>
-      <div class="relative">
-        <input type="search"  class="w-full p-2 border-gray-600 rounded-md " placeholder="" id="searchField"/>
-        <input type="image" name="submit" src="/assets/UI/search.svg" border="0" class="absolute h-10 p-2 right-2">
-      </div>
-    </div>
-    <p id="noResultsFound" class="hidden py-4 text-base" role="alert">
-      Aucun résultat.
-    </p>
-  </form>
   {% set postslist = posts %}
 
   {% include 'components/postslist.njk' %}
@@ -46,4 +34,3 @@ postListItemStyle:
     {% include "components/tagpills.njk" %}
   </div>
 </div>
-<script  src="/assets/scripts/{{hashes_js['search.js']}}" defer></script>
