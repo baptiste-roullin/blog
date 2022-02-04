@@ -166,7 +166,7 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 			{ autoescape: true, trimBlocks: true, lstripBlocks: true });
 
 		// Ajout d'un filtre utilisé par zotero.njk
-		env.addFilter('dateToFormat', require('../../filters/dateToFormat.js'))
+		env.addFilter('dateHumanFormat', require('../../filters/dateHumanFormat.js'))
 
 		//génération du HTML
 		return await env.render('zotero.njk', { items: completedItems });

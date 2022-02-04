@@ -8,7 +8,7 @@
 			</span>
 			<div class="text-base ">
 				{% if item.parsedDate and item.itemType !== "webpage" %}
-					<span>{{item.parsedDate | dateToFormat("yyyy") }}</span>
+					<span>{{item.parsedDate | dateHumanFormat("yyyy") }}</span>
 					<span class="mx-2 last:hidden first:hidden">~</span>
 				{% endif %}
 				{% if item.abstractNote %}

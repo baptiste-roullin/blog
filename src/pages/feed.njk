@@ -28,7 +28,7 @@
 			<link href="{{ absolutePostUrl }}"/>
 			<updated>{{ post.date | dateToRfc3339 }}</updated>
 			<id>{{ absolutePostUrl }}</id>
-			<content type="text/html" mode="escaped">{{ post.templateContent | cleanHeaderAnchors  | htmlToAbsoluteUrls(imageURL) }}</content>
+			<content type="text/html" >{{ post.templateContent | cleanHeaderAnchors  | htmlToAbsoluteUrls(imageURL) | safe }}</content>
 		</entry>
 	{%- endfor %}
 </feed>
