@@ -17,7 +17,6 @@ module.exports = function (config) {
 	});
 
 
-
 	/**
  * Custom Watch Targets
  * for when the Tailwind config or .css files change...
