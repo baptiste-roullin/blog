@@ -4,10 +4,10 @@ const pluginNavigation = require('@11ty/eleventy-navigation')
 const yaml = require("js-yaml");
 require('dotenv').config()
 const embedEverything = require("eleventy-plugin-embed-everything");
-const filters = require('./src/filters/filters.js')
-const shortcodes = require('./src/shortcodes/shortcodes.js')
-const pairedshortcodes = require('./src/shortcodes/pairedShortcodes.js')
-const asyncShortcodes = require('./src/shortcodes/asyncShortcodes.js')
+const filters = require('../src/filters/filters.js')
+const shortcodes = require('../src/shortcodes/shortcodes.js')
+const pairedshortcodes = require('../src/shortcodes/pairedShortcodes.js')
+const asyncShortcodes = require('../src/shortcodes/asyncShortcodes.js')
 
 
 const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
@@ -27,10 +27,10 @@ module.exports = function (config) {
  * for when the Tailwind config or .css files change...
  * by default not watched by 11ty
  */
-	config.addWatchTarget('./src/assets/css/')
-	config.addWatchTarget('./src/assets/scripts/')
-	config.addWatchTarget('./src/*.js')
-	config.addWatchTarget('./tailwind.config.js')
+	config.addWatchTarget('../src/assets/css/')
+	config.addWatchTarget('../src/assets/scripts/')
+	config.addWatchTarget('../src/*.js')
+	config.addWatchTarget('../tailwind.config.js')
 	config.setWatchThrottleWaitTime(200);
 
 	config.setWatchJavaScriptDependencies(true);
@@ -64,10 +64,10 @@ cf. postcss.config.js pour le CSS
 		config.addPassthroughCopy({ 'src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}': 'assets/generatedImages' })
 
 		config.addPlugin(
-			require('./src/transforms/images-responsiver-transform.js'),
-			require('./src/transforms/images-responsiver-config.js')
+			require('../src/transforms/images-responsiver-transform.js'),
+			require('../src/transforms/images-responsiver-config.js')
 		)
-		config.addPlugin(require('./src/transforms/gif-converter.ts'))
+		config.addPlugin(require('../src/transforms/gif-converter.ts'))
 	}
 	else {
 		config.addPassthroughCopy('src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}')
@@ -148,8 +148,8 @@ cf. postcss.config.js pour le CSS
 		excerpt_separator: "<!-- excerpt -->"
 	});
 
-	const md = require('./src/markdown.js')
-	config.setLibrary('md', require('./src/markdown.js'));
+	const md = require('../src/markdown.js')
+	config.setLibrary('md', require('../src/markdown.js'));
 
 
 
@@ -159,7 +159,7 @@ cf. postcss.config.js pour le CSS
 
  */
 
-	const collections = require('./src/collections.ts')
+	const collections = require('../src/collections.ts')
 
 	Object.keys(collections).forEach((colName) => {
 		config.addCollection(colName, collections[colName])

@@ -1,0 +1,16 @@
+<section id="post-list"  class="mt-8 post-wrapper ">
+	<div class=post-list-wrapper>
+		<ul class="flex flex-col gap-8 my-10 post-list ">
+			{% for post in postslist %}
+				{% include 'components/postlistitem.njk' %}
+			{% endfor %}
+		</ul>
+
+		{# ===== Paginate based on "size" frontmatter value above =====  #}
+		{# Don't even include the pagination component if there are fewer posts than needed to paginate  #}
+		{% if (collections.publishedPosts.length > pagination.size) and (postListItemStyle.showPagination) %}
+
+			{% include "components/pagination.njk" %}
+		{% endif %}
+	</div>
+	<ul class="search-list" ></section>

@@ -1,6 +1,6 @@
 require('dotenv').config()
 const transformPicture = require("@11ty/eleventy-img");
-import path from "path";
+const path = require("path");
 
 const formats = (
 	process.env.NODE_ENV === "production"

@@ -1,4 +1,3 @@
-//@ts-nocheck
 
 const remove = require('remove-markdown');
 
@@ -6,8 +5,8 @@ const slugify = require('./slugify.js');
 //const cleanCSS = require('clean-css')
 const md = require('../markdown.js')
 
-import ElasticLunr from "elasticlunr";
-import { dateHumanFormat, dateToPermalink, dateISOFormat } from "./dateFormatting";
+const ElasticLunr = require("elasticlunr");
+const date = require("./dateFormatting");
 const elasticlunr = require("elasticlunr");
 require('./lunr.stemmer.support.js')(elasticlunr);
 require('./lunr.fr.js')(elasticlunr);
@@ -123,18 +122,9 @@ module.exports = {
 
 	removeMD: require('./removeMD.js'),
 
-	dateToPermalink: dateToPermalink,
-	dateISOFormat: dateISOFormat,
-
-	/**
-	 * dateHumanFormat allows specifiying display format at point of use.
-	 * Example in footer: {{ build.timestamp | dateHumanFormat('yyyy') }} uses .timestamp
-	 *  from the _data/build.js export and formats it via dateHumanFormat.
-	 * Another usage example used in layouts: {{ post.date | dateHumanFormat("LLL dd, yyyy") }}
-	 * And finally, example used in /src/posts/posts.json to format the permalink
-	 *  when working with old /yyyy/MM/dd/slug format from Wordpress exports
-	 */
-	dateHumanFormat: dateHumanFormat,
+	dateToPermalink: date.dateToPermalink,
+	dateISOFormat: date.dateISOFormat,
+	dateHumanFormat: date.dateHumanFormat,
 
 	/**
    // Universal slug filter strips unsafe chars from URLs

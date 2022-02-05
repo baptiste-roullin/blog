@@ -1,5 +1,4 @@
-possum/**
-!possum/index.js
+
 
 src/assets/generatedImages/*
 src/assets/imagesToProcess/*

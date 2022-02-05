@@ -29,7 +29,7 @@ const { join } = require("path");
 const exec = promisify(require("child_process").exec);
 const pathToFfmpeg = require("ffmpeg-static");
 const { parseHTML } = require('linkedom');
-import path from "path";
+const path = require("path");
 
 
 async function convert(filename, outPath) {

@@ -1,0 +1,55 @@
+---
+layout: base
+---
+<div class="template-post-main">
+	{% if hero.image %}
+		{% set heroComponent = ['components/hero-', hero.type, '.njk'] %}
+		{% include heroComponent | join %}
+	{% else %}
+	{% endif %}
+
+	<article class="post-main  my-20 prose lg:prose-xl prose-lg article {{ structure.g_proseWidth }}">
+
+		{% if not hero.image %}
+			<header class="">
+				<h1 class="text-gray-700">{{ seo.title or title }}</h1>
+				<div class="text-sm UI sm:text-base">
+					<time datetime="{{ page.date | dateHumanFormat("yyyy-MM-dd") }}">
+						{{ page.date | dateHumanFormat("dd LLLL yyyy") }}
+					</time>
+					{% include "components/tagpills-inline.njk" %}
+
+				</div>
+			</header>
+		{% endif %}
+		<div class="my-16 post-main">{{ content | safe }}</div>
+	</article>
+
+	{% set nextPost = collections.publishedPosts | getPreviousCollectionItem(page) %}
+	{% set previousPost = collections.publishedPosts | getNextCollectionItem(page) %}
+
+	<footer class="relative mt-16 text-xl d-mb-10 md:text-2xl lg:3xl ">
+		<div class="h-full decor-dark bg-dark-lighter"></div>
+		{# ===== Previous and Next =====  #}
+		<div class="relative flex flex-col px-2 py-8 post-pagination lg:py-12 lg:px-4 md:flex-row gap-7 md:justify-between">
+			<div class="relative flex flex-col gap-3 sm:gap-4 lg:w-1/2 sm:py-0 pagination-left">
+				{% if previousPost %}
+					<a class="text-white hover:underline text-shadow-lg-dark hover:text-accent2" href="{{ previousPost.url | url }}">
+						{{ previousPost.data.title }}
+					</a>
+					<img style="width:14px" class="self-start h-full rotate-180" src="/assets/UI/pointe.svg">
+				{% endif %}
+			</div>
+			<div class="relative flex flex-col gap-3 text-right sm:gap-4 lg:w-1/2 sm:py-0 pagination-right">
+				{% if nextPost %}
+					<a class="h-full text-white hover:underline text-shadow-lg-dark hover:text-accent2" href="{{ nextPost.url | url}}">
+						{{ nextPost.data.title }}
+					</a>
+					<img style="width:14px" class="self-end " src="/assets/UI/pointe.svg">
+				{% endif %}
+			</div>
+		</div>
+	</footer>
+</div>
+
+{#  TODO liste de post liés à la fin d'un post #}
