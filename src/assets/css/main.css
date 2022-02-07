@@ -1,5 +1,5 @@
 @import "./fonts.css";
-@import "./article.scss";
+@import "./post.scss";
 @import "./images.scss";
 @import "./tailwind.scss";
 @tailwind base;

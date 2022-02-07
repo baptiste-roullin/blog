@@ -41,7 +41,16 @@
 		font-size:1.2em;
 		@apply text-accent2;
 	}
+   .zotero-list {
+        padding-left:0
+   }
+   .zotero-list > li::marker {
+    content:none;
+    padding-left: 0;
+   }
 }
+
+
 
 
 

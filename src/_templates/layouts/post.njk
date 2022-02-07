@@ -31,7 +31,7 @@ layout: base
 	<footer class="relative mt-16 text-xl d-mb-10 md:text-2xl lg:3xl ">
 		<div class="h-full decor-dark bg-dark-lighter"></div>
 		{# ===== Previous and Next =====  #}
-		<div class="relative flex flex-col px-2 py-8 post-pagination lg:py-12 lg:px-4 md:flex-row gap-7 md:justify-between">
+		<div class="relative flex flex-col gap-12 px-4 py-12 post-pagination lg:py-12 lg:px-4 md:flex-row md:justify-between">
 			<div class="relative flex flex-col gap-3 sm:gap-4 lg:w-1/2 sm:py-0 pagination-left">
 				{% if previousPost %}
 					<a class="text-white hover:underline text-shadow-lg-dark hover:text-accent2" href="{{ previousPost.url | url }}">
