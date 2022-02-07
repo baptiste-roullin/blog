@@ -70,7 +70,7 @@ module.exports = {
 			},
 			spacing: {
 				'per-lg': '2%',
-				'per': '2%',
+				'per': '4%',
 			},
 			fontSize: {
 				'xl-bis': '1.65rem',
