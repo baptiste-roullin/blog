@@ -83,6 +83,12 @@ cf. postcss.config.js pour le CSS
 	});
 
 
+	const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+
+	config.addPlugin(syntaxHighlight);
+
+
+
 	config.addPlugin(pluginRss)
 
 

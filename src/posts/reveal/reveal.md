@@ -1,6 +1,7 @@
 ---
 title: Faire des slides comme un développeur quand est designer
 date: '2022-02-05'
+richPicture: true
 tags:
 - travaux
 ---
@@ -31,9 +32,7 @@ J'ai donc pensé à [Reveal.js](https://revealjs.com/), une bibliothèque permet
 
 Problème : la rédaction reste très verbeuse. On doit écrire dans le fichier HTML directement et même en tirant parti du support de Markdown on se retrouve vite avec ce genre de charabia [^1] :
 
-<pre class="not-prose">
-
-  <code>
+```html
     <section data-markdown>
       <script type="text/template">
         - Item de liste qui va apparaitre d'abord <!-- .element: class="fragment" data-fragment-index="2" -->
@@ -47,9 +46,8 @@ Problème : la rédaction reste très verbeuse. On doit écrire dans le fichier 
         [Ceci est un lien](https://lesetaques.org/2022/01/03/lhumanite-en-revolte/)
       </script>
     </section>
-  </code>
+```
 
-</pre>
 
 
 
@@ -74,9 +72,12 @@ Mais il faut aussi détailler certains  inconvénients :
 - Il  y a une courbe d'apprentissage assez raide, que j'ai tenté d'alléger avec [ce kit](https://github.com/baptiste-roullin/boilerplate-asciidoc-revealjs).
 - Même avec un bon outillage, ce n'est pas du WYSIWYG. On n'est jamais à l'abri de faire une erreur de syntaxe.
 - Des mises en page qui prendraient deux secondes dans un logiciel classique peuvent se révéler compliquées. Il faut ajouter quelques classes au slide pour servir de "hook" (cf. [cet exemple](https://docs.asciidoctor.org/reveal.js-converter/latest/converter/syntax/layout/#columns-layout))  écrire du CSS et  le rendre adaptable à du texte et des images de taille différente. Le lien précédent montre quelques possibilités prédéfinies, mais elles restent limitées. J'imagine que créer un thème complet peut être un investissement rentable si on est un conférencier régulier.
-
 - À long terme c'est pratique d'avoir toutes les images dans un dossier, mais en attendant, en intégrer une à un slide est fastidieux puisque il faut l'enregistrer dans le bon dossier, taper la balise `image::nomDeFichier[]`, sans se tromper de nom. Alors qu'avec Powerpoint/Keynote/Slides je copie l'image dans le presse-papier et la colle dans le slide, sans jamais gérer de fichier. Mais [un peu d'outillage](https://github.com/baptiste-roullin/boilerplate-asciidoc-revealjs#snippets) améliore la situation.
 
 
 
 [^1]: On peut écrire le markdown dans un fichier à part, mais il faut un fichier par slide, c'est impraticable.
+
+
+
+<link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">

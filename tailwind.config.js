@@ -341,6 +341,7 @@ module.exports = {
 		}),
 	},
 	plugins: [
+		// virer plugin typo
 		require('@tailwindcss/typography')({
 			modifiers: ['lg', 'xl', '2xl'],
 		}),
