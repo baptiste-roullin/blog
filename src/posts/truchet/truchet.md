@@ -72,7 +72,7 @@ Sur l'histoire des ornementations, voir cet [article](https://www.nms.ac.uk/expl
 
 Pour une analyse psychologique de notre goût pour les motifs, voir le livre [The sense of order : a study in the psychology of decorative art]( https://archive.org/details/senseoforderst00gomb/) (accessible en ligne), par le grand historien de l'art Ernst Gombrich. Résumé grossier (j'en suis seulement à l'intro) : on aime un certain compromis entre ordre et chaos, car on est cognitivement câblé pour chercher des structures dans le monde changeant qui nous entoure.
 
-Sur les affinités naturelles entre informatique, génération procédurale et motifs, voir le livre collecti 10 [PRINT CHR$(205.5+RND(1)); : GOTO 10](https://10print.org/) (accessible en ligne). Oui c'est le titre. C'est une ligne de Basic générant un labyrinthe étonnamment semblable au motif originel de Smith plus haut.
+Sur les affinités naturelles entre informatique, génération procédurale et motifs, voir le livre collectif 10 [PRINT CHR$(205.5+RND(1)); : GOTO 10](https://10print.org/) (accessible en ligne). Oui c'est le titre. C'est une ligne de Basic générant un labyrinthe étonnamment semblable au motif originel de Smith plus haut.
 
 Étant donné l'expressivité de ce genre de pavage, vous ne serez pas étonné d'apprendre que c'est un domaine d'exploration [en mathématiques](https://images.math.cnrs.fr/Du-carreau-de-Truchet-au-carreau-de-Wang-atteindre-l-atome-de-l-aperiodique-et.html). Des pavés plus complexes sont même utilisés comme modèles de calcul. Après tout, [l'informatique exotique](https://en.wikipedia.org/wiki/Unconventional_computing) est un genre en soi.
 
