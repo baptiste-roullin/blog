@@ -104,6 +104,14 @@ module.exports = {
             return `${context}/assets/imagesToProcess/[name][ext]`;
           },
         },
+        {
+          from: "assets/UI/*",
+          context: "src",
+          to({ context, absoluteFilename }) {
+            return `${context}/assets/imagesToProcess/[name][ext]`;
+          },
+        },
+
 
 
       ],

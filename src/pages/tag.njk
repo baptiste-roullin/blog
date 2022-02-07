@@ -12,6 +12,7 @@ pagination:
     - publishedPosts
     - all
     - tagList
+    - listeProjets
 postListItemStyle:
   complete: true
   showPagination: false
@@ -20,6 +21,5 @@ eleventyComputed:
   title: 'Articles à propos de : "{{ tag }}"'
 ---
 
-
-{% set postslist = collections[tag] | frontMatterFilter("draft") | reverse %}
+{% set postslist = collections[tag] | published | reverse %}
 {% include 'components/postslist.njk' %}

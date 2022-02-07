@@ -103,13 +103,15 @@ let options = {
 
 const md = markdownIt(options)
 	.disable('code')
-	//	.use(markdownItHeadingLevel, { firstLevel: 2 })
+	//.use(markdownItContainer, 'info')
+	//.use(markdownItHeadingLevel, { firstLevel: 2 })
 	.use(markdownItFootnote)
 	.use(anchor)
 	.use(markdownItAttributes)
 	.use(MarkdownBlockquoteCite)
-	//.use(markdownItContainer, 'info')
-	.use(imageFigures, { figcaption: true });
+	.use(imageFigures, { figcaption: true })
+	.use(require('markdown-it-highlightjs'));
+
 
 
 module.exports = md;

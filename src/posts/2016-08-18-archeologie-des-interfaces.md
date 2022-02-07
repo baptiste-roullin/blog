@@ -18,7 +18,7 @@ Parfois, ce sont des pans entiers d'un site qui détonnent. Exemple : Pôle Em
 
 Pas mal pas mal. Sauf que cette "[révolution numérique](http://www.leparisien.fr/economie/emploi/pole-emploi-fait-sa-revolution-numerique-23-01-2016-5478493.php)", "[user-centric et disruptive](http://www.journaldunet.com/management/ressources-humaines/1176880-anne-leone-campanella-pole-emploi/)", n'est pas encore allée très loin. Dès qu'on se connecte on retombe sur l'ancien, avec un style et une structure largement différente, et une utilisabilité sur laquelle je ne m'étendrai pas.
 
-![](/assets/images/Pole-Emploi-connect├®-particulier-1.png)
+![](/assets/images/Pole-Emploi-connect-particulier1.png)
 
 Bien sûr, je sais ce que c'est. Il y a des contraintes de temps et d'argent et je n'ose imaginer les décennies de dette technique et d'inertie architecturale pour ce genre de gros SI. Ce qui semble pour l'utilisateur une section parmi d'autres est peut-être un module à part, avec une technologie incompatible et géré par un département différent (une bonne illustration du [principe de Conway](https://en.wikipedia.org/wiki/Conway%27s_law)). Je ne doute pas que les gens qui y travaillent soient les premiers frustrés. Mais bon, l'homogénéisation est prévue pour une V2, hein ? Hein ?
 

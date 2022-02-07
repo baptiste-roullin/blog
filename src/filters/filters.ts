@@ -30,7 +30,11 @@ function search(collection) {
 
 	// loop through each page and add it to the index
 	collection.forEach((page) => {
+		let img = page.data.collatedImage
 
+		if (/truchet-/.test(img)) {
+			img = img.replace(/.png$/, "-400.jpg")
+		}
 		index.addDoc({
 			url: page.url,
 			title: page.data.title,
@@ -39,7 +43,7 @@ function search(collection) {
 			//on accède au contenu en markdown et on le transforme en texte brut.
 			content: remove(page.template.frontMatter.content),
 			date: page.data.date,
-			collatedImage: "/assets/generatedImages/" + page.data.collatedImage,
+			collatedHeroImage: "/assets/generatedImages/" + page.data.collatedHeroImage,
 			fileSlug: page.fileSlug
 		});
 	});
@@ -52,11 +56,21 @@ module.exports = {
 	 * @link https://www.11ty.dev/docs/filters/
 	 */
 
-	frontMatterFilter: function (collection, field) {
-		if (!field) return collection;
-
-		return collection.filter(item => { return !item?.data?.[field] })
+	published: function (collection) {
+		//const pub = collections['publishedPosts']
+		return collection.filter((post) => {
+			if (post.draft) {
+				if (post.draft === true) {
+					return false
+				}
+			}
+			return true
+		}
+		)
 	},
+
+
+
 	cleanHeaderAnchors: (content) => {
 		if (content === undefined) {
 			return '';
@@ -64,12 +78,12 @@ module.exports = {
 		const regex = /<a class="header-anchor"((?!(<\/a>)).|\n)+<\/a>/gm;
 		return content.replace(regex, '');
 	},
+
 	similarPosts: function (collection, path, categories) {
 
 		const getSimilarCategories = function (categoriesA, categoriesB) {
 			return categoriesA.filter(Set.prototype.has, new Set(categoriesB)).length;
 		}
-
 		return collection.filter((post) => {
 			return getSimilarCategories(post.data.categories, categories) >= 1 && post.data.page.inputPath !== path;
 		}).sort((a, b) => {
@@ -83,7 +97,8 @@ module.exports = {
 
 	shuffle: function (array) {
 
-		var currentIndex = array.length;
+		const newArray = [...array]
+		var currentIndex = newArray.length;
 		var temporaryValue, randomIndex;
 
 		// While there remain elements to shuffle...
@@ -93,12 +108,12 @@ module.exports = {
 			currentIndex -= 1;
 
 			// And swap it with the current element.
-			temporaryValue = array[currentIndex];
-			array[currentIndex] = array[randomIndex];
-			array[randomIndex] = temporaryValue;
+			temporaryValue = newArray[currentIndex];
+			newArray[currentIndex] = newArray[randomIndex];
+			newArray[randomIndex] = temporaryValue;
 		}
 
-		return array;
+		return newArray;
 	},
 
 	searchIndex: search

@@ -97,7 +97,7 @@
 	background:#fcf3ed
 }
 
-  @variants responsive {
+  @layer responsive {
 	.container-wide {
 		margin-left: calc(30% - 30vw);
 		margin-right: calc(30% - 30vw);
@@ -196,7 +196,7 @@
 }
 
 
-pre code {
+li > code, p > code {
 	@apply bg-transparent border-0 rounded-none;
 }
 

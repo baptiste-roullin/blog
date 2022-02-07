@@ -3,18 +3,10 @@ import { Config, UserConfig, } from './types/eleventy';
 const pluginRss = require('@11ty/eleventy-plugin-rss')
 const pluginNavigation = require('@11ty/eleventy-navigation')
 const yaml = require("js-yaml");
-const imagesResponsiver = require("eleventy-plugin-images-responsiver");
 require('dotenv').config()
 const embedEverything = require("eleventy-plugin-embed-everything");
 
 module.exports = function (config: Config): UserConfig {
-
-	/**
-	 * Opts in to a full deep merge when combining the Data Cascade.
-	 * Per the link below, "This will likely become the default in an upcoming major version."
-	 * So I'm going to implement it now.
-	 */
-	config.setDataDeepMerge(true)
 
 
 	/**
@@ -42,8 +34,6 @@ cf. postcss.config.js pour le CSS
 
 	//On copie tels quels les média avec chemins relatifs ou absolus dans /dist, qu'ils puissent être lus par du balisage non-transformé (sans srcset ou gif -> vidéo)
 
-	config.addPassthroughCopy({ 'src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}': 'assets/generatedImages' })
-	config.addPassthroughCopy({ 'src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}': 'assets/generatedImages' })
 
 	config.addPassthroughCopy('src/assets/docs/')
 
@@ -54,6 +44,24 @@ cf. postcss.config.js pour le CSS
 	config.addPassthroughCopy('src/assets/UI')
 
 	config.setUseGitIgnore(false)
+
+
+	if (process.env.NODE_ENV === "production") {
+		config.addPassthroughCopy({ 'src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}': 'assets/generatedImages' })
+		config.addPassthroughCopy({ 'src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}': 'assets/generatedImages' })
+
+		config.addPlugin(
+			require('./src/transforms/images-responsiver-transform'),
+			require('./src/transforms/images-responsiver-config')
+		)
+		config.addPlugin(require('./src/transforms/gif-converter.ts'))
+	}
+	else {
+		config.addPassthroughCopy('src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}')
+		config.addPassthroughCopy('src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}')
+
+	}
+
 
 
 	/**
@@ -74,10 +82,10 @@ cf. postcss.config.js pour le CSS
 		use: ['vimeo', 'youtube', 'twitter'], twitter: { options: { align: 'center' } }
 	});
 
-	if (process.env.NODE_ENV === "production") {
-		config.addPlugin(imagesResponsiver, require('./src/transforms/images-responsiver-config.ts'))
-		config.addPlugin(require('./src/transforms/gif-converter.ts'))
-	}
+
+
+
+
 	config.addPlugin(pluginRss)
 
 
@@ -90,22 +98,7 @@ cf. postcss.config.js pour le CSS
 		config.addFilter(filterName, filters[filterName])
 	})
 
-	/*	const asyncFilters = require('./src/filters/asyncFilters.ts')
-		Object.keys(asyncFilters).forEach((filterName) => {
-			config.addNunjucksAsyncFilter(filterName, filters[filterName])
-		})
-	*/
 
-
-	/**
-	 * Transforms
-	 */
-	/*const transforms = require('./src/transforms/transforms.js')
-
-	Object.keys(transforms).forEach((transformName) => {
-		config.addTransform(transformName, transforms[transformName])
-	})
-*/
 
 	/**
 	 * Shortcodes
@@ -139,7 +132,7 @@ cf. postcss.config.js pour le CSS
 	/**
 	MARKDOWN
 	*/
-	config.addDataExtension("yaml", contents => yaml.safeLoad(contents));
+	config.addDataExtension("yaml", contents => yaml.load(contents));
 
 	config.setFrontMatterParsingOptions({
 		excerpt: true,

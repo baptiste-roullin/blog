@@ -3,18 +3,14 @@ const defaultTheme = require('tailwindcss/defaultTheme')*/
 const colors = require('tailwindcss/colors')
 module.exports = {
 	corePlugins: {
-
 	},
-	mode: 'jit',
-	purge: {
-		safelist: ['sr-only'],
-		content: [
-			'./src/**/*.html',
-			'./src/**/*.njk',
-			'./src/**/*.md',
-			'./src/_data/structure.js',
-		]
-	},
+	safelist: ['sr-only'],
+	content: [
+		'./src/**/*.html',
+		'./src/**/*.njk',
+		'./src/**/*.md',
+		'./src/_data/structure.js',
+	],
 	theme: {
 		fontFamily: {
 			sans: [
@@ -36,7 +32,7 @@ module.exports = {
 			current: 'currentColor',
 			black: colors.black,
 			white: colors.white,
-			gray: colors.coolGray,
+			gray: colors.gray,
 			indigo: colors.indigo,
 		},
 
@@ -81,6 +77,7 @@ module.exports = {
 				'lg-bis': "1.4rem"
 
 			},
+			// TODO https://github.com/tailwindlabs/tailwindcss-typography/releases/tag/v0.5.0
 			textShadow: {
 				"lg-dark": "3px 3px 6px rgb(0 0 0 / 46%), 0 0 5px rgb(15 3 86 / 42%)"
 			},
@@ -344,9 +341,11 @@ module.exports = {
 		}),
 	},
 	plugins: [
+		// virer plugin typo
 		require('@tailwindcss/typography')({
 			modifiers: ['lg', 'xl', '2xl'],
 		}),
+		require('tailwindcss/nesting'),
 		require('tailwindcss-textshadow'),
 		require('@tailwindcss/forms'),
 	]
