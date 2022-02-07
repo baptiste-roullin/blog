@@ -61,7 +61,6 @@
     "postcss-cli": "^8.2.2",
     "postcss-hash": "^3.0.0",
     "postcss-import": "^14.0.1",
-    "postcss-nesting": "^10.1.2",
     "random-seed": "^0.3.0",
     "remove-markdown": "^0.3.0",
     "rimraf": "^3.0.2",
