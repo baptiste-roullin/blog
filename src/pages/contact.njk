@@ -1,47 +1,51 @@
 ---
-title: Contact
+title: Discutons
 date: 2020-08-05
-layout: page
-draft: true
+layout: base
+draft: false
+eleventyNavigation:
+  key: main
+  title: Contact #  as it will appear in the nav
+  order: 3    # order to display in the nav
 ---
 
 {# TODO formulaire de contact
 https://github.com/nextcloud/forms/blob/master/docs/API.md
 
 En attente de nextcloud/forms#805 #}
+<div class="my-16 lg:my-32 lg:mx-auto lg:max-w-6xl page lg:max-h">
 
-<div class="relative bg-white">
-  <div class="relative mx-auto max-w-7xl lg:grid lg:grid-cols-5">
+  <div class="gap-0 lg:card-base " flex >
+    <div class="hidden w-1/3 lg:block">
+      {% truchetItem {
+        width : 450,
+        height: 750,
+        tile_size: 50
+      }, 'w-full h-auto' %}
+    </div>
 
-    <div class="px-4 my-16 bg-white sm:px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12">
-      <div class="max-w-lg mx-auto lg:max-w-none">
-        <form id="contact"   class="grid grid-cols-1 row-gap-6">
-
-          <div>
+    <div class="flex flex-col flex-grow p-4 mx-auto sm:px-6 lg:px-12 xl:px-20">
+      <h1 class="my-6 text-5xl text-gray-700 lg:mt-10 lg:mb-12">{{ seo.title or title }}</h1>
+      <form id="contact"   class="w-full">
+        <div class="gap-8 lg:flex">
+          <div class="flex-grow">
             <label for="name" >Nom</label>
-            <div class="relative ">
-              <input required id="name" name="name" type="text" class="block w-full px-4 py-3 mb-6 placeholder-gray-500 transition duration-150 ease-in-out rounded-md shadow-sm form-input">
-            </div>
+            <input autofocus required id="name" name="4" type="text" class= "block w-full px-4 py-3 mt-1 mb-6 text-lg placeholder-gray-500 transition-all duration-150 ease-in-out rounded-md shadow-sm lg:mb-8">
           </div>
-          <div>
+          <div class="flex-grow">
             <label for="email" >Email</label>
-            <div class="relative ">
-              <input required id="email" name="email" type="email" class="block w-full px-4 py-3 mb-6 placeholder-gray-500 transition duration-150 ease-in-out rounded-md shadow-sm form-input" >
-            </div>
+            <input required id="email" name="5" type="email" class= "block w-full px-4 py-3 mt-1 mb-6 text-lg placeholder-gray-500 transition-all duration-150 ease-in-out rounded-md shadow-sm lg:mb-8" >
           </div>
-
-          <div>
-            <label for="message" >Message</label>
-            <div class="relative ">
-              <textarea required id="message" name="message" rows="4" class="block w-full px-4 py-3 mb-6 placeholder-gray-500 transition duration-150 ease-in-out rounded-md shadow-sm form-input" ></textarea>
-            </div>
-          </div>
-          <div class="">
-            <button  type="submit" class="inline-flex px-6 py-4 my-4 rounded-md rounded-lg shadow-sm">Envoyer
-              </button >
-          </div>
-        </form>
-      </div>
+        </div>
+        <div>
+          <label for="message" >Message</label>
+          <textarea required id="message" name="6" rows="4" class= "block w-full px-4 py-3 mt-1 mb-6 text-lg placeholder-gray-500 transition-all duration-150 ease-in-out rounded-md shadow-sm lg:mb-8 h-52" ></textarea>
+        </div>
+        <div class="">
+          <button  class="inline-flex px-10 py-4 text-lg font-bold tracking-wide text-white transition-all rounded-lg shadow-sm bg-dark-lighter hover:bg-gray-100 hover:text-dark ">Envoyer
+                </button >
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -51,26 +55,35 @@ En attente de nextcloud/forms#805 #}
     .querySelector("#contact")
     .addEventListener('submit', async function () {
       event.preventDefault();
-      const res = await fetch('https://nuage.toutcequibouge.net/ocs/v2.php/apps/forms/api/v1/submission/insert', {
+      let data = {
+        formId: 1,
+        answers: {}
+      };
+
+      for (let [key, value] of new FormData(this).entries()) {
+        data.answers[key] = [value]
+      }
+
+      fetch('https://nuage.toutcequibouge.net/ocs/v2.php/apps/forms/api/v1.1/submission/insert', {
         method: 'POST',
         mode: 'cors',
         headers: {
           'Content-Type': 'application/json; charset=UTF-8',
-          'OCS-APIRequest': 'true',
-          'Referrer-Policy': 'origin'
+          'Accept': 'application/json',
+
+          'OCS-APIRequest': 'true'
         },
-        body: JSON.stringify(Object.fromEntries(new FormData(this)))
-      });
+        body: JSON.stringify(data)
+      }).then(res => {
+
+        if (res.ok) {
+          alert(' ✅ Votre message a bien été envoyé.')
+        } else {
+          alert("⚠️ Erreur dans l'envoi du message. Merci de bien vouloir vous rabattre sur Linkedin.")
+        }
+      })
+
     })
-
-  document
-    .querySelector("#contact")
-    .addEventListener('formdata', (e) => {
-      console.log('formdata fired');
-
-      // Get the form data from the event object
-      let data = e.formData;
-      JSON.stringify(Object.fromEntries(e.formData))
-
-    });
 </script>
+
+<script  src="/assets/scripts/{{hashes_js['truchet-dom.js']}}" defer></script>
