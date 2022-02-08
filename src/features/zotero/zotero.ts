@@ -9,7 +9,8 @@ const njk = require('nunjucks')
 
 // Documentation de l'API : https://www.zotero.org/support/dev/web_api/v3/basics
 // Client : 				https://github.com/tnajdek/zotero-api-client
-const api = require('zotero-api-client');
+const { default: api } = require('zotero-api-client');
+
 /*
 Comme promise.all, effectue des requête en parallèle et renvoie une promesse de tableau de résultats. Avec en plus des options, notamment une pour limiter le nombre de requêtes parallèles
 @param input — Iterated over concurrently in the mapper function.

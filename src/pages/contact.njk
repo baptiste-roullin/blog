@@ -9,10 +9,6 @@ eleventyNavigation:
   order: 3    # order to display in the nav
 ---
 
-{# TODO formulaire de contact
-https://github.com/nextcloud/forms/blob/master/docs/API.md
-
-En attente de nextcloud/forms#805 #}
 <div class="my-16 lg:my-32 lg:mx-auto lg:max-w-6xl page lg:max-h">
 
   <div class="gap-0 lg:card-base " flex >
@@ -70,7 +66,6 @@ En attente de nextcloud/forms#805 #}
         headers: {
           'Content-Type': 'application/json; charset=UTF-8',
           'Accept': 'application/json',
-
           'OCS-APIRequest': 'true'
         },
         body: JSON.stringify(data)

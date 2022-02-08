@@ -1,5 +1,5 @@
 ---
-title: Faire des slides comme un développeur quand est designer
+title: Faire des slides comme un développeur quand on est designer
 date: '2022-02-05'
 richPicture: true
 tags:
