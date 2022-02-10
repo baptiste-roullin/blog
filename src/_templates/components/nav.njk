@@ -22,7 +22,7 @@
 
   </div>
 
-  <div id="menu-bar-desktop" class="relative z-10 flex justify-between h-20 px-per lg:p-0 bg-dark ">
+  <div id="header" class="relative z-10 flex justify-between h-20 px-per lg:p-0 bg-dark ">
 
     {# =======    TITRE      ========= #}
 
@@ -47,7 +47,6 @@
         class="relative items-center h-full text-xl font-medium text-gray-100 group text-shadow focus:text-white focus:group-accent">
           <span
           class="w-[140%] flex items-center justify-center h-full
-          {# TODO : ajouter aria-current #}
                {{ 'underline' if entry.url in page.url }}
               group-hover:text-white group-hover:bg-accent transition-all duration-300
           ">{{ entry.title }}</span>
@@ -57,23 +56,26 @@
 
     {# =======    BOUTON BURGER       ========= #}
 
-    <div class="flex items-center sm:hidden" id="menu-bar">
-      <button  class="relative inline-flex items-center justify-center p-2 text-gray-200 transition-transform duration-150 ease-in-out rounded-md focus:outline-none focus:text-accent active:text-accent2"
-       aria-label="Menu principal" aria-expanded="false">
+    <div class="relative flex items-center sm:hidden" id="burger">
 
-        <div id="trigger-zone" class="absolute w-16 h-16 -right-1.5"></div>
-        {# Icon when menu is closed.  #}
+      <div id="trigger-zone" class="absolute w-16 h-16 -right-1.5"></div>
 
-        <svg width="24" height="24" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1 3H17M2.5 9H15.5M1 15H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-
-        {# Icon when menu is open.  #}
-        <svg class="hidden " width="24" height="24" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <button  class="items-center justify-center hidden p-2 text-gray-200 transition-transform duration-150 ease-in-out focus:outline-none focus:text-accent active:text-accent2"
+       aria-label="Ferme le menu" >
+        <svg  width="24" height="24" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M1 1L13 13M1 13L13 1L1 13Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
 
       </button>
+
+      <button  class="inline-flex items-center justify-center p-2 text-gray-200 transition-transform duration-150 ease-in-out focus:outline-none focus:text-accent active:text-accent2"
+       aria-label="Ouvre le menu" >
+        <svg width="24" height="24" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 3H17M2.5 9H15.5M1 15H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+      </button>
+
     </div>
   </div>
 
