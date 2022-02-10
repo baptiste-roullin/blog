@@ -1,5 +1,5 @@
 ---
-title: Faire des slides comme un développeur quand on est designer
+title: Faire des slides comme un dev quand on est designer
 date: '2022-02-05'
 richPicture: true
 tags:
@@ -7,7 +7,7 @@ tags:
 ---
 
 
-Retours sur mon expérience d'écrire un gros support de cours dans un éditeur de texte avec Reveal.js/Asciidoc. Et sur le petit [kit de démarrage](https://github.com/baptiste-roullin/boilerplate-asciidoc-revealjs) que j'en ai tiré.
+Un retour sur mon expérience d'écrire un gros support de cours avec Reveal.js/Asciidoc et dans un éditeur de texte. Ainsi que sur le petit [kit de démarrage](https://github.com/baptiste-roullin/boilerplate-asciidoc-revealjs) que j'en ai tiré.
 
 <!-- excerpt -->
 
