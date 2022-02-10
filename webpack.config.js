@@ -28,7 +28,6 @@ module.exports = {
   entry: {
     contact: path.resolve(__dirname, 'src/assets/scripts/contact.js'),
     main: path.resolve(__dirname, 'src/assets/scripts/main.js'),
-    search: path.resolve(__dirname, 'src/assets/scripts/search.js'),
     richPicture: path.resolve(__dirname, 'src/assets/scripts/richPicture.ts'),
     spin: path.resolve(__dirname, 'src/assets/scripts/spin.ts'),
     nav: path.resolve(__dirname, 'src/assets/scripts/nav.ts'),
@@ -56,25 +55,7 @@ module.exports = {
           transpileOnly: true
         }
       },
-      {
-        test: /\.njk$/,
-        use: [
-          {
-            loader: 'simple-nunjucks-loader',
-            options: {
-              searchPaths: [
-                'src/_templates/components',
-                'src/_templates/utils'
 
-              ], filters: {
-                dateToFormat: path.resolve('src/filters/dateToFormat.js'),
-                removeMD: path.resolve('src/filters/removeMD.js')
-
-              }
-            }
-          }
-        ]
-      },
       {
         test: /\.m?js$/,
         exclude: /node_modules/,

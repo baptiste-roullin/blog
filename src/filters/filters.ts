@@ -1,17 +1,15 @@
 
 const remove = require('remove-markdown');
 
-const { DateTime, Settings } = require('luxon')
 const slugify = require('./slugify.js');
 //const cleanCSS = require('clean-css')
 const md = require('../markdown.js')
 
 import ElasticLunr from "elasticlunr";
+import { dateHumanFormat, dateToPermalink, dateISOFormat } from "./dateFormatting";
 const elasticlunr = require("elasticlunr");
 require('./lunr.stemmer.support.js')(elasticlunr);
 require('./lunr.fr.js')(elasticlunr);
-Settings.defaultLocale = "fr";
-
 
 function search(collection) {
 
@@ -124,21 +122,18 @@ module.exports = {
 
 	removeMD: require('./removeMD.js'),
 
-	dateToPermalink: function (date) {
-		return DateTime.fromJSDate(date, {
-			zone: 'utc',
-		}).toFormat('yyyy/MM')
-	},
+	dateToPermalink: dateToPermalink,
+	dateISOFormat: dateISOFormat,
 
 	/**
-	 * dateToFormat allows specifiying display format at point of use.
-	 * Example in footer: {{ build.timestamp | dateToFormat('yyyy') }} uses .timestamp
-	 *  from the _data/build.js export and formats it via dateToFormat.
-	 * Another usage example used in layouts: {{ post.date | dateToFormat("LLL dd, yyyy") }}
+	 * dateHumanFormat allows specifiying display format at point of use.
+	 * Example in footer: {{ build.timestamp | dateHumanFormat('yyyy') }} uses .timestamp
+	 *  from the _data/build.js export and formats it via dateHumanFormat.
+	 * Another usage example used in layouts: {{ post.date | dateHumanFormat("LLL dd, yyyy") }}
 	 * And finally, example used in /src/posts/posts.json to format the permalink
 	 *  when working with old /yyyy/MM/dd/slug format from Wordpress exports
 	 */
-	dateToFormat: require('./dateToFormat.js'),
+	dateHumanFormat: dateHumanFormat,
 
 	/**
    // Universal slug filter strips unsafe chars from URLs

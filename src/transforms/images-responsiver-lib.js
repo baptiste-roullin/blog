@@ -57,7 +57,6 @@ const imagesResponsiver = (html, options = {}) => {
 
 			// Overhide settings with presets named in the image classes
 			if (image.dataset && 'responsiver' in image.dataset) {
-				// TODO: Merging preset settings to previous settings should be easier
 				image.dataset.responsiver.split(' ').forEach((preset) => {
 					if (options[preset] !== undefined) {
 						if ('selector' in options[preset]) {
