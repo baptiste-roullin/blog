@@ -3,7 +3,7 @@ title: "You do the meth  : tous les jeux de mots des génériques de Bob's Bur
 date: 2017-12-10
 draft: false
 tags:
- - "travaux"
+ - "projets"
 
 hero:
   type: split  # options: carousel, graphic, video, split (text & image)

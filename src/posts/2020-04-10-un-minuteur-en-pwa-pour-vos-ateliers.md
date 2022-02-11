@@ -2,7 +2,7 @@
 title: Un minuteur en PWA pour vos ateliers
 date: 2020-04-10
 tags:
-  - travaux
+  - projets
 hero:
   type: split  # options: carousel, graphic, video, split (text & image)
   image: "screenshot.png"

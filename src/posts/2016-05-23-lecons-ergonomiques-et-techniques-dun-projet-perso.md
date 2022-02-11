@@ -2,7 +2,7 @@
 title: "Leçons ergonomiques et techniques d'un projet perso"
 date: 2016-05-23
 tags:
-  - "travaux"
+  - "projets"
 ---
 
 Il y a quelques mois j'ai publié un outil pour calculer une addition en terme de tickets resto ([le post de l'époque est ici](https://toutcequibouge.net/2016/01/un-bidule-optimise-pour-la-main-mais-code-avec-les-pieds/)). Je sais, rien ne m'arrête. Voici une mise à jour, avec notamment des visuels plus travaillés, ainsi qu'un clavier sur mesure et toujours présent à l'écran.
