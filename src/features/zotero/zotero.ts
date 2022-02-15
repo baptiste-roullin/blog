@@ -11,7 +11,7 @@ const njk = require('nunjucks')
 // Client : 				https://github.com/tnajdek/zotero-api-client
 const { default: api } = require('zotero-api-client');
 
-import { dateHumanFormat } from "../../filters/dateFormatting";
+import dateHumanFormat from "../../filters/dateFormatting";
 
 /*
 Comme promise.all, effectue des requête en parallèle et renvoie une promesse de tableau de résultats. Avec en plus des options, notamment une pour limiter le nombre de requêtes parallèles
