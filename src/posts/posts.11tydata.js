@@ -19,6 +19,11 @@ module.exports = {
         return `truchet-${slug}.png`
       }
       else {
+        const isGif = /\.gif$/
+        if (isGif.test(hero.image)) {
+          return "/assets/generatedImages/" + hero.image
+
+        }
         return hero.image
       }
 
