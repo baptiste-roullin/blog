@@ -34,20 +34,22 @@ layout: base
 		<div class="h-full decor-dark bg-dark-lighter"></div>
 		{# ===== Previous and Next =====  #}
 		<div class="relative flex flex-col gap-12 px-4 py-12 post-pagination lg:py-12 lg:px-4 md:flex-row md:justify-between">
-			<div class="relative flex flex-col gap-3 sm:gap-4 lg:w-1/2 sm:py-0 pagination-left">
+			<div class=" pagination-left">
 				{% if previousPost %}
-					<a class="text-white hover:underline text-shadow-lg-dark hover:text-accent2" href="{{ previousPost.url | url }}">
-						{{ previousPost.data.title }}
+					<a class="relative flex flex-col w-auto gap-3 text-white sm:gap-4 lg:w-1/2 sm:py-0 hover:underline text-shadow-lg-dark hover:text-accent2" href="{{ previousPost.url | url }}">
+						<div>{{ previousPost.data.title }}</div>
+						<img style="width:14px" class="self-start h-full rotate-180" src="/assets/UI/pointe.svg">
+
 					</a>
-					<img style="width:14px" class="self-start h-full rotate-180" src="/assets/UI/pointe.svg">
 				{% endif %}
 			</div>
-			<div class="relative flex flex-col gap-3 text-right sm:gap-4 lg:w-1/2 sm:py-0 pagination-right">
+			<div class=" pagination-right">
 				{% if nextPost %}
-					<a class="h-full text-white hover:underline text-shadow-lg-dark hover:text-accent2" href="{{ nextPost.url | url}}">
-						{{ nextPost.data.title }}
+					<a class="relative flex flex-col w-auto h-full gap-3 text-right text-white sm:gap-4 lg:w-1/2 sm:py-0 hover:underline text-shadow-lg-dark hover:text-accent2" href="{{ nextPost.url | url}}">
+						<div>{{ nextPost.data.title }}</div>
+						<img style="width:14px" class="self-end " src="/assets/UI/pointe.svg">
+
 					</a>
-					<img style="width:14px" class="self-end " src="/assets/UI/pointe.svg">
 				{% endif %}
 			</div>
 		</div>
