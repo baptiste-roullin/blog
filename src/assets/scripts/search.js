@@ -76,13 +76,18 @@ async function search(e) {
 
 };
 
-document.getElementById("search-form")
-	.addEventListener("submit", search);
+document.addEventListener('DOMContentLoaded', function () {
 
-document.getElementById("search-form")
-	.addEventListener("input", async function () {
-		if (!window.searchIndex) {
-			const rawIndex = await fetch("/index.min.json")
-			window.searchIndex = elasticlunr.Index.load(await rawIndex.json());
-		}
-	});
+	document.getElementById("search-form")
+		.addEventListener("submit", search);
+
+	document.getElementById("search-form")
+		.addEventListener("input", async function (e) {
+			if (!window.searchIndex) {
+				const rawIndex = await fetch("/index.min.json")
+				window.searchIndex = elasticlunr.Index.load(await rawIndex.json());
+			}
+
+		});
+
+})

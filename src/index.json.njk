@@ -4,5 +4,5 @@ eleventyExcludeFromCollections: true,
 ---
 
 {% if meta.env === 'production' %}
-	{{ collections.publishedPosts | searchIndex | dump   | safe }}
+	{{ collections.publishedPosts | searchIndex   | safe }}
 {% endif %}

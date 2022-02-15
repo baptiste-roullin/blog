@@ -1,13 +1,13 @@
 import { Item, Collection } from '../types/eleventy';
 
 
-const publishedPosts = (post) => { return !post.data.draft }
+const published = (post) => { return !post.data.draft }
 
 module.exports = {
 
 	publishedPosts: function (collection: Collection): Item[] {
 
-		const collec = collection.getFilteredByTag("post").filter(publishedPosts)
+		const collec = collection.getFilteredByTag("post").filter(published)
 		/*	collec.forEach(item => {
 				if (item.fileSlug === undefined) {
 					console.log(item.templateContent)
@@ -19,7 +19,7 @@ module.exports = {
 	tagList: function (collection: Collection): any {
 		let tagDictionary: Map<string, number> = new Map()
 
-		collection.getFilteredByTag("post").filter(publishedPosts).forEach(function (item) {
+		collection.getFilteredByTag("post").filter(published).forEach(function (item) {
 			//@ts-ignore
 			if ('tags' in item.data) {
 				//@ts-ignore

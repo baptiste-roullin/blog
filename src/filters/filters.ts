@@ -6,10 +6,14 @@ const slugify = require('./slugify.js');
 const md = require('../markdown.js')
 
 import ElasticLunr from "elasticlunr";
-import { dateHumanFormat, dateToPermalink, dateISOFormat } from "./dateFormatting";
+
+
 const elasticlunr = require("elasticlunr");
 require('./lunr.stemmer.support.js')(elasticlunr);
 require('./lunr.fr.js')(elasticlunr);
+const { DateTime, Settings } = require('luxon')
+Settings.defaultLocale = "fr";
+
 
 function search(collection) {
 
@@ -45,7 +49,7 @@ function search(collection) {
 			fileSlug: page.fileSlug
 		});
 	});
-	return index.toJSON();
+	return JSON.stringify(index.toJSON());
 }
 
 module.exports = {
@@ -66,8 +70,6 @@ module.exports = {
 		}
 		)
 	},
-
-
 
 	cleanHeaderAnchors: (content) => {
 		if (content === undefined) {
@@ -122,8 +124,19 @@ module.exports = {
 
 	removeMD: require('./removeMD.js'),
 
-	dateToPermalink: dateToPermalink,
-	dateISOFormat: dateISOFormat,
+
+
+
+	dateToPermalink: function (date) {
+		return DateTime.fromJSDate(date, {
+			zone: 'utc',
+		}).toFormat('yyyy/MM')
+	},
+
+
+	dateISOFormat: function (date) {
+		return DateTime.fromJSDate(date).toISODate()
+	},
 
 	/**
 	 * dateHumanFormat allows specifiying display format at point of use.
@@ -133,7 +146,7 @@ module.exports = {
 	 * And finally, example used in /src/posts/posts.json to format the permalink
 	 *  when working with old /yyyy/MM/dd/slug format from Wordpress exports
 	 */
-	dateHumanFormat: dateHumanFormat,
+	dateHumanFormat: require('./dateFormatting.js'),
 
 	/**
    // Universal slug filter strips unsafe chars from URLs

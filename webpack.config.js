@@ -64,6 +64,25 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
+      {
+        test: /\.njk$/,
+        use: [
+          {
+            loader: 'simple-nunjucks-loader',
+            options: {
+              searchPaths: [
+                'src/_templates/components',
+                'src/_templates/utils'
+              ], filters: {
+                dateHumanFormat: path.resolve('src/filters/dateFormatting.js'),
+                removeMD: path.resolve('src/filters/removeMD.js')
+              }
+            }
+          }
+        ]
+      },
+
+
     ],
   },
   plugins: [
