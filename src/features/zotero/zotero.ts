@@ -11,6 +11,8 @@ const njk = require('nunjucks')
 // Client : 				https://github.com/tnajdek/zotero-api-client
 const { default: api } = require('zotero-api-client');
 
+import { dateHumanFormat } from "../../filters/dateFormatting";
+
 /*
 Comme promise.all, effectue des requête en parallèle et renvoie une promesse de tableau de résultats. Avec en plus des options, notamment une pour limiter le nombre de requêtes parallèles
 @param input — Iterated over concurrently in the mapper function.
@@ -160,14 +162,18 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 
 		// Ce templating étant à part d'Eleventy, on doit recréer un environnement Nunjucks
 
+		// TODO : ne pas avoir à à définir tout un environnement nunjucks
+		// avec https://www.11ty.dev/docs/plugins/render/#renderfile
+
 		// base du chemin utilisé ensuite par render()
 		const env = njk.configure('./src/features/zotero',
 
 			// options, notamment pour supprimer les vides inutiles.
-			{ autoescape: true, trimBlocks: true, lstripBlocks: true });
+			{ autoescape: true, trimBlocks: true, lstripBlocks: true }
+		);
 
 		// Ajout d'un filtre utilisé par zotero.njk
-		env.addFilter('dateHumanFormat', require('../../filters/dateHumanFormat.js'))
+		env.addFilter('dateHumanFormat', dateHumanFormat)
 
 		//génération du HTML
 		return await env.render('zotero.njk', { items: completedItems });
