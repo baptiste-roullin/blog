@@ -79,8 +79,9 @@ content:none
 		width: auto;
 		max-height: 60vh;
 		align-self: flex-start;
-  min-height: 312px;
+    min-height: 312px;
   max-width:90%;
+    object-fit: cover;
 
 }
 }
@@ -93,6 +94,14 @@ content:none
 		max-height: 48vmax;
 		align-self: flex-start;
 	}
+}
+
+@media screen and (min-width:1300px){
+
+	.hero-split img, .hero-split video {
+    min-height: 600px;
+
+}
 }
 
 /*@media screen and (min-width:768){
