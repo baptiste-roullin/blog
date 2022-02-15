@@ -26,6 +26,7 @@ module.exports = {
     extensions: ['.ts', '.js'],
   },
   entry: {
+    search: path.resolve(__dirname, 'src/assets/scripts/search.js'),
     contact: path.resolve(__dirname, 'src/assets/scripts/contact.js'),
     main: path.resolve(__dirname, 'src/assets/scripts/main.js'),
     richPicture: path.resolve(__dirname, 'src/assets/scripts/richPicture.ts'),

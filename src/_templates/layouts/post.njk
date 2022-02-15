@@ -14,7 +14,7 @@ layout: base
 
 		{% if not hero.image %}
 			<header class="">
-				<h1 class="text-gray-700">{{ seo.title or title }}</h1>
+				<h1 class="text-gray-700">{{ title }}</h1>
 				<div class="text-sm UI sm:text-base">
 					<time datetime="{{ page.date | dateHumanFormat("yyyy-MM-dd") }}">
 						{{ page.date | dateHumanFormat("dd LLLL yyyy") }}
