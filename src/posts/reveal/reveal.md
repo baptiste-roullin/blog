@@ -17,7 +17,7 @@ J'ai donc pensé à [Reveal.js](https://revealjs.com/), une bibliothèque permet
 
  L'intérêt de Reveal.js ?
 
-- C'est du web : le résultat est un fichier HTML léger et lisible n'importe où. Pas de risques d'être prisonnier d'un format ou d'un logiciel particulier.
+- C'est du web : le résultat est un fichier HTML léger et lisible n'importe où. Pas de risques d'être prisonnier d'un format ou d'un logiciel particulier. Le code généré est potentiellement accessible à un lecteur d'écran (plus qu'un Google Slide en tout cas). La boite spécialisée Acess42 utilise un [système comparable](https://github.com/access42/AccesSlide) pour ses présentations.
 - Des transitions classes entres slides, sans ressembler à un [Prezi circa 2010](https://prezi.com/x7gjmhdpi52t/some-bad-prezis/).
 - Une métaphore spatiale intéressante pour structurer le cours : on peut créer des groupes de slides qui vont défiler verticalement.
 - Avec quelques plugins, une navigation puissante : table des matière automatique, recherche dans le texte, ou mode panorama.
