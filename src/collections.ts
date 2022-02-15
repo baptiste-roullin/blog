@@ -31,7 +31,7 @@ module.exports = {
 						case 'authors':
 						case 'pages':
 						case 'post':
-						case 'travaux':
+						case 'projets':
 						case 'features':
 						case 'publishedposts':
 						case 'listeprojets':

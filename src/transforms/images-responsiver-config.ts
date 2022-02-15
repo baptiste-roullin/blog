@@ -1,7 +1,6 @@
 require('dotenv').config()
 const transformPicture = require("@11ty/eleventy-img");
 import path from "path";
-const imageSize = require('image-size')
 
 const formats = (
 	process.env.NODE_ENV === "production"
@@ -25,9 +24,10 @@ function runBefore(image, document) {
 	try {
 		// TODO : Tester cache. Par exemple "truchet-interet legitime.jpg" est-il mis en cache une seule fois.
 
-		const imageDimensions = imageSize(intermediaryPath);
-		image.setAttribute('width', imageDimensions.width);
-		image.setAttribute('height', imageDimensions.height);
+		const imageDimensions = transformPicture.statsSync(intermediaryPath, { statsOnly: true, formats: ["webp"] });
+
+		image.setAttribute('width', imageDimensions.webp[0].width);
+		image.setAttribute('height', imageDimensions.webp[0].height);
 
 		const options = {
 			sharpWebpOptions: {
@@ -78,7 +78,6 @@ function runAfter(image, document) {
 module.exports = {
 
 	default: {
-		// TODO : Tester cache. Par exemple "truchet-interet legitime.jpg" est-il mis en cache une seule fois.
 		selector: " #content :not(picture)  > img[src]:not([srcset]):not([src$='.svg']):not([src$='.gif'])",
 		minWidth: 360,
 		maxWidth: 1920,

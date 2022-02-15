@@ -1,6 +1,8 @@
 ---
 layout: base
 ---
+
+{# TODO : avoir systématiquement une image de vignette pour twitter #}
 <div class="template-post-main">
 	{% if hero.image %}
 		{% set heroComponent = ['components/hero-', hero.type, '.njk'] %}
@@ -14,8 +16,8 @@ layout: base
 			<header class="">
 				<h1 class="text-gray-700">{{ seo.title or title }}</h1>
 				<div class="text-sm UI sm:text-base">
-					<time datetime="{{ page.date | dateToFormat("yyyy-MM-dd") }}">
-						{{ page.date | dateToFormat("dd LLLL yyyy") }}
+					<time datetime="{{ page.date | dateHumanFormat("yyyy-MM-dd") }}">
+						{{ page.date | dateHumanFormat("dd LLLL yyyy") }}
 					</time>
 					{% include "components/tagpills-inline.njk" %}
 

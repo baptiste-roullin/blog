@@ -7,7 +7,7 @@
 
 - name: Bot invisible
   link: 'https://github.com/baptiste-roullin/botinvisible'
-  description: Le seul bot appeliste de la planète.
+  description: Le seul bot [appeliste](https://www.lemonde.fr/societe/article/2009/11/07/l-archipel-des-autonomes_1264159_3224.html) de la planète.
 
 - name: Calculateur de ticket resto
   link: /blog/2016/05/lecons-ergonomiques-et-techniques-d-un-projet-perso/

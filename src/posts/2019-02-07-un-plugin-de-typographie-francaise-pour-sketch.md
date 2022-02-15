@@ -3,7 +3,7 @@ title: "Un plugin de typographie française pour Sketch"
 date: 2019-02-07
 tags:
   - "prototypage"
-  - "travaux"
+  - "projets"
 
 hero:
   type: split  # options: carousel, graphic, video, split (text & image)

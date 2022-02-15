@@ -15,6 +15,6 @@ class="flex flex-col gap-4 p-5 text-center list-none transition-all duration-300
         {{ projet.name }}
       </a>
     </h3>
-    <p class="m-0 label description">{{projet.description}}</p>
+    <p class="m-0 label description">{{projet.description | markdownify}}</p>
   </div>
 </li>

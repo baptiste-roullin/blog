@@ -2,7 +2,7 @@ var truchetNode = require('../features/truchet/truchet-node.js');
 
 module.exports = {
   layout: "post",
-  permalink: "blog/{{ page.date | dateToFormat('yyyy/MM') }}/{{ title | slugify }}/index.html",
+  permalink: "blog/{{ page.date | dateHumanFormat('yyyy/MM') }}/{{ title | slugify }}/index.html",
   tags: [
     "post"
   ],
