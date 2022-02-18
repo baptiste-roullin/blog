@@ -1,7 +1,7 @@
 const textMetrics = require('text-metrics');
 
 
-function arrowWidth(e) {
+function arrowPagination(e) {
 	//const root = document.querySelector<HTMLElement>('.post-pagination ');
 	const left = document.querySelector<HTMLElement>('#pagination-left a ');
 	const right = document.querySelector<HTMLElement>('#pagination-right a ');
@@ -19,14 +19,14 @@ function arrowWidth(e) {
 }
 
 
-window.addEventListener("load", arrowWidth)
+window.addEventListener("load", arrowPagination)
 
 
 var resizeTimer;
 window.addEventListener("resize", function (e) {
 	clearTimeout(resizeTimer);
 	resizeTimer = setTimeout(function () {
-		arrowWidth(e)
+		arrowPagination(e)
 	}, 100);
 
 })
