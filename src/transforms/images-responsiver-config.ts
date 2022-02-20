@@ -95,6 +95,7 @@ module.exports = {
 		steps: 5,
 		classes: ['img-default'],
 		attributes: { loading: 'lazy', },
+		ignore: 'truchet-'
 	},
 	/*
 		"post-list": {

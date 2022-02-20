@@ -4,7 +4,7 @@ const elasticlunr = require("elasticlunr");
 require('./lunr.stemmer.support.js')(elasticlunr);
 require('./lunr.fr.js')(elasticlunr);
 //@ts-ignore
-import postlistitem from '../../../src/_templates/components/postlistitem.njk'
+import createComponent from '../../../src/_templates/components/postlistitem.njk'
 
 
 //"use strict"
@@ -38,19 +38,18 @@ async function search(e) {
 	else {
 		postList.style.display = 'none';
 		searchList.style.display = 'flex';
-		searchList.classList.add("flex-col", "gap-8", "my-10", "post-list")
 		while (searchList.hasChildNodes()) {
 			searchList.removeChild(searchList.lastChild)
 		}
 		if (results.length > 0) {
 
 			noResultsEl.style.display = "none";
-			results.map((r) => {
+			results.forEach((r) => {
 				const doc = window.searchIndex.documentStore.getDoc(r.ref)
 
 				let { url, title, description, date, fileSlug, collatedHeroImage } = doc;
 
-				const el = postlistitem({
+				const el = createComponent({
 					postListItemStyle: { complete: 'complete' },
 					post: {
 						url,
@@ -66,7 +65,7 @@ async function search(e) {
 						}
 					}
 				})
-				searchList.insertAdjacentHTML('afterbegin', el);
+				searchList.insertAdjacentHTML('beforeend', el);
 			});
 		} else {
 			console.log('no results')
