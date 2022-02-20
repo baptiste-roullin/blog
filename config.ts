@@ -50,6 +50,7 @@ cf. postcss.config.js pour le CSS
 		config.addPassthroughCopy({ 'src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}': 'assets/generatedImages' })
 		config.addPassthroughCopy({ 'src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}': 'assets/generatedImages' })
 
+
 		config.addPlugin(
 			require('./src/transforms/images-responsiver-transform'),
 			require('./src/transforms/images-responsiver-config')
@@ -57,8 +58,8 @@ cf. postcss.config.js pour le CSS
 		config.addPlugin(require('./src/transforms/gif-converter.ts'))
 	}
 	else {
-		config.addPassthroughCopy('src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}')
-		config.addPassthroughCopy('src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}')
+		//config.addPassthroughCopy('src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}')
+		//config.addPassthroughCopy('src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}')
 
 	}
 

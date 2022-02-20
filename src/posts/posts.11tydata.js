@@ -16,7 +16,7 @@ module.exports = {
 
       if (hero === undefined || hero === {}) {
         await truchetNode(slug, 400, 280).catch(console.error);
-        return `truchet-${slug}.png`
+        return `/assets/generatedImages/truchet-${slug}.png`
       }
       else {
         const isGif = /\.gif$/

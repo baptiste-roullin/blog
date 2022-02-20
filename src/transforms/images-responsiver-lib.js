@@ -1,5 +1,3 @@
-//@ts-nocheck
-
 // https://github.com/nhoizey/images-responsiver/
 
 const { parseHTML } = require('linkedom');
@@ -26,6 +24,7 @@ const defaultSettings = {
 	sizes: '100vw',
 	classes: [],
 	attributes: {},
+
 };
 
 const imagesResponsiver = (html, options = {}) => {
@@ -38,10 +37,14 @@ const imagesResponsiver = (html, options = {}) => {
 			arrayMerge: overwriteMerge,
 		});
 	}
-
 	const { document } = parseHTML(html);
 
+
+
 	[...document.querySelectorAll(globalSettings.selector)]
+		.filter((image) =>
+			!((new RegExp(globalSettings.ignore)).test(image.getAttribute('src')))
+		)
 		.filter((image) => {
 			// filter out images without a src, or not SVG, or with already a srcset
 			return (
@@ -52,7 +55,6 @@ const imagesResponsiver = (html, options = {}) => {
 		})
 		.forEach((image) => {
 			let imageSettings = clonedeep(globalSettings);
-
 			imageSettings.runBefore(image, document);
 
 			// Overhide settings with presets named in the image classes

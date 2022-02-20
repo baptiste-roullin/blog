@@ -10,7 +10,7 @@ module.exports = async function (slug, width, height) {
 		//@ts-ignore
 		const truchet = require('./truchet-core.ts')
 
-		const path = 'src/assets/imagesToProcess/truchet-' + slug + '.png'
+		const path = 'dist/assets/generatedImages/truchet-' + slug + '.png'
 
 
 		const tileCanvas = await truchet(
@@ -18,7 +18,12 @@ module.exports = async function (slug, width, height) {
 		await pipeline(
 			tileCanvas.createPNGStream({ compressionLevel: 2 }),
 			fs.createWriteStream(path),
-			function () { }
-		)
+			(err) => {
+				if (err) {
+					console.error('Pipeline failed.', err);
+				} else {
+					console.log('Pipeline succeeded.');
+				}
+			})
 	}
 }
