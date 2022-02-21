@@ -32,10 +32,13 @@ function search(collection) {
 
 	// loop through each page and add it to the index
 	collection.forEach((page) => {
-		let img = page.data.collatedImage
+		let img = page.data.collatedHeroImage
 
-		if (/truchet-/.test(img)) {
-			img = img.replace(/.png$/, "-400.jpg")
+		if (/\/truchet-/.test(img)) {
+			var finalPath = page.data.collatedHeroImage as string
+		}
+		else {
+			var finalPath = "/assets/generatedImages/" + img
 		}
 		index.addDoc({
 			url: page.url,
@@ -45,7 +48,7 @@ function search(collection) {
 			//on accède au contenu en markdown et on le transforme en texte brut.
 			content: remove(page.template.frontMatter.content),
 			date: page.data.date,
-			collatedHeroImage: "/assets/generatedImages/" + page.data.collatedHeroImage,
+			collatedHeroImage: finalPath,
 			fileSlug: page.fileSlug
 		});
 	});

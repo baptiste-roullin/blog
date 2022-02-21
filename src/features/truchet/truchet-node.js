@@ -22,7 +22,7 @@ module.exports = async function (slug, width, height) {
 				if (err) {
 					console.error('Pipeline failed.', err);
 				} else {
-					console.log('Pipeline succeeded.');
+					//	console.log('Pipeline succeeded.');
 				}
 			})
 	}
