@@ -34,7 +34,7 @@ layout: base
 		<div class="h-full decor-dark bg-dark-lighter"></div>
 		{# ===== Previous and Next =====  #}
 		<div class="relative flex flex-col gap-12 px-4 py-12 post-pagination lg:py-12 lg:px-4 md:flex-row md:justify-between">
-			<div class="lg:w-1/2l pagination-left">
+			<div id="pagination-left" class="lg:w-1/2l ">
 				{% if previousPost %}
 					<a class="relative flex flex-col justify-between h-full gap-3 text-white sm:w-auto w-max sm:gap-4 sm:py-0 hover:underline text-shadow-lg-dark hover:text-accent2" href="{{ previousPost.url | url }}">
 						<div>{{ previousPost.data.title }}</div>
@@ -43,7 +43,7 @@ layout: base
 					</a>
 				{% endif %}
 			</div>
-			<div class="lg:w-1/2 pagination-right">
+			<div id="pagination-right" class="lg:w-1/2 ">
 				{% if nextPost %}
 					<a class="relative flex flex-col justify-between h-full gap-3 text-right text-white sm:w-auto w-max sm:gap-4 sm:py-0 hover:underline text-shadow-lg-dark hover:text-accent2" href="{{ nextPost.url | url}}">
 						<div>{{ nextPost.data.title }}</div>
