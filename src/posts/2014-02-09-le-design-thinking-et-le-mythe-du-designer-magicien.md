@@ -9,6 +9,9 @@ tags:
 
 _Résumé : le design n’est pas une panacée._
 
+<!-- excerpt -->
+
+
 On entend par _design thinking_ le fait de recourir à des designers, en personne ou via des méthodes qu'on leur prête. Cela peut être à des fins de conception, d'innovation, de changement organisationnel, [d’amélioration du quotidien](http://www.fastcodesign.com/3023361/how-design-thinking-could-make-your-new-years-resolutions-stick), de [politique](http://www.govtech.com/policy-management/10-Ways-that-Design-Thinking-Can-Save-Government.html), bref d’un peu tout et n'importe quoi. Bien qu'on croise des dizaines de définitions, le _design thinking_ est supposé principalement être un processus :
 
 - Itératif

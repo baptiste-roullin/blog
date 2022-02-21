@@ -8,6 +8,9 @@ tags:
 
 _Résumé : il faut se battre pour l'URL mais il faut aussi améliorer la barre d'adresse et en faire une vraie barre de navigation et d'action._
 
+<!-- excerpt -->
+
+
 Google expérimente en ce moment une nouvelle fonctionnalité pour Chrome : faire disparaitre l'URL de la barre d'adresse. Il ne subsisterait que le nom de domaine dans un cadre, afin de mieux le mettre en avant et lutter contre le phishing ([source](https://news.ycombinator.com/item?id=7694146)). Cela permettrait de mieux distinguer `amazon.com` de `amazon.siteChelou.com`. Pour voir l'URL et l'éditer, il faudrait cliquer sur le nom de domaine.
 
 ![](/assets/images/hidden-url.gif " Animation empruntée à [Usability Post](http://usabilitypost.com/2014/05/03/killing-the-url/)")

@@ -8,6 +8,9 @@ tags:
 
 _Résumé : Plein de mots arides sur les modes en IHM, puis une modeste proposition d'interaction pour écran tactile._
 
+<!-- excerpt -->
+
+
 ## Rappels sur les modes
 
 En IHM, un mode est un paramètre qui permet de produire différents résultats avec le même input, selon que ce mode soit activé ou non. C'est en fait très simple : par exemple enclencher la touche Caps Lock fait basculer les autres touches en mode « lettre capitale ».

@@ -10,6 +10,9 @@ tags:
 
 _Résumé : sur mobile j'ai changé la barre de menu du blog._
 
+<!-- excerpt -->
+
+
 Pendant longtemps, quand on ouvrait mon blog sur téléphone on voyait ça :![Navigation blogmobile v1](/assets/images/2017-12-29_22h09_28.png)
 
 Ça fait un gros pâté de texte non ? Nom du blog, puis liens, puis titre de l'article. Les liens du menu, notamment, sont plus directs et efficaces qu'un menu-burger, mais ils font très lourds sans vraiment être parlants ou inciter à cliquer. Comment rendre ce menu plus discret sans perdre en utilisabilité ? Une solution : un menu-tiroir masqué par défaut, mais pas un menu-burger pour autant. Pour l'ouvrir, il suffit de scroller vers le haut ou d'appuyer sur la manicule. Essayez de vous-même sur un téléphone, une fenêtre étroite ou regardez cette vidéo :
