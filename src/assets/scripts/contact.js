@@ -19,10 +19,12 @@ document
 		fetch('https://nuage.toutcequibouge.net/ocs/v2.php/apps/forms/api/v1.1/submission/insert', {
 			method: 'POST',
 			mode: 'cors',
+			"credentials": "omit",
 			headers: {
 				'Accept': 'application/json',
 				//header obligatoire pour l'API de Nextcloud
-				'OCS-APIRequest': 'true'
+				'OCS-APIRequest': 'true',
+				"Content-Type": "application/json",
 			},
 			body: JSON.stringify(data)
 		})
