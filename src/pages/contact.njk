@@ -26,7 +26,10 @@ eleventyNavigation:
     </div>
 
     <div class="flex flex-col flex-grow p-4 mx-auto sm:px-6 lg:px-16 xl:px-24">
-      <h1 class="my-6 text-5xl text-gray-700 lg:[margin-top:1vh] lg:[margin-bottom:3vh]">{{  title }}</h1>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+        <h1 class="my-6 text-5xl text-gray-700 lg:[margin-top:1vh] lg:[margin-bottom:3vh]">{{  title }}</h1>
+        <span class="font-light label-sm">Chaque champ est obligatoire</span>
+      </div>
       <form id="contact"   class="w-full">
         <div class="gap-8 lg:flex">
           <div class="flex-grow">
@@ -35,7 +38,10 @@ eleventyNavigation:
             <input autofocus required autocomplete="name" id="name" name="4" type="text" class= "block w-full input">
           </div>
           <div class="flex-grow">
-            <label for="email" >Email</label>
+
+            {#<input aria-invalid='true' aria-describedby="[id du label d'erreur]">#}
+
+            <label for="email" >Email (nom@exemple.fr)</label>
             <input autocomplete="email" required id="email" name="5" type="email" class= "block w-full input" >
           </div>
         </div>
@@ -46,7 +52,7 @@ eleventyNavigation:
         <div class="">
 
           {# ajouter style au clic #}
-          <button  class="w-full py-3 text-lg font-bold tracking-wider text-white transition-all rounded-lg shadow-lg bg-dark-lighter hover:bg-dark hover:shadow-xl">Envoyer
+          <button  class="cta">Envoyer
                 </button >
         </div>
       </form>
