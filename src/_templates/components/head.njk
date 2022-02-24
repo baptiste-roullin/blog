@@ -1,7 +1,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>{{  title }}  | {{ meta.siteName }}</title>
+<title>{{  altTitle or title }}  | {{ meta.siteName }}</title>
 
 {#- General #}
 
@@ -54,7 +54,7 @@
 
 <meta name="author" content="{{ meta.author }}"/>
 <meta property="og:site_name" content="{{ meta.siteName }}"/>
-<meta property="og:title" content="{{  title }}"/>
+<meta property="og:title" content="{{  altTitle or title }}"/>
 <meta property="og:url" content="{{meta.siteURL}}{{  page.url  }}"/>
 <meta property="og:locale" content="{{ meta.locale }}"/>
 
@@ -62,7 +62,7 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:site" content="{{ meta.siteName}}"/>
 <meta name="twitter:creator" content="{{ meta.author }}"/>
-<meta name="twitter:title" content="{{  title }}"/>
+<meta name="twitter:title" content="{{ altTitle or title }}"/>
 <meta name="twitter:description" content="{{ description or meta.siteDescription }}"/>
 
 {#- Favicon #}
