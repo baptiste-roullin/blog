@@ -6,18 +6,19 @@
   id="menu-offcanvas"
   class="relative transition-transform duration-200 ease-out bg-dark-lighter sm:hidden ">
 
+    {% set currentPage = meta.siteURL + page.url %}
     {% for entry in navPages %}
+      {% set navEntry = meta.siteURL + entry.url %}
 
       <a href="{{ entry.url | url }}"
-              aria-current="{{ 'true' if entry.url in page.url }}"
+        aria-current="{{ 'true' if navEntry in currentPage }}"
 
           class="relative flex h-20 text-xl font-medium text-center text-gray-200 px-per lg:p-0 last:z-50 focus:outline-none focus:text-accent active:text-accent2">
 
-        <span class=" m-auto relative
-            {% if entry.url in page.url %}
-              nav-selected mobile
-            {% endif %}
-           ">{{ entry.title }}
+        <span class="
+                m-auto relative
+               {{ 'nav-selected mobile' if navEntry in currentPage }}
+        ">{{ entry.title }}
         </span>
       </a>
     {% endfor %}
@@ -44,14 +45,17 @@
 
     <div class="hidden gap-8 m-auto sm:m-0 sm:flex sm:items-center xl:gap-12 pr-[1vw]">
 
+      {% set currentPage = meta.siteURL + page.url %}
       {% for entry in navPages %}
+        {% set navEntry = meta.siteURL + entry.url %}
         <a href="{{ entry.url | url }}"
-        aria-current="{{ 'true' if entry.url in page.url }}"
+        aria-current="{{ 'true' if navEntry in currentPage }}"
         class="relative items-center h-full text-xl font-medium text-gray-100 group text-shadow focus:text-white focus:group-accent">
           <span
-          class="w-[140%] flex items-center justify-center h-full
-               {{ 'underline' if entry.url in page.url }}
-              group-hover:text-white group-hover:bg-accent transition-all duration-300
+          class="
+            w-[140%] flex items-center justify-center h-full
+            {{ 'underline' if navEntry in currentPage }}
+            group-hover:text-white group-hover:bg-accent transition-all duration-300
           ">{{ entry.title }}</span>
         </a>
       {% endfor %}

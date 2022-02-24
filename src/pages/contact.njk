@@ -16,13 +16,13 @@ eleventyNavigation:
     </p>
   </noscript>
 
-  <div class="flex lg:gap-0 lg:card-base"  >
-    <div class="hidden w-1/3 lg:block">
+  <div class="flex lg:gap-0 sm:card-base"  >
+    <div class="self-stretch hidden w-1/3 md:block ">
       {% truchetItem {
         width : 450,
         height: 750,
         tile_size: 50
-      }, 'w-full h-auto rounded-l-md' %}
+      }, 'w-full h-auto rounded-l-md h-full object-cover' %}
     </div>
 
     <div class="flex flex-col flex-grow p-4 mx-auto sm:px-6 lg:px-16 xl:px-24">
@@ -41,9 +41,11 @@ eleventyNavigation:
         </div>
         <div>
           <label for="message" >Message</label>
-          <textarea required id="message" name="6" rows="4" class= "block w-full h-56 md:h-48 lg:h-52 input" ></textarea>
+          <textarea required id="message" name="6" rows="4" class= "block w-full h-56 md:h-40 lg:h-52 input" ></textarea>
         </div>
         <div class="">
+
+          {# ajouter style au clic #}
           <button  class="w-full py-3 text-lg font-bold tracking-wider text-white transition-all rounded-lg shadow-lg bg-dark-lighter hover:bg-dark hover:shadow-xl">Envoyer
                 </button >
         </div>
