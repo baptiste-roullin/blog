@@ -4,8 +4,8 @@
   {% for tag in tags %}
     {% if not loop.first %}
       <div class="inline-block my-auto">
-        <a title="mot clé {{ tag }}" aria-label="mot clé {{ tag }}" href="{{ '/tags/' | url}}{{tag | slug  }}/"
-        class="no-underline  hover:underline text-accent2">{{ tag[0]|upper}}{{tag.slice(1)}}</a>
+        <a title="mot clé {{ tag }}" aria-label="mot clé {{ tag }}" href="{{ '/tags/' | url}}{{tag | slugify  }}/"
+        class="no-underline hover:underline text-accent2">{{ tag[0]|upper}}{{tag.slice(1)}}</a>
         {% if not loop.last %}
           <span class="mx-1 text-xl font-light sm:mx-2 sm:inline" >~</span>
         {% endif %}

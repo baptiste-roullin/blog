@@ -5,7 +5,7 @@
     {# Knock out the first iteration of the loop to drop the default "post" tag generated in `posts/posts.json`. #}
     {% if not loop.first %}
       <div class="inline-block my-3 sm:my-2 min-w-1/2 sm:min-w-min">
-        <a title="mot clé {{ tagValue }}" aria-label="mot clé {{ tagValue }}" href="{{ '/tags/' | url}}{{tagValue | slug  }}/"
+        <a title="mot clé {{ tagValue }}" aria-label="mot clé {{ tagValue }}" href="{{ '/tags/' | url}}{{tagValue | slugify  }}/"
         class=" hover:text-accent hover:underline label text-accent2">{{ tagValue[0]|upper}}{{tagValue.slice(1)}}
         </a>
         <span class="">❨{{tagCount}}❩</span>

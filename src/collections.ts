@@ -31,7 +31,6 @@ module.exports = {
 						case 'authors':
 						case 'pages':
 						case 'post':
-						case 'projets':
 						case 'features':
 						case 'publishedposts':
 						case 'listeprojets':
@@ -40,6 +39,7 @@ module.exports = {
 					return true
 				})
 
+				// Compteur du nombre d'articles associés à un tag
 				for (const tag of tags) {
 					if (tagDictionary.has(tag)) {
 						const oldValue = tagDictionary.get(tag)!
