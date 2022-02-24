@@ -11,7 +11,7 @@ Vous pouver [l'ouvrir ici](https://misc.toutcequibouge.net/TR/), de préférence
 
 ![](/assets/images/TR.png)
 
-<iframe class="TR" style="border: none;border-radius:5px;display:none; margin:auto; background-color:black;" src="https://misc.toutcequibouge.net/TR/" width="400" height="600"></iframe>
+<iframe title="démonstration de l'outil dans un iframe" class="TR" style="border: none;border-radius:5px;display:none; margin:auto; background-color:black;" src="https://misc.toutcequibouge.net/TR/" width="400" height="600"></iframe>
 
 ## Pourquoi un thème sombre ?
 

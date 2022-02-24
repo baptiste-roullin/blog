@@ -22,11 +22,12 @@ Dans le premier cas, on choisit une bonne valeur sur une échelle continue, avec
 
 L’Arithmomètre fut très populaire jusqu'à la moitié du XXe siècle, que ce soit [l'appareil d'origine](https://www.youtube.com/watch?v=aDN4s8ElxqE) inventé par Tomas de Colmar ou [la variante](https://en.wikipedia.org/wiki/Odhner_Arithmometer) de Odhner, dotée d'un nouveau mécanisme. Notez que son usage était assez fastidieux : il fallait remettre le total à zéro, saisir un nombre puis le valider par un grand tour de manivelle (voir la vidéo plus bas).
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/aDN4s8ElxqE?rel=0" frameborder="0" allowfullscreen></iframe>
+<iframe title="Mechanical calculator in action
+" width="560" height="315" src="https://www.youtube-nocookie.com/embed/aDN4s8ElxqE?rel=0" frameborder="0" allowfullscreen></iframe>
 
 [L'Addiator](https://fr.wikipedia.org/wiki/Calculatrice_%C3%A0_crosses) est un peu différent. Dans cette calculatrice de poche vendue à partir de 1920 (et impressionnante de compacité pour l'époque), un stylet intégré permet de pousser une encoche correspondant à un chiffre jusqu'à une butée. Quand le calcul implique une retenue, il faut pousser l'encoche jusqu'à la faire changer de colonne.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/kE-8rAU3YO4?rel=0" frameborder="0" allowfullscreen></iframe>
+<iframe title="Addiator Arithma" width="560" height="315" src="https://www.youtube-nocookie.com/embed/kE-8rAU3YO4?rel=0" frameborder="0" allowfullscreen></iframe>
 
 ## Claviers
 
