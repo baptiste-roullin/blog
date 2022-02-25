@@ -43,12 +43,10 @@ Problème : la rédaction reste très verbeuse. On doit écrire dans le fichier 
       <script type="text/template">
       <!-- .slide: data-background="#ff0000" -->
         ## Tralala pouet pouet
-        [Ceci est un lien](https://lesetaques.org/2022/01/03/lhumanite-en-revolte/)
+        [Ceci est un lien](https://p.eertu.be/w/ebe5cf34-b30b-414f-90f6-789adb859d75)
       </script>
     </section>
 ```
-
-
 
 
 Arrive Asciidoc. C'est un format un peu plus ancien que Markdown, et aussi un peu plus riche (donc complexe). [Une extension](https://docs.asciidoctor.org/reveal.js-converter/) permet de générer une présentation complète à partir d'un fichier. L'avantage est d'écrire dans un éditeur de texte, sans se soucier de mise en forme ni de détails techniques. Dans VS Code ça donne quelque chose ça :
