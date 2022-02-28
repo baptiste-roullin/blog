@@ -173,9 +173,9 @@ module.exports = {
 				},
 				dark: {
 					css: {
-						color: theme('colors.gray.200'),
+						color: theme('colors.gray.50'),
 						a: {
-							color: theme('colors.gray.200'),
+							color: theme('colors.gray.50'),
 							'&:hover': {
 								color: theme('colors.accent'),
 							},
