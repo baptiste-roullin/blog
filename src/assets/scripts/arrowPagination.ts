@@ -3,8 +3,8 @@ const textMetrics = require('text-metrics');
 
 function arrowPagination(e) {
 	//const root = document.querySelector<HTMLElement>('.post-pagination ');
-	const left = document.querySelector<HTMLElement>('#pagination-left a');
-	const right = document.querySelector<HTMLElement>('#pagination-right  a');
+	const left = document.querySelector<HTMLElement>('#pagination-left a > p ');
+	const right = document.querySelector<HTMLElement>('#pagination-right  a > p');
 
 	//const width = window.getComputedStyle(left).width.slice(0, -2)
 
