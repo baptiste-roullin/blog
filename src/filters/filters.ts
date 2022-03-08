@@ -119,16 +119,11 @@ module.exports = {
 		return newArray;
 	},
 
-	searchIndex: search
-	,
+	searchIndex: search,
 
-	// Add markdownify filter with Markdown-it configuration
-	markdownify: (markdownString) => { md.render(markdownString) },
+	markdownify: (markdownString) => md.renderInline(markdownString),
 
 	removeMD: require('./removeMD.js'),
-
-
-
 
 	dateToPermalink: function (date) {
 		return DateTime.fromJSDate(date, {
