@@ -19,6 +19,12 @@
 		padding: inherit;
 }
 
+	body #content .UI a:hover{
+		text-decoration: underline;
+}
+
+
+
 
 	body ul.UI li::before {
 		display:none;
@@ -119,7 +125,7 @@
 
 
 	.input {
-		@apply  block w-full  focus:border-dark  px-4  py-3  mt-1 mb-6  text-lg  placeholder-gray-500 transition-all  duration-150  ease-in-out  rounded-md shadow-sm lg:mb-8 lg:mb-8
+		@apply  block w-full  focus:border-dark  px-4  py-3  mt-1 mb-6  text-lg  placeholder-gray-500 transition-all  duration-150  ease-in-out  rounded-md shadow-sm lg:mb-8
 	}
 	.card-base {
 		@apply flex items-center p-0 rounded-md md:shadow hover:shadow-flat gap-6 lg:gap-10 bg-accent-light shadow-flat sm:shadow-sm transition-all duration-300
