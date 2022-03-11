@@ -17,17 +17,5 @@
 		</main>
 		{% include "components/footer.njk" %}
 
-		{% if richPicture === true %}
-
-			<style>
-				{% include "../../../node_modules/photoswipe/dist/photoswipe.css" %}
-			</style>
-			<script  src="/assets/scripts/{{hashes_js['richPicture.js']}}" defer></script>
-		{% endif %}
-
-		{% if 'blog\/' in page.url %}
-			<script  src="/assets/scripts/{{hashes_js['arrowPagination.js']}}" defer></script>
-		{% endif %}
-
 	</body>
 </html>

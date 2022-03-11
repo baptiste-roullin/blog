@@ -10,7 +10,7 @@
       {% set navEntry = meta.siteURL + entry.url %}
 
       <a href="{{ entry.url | url }}"
-        {{ 'aria-current' if navEntry in currentPage }}
+        {{ "aria-current='true'" if navEntry in currentPage }}
 
           class="relative flex h-20 text-xl font-medium text-center text-gray-200 px-per lg:p-0 last:z-50 focus:outline-none focus:text-accent active:text-accent2">
 
@@ -48,7 +48,7 @@
       {% for entry in navPages %}
         {% set navEntry = meta.siteURL + entry.url %}
         <a href="{{ entry.url | url }}"
-          {{ 'aria-current' if navEntry in currentPage }}
+          {{ "aria-current='true'" if navEntry in currentPage }}
           class="relative items-center h-full text-xl font-medium text-gray-100 group text-shadow focus:text-white focus:group-accent">
           <span
           class="
