@@ -28,7 +28,7 @@ postListItemStyle:
     <label for="searchField" class="label">Rechercher</label>
     <div class="relative">
       <input type="search"  class="w-full p-2 border-gray-600 rounded-md " placeholder="" id="searchField"/>
-      <input type="image" name="submit" src="/assets/UI/search.svg" border="0" class="absolute h-10 p-2 right-2">
+      <input type="image" name="submit" src="/assets/UI/search.svg" alt="" class="absolute h-10 p-2 right-2">
     </div>
   </div>
   <p id="noResultsFound" class="hidden py-4 text-base" role="alert">
@@ -41,7 +41,7 @@ postListItemStyle:
 <div class=" lg:container-wide">
   <hr class="my-8">
 
-  <h2 class"text-gray-700">Tous les thèmes</h2>
+  <h1 class="text-gray-700">Tous les thèmes</h1>
   {% set tags = collections.tagList %}
   {% include "components/tagpills.njk" %}
 </div>
