@@ -1,0 +1,37 @@
+---
+title: Plan du site
+date: 2022-03-05
+slug: sitemap
+hideMeta: true
+layout: post
+---
+
+{% set tags = collections.tagList %}
+
+<ul>
+	<a href="/">Page d’accueil</a>
+	<ul>
+		<li>
+			<a href="/blog">Tous les articles</a>
+			<ul >
+				{% for tag in tags %}
+					{% set tagValue = tag[0] %}
+					<li >
+						<a  href="{{ '/tags/' | url}}{{tagValue | slugify  }}/">Articles à propos de : {{ tagValue}}
+						</a>
+					</li>
+				{% endfor %}
+			</ul>
+
+		</li>
+		<li>
+			<a href="/projets">Projets, bidouilles, trucs </a>
+		</li>
+		<li>
+			<a href="/contact">Contact</a>
+		</li>
+		<li>
+			<a href="./">Cette page de plan du site</a>
+		</li>
+
+	</ul>

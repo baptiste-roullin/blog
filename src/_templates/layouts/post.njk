@@ -16,7 +16,7 @@ layout: base
 			<header class="">
 				<h1 class="text-gray-700">{{ title }}</h1>
 
-				{% if showMeta %}
+				{% if not hideMeta %}
 					<div class="text-sm UI sm:text-base">
 						<time datetime="{{ page.date | dateHumanFormat("yyyy-MM-dd") }}">
 							{{ page.date | dateHumanFormat("dd LLLL yyyy") }}
