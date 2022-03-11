@@ -15,12 +15,13 @@ layout: post
 	<ul>
 		<li>
 			<a href="/blog">Tous les articles</a>
+			<p class="pl-10 -mb-2 lg:-mb-4 lg:mt-2 "> Articles classés par mot-clé :</p>
 			<ul >
 				{% for tag in tags %}
 					{% set tagValue = tag[0] %}
 					<li >
 						<a  href="{{ '/tags/' | url}}{{tagValue | slugify  }}/">
-							Articles à propos de : {{ tagValue}}
+							{{ tagValue}}
 						</a>
 					</li>
 				{% endfor %}
