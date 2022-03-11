@@ -15,13 +15,17 @@ layout: base
 		{% if not hero.image %}
 			<header class="">
 				<h1 class="text-gray-700">{{ title }}</h1>
-				<div class="text-sm UI sm:text-base">
-					<time datetime="{{ page.date | dateHumanFormat("yyyy-MM-dd") }}">
-						{{ page.date | dateHumanFormat("dd LLLL yyyy") }}
-					</time>
-					{% include "components/tagpills-inline.njk" %}
 
-				</div>
+				{% if showMeta %}
+					<div class="text-sm UI sm:text-base">
+						<time datetime="{{ page.date | dateHumanFormat("yyyy-MM-dd") }}">
+							{{ page.date | dateHumanFormat("dd LLLL yyyy") }}
+						</time>
+						{% include "components/tagpills-inline.njk" %}
+
+					</div>
+				{% endif %}
+
 			</header>
 		{% endif %}
 		<div class="my-16 post-main">{{ content | safe }}</div>
