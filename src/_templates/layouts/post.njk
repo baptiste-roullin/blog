@@ -15,13 +15,17 @@ layout: base
 		{% if not hero.image %}
 			<header class="">
 				<h1 class="text-gray-700">{{ title }}</h1>
-				<div class="text-sm UI sm:text-base">
-					<time datetime="{{ page.date | dateHumanFormat("yyyy-MM-dd") }}">
-						{{ page.date | dateHumanFormat("dd LLLL yyyy") }}
-					</time>
-					{% include "components/tagpills-inline.njk" %}
 
-				</div>
+				{% if not hideMeta %}
+					<div class="text-sm UI sm:text-base">
+						<time datetime="{{ page.date | dateHumanFormat("yyyy-MM-dd") }}">
+							{{ page.date | dateHumanFormat("dd LLLL yyyy") }}
+						</time>
+						{% include "components/tagpills-inline.njk" %}
+
+					</div>
+				{% endif %}
+
 			</header>
 		{% endif %}
 		<div class="my-16 post-main">{{ content | safe }}</div>
@@ -29,34 +33,37 @@ layout: base
 
 	{% set nextPost = collections.publishedPosts | getPreviousCollectionItem(page) %}
 	{% set previousPost = collections.publishedPosts | getNextCollectionItem(page) %}
+	{% if nextPost or previousPost %}
 
-	<footer class="relative mt-16 text-xl d-mb-10 md:text-2xl lg:3xl ">
-		<div class="h-full decor-dark bg-dark-lighter"></div>
-		{# ===== Previous and Next =====  #}
+		<footer class="relative mt-16 text-xl d-mb-10 md:text-2xl lg:3xl ">
+			<div class="h-full decor-dark bg-dark-lighter"></div>
+			{# ===== Previous and Next =====  #}
 
-		{# TODO : changer contraste au survol #}
-		{# TODO : trouver comment centrer en mobile. W-max marche pas. #}
-		<nav class="relative flex flex-col gap-12 px-4 py-12 post-pagination lg:py-12 lg:px-4 md:flex-row md:justify-between">
-			<div id="pagination-left" class="lg:w-1/2l ">
-				{% if previousPost %}
-					<a class="relative flex flex-col justify-between w-full h-full gap-3 text-white sm:w-auto sm:gap-4 sm:py-0 hover:underline text-shadow-lg-dark hover:text-accent2" href="{{ previousPost.url | url }}">
-						<p>{{ previousPost.data.title }}</p>
-						<img  alt="" class="self-start rotate-180 w-[14px]" src="/assets/UI/pointe.svg">
+			{# TODO : changer contraste au survol #}
+			{# TODO : trouver comment centrer en mobile. W-max marche pas. #}
+			<nav class="relative flex flex-col gap-12 px-4 py-12 post-pagination lg:py-12 lg:px-4 md:flex-row md:justify-between">
+				<div id="pagination-left" class="lg:w-1/2l ">
+					{% if previousPost %}
+						<a class="relative flex flex-col justify-between w-full h-full gap-3 text-white sm:w-auto sm:gap-4 sm:py-0 hover:underline text-shadow-lg-dark hover:text-accent2" href="{{ previousPost.url | url }}">
+							<p>{{ previousPost.data.title }}</p>
+							<img  alt="" class="self-start rotate-180 w-[14px]" src="/assets/UI/pointe.svg">
 
-					</a>
-				{% endif %}
-			</div>
-			<div id="pagination-right" class="lg:w-1/2 ">
-				{% if nextPost %}
-					<a class="relative flex flex-col justify-between w-full h-full gap-3 text-right text-white sm:w-auto sm:gap-4 sm:py-0 hover:underline text-shadow-lg-dark hover:text-accent2" href="{{ nextPost.url | url}}">
-						<p>{{ nextPost.data.title }}</p>
-						<img  alt="" class="self-end w-[14px] " src="/assets/UI/pointe.svg">
+						</a>
+					{% endif %}
+				</div>
+				<div id="pagination-right" class="lg:w-1/2 ">
+					{% if nextPost %}
+						<a class="relative flex flex-col justify-between w-full h-full gap-3 text-right text-white sm:w-auto sm:gap-4 sm:py-0 hover:underline text-shadow-lg-dark hover:text-accent2" href="{{ nextPost.url | url}}">
+							<p>{{ nextPost.data.title }}</p>
+							<img  alt="" class="self-end w-[14px] " src="/assets/UI/pointe.svg">
 
-					</a>
-				{% endif %}
-			</div>
-		</nav>
-	</footer>
+						</a>
+					{% endif %}
+				</div>
+			</nav>
+		</footer>
+	{% endif %}
+
 </div>
 
 {#  TODO liste de post liés à la fin d'un post #}

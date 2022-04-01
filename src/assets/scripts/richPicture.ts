@@ -9,3 +9,7 @@ const lightbox = new PhotoSwipeLightbox({
 	pswpModule: PhotoSwipe
 });
 lightbox.init();
+
+
+
+/* TODO : a11y transformer lien en button */

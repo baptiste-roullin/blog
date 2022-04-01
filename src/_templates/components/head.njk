@@ -9,7 +9,7 @@
   {% set postImage = meta.siteURL + '/assets/generatedImages/' + collatedHeroImage %}
   {% set pageURL = meta.siteURL + page.url %}
 
-  <script type="application/ld+json" charset="UTF-8">
+  <script type="application/ld+json" >
     {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
@@ -84,4 +84,17 @@
 {% else %}
   <script  src="/assets/scripts/main.js" defer></script>
   <script  src="/assets/scripts/truchet-dom.js" defer></script>
+
+  {% if richPicture === true %}
+
+    <style>
+      {% include "../../../node_modules/photoswipe/dist/photoswipe.css" %}
+    </style>
+    <script  src="/assets/scripts/{{hashes_js['richPicture.js']}}" defer></script>
+  {% endif %}
+
+  {% if 'blog\/' in page.url %}
+    <script  src="/assets/scripts/{{hashes_js['arrowPagination.js']}}" defer></script>
+  {% endif %}
+
 {% endif %}
