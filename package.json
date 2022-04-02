@@ -82,7 +82,7 @@
   "dependencies": {
     "alpinejs": "^3.4.2",
     "elasticlunr": "github:weixsong/elasticlunr.js#v0.9.6",
-    "photoswipe": "github:baptiste-roullin/photoswipe#v5-beta",
+    "photoswipe": "github:baptiste-roullin/photoswipe",
     "sharp": "^0.29.3",
     "text-metrics": "^3.0.0"
   },

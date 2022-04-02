@@ -33,13 +33,12 @@ const anchor = (md, options) => {
 	md.renderer.rules.heading_close = function (tokens, index) {
 		const contentToken = tokens[index - 1];
 		const slug = slugify(contentToken.content);
-
 		if (tokens[index].tag === 'h2') {
 			return `
       </${tokens[index].tag}>
         <a class="${options.anchorClass}" href="#${slug}">
           <span aria-hidden="true">§︎</span>
-          <span class="sr-only">Section avec le titre : ${contentToken.content}</span>
+          <span class="sr-only">Ancre pour le titre : ${contentToken.content}</span>
         </a>
       </div>`;
 		}

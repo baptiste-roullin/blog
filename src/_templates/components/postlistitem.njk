@@ -31,7 +31,7 @@
 					{{ post.data.page.date | dateHumanFormat("dd LLLL yyyy") }}
 				</time>
 				{% if post.data.description or post.data.page.description %}
-					<span class="inline mx-1 text-xl font-light text-gray-500 md:mx-2 " >~</span>
+					<span aria-hidden="true" class="inline mx-1 text-xl font-light text-gray-500 md:mx-2 " >~</span>
 					<span class="text-base label ">
 						{{ post.data.description |  removeMD}}
 					</span>
