@@ -9,11 +9,11 @@
 			<div class="text-base ">
 				{% if item.parsedDate and item.itemType !== "webpage" %}
 					<span>{{item.parsedDate | dateHumanFormat("yyyy") }}</span>
-					<span class="mx-2 last:hidden first:hidden">~</span>
+					<span aria-hidden="true" class="mx-2 last:hidden first:hidden">~</span>
 				{% endif %}
 				{% if item.abstractNote %}
 					<button class="pt-2 text-gray-600 underline sm:pt-0 " @click="open = !open">Résumé</button>
-					<span class="mx-2 last:hidden first:hidden">~</span>
+					<span aria-hidden="true" class="mx-2 last:hidden first:hidden">~</span>
 				{% endif %}
 				{% if item.attachmentURL %}
 					<span class="pt-2 text-gray-600 underline sm:pt-0 ">
