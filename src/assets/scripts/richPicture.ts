@@ -11,11 +11,11 @@ const lightbox = new PhotoSwipeLightbox({
 
 lightbox.addFilter('uiElement', (element, data) => {
 	if (data.name === 'arrowNext') {
-		element.setAttribute("aria-label") = "Suivant"
+		element.setAttribute("aria-label", "Suivant")
 		element.removeAttribute("title")
 	}
 	if (data.name === 'arrowPrevious') {
-		element.setAttribute("aria-label") = "Précédent"
+		element.setAttribute("aria-label", "Précédent")
 		element.removeAttribute("title")
 	}
 	return element;
