@@ -121,3 +121,7 @@ content:none
 .article img, .article video, .article iframe {
 	margin:auto
 }
+
+.pswp .pswp__scroll-wrap{
+  --pswp-icon-stroke-width: 4px
+}
