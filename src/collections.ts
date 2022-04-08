@@ -61,9 +61,10 @@ module.exports = {
 		const projets = collection.items[0].data.projets
 
 		const collatedProjects = await Promise.all(projets.map(async (projet) => {
+
 			if (!projet.img) {
 				await truchetNode(projet.name, 400, 400).catch(console.error);
-				projet.img = `truchet-${projet.name}.png`
+				projet.img = `/assets/generatedImages/truchet-${projet.name}.png`
 			}
 			return projet
 		}))
