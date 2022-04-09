@@ -71,7 +71,6 @@ cf. postcss.config.js pour le CSS
 	config.addLayoutAlias('base', 'layouts/base.njk')
 	config.addLayoutAlias('page', 'layouts/page.njk')
 	config.addLayoutAlias('post', 'layouts/post.njk')
-	config.addLayoutAlias('post-canvas', 'layouts/post-canvas.njk')
 
 
 	/**

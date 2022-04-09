@@ -76,15 +76,14 @@
 <link rel="stylesheet" href="/assets/css/{{hashes_css['main.css']}}"/>
 
 <script  src="/assets/scripts/{{hashes_js['main.js']}}" defer></script>
-{% if layout === "post-canvas" %}
+
+{# post intégrant des motifs de truchet en <canvas> #}
+{% if canvas === true %}
   <script  src="/assets/scripts/{{hashes_js['truchet-dom.js']}}" defer></script>
 {% endif %}
 
+{# post  #}
 {% if richPicture === true %}
-
-{#  <style>
-    {% include "../../../node_modules/photoswipe/dist/photoswipe.css" %}
-  </style>#}
   <script  src="/assets/scripts/{{hashes_js['richPicture.js']}}" defer></script>
 {% endif %}
 
