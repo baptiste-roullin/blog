@@ -3,17 +3,17 @@
   "version": "0.2.0",
   "scripts": {
     "dev:webpack": "webpack --watch  --mode development",
-    "dev:eleventy": "eleventy --serve --quiet",
-    "debug:eleventy": "DEBUG=EleventyCacheAssets* eleventy --incremental --quiet",
+    "dev:eleventy": "npx @11ty/eleventy --serve --quiet",
+    "debug:eleventy": "DEBUG=EleventyCacheAssets* npx @11ty/eleventy --incremental --quiet",
     "dev:postcss": "postcss src/assets/css/main.css -o dist/assets/css/main.css --watch",
     "dev": "npm-run-all --parallel dev:* --print-label",
     "build:webpack": "webpack  --mode production",
     "build:postcss": "cross-env NODE_ENV=production postcss --verbose src/assets/css/main.css -o dist/assets/css/main.css",
-    "build:eleventy": "cross-env NODE_ENV=production eleventy --quiet --incremental",
+    "build:eleventy": "cross-env NODE_ENV=production npx @11ty/eleventy --quiet --incremental",
     "build": "run-s build:* --print-label"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.0",
+    "@11ty/eleventy": "2.0.0-canary.4",
     "@11ty/eleventy-fetch": "3.0.0",
     "@11ty/eleventy-img": "v1.0.1-beta.1 ",
     "@11ty/eleventy-navigation": "^0.3.2",
@@ -82,7 +82,7 @@
     "canvas": "^2.8.0"
   },
   "dependencies": {
-    "alpinejs": "^3.4.2",
+    "alpinejs": "^3.9.6",
     "elasticlunr": "github:weixsong/elasticlunr.js#v0.9.6",
     "photoswipe": "^5.2.3",
     "sharp": "^0.30.3",
