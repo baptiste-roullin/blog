@@ -55,3 +55,8 @@
   img: /assets/UI/photogrammes.png
   description: Journal visuel de ce qui passe sur mes écrans.
 
+- name: Flocon
+  link: https://misc.toutcequibouge.net/flocon
+  img: /assets/UI/flocon.png
+  description: Génération procédurale de boutons. Un anti-_design system_ quoi.
+
