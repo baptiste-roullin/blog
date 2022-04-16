@@ -21,7 +21,6 @@ export default function nav() {
 		}
 		else {
 			offCanvas.classList.remove('anim-nav-opened')
-			console.log(offCanvas.clientHeight);
 			window.scrollBy({
 				behavior: 'smooth',
 				top: offCanvas.clientHeight,
