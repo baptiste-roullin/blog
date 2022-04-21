@@ -9,23 +9,22 @@
 	}
 
 
-	body #content .UI a, body #content .UI ul, body #content .UI li {
+	body #content .UI-component a, body #content .UI-component ul, body #content .UI-component li {
 		font-weight: inherit;
 		font-size: inherit;
 		color: inherit;
 		text-decoration: inherit;
-		margin: inherit;
 		padding: inherit;
 }
 
-	body #content .UI a:hover{
+	body #content .UI-component a:hover{
 		text-decoration: underline;
 }
 
 
 
 
-	body ul.UI li::before {
+	body ul.UI-component li::before {
 		display:none;
 		width: 0;
 	}

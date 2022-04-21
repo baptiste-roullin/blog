@@ -1,31 +1,60 @@
-{# PAS DE LIGNE VIDE OU D'ESPACES CONSÉCUTIFS #}
+	{# PAS DE LIGNE VIDE OU D'ESPACES CONSÉCUTIFS #}
 {# Cela évite que le HTML généré soit détecté comme du markdown  #}
-<ul class="mb-5 zotero-list UI sm:mb-3">
+<ul class="mb-5 zotero-list UI-component sm:mb-3">
 	{% for item in items %}
 		<li >
-			<span class="m-0 text-lg underline lg:text-xl sm:no-underline hover:underline">
-				<a href="{{item.url}}" >{{item.title}}</a>
-			</span>
-			<div class="text-base ">
-				{% if item.parsedDate and item.itemType !== "webpage" %}
-					<span>{{item.parsedDate | dateHumanFormat("yyyy") }}</span>
-					<span aria-hidden="true" class="mx-2 last:hidden first:hidden">~</span>
-				{% endif %}
-				{% if item.attachmentURL %}
-					<span class="pt-2 text-gray-600 underline sm:pt-0 ">
-						<a  href="{{item.attachmentURL}}">PDF</a>
-					</span>
-				{% endif %}
-				{% if item.abstractNote %}
-					<button class="pt-2 text-gray-600 underline sm:pt-0 " @click="open = !open">Résumé</button>
-					<span aria-hidden="true" class="mx-2 last:hidden first:hidden">~</span>
-				{% endif %}
-
-			</div>
-			{% if item.abstractNote %}
-				<div class="text-base" >{{item.abstractNote}}
+			<div class="my-6 first:mt-2">
+				<div class="text-lg underline lg:text-xl sm:no-underline hover:underline">
+					<a href="{{item.url}}" >{{item.title}}</a>
 				</div>
-			{% endif %}
+				<div class="flex gap-3 pt-4 text-base zotero-metadata lg:pt-1">
+					{% if item.parsedDate and item.itemType !== "webpage" %}
+						<span>{{item.parsedDate | dateHumanFormat("yyyy") }}</span>
+						<span aria-hidden="true" class=" last:hidden first:hidden">~</span>
+					{% endif %}
+					{% if item.attachmentURL %}
+						<span class="pt-2 text-gray-600 underline sm:pt-0 ">
+							<a  href="{{item.attachmentURL}}">PDF</a>
+						</span>
+						<span aria-hidden="true" class=" last:hidden first:hidden">~</span>
+					{% endif %}
+					{% if item.abstractNote %}
+					<details>
+						<summary class="text-gray-600 underline cursor-pointer " >Résumé</summary>
+						<p class="relative mt-0 text-base" >{{item.abstractNote}}</p>
+					</details>
+					{% endif %}
+				</div>
+			</div>
 		</li>
 	{% endfor %}
 </ul>
+
+<script>
+
+window.addEventListener('load', function () {
+	if (!window.zoteroSummary) {
+		window.zoteroSummary = function () {
+		const metada = document.querySelector('.zotero-metadata')
+		const refX = metada.getBoundingClientRect().x;
+		console.log(refX);
+			[...document.querySelectorAll(' details')].forEach(el => {
+			const summary = el.querySelector('summary')
+			const abstract = el.querySelector('p')
+				summary.addEventListener('click', function (e) {
+							console.log(refX)
+
+					const elX = e.currentTarget.getBoundingClientRect().x
+					abstract.style.left = (0 - elX + refX) + 'px'
+				})
+			})
+	}
+		window.zoteroSummary()
+	}
+
+})
+
+
+
+
+</script>

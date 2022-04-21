@@ -25,7 +25,9 @@ import pMap from 'p-map';
 import cache from '../../utils/caching'
 
 async function zotero(collection: string, ...requestedTags: string[]) {
-
+	//@ts-ignore
+	const test = this.ctx
+	console.log(test);
 	async function addDataToItems(items) {
 
 		async function mapper(item) {
@@ -154,6 +156,7 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 				items = firstPageItems.raw
 			}
 		}
+
 
 		// Cette fonction récupère des données supplémentaires
 		// - une date parsée par Zotero, qu'on espère plus propre que le champ d'origine
