@@ -35,7 +35,6 @@ cf. postcss.config.js pour le CSS
 
 
 	config.addPassthroughCopy('src/assets/docs/')
-
 	config.addPassthroughCopy('src/posts/**/*.gif')
 	config.addPassthroughCopy('src/*.ico')
 	config.addPassthroughCopy('src/robots.txt')
@@ -48,8 +47,6 @@ cf. postcss.config.js pour le CSS
 	if (process.env.NODE_ENV === "production") {
 		config.addPassthroughCopy({ 'src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}': meta.assetsDir })
 		config.addPassthroughCopy({ 'src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}': meta.assetsDir })
-
-
 		config.addPlugin(
 			require('./src/transforms/images-responsiver-transform'),
 			require('./src/transforms/images-responsiver-config')
@@ -59,7 +56,6 @@ cf. postcss.config.js pour le CSS
 	else {
 		//config.addPassthroughCopy('src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}')
 		//config.addPassthroughCopy('src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}')
-
 	}
 
 
@@ -75,16 +71,10 @@ cf. postcss.config.js pour le CSS
 	/**
 	 * Plugins
 	 */
-
 	config.addPlugin(pluginNavigation)
 	config.addPlugin(embedEverything, {
 		use: ['vimeo', 'youtube', 'twitter'], twitter: { options: { align: 'center' } }
 	});
-
-
-
-
-
 	config.addPlugin(pluginRss)
 
 
@@ -121,7 +111,6 @@ cf. postcss.config.js pour le CSS
 	 * Add async shortcodes
 	 *
 	 */
-
 	const asyncShortcodes = require('./src/shortcodes/asyncShortcodes.js')
 	Object.keys(asyncShortcodes).forEach((shortcodeName) => {
 		config.addNunjucksAsyncShortcode(shortcodeName, asyncShortcodes[shortcodeName])
@@ -151,12 +140,13 @@ cf. postcss.config.js pour le CSS
  * ============================
 
  */
-
 	const collections = require('./src/collections.ts')
 
 	Object.keys(collections).forEach((colName) => {
 		config.addCollection(colName, collections[colName])
 	})
+
+
 
 
 	return {
