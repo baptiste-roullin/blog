@@ -11,6 +11,8 @@ module.exports = {
 	locale: 'fr_FR',
 	author: 'Baptiste Roullin',
 	authorEmail: '',
+	outputDir: "dist",
+	assetsDir: 'assets/generatedImages',
 	zoteroProfileID: process.env.zoteroProfileID || '',
 	zoteroAPIKey: process.env.zoteroAPIKey || ''
 

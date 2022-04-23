@@ -5,10 +5,9 @@ const pluginNavigation = require('@11ty/eleventy-navigation')
 const yaml = require("js-yaml");
 require('dotenv').config()
 const embedEverything = require("eleventy-plugin-embed-everything");
+const meta = require('./src/_data/meta.js');
 
 module.exports = function (config: Config): UserConfig {
-
-
 	/**
  * Custom Watch Targets
  * for when the Tailwind config or .css files change...
@@ -47,8 +46,8 @@ cf. postcss.config.js pour le CSS
 
 
 	if (process.env.NODE_ENV === "production") {
-		config.addPassthroughCopy({ 'src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}': 'assets/generatedImages' })
-		config.addPassthroughCopy({ 'src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}': 'assets/generatedImages' })
+		config.addPassthroughCopy({ 'src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}': meta.assetsDir })
+		config.addPassthroughCopy({ 'src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}': meta.assetsDir })
 
 
 		config.addPlugin(
@@ -163,7 +162,7 @@ cf. postcss.config.js pour le CSS
 	return {
 		dir: {
 			input: 'src',
-			output: 'dist',
+			output: meta.outputDir,
 			includes: '_templates',
 			data: '_data',
 		},

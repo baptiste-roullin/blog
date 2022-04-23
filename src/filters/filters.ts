@@ -6,6 +6,7 @@ const slugify = require('./slugify.js');
 const md = require('../markdown.js')
 
 import ElasticLunr from "elasticlunr";
+const meta = require('../_data/meta.js')
 
 
 const elasticlunr = require("elasticlunr");
@@ -38,7 +39,7 @@ function search(collection) {
 			var finalPath = page.data.collatedHeroImage as string
 		}
 		else {
-			var finalPath = "/assets/generatedImages/" + img
+			var finalPath = `${meta.assetsDir}/${img}`
 		}
 		index.addDoc({
 			url: page.url,

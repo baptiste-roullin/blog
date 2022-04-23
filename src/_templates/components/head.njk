@@ -6,7 +6,7 @@
 {#- General #}
 
 {% if r/^post-?/g.test(layout) %}
-  {% set postImage = meta.siteURL + '/assets/generatedImages/' + collatedHeroImage %}
+  {% set postImage = meta.siteURL +  '/' + meta.assetsDir + '/' + collatedHeroImage %}
   {% set pageURL = meta.siteURL + page.url %}
 
   <script type="application/ld+json" >

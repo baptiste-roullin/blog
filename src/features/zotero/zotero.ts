@@ -25,9 +25,7 @@ import pMap from 'p-map';
 import cache from '../../utils/caching'
 
 async function zotero(collection: string, ...requestedTags: string[]) {
-	//@ts-ignore
-	const test = this.ctx
-	console.log(test);
+
 	async function addDataToItems(items) {
 
 		async function mapper(item) {

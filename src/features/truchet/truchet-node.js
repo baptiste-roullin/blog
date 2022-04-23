@@ -1,3 +1,4 @@
+const meta = require('../../_data/meta.js')
 
 
 module.exports = async function (slug, width, height) {
@@ -10,7 +11,7 @@ module.exports = async function (slug, width, height) {
 		//@ts-ignore
 		const truchet = require('./truchet-core.ts')
 
-		const path = 'dist/assets/generatedImages/truchet-' + slug + '.png'
+		const path = `${meta.outputDir}/${meta.assetsDir}/truchet- + ${slug}.png`
 
 
 		const tileCanvas = await truchet(

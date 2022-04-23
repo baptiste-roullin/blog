@@ -1,4 +1,5 @@
 var truchetNode = require('../features/truchet/truchet-node.js');
+const meta = require('../_data/meta.js')
 
 module.exports = {
   layout: "post",
@@ -16,12 +17,13 @@ module.exports = {
 
       if (hero === undefined || hero === {}) {
         await truchetNode(slug, 400, 280).catch(console.error);
-        return `/assets/generatedImages/truchet-${slug}.png`
+        //chemin absolu
+        return `/${meta.outputDir}/${meta.assetsDir}/truchet-${slug}.png`
       }
       else {
         const isGif = /\.gif$/
         if (isGif.test(hero.image)) {
-          return "/assets/generatedImages/" + hero.image
+          return `/${meta.assetsDir}/${hero.image}`
 
         }
         return hero.image
