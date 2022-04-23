@@ -30,6 +30,7 @@ const exec = promisify(require("child_process").exec);
 const pathToFfmpeg = require("ffmpeg-static");
 const { parseHTML } = require('linkedom');
 import path from "path";
+const meta = require('../_data/meta.js')
 
 
 async function convert(filename, outPath) {
@@ -60,7 +61,7 @@ async function convert(filename, outPath) {
 			join('dist/', outPath, convertedName), // output path
 		]);*/
 
-	const command = `${pathToFfmpeg} -y -v error -i \"${join('src/', filename)}\" -filter_complex \"[0:v] crop=trunc(iw/2)*2:trunc(ih/2)*2, fps=15\" -vsync 0 -f mp4 -pix_fmt yuv420p \"${join('dist/', outPath, convertedName)}\"`
+	const command = `${pathToFfmpeg} -y -v error -i \"${join('src/', filename)}\" -filter_complex \"[0:v] crop=trunc(iw/2)*2:trunc(ih/2)*2, fps=15\" -vsync 0 -f mp4 -pix_fmt yuv420p \"${join(meta.outputDir, outPath, convertedName)}\"`
 
 
 	try {
@@ -75,7 +76,7 @@ async function convert(filename, outPath) {
 
 
 async function convertGIFs(img) {
-	const outPath = "/assets/generatedImages"
+	const outPath = `/${meta.outputDir}/${meta.assetsDir}/`
 	let src = img.getAttribute("src");
 	const videoSrc = await convert(src, outPath);
 	const video = img.ownerDocument.createElement("video");

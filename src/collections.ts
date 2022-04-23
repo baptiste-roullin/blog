@@ -1,4 +1,5 @@
 import { Item, Collection } from '../types/eleventy';
+const meta = require('./_data/meta.js')
 
 
 const published = (post) => { return !post.data.draft }
@@ -8,11 +9,7 @@ module.exports = {
 	publishedPosts: function (collection: Collection): Item[] {
 
 		const collec = collection.getFilteredByTag("post").filter(published)
-		/*	collec.forEach(item => {
-				if (item.fileSlug === undefined) {
-					console.log(item.templateContent)
-				}
-			})*/
+
 		return collec
 	},
 
@@ -64,7 +61,8 @@ module.exports = {
 
 			if (!projet.img) {
 				await truchetNode(projet.name, 400, 400).catch(console.error);
-				projet.img = `/assets/generatedImages/truchet-${projet.name}.png`
+				//chemin absolu
+				projet.img = `/${meta.assetsDir}/truchet-${projet.name}.png`
 			}
 			return projet
 		}))

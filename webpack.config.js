@@ -2,6 +2,8 @@ const path = require('path')
 const CopyPlugin = require("copy-webpack-plugin");
 const WebpackAssetsManifest = require('webpack-assets-manifest');
 require('dotenv').config()
+const meta = require('./_data/meta.js')
+
 
 module.exports = {
   devServer: {
@@ -39,7 +41,7 @@ module.exports = {
 
 
   output: {
-    path: path.resolve(__dirname, 'dist/assets/scripts'),
+    path: path.resolve(__dirname, meta.outputDir + '/assets/scripts'),
     /*    détournement du publicpatch*/
     //publicPath: path.resolve(__dirname, 'src'),
     filename: () => (process.env.NODE_ENV === "production" ? '[name].[contenthash].js' : '[name].js')

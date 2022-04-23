@@ -1,6 +1,7 @@
 require('dotenv').config()
 const transformPicture = require("@11ty/eleventy-img");
 import path from "path";
+const meta = require('../_data/meta.js')
 
 const formats = (
 	process.env.NODE_ENV === "production"
@@ -37,7 +38,7 @@ function runBefore(image, document) {
 			dryRun: false,
 			formats: formats,
 			urlPath: '/assets/imagesToProcess/',
-			outputDir: './dist/assets/generatedImages/',
+			outputDir: `./${meta.outputDir}/${meta.assetsDir}/`,
 			filenameFormat: function (id, src, width, format, options) {
 				const extension = path.extname(src);
 				const name = path.basename(src, extension);
@@ -84,7 +85,7 @@ module.exports = {
 		fallbackWidth: 750,
 		sizes: '(max-width: 60rem) 90vw, 60rem',
 		resizedImageUrl: (src, width) => {
-			const fullPath = '/assets/generatedImages/' + path.basename(src)
+			const fullPath = `/${meta.assetsDir}/${path.basename(src)}`
 			return fullPath.
 				replace(
 					/^(.*)(\.[^\.]+)$/,

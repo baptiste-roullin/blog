@@ -22,7 +22,7 @@
 	</author>
 	{%- for post in collections.publishedPosts | reverse | slice(0, 20) %}
 		{% set absolutePostUrl %}{{ post.url | url | absoluteUrl(meta.siteURL) }}{% endset %}
-		{% set imageURL %}{{ "/assets/generatedImages/" | url | absoluteUrl(meta.siteURL) }}{% endset %}
+		{% set imageURL %}{{ meta.assetsDir | url | absoluteUrl(meta.siteURL) }}{% endset %}
 		<entry>
 			<title>{{ post.data.title }}</title>
 			<link href="{{ absolutePostUrl }}"/>
