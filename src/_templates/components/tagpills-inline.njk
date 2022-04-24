@@ -5,7 +5,7 @@
     {% if not loop.first %}
       <li class="inline-block my-auto">
         <a title="mot clé {{ tag }}" aria-label="mot clé {{ tag }}" href="{{ '/tags/' | url}}{{tag | slugify  }}/"
-        class=" text-accent2">{{ tag[0]|upper}}{{tag.slice(1)}}</a>
+        class=" text-accent2">{{ tag | capitalize}}</a>
         {% if not loop.last %}
           <span aria-hidden="true" class="mx-1 text-xl font-light sm:mx-2 sm:inline" >~</span>
         {% endif %}

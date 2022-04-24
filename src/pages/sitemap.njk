@@ -21,7 +21,7 @@ layout: post
 					{% set tagValue = tag[0] %}
 					<li >
 						<a  href="{{ '/tags/' | url}}{{tagValue | slugify  }}/">
-							{{ tagValue}}
+							{{ tagValue | capitalize}}
 						</a>
 					</li>
 				{% endfor %}

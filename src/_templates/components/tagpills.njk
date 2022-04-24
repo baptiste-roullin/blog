@@ -6,7 +6,7 @@
     {% if not loop.first %}
       <li class="inline-block my-3 sm:my-2 min-w-1/2 sm:min-w-min">
         <a  href="{{ '/tags/' | url}}{{tagValue | slugify  }}/"
-        class=" hover:text-accent hover:underline label text-accent2">{{ tagValue[0]|upper}}{{tagValue.slice(1)}}
+        class=" hover:text-accent hover:underline label text-accent2">{{ tagValue | capitalize}}
         </a>
         <span class="">❨{{tagCount}}❩</span>
         {% if not loop.last %}
