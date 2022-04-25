@@ -5,12 +5,10 @@ layout: base
 {# TODO : avoir systématiquement une image de vignette pour twitter #}
 <div class="template-post-main">
 	{% if hero.image %}
-		{% set heroComponent = ['components/hero-', hero.type, '.njk'] %}
-		{% include heroComponent | join %}
-	{% else %}
-	{% endif %}
+		{% include 'components/hero-split.njk' %}
+		{% endif %}
 
-	<article class="post-main  my-20 prose lg:prose-xl prose-lg article {{ structure.g_proseWidth }}">
+	<div class="post-main  my-20 prose lg:prose-xl prose-lg article {{ structure.g_proseWidth }}">
 
 		{% if not hero.image %}
 			<header class="">
@@ -22,14 +20,13 @@ layout: base
 							{{ page.date | dateHumanFormat("dd LLLL yyyy") }}
 						</time>
 						{% include "components/tagpills-inline.njk" %}
-
 					</div>
 				{% endif %}
 
 			</header>
 		{% endif %}
 		<div class="my-16 post-main">{{ content | safe }}</div>
-	</article>
+	</div>
 
 	{% set nextPost = collections.publishedPosts | getPreviousCollectionItem(page) %}
 	{% set previousPost = collections.publishedPosts | getNextCollectionItem(page) %}

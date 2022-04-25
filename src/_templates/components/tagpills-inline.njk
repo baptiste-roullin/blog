@@ -2,7 +2,6 @@
 
 <ul class="inline tagpills">
   {% for tag in tags %}
-    {% if not loop.first %}
       <li class="inline-block my-auto">
         <a title="mot clé {{ tag }}" aria-label="mot clé {{ tag }}" href="{{ '/tags/' | url}}{{tag | slugify  }}/"
         class=" text-accent2">{{ tag | capitalize}}</a>
@@ -12,7 +11,6 @@
 
       </li>
 
-    {% endif %}
 
   {% endfor %}
 </ul>

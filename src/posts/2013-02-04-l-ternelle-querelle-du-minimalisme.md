@@ -3,7 +3,6 @@ title: "L'éternelle querelle du minimalisme"
 date: 2013-02-04
 featured: true
 tags:
-
   - "histoire"
 ---
 

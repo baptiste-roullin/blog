@@ -34,10 +34,10 @@ postListItemStyle:
   <section class="">
     <div class="flex flex-col items-start justify-between mb-4 sm:flex-row sm:items-end md:mb-6">
       <h2  class="text-2xl lg:text-3xl">Bafouilles dont je suis content</h2>
-            <a href="/tags/features" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
+            <a href="/tags/featuredPosts" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
     </div>
     <ul class="flex flex-col gap-8 post-list">
-    {%- for post in collections.features | shuffle |  slice(0, 3) -%}
+    {%- for post in collections.featuredPosts | shuffle |  slice(0, 3) -%}
     	{% include 'components/postlistitem.njk' %}
   {%- endfor -%}
     </ul>
