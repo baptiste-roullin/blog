@@ -4,38 +4,29 @@ const meta = require('./_data/meta.js')
 
 const published = (post) => { return !post.data.draft }
 
+function getPublishedPosts(collectionAPI) {
+	return collectionAPI.getAll().
+		filter((item) => item.data.contentType === 'post').
+		filter(published)
+}
 module.exports = {
 
-	publishedPosts: function (collection: Collection): Item[] {
+	publishedPosts: function (collectionAPI): Item[] {
 
-		const collec = collection.getFilteredByTag("post").filter(published)
+		const collec = getPublishedPosts(collectionAPI)
+		//console.log(collec.map(item => item.data.title))
 
 		return collec
 	},
 
-	tagList: function (collection: Collection): any {
+	tagList: function (collectionAPI): any {
 		let tagDictionary: Map<string, number> = new Map()
 
-		collection.getFilteredByTag("post").filter(published).forEach(function (item) {
+		getPublishedPosts(collectionAPI).forEach(function (item) {
 			//@ts-ignore
 			if ('tags' in item.data) {
 				//@ts-ignore
 				let tags: string[] = item.data.tags
-
-				tags = tags.filter(function (item) {
-					switch (item) {
-						// this list should match the `filter` list in tags.njk
-						case 'authors':
-						case 'pages':
-						case 'post':
-						case 'features':
-						case 'publishedposts':
-						case 'listeprojets':
-							return false
-					}
-					return true
-				})
-
 				// Compteur du nombre d'articles associés à un tag
 				for (const tag of tags) {
 					if (tagDictionary.has(tag)) {

@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "scripts": {
     "dev:webpack": "webpack --watch  --mode development",
-    "dev:eleventy": "npx @11ty/eleventy --serve --quiet",
+    "dev:eleventy": "npx @11ty/eleventy --incremental --serve --quiet",
     "debug:eleventy": "DEBUG=EleventyCacheAssets* npx @11ty/eleventy --incremental --quiet",
     "dev:postcss": "postcss src/assets/css/main.css -o dist/assets/css/main.css --watch",
     "dev": "npm-run-all --parallel dev:* --print-label",
