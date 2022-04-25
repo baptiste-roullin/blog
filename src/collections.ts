@@ -4,29 +4,25 @@ const meta = require('./_data/meta.js')
 
 const published = (post) => { return !post.data.draft }
 
-function getPublishedPosts(collectionAPI) {
+function getbyField(collectionAPI, field, value: boolean | string) {
 	return collectionAPI.getAll().
-		filter((item) => item.data.contentType === 'post').
+		filter((item) => item.data[field] === value).
 		filter(published)
 }
 module.exports = {
 
 	publishedPosts: function (collectionAPI): Item[] {
-
-		const collec = getPublishedPosts(collectionAPI)
-		//console.log(collec.map(item => item.data.title))
-
-		return collec
+		return getbyField(collectionAPI, 'contentType', 'post')
 	},
 
 	tagList: function (collectionAPI): any {
 		let tagDictionary: Map<string, number> = new Map()
 
-		getPublishedPosts(collectionAPI).forEach(function (item) {
+		getbyField(collectionAPI, 'contentType', 'post').forEach(function (item) {
 			//@ts-ignore
 			if ('tags' in item.data) {
-				//@ts-ignore
 				let tags: string[] = item.data.tags
+
 				// Compteur du nombre d'articles associés à un tag
 				for (const tag of tags) {
 					if (tagDictionary.has(tag)) {
@@ -39,9 +35,13 @@ module.exports = {
 				}
 			}
 		})
-
-		return new Map([...tagDictionary.entries()].filter(el => el[1] > 1).sort((a, b) => b[1] - a[1]))
+		return new Map([...tagDictionary.entries()].sort((a, b) => b[1] - a[1]))
 	},
+
+	featuredPosts: function (collectionAPI): Item[] {
+		return getbyField(collectionAPI, 'featured', true)
+	},
+
 	listeProjets: async function (collection: Collection): Promise<any> {
 		var truchetNode = require('./features/truchet/truchet-node.js');
 

@@ -1,4 +1,4 @@
-// TODO mettre en cache requêtes
+// TODO mettre en cache toutes les requêtes
 // TODO	Afficher auteurs
 // TODO	Rendre paramétrable infos d'articles à afficher
 // TODO	Format biblio APA https://www.npmjs.com/package/citation-js

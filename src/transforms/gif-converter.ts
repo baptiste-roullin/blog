@@ -109,7 +109,7 @@ async function convertGIFs(img) {
 const gif2mp4Transform = async (content, outputPath) => {
 	if (outputPath && outputPath.endsWith('.html')) {
 		const { document } = parseHTML(content);
-
+		//TODO : fusionner avec images-responsiver pour avoir un seul transform et améliorer les perfs
 		const GIFList = [...document.querySelectorAll('.template-post-main img[src$=".gif"]:not([srcset])')]
 		await Promise.all(GIFList.map((img) => convertGIFs(img)))
 		return document.toString();
