@@ -2,10 +2,10 @@
 title: "La génération procédurale dans le jeu vidéo"
 date: 2014-09-13
 tags:
-  - "features"
+
   - "jeu vidéo"
   - "procédural"
-
+featured: true
 ---
 
 _Je recycle ici un travail étudiant datant d'il y a trois ou quatre ans. Le texte a été un peu désuniversitarisé, à part ça il est tel quel. Le format était volontairement court et limité au jeu vidéo._

@@ -5,7 +5,7 @@ tags:
   - "inclusion"
   - "réflexions"
   - "systemes complexes"
-  - "features"
+featured: true
 hero:
   type: split  # options: carousel, graphic, video, split (text & image)
   image: "janewu.png"

@@ -4,7 +4,7 @@ date: 2016-10-02
 tags:
   - "futur"
   - "réflexions"
-  - "features"
+featured: true
 hero:
   type: split  # options: carousel, graphic, video, split (text & image)
   image: "falcon.gif"
