@@ -6,6 +6,8 @@ const yaml = require("js-yaml");
 require('dotenv').config()
 const embedEverything = require("eleventy-plugin-embed-everything");
 const meta = require('./src/_data/meta.js');
+const imagesProcessing = require('./src/transforms/images-processing.js');
+
 
 module.exports = function (config: Config): UserConfig {
 	/**
@@ -47,9 +49,18 @@ cf. postcss.config.js pour le CSS
 	if (process.env.NODE_ENV === "production") {
 		config.addPassthroughCopy({ 'src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}': meta.assetsDir })
 		config.addPassthroughCopy({ 'src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}': meta.assetsDir })
-		config.addPlugin(
-			require('./src/transforms/images-responsiver-transform'))
+
+		config.addTransform(
+			'imagesProcessing',
+			(content, outputPath) => {
+				if (outputPath && outputPath.endsWith('.html')) {
+					return imagesProcessing(content);
+				}
+				return content;
+			}
+		)
 	}
+
 	else {
 		//config.addPassthroughCopy('src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}')
 		//config.addPassthroughCopy('src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}')

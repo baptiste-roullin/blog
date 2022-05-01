@@ -7,7 +7,7 @@ const error = debug('images-responsiver:error');
 const warning = debug('images-responsiver:warning');
 const info = debug('images-responsiver:info');
 require('dotenv').config()
-const convertPictures = require("@11ty/eleventy-img");
+const convertPicturesLibrary = require("@11ty/eleventy-img");
 import path from "path";
 const { promisify } = require("util");
 const { join } = require("path");
@@ -58,7 +58,7 @@ function convertPictures(image, document) {
 	try {
 		// TODO : Tester cache. Par exemple "truchet-interet legitime.jpg" est-il mis en cache une seule fois.
 
-		const imageDimensions = convertPictures.statsSync(intermediaryPath, { statsOnly: true, formats: ["webp"] });
+		const imageDimensions = convertPicturesLibrary.statsSync(intermediaryPath, { statsOnly: true, formats: ["webp"] });
 
 		image.setAttribute('width', imageDimensions.webp[0].width);
 		image.setAttribute('height', imageDimensions.webp[0].height);
@@ -80,7 +80,7 @@ function convertPictures(image, document) {
 			}
 		}
 
-		convertPictures(intermediaryPath, options);
+		convertPicturesLibrary(intermediaryPath, options);
 
 		image.dataset.responsiver = image.className;
 		//image.dataset.responsiveruRL = metadata.jpg.url;
@@ -298,7 +298,7 @@ function handleGIFs(img, document, imageSettings) {
 }
 
 
-module.exports = (html, options = {}) => {
+module.exports = (html) => {
 
 	const { document } = parseHTML(html);
 
