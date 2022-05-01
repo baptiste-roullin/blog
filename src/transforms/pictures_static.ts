@@ -1,7 +1,3 @@
-// https://github.com/nhoizey/images-responsiver/
-// https://github.com/google/eleventy-high-performance-blog
-
-
 const debug = require('debug');
 const error = debug('images-responsiver:error');
 const warning = debug('images-responsiver:warning');
@@ -9,34 +5,20 @@ const info = debug('images-responsiver:info');
 require('dotenv').config()
 const convertPicturesLibrary = require("@11ty/eleventy-img");
 import path from "path";
-const { promisify } = require("util");
-const { join } = require("path");
-const exec = promisify(require("child_process").exec);
-const pathToFfmpeg = require("ffmpeg-static");
-const { parseHTML } = require('linkedom');
-import path from "path";
+require('dotenv').config()
 const meta = require('../_data/meta.js')
-
-
-const formats = (
-	process.env.NODE_ENV === "production"
-		?
-		['webp', 'jpeg']
-		:
-		['jpeg']
-)
 
 function normalizePath(str) {
 	return decodeURI(str.replace(/^\s(.*)\s$/g, "$1"))
 }
 
-const imageSettings = {
+export const imageSettings = {
 	selector: " #content :not(picture) > img[src]:not([srcset]):not([src$='.svg'])",
 	minWidth: 360,
 	maxWidth: 1920,
 	fallbackWidth: 750,
 	sizes: '(max-width: 60rem) 90vw, 60rem',
-	resizedImageUrl: (src, width) => {
+	resizedImageUrl: (src: string, width): string => {
 		const fullPath = `/${meta.assetsDir}/${path.basename(src)}`
 		return fullPath.
 			replace(
@@ -51,7 +33,11 @@ const imageSettings = {
 };
 
 
+
 function convertPictures(image, document) {
+
+
+
 	let originalPath = normalizePath(image.getAttribute('src'))
 	const intermediaryPath = "src/assets/imagesToProcess/" + path.basename(originalPath)
 
@@ -69,7 +55,13 @@ function convertPictures(image, document) {
 			},
 			widths: [360, 750, imageDimensions.width, 1140, 1530, 1920],
 			dryRun: false,
-			formats: formats,
+			formats: (
+				process.env.NODE_ENV === "production"
+					?
+					['webp', 'jpeg']
+					:
+					['jpeg']
+			),
 			urlPath: '/assets/imagesToProcess/',
 			outputDir: `./${meta.outputDir}/${meta.assetsDir}/`,
 			filenameFormat: function (id, src, width, format, options) {
@@ -79,7 +71,6 @@ function convertPictures(image, document) {
 				return `${name}-${width}.${modifiedFormat}`;
 			}
 		}
-
 		convertPicturesLibrary(intermediaryPath, options);
 
 		image.dataset.responsiver = image.className;
@@ -93,7 +84,7 @@ function convertPictures(image, document) {
 }
 
 
-function prepareForLighbox(image, document) {
+export function prepareForLighbox(image, document) {
 	//image.setAttribute('src', image.dataset.responsiveruRL);
 	//let caption = image.getAttribute("title");
 	if (image.closest('.rich-picture')) {
@@ -108,28 +99,10 @@ function prepareForLighbox(image, document) {
 	}
 }
 
-
-async function convertGIFs(name, convertedName, outPath) {
-
-	const exists = promisify(require("fs").exists);
-	if (await exists(convertedName)) {
-		return convertedName;
-	}
-	const command = `${pathToFfmpeg} -y -v error -i \"${join('src/assets/imagesToProcess', name)}\" -filter_complex \"[0:v] crop=trunc(iw/2)*2:trunc(ih/2)*2, fps=15\" -vsync 0 -f mp4 -pix_fmt yuv420p \"${join(outPath, convertedName)}\"`
-	try {
-		await exec(command);
-	} catch (e) {
-		if (e instanceof Error) {
-			throw new Error(`Failed executing ${command} with ${e.message}`);
-		}
-	}
-};
-
-
-function handlePictures(image, document, imageSettings) {
+export function handlePictures(image, document, imageSettings) {
 	convertPictures(image, document);
 
-	const imageSrc = image.getAttribute('src');
+	const imageSrc = image.getAttribute('src') as string;
 	info(`Transforming ${imageSrc}`);
 
 	const imageWidth = image.getAttribute('width');
@@ -137,38 +110,41 @@ function handlePictures(image, document, imageSettings) {
 		warning(`The image should have a width attribute: ${imageSrc}`);
 	}
 
-	let srcsetList = [];
+	let srcsetList: string[] = [];
 	if (
 		imageSettings.widthsList !== undefined &&
 		imageSettings.widthsList.length > 0
 	) {
+		// TODO : redéfinir une widthslist (ou pas ?)
+
+
 		// Priority to the list of image widths for srcset
 		// Make sure there are no duplicates, and sort in ascending order
-		imageSettings.widthsList = [...new Set(imageSettings.widthsList)].sort(
-			(a, b) => a - b
-		);
-		const widthsListLength = imageSettings.widthsList.length;
-		if (imageWidth !== null) {
-			// Filter out widths superiors to the image's width
-			imageSettings.widthsList = imageSettings.widthsList.filter(
-				(width) => width <= imageWidth
-			);
-			if (
-				imageSettings.widthsList.length < widthsListLength &&
-				(imageSettings.widthsList.length === 0 ||
-					imageSettings.widthsList[imageSettings.widthsList.length - 1] !==
-					imageWidth)
-			) {
-				// At least one value was removed because superior to the image's width
-				// Let's replace it/them with the image's width
-				imageSettings.widthsList.push(imageWidth);
-			}
-		}
-		// generate the srcset attribute
-		srcsetList = imageSettings.widthsList.map(
-			(width) =>
-				`${imageSettings.resizedImageUrl(imageSrc, width)} ${width}w`
-		);
+		/*		imageSettings.widthsList = [...new Set(imageSettings.widthsList)].sort(
+					(a, b) => a - b
+				);
+				const widthsListLength = imageSettings.widthsList.length;
+				if (imageWidth !== null) {
+					// Filter out widths superiors to the image's width
+					imageSettings.widthsList = imageSettings.widthsList.filter(
+						(width) => width <= imageWidth
+					);
+					if (
+						imageSettings.widthsList.length < widthsListLength &&
+						(imageSettings.widthsList.length === 0 ||
+							imageSettings.widthsList[imageSettings.widthsList.length - 1] !==
+							imageWidth)
+					) {
+						// At least one value was removed because superior to the image's width
+						// Let's replace it/them with the image's width
+						imageSettings.widthsList.push(imageWidth);
+					}
+				}
+				// generate the srcset attribute
+				srcsetList = imageSettings.widthsList.map(
+					(width) =>
+						`${imageSettings.resizedImageUrl(imageSrc, width)} ${width}w`
+				);*/
 	} else {
 		// We don't have a list of widths for srcset, we have to compute them
 
@@ -267,63 +243,3 @@ function handlePictures(image, document, imageSettings) {
 
 	prepareForLighbox(image, document);
 }
-
-function handleGIFs(img, document, imageSettings) {
-	const outPath = `${meta.outputDir}/${meta.assetsDir}/`
-	let src = img.getAttribute("src");
-	const name = path.basename(src)
-	const convertedName = name.replace(/\.\w+$/, (_) => ".mp4");
-
-	const video = img.ownerDocument.createElement("video");
-	[...img.attributes].map(({ name, value }) => {
-		video.setAttribute(name, value);
-	});
-
-	video.setAttribute('src', join('/' + meta.assetsDir, convertedName))
-	video.setAttribute("autoplay", "");
-	video.setAttribute("muted", "");
-	video.setAttribute("loop", "");
-	if (!video.getAttribute("aria-label")) {
-		video.setAttribute("aria-label", img.getAttribute("alt"));
-		video.removeAttribute("alt");
-	}
-	const parent = img.parentElement
-	if (parent.name === "FIGURE") {
-		parent.replaceChild(video, parent);
-	}
-	else {
-		parent.replaceChild(video, img);
-	}
-	convertGIFs(name, convertedName, outPath);
-}
-
-
-module.exports = (html) => {
-
-	const { document } = parseHTML(html);
-
-	[...document.querySelectorAll(imageSettings.selector)]
-		.filter((image) =>
-			!((new RegExp(imageSettings.ignore)).test(image.getAttribute('src')))
-		)
-		.filter((image) => {
-			// filter out images without a src, or not SVG, or with already a srcset
-			return (
-				image.getAttribute('src') !== null &&
-				!image.getAttribute('src').match(/\.svg$/) &&
-				image.getAttribute('srcset') === null
-			);
-		})
-		.forEach(async (image) => {
-
-			if (image.getAttribute('src').match(/\.gif$/)) {
-				await handleGIFs(image, document, imageSettings)
-			}
-			else {
-				handlePictures(image, document, imageSettings)
-			}
-		});
-
-	return document.toString();
-};
-
