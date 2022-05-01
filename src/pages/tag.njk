@@ -1,24 +1,33 @@
----
-layout: page
-pagination:
-  data: collections
-  size: 1
-  alias: tag
-  filter:
-    - authors
-    - pages
-    - post
-    - publishedPosts
-    - all
-    - tagList
-    - listeProjets
-postListItemStyle:
-  complete: true
-  showPagination: false
-permalink: /tags/{{ tag | slugify }}/
-eleventyComputed:
-  title: 'Articles à propos de : {{ tag | safe }}'
+---js
+{
+  layout: "page",
+  postListItemStyle:{
+    complete: true,
+    showPagination: false
+  },
+  permalink: "/tags/{{ tag | slugify }}/",
+  eleventyComputed:{
+    title: function (data) {
+      const tag = data.pagination.items[0]
+      if (tag === "featuredPosts")  {
+        return "Bafouilles dont je suis content"
+      }
+      else {
+        return "Articles parlant de : " + tag
+      }
+    }
+  },
+  pagination: {
+    data: "collections.tagList",
+    size: 1,
+    alias: "tag",
+    before: function(paginationData, fullData) {
+      return       [...fullData.collections.tagList.keys()].push('featuredPosts')
+
+    }
+  }
+}
 ---
 
-{% set postslist = collections[tag] | published | reverse %}
+{% set postslist = collections[tag]  | reverse %}
 {% include 'components/postslist.njk' %}

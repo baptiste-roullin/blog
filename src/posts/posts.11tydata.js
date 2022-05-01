@@ -4,9 +4,7 @@ const meta = require('../_data/meta.js')
 module.exports = {
   layout: "post",
   permalink: "blog/{{ page.date | dateHumanFormat('yyyy/MM') }}/{{ title | slugify }}/index.html",
-  tags: [
-    "post"
-  ],
+  contentType: "post",
 
   author: "{{ meta.author }}",
   eleventyComputed: {

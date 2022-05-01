@@ -6,4 +6,4 @@ require('ts-node').register({
 });
 const meta = require('./src/_data/meta.js')
 
-module.exports = require('./config');
+module.exports = require('./src/config/config');

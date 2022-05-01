@@ -6,7 +6,7 @@ tags:
   - "recherche"
   - "sciences cognitives"
   - "systemes complexes"
-  - "features"
+featured: true
 
 richPicture: true
 

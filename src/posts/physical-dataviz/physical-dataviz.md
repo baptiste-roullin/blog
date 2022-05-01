@@ -5,7 +5,7 @@ tags:
   - "histoire"
   - "objets"
   - "données"
-  - "features"
+featured: true
 draft: false
 
 richPicture: true

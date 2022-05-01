@@ -2,11 +2,9 @@
   {% for tag in tags %}
     {% set tagValue = tag[0] %}
     {% set tagCount = tag[1] %}
-    {# Knock out the first iteration of the loop to drop the default "post" tag generated in `posts/posts.json`. #}
-    {% if not loop.first %}
       <li class="inline-block my-3 sm:my-2 min-w-1/2 sm:min-w-min">
         <a  href="{{ '/tags/' | url}}{{tagValue | slugify  }}/"
-        class=" hover:text-accent hover:underline label text-accent2">{{ tagValue[0]|upper}}{{tagValue.slice(1)}}
+        class=" hover:text-accent hover:underline label text-accent2">{{ tagValue | capitalize}}
         </a>
         <span class="">❨{{tagCount}}❩</span>
         {% if not loop.last %}
@@ -15,7 +13,6 @@
 
       </li>
 
-    {% endif %}
 
   {% endfor %}
 </ul>

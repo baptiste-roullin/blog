@@ -6,7 +6,7 @@ tags:
     - droit
     - RGPD
     - vie privée
-    - features
+featured: true
 richPicture: true
 draft: false
 ---
