@@ -36,9 +36,6 @@ cf. postcss.config.js pour le CSS
 	//On copie tels quels les média avec chemins relatifs ou absolus dans /dist, qu'ils puissent être lus par du balisage non-transformé (sans srcset ou gif -> vidéo)
 
 
-	config.addPassthroughCopy('src/assets/docs/')
-	config.addPassthroughCopy('src/posts/**/*.gif')
-	config.addPassthroughCopy('src/*.ico')
 	config.addPassthroughCopy('src/robots.txt')
 	config.addPassthroughCopy('src/assets/css/fonts')
 	config.addPassthroughCopy('src/assets/UI')
@@ -46,6 +43,8 @@ cf. postcss.config.js pour le CSS
 	config.setUseGitIgnore(false)
 
 	if (process.env.NODE_ENV === "production") {
+		config.addPassthroughCopy('src/assets/docs/')
+
 		config.addPassthroughCopy({ 'src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}': meta.assetsDir })
 		config.addPassthroughCopy({ 'src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}': meta.assetsDir })
 
@@ -136,7 +135,6 @@ cf. postcss.config.js pour le CSS
 		excerpt_separator: "<!-- excerpt -->"
 	});
 
-	const md = require('./src/markdown.js')
 	config.setLibrary('md', require('./src/markdown.js'));
 
 
@@ -151,8 +149,6 @@ cf. postcss.config.js pour le CSS
 	Object.keys(collections).forEach((colName) => {
 		config.addCollection(colName, collections[colName])
 	})
-
-
 
 
 	return {
