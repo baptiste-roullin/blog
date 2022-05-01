@@ -1,4 +1,4 @@
-const { AssetCache } = require("@11ty/eleventy-cache-assets");
+const { AssetCache } = require("@11ty/eleventy-fetch");
 
 
 export default async function (key: string, duration: string, type: "json" | "buffer" | "text", req) {
