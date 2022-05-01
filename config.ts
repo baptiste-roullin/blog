@@ -48,10 +48,7 @@ cf. postcss.config.js pour le CSS
 		config.addPassthroughCopy({ 'src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}': meta.assetsDir })
 		config.addPassthroughCopy({ 'src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}': meta.assetsDir })
 		config.addPlugin(
-			require('./src/transforms/images-responsiver-transform'),
-			require('./src/transforms/images-responsiver-config')
-		)
-		config.addPlugin(require('./src/transforms/gif-converter.ts'))
+			require('./src/transforms/images-responsiver-transform'))
 	}
 	else {
 		//config.addPassthroughCopy('src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}')
