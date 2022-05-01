@@ -1,12 +1,12 @@
-import { Config, UserConfig, } from './types/eleventy';
+import { Config, UserConfig, } from '../../types/eleventy';
 
 const pluginRss = require('@11ty/eleventy-plugin-rss')
 const pluginNavigation = require('@11ty/eleventy-navigation')
 const yaml = require("js-yaml");
 require('dotenv').config()
 const embedEverything = require("eleventy-plugin-embed-everything");
-const meta = require('./src/_data/meta.js');
-import picturesProcessing from './src/transforms/pictures_processing'
+const meta = require('../_data/meta.js');
+import picturesProcessing from '../transforms/pictures_processing'
 
 
 module.exports = function (config: Config): UserConfig {
@@ -86,7 +86,7 @@ cf. postcss.config.js pour le CSS
 	/**
 	 * Filters
 	 */
-	const filters = require('./src/filters/filters.ts')
+	const filters = require('../filters/filters.ts')
 
 	Object.keys(filters).forEach((filterName) => {
 		config.addFilter(filterName, filters[filterName])
@@ -97,7 +97,7 @@ cf. postcss.config.js pour le CSS
 	/**
 	 * Shortcodes
 	 */
-	const shortcodes = require('./src/shortcodes/shortcodes.js')
+	const shortcodes = require('../shortcodes/shortcodes.js')
 
 	Object.keys(shortcodes).forEach((shortcodeName) => {
 		config.addShortcode(shortcodeName, shortcodes[shortcodeName])
@@ -106,7 +106,7 @@ cf. postcss.config.js pour le CSS
 	/**
 	 * Paired Shortcodes
 	 */
-	const pairedshortcodes = require('./src/shortcodes/pairedShortcodes.js')
+	const pairedshortcodes = require('../shortcodes/pairedShortcodes.js')
 	Object.keys(pairedshortcodes).forEach((shortcodeName) => {
 		config.addPairedShortcode(shortcodeName, pairedshortcodes[shortcodeName]
 		)
@@ -116,7 +116,7 @@ cf. postcss.config.js pour le CSS
 	 * Add async shortcodes
 	 *
 	 */
-	const asyncShortcodes = require('./src/shortcodes/asyncShortcodes.js')
+	const asyncShortcodes = require('../shortcodes/asyncShortcodes.js')
 	Object.keys(asyncShortcodes).forEach((shortcodeName) => {
 		config.addNunjucksAsyncShortcode(shortcodeName, asyncShortcodes[shortcodeName])
 	})
@@ -135,7 +135,7 @@ cf. postcss.config.js pour le CSS
 		excerpt_separator: "<!-- excerpt -->"
 	});
 
-	config.setLibrary('md', require('./src/markdown.js'));
+	config.setLibrary('md', require('./markdown.js'));
 
 
 
@@ -144,7 +144,7 @@ cf. postcss.config.js pour le CSS
  * ============================
 
  */
-	const collections = require('./src/collections.ts')
+	const collections = require('./collections.ts')
 
 	Object.keys(collections).forEach((colName) => {
 		config.addCollection(colName, collections[colName])

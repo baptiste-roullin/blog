@@ -1,5 +1,5 @@
-import { Item, Collection } from '../types/eleventy';
-const meta = require('./_data/meta.js')
+import { Item, Collection } from '../../types/eleventy';
+const meta = require('../_data/meta.js')
 
 
 const published = (post) => { return !post.data.draft }
@@ -43,7 +43,7 @@ module.exports = {
 	},
 
 	listeProjets: async function (collection: Collection): Promise<any> {
-		var truchetNode = require('./features/truchet/truchet-node.js');
+		var truchetNode = require('../features/truchet/truchet-node.js');
 
 		// @ts-ignore
 		const projets = collection.items[0].data.projets
