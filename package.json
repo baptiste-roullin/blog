@@ -85,10 +85,6 @@
     "sharp": "^0.30.3",
     "text-metrics": "^3.0.0"
   },
-  "_moduleAliases": {
-    "@src": "./src",
-    "@root": "./"
-  },
   "browserslist": [
     "> 1%",
     "last 2 versions",
