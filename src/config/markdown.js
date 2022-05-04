@@ -2,7 +2,7 @@ const markdownItAttributes = require('markdown-it-attrs');
 //const markdownItContainer = require('markdown-it-container');
 const markdownIt = require('markdown-it')
 const markdownItFootnote = require('markdown-it-footnote');
-const slugify = require('./filters/slugify.js');
+const slugify = require('../filters/slugify.js');
 const imageFigures = require('markdown-it-image-figures');
 
 const MarkdownBlockquoteCite = require('markdown-it-blockquote-cite');

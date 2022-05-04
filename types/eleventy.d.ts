@@ -1,4 +1,3 @@
-type ServeStaticOptions = import('serve-static').ServeStaticOptions;
 
 // ---- Utility types
 interface Dict<T = unknown> {
@@ -39,16 +38,7 @@ interface BrowserSyncConfig {
       ignoreInitial?: boolean;
       ignored?: boolean;
    };
-   server?:
-   | boolean
-   | string
-   | string[]
-   | {
-      baseDir?: string;
-      directory?: boolean;
-      serveStaticOptions?: ServeStaticOptions;
-      routes?: Dict<string>;
-   };
+
 
    /* eslint-disable @typescript-eslint/no-explicit-any */
    proxy?:
