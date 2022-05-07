@@ -8,7 +8,7 @@ date: 2019-09-22
 >
 > — *Cubed: A Secret History of the Workplace*, p. 254. Version abrégée du passage [ici](https://www.wired.com/2014/04/how-offices-accidentally-became-hellish-cubicle-farms/)
 
-Si, comme le dit la citation, changer de type bureau, c'est changer de manière d'être au monde, la variété des mobliers décrits dans [cette liste](https://en.wikipedia.org/wiki/List_of_desk_forms_and_types)
+Si, comme le dit la citation, changer de type bureau, c'est changer de manière d'être au monde, la variété des mobliers décrits dans [cette liste](https://en.wikipedia.org/wiki/List_of_desk_forms_and_types) suggère 
 
 
 
@@ -46,3 +46,8 @@ https://www.persee.fr/doc/xxs_0294-1759_1984_num_3_1_1701
 
 https://victorianweb.org/art/design/furniture/golden1.html
 
+
+
+
+
+https://www.openculture.com/2013/10/ernest-hemingway-standing-desk.html
