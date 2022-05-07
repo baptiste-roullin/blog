@@ -1,0 +1,13 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.framework.id": "11ty",
+  "frontMatter.content.pageFolders": [
+    {
+      "path": "[[workspace]]/src/pages  "
+    },
+    {
+      "title": "posts",
+      "path": "[[workspace]]/src/posts/**/"
+    }
+  ]
+}
