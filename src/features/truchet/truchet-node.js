@@ -11,7 +11,7 @@ module.exports = async function (slug, width, height) {
 		//@ts-ignore
 		const truchet = require('./truchet-core.ts')
 
-		const path = `${meta.outputDir}/${meta.assetsDir}/truchet- + ${slug}.png`
+		const path = `${meta.outputDir}/${meta.assetsDir}/truchet-${slug}.png`
 
 
 		const tileCanvas = await truchet(
