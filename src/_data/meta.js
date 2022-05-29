@@ -12,7 +12,7 @@ module.exports = {
 	author: 'Baptiste Roullin',
 	authorEmail: '',
 	outputDir: "dist",
-	assetsDir: 'assets/generatedImages',
+	assetsDir: 'assets/images',
 	zoteroProfileID: process.env.zoteroProfileID || '',
 	zoteroAPIKey: process.env.zoteroAPIKey || ''
 

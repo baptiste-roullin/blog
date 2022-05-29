@@ -95,7 +95,6 @@ module.exports = {
     new WebpackAssetsManifest({
       output: '../../../src/_data/hashes_js.json'
     }),
-    //TODO : remplacer par https://www.npmjs.com/package/copyfiles qu'on ferait tourner pendant l'évènement 11ty 'before' ?
     new CopyPlugin({
       patterns: [
         //On copie média avec chemins relatifs ou absolus dans un dossier unique intermédiaire, que les scripts puissent processer
