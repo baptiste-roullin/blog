@@ -23,6 +23,15 @@
   @apply gap-4;
 }
 
+
+@media (max-width: 449px) {
+  .rich-picture {
+    display: flex;
+    flex-direction: column;
+
+}
+}
+
 .rich-picture figure > a {
   display: block;
   line-height: 0;
