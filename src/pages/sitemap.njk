@@ -17,11 +17,10 @@ layout: post
 			<a href="/blog">Tous les articles</a>
 			<p class="pl-10 mt-2 -mb-2 lg:-mb-4 lg:mt-4 "> Articles classés par mot-clé :</p>
 			<ul >
-				{% for tag in tags %}
-					{% set tagValue = tag[0] %}
+				{% for tagName, tagCount in tags %}
 					<li >
-						<a  href="{{ '/tags/' | url}}{{tagValue | slugify  }}/">
-							{{ tagValue | capitalize}}
+						<a  href="{{ '/tags/' | url}}{{tagName | slugify  }}/">
+							{{ tagName | capitalize}}
 						</a>
 					</li>
 				{% endfor %}

@@ -5,7 +5,7 @@ const meta = require('../_data/meta.js')
 const published = (post) => { return !post.data.draft }
 
 function getbyField(collectionAPI, field, value: boolean | string) {
-	return collectionAPI.getAll().
+	return collectionAPI.getAllSorted().
 		filter((item) => item.data[field] === value).
 		filter(published)
 }
@@ -15,8 +15,8 @@ module.exports = {
 		return getbyField(collectionAPI, 'contentType', 'post')
 	},
 
-	tagList: function (collectionAPI): any {
-		let tagDictionary: Map<string, number> = new Map()
+	tagList: function (collectionAPI) {
+		let tagDictionary: { string?: number } = {}
 
 		getbyField(collectionAPI, 'contentType', 'post').forEach(function (item) {
 			//@ts-ignore
@@ -25,17 +25,19 @@ module.exports = {
 
 				// Compteur du nombre d'articles associés à un tag
 				for (const tag of tags) {
-					if (tagDictionary.has(tag)) {
-						const oldValue = tagDictionary.get(tag)!
-						tagDictionary.set(tag, oldValue + 1)
+
+					if (tag in tagDictionary) {
+						const oldValue = tagDictionary[tag]
+						tagDictionary[tag] = oldValue + 1
 					}
 					else {
-						tagDictionary.set(tag, 1)
+						tagDictionary[tag] = 1
 					}
 				}
 			}
 		})
-		return new Map([...tagDictionary.entries()].sort((a, b) => b[1] - a[1]))
+		const sortedtags = Object.entries(tagDictionary).sort((a, b) => b[1] - a[1])
+		return Object.fromEntries(sortedtags)
 	},
 
 	featuredPosts: function (collectionAPI): Item[] {

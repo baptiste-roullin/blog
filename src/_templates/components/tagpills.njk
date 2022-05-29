@@ -1,10 +1,9 @@
 <ul class="flex flex-wrap items-center mb-8 -mt-2 tagpills">
-  {% for tag in tags %}
-    {% set tagValue = tag[0] %}
-    {% set tagCount = tag[1] %}
+  {% for tagName, tagCount in tags %}
+
       <li class="inline-block my-3 sm:my-2 min-w-1/2 sm:min-w-min">
-        <a  href="{{ '/tags/' | url}}{{tagValue | slugify  }}/"
-        class=" hover:text-accent hover:underline label text-accent2">{{ tagValue | capitalize}}
+        <a  href="{{ '/tags/' | url}}{{tagName | slugify  }}/"
+        class=" hover:text-accent hover:underline label text-accent2">{{ tagName | capitalize}}
         </a>
         <span class="">❨{{tagCount}}❩</span>
         {% if not loop.last %}

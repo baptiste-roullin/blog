@@ -22,7 +22,8 @@
     size: 1,
     alias: "tag",
     before: function(paginationData, fullData) {
-      return       [...fullData.collections.tagList.keys()].push('featuredPosts')
+      paginationData['featuredPosts'] = undefined
+      return paginationData
 
     }
   }
