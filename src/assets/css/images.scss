@@ -17,7 +17,7 @@
 
 .rich-picture  {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, max-content));
+  grid-template-columns: repeat(auto-fit, minmax(450px, max-content));
   padding: 0;
   justify-content: center;
   @apply md:gap-4;
@@ -38,14 +38,23 @@
   object-position: 50% 50%;
 }
 
+.rich-picture figure {
+  margin: 0;
+}
 
 .pswp .pswp--zoom-allowed  .pswp__button.pswp__button--zoom {
   display: none;
 }
 
-.prose .rich-picture li:before
+.prose .rich-picture li:before, .prose .rich-picture li:marker
 {
 content:none
+
+}
+
+.prose .rich-picture li
+{
+list-style:none
 
 }
 
