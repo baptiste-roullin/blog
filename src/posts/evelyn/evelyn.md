@@ -1,21 +1,96 @@
 ---
-title: "You do the meth  : tous les jeux de mots des génériques de Bob's Burgers"
-date: 2017-12-10
+title: "Every Evelyn"
+date: 2022-29-05
 draft: false
 tags:
  - "projets"
-rich
+ - "répétition"
 hero:
-  type: split  # options: carousel, graphic, video, split (text & image)
-  image: Bobs-Burgers-S07E17-Zero-Larp-Thirty.png
+  type: split
+  image: evelyn-1.jpg
 richPicture: true
 ---
 
 
-Vous voyez dans le générique des Simpsons le texte que Bart écrit depuis 25 saisons ? Dans Bob's Burgers c'est pareil, il y a deux jeux de mot dans le décor, presque toujours nouveaux. Je me suis amusé à les extraire avec un petit script basé sur [ffmpeg](http://ffmpeg.org/) (et peu d'huile de coude pour capturer les photogrammes ayant des timecode différents).
-
-Il y a 126 photogrammes pour 134 épisodes (de la S1 au milieu de la S8), ce qui fait 8 épisodes sans générique.
-
-
-
 {% richpicture %}
+
+* ![""](evelyn-1.jpg)
+* ![""](evelyn-2.jpg)
+* ![""](evelyn-3.jpg)
+* ![""](evelyn-4.jpg)
+* ![""](evelyn-5.jpg)
+* ![""](evelyn-6.jpg)
+* ![""](evelyn-7.jpg)
+* ![""](evelyn-8.jpg)
+* ![""](evelyn-9.jpg)
+* ![""](evelyn-10.jpg)
+* ![""](evelyn-11.jpg)
+* ![""](evelyn-12.jpg)
+* ![""](evelyn-13.jpg)
+* ![""](evelyn-14.jpg)
+* ![""](evelyn-15.jpg)
+* ![""](evelyn-16.jpg)
+* ![""](evelyn-17.jpg)
+* ![""](evelyn-18.jpg)
+* ![""](evelyn-19.jpg)
+* ![""](evelyn-20.jpg)
+* ![""](evelyn-21.jpg)
+* ![""](evelyn-22.jpg)
+* ![""](evelyn-23.jpg)
+* ![""](evelyn-24.jpg)
+* ![""](evelyn-25.jpg)
+* ![""](evelyn-26.jpg)
+* ![""](evelyn-27.jpg)
+* ![""](evelyn-28.jpg)
+* ![""](evelyn-29.jpg)
+* ![""](evelyn-30.jpg)
+* ![""](evelyn-31.jpg)
+* ![""](evelyn-32.jpg)
+* ![""](evelyn-33.jpg)
+* ![""](evelyn-34.jpg)
+* ![""](evelyn-35.jpg)
+* ![""](evelyn-36.jpg)
+* ![""](evelyn-37.jpg)
+* ![""](evelyn-38.jpg)
+* ![""](evelyn-39.jpg)
+* ![""](evelyn-40.jpg)
+* ![""](evelyn-41.jpg)
+* ![""](evelyn-42.jpg)
+* ![""](evelyn-43.jpg)
+* ![""](evelyn-44.jpg)
+* ![""](evelyn-45.jpg)
+* ![""](evelyn-46.jpg)
+* ![""](evelyn-47.jpg)
+* ![""](evelyn-48.jpg)
+* ![""](evelyn-49.jpg)
+* ![""](evelyn-50.jpg)
+* ![""](evelyn-51.jpg)
+* ![""](evelyn-52.jpg)
+* ![""](evelyn-53.jpg)
+* ![""](evelyn-54.jpg)
+* ![""](evelyn-55.jpg)
+* ![""](evelyn-56.jpg)
+* ![""](evelyn-57.jpg)
+* ![""](evelyn-58.jpg)
+* ![""](evelyn-59.jpg)
+* ![""](evelyn-60.jpg)
+* ![""](evelyn-61.jpg)
+* ![""](evelyn-62.jpg)
+* ![""](evelyn-63.jpg)
+* ![""](evelyn-64.jpg)
+* ![""](evelyn-65.jpg)
+* ![""](evelyn-66.jpg)
+* ![""](evelyn-67.jpg)
+* ![""](evelyn-68.jpg)
+* ![""](evelyn-69.jpg)
+* ![""](evelyn-70.jpg)
+* ![""](evelyn-71.jpg)
+* ![""](evelyn-72.jpg)
+* ![""](evelyn-73.jpg)
+* ![""](evelyn-74.jpg)
+* ![""](evelyn-75.jpg)
+* ![""](evelyn-76.jpg)
+
+{% endrichpicture %}
+
+Et c'est tout.

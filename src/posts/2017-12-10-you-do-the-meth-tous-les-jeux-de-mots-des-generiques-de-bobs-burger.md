@@ -3,9 +3,8 @@ title: "You do the meth  : tous les jeux de mots des génériques de Bob's Bur
 date: 2017-12-10
 draft: false
 tags:
- - "projets"
- - "répétition"
-rich
+  - "projets"
+  - "répétition"
 hero:
   type: split  # options: carousel, graphic, video, split (text & image)
   image: Bobs-Burgers-S07E17-Zero-Larp-Thirty.png
