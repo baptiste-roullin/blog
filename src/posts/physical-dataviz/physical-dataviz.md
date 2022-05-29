@@ -7,7 +7,6 @@ tags:
   - "données"
 featured: true
 draft: false
-
 richPicture: true
 hero:
   type: split  # options: carousel, graphic, video, split (text & image)
