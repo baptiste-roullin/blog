@@ -15,8 +15,8 @@ module.exports = {
 
       if (hero === undefined || hero === {}) {
         await truchetNode(slug, 400, 280).catch(console.error);
-        //chemin absolu
-        return `/${meta.outputDir}/${meta.assetsDir}/truchet-${slug}.png`
+        //URL absolue
+        return `/${meta.assetsDir}/truchet-${slug}.png`
       }
       else {
         const isGif = /\.gif$/
