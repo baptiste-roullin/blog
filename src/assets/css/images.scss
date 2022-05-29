@@ -18,9 +18,9 @@
 .rich-picture  {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(450px, max-content));
-  padding: 0;
+  padding: 1.2em 0;
   justify-content: center;
-  @apply md:gap-4;
+  @apply gap-4;
 }
 
 .rich-picture figure > a {

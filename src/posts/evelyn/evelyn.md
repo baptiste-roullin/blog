@@ -1,5 +1,5 @@
 ---
-title: "_Every Evelyn_"
+title: "Every Evelyn"
 date: 2022-05-29
 draft: false
 tags:
