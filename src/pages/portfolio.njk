@@ -1,0 +1,72 @@
+---
+layout: base
+title: portfolio
+hero:
+  type: split
+  image: maxwell.jpg
+  alt: "modèle en plâtre sur lequel est tracé des courbes, pour expliquer la thermodynamique."
+---
+
+<div class="template-post-main">
+{% include 'components/hero-split.njk' %}
+
+
+	<div 		x-data="app()" class="post-main  my-20 prose lg:prose-xl prose-lg article {{ structure.g_proseWidth }}">
+
+<div x-cloak>
+
+			<div class="mb-4">
+				<div
+					x-data="radioTabs('niveauDeLangue', niveauDeLangueData)"
+					class="inline-flex p-1 pr-0 overflow-hidden rounded-full bg-accent-light "
+				>
+					<template x-for="radio in radios">
+						<label
+							:for="radio.id"
+							class="block px-4 py-1 mr-1 rounded-full cursor-pointer hover:bg-accent2 hover:text-white"
+							:class="state.id === radio.id ? 'bg-accent text-white': ''"
+						>
+							<input
+								type="radio"
+								class="hidden"
+								:id="radio.id"
+								:value="radio.description"
+								:name="name"
+								x-model="state"
+							/>
+							<div x-text="radio.label"></div>
+						</label>
+					</template>
+				</div>
+			</div>
+
+			<div class="text-gray-500">
+
+				<span class="" x-text="state"></span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+
+			const niveauDeLangueData = [
+				{ id: "radio-tab-a", label: "Tendance", description:"J’utilise les pouvoirs de la Créativité pour créer des CX holistiques et des interfaces delightful"},
+				{ id: "radio-tab-b", label: "Terre à terre", description:"j’aide à créer des systèmes à peu près robustes, utiles et utilisables"},
+				{ id: "radio-tab-c",  label: "Effacé", description:"je pose des carrés gris dans Figma et des post-its sur les murs"},
+			]
+			function app() {
+				return {
+					state: niveauDeLangueData[1],
+				}
+			}
+			function radioTabs(name, radios) {
+				return {
+					name,
+					radios,
+				}
+			}
+</script>
+
+<script src="//unpkg.com/alpinejs" defer></script>
+

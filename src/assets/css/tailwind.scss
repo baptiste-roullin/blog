@@ -3,6 +3,8 @@
 
 @layer base {
 
+	[x-cloak] { display: none !important; }
+
 	body {
 		background-color: #fdfcfb;
 		overflow-x: hidden;
