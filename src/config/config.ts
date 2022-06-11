@@ -5,6 +5,8 @@ const pluginNavigation = require('@11ty/eleventy-navigation')
 const yaml = require("js-yaml");
 require('dotenv').config()
 const embedEverything = require("eleventy-plugin-embed-everything");
+const { EleventyRenderPlugin } = require("@11ty/eleventy");
+
 const meta = require('../_data/meta.js');
 import picturesProcessing from '../transforms/pictures_processing'
 
@@ -81,6 +83,7 @@ cf. postcss.config.js pour le CSS
 		use: ['vimeo', 'youtube', 'twitter'], twitter: { options: { align: 'center' } }
 	});
 	config.addPlugin(pluginRss)
+	config.addPlugin(EleventyRenderPlugin);
 
 
 	/**
