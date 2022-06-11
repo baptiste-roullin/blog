@@ -1,0 +1,15 @@
+    <section class="flex-col items-start p-7 card-base">
+    <h2 >Ailleurs</h2>
+    <ul class="flex flex-col items-start gap-6 xl:gap-8 sm:flex-row ailleurs-list" >
+        {% for item in ailleurs %}
+          <li class="list-none ">
+            <a
+            class="text-2xl ailleurs cta-heading hover:underline hover:text-accent2"
+            href="{{item.link}}">{{item.name}}</a>
+          </li>
+              {% if not loop.last %}
+          <span aria-hidden="true" class="hidden text-xl sm:inline " >~</span>
+         {% endif %}
+        {% endfor %}
+      </ul>
+</section>
