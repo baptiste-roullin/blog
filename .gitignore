@@ -11,6 +11,7 @@ src/_data/hashes_js.json
 dist
 .sync_*
 
+
 .DS_Store
 **/.DS_Store
 
