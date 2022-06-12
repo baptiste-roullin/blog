@@ -1,6 +1,7 @@
 @import "./fonts.css";
 @import "./post.scss";
 @import "./images.scss";
+@import "./portfolio.scss";
 @import "./tailwind.scss";
 @tailwind base;
 @tailwind components;

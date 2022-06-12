@@ -1,0 +1,7 @@
+	.page-portfolio input[type="radio"]:checked + label {
+	@apply bg-accent text-white;
+	}
+
+	.page-portfolio .metadata {
+		display:none;
+	}

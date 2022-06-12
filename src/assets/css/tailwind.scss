@@ -3,8 +3,6 @@
 
 @layer base {
 
-	[x-cloak] { display: none !important; }
-
 	body {
 		background-color: #fdfcfb;
 		overflow-x: hidden;
@@ -23,9 +21,6 @@
 		text-decoration: underline;
 }
 
-
-
-
 	body ul.UI-component li::before {
 		display:none;
 		width: 0;
@@ -40,7 +35,6 @@
 		padding:0;
 		font-family: 'Brandon Display'
 	}
-
 
 	h1 {
 		@apply font-bold text-gray-700;
@@ -73,6 +67,7 @@
 		text-decoration-skip-ink: auto;
 	}
 
+	[x-cloak] { display: none !important; }
 
 
 }
@@ -303,3 +298,5 @@ padding: 0
 
 
 }
+
+
