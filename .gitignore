@@ -6,10 +6,12 @@ src/assets/images/relative
 src/_data/hashes_css.json
 src/_data/hashes_js.json
 
-
 .eleventyignore
 
+package-lock.json
+
 .sync_*
+
 
 .DS_Store
 **/.DS_Store

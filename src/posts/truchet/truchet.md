@@ -44,7 +44,7 @@ Si on ajoute de manière concentriques plusieurs arcs de cercle et des dégradé
 
 La trouvaille pour apporter du rythme, c'est l'absence de rupture : que quelque soit l'orientation des blocs, chaque arc est connecté à un arc voisin. Le tout forme un motif de labyrinthe, alors que le placement des blocs est purement aléatoire. La seule chose qui ne l'est pas, c'est la couleur de fond qu'on devine au centre des cercles.
 
-Essayez vous-même : cliquez sur un carreau pour le faire pivoter et voir que ça ne rompt pas l'enchainement.
+Essayez vous-même : **cliquez** sur un carreau pour le faire pivoter et voir que ça ne rompt pas l'enchainement.
 
 {% truchetList %}
 
