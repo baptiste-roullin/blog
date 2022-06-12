@@ -1,0 +1,61 @@
+{
+	"clients": [
+		{
+			"name": "Industrie, énergie & transport",
+			"list": [
+				"Safran",
+				"SEB",
+				"Renault Trucks",
+				"Alstom",
+				"Renault",
+				"Soltracing",
+				"Michelin",
+				"Engie ",
+				"GDF Suez",
+				"RATP",
+				"SCNF"
+			]
+		},
+		{
+			"name": "Culture et éducation",
+			"list": [
+				"Mucem",
+				"France Galop",
+				"Studi ",
+				"Université de Lyon"
+			]
+		},
+		{
+			"name": "Retail",
+			"list": [
+				"Mercialys",
+				"Grand Frais",
+				"Franprix",
+				"Boulanger",
+				"La Halle",
+				"Flunch Traiteur"
+			]
+		},
+		{
+			"name": "Services",
+			"list": [
+				"Edenred",
+				"Orange",
+				"MAIF ",
+				"Sopra Banking "
+			]
+		},
+		{
+			"name": "Public et associatif",
+			"list": [
+				"Auvergne - Rhône - Alpes",
+				"ACOSS ",
+				"Ministère de la défense",
+				"Croix Rouge Française",
+				"Bureau International des poids et des mesures",
+				"Ministère du travail",
+				"Département de la vendée"
+			]
+		}
+	]
+}

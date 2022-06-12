@@ -8,7 +8,7 @@ layout: base
 		{% include 'components/hero-split.njk' %}
 		{% endif %}
 
-	<div class="post-main  my-20 prose lg:prose-xl prose-lg article {{ structure.g_proseWidth }}">
+	<div class="post-main  my-20 prose lg:prose-xl prose-lg article {{ structure.g_pageWidth if '\/portfolio' in page.url else structure.g_proseWidth   }}">
 
 		{% if not hero.image %}
 			<header class="">
