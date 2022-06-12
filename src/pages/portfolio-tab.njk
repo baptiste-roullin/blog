@@ -1,10 +1,11 @@
-
 <div
+class="flex flex-col gap-5 my-5"
 	x-data="{niveauDeLangue, state: niveauDeLangue[1].description}"
-	class="inline-flex p-1 pr-0 overflow-hidden rounded-full bg-accent-light "
 >
-	<template x-for="radio in niveauDeLangue">
-			<div>
+	<div class="inline-flex overflow-hidden rounded-full bg-accent-light ">
+		<template x-for="radio in niveauDeLangue">
+			<div
+		>
 				<input
 					type="radio"
 					class="hidden"
@@ -19,17 +20,17 @@
 				x-text="radio.label"
 				></label>
 			</div>
-	</template>
+		</template>
+	</div>
+	<p class="" x-text="state"></p>
 </div>
-<p class="" x-text="state"></p>
-<script>
-			const niveauDeLangue = [
-				{ id: "radio-tab-a", label: "Tendance", description:"J’utilise les pouvoirs de la Créativité pour créer des CX holistiques et des interfaces delightful"},
-				{ id: "radio-tab-b", label: "Terre à terre", description:"J’aide à créer des systèmes à peu près robustes, utiles et utilisables"},
-				{ id: "radio-tab-c", label: "Effacé", description:"Je pose des carrés gris dans Figma et des post-its sur les murs"},
-			]
+<script src="//unpkg.com/alpinejs" defer></script>
+<script >
+const niveauDeLangue = [
+	{ id: "radio-tab-a", label: "Tendance", description: "J’utilise les pouvoirs de la Créativité pour créer des CX holistiques et des interfaces delightful" },
+	{ id: "radio-tab-b", label: "Terre à terre", description: "J’aide à créer des systèmes à peu près robustes, utiles et utilisables" },
+	{ id: "radio-tab-c", label: "Effacé", description: "Je pose des carrés gris dans Figma et des post-its sur les murs" },
+]
 </script>
-
-<script src="/assets/scripts/alpine.js" defer></script>
 
 
