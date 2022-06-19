@@ -1,0 +1,72 @@
+---
+layout: post
+title: "Baptiste, 34 ans ½, designer UX"
+hero:
+  type: split
+  image: maxwell.jpg
+---
+
+{% renderTemplate "md" %}
+## Ça veut dire quoi designer UX ?
+{% endrenderTemplate "md" %}
+
+{% include ""src/pages/portfolio-tab.njk" %}
+
+
+{% renderTemplate "md" %}
+
+## Mais encore ?
+
+1. *Étudier* les utilisateurs
+2. Pour *imaginer* des solutions adapter
+3. *Concevoir* la traduction de ces solutions en interfaces
+4. Et *tester* l’ensemble
+
+
+blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla
+
+En résumé, je suis un UX généraliste avec quelques twists :
+
+- Auditeur en accessibilité
+- [Intervenant à Épitech](http://misc.toutcequibouge.net/Epitech) (cours d'intro à l'UX, design sprints...)
+- [Dev en dilettante](https://toutcequibouge.net/projets/)
+
+Intéressé-e ?
+
+[Contactez-moi](/contact){.cta}
+
+{% endrenderTemplate %}
+
+{# https://www.skies.dev/override-tailwind-prose
+#}
+<section class="flex-col items-start p-7 UI-component card-base ">
+<div class="p-0">
+  <h2 class="m-0">Liens de clients pas dégueus</h2>
+
+  <ul class="flex flex-col items-start ailleurs-list" >
+  {% for client in clients %}
+
+    <li class="m-0 list-none">
+
+      <ul class="flex flex-col flex-wrap items-center gap-3 m-0 xl:gap-4 sm:flex-row ailleurs-list" >
+        <span class="font-medium">
+          <li class="text-xl list-none">{{client.name}}</li>
+        </span>
+
+            {% for item in client.list %}
+        <li class="m-0 text-xl list-none ">
+          {{item}}
+        </li>
+        {% if not loop.last %}
+        <span aria-hidden="true" class="hidden text-xl sm:inline " >~</span>
+        {% endif %}
+            {% endfor %}
+      </ul>
+
+    </li>
+
+  {% endfor %}
+  </ul>
+</div>
+
+</section>
