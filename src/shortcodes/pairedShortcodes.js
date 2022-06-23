@@ -1,3 +1,4 @@
+
 const md = require('../config/markdown.js')
 
 module.exports = {
@@ -13,6 +14,13 @@ module.exports = {
 	},
 
 
+	markdown: function (value) {
+		if (!value) {
+			return ''
+		}
+		return `<div class="prose  lg:prose-xl prose-lg ">${md.render(value)}</div>`
+
+	},
 	/**
 	 * ===== Wrapper =====
 	 *
