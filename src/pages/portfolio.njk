@@ -1,72 +1,93 @@
 ---
-layout: post
+layout: base
 title: "Baptiste, 34 ans ½, designer UX"
 hero:
   type: split
   image: maxwell.jpg
 ---
+<div class="max-w-6xl mx-2 mb-16 lg:mx-auto lg:max-w-7xl 2xl:max-w-9xl template-post-main">
+  {% include 'components/hero-split.njk' %}
 
-{% renderTemplate "md" %}
-## Ça veut dire quoi designer UX ?
-{% endrenderTemplate "md" %}
+  {% markdown %}
+  ## Ça veut dire quoi designer UX ?
+  {% endmarkdown   %}
 
-{% include ""src/pages/portfolio-tab.njk" %}
+  {% include "src/pages/portfolio-tab.njk" %}
+
+  {% markdown %}
+
+  ## Mais encore ?
+
+  1. *Étudier* les utilisateurs
+  2. Pour *imaginer* des solutions adapter
+  3. *Concevoir* la traduction de ces solutions en interfaces
+  4. Et *tester* l’ensemble
 
 
-{% renderTemplate "md" %}
+  blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla
 
-## Mais encore ?
+  En résumé, je suis un UX généraliste avec quelques twists :
 
-1. *Étudier* les utilisateurs
-2. Pour *imaginer* des solutions adapter
-3. *Concevoir* la traduction de ces solutions en interfaces
-4. Et *tester* l’ensemble
+  - Auditeur en accessibilité
+  - [Intervenant à Épitech](http://misc.toutcequibouge.net/Epitech) (cours d'intro à l'UX, design sprints...)
+  - [Dev en dilettante](https://toutcequibouge.net/projets/)
 
+  Intéressé-e ?
 
-blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla
+  [Contactez-moi](/contact){.cta}
 
-En résumé, je suis un UX généraliste avec quelques twists :
+  {% endmarkdown %}
 
-- Auditeur en accessibilité
-- [Intervenant à Épitech](http://misc.toutcequibouge.net/Epitech) (cours d'intro à l'UX, design sprints...)
-- [Dev en dilettante](https://toutcequibouge.net/projets/)
+  <section class="flex-col items-start my-8 p-7 card-base">
+  <div class="p-0">
+    <h2 class="m-0">Liste de clients </h2>
 
-Intéressé-e ?
+    <ul class="flex flex-col items-start gap-4 ailleurs-list" >
+    {% for client in clients %}
 
-[Contactez-moi](/contact){.cta}
+      <li class="m-0 list-none">
 
-{% endrenderTemplate %}
+        <ul class="flex flex-col flex-wrap items-center m-0 gap-y-2 gap-x-3 xl:gap-x-4 sm:flex-row ailleurs-list" >
+            <li class="text-xl font-medium list-none ">{{client.name}}</li>
+              {% for item in client.list %}
+          <li class="m-0 text-xl list-none ">
+            {{item}}
+          </li>
+          {% if not loop.last %}
+          <span aria-hidden="true" class="hidden text-xl sm:inline " >~</span>
+          {% endif %}
+              {% endfor %}
+        </ul>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
 
-{# https://www.skies.dev/override-tailwind-prose
-#}
-<section class="flex-col items-start p-7 UI-component card-base ">
-<div class="p-0">
-  <h2 class="m-0">Liens de clients pas dégueus</h2>
-
-  <ul class="flex flex-col items-start ailleurs-list" >
-  {% for client in clients %}
-
-    <li class="m-0 list-none">
-
-      <ul class="flex flex-col flex-wrap items-center gap-3 m-0 xl:gap-4 sm:flex-row ailleurs-list" >
-        <span class="font-medium">
-          <li class="text-xl list-none">{{client.name}}</li>
-        </span>
-
-            {% for item in client.list %}
-        <li class="m-0 text-xl list-none ">
-          {{item}}
-        </li>
-        {% if not loop.last %}
-        <span aria-hidden="true" class="hidden text-xl sm:inline " >~</span>
-        {% endif %}
-            {% endfor %}
-      </ul>
-
-    </li>
-
-  {% endfor %}
-  </ul>
+  </section>
 </div>
 
-</section>
+
+  <section class="">
+    <div class="flex flex-col items-start justify-between mb-4 sm:flex-row sm:items-end md:mb-6">
+      <h2 class="text-2xl lg:text-3xl">Quelques projets</h2>
+        <a href="/projets" class="text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent2">Voir tout <span aria-hidden="true">⤳</span></a>
+    </div>
+
+    <ul class="max-w-lg gap-8 m-auto post-list md:gap-6 2xl:gap-8 md:m-0 md:max-w-none card-container project-list">
+      {% for ref in refs  %}
+        	<div class="my-8 card-base p-7">
+            <div class="flex flex-col">
+              <h3>{{ref.nom}}</h3>
+              <img src="{{ref.logo}}" alt="">
+              <div>
+                dl > dt <dd></dd>
+
+
+              </div>
+            </div>
+
+          </div>
+
+    {% endfor %}
+    </ul>
+  </section>

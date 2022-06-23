@@ -1,5 +1,5 @@
 <div
-class="flex flex-col gap-5 my-5"
+class="flex flex-col gap-5 my-5 max-w-max"
 	x-data="{niveauDeLangue, state: niveauDeLangue[1].description}"
 >
 	<div class="inline-flex overflow-hidden rounded-full bg-accent-light ">
@@ -16,7 +16,7 @@ class="flex flex-col gap-5 my-5"
 				/>
 				<label
 				:for="radio.id"
-				class="block px-4 py-1 mr-1 rounded-full cursor-pointer hover:bg-accent2 hover:text-white"
+				class="block px-6 py-3 rounded-full cursor-pointer hover:bg-accent2 hover:text-white"
 				x-text="radio.label"
 				></label>
 			</div>

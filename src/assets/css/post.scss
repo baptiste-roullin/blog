@@ -1,10 +1,10 @@
 
 
 
-/*.article {
+/*.prose {
 	 .heading-wrapper {
 		display: flex;
-		position: relative;
+	    	position: relative;
 			& .header-anchor:hover::before, & .header-anchor:focus::before {
 			content:'§︎';
 			position: absolute;
@@ -19,7 +19,7 @@
 
 }*/
 
-.article {
+.prose {
 	 .heading-wrapper {
 		display: flex;
 		position: relative;

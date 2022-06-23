@@ -164,13 +164,14 @@
 	.label-sm {
 		@apply  text-lg md:text-lg my-2 text-gray-600
 	}
-	/*.cta {
-   		@apply block px-8 py-4 m-auto font-medium no-underline bg-gray-200 rounded-full shadow-md max-w-max focus:outline-none
-		   focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75 hover:text-gray-800 hover:bg-gray-300 ;
-	}*/
+
 
 	.cta {
-		@apply text-center w-full py-4 text-lg font-bold tracking-wider text-white transition-all duration-75 active:text-dark active:bg-gray-200 rounded-lg shadow-lg bg-dark-lighter hover:bg-dark hover:shadow-xl max-w-[576px]
+		@apply text-center block w-2/3 py-4 text-lg no-underline font-bold tracking-wider text-white transition-all duration-75 active:text-dark active:bg-gray-200 rounded-lg shadow-lg bg-dark-lighter hover:bg-dark hover:shadow-xl max-w-[576px]
+	}
+
+	.cta:hover {
+		color: white !important
 	}
 
 	#content .post-main .cta {
