@@ -2,7 +2,7 @@
 @import "./post.scss";
 @import "./images.scss";
 @import "./portfolio.scss";
-@import "./tailwind.scss";
+@import "./global.scss";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

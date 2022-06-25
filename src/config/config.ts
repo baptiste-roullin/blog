@@ -17,7 +17,6 @@ module.exports = function (config: Config): UserConfig {
  * for when the Tailwind config or .css files change...
  * by default not watched by 11ty
  */
-	config.addWatchTarget('./src/assets/css/')
 	config.addWatchTarget('./src/assets/scripts/')
 	config.addWatchTarget('./src/*.js')
 	config.addWatchTarget('./tailwind.config.js')

@@ -1,3 +1,5 @@
+/** @type {import('tailwindcss').Config} */
+
 /*const { opacity, fontFamily } = require('tailwindcss/defaultTheme')
 const defaultTheme = require('tailwindcss/defaultTheme')*/
 const colors = require('tailwindcss/colors')
