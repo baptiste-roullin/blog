@@ -13,6 +13,7 @@ class="flex flex-col gap-5 my-6 "
 					:value="radio.description"
 					:name="name"
 					x-model="state"
+					aria-controls="tabPanel"
 				/>
 				<label
 				:for="radio.id"
@@ -22,14 +23,14 @@ class="flex flex-col gap-5 my-6 "
 			</div>
 		</template>
 	</div>
-	<p class="" x-text="state"></p>
+	<p class="" id="tabPanel" x-text="state"></p>
 </div>
 <script src="//unpkg.com/alpinejs" defer></script>
 <script >
 const niveauDeLangue = [
-	{ id: "radio-tab-a", label: "réponse tendance", description: "J’utilise les pouvoirs de la Créativité pour créer des CX holistiques et des interfaces delightful." },
-	{ id: "radio-tab-b", label: "réponse terre à terre", description: "J’aide à créer des systèmes à peu près robustes, utiles et utilisables." },
-	{ id: "radio-tab-c", label: "réponse effacée", description: "Je pose des carrés gris dans Figma et des post-its sur les murs." },
+	{ id: "radio-tab-a", label: "Réponse tendance", description: "J’utilise les pouvoirs de la Créativité pour créer des CX holistiques et des interfaces delightful." },
+	{ id: "radio-tab-b", label: "Réponse terre à terre", description: "J’aide à créer des systèmes à peu près robustes, utiles et utilisables." },
+	{ id: "radio-tab-c", label: "Réponse effacée", description: "Je pose des carrés gris dans Figma et des post-its sur les murs." },
 ]
 </script>
 
