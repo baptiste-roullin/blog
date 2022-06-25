@@ -75,6 +75,9 @@ module.exports = {
 	//TODO : conflit entre renderline et plugin markdown-it-attrs. Exemple avec le texte "Every Evelyn {lang=en}" en entrée.
 	markdownify: (markdownString) => md.renderInline(markdownString),
 
+	markdownifyBlock: (markdownString) => `<div class="prose prose-lg lg:prose-xl">${md.render(markdownString)}</div>`,
+
+
 	removeMD: require('./removeMD.js'),
 
 	dateToPermalink: function (date) {

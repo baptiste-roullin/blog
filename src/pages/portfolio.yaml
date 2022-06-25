@@ -1,7 +1,8 @@
 ---
 refs:
 
-  - nom: RoadConnect, un assistant mobile et réseau social pour les routiers
+  - title: RoadConnect, un assistant mobile et réseau social pour les routiers
+    name: Michelin
     logo: /assets/UI/michelin.svg
     description: Issu d’un hackaton et piloté par un pole d’innovation de Michelin, c’est une application mobile permettant des calculs d’itinéraires adaptés aux routiers (volume du camion, temps de pause...) et de retrouver ses amis sur la route
     durée:  Un an quasi à temps plein
@@ -18,7 +19,8 @@ refs:
     CTA-link: https://truckfly.com/fr/
     photo: /assets/UI/michelin2.png
 
-  - nom: Étude sur le consentement
+  - title: Étude sur le consentement
+    name: MAIF
     logo: /assets/UI/maif.svg
     description: |
       * État de l’art des bonnes et mauvaises pratiques sur le recueil et la gestion du consentement, avec un focus mobile.
@@ -28,9 +30,11 @@ refs:
     tasks: XX
     photo: /assets/UI/maif1.png
 
-  - nom: Concept de miroir connecté
+  - title: Concept de miroir connecté
+    name: SEB
     logo: /assets/UI/seb.png
     description: |
+
       * Entretien avec 8 personnes cibles sur leur rapport au self-care (sport, maquillage, coiffure…).
       * Conception d’un prototype non-fonctionnel
       * Test auprès des utilisateurs.
@@ -38,17 +42,8 @@ refs:
     tasks:
     photo: /assets/UI/seb1.png
 
-  - nom: Fusion de 27 sites institutionnels en un seul site
-    logo:
-    description: |
-      XX
-    durée:
-    tasks:
-    CTA:
-    CTA-comment:
-    photo:
 
-  - nom: Refonte de l'écosystème numérique d'Auvergne-Rhone-Alpes
+  - title: Refonte de l'écosystème numérique d'Auvergne-Rhone-Alpes
     logo: /assets/UI/aura.svg
     description: |
       * Évolution de l’écosystème numérique de la Région. En collaboration avec une agence AMOA :
@@ -56,15 +51,19 @@ refs:
         * Mise en place d’un système de conception
       * Refonte du site transport
         * Arborescence
-        * Ateliers de conception avec les directions mobilité
         * Recherche de ligne, information voyageurs multi-modal, imbrication des niveaux régional, départemental et local…
-    durée:
+    durée: 3 mois
     tasks:
-    CTA:
+      - Ateliers de conception avec les directions mobilité
+      - Arborescence
+      - wireframes
+    CTA: Consulter le vieux site
+    CTA-link: https://www.auvergnerhonealpes.fr/
     CTA-comment:
     photo: /assets/UI/aura1.png
 
-  - nom: Safran
+  - title: Fusion de 27 sites institutionnels en un seul site
+    name: Safran
     logo: /assets/UI/safran.svg
     description: |
       XX
@@ -76,7 +75,7 @@ refs:
     photo: /assets/UI/safran1.png
 
 clients:
-- sector: Industrie, énergie & transport
+- sector: Industrie & transport
   list:
   - Safran
   - SEB
@@ -110,7 +109,7 @@ clients:
   - 'MAIF'
 - sector: Public et associatif
   list:
-  - "Auvergne - Rhône - Alpes"
+  - "Auvergne-Rhône-Alpes"
   - 'ACOSS'
   - Ministère de la défense
   - Croix Rouge Française

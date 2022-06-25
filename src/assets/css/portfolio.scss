@@ -12,8 +12,7 @@
 	}
 
 	.page-portfolio dt {
-		text-transform: uppercase;
-
+		@apply text-accent3 font-medium
 	}
 
 	.page-portfolio dl {
