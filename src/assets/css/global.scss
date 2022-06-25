@@ -130,7 +130,7 @@
 		@apply	my-2 w-full sm:w-1/2 md:w-1/3
 	}
 	.card-container {
-		display:block;
+		display:grid;
 		grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
 		margin-bottom: 2rem;
 		@apply gap-16
@@ -166,8 +166,12 @@
 	}
 
 
+	.sections {
+		@apply flex flex-col gap-16 sm:gap-24
+	}
+
 	.cta {
-		@apply text-center block w-2/3 py-4 text-lg no-underline font-bold tracking-wider text-white transition-all duration-75 active:text-dark active:bg-gray-200 rounded-lg shadow-lg bg-dark-lighter hover:bg-dark hover:shadow-xl max-w-[576px]
+		@apply text-center block w-1/3 py-4 text-lg no-underline font-bold tracking-wider text-white transition-all duration-75 active:text-dark active:bg-gray-200 rounded-lg shadow-lg bg-dark-lighter hover:bg-dark hover:shadow-xl max-w-[576px]
 	}
 
 	.cta:hover {
@@ -181,12 +185,12 @@
 		@apply relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-600 transition duration-150 ease-in-out border border-gray-300 rounded-md hover:text-accent2 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:border-accent2
 	}
 	.cta-heading {
-		color: hsl(30.8, 95%, 17.3%);
-		@apply  text-lg-bis md:text-3xl font-medium leading-7 lg:leading-10 lg:text-4xl
+
+		@apply text-accent3  text-lg-bis md:text-3xl font-medium leading-7 lg:leading-10 lg:text-4xl
 	}
 	.cta-heading2 {
-		color: hsl(30.8, 95%, 17.3%);
-		@apply  text-lg-bis md:text-2xl font-medium leading-7 lg:leading-10 lg:text-3xl
+
+		@apply text-accent3  text-lg-bis md:text-2xl font-medium leading-7 lg:leading-10 lg:text-3xl
 	}
 
 	.cta-card {
