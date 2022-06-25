@@ -1,7 +1,7 @@
 {
 	"clients": [
 		{
-			"name": "Industrie, énergie & transport",
+			"sector": "Industrie, énergie & transport",
 			"list": [
 				"Safran",
 				"SEB",
@@ -17,7 +17,7 @@
 			]
 		},
 		{
-			"name": "Culture et éducation",
+			"sector": "Culture et éducation",
 			"list": [
 				"Mucem",
 				"France Galop",
@@ -26,7 +26,7 @@
 			]
 		},
 		{
-			"name": "Retail",
+			"sector": "Retail",
 			"list": [
 				"Mercialys",
 				"Grand Frais",
@@ -37,7 +37,7 @@
 			]
 		},
 		{
-			"name": "Services",
+			"sector": "Services",
 			"list": [
 				"Edenred",
 				"Orange",
@@ -46,7 +46,7 @@
 			]
 		},
 		{
-			"name": "Public et associatif",
+			"sector": "Public et associatif",
 			"list": [
 				"Auvergne - Rhône - Alpes",
 				"ACOSS ",

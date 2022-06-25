@@ -48,7 +48,7 @@ hero:
       <li class="m-0 list-none">
 
         <ul class="flex flex-col flex-wrap items-center m-0 gap-y-2 gap-x-3 xl:gap-x-4 sm:flex-row ailleurs-list" >
-            <li class="text-xl font-medium list-none ">{{client.name}}</li>
+            <li class="text-xl font-medium list-none ">{{client.sector}} :</li>
               {% for item in client.list %}
           <li class="m-0 text-xl list-none ">
             {{item}}
@@ -75,18 +75,37 @@ hero:
 
     <ul class="max-w-lg gap-8 m-auto post-list md:gap-6 2xl:gap-8 md:m-0 md:max-w-none card-container project-list">
       {% for ref in refs  %}
-        	<div class="my-8 card-base p-7">
-            <div class="flex flex-col">
+        	<li class="flex-col my-8 card-base p-7">
+            <div class="flex flex-row items-center justify-between">
               <h3>{{ref.nom}}</h3>
               <img src="{{ref.logo}}" alt="">
-              <div>
-                dl > dt <dd></dd>
-
-
-              </div>
             </div>
 
-          </div>
+            <div class="flex lg:grid details ">
+              <div class="flex flex-col gap-5 lg:gap-7">
+                <dl>
+                  <dt>Description</dt>
+                  <dd>{{ref.description}}</dd>
+                </dl>
+                <dl>
+                  <dt>Durée</dt>
+                  <dd>{{ref.durée}}</dd>
+                </dl>
+                <dl>
+                    <dt>Tâches</dt>
+                  <dd>
+                    	{% set tags = ref.tasks  %}
+
+                    {% for tag in tags   %}
+                    	{% include "../_templates/components/tagpills-inline.njk" %}
+
+                    {% endfor %}
+                  </dd>
+                </dl>
+              </div>
+              <div><img class="" src="{{ref.photo}}" alt=""></div>
+            </div>
+          </li>
 
     {% endfor %}
     </ul>
