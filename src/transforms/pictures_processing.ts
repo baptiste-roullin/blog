@@ -2,10 +2,7 @@
 // https://github.com/google/eleventy-high-performance-blog
 
 
-const debug = require('debug');
-const error = debug('images-responsiver:error');
-const warning = debug('images-responsiver:warning');
-const info = debug('images-responsiver:info');
+
 require('dotenv').config()
 
 const { parseHTML } = require('linkedom');

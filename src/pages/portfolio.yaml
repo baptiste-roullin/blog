@@ -1,0 +1,119 @@
+---
+refs:
+
+  - nom: RoadConnect, un assistant mobile et réseau social pour les routiers
+    logo: /assets/UI/michelin.svg
+    description: Issu d’un hackaton et piloté par un pole d’innovation de Michelin, c’est une application mobile permettant des calculs d’itinéraires adaptés aux routiers (volume du camion, temps de pause...) et de retrouver ses amis sur la route
+    durée:  Un an quasi à temps plein
+    tasks:
+      - 30 sprints
+      - 50 wireframes
+      - Exploration de nouvelles fonctions
+      - Entretiens sur des aires d’autoroute
+      - User flow
+      - Rédaction de stories et tests de régression
+      - suivi du développement
+    CTA: Voir le site
+    CTA-comment: Roadconnect n’est plus en ligne, mais j’ai un peu travaillé sur Truckfly, l’app successeuse.
+    CTA-link: https://truckfly.com/fr/
+    photo: /assets/UI/michelin2.png
+
+  - nom: Étude sur le consentement
+    logo: /assets/UI/maif.svg
+    description: |
+      * État de l’art des bonnes et mauvaises pratiques sur le recueil et la gestion du consentement, avec un focus mobile.
+      * Synthèse de la littérature sur les comportements individuels.
+      * Restitution en webinar devant 80 personnes, dont le DPO.
+    durée:  15 jours
+    tasks: XX
+    photo: /assets/UI/maif1.png
+
+  - nom: Concept de miroir connecté
+    logo: /assets/UI/seb.png
+    description: |
+      * Entretien avec 8 personnes cibles sur leur rapport au self-care (sport, maquillage, coiffure…).
+      * Conception d’un prototype non-fonctionnel
+      * Test auprès des utilisateurs.
+    durée: 2 mois
+    tasks:
+    photo: /assets/UI/seb1.png
+
+  - nom: Fusion de 27 sites institutionnels en un seul site
+    logo:
+    description: |
+      XX
+    durée:
+    tasks:
+    CTA:
+    CTA-comment:
+    photo:
+
+  - nom: Refonte de l'écosystème numérique d'Auvergne-Rhone-Alpes
+    logo: /assets/UI/aura.svg
+    description: |
+      * Évolution de l’écosystème numérique de la Région. En collaboration avec une agence AMOA :
+        * Réflexion transverse sur la navigation
+        * Mise en place d’un système de conception
+      * Refonte du site transport
+        * Arborescence
+        * Ateliers de conception avec les directions mobilité
+        * Recherche de ligne, information voyageurs multi-modal, imbrication des niveaux régional, départemental et local…
+    durée:
+    tasks:
+    CTA:
+    CTA-comment:
+    photo: /assets/UI/aura1.png
+
+  - nom: Safran
+    logo: /assets/UI/safran.svg
+    description: |
+      XX
+    durée:
+    tasks:
+    CTA:
+    CTA-comment:
+    CTA-link: https://www.safran-group.com/
+    photo: /assets/UI/safran1.png
+
+clients:
+- sector: Industrie, énergie & transport
+  list:
+  - Safran
+  - SEB
+  - Renault Trucks
+  - Alstom
+  - Renault
+  - Soltracing
+  - Michelin
+  - 'Engie'
+  - GDF Suez
+  - RATP
+  - SCNF
+- sector: Culture et éducation
+  list:
+  - Mucem
+  - France Galop
+  - 'Studi '
+  - Université de Lyon
+- sector: Retail
+  list:
+  - Mercialys
+  - Grand Frais
+  - Franprix
+  - Boulanger
+  - La Halle
+  - Flunch Traiteur
+- sector: Services
+  list:
+  - Edenred
+  - Orange
+  - 'MAIF'
+- sector: Public et associatif
+  list:
+  - "Auvergne - Rhône - Alpes"
+  - 'ACOSS'
+  - Ministère de la défense
+  - Croix Rouge Française
+  - Bureau International des poids et des mesures
+  - Ministère du travail
+  - Département de la vendée
