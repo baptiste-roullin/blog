@@ -19,13 +19,15 @@
 .prose {
 	 h2 {
 		position: relative;
+        left: -2em;
+        padding-left: 2em;
 		&:hover .header-anchor   {
 			display: inline-block;
 		}
 	}
 	.header-anchor  {
 		position: absolute;
-		left:-1.5em;
+		left:0.5em;
 		display: none;
 		font-size:1em;
 		@apply text-accent2;

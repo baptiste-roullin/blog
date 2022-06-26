@@ -115,12 +115,20 @@ list-style:none
 }
 
 
-@media screen and (min-width:1300px){
+@media screen and (min-width:1500px){
 
 	.hero-split img, .hero-split video {
     min-height: 500px;
 
+  }
 }
+
+@media screen and (min-width:1200px){
+
+	.hero-split img, .hero-split video {
+    min-height: 300px;
+
+  }
 }
 
 /*@media screen and (min-width:768){

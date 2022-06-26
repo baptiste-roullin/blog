@@ -1,12 +1,12 @@
 <header class="relative flex flex-col mb-8 h-max lg:flex-row hero-split lg:mb-18">
-	<div class=" decor-dark bg-dark h-4/5"></div>
+	<div class=" decor-dark bg-dark h-17/20"></div>
 	<div
         class="flex flex-col m-8 mx-auto lg:justify-center lg:w-1/2 lg:text-left"
       >
 		<h1
-        class="mb-4 text-3xl font-semibold text-shadow-lg-dark text-gray-50 lg:mr-8 sm:leading-none md:text-4xl xl:text-5xl"
+        class="mb-4 text-3xl font-semibold lg:whitespace-pre-line text-shadow-lg-dark text-gray-50 lg:mr-8 sm:leading-none md:text-4xl xl:text-5xl"
           >
-			{{ title | safe }}
+			{{ title | markdownify | safe }}
 		</h1>
 
 		<div class="pt-4 text-base metadata sm:text-lg UI-component text-gray-50">
