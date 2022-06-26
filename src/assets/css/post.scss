@@ -17,25 +17,17 @@
 }*/
 
 .prose {
-	 .heading-wrapper {
-		display: flex;
+	 h2 {
 		position: relative;
-		padding-left: 2em;
-		left: -2em;
-		align-items: center;
 		&:hover .header-anchor   {
 			display: inline-block;
-		}
-		> * {
-			margin:0
 		}
 	}
 	.header-anchor  {
 		position: absolute;
-		left:0;
+		left:-1.5em;
 		display: none;
-		padding:0 .5em;
-		font-size:1.2em;
+		font-size:1em;
 		@apply text-accent2;
 	}
    .zotero-list {

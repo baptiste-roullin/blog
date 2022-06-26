@@ -1,22 +1,12 @@
-const markdownItAttributes = require('markdown-it-attrs');
 //const markdownItContainer = require('markdown-it-container');
 const markdownIt = require('markdown-it')
-const markdownItFootnote = require('markdown-it-footnote');
 const slugify = require('../filters/slugify.js');
-const imageFigures = require('markdown-it-image-figures');
-
-const MarkdownBlockquoteCite = require('markdown-it-blockquote-cite');
-
 
 
 const anchor = (md, options) => {
 
-	const defaultOptions = {
-		divClass: 'heading-wrapper',
-		anchorClass: 'header-anchor',
-	};
 
-	options = Object.assign({}, defaultOptions, options);
+
 
 	md.renderer.rules.heading_open = function (tokens, index) {
 		const contentToken = tokens[index + 1];
@@ -24,8 +14,12 @@ const anchor = (md, options) => {
 
 		if (tokens[index].tag === 'h2') {
 			return `
-      <div class="${options.divClass}">
-        <${tokens[index].tag} id="${slug}">`;
+	        <${tokens[index].tag} id="${slug}">
+			<a class="header-anchor" href="#${slug}">
+         		<span aria-hidden="true">§︎</span>
+          		<span class="sr-only">Ancre pour le titre : ${contentToken.content}</span>
+        	</a>
+			`;
 		}
 		return `<${tokens[index].tag}>`;
 	};
@@ -33,15 +27,6 @@ const anchor = (md, options) => {
 	md.renderer.rules.heading_close = function (tokens, index) {
 		const contentToken = tokens[index - 1];
 		const slug = slugify(contentToken.content);
-		if (tokens[index].tag === 'h2') {
-			return `
-      </${tokens[index].tag}>
-        <a class="${options.anchorClass}" href="#${slug}">
-          <span aria-hidden="true">§︎</span>
-          <span class="sr-only">Ancre pour le titre : ${contentToken.content}</span>
-        </a>
-      </div>`;
-		}
 		return `</${tokens[index].tag}>`;
 	};
 };
@@ -104,11 +89,12 @@ const md = markdownIt(options)
 	.disable('code')
 	//.use(markdownItContainer, 'info')
 	//.use(markdownItHeadingLevel, { firstLevel: 2 })
-	.use(markdownItFootnote)
+	.use(require('markdown-it-footnote'))
 	.use(anchor)
-	.use(markdownItAttributes)
-	.use(MarkdownBlockquoteCite)
-	.use(imageFigures, { figcaption: true })
+	.use(require('markdown-it-bracketed-spans'))
+	.use(require('markdown-it-attrs'))
+	.use(require('markdown-it-blockquote-cite'))
+	.use(require('markdown-it-image-figures'), { figcaption: true })
 	.use(require('markdown-it-highlightjs'));
 
 

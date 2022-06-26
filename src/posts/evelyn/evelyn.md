@@ -1,5 +1,5 @@
 ---
-title: "Every Evelyn"
+title: "[Every Evelyn]{lang='en'}"
 date: 2022-05-29
 draft: false
 tags:

@@ -9,7 +9,6 @@ module.exports = {
 		if (data.match(/\!\[/g).length > 1) {
 			width = 'container-wide'
 		}
-
 		return `<div class="rich-picture ${width} " >${content}</div>`;
 	},
 
