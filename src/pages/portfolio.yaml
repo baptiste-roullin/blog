@@ -4,43 +4,62 @@ refs:
   - title: RoadConnect, un assistant mobile et réseau social pour les routiers
     name: Michelin
     logo: /assets/UI/michelin.svg
-    description: Issu d’un hackaton et piloté par un pole d’innovation de Michelin, c’est une application mobile permettant des calculs d’itinéraires adaptés aux routiers (volume du camion, temps de pause...) et de retrouver ses amis sur la route
+    description: |
+      Issu d’un hackaton et piloté par un pole d’innovation de Michelin, c’est une application mobile permettant
+
+      * des calculs d’itinéraires adaptés aux routiers (volume du camion, temps de pause...)
+      * de retrouver ses amis sur la route
+
+      Roadconnect n’est plus en ligne mais j’ai aussi travaillé sur Truckfly, l’app qui l'a remplacé.
     durée:  Un an quasi à temps plein
     tasks:
-      - 30 sprints
-      - 50 wireframes
-      - Exploration de nouvelles fonctions
-      - Entretiens sur des aires d’autoroute
+      - 20 sprints
+      - Entretiens sur aires d’autoroute
+      - Pitch de nouvelles fonctions
       - User flow
-      - Rédaction de stories et tests de régression
-      - suivi du développement
+      - 50 wireframes
+      - Stories et tests de régression
+      - Suivi du développement
     CTA: Voir le site
-    CTA-comment: Roadconnect n’est plus en ligne, mais j’ai un peu travaillé sur Truckfly, l’app successeuse.
-    CTA-link: https://truckfly.com/fr/
-    photo: /assets/UI/michelin2.png
+    CTALink: https://truckfly.com/
+    photos:
+      - url: /assets/UI/michelin2.png
+        alt: null
+      - url:  /assets/UI/michelin3.png
+        alt: null
+
 
   - title: Étude sur le consentement
     name: MAIF
     logo: /assets/UI/maif.svg
     description: |
-      * État de l’art des bonnes et mauvaises pratiques sur le recueil et la gestion du consentement, avec un focus mobile.
-      * Synthèse de la littérature sur les comportements individuels.
-      * Restitution en webinar devant 80 personnes, dont le DPO.
+      Une étude sur l'état de l’art des bonnes et mauvaises pratiques sur le recueil et la gestion du consentement, avec un focus mobile.
     durée:  15 jours
-    tasks: XX
-    photo: /assets/UI/maif1.png
+    tasks:
+      - Synthèse de la littérature sur la psychologie de la vie privée.
+      - Compilation de statistiques
+      - Restitution en webinar devant 80 personnes, dont le DPO de la MAIF.
+    photos:
+      - url: /assets/UI/maif1.png
+        alt: null
+      - url: /assets/UI/maif2.png
+        alt: null
+      - url: /assets/UI/maif3.png
+        alt: null
+      - url: /assets/UI/maif4.png
+        alt: null
+
 
   - title: Concept de miroir connecté
     name: SEB
     logo: /assets/UI/seb.png
     description: |
 
-      * Entretien avec 8 personnes cibles sur leur rapport au self-care (sport, maquillage, coiffure…).
-      * Conception d’un prototype non-fonctionnel
-      * Test auprès des utilisateurs.
+      SEB réfléchissait à créer des services numériques intégrés au quotidien et complémentaire des produits existants (sèche-cheveux, rasoirs...). Nous devions donc interroger les gens sur lesur rapport au "soin de soi", imaginer des concepts et les tester avec un prototype papier.
     durée: 2 mois
-    tasks:
-    photo: /assets/UI/seb1.png
+    photos:
+      - url: /assets/UI/seb1.png
+        alt: null
 
 
   - title: Refonte de l'écosystème numérique d'Auvergne-Rhone-Alpes
@@ -57,62 +76,93 @@ refs:
       - Ateliers de conception avec les directions mobilité
       - Arborescence
       - wireframes
-    CTA: Consulter le vieux site
-    CTA-link: https://www.auvergnerhonealpes.fr/
-    CTA-comment:
-    photo: /assets/UI/aura1.png
 
-  - title: Fusion de 27 sites institutionnels en un seul site
+    photos:
+      - url:  /assets/UI/aura1.png
+        alt: null
+
+  - title: "Fusion de 27 sites institutionnels en un seul site"
     name: Safran
     logo: /assets/UI/safran.svg
     description: |
-      XX
-    durée:
+
+      * 10 ateliers fonctionnels et UX
+      * Création et test de l’arborescence (quanti à distance) conception de 40 templates
+      * Aide à la stratégie de contenu (modules éditoriaux, tone of voice…),
+      * Suivi de l’UI (à la création et à la maintenance d’un design system).
+    CTA: en cours
+    photos:
+      - url: /assets/UI/safran1.png
+        alt: null
+
+  - title: Refonte du site institutionnel et catalogue
+    name: Studi
+    logo: /assets/UI/studi.svg
+    description: |
+      Gros acteur du elearning à la croissance explosive, vous les avez peut-être vu à la télé. Le défi : comment faire pour qu'un potentiel apprenant explore la variété du catalogue (13 filières), comprenne les possibilités de financement et se persuade d'apprendre à distance pour, mettons, un diplôme d’infirmier ?
+    CTA: "Visiter le site"
+    CTA-link: https://studi.fr
     tasks:
-    CTA:
-    CTA-comment:
-    CTA-link: https://www.safran-group.com/
-    photo: /assets/UI/safran1.png
+      - Entretiens
+      - Test
+      - Arborescence
+      - Parcours
+      - Wireframes
+    photos:
+      - url: /assets/UI/studi1.png
+        alt: null
+      - url: /assets/UI/studi2.png
+        alt: null
+      - url: /assets/UI/studi3.png
+        alt: null
+      - url: /assets/UI/studi4.png
+        alt: null
+
+  - title: "Flunch Traiteur"
+    description: "XX"
+    name: "Flunch"
+
+
 
 clients:
-- sector: Industrie & transport
-  list:
-  - Safran
-  - SEB
-  - Renault Trucks
-  - Alstom
-  - Renault
-  - Soltracing
-  - Michelin
-  - 'Engie'
-  - GDF Suez
-  - RATP
-  - SCNF
-- sector: Culture et éducation
-  list:
-  - Mucem
-  - France Galop
-  - 'Studi '
-  - Université de Lyon
-- sector: Retail
-  list:
-  - Mercialys
-  - Grand Frais
-  - Franprix
-  - Boulanger
-  - La Halle
-  - Flunch Traiteur
-- sector: Services
-  list:
-  - Edenred
-  - Orange
-  - 'MAIF'
-- sector: Public et associatif
-  list:
-  - "Auvergne-Rhône-Alpes"
-  - 'ACOSS'
-  - Ministère de la défense
-  - Croix Rouge Française
-  - Bureau International des poids et des mesures
-  - Ministère du travail
-  - Département de la vendée
+  - sector: Industrie & transport
+    list:
+    - Safran
+    - SEB
+    - Renault Trucks
+    - Alstom
+    - Renault
+    - Soltracing
+    - Michelin
+    - 'Engie'
+    - GDF Suez
+    - RATP
+    - SCNF
+  - sector: Culture et éducation
+    list:
+    - Mucem
+    - France Galop
+    - 'Studi '
+    - Université de Lyon
+  - sector: Retail
+    list:
+    - Mercialys
+    - Grand Frais
+    - Franprix
+    - Boulanger
+    - La Halle
+    - Flunch Traiteur
+  - sector: Services
+    list:
+    - Edenred
+    - Orange
+    - 'MAIF'
+  - sector: Public et associatif
+    list:
+    - "Auvergne-Rhône-Alpes"
+    - 'ACOSS'
+    - Ministère de la défense
+    - Croix Rouge Française
+    - Bureau International des poids et des mesures
+    - Ministère du travail
+    - Département de la vendée
