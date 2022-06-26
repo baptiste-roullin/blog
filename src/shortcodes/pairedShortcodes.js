@@ -17,9 +17,10 @@ module.exports = {
 		if (!value) {
 			return ''
 		}
-		return `<div class="prose  lg:prose-xl prose-lg ">${md.render(value)}</div>`
+		return `<div class="prose  lg:prose-xl prose-lg layout-prose w-full">${md.render(value)}</div>`
 
 	},
+
 	/**
 	 * ===== Wrapper =====
 	 *

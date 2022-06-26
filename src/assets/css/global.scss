@@ -3,6 +3,15 @@
 
 @layer base {
 
+
+
+	.layout-prose {
+		@apply max-w-screen-xl gap-6 m-auto lg:max-w-prose;
+	}
+
+	.layout-wide {
+		@apply max-w-6xl m-auto  lg:max-w-7xl 2xl:max-w-9xl  md:max-w-none
+	}
 	body {
 		background-color: #fdfcfb;
 		overflow-x: hidden;
@@ -102,7 +111,11 @@
 	.container-wide {
 		margin-left: calc(30% - 30vw);
 		margin-right: calc(30% - 30vw);
-		position: relative
+		position: relative;
+			img   {
+				width: auto;
+				margin: 0
+			}
 	}
 
 	.container-full {
@@ -115,9 +128,6 @@
 }
 
 @layer components {
-
-
-
 
 	.input {
 		@apply  block w-full  focus:border-dark  px-4  py-3  mt-1 mb-6  text-lg  placeholder-gray-500 transition-all  duration-150  ease-in-out  rounded-md shadow-sm lg:mb-8
@@ -134,8 +144,6 @@
 		grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
 		margin-bottom: 2rem;
 		@apply gap-16
-
-
 	}
 
 	#pagination-left a:before {
