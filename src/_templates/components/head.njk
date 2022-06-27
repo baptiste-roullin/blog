@@ -1,7 +1,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>{{  altTitle or title }}  | {{ meta.siteName }}</title>
+  {% set titre = title | removeMD %}
+
+<title>{{  titre }}  </title>
 
 {#- General #}
 

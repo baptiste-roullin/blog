@@ -20,7 +20,7 @@
 			<a
 			href="{{ post.url }}"
 			class="block hover:underline hover:text-accent2">
-				{{ post.data.title }}
+				{{ post.data.title | markdownify | safe }}
 			</a>
 		</h{{hx}}>
 

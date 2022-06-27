@@ -1,3 +1,4 @@
+
 const md = require('../config/markdown.js')
 
 module.exports = {
@@ -8,10 +9,17 @@ module.exports = {
 		if (data.match(/\!\[/g).length > 1) {
 			width = 'container-wide'
 		}
-
 		return `<div class="rich-picture ${width} " >${content}</div>`;
 	},
 
+
+	markdown: function (value) {
+		if (!value) {
+			return ''
+		}
+		return `<div class="prose lg:prose-xl prose-lg layout-prose w-full">${md.render(value)}</div>`
+
+	},
 
 	/**
 	 * ===== Wrapper =====

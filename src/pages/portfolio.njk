@@ -1,0 +1,205 @@
+---
+layout: base
+title: "Baptiste,&NewLine; 34 ans ½,&NewLine; designer [ux]{.small-caps}"
+hero:
+  type: split
+  image: banner.png
+  alt: "échelles de note montrant mes compétences. 'Test utilisateur' est bien noté, 'design graphique' est mal noté,  'faire valider une page d'accueil du premier coup' est très bien noté. Et 'modestie' est même noté 6/5"
+richPicture: true
+eleventyNavigation:
+  key: main
+  title: Portfolio
+  order: 3
+---
+<div class="mb-16 text-lg lg:text-xl lg:mx-auto template-post-main">
+
+
+  <div class="layout-wide">
+
+  {% include 'components/hero-split.njk' %}</div>
+
+
+    <div class="sections ">
+      <section class="flex flex-col gap-6 layout-prose">
+        {% markdown %}
+## C'est quoi un designer [ux]{.small-caps} ?
+        {% endmarkdown   %}
+
+    {% include "src/_templates/components/portfolio-tab.njk" %}
+
+
+        {% markdown %}
+## Mais encore ?
+
+Y a en gros quatre étapes :
+
+1. *Étudier* les utilisateurs et le contexte du service
+2. Pour *imaginer* des services adaptés aux gens
+3. Les *traduire* en interfaces
+4. Tester tout ça auprès des utilisateurs -- la boucle est bouclée.
+
+## Mais pourquoi ?
+
+Notamment parce que connaitre les utilisateurs et leur dédier des services adaptés. Un contre-exemple : les lignes de désir et les vaines tentatives pour les encadrer.
+
+!['barrière posée devant un chemin naturellement creusé à travers une pelouse'](/assets/UI/ligne_désir.jpg)
+
+## Et moi là-dedans
+
+Je suis un designer UX polyvalent avec un certains penchant pour les défis fonctionnels, mettre en place des méthodes d'étude utilisateur quali ou quanti et mener des ateliers à gros enjeux.
+
+Mentionnons aussi un certain goût pour les [systèmes complexes](/tags/systemes-complexes/), [pour utiliser mes outils à fond](/tags/prototypage) et pour faire le pont [entre théorie et pratique](/tags/sciences-cognitives/).
+
+Enfin, en bonus, je suis :
+  - Auditeur en accessibilité
+  - [Intervenant à Épitech](http://misc.toutcequibouge.net/epitech)
+  - [Dev en dilettante](https://toutcequibouge.net/projets/)
+
+Intéressé-e ?
+
+[Contactez-moi](/contact){.cta}
+
+        {% endmarkdown %}
+      </section>
+
+
+          {# TOOLS #}
+
+        <section class="tools">
+      {% markdown %}
+## Mes outils {.cta-heading}
+
+​{.hidden}
+
+        {% endmarkdown %}
+
+        <div class="flex flex-col justify-start gap-10 md:justify-center md:flex-row layout-wide">
+            {% for tool in tools %}
+              <div class="flex flex-col justify-between gap-2 ">
+                <span class="text-lg leading-5 w-min">{{tool.name}}</span>
+                <figure class=""><img class="w-8 shadow-md md:w-16" src="{{tool.logo}}" alt=""></figure>
+              </div>
+            {% endfor %}
+          </div>
+
+
+      </section>
+
+        {# PROJETS #}
+
+      <section class="">
+        {% markdown %}
+## Quelques projets {.cta-heading}
+
+​{.hidden}
+
+       {% endmarkdown %}
+
+        <ul class="flex flex-col gap-8 m-auto md:gap-16 post-list layout-wide project-list">
+          {% for ref in refs  %}
+              <li class="flex-col p-5 card-base hover:shadow lg:p-8 ">
+                <div class="flex flex-row items-center justify-between w-full">
+                  <h3 class="cta-heading">{{ref.title}}</h3>
+                  <img src="{{ref.logo}}" alt="{{ref.name}}">
+                </div>
+
+                {# DÉTAILS #}
+                <div class="flex flex-col justify-between gap-6 md:grid lg:gap-8 details ">
+                  <div class="flex flex-col gap-5 lg:gap-7">
+                    <dl>
+                      <dt>C'est quoi</dt>
+                      <dd>{{ref.description | markdownifyBlock | safe}}</dd>
+                    </dl>
+
+
+                    {% if ref.durée %}
+                    <dl>
+                      <dt>Durée</dt>
+                      <dd>{{ref.durée if ref.durée}}</dd>
+                    </dl>
+                    {% endif %}
+
+                    {% if ref.tasks %}
+                    <dl>
+                      <dt>Ce que j'ai fait</dt>
+                      <dd>
+                          <ul class="inline tagpills">
+                              {% for task in ref.tasks %}
+                                  <li class="inline-block my-auto">
+                                    {{ task }}
+                                    {% include "../_templates/components/separator.njk" %}
+                                  </li>
+                              {% endfor %}
+                          </ul>
+                      </dd>
+                    </dl>
+                    {% endif %}
+
+                  </div>
+                  <div class="flex flex-col gap-10">
+                    <img class="shadow-md" src="{{ref.photos[0].url}}" alt="{{ref.photos[0].alt}}">
+
+                    {% if  ref.CTA %}
+                    <a href="{{ref.CTALink}}" class="w-3/4 mx-auto cta">{{ref.CTA}}</a>
+                    {%else %}
+                    <div class="w-3/4 mx-auto text-gray-800 bg-gray-400 cta">En cours ou confidentiel</div>
+                    {% endif %}
+
+
+                    </div>
+                </div>
+
+
+                {# GALERIE #}
+                {% if ref.photos[1] %}
+                  <div class="flex justify-center gap-4 lg md:flex-row rich-picture gallery">
+                    {% for photo in ref.photos %}
+                      <figure class=""><img class="w-auto shadow-md" style="max-height:75vh" src="{{ref.photos[loop.index0 + 1].url}}" alt="{{ref.photos[loop.index0 + 1].alt}}"></figure>
+
+                    {% endfor %}
+                  </div>
+
+                {% endif %}
+
+              </li>
+
+        {% endfor %}
+        </ul>
+      </section>
+
+
+      {# CLIENTS #}
+
+      <section class="clients">
+          {% markdown %}
+## Clients principaux {.cta-heading}
+
+​{.hidden}
+
+          {% endmarkdown %}
+
+        <div class="flex-col items-start p-5 lg:p-8 card-base hover:shadow layout-wide">
+          <ul class="flex flex-col items-start gap-8 " >
+          {% for client in clients %}
+
+            <li class="flex flex-col w-full gap-4 m-0 list-none md:flex-row md:gap-7">
+              <span class="text-xl font-medium list-none md:text-right text-accent3 sector basis-1/4 shrink-0 ">{{client.sector}}</span>
+              <ul class="flex flex-row flex-wrap m-0 md:items-center gap-y-2 gap-x-2 xl:gap-x-3 " >
+                    {% for item in client.list %}
+                <li class="m-0 text-xl list-none ">
+                  {{item}}
+                </li>
+                {% if not loop.last %}
+                <span aria-hidden="true" class="text-xl " >~</span>
+                {% endif %}
+                    {% endfor %}
+              </ul>
+            </li>
+          {% endfor %}
+          </ul>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+

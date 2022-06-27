@@ -9,7 +9,8 @@ module.exports = {
 	 * at all screen sizes.
 	 */
 	g_proseWidth: 'max-w-screen-xl sm:px-4 lg:max-w-prose m-auto',
-	g_pageWidth: " m-auto",
+	g_pageWidth: 'max-w-6xl mx-2 my-16 lg:mx-auto lg:max-w-7xl 2xl:max-w-9xl',
+	g_homeWidth: " m-auto",
 
 
 }

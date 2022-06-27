@@ -1,10 +1,7 @@
-
-
-
-/*.article {
+/*.prose {
 	 .heading-wrapper {
 		display: flex;
-		position: relative;
+	    	position: relative;
 			& .header-anchor:hover::before, & .header-anchor:focus::before {
 			content:'§︎';
 			position: absolute;
@@ -19,26 +16,20 @@
 
 }*/
 
-.article {
-	 .heading-wrapper {
-		display: flex;
+.prose {
+	 h2 {
 		position: relative;
-		padding-left: 2em;
-		left: -2em;
-		align-items: center;
+        left: -2em;
+        padding-left: 2em;
 		&:hover .header-anchor   {
 			display: inline-block;
-		}
-		> * {
-			margin:0
 		}
 	}
 	.header-anchor  {
 		position: absolute;
-		left:0;
+		left:0.5em;
 		display: none;
-		padding:0 .5em;
-		font-size:1.2em;
+		font-size:1em;
 		@apply text-accent2;
 	}
    .zotero-list {

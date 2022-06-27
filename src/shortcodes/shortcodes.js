@@ -1,5 +1,4 @@
 
-const markdownIt = require('markdown-it')({ html: true })
 const svgColorDefault = 'text-indigo-500'
 const truchet = require('../features/truchet/truchet-shortcode.js')
 
@@ -50,15 +49,5 @@ module.exports = {
             </svg>`
     },
 
-
-    markdown: function (value) {
-        if (!value) {
-            return ''
-        }
-
-
-
-        return markdownIt.render(value)
-    },
 
 }

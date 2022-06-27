@@ -5,6 +5,8 @@ const pluginNavigation = require('@11ty/eleventy-navigation')
 const yaml = require("js-yaml");
 require('dotenv').config()
 const embedEverything = require("eleventy-plugin-embed-everything");
+const { EleventyRenderPlugin } = require("@11ty/eleventy");
+
 const meta = require('../_data/meta.js');
 import picturesProcessing from '../transforms/pictures_processing'
 
@@ -15,9 +17,9 @@ module.exports = function (config: Config): UserConfig {
  * for when the Tailwind config or .css files change...
  * by default not watched by 11ty
  */
-	config.addWatchTarget('./src/assets/css/')
 	config.addWatchTarget('./src/assets/scripts/')
-	config.addWatchTarget('./src/*.js')
+	config.addWatchTarget('./src/**/*.js')
+	config.addWatchTarget('./src/**/*.ts')
 	config.addWatchTarget('./tailwind.config.js')
 	config.setWatchThrottleWaitTime(200);
 
@@ -81,6 +83,7 @@ cf. postcss.config.js pour le CSS
 		use: ['vimeo', 'youtube', 'twitter'], twitter: { options: { align: 'center' } }
 	});
 	config.addPlugin(pluginRss)
+	config.addPlugin(EleventyRenderPlugin);
 
 
 	/**
