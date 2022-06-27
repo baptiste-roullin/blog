@@ -23,11 +23,14 @@ refs:
     CTA: Voir le site
     CTALink: https://truckfly.com/
     photos:
-      - url: /assets/UI/michelin2.png
+      - url: /assets/UI/michelin1.png
+        alt: null
+      - url:  /assets/UI/michelin2.png
         alt: null
       - url:  /assets/UI/michelin3.png
         alt: null
-
+      - url:  /assets/UI/michelin4.png
+        alt: null
 
   - title: Étude sur le consentement
     name: MAIF
@@ -87,12 +90,17 @@ refs:
     description: |
 
       * 10 ateliers fonctionnels et UX
+      * Navigation par profil
       * Création et test de l’arborescence (quanti à distance) conception de 40 templates
       * Aide à la stratégie de contenu (modules éditoriaux, tone of voice…),
-      * Suivi de l’UI (à la création et à la maintenance d’un design system).
-    CTA: en cours
+    CTA: "Visiter le site"
+    CTA-link: https://safran-group.com
     photos:
       - url: /assets/UI/safran1.png
+        alt: null
+      - url: /assets/UI/safran2.png
+        alt: null
+      - url: /assets/UI/safran3.png
         alt: null
 
   - title: Refonte du site institutionnel et catalogue
@@ -119,9 +127,17 @@ refs:
         alt: null
 
   - title: "Flunch Traiteur"
-    description: "XX"
-    name: "Flunch"
+    logo: /assets/UI/flunch.png
 
+    description: "Refonte de la boutique d'organisation d'évènements B2B et B2C"
+    name: "Flunch"
+    photos:
+          - url: /assets/UI/flunch1.png
+            alt: null
+          - url: /assets/UI/flunch2.png
+            alt: null
+          - url: /assets/UI/flunch3.png
+            alt: null
 
 
 clients:
@@ -166,3 +182,21 @@ clients:
     - Bureau International des poids et des mesures
     - Ministère du travail
     - Département de la vendée
+
+tools:
+  - name: Figma
+    logo: tool-1.png
+  - name: Sketch
+    logo: tool-2.png
+  - name: Axure
+    logo: tool-3.png
+  - name: Miro
+    logo: tool-4.png
+  - name: Hotjar
+    logo: tool-5.png
+  - name: Optimal Workshop
+    logo: tool-6.png
+  - name: Google Analytics
+    logo: tool-7.png
+  - name: Lookback
+    logo: tool-8.png

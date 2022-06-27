@@ -12,10 +12,10 @@
 		display:none;
 	}
 
-	/*.page-portfolio .details {
+	.page-portfolio .details {
 		grid-template-columns: 3fr 2fr;
 		@apply gap-7
-	}*/
+	}
 
 	.page-portfolio dt {
 		@apply text-accent3 font-medium

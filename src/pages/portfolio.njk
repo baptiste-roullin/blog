@@ -23,8 +23,6 @@ eleventyNavigation:
       <section class="flex flex-col gap-6 layout-prose">
         {% markdown %}
 ## C'est quoi un designer [ux]{.small-caps} ?
-
-            ​{.hidden}
         {% endmarkdown   %}
 
     {% include "src/_templates/components/portfolio-tab.njk" %}
@@ -46,11 +44,11 @@ Notamment parce que connaitre les utilisateurs et leur dédier des services adap
 
 !['barrière posée devant un chemin naturellement creusé à travers une pelouse'](/assets/UI/ligne_désir.jpg)
 
-## Et toi là-dedans
+## Et moi là-dedans
 
 Je suis un designer UX polyvalent avec un certains penchant pour les défis fonctionnels, mettre en place des méthodes d'étude utilisateur quali ou quanti et mener des ateliers à gros enjeux.
 
-Mentionnons aussi un certain goût pour les [systèmes complexes](/tags/systemes-complexes/), [pour utiliser mes outils à fond](/tags/prototypage), faire le pont [entre théorie et pratique](/tags/sciences-cognitives/).
+Mentionnons aussi un certain goût pour les [systèmes complexes](/tags/systemes-complexes/), [pour utiliser mes outils à fond](/tags/prototypage) et pour faire le pont [entre théorie et pratique](/tags/sciences-cognitives/).
 
 Enfin, en bonus, je suis :
   - Auditeur en accessibilité
@@ -62,6 +60,29 @@ Intéressé-e ?
 [Contactez-moi](/contact){.cta}
 
         {% endmarkdown %}
+      </section>
+
+
+          {# TOOLS #}
+
+        <section class="tools">
+      {% markdown %}
+## Mes outils {.cta-heading}
+
+​{.hidden}
+
+        {% endmarkdown %}
+
+        <div class="flex flex-col justify-start gap-12 md:justify-center md:flex-row layout-wide">
+            {% for tool in tools %}
+              <div class="flex flex-col justify-between gap-2 ">
+                <span class="text-lg leading-5 w-min">{{tool.name}}</span>
+                <figure class=""><img class="w-8 shadow-md md:w-16" src="{{tool.logo}}" alt=""></figure>
+              </div>
+            {% endfor %}
+          </div>
+
+
       </section>
 
         {# PROJETS #}
@@ -83,7 +104,7 @@ Intéressé-e ?
                 </div>
 
                 {# DÉTAILS #}
-                <div class="flex flex-col justify-between gap-6 md:flex-row lg:gap-8 details ">
+                <div class="flex flex-col justify-between gap-6 md:grid lg:gap-8 details ">
                   <div class="flex flex-col gap-5 lg:gap-7">
                     <dl>
                       <dt>C'est quoi</dt>
@@ -126,9 +147,9 @@ Intéressé-e ?
 
                 {# GALERIE #}
                 {% if ref.photos[1] %}
-                  <div class="flex justify-center gap-4 lg md:flex-row rich-picture">
+                  <div class="flex justify-center gap-4 lg md:flex-row rich-picture gallery">
                     {% for photo in ref.photos %}
-                      <figure class="max-w-1/3"><img class="w-auto " src="{{ref.photos[loop.index0 + 1].url}}" alt="{{ref.photos[loop.index0 + 1].alt}}"></figure>
+                      <figure class=""><img class="w-auto " style="max-height:75vh" src="{{ref.photos[loop.index0 + 1].url}}" alt="{{ref.photos[loop.index0 + 1].alt}}"></figure>
 
                     {% endfor %}
                   </div>
@@ -140,6 +161,7 @@ Intéressé-e ?
         {% endfor %}
         </ul>
       </section>
+
 
       {# CLIENTS #}
 
