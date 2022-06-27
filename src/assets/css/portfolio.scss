@@ -12,6 +12,14 @@
 		display:none;
 	}
 
+	.page-portfolio li:first-child {
+		margin-top: 0 !important;
+		}
+
+	.page-portfolio li:last-child {
+		margin-bottom: 0 !important;
+		}
+
 	.page-portfolio .details {
 		grid-template-columns: 3fr 2fr;
 		@apply gap-7

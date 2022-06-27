@@ -3,7 +3,7 @@ refs:
 
   - title: Michelin RoadConnect, un assistant mobile et réseau social pour les routiers
     name: Michelin
-    logo: /assets/UI/michelin.svg
+    logo: /assets/images/michelin.svg
     description: |
       Issu d’un hackaton et piloté par un pole d’innovation de Michelin, c’est une application mobile permettant
 
@@ -23,18 +23,18 @@ refs:
     CTA: Voir le site
     CTALink: https://truckfly.com/
     photos:
-      - url: /assets/UI/michelin1.png
+      - url: /assets/images/michelin1.png
         alt: null
-      - url:  /assets/UI/michelin2.png
+      - url:  /assets/images/michelin2.png
         alt: null
-      - url:  /assets/UI/michelin3.png
+      - url:  /assets/images/michelin3.png
         alt: null
-      - url:  /assets/UI/michelin4.png
+      - url:  /assets/images/michelin4.png
         alt: null
 
   - title: Étude sur le consentement pour la MAIF
     name: MAIF
-    logo: /assets/UI/maif.svg
+    logo: /assets/images/maif.svg
     description: |
       Une étude sur l'état de l’art des bonnes et mauvaises pratiques sur le recueil et la gestion du consentement, avec un focus mobile.
     durée:  15 jours
@@ -43,30 +43,30 @@ refs:
       - Compilation de statistiques
       - Restitution en webinar devant 80 personnes, dont le DPO de la MAIF.
     photos:
-      - url: /assets/UI/maif1.png
+      - url: /assets/images/maif1.png
         alt: null
-      - url: /assets/UI/maif2.png
+      - url: /assets/images/maif2.png
         alt: null
-      - url: /assets/UI/maif3.png
+      - url: /assets/images/maif3.png
         alt: null
-      - url: /assets/UI/maif4.png
+      - url: /assets/images/maif4.png
         alt: null
 
 
   - title: Concept de miroir connecté pour SEB
     name: SEB
-    logo: /assets/UI/seb.png
+    logo: /assets/images/seb.png
     description: |
 
       SEB réfléchissait à créer des services numériques intégrés au quotidien et complémentaire des produits existants (sèche-cheveux, rasoirs...). Nous devions donc interroger les gens sur leur rapport au "soin de soi", imaginer des concepts et les tester avec un prototype papier.
     durée: 2 mois
     photos:
-      - url: /assets/UI/seb1.png
+      - url: /assets/images/seb1.png
         alt: null
 
 
   - title: Refonte de l'écosystème numérique d'Auvergne-Rhone-Alpes
-    logo: /assets/UI/aura.svg
+    logo: /assets/images/aura.svg
     description: |
       * Évolution de l’écosystème numérique de la Région. En collaboration avec une agence AMOA :
         * Réflexion transverse sur la navigation
@@ -81,13 +81,13 @@ refs:
       - wireframes
 
     photos:
-      - url:  /assets/UI/aura1.png
+      - url:  /assets/images/aura1.png
         alt: null
 
   - title: "Création d'un méga-site institutionnel pour groupe Safran"
 
     name: Safran
-    logo: /assets/UI/safran.svg
+    logo: /assets/images/safran.svg
     description: |
       Fusion de 27 sites institutionnels en un site monde.
 
@@ -101,18 +101,20 @@ refs:
     durée: 8 mois
     tasks: null
     photos:
-      - url: /assets/UI/safran1.png
+      - url: /assets/images/safran1.png
         alt: null
-      - url: /assets/UI/safran2.png
+      - url: /assets/images/safran2.png
         alt: null
-      - url: /assets/UI/safran3.png
+      - url: /assets/images/safran3.png
         alt: null
 
   - title: Refonte du site institutionnel et catalogue de Studi
     name: Studi
-    logo: /assets/UI/studi.svg
+    logo: /assets/images/studi.svg
     description: |
-      Gros acteur du elearning à la croissance explosive, vous les avez peut-être vu à la télé. Le défi : comment faire pour qu'un potentiel apprenant explore la variété du catalogue (13 filières), comprenne les possibilités de financement et se persuade d'apprendre à distance pour, mettons, un diplôme d’infirmier ?
+      Gros acteur du elearning à la croissance explosive, vous les avez peut-être vu à la télé.
+
+      Le défi : comment faire pour qu'un potentiel apprenant explore la variété du catalogue (13 filières), comprenne les possibilités de financement et se persuade d'apprendre à distance pour, mettons, un diplôme d’infirmier ?
     CTA: "Visiter le site"
     CTA-link: https://studi.fr
     durée: 3 mois
@@ -123,27 +125,27 @@ refs:
       - Parcours
       - Wireframes
     photos:
-      - url: /assets/UI/studi1.png
+      - url: /assets/images/studi1.png
         alt: null
-      - url: /assets/UI/studi2.png
+      - url: /assets/images/studi2.png
         alt: null
-      - url: /assets/UI/studi3.png
+      - url: /assets/images/studi3.png
         alt: null
-      - url: /assets/UI/studi4.png
+      - url: /assets/images/studi4.png
         alt: null
 
   - title: "Flunch Traiteur"
-    logo: /assets/UI/flunch.png
+    logo: /assets/images/flunch.png
     durée: 3 mois
     tasks: null
     description: "Refonte de la boutique d'organisation d'évènements B2B et B2C pour Flunch Traiteur "
     name: "Flunch"
     photos:
-          - url: /assets/UI/flunch1.png
+          - url: /assets/images/flunch1.png
             alt: null
-          - url: /assets/UI/flunch2.png
+          - url: /assets/images/flunch2.png
             alt: null
-          - url: /assets/UI/flunch3.png
+          - url: /assets/images/flunch3.png
             alt: null
 
 
