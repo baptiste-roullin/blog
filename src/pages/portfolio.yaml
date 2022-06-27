@@ -53,12 +53,12 @@ refs:
         alt: null
 
 
-  - title: Concept de miroir connecté
+  - title: Concept de miroir connecté pour SEB
     name: SEB
     logo: /assets/UI/seb.png
     description: |
 
-      SEB réfléchissait à créer des services numériques intégrés au quotidien et complémentaire des produits existants (sèche-cheveux, rasoirs...). Nous devions donc interroger les gens sur lesur rapport au "soin de soi", imaginer des concepts et les tester avec un prototype papier.
+      SEB réfléchissait à créer des services numériques intégrés au quotidien et complémentaire des produits existants (sèche-cheveux, rasoirs...). Nous devions donc interroger les gens sur leur rapport au "soin de soi", imaginer des concepts et les tester avec un prototype papier.
     durée: 2 mois
     photos:
       - url: /assets/UI/seb1.png
@@ -84,10 +84,12 @@ refs:
       - url:  /assets/UI/aura1.png
         alt: null
 
-  - title: "Fusion de 27 sites institutionnels en un seul site pour le groupe Safran"
+  - title: "Création d'un méga-site institutionnel pour groupe Safran"
+
     name: Safran
     logo: /assets/UI/safran.svg
     description: |
+      Fusion de 27 sites institutionnels en un site monde.
 
       * 10 ateliers fonctionnels et UX
       * Navigation par profil
@@ -96,6 +98,8 @@ refs:
       * Aide à la stratégie de contenu (modules éditoriaux, tone of voice…),
     CTA: "Visiter le site"
     CTA-link: https://safran-group.com
+    durée: 8 mois
+    tasks: null
     photos:
       - url: /assets/UI/safran1.png
         alt: null
@@ -111,6 +115,7 @@ refs:
       Gros acteur du elearning à la croissance explosive, vous les avez peut-être vu à la télé. Le défi : comment faire pour qu'un potentiel apprenant explore la variété du catalogue (13 filières), comprenne les possibilités de financement et se persuade d'apprendre à distance pour, mettons, un diplôme d’infirmier ?
     CTA: "Visiter le site"
     CTA-link: https://studi.fr
+    durée: 3 mois
     tasks:
       - Entretiens
       - Test
@@ -129,7 +134,8 @@ refs:
 
   - title: "Flunch Traiteur"
     logo: /assets/UI/flunch.png
-
+    durée: 3 mois
+    tasks: null
     description: "Refonte de la boutique d'organisation d'évènements B2B et B2C pour Flunch Traiteur "
     name: "Flunch"
     photos:

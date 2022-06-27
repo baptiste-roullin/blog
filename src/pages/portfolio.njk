@@ -110,29 +110,34 @@ Intéressé-e ?
                       <dt>C'est quoi</dt>
                       <dd>{{ref.description | markdownifyBlock | safe}}</dd>
                     </dl>
+
+
+                    {% if ref.durée %}
                     <dl>
                       <dt>Durée</dt>
                       <dd>{{ref.durée if ref.durée}}</dd>
                     </dl>
+                    {% endif %}
+
+                    {% if ref.tasks %}
                     <dl>
-                        <dt>Ce que j'ai fait</dt>
+                      <dt>Ce que j'ai fait</dt>
                       <dd>
                           <ul class="inline tagpills">
-                            {% if ref.tasks %}
                               {% for task in ref.tasks %}
                                   <li class="inline-block my-auto">
                                     {{ task }}
                                     {% include "../_templates/components/separator.njk" %}
                                   </li>
                               {% endfor %}
-                            {% endif %}
-
                           </ul>
                       </dd>
                     </dl>
+                    {% endif %}
+
                   </div>
                   <div class="flex flex-col gap-10">
-                    <img class="" src="{{ref.photos[0].url}}" alt="{{ref.photos[0].alt}}">
+                    <img class="shadow-md" src="{{ref.photos[0].url}}" alt="{{ref.photos[0].alt}}">
 
                     {% if  ref.CTA %}
                     <a href="{{ref.CTALink}}" class="w-3/4 mx-auto cta">{{ref.CTA}}</a>
@@ -149,7 +154,7 @@ Intéressé-e ?
                 {% if ref.photos[1] %}
                   <div class="flex justify-center gap-4 lg md:flex-row rich-picture gallery">
                     {% for photo in ref.photos %}
-                      <figure class=""><img class="w-auto " style="max-height:75vh" src="{{ref.photos[loop.index0 + 1].url}}" alt="{{ref.photos[loop.index0 + 1].alt}}"></figure>
+                      <figure class=""><img class="w-auto shadow-md" style="max-height:75vh" src="{{ref.photos[loop.index0 + 1].url}}" alt="{{ref.photos[loop.index0 + 1].alt}}"></figure>
 
                     {% endfor %}
                   </div>
