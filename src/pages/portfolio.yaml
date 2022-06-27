@@ -1,7 +1,7 @@
 ---
 refs:
 
-  - title: RoadConnect, un assistant mobile et réseau social pour les routiers
+  - title: Michelin RoadConnect, un assistant mobile et réseau social pour les routiers
     name: Michelin
     logo: /assets/UI/michelin.svg
     description: |
@@ -32,7 +32,7 @@ refs:
       - url:  /assets/UI/michelin4.png
         alt: null
 
-  - title: Étude sur le consentement
+  - title: Étude sur le consentement pour la MAIF
     name: MAIF
     logo: /assets/UI/maif.svg
     description: |
@@ -84,14 +84,15 @@ refs:
       - url:  /assets/UI/aura1.png
         alt: null
 
-  - title: "Fusion de 27 sites institutionnels en un seul site"
+  - title: "Fusion de 27 sites institutionnels en un seul site pour le groupe Safran"
     name: Safran
     logo: /assets/UI/safran.svg
     description: |
 
       * 10 ateliers fonctionnels et UX
       * Navigation par profil
-      * Création et test de l’arborescence (quanti à distance) conception de 40 templates
+      * Création et test de l’arborescence (quanti à distance)
+      * conception de 40 templates
       * Aide à la stratégie de contenu (modules éditoriaux, tone of voice…),
     CTA: "Visiter le site"
     CTA-link: https://safran-group.com
@@ -103,7 +104,7 @@ refs:
       - url: /assets/UI/safran3.png
         alt: null
 
-  - title: Refonte du site institutionnel et catalogue
+  - title: Refonte du site institutionnel et catalogue de Studi
     name: Studi
     logo: /assets/UI/studi.svg
     description: |
@@ -129,7 +130,7 @@ refs:
   - title: "Flunch Traiteur"
     logo: /assets/UI/flunch.png
 
-    description: "Refonte de la boutique d'organisation d'évènements B2B et B2C"
+    description: "Refonte de la boutique d'organisation d'évènements B2B et B2C pour Flunch Traiteur "
     name: "Flunch"
     photos:
           - url: /assets/UI/flunch1.png
@@ -143,31 +144,31 @@ refs:
 clients:
   - sector: Industrie & transport
     list:
-    - Safran
-    - SEB
-    - Renault Trucks
     - Alstom
-    - Renault
-    - Soltracing
-    - Michelin
-    - 'Engie'
+    - Engie
     - GDF Suez
+    - Michelin
     - RATP
+    - Renault
+    - Renault Trucks
+    - Safran
     - SCNF
+    - SEB
+    - Soltracing
   - sector: Culture et éducation
     list:
-    - Mucem
     - France Galop
-    - 'Studi '
+    - Mucem
+    - Studi
     - Université de Lyon
   - sector: Retail
     list:
-    - Mercialys
-    - Grand Frais
-    - Franprix
     - Boulanger
-    - La Halle
     - Flunch Traiteur
+    - Franprix
+    - Grand Frais
+    - La Halle
+    - Mercialys
   - sector: Services
     list:
     - Edenred
@@ -175,13 +176,13 @@ clients:
     - 'MAIF'
   - sector: Public et associatif
     list:
-    - "Auvergne-Rhône-Alpes"
     - 'ACOSS'
-    - Ministère de la défense
-    - Croix Rouge Française
+    - "Auvergne-Rhône-Alpes"
     - Bureau International des poids et des mesures
-    - Ministère du travail
+    - Croix Rouge Française
     - Département de la vendée
+    - Ministère de la défense
+    - Ministère du travail
 
 tools:
   - name: Figma

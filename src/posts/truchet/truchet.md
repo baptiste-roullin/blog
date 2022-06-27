@@ -27,7 +27,7 @@ Revenons à notre pavage. Chez Truchet, il y avait quatre carreaux de base :
 Comme on le voit, c'est une variation toute bête autour d'un simple triangle. Mais avec ça, il obtenait déjà des formes variées, en les regroupant en bandes, en losange, ou en alternant noirs et blancs.
 
 
-![seb](seb.png)
+![seb](seb-scan.png)
 
 
 ## Chez bibi
