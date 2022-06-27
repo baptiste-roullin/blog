@@ -25,7 +25,7 @@ async function convertGIFs(name, convertedName, outPath) {
 };
 
 
-export function handleGIFs(img, document, imageSettings) {
+export function handleGIFs(img) {
 	const outPath = `${meta.outputDir}/${meta.assetsDir}/`
 	let src = img.getAttribute("src");
 	const name = path.basename(src)

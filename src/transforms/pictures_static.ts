@@ -1,18 +1,17 @@
-const debug = require('debug');
-const error = debug('images-responsiver:error');
-const warning = debug('images-responsiver:warning');
-const info = debug('images-responsiver:info');
+
 require('dotenv').config()
 const convertPicturesLibrary = require("@11ty/eleventy-img");
 import path from "path";
 require('dotenv').config()
 const meta = require('../_data/meta.js')
+const clonedeep = require('lodash.clonedeep');
+
 
 function normalizePath(str) {
 	return decodeURI(str.replace(/^\s(.*)\s$/g, "$1"))
 }
 
-export const imageSettings = {
+export const globalSettings = {
 	selector: " #content :not(picture) > img[src]:not([srcset]):not([src$='.svg'])",
 	minWidth: 360,
 	maxWidth: 1920,
@@ -20,6 +19,7 @@ export const imageSettings = {
 	sizes: '(max-width: 60rem) 90vw, 60rem',
 	resizedImageUrl: (src: string, width): string => {
 		const fullPath = `/${meta.assetsDir}/${path.basename(src)}`
+
 		return fullPath.
 			replace(
 				/^(.*)(\.[^\.]+)$/,
@@ -99,15 +99,18 @@ export function prepareForLighbox(image, document) {
 	}
 }
 
-export function handlePictures(image, document, imageSettings) {
+export function handlePictures(image, document, globalSettings) {
+
+	let imageSettings = clonedeep(globalSettings);
 	convertPictures(image, document);
 
 	const imageSrc = image.getAttribute('src') as string;
-	info(`Transforming ${imageSrc}`);
+	console.log(`Transforming ${imageSrc}`);
 
 	const imageWidth = image.getAttribute('width');
+
 	if (imageWidth === null) {
-		warning(`The image should have a width attribute: ${imageSrc}`);
+		console.log(`The image should have a width attribute: ${imageSrc}`);
 	}
 
 	let srcsetList: string[] = [];
@@ -150,16 +153,14 @@ export function handlePictures(image, document, imageSettings) {
 
 		// Make sure there are at least 2 steps for minWidth and maxWidth
 		if (imageSettings.steps < 2) {
-			warning(
-				`Steps should be >= 2: ${imageSettings.steps} step for ${imageSrc}`
-			);
+			//console.log(`Steps should be >= 2: ${imageSettings.steps} step for ${imageSrc}`);
 			imageSettings.steps = 2;
 		}
 
 		// Make sure maxWidth > minWidth
 		// (even if there would be no issue in `srcset` order)
 		if (imageSettings.minWidth > imageSettings.maxWidth) {
-			warning(`Combined options have minWidth > maxWidth for ${imageSrc}`);
+			console.log(`Combined options have minWidth > maxWidth for ${imageSrc}`);
 			let tempMin = imageSettings.minWidth;
 			imageSettings.minWidth = imageSettings.maxWidth;
 			imageSettings.maxWidth = tempMin;
@@ -167,18 +168,15 @@ export function handlePictures(image, document, imageSettings) {
 
 		if (imageWidth !== null) {
 			if (imageWidth < imageSettings.minWidth) {
-				warning(
-					`The image is smaller than minWidth: ${imageWidth} < ${imageSettings.minWidth}`
-				);
+				console.log(`The image is smaller than minWidth: ${imageWidth} < ${imageSettings.minWidth}`);
 				imageSettings.minWidth = imageWidth;
 			}
 			if (imageWidth < imageSettings.fallbackWidth) {
-				warning(
-					`The image is smaller than fallbackWidth: ${imageWidth} < ${imageSettings.fallbackWidth}`
-				);
+				console.log(`The image is smaller than fallbackWidth: ${imageWidth} < ${imageSettings.fallbackWidth}`);
 				imageSettings.fallbackWidth = imageWidth;
 			}
 		}
+
 		// generate the srcset attribute
 		let previousStepWidth = 0;
 		for (let i = 0; i < imageSettings.steps; i++) {
@@ -188,10 +186,9 @@ export function handlePictures(image, document, imageSettings) {
 					(imageSettings.steps - 1)) *
 				i
 			);
+
 			if (imageWidth !== null && stepWidth >= imageWidth) {
-				warning(
-					`The image is smaller than maxWidth: ${imageWidth} < ${imageSettings.maxWidth}`
-				);
+				console.log(`The image is smaller than maxWidth: ${imageWidth} < ${imageSettings.maxWidth}`);
 				srcsetList.push(
 					`${imageSettings.resizedImageUrl(
 						imageSrc,

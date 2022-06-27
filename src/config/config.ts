@@ -19,7 +19,6 @@ module.exports = function (config: Config): UserConfig {
  */
 	config.addWatchTarget('./src/assets/scripts/')
 	config.addWatchTarget('./src/**/*.js')
-	config.addWatchTarget('./src/**/*.ts')
 	config.addWatchTarget('./tailwind.config.js')
 	config.setWatchThrottleWaitTime(200);
 

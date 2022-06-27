@@ -79,6 +79,7 @@
   "dependencies": {
     "css": "^3.0.0",
     "elasticlunr": "github:weixsong/elasticlunr.js#v0.9.6",
+    "lodash.clonedeep": "^4.5.0",
     "markdown-it-bracketed-spans": "^1.0.1",
     "photoswipe": "^5.2.3",
     "sharp": "^0.30.3",

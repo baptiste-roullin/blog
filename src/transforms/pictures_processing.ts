@@ -7,7 +7,7 @@ require('dotenv').config()
 
 const { parseHTML } = require('linkedom');
 import { handleGIFs } from './pictures_animated';
-import { handlePictures, imageSettings } from './pictures_static';
+import { handlePictures, globalSettings } from './pictures_static';
 
 
 
@@ -16,9 +16,9 @@ export default function pictures_processing(html) {
 
 	const { document } = parseHTML(html);
 
-	[...document.querySelectorAll(imageSettings.selector)]
+	[...document.querySelectorAll(globalSettings.selector)]
 		.filter((image) =>
-			!((new RegExp(imageSettings.ignore)).test(image.getAttribute('src')))
+			!((new RegExp(globalSettings.ignore)).test(image.getAttribute('src')))
 		)
 		.filter((image) => {
 			// filter out images without a src, or not SVG, or with already a srcset
@@ -31,10 +31,10 @@ export default function pictures_processing(html) {
 		.forEach(async (image) => {
 
 			if (image.getAttribute('src').match(/\.gif$/)) {
-				await handleGIFs(image, document, imageSettings)
+				await handleGIFs(image)
 			}
 			else {
-				handlePictures(image, document, imageSettings)
+				handlePictures(image, document, globalSettings)
 			}
 		});
 
