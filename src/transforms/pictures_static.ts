@@ -105,12 +105,12 @@ export function handlePictures(image, document, globalSettings) {
 	convertPictures(image, document);
 
 	const imageSrc = image.getAttribute('src') as string;
-	console.log(`Transforming ${imageSrc}`);
+	//console.log(`Transforming ${imageSrc}`);
 
 	const imageWidth = image.getAttribute('width');
 
 	if (imageWidth === null) {
-		console.log(`The image should have a width attribute: ${imageSrc}`);
+		//console.log(`The image should have a width attribute: ${imageSrc}`);
 	}
 
 	let srcsetList: string[] = [];
@@ -160,7 +160,7 @@ export function handlePictures(image, document, globalSettings) {
 		// Make sure maxWidth > minWidth
 		// (even if there would be no issue in `srcset` order)
 		if (imageSettings.minWidth > imageSettings.maxWidth) {
-			console.log(`Combined options have minWidth > maxWidth for ${imageSrc}`);
+			//console.log(`Combined options have minWidth > maxWidth for ${imageSrc}`);
 			let tempMin = imageSettings.minWidth;
 			imageSettings.minWidth = imageSettings.maxWidth;
 			imageSettings.maxWidth = tempMin;
@@ -168,11 +168,11 @@ export function handlePictures(image, document, globalSettings) {
 
 		if (imageWidth !== null) {
 			if (imageWidth < imageSettings.minWidth) {
-				console.log(`The image is smaller than minWidth: ${imageWidth} < ${imageSettings.minWidth}`);
+				//console.log(`The image is smaller than minWidth: ${imageWidth} < ${imageSettings.minWidth}`);
 				imageSettings.minWidth = imageWidth;
 			}
 			if (imageWidth < imageSettings.fallbackWidth) {
-				console.log(`The image is smaller than fallbackWidth: ${imageWidth} < ${imageSettings.fallbackWidth}`);
+				//console.log(`The image is smaller than fallbackWidth: ${imageWidth} < ${imageSettings.fallbackWidth}`);
 				imageSettings.fallbackWidth = imageWidth;
 			}
 		}
@@ -188,7 +188,7 @@ export function handlePictures(image, document, globalSettings) {
 			);
 
 			if (imageWidth !== null && stepWidth >= imageWidth) {
-				console.log(`The image is smaller than maxWidth: ${imageWidth} < ${imageSettings.maxWidth}`);
+				//console.log(`The image is smaller than maxWidth: ${imageWidth} < ${imageSettings.maxWidth}`);
 				srcsetList.push(
 					`${imageSettings.resizedImageUrl(
 						imageSrc,

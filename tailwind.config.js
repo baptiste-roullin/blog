@@ -91,7 +91,7 @@ module.exports = {
 			colors: {
 				'dark': {
 					DEFAULT: 'hsl(202, 78%, 16%)',
-					light: 'hsl(217,	32%,	32%)',
+					light: 'hsl(217,32%,32%)',
 					lighter: 'hsl(202, 70%, 20%)'
 				},
 				'accent': 'hsl(5, 77%, 37%)',
