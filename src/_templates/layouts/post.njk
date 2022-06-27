@@ -19,6 +19,7 @@ layout: base
 						<time datetime="{{ page.date | dateHumanFormat("yyyy-MM-dd") }}">
 							{{ page.date | dateHumanFormat("dd LLLL yyyy") }}
 						</time>
+						<span aria-hidden="true" class="mx-1 text-xl font-light sm:mx-2 sm:inline" >~</span>
 						{% include "components/tagpills-inline.njk" %}
 					</div>
 				{% endif %}
