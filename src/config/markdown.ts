@@ -1,12 +1,9 @@
-//const markdownItContainer = require('markdown-it-container');
 const markdownIt = require('markdown-it')
+
 const slugify = require('../filters/slugify.js');
 
 
 const anchor = (md, options) => {
-
-
-
 
 	md.renderer.rules.heading_open = function (tokens, index) {
 		const contentToken = tokens[index + 1];
@@ -31,51 +28,25 @@ const anchor = (md, options) => {
 	};
 };
 
+// TODO https://github.com/markdown-it/markdown-it/blob/master/lib/rules_core/replacements.js
 
-
-/*
-// taken from https://gist.github.com/rodneyrehm/4feec9af8a8635f7de7cb1754f146a39
-function getHeadingLevel(tagName) {
-	if (tagName[0].toLowerCase() === 'h') {
-		tagName = tagName.slice(1);
+const double_punctuation = (md, options) => {
+	const NBSP_DOUBLE_PUNCTUATION = /(\w+(?:\s?»)?)(\s?)([?!;:])(\s|$)/gu
+	const U = {
+		ELLIPSIS: '\u2026',
+		SPACE: '\u0020', // Good ol' space
+		WNBSP: '\u00A0', // wide non breakable space
+		NNBSP: '\u202F', // narrow non breakable space
+		OPENING_QUOTE: '«',
+		CLOSING_QUOTE: '»',
 	}
 
-	return parseInt(tagName, 10);
+	/*	str.replace(NBSP_DOUBLE_PUNCTUATION, (match, $1, $2, $3, $4) => {
+			console.log('espaces fines insécables avant ? ! ; :')
+			return $1 + U.NNBSP + $3 + $4
+		})*/
 }
 
-function markdownItHeadingLevel(md, options) {
-	var firstLevel = options.firstLevel;
-
-	if (typeof firstLevel === 'string') {
-		firstLevel = getHeadingLevel(firstLevel);
-	}
-	if (!firstLevel || isNaN(firstLevel)) {
-		return;
-	}
-	var levelOffset = firstLevel - 1;
-	if (levelOffset < 1 || levelOffset > 6) {
-		return;
-	}
-
-	md.core.ruler.push('adjust-heading-levels', function (state) {
-		var tokens = state.tokens;
-		for (var i = 0; i < tokens.length; i++) {
-			if (tokens[i].type !== 'heading_close') {
-				continue;
-			}
-
-			var headingOpen = tokens[i - 2];
-			var headingClose = tokens[i];
-
-			var currentLevel = getHeadingLevel(headingOpen.tag);
-			var tagName = 'h' + Math.min(currentLevel + levelOffset, 6);
-
-			headingOpen.tag = tagName;
-			headingClose.tag = tagName;
-		}
-	});
-}
-*/
 
 let options = {
 	html: true,
@@ -91,6 +62,7 @@ const md = markdownIt(options)
 	//.use(markdownItHeadingLevel, { firstLevel: 2 })
 	.use(require('markdown-it-footnote'))
 	.use(anchor)
+	.use(double_punctuation)
 	.use(require('markdown-it-bracketed-spans'))
 	.use(require('markdown-it-attrs'))
 	.use(require('markdown-it-blockquote-cite'))
