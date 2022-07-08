@@ -3,8 +3,8 @@ export default function nav() {
 	function toggleNav() {
 
 		const offCanvas = document.querySelector('#menu-offcanvas')!
-		const burger = document.querySelector('#burger')
-		const icon = burger.querySelectorAll('svg')
+		const burger = document.querySelector('#burger')!
+		//const icon = burger.querySelectorAll('svg')
 		const button = burger.querySelectorAll('button')!
 		button[0].classList.toggle('hidden')
 		button[1].classList.toggle('hidden')
@@ -29,10 +29,12 @@ export default function nav() {
 	}
 
 	document.addEventListener('DOMContentLoaded', () => {
-		const header = document.querySelector('#header') as HTMLElement
-		window.scrollTo({
-			top: header.offsetTop,
-		});
+		if (window.matchMedia("(max-width: 640px)").matches && !(/#/.test(location.href))) {
+			const header = document.querySelector('#header') as HTMLElement
+			window.scrollTo({
+				top: header.offsetTop,
+			});
+		}
 	})
 
 	const button = document.querySelector('#header #trigger-zone')!

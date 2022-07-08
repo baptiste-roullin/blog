@@ -137,7 +137,7 @@ cf. postcss.config.js pour le CSS
 		excerpt_separator: "<!-- excerpt -->"
 	});
 
-	config.setLibrary('md', require('./markdown.js'));
+	config.setLibrary('md', require('./markdown.ts'));
 
 
 

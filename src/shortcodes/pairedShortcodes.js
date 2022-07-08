@@ -1,5 +1,5 @@
 
-const md = require('../config/markdown.js')
+const md = require('../config/markdown.ts')
 
 module.exports = {
 

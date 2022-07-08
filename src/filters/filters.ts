@@ -1,5 +1,5 @@
 const slugify = require('./slugify.js');
-const md = require('../config/markdown.js')
+const md = require('../config/markdown.ts')
 import { search } from '../features/search_index/search_index';
 const { DateTime, Settings } = require('luxon')
 Settings.defaultLocale = "fr";
