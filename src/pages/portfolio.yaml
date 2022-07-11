@@ -79,7 +79,8 @@ refs:
       - Ateliers de conception avec les directions mobilité
       - Arborescence
       - wireframes
-
+    CTA: "Visiter le site"
+    CTA-link: https://studi.fr
     photos:
       - url:  /assets/images/aura1.png
         alt: null
@@ -97,7 +98,7 @@ refs:
       * conception de 40 templates
       * Aide à la stratégie de contenu (modules éditoriaux, tone of voice…),
     CTA: "Visiter le site"
-    CTA-link: https://safran-group.com
+    CTA-link: https://www.auvergnerhonealpes.fr
     durée: 8 mois
     tasks: null
     photos:
