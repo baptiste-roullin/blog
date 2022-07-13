@@ -39,14 +39,12 @@ module.exports = {
     'truchet-dom': path.resolve(__dirname, 'src/features/truchet/truchet-dom.ts'),
   },
 
-
   output: {
     path: path.resolve(__dirname, meta.outputDir + '/assets/scripts'),
     /*    détournement du publicpatch*/
     //publicPath: path.resolve(__dirname, 'src'),
     filename: () => (process.env.NODE_ENV === "production" ? '[name].[contenthash].js' : '[name].js')
   },
-
   module: {
     rules: [
       {
@@ -87,12 +85,18 @@ module.exports = {
           }
         ]
       },
-
-
     ],
   },
   plugins: [
     new WebpackAssetsManifest({
+      customize(entry, original, manifest, asset) {
+
+        // l'otpion fileExtRegex devrait servir à ça, mais pas réussi à la faire marcher.
+        if (!(entry.key.endsWith('.js'))) {
+          return false;
+        }
+        return entry
+      },
       output: '../../../src/_data/hashes_js.json'
     }),
     new CopyPlugin({
@@ -119,9 +123,6 @@ module.exports = {
             return `${context}/assets/imagesToProcess/[name][ext]`;
           },
         },
-
-
-
       ],
       options: {
         concurrency: 100,
