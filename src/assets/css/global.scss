@@ -30,28 +30,19 @@
 	}
 
 	h1 {
-		@apply font-bold text-gray-700;
-		@apply text-4xl;
+		@apply font-bold text-gray-700 text-4xl;
 	}
 	h2 {
-		@apply font-bold text-gray-700;
-		@apply pt-12 text-3xl;
-
+		@apply font-bold text-gray-700 pt-12 text-2xl lg:text-3xl;
 	}
 	h3 {
-		@apply text-2xl;
-		@apply font-bold text-gray-700;
-
+		@apply text-2xl font-bold text-gray-700;
 	}
 	h4 {
-		@apply text-xl;
-		@apply font-bold text-gray-500;
-
+		@apply text-xl font-bold text-gray-500;
 	}
 	h5 {
-		@apply text-lg;
-		@apply font-bold text-gray-500;
-
+		@apply text-lg font-bold text-gray-500;
 	}
 
 	a,
@@ -173,7 +164,9 @@
 
 
 	.sections {
-		@apply flex flex-col gap-16 sm:gap-24
+
+	.block-heading-split {
+		@apply flex flex-col items-start sm:items-center justify-between mb-4 md:mb-6 sm:flex-row
 	}
 
 	.cta {
