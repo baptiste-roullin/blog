@@ -92,7 +92,7 @@ Quand on lit [l'article](toutcequibouge.net/assets/docs/smith.pdf) où Smith int
 
 Ce blog est statique : les pages sont crées à l'avance par un serveur Node qui tourne juste le temps de la génération, pas quand vous visitez le site. Lors de cette phase de compilation, les motifs de Truchet sont générées. Ceux de la section "[Chez Bibi](#chez-bibi)", eux, sont créés à la volée par votre navigateur. D'ailleurs ce ne sont pas des fichiers d'image mais des éléments `<canvas>`.
 
-Dans les deux cas, le cœur du code est le même : [truchet-core.ts](https://github.com/baptiste-roullin/blog/tree/dev/src/truchet). C'est tout l'intérêt d'utiliser Javascript pour le front et le back. D'ailleurs, pour pouvoir dessiner des pixels sur un `<canvas>`, il faut l'API Canvas. De base, Node ne sait pas ce que c'est : c'est une [technologie de navigateur](https://developer.mozilla.org/en-US/docs/Web/API) dont il n'a pas besoin. De même, il ne sait pas ce qu'est un élément `<img>` ou un click de souris. Pas grave, Canvas a été [ré-implémenté](https://www.npmjs.com/package/canvas) pour Node.
+Dans les deux cas, le cœur du code est le même : [truchet_core.ts](https://github.com/baptiste-roullin/blog/tree/dev/src/truchet). C'est tout l'intérêt d'utiliser Javascript pour le front et le back. D'ailleurs, pour pouvoir dessiner des pixels sur un `<canvas>`, il faut l'API Canvas. De base, Node ne sait pas ce que c'est : c'est une [technologie de navigateur](https://developer.mozilla.org/en-US/docs/Web/API) dont il n'a pas besoin. De même, il ne sait pas ce qu'est un élément `<img>` ou un click de souris. Pas grave, Canvas a été [ré-implémenté](https://www.npmjs.com/package/canvas) pour Node.
 
 
 
