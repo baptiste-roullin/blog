@@ -1,5 +1,9 @@
+	.page-portfolio .sections > * {
+		margin: auto !important;
+
+	}
 	.page-portfolio input[type="radio"]:checked + label {
-	@apply bg-accent text-white;
+		@apply bg-accent text-white;
 	}
 
 
