@@ -72,10 +72,9 @@ module.exports = {
 
 	searchIndex: search,
 
-	//TODO : conflit entre renderinline et plugin markdown-it-attrs. Exemple avec le texte "Every Evelyn {lang=en}" en entrée.
 	markdownify: (markdownString) => md.renderInline(markdownString),
 
-	markdownifyBlock: (markdownString) => `<div class="prose prose-lg lg:prose-xl">${md.render(markdownString)}</div>`,
+	markdownifyBlock: (markdownString) => `<div class="prose-tcqb">${md.render(markdownString)}</div>`,
 
 
 	removeMD: require('./removeMD.js'),

@@ -4,6 +4,9 @@
 @layer base {
 
 
+	.prose-tcqb {
+		@apply prose lg:prose-xl prose-lg
+	}
 
 	.layout-prose {
 		@apply max-w-screen-xl gap-6 m-auto lg:max-w-prose;
