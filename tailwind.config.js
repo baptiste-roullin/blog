@@ -178,17 +178,7 @@ module.exports = {
 						}
 					},
 				},
-				dark: {
-					css: {
-						color: theme('colors.gray.50'),
-						a: {
-							color: theme('colors.gray.50'),
-							'&:hover': {
-								color: theme('colors.accent'),
-							},
-						},
-					}
-				}
+
 			}),
 			opacity: (theme) => ({
 				5: '.05',
