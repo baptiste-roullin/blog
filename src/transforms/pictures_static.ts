@@ -2,7 +2,6 @@
 require('dotenv').config()
 const convertPicturesLibrary = require("@11ty/eleventy-img");
 import path from "path";
-require('dotenv').config()
 const meta = require('../_data/meta.js')
 const clonedeep = require('lodash.clonedeep');
 
@@ -56,7 +55,7 @@ function convertPictures(image, document) {
 			widths: [360, 750, imageDimensions.width, 1140, 1530, 1920],
 			dryRun: false,
 			formats: (
-				process.env.NODE_ENV === "production"
+				meta.env === "production"
 					?
 					['webp', 'jpeg']
 					:
