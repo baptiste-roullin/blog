@@ -6,6 +6,10 @@
 		@apply prose lg:prose-xl prose-lg
 	}
 
+	.page-portfolio  .prose-tcqb {
+		@apply prose  lg:prose-2xl  prose-lg
+	}
+
 	.layout-prose {
 		@apply max-w-screen-xl gap-6 m-auto lg:max-w-prose;
 	}
@@ -163,7 +167,11 @@
 	}
 
 
-	.sections {
+
+
+	.sections > * {
+		margin: auto !important;
+	}
 
 	.block-heading-split {
 		@apply flex flex-col items-start sm:items-center justify-between mb-4 md:mb-6 sm:flex-row

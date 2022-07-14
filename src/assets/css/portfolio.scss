@@ -1,9 +1,7 @@
 	.page-portfolio input[type="radio"]:checked + label {
 	@apply bg-accent text-white;
 	}
-	sections > * {
-	margin: auto !important;
-	}
+
 
 	.page-portfolio section h2 {
 		@apply text-dark-light text-2xl lg:text-3xl font-bold
@@ -12,11 +10,11 @@
 		display:none;
 	}
 
-	.page-portfolio li:first-child {
+	.page-portfolio li:first-child, .page-portfolio p:first-child {
 		margin-top: 0 !important;
 		}
 
-	.page-portfolio li:last-child {
+	.page-portfolio li:last-child, .page-portfolio p:last-child, .page-portfolio ol:last-child, .page-portfolio ul:last-child {
 		margin-bottom: 0 !important;
 		}
 
@@ -26,7 +24,7 @@
 	}
 
 	.page-portfolio dt {
-		@apply text-accent3 font-medium
+		@apply text-accent3 font-bold
 	}
 
 	.page-portfolio dl {
@@ -34,8 +32,6 @@
 		flex-direction: column;
 		gap: 0rem;
 	}
-
-
 
 	.small-caps {
 		font-variant: small-caps !important;
