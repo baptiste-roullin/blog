@@ -87,7 +87,7 @@ function convertPictures(image, document) {
 export function prepareForLighbox(image, document) {
 	//image.setAttribute('src', image.dataset.responsiveruRL);
 	//let caption = image.getAttribute("title");
-	if (image.closest('.rich-picture') || image.closest('.rich-picture-bare')) {
+	if (image.closest('.rich-picture')) {
 		const link = document.createElement("a");
 		link.setAttribute("data-pswp-srcset", image.getAttribute('srcset'));
 

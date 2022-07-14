@@ -134,35 +134,20 @@ Intéressé-e ?
                     </dl>
                     {% endif %}
 
-                  </div>
-                  <div class="flex flex-col gap-10 m-auto">
-                    <img class="shadow-md" src="{{ref.photos[0].url}}" alt="{{ref.photos[0].alt}}">
-
                     {% if  ref.CTA %}
                     <a href="{{ref.CTALink}}" class="w-3/4 mx-auto cta">{{ref.CTA}}</a>
                     {%else %}
                     <div class="w-3/4 mx-auto text-gray-800 bg-gray-300 hover:bg-gray-400 cta">En cours ou confidentiel</div>
                     {% endif %}
 
+                  </div>
+                  <div class="flex flex-row flex-wrap gap-3 m-auto rich-picture ">
+                     {% for photo in ref.photos   %}
+                        <figure class=""><img class="w-auto shadow-md"  src="{{photo.url}}" alt="{{photo.alt}}"></figure>
+                      {% endfor %}
 
                     </div>
                 </div>
-
-
-                {# GALERIE #}
-
-
-                {% if ref.photos[1] %}
-                <hr class="w-full h-0.5 bg-accent2 opacity-50">
-                  <div class="flex justify-center gap-4 pt-0 md:flex-row rich-picture gallery">
-                    {% for photo in ref.photos | slice(1, undefined)  %}
-                      <figure class=""><img class="w-auto shadow-md" style="max-height:75vh" src="{{ref.photos[loop.index0 + 1].url}}" alt="{{ref.photos[loop.index0 + 1].alt}}"></figure>
-
-                    {% endfor %}
-                  </div>
-
-                {% endif %}
-
               </li>
 
         {% endfor %}

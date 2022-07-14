@@ -9,7 +9,7 @@ module.exports = {
 		if (data.match(/\!\[/g).length > 1) {
 			width = 'container-wide'
 		}
-		return `<div class="rich-picture ${width} " >${content}</div>`;
+		return `<div class="rich-picture rich-picture-gallery ${width} " >${content}</div>`;
 	},
 
 
