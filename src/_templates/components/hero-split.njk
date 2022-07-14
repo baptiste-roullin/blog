@@ -4,12 +4,12 @@
         class="flex flex-col m-8 mx-auto lg:justify-center lg:w-1/2 lg:text-left block-dark"
       >
 		<h1
-        class="mb-4 text-3xl font-semibold lg:whitespace-pre-line text-shadow-lg-dark text-gray-50 lg:mr-8 sm:leading-none md:text-4xl xl:text-5xl"
+        class="mb-4 text-3xl font-semibold lg:whitespace-pre-line text-shadow-lg-dark lg:mr-8 sm:leading-none md:text-4xl xl:text-5xl"
           >
 			{{ title | markdownify | safe }}
 		</h1>
 
-		<div class="pt-4 text-base metadata sm:text-lg UI-component text-gray-50">
+		<div class="pt-4 text-base metadata sm:text-lg not-prose ">
 			<time datetime="{{ page.date | dateHumanFormat("yyyy-MM-dd") }}">
 				{{ page.date | dateHumanFormat("dd LLL yyyy") }}
 			</time>
