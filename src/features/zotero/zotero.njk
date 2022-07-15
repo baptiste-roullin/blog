@@ -21,7 +21,7 @@
 					{% if item.abstractNote %}
 					<details>
 						<summary class="text-gray-600 underline cursor-pointer " >Résumé</summary>
-						<p class="relative mt-0 text-base" >{{item.abstractNote}}</p>
+						<p class="relative mt-0 text-base" hidden="until-found">{{item.abstractNote}}</p>
 					</details>
 					{% endif %}
 				</div>
