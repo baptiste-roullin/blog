@@ -2,7 +2,7 @@
   {% for tag in tags %}
       <li class="inline-block my-auto">
         <a title="mot clé {{ tag }}" aria-label="mot clé {{ tag }}" href="{{ '/tags/' | url}}{{tag | slugify  }}/"
-        class="">{{ tag | capitalize}}</a>
+        class="link-hover">{{ tag | capitalize}}</a>
         {% include "./separator.njk" %}
       </li>
   {% endfor %}
