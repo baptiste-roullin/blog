@@ -28,17 +28,16 @@ module.exports = {
     extensions: ['.ts', '.js'],
   },
   entry: {
-    search: path.resolve(__dirname, 'src/assets/scripts/search.js'),
+    search_front: path.resolve(__dirname, 'src/assets/scripts/search_front.js'),
     contact: path.resolve(__dirname, 'src/assets/scripts/contact.js'),
     main: path.resolve(__dirname, 'src/assets/scripts/main.js'),
     richPicture: path.resolve(__dirname, 'src/assets/scripts/richPicture.ts'),
     spin: path.resolve(__dirname, 'src/assets/scripts/spin.ts'),
     nav: path.resolve(__dirname, 'src/assets/scripts/nav.ts'),
     arrowPagination: path.resolve(__dirname, 'src/assets/scripts/arrowPagination.ts'),
-    truchet: path.resolve(__dirname, 'src/features/truchet/truchet-core.ts'),
-    'truchet-dom': path.resolve(__dirname, 'src/features/truchet/truchet-dom.ts'),
+    truchet: path.resolve(__dirname, 'src/features/truchet/truchet_core.ts'),
+    truchet_dom: path.resolve(__dirname, 'src/features/truchet/truchet_dom.ts'),
   },
-
 
   output: {
     path: path.resolve(__dirname, meta.outputDir + '/assets/scripts'),
@@ -46,7 +45,6 @@ module.exports = {
     //publicPath: path.resolve(__dirname, 'src'),
     filename: () => (process.env.NODE_ENV === "production" ? '[name].[contenthash].js' : '[name].js')
   },
-
   module: {
     rules: [
       {
@@ -87,12 +85,18 @@ module.exports = {
           }
         ]
       },
-
-
     ],
   },
   plugins: [
     new WebpackAssetsManifest({
+      customize(entry, original, manifest, asset) {
+
+        // l'otpion fileExtRegex devrait servir à ça, mais pas réussi à la faire marcher.
+        if (!(entry.key.endsWith('.js'))) {
+          return false;
+        }
+        return entry
+      },
       output: '../../../src/_data/hashes_js.json'
     }),
     new CopyPlugin({
@@ -119,9 +123,6 @@ module.exports = {
             return `${context}/assets/imagesToProcess/[name][ext]`;
           },
         },
-
-
-
       ],
       options: {
         concurrency: 100,

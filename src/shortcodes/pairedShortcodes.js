@@ -1,5 +1,5 @@
 
-const md = require('../config/markdown.js')
+const md = require('../config/markdown.ts')
 
 module.exports = {
 
@@ -9,7 +9,7 @@ module.exports = {
 		if (data.match(/\!\[/g).length > 1) {
 			width = 'container-wide'
 		}
-		return `<div class="rich-picture ${width} " >${content}</div>`;
+		return `<div class="rich-picture rich-picture-gallery ${width} " >${content}</div>`;
 	},
 
 
@@ -17,7 +17,7 @@ module.exports = {
 		if (!value) {
 			return ''
 		}
-		return `<div class="prose lg:prose-xl prose-lg layout-prose w-full">${md.render(value)}</div>`
+		return `<div class="prose-tcqb layout-prose w-full">${md.render(value)}</div>`
 
 	},
 

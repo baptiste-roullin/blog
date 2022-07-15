@@ -9,7 +9,7 @@ module.exports = async function (slug, width, height) {
 		const promises = require('stream');
 		const pipeline = promises.pipeline
 		//@ts-ignore
-		const truchet = require('./truchet-core.ts')
+		const truchet = require('./truchet_core.ts')
 
 		const path = `${meta.outputDir}/${meta.assetsDir}/truchet-${slug}.png`
 

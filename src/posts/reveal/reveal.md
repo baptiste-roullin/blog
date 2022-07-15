@@ -22,7 +22,7 @@ J'ai donc pensé à [Reveal.js](https://revealjs.com/), une bibliothèque permet
 - Une métaphore spatiale intéressante pour structurer le cours : on peut créer des groupes de slides qui vont défiler verticalement.
 - Avec quelques plugins, une navigation puissante : table des matière automatique, recherche dans le texte, ou mode panorama.
 
-{% richpicture gallery %}
+{% richpicture  %}
 
 ![](reveal1.png)
 

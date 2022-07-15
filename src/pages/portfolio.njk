@@ -11,7 +11,7 @@ eleventyNavigation:
   title: Portfolio
   order: 3
 ---
-<div class="mb-16 text-lg lg:text-xl lg:mx-auto template-post-main">
+<div class="mb-16 text-xl lg:text-2xl lg:mx-auto template-post-main">
 
 
   <div class="layout-wide md:mb-16 ">
@@ -19,7 +19,7 @@ eleventyNavigation:
   {% include 'components/hero-split.njk' %}</div>
 
 
-    <div class="sections ">
+    <div class="flex flex-col gap-8 sections ">
       <section class="flex flex-col gap-6 layout-prose">
         {% markdown %}
 ## C'est quoi un designer [ux]{.small-caps} ?
@@ -73,11 +73,11 @@ Intéressé-e ?
 
         {% endmarkdown %}
 
-        <div class="flex flex-col justify-start gap-10 sm:justify-center sm:flex-row layout-wide">
+        <div class="flex flex-wrap justify-start gap-10 md:justify-center md:flex-row layout-wide">
             {% for tool in tools %}
               <div class="flex flex-col justify-between gap-2 ">
-                <span class="text-lg leading-5 w-min">{{tool.name}}</span>
-                <figure class=""><img class="w-8 shadow-md rounded-2xl md:w-16" src="{{tool.logo}}" alt=""></figure>
+                <span class="text-xl leading-5 w-min">{{tool.name}}</span>
+                <figure class=""><img class="w-12 shadow-md rounded-2xl sm:w-16" src="{{tool.logo}}" alt=""></figure>
               </div>
             {% endfor %}
           </div>
@@ -96,8 +96,8 @@ Intéressé-e ?
 
         <ul class="flex flex-col gap-8 m-auto md:gap-16 post-list layout-wide project-list">
           {% for ref in refs  %}
-              <li class="flex-col p-5 card-base hover:shadow lg:p-8 ">
-                <div class="flex flex-row items-center justify-between w-full">
+              <li class="flex-col card-base hover:shadow p-7 lg:p-12 ">
+                <div class="w-full m-0 block-heading-split">
                   <h3 class="cta-heading">{{ref.title}}</h3>
                   <img src="{{ref.logo}}" alt="{{ref.name}}">
                 </div>
@@ -134,35 +134,20 @@ Intéressé-e ?
                     </dl>
                     {% endif %}
 
-                  </div>
-                  <div class="flex flex-col gap-10 m-auto">
-                    <img class="shadow-md" src="{{ref.photos[0].url}}" alt="{{ref.photos[0].alt}}">
-
                     {% if  ref.CTA %}
                     <a href="{{ref.CTALink}}" class="w-3/4 mx-auto cta">{{ref.CTA}}</a>
                     {%else %}
                     <div class="w-3/4 mx-auto text-gray-800 bg-gray-300 hover:bg-gray-400 cta">En cours ou confidentiel</div>
                     {% endif %}
 
+                  </div>
+                  <div class="flex flex-row flex-wrap gap-3 m-auto rich-picture ">
+                     {% for photo in ref.photos   %}
+                        <figure class=""><img class="w-auto shadow-md"  src="{{photo.url}}" alt="{{photo.alt}}"></figure>
+                      {% endfor %}
 
                     </div>
                 </div>
-
-
-                {# GALERIE #}
-
-
-                {% if ref.photos[1] %}
-                <hr class="w-full h-0.5 bg-accent2 opacity-50">
-                  <div class="flex justify-center gap-4 pt-0 md:flex-row rich-picture gallery">
-                    {% for photo in ref.photos | slice(1, undefined)  %}
-                      <figure class=""><img class="w-auto shadow-md" style="max-height:75vh" src="{{ref.photos[loop.index0 + 1].url}}" alt="{{ref.photos[loop.index0 + 1].alt}}"></figure>
-
-                    {% endfor %}
-                  </div>
-
-                {% endif %}
-
               </li>
 
         {% endfor %}
@@ -180,7 +165,7 @@ Intéressé-e ?
 
           {% endmarkdown %}
 
-        <div class="flex-col items-start p-5 lg:p-8 card-base hover:shadow layout-wide">
+        <div class="flex-col items-start p-7 lg:p-12 card-base hover:shadow layout-wide">
           <ul class="flex flex-col items-start gap-8 " >
           {% for client in clients %}
 

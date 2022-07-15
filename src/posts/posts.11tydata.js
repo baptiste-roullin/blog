@@ -1,4 +1,4 @@
-var truchetNode = require('../features/truchet/truchet-node.js');
+var truchetNode = require('../features/truchet/truchet_node.js');
 const meta = require('../_data/meta.js')
 
 module.exports = {

@@ -1,9 +1,14 @@
-:root {
-}
 
 @layer base {
 
 
+	.prose-tcqb {
+		@apply prose lg:prose-xl prose-lg
+	}
+
+	.page-portfolio  .prose-tcqb {
+		@apply prose  lg:prose-2xl  prose-lg
+	}
 
 	.layout-prose {
 		@apply max-w-screen-xl gap-6 m-auto lg:max-w-prose;
@@ -18,23 +23,6 @@
 	}
 
 
-	body #content .UI-component a, body #content .UI-component ul, body #content .UI-component li {
-		font-weight: inherit;
-		font-size: inherit;
-		color: inherit;
-		text-decoration: inherit;
-		padding: inherit;
-}
-
-	body #content .UI-component a:hover{
-		text-decoration: underline;
-}
-
-	body ul.UI-component li::before {
-		display:none;
-		width: 0;
-	}
-
 	body h1,
 	body h2,
 	body h3,
@@ -46,28 +34,19 @@
 	}
 
 	h1 {
-		@apply font-bold text-gray-700;
-		@apply text-4xl;
+		@apply font-bold text-gray-700 text-4xl;
 	}
 	h2 {
-		@apply font-bold text-gray-700;
-		@apply pt-12 text-3xl;
-
+		@apply font-bold text-gray-700 pt-12 text-2xl lg:text-3xl;
 	}
 	h3 {
-		@apply text-2xl;
-		@apply font-bold text-gray-700;
-
+		@apply text-2xl font-bold text-gray-700;
 	}
 	h4 {
-		@apply text-xl;
-		@apply font-bold text-gray-500;
-
+		@apply text-xl font-bold text-gray-500;
 	}
 	h5 {
-		@apply text-lg;
-		@apply font-bold text-gray-500;
-
+		@apply text-lg font-bold text-gray-500;
 	}
 
 	a,
@@ -75,6 +54,19 @@
 	dd a {
 		text-decoration-skip-ink: auto;
 	}
+
+	.block-dark {
+		@apply text-gray-50;
+
+		h1,  p {
+		@apply text-gray-50;
+		}
+
+		& a:hover {
+			@apply text-accent4;
+		}
+		}
+
 
 	[x-cloak] { display: none !important; }
 
@@ -132,6 +124,7 @@
 	.input {
 		@apply  block w-full  focus:border-dark  px-4  py-3  mt-1 mb-6  text-lg  placeholder-gray-500 transition-all  duration-150  ease-in-out  rounded-md shadow-sm lg:mb-8
 	}
+	/*TODO: hover*/
 	.card-base {
 		@apply flex items-center p-0 rounded-md md:shadow hover:shadow-flat gap-6 lg:gap-10 bg-accent-light shadow-flat sm:shadow-sm transition-all duration-300
 	}
@@ -174,8 +167,14 @@
 	}
 
 
-	.sections {
-		@apply flex flex-col gap-16 sm:gap-24
+
+
+	.sections > * {
+		margin: auto !important;
+	}
+
+	.block-heading-split {
+		@apply flex flex-col items-start sm:items-center justify-between mb-4 md:mb-6 sm:flex-row
 	}
 
 	.cta {
@@ -206,6 +205,10 @@
 	}
 		.cta-card {
 		@apply text-lg font-normal leading-6 lg:leading-7 lg:text-xl text-accent2
+	}
+
+	.cta-link {
+		@apply text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent4
 	}
 }
 
