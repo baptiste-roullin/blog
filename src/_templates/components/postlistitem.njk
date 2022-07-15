@@ -1,4 +1,4 @@
-<li	class="relative flex flex-col items-start md:items-center md:flex-row card-base ">
+<li	class="relative flex flex-col items-start md:items-center md:flex-row card-shadow-hover card-base ">
 	<img
 		onclick="window.location.href='{{post.url}}'"
 		data-responsiver="postList"
@@ -19,7 +19,7 @@
 		<h{{hx}} class=" {{ 'cta-heading' if page.fileSlug == 'home' else 'cta-heading2' }}">
 			<a
 			href="{{ post.url }}"
-			class="block hover:underline hover:text-accent2">
+			class="block link-hover hover:text-accent2">
 				{{ post.data.title | removeMD | safe }}
 			</a>
 		</h{{hx}}>
