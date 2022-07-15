@@ -25,7 +25,7 @@ eleventyNavigation:
 ## C'est quoi un designer [ux]{.small-caps} ?
         {% endmarkdown   %}
 
-    {% include "src/_templates/components/portfolio-tab.njk" %}
+    {% include "components/portfolio-tab.njk" %}
 
 
         {% markdown %}
@@ -96,7 +96,7 @@ Intéressé-e ?
 
         <ul class="flex flex-col gap-8 m-auto md:gap-16 post-list layout-wide project-list">
           {% for ref in refs  %}
-              <li class="flex-col card-base hover:shadow p-7 lg:p-12 ">
+              <li class="flex-col card-base p-7 lg:p-12 ">
                 <div class="w-full m-0 block-heading-split">
                   <h3 class="cta-heading">{{ref.title}}</h3>
                   <img src="{{ref.logo}}" alt="{{ref.name}}">
@@ -126,7 +126,7 @@ Intéressé-e ?
                               {% for task in ref.tasks %}
                                   <li class="inline-block my-auto">
                                     {{ task }}
-                                    {% include "../_templates/components/separator.njk" %}
+                                    {% include "components/separator.njk" %}
                                   </li>
                               {% endfor %}
                           </ul>

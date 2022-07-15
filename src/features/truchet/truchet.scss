@@ -1,0 +1,13 @@
+.truchet-rotate  {
+	transition: transform .2s ease-out;
+	cursor: pointer;
+	margin: 0
+}
+
+.truchet {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 0;
+	margin: 0;
+	padding: 0
+}
