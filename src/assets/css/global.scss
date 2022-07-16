@@ -170,26 +170,6 @@
 	}
 
 
-	#pagination-left a:before {
-		content: "";
-		position: absolute;
-		width: var(--pagination-length-left);
-		height: 2.5px;
-		background: white;
-		bottom: 8px;
-		left: 2px;
-	}
-
-	#pagination-right a:after {
-		right: 4px;
-		content: "";
-		position: absolute;
-		width: var(--pagination-length-right);
-		height: 2px;
-		background: white;
-		bottom: 8px;
-	}
-
 	.input {
 		@apply  block w-full  focus:border-dark  px-4  py-3  mt-1 mb-6  text-lg  placeholder-gray-500 transition-all  duration-150  ease-in-out  rounded-md shadow-sm lg:mb-8
 	}
@@ -235,13 +215,3 @@
 
 
 
-@media screen and (max-width:640px){
-	#menu-offcanvas:after {
-		box-shadow: 0px -2px 4px hsl(202.8, 92.6%, 10.6%, .8), 0px -4px 10px hsla(202.8, 92.6%, 10.6%, 0.7);
-		width: 100%;
-		content: "";
-		position: absolute;
-		height: 8px;
-		clip-path: inset(-15px 0 0px 0px);
-	}
-}
