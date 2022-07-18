@@ -14,7 +14,7 @@ hero:
 ---
 
 
-[C'est ici](http://table-basse.toutcequibouge.net/){.cta}
+[C'est ici](http://table-basse.toutcequibouge.net/){.cta} {.not-prose}
 
 Soyez patient pour le premier chargement, car l'hébergeur (Heroku version gratuite) éteint le serveur après 30 min d'inactivité.
 
