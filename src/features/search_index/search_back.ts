@@ -36,7 +36,7 @@ export function search(collection) {
 			var finalPath = page.data.collatedHeroImage as string
 		}
 		else {
-			var finalPath = `${meta.assetsDir}/${img}`
+			var finalPath = `/${meta.assetsDir}/${img}`
 		}
 		index.addDoc({
 			url: page.url,
