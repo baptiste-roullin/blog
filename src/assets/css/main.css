@@ -2,7 +2,7 @@
 @import "./post.scss";
 @import "./images.scss";
 @import "./global.scss";
-@import "../../pages/portofolio/portfolio.scss";
+@import "../../pages/portfolio/portfolio.scss";
 @import "../../features/truchet/truchet.scss";
 
 @tailwind base;
