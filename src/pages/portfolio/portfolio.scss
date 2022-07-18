@@ -1,4 +1,8 @@
-.page-portofolio  {
+.page-portfolio  {
+
+	.prose-tcqb {
+			@apply prose  2xl:prose-2xl  prose-xl
+		}
 
 	.sections > * {
 			margin: auto !important;
@@ -38,7 +42,6 @@
 		flex-direction: column;
 		gap: 0rem;
 	}
-
 
 	h1 {
 		line-height: 1.2 !important;

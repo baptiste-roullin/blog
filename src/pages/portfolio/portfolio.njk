@@ -11,7 +11,7 @@ eleventyNavigation:
   title: Portfolio
   order: 3
 ---
-<div class="mb-16 text-xl lg:text-2xl lg:mx-auto template-post-main">
+<div class="mb-16 text-xl 2xl:text-2xl lg:mx-auto template-post-main">
 
 
   <div class="layout-wide md:mb-16 ">
@@ -20,7 +20,7 @@ eleventyNavigation:
 
 
     <div class="flex flex-col gap-8 sections ">
-      <section class="flex flex-col gap-6 layout-prose">
+      <section class="flex flex-col gap-6">
         {% markdown %}
 ## C'est quoi un designer [ux]{.small-caps} ?
         {% endmarkdown   %}
@@ -40,20 +40,20 @@ Y a en gros quatre étapes :
 
 ## Mais pourquoi ?
 
-Notamment parce que connaitre les utilisateurs et leur dédier des services adaptés. Un contre-exemple : les lignes de désir et les vaines tentatives pour les encadrer.
+Notamment parce que connaitre ses cibles leur dédier des services adaptés, ça marche. Un contre-exemple : les [lignes de désir](https://fr.wikipedia.org/wiki/Ligne_de_d%C3%A9sir) et les vaines tentatives pour les encadrer.
 
 !['barrière posée devant un chemin naturellement creusé à travers une pelouse'](/assets/images/ligne_désir.jpg)
 
 ## Et moi là-dedans
 
-Je suis un designer UX polyvalent avec un certains penchant pour les défis fonctionnels, mettre en place des méthodes d'étude utilisateur quali ou quanti et mener des ateliers à gros enjeux.
+Je suis un designer UX polyvalent avec un certain penchant pour les défis fonctionnels, mettre en place des études utilisateur avec une méthodo aux petits oignons et mener des ateliers à gros enjeux.
 
-Mentionnons aussi un certain goût pour les [systèmes complexes](/tags/systemes-complexes/), [pour utiliser mes outils à fond](/tags/prototypage) et pour faire le pont [entre théorie et pratique](/tags/sciences-cognitives/).
+Mentionnons également un certain goût pour les [systèmes complexes](/tags/systemes-complexes/), [pour utiliser mes outils à fond](/tags/prototypage) et pour faire le pont [entre théorie et pratique](/tags/sciences-cognitives/).
 
-Enfin, en bonus, je suis :
-  - Auditeur en accessibilité
-  - [Intervenant à Épitech](http://misc.toutcequibouge.net/epitech)
-  - [Dev en dilettante](https://toutcequibouge.net/projets/)
+En bonus je fais aussi :
+  - des audits en accessibilité
+  - [des interventions à Épitech](http://misc.toutcequibouge.net/epitech)
+  - [du code en dilettante](https://toutcequibouge.net/projets/)
 
 Intéressé-e ?
 
@@ -63,7 +63,7 @@ Intéressé-e ?
       </section>
 
 
-          {# TOOLS #}
+        {# TOOLS #}
 
         <section class="tools">
       {% markdown %}
@@ -134,11 +134,13 @@ Intéressé-e ?
                     </dl>
                     {% endif %}
 
-                    {% if  ref.CTA %}
-                    <a href="{{ref.CTALink}}" class="w-3/4 mx-auto cta">{{ref.CTA}}</a>
-                    {%else %}
-                    <div class="w-3/4 mx-auto text-gray-800 bg-gray-300 hover:bg-gray-400 cta">En cours ou confidentiel</div>
-                    {% endif %}
+                    <div class="no-prose">
+                      {% if  ref.CTA %}
+                      <a href="{{ref.CTALink}}" class="w-3/5 mx-auto cta">{{ref.CTA}}</a>
+                      {%else %}
+                      <div class="w-3/5 mx-auto text-gray-800 bg-gray-300 hover:bg-gray-400 cta">En cours ou confidentiel</div>
+                      {% endif %}
+                    </div>
 
                   </div>
                   <div class="flex flex-row flex-wrap gap-3 m-auto rich-picture ">
@@ -190,3 +192,21 @@ Intéressé-e ?
   </div>
 </div>
 
+
+
+{#
+
+
+wireframe #1
+Un outil de gestion des plannings et activités sur les plateformes pétrolières. Enjeux :
+- Fonctionnement en offline
+- Équilibre entre améliorations de l'archi de l'information et respect des habitudes des utilisateurs (qui avaient l'habitude d'un tableau Excel avec une certaine mise en page)
+- Manipulation de données (lignes de tableau pouvant être éditées, ajoutées, supprimées, etc.).
+
+wireframe #2
+Un outil d'aide à la décision pour des commerciaux, afin qu'ils proposent la bonne machine de test médical en fonction des informations recueillies sur le prospect. Enjeux :
+- Faire comprendre aux utilisateurs l'impact des données saisies, avec une visualisation en temps réel de l'évolution du ranking des machines.
+- Concevoir un outil à la fois simple (possibilité d'enchainer les étapes fluidement façon Typeform) et souple (possibilité de faire les étapes dans le désordre, l'utilisateur pouvant recueillir des infos sur plusieurs jours).
+- Degré d'expertise variable entre les utilisateurs, donc besoin de guider (infobulle, explication du jargon…) sans trop alourdir.
+
+ #}

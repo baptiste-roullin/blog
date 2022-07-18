@@ -12,6 +12,8 @@ module.exports = {
 		'./src/**/*.njk',
 		'./src/**/*.md',
 		'./src/_data/structure.js',
+		'./src/filters/*.{ts,js}',
+		'./src/shortcodes/*.{ts,js}',
 	],
 	theme: {
 		fontFamily: {

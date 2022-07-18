@@ -17,7 +17,7 @@ module.exports = {
 		if (!value) {
 			return ''
 		}
-		return `<div class="prose-tcqb layout-prose w-full">${md.render(value)}</div>`
+		return `<div class="prose-tcqb layout-prose max-w-screen-xl gap-6 m-auto lg:max-w-prose w-full">${md.render(value)}</div>`
 
 	},
 
