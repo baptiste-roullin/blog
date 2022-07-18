@@ -3,7 +3,6 @@ import { Config, UserConfig, } from '../../types/eleventy';
 const pluginRss = require('@11ty/eleventy-plugin-rss')
 const pluginNavigation = require('@11ty/eleventy-navigation')
 const yaml = require("js-yaml");
-require('dotenv').config()
 const embedEverything = require("eleventy-plugin-embed-everything");
 const { EleventyRenderPlugin } = require("@11ty/eleventy");
 
@@ -43,7 +42,7 @@ cf. postcss.config.js pour le CSS
 
 	config.setUseGitIgnore(false)
 
-	if (process.env.NODE_ENV === "production") {
+	if (meta.env === "production") {
 		config.addPassthroughCopy('src/assets/docs/')
 
 		config.addPassthroughCopy({ 'src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}': meta.assetsDir })
