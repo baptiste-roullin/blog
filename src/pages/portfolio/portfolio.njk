@@ -105,10 +105,12 @@ Intéressé-e ?
                 {# DÉTAILS #}
                 <div class="flex flex-col justify-between gap-6 md:grid lg:gap-8 details ">
                   <div class="flex flex-col gap-5 lg:gap-7">
+                    {% if ref.description %}
                     <dl>
                       <dt>C'est quoi</dt>
                       <dd>{{ref.description | markdownifyBlock | safe}}</dd>
                     </dl>
+                    {% endif %}
 
 
                     {% if ref.durée %}

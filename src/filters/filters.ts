@@ -74,7 +74,13 @@ module.exports = {
 
 	markdownify: (markdownString) => md.renderInline(markdownString),
 
-	markdownifyBlock: (markdownString) => `<div class="prose-tcqb">${md.render(markdownString)}</div>`,
+	markdownifyBlock: (value) => {
+		if (!value) {
+			console.log("attention, string vide")
+			return ''
+		}
+		return `<div class="prose-tcqb">${md.render(value)}</div>`
+	},
 
 
 	removeMD: require('./removeMD.js'),

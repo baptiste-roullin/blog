@@ -9,7 +9,7 @@ tags:
 
 ---
 
-[C'est ici](https://github.com/baptiste-roullin/data-from-clipboard){.cta}
+[C'est ici](https://github.com/baptiste-roullin/data-from-clipboard){.cta} {.not-prose}
 
 Beaucoup de plugins Sketch pour l'import de contenu ([Craft](https://www.invisionapp.com/craft), [Data Populator](https://www.datapopulator.com/)…) sont pensés pour des sources de données non modifiables (banque d'images, noms de pays...), ou pour des données complexes à synchroniser avec des maquettes graphiques abouties. Suivant les plugins, ça implique de renommer des calques, d'avoir un fichier de données en TXT voire en JSON... bref des procédures un peu lourdes.
 

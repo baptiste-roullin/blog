@@ -125,7 +125,7 @@ refs:
         alt: null
 
   - title: "E-boutique pour Flunch Traiteur"
-    Description: Refonte de la boutique B2B et B2C pour moderniser la marque, clarifier la navigation dans le catalogue et recentrer l'expérience sur un parcours contextualisé d'organisation de mon évènement (quelle date, quel lieu, quels produits pour le type d'évènement).
+    description: Refonte de la boutique B2B et B2C pour moderniser la marque, clarifier la navigation dans le catalogue et recentrer l'expérience sur un parcours contextualisé d'organisation de mon évènement (quelle date, quel lieu, quels produits pour le type d'évènement).
     logo: /assets/images/flunch.png
     durée: 3 mois
     tasks:

@@ -1,24 +1,15 @@
 ---
 - name: Twitter
   link: https://twitter.com/Saint_loup
-  img:
-  description:
-
 
 - name: Linkedin
   link: https://www.linkedin.com/in/baptiste-roullin
-  img:
-  description:
 
 
 - name: Github
   link: https://github.com/baptiste-roullin
-  img:
-  description:
 
 - name: Photos
   link: https://solvitur---ambulando.tumblr.com/
-  img:
-  description:
 
 
