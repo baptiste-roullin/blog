@@ -5,7 +5,7 @@ refs:
     name: Michelin
     logo: /assets/images/michelin.svg
     description: |
-      Issu d’un hackaton et piloté par un pole d’innovation de Michelin, c’est une application mobile permettant
+      Issu d’un hackaton et piloté par un pôle d’innovation de Michelin, c’est une application mobile permettant :
 
       * des calculs d’itinéraires adaptés aux routiers (volume du camion, temps de pause...)
       * de retrouver ses amis sur la route
@@ -36,11 +36,14 @@ refs:
     name: MAIF
     logo: /assets/images/maif.svg
     description: |
-      Une étude sur l'état de l’art des bonnes et mauvaises pratiques sur le recueil et la gestion du consentement, avec un focus mobile.
+      Une étude sur l'état de l'art en matière de recueil et de gestion du consentement, avec un focus mobile.
+
+      * Bonnes et mauvaises pratiques sur toutes les interfaces, pas juste le popin de cookies.
+      * Synthèse sur la psychologie de la vie privée
+      * Compilation de statistiques sur l'impact du RGPD sur les comportements
     durée:  15 jours
     tasks:
-      - Synthèse de la littérature sur la psychologie de la vie privée.
-      - Compilation de statistiques
+      - Synthèse de la littérature et benchmark d'applis de tous pays
       - Restitution en webinar devant 80 personnes, dont le DPO de la MAIF.
     photos:
       - url: /assets/images/maif1.png
@@ -51,19 +54,6 @@ refs:
         alt: null
       - url: /assets/images/maif4.png
         alt: null
-
-
-  - title: Concept de miroir connecté pour SEB
-    name: SEB
-    logo: /assets/images/seb.png
-    description: |
-
-      SEB réfléchissait à créer des services numériques intégrés au quotidien et complémentaire des produits existants (sèche-cheveux, rasoirs...). Nous devions donc interroger les gens sur leur rapport au "soin de soi", imaginer des concepts et les tester avec un prototype papier.
-    durée: 2 mois
-    photos:
-      - url: /assets/images/seb1.png
-        alt: null
-
 
   - title: Refonte de l'écosystème numérique d'Auvergne-Rhone-Alpes
     logo: /assets/images/aura.svg
@@ -85,8 +75,7 @@ refs:
       - url:  /assets/images/aura1.png
         alt: null
 
-  - title: "Création d'un méga-site institutionnel pour Safran"
-
+  - title: Création d'un méga-site institutionnel pour Safran
     name: Safran
     logo: /assets/images/safran.svg
     description: |
@@ -135,11 +124,15 @@ refs:
       - url: /assets/images/studi4.png
         alt: null
 
-  - title: "Flunch Traiteur"
+  - title: "E-boutique pour Flunch Traiteur"
+    Description: Refonte de la boutique B2B et B2C pour moderniser la marque, clarifier la navigation dans le catalogue et recentrer l'expérience sur un parcours contextualisé d'organisation de mon évènement (quelle date, quel lieu, quels produits pour le type d'évènement).
     logo: /assets/images/flunch.png
     durée: 3 mois
-    tasks: null
-    description: "Refonte de la boutique d'organisation d'évènements B2B et B2C pour Flunch Traiteur "
+    tasks:
+      - Entretiens avec des profils B2B
+      - Personas
+      - Ateliers de co-conceoption
+      - 20 wireframes
     name: "Flunch"
     photos:
           - url: /assets/images/flunch1.png
@@ -148,6 +141,20 @@ refs:
             alt: null
           - url: /assets/images/flunch3.png
             alt: null
+
+  - title: Concept de miroir connecté pour SEB
+    name: SEB
+    logo: /assets/images/seb.png
+    description: |
+      SEB réfléchissait à créer des services numériques intégrés au quotidien et complémentaire des produits existants (sèche-cheveux, rasoirs...). Nous devions donc interroger les gens sur leur rapport au "soin de soi", imaginer des concepts et les tester avec un prototype papier.
+    tasks:
+      - Accompagnement d'un stagiaire SEB
+      - Ateliers d'idéation
+      - Tests utilisateur
+    durée: 2 mois
+    photos:
+      - url: /assets/images/seb1.png
+        alt: null
 
 
 clients:
