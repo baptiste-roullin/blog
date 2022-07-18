@@ -3,7 +3,6 @@ const markdownIt = require('markdown-it')
 const slugify = require('../filters/slugify.js');
 
 
-// TODO : ancres marchent pas.
 const anchor = (md, options) => {
 
 	md.renderer.rules.heading_open = function (tokens, index) {

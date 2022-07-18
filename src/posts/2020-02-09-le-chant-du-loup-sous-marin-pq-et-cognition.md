@@ -45,7 +45,7 @@ Dans un environnement aussi avancé et précaire qu'un sous-marin, l'usage de l'
 
 Il y a d'abord la table de navigation, utilisée avec feutre effaçable, rapporteur et compas. Le navigateur y calcule des modifications de trajectoire pour les proposer au commandant, qui peut voir le résultat directement. Quelques exemples, tirés du Chant du loup et d'autres films.
 
-{% richpicture gallery %}
+{% richpicture  %}
 
 
 ![](/assets/images/EQPVwmDX0Ac83Jy.jpg)
@@ -65,7 +65,7 @@ Des zoids tout à fait mignons dessinés à la main en 1994
 
 Admirez aussi le tableau lumineux, les feuillets suspendus et le rouleau de scotch pré-dévidé.
 
-{% richpicture gallery %}
+{% richpicture  %}
 
 ![](/assets/images/vlcsnap-2020-02-08-14h18m13s710.png '')
 
@@ -77,7 +77,7 @@ Admirez aussi le tableau lumineux, les feuillets suspendus et le rouleau de scot
 
 Cet usage du papier est aussi documenté dans les cockpits d'avion, [voir ce papier](https://pages.ucsd.edu/~ehutchins/documents/fp146-nomura.pdf) (PDF) écrit par Nomura, Hutchins (encore lui) et Holder.
 
-{% richpicture gallery %}
+{% richpicture  %}
 
 ![](/assets/images/cognition1.png)
 
@@ -113,7 +113,7 @@ L'oreille d'or a le trackball dans une main, le casque sur une seule oreille pen
 Voici quelques interfaces montrées dans le film (probablement non-contractuelles). Mais c'est la partie émergée de l'iceberg. D'une certaine manière dans un sous-marin tout est interface entre l'être humain et des fonctions critiques. Tout est pensé pour aider les sous-mariniers à écouter et exécuter des ordres, à marcher, se tenir, ou respirer. Par exemple quand l'atmosphère est compromise, ils peuvent se brancher à intervalle régulier à des arrivées d'air.
 
 
-{% richpicture gallery %}
+{% richpicture  %}
 
 
 ![](/assets/images/D_dx7AjXoAcTNaU.png)

@@ -1,3 +1,5 @@
+
+
 // TODO mettre en cache toutes les requêtes
 // TODO	Afficher auteurs
 // TODO	Rendre paramétrable infos d'articles à afficher
@@ -174,7 +176,7 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 		env.addFilter('dateHumanFormat', dateHumanFormat)
 
 		//génération du HTML
-		return await env.render('zotero.njk', { items: completedItems });
+		return await env.render('zotero_component.njk', { items: completedItems });
 
 	} catch (error) {
 		// TODO : avertir plus précisément des erreur

@@ -1,0 +1,36 @@
+
+	#pagination-left a:before {
+		content: "";
+		position: absolute;
+		width: var(--pagination-length-left);
+		height: 2.5px;
+		background: white;
+		bottom: 8px;
+		left: 2px;
+	}
+
+	#pagination-right a:after {
+		right: 4px;
+		content: "";
+		position: absolute;
+		width: var(--pagination-length-right);
+		height: 2px;
+		background: white;
+		bottom: 8px;
+	}
+
+@media screen and (max-width:640px){
+
+	.nav-icon {
+		@apply inline-flex items-center justify-center p-2 text-gray-200 transition-transform duration-150 ease-in-out focus:outline-none focus:text-accent4 active:text-accent4;
+		@apply items-center justify-center p-2 text-gray-200 transition-transform duration-150 ease-in-out focus:outline-none focus:text-accent4 active:text-accent4
+	}
+	#menu-offcanvas:after {
+		box-shadow: 0px -2px 4px hsl(202.8, 92.6%, 10.6%, .8), 0px -4px 10px hsla(202.8, 92.6%, 10.6%, 0.7);
+		width: 100%;
+		content: "";
+		position: absolute;
+		height: 8px;
+		clip-path: inset(-15px 0 0px 0px);
+	}
+}

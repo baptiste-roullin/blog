@@ -81,7 +81,7 @@
     "elasticlunr": "github:weixsong/elasticlunr.js#v0.9.6",
     "lodash.clonedeep": "^4.5.0",
     "markdown-it-bracketed-spans": "^1.0.1",
-    "photoswipe": "^5.2.3",
+    "photoswipe": "^5.2.8",
     "sharp": "^0.30.3",
     "tailwind": "^4.0.0",
     "text-metrics": "^3.0.0"

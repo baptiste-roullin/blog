@@ -1,8 +1,10 @@
 @import "./fonts.css";
 @import "./post.scss";
 @import "./images.scss";
-@import "./portfolio.scss";
 @import "./global.scss";
+@import "../../pages/portfolio/portfolio.scss";
+@import "../../features/truchet/truchet.scss";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

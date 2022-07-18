@@ -12,6 +12,8 @@ module.exports = {
 		'./src/**/*.njk',
 		'./src/**/*.md',
 		'./src/_data/structure.js',
+		'./src/filters/*.{ts,js}',
+		'./src/shortcodes/*.{ts,js}',
 	],
 	theme: {
 		fontFamily: {
@@ -97,6 +99,7 @@ module.exports = {
 				'accent': 'hsl(5, 77%, 37%)',
 				'accent2': 'hsl(31, 67%, 34%)',
 				'accent3': 'hsl(30.8, 95%, 17.3%)',
+				'accent4': 'ff9b00',
 				'accent-light': '#fff4ed'
 			},
 
@@ -178,17 +181,7 @@ module.exports = {
 						}
 					},
 				},
-				dark: {
-					css: {
-						color: theme('colors.gray.50'),
-						a: {
-							color: theme('colors.gray.50'),
-							'&:hover': {
-								color: theme('colors.accent'),
-							},
-						},
-					}
-				}
+
 			}),
 			opacity: (theme) => ({
 				5: '.05',

@@ -1,6 +1,6 @@
 const slugify = require('./slugify.js');
 const md = require('../config/markdown.ts')
-import { search } from '../features/search_index/search_index';
+import { search } from '../features/search_index/search_back';
 const { DateTime, Settings } = require('luxon')
 Settings.defaultLocale = "fr";
 
@@ -72,10 +72,9 @@ module.exports = {
 
 	searchIndex: search,
 
-	//TODO : conflit entre renderinline et plugin markdown-it-attrs. Exemple avec le texte "Every Evelyn {lang=en}" en entrée.
 	markdownify: (markdownString) => md.renderInline(markdownString),
 
-	markdownifyBlock: (markdownString) => `<div class="prose prose-lg lg:prose-xl">${md.render(markdownString)}</div>`,
+	markdownifyBlock: (markdownString) => `<div class="prose-tcqb">${md.render(markdownString)}</div>`,
 
 
 	removeMD: require('./removeMD.js'),

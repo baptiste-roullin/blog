@@ -1,20 +1,3 @@
-/*.prose {
-	 .heading-wrapper {
-		display: flex;
-	    	position: relative;
-			& .header-anchor:hover::before, & .header-anchor:focus::before {
-			content:'§︎';
-			position: absolute;
-			left:-1.5em;
-
-			@apply text-accent2;
-		}
-			& .header-anchor {
-				text-decoration: none;
-			}
-	}
-
-}*/
 
 .prose {
 	 h2 {
@@ -43,6 +26,9 @@
 
 
 
+li > code, p > code {
+	@apply bg-transparent border-0 rounded-none;
+}
 
 
 

@@ -8,14 +8,14 @@ layout: base
 		{% include 'components/hero-split.njk' %}
 		{% endif %}
 
-	<div class="post-main  my-20 prose lg:prose-xl prose-lg article {{ structure.g_proseWidth }}">
+	<div class="post-main  my-20 prose-tcqb article {{ structure.g_proseWidth }}">
 
 		{% if not hero.image %}
 			<header class="">
-				<h1 class="text-gray-700">{{ title }}</h1>
+				<h1 class="text-gray-700 ">{{ title }}</h1>
 
 				{% if not hideMeta %}
-					<div class="text-sm UI-component sm:text-base">
+					<div class="pt-4 text-sm sm:text-base not-prose">
 						<time datetime="{{ page.date | dateHumanFormat("yyyy-MM-dd") }}">
 							{{ page.date | dateHumanFormat("dd LLLL yyyy") }}
 						</time>
@@ -26,7 +26,7 @@ layout: base
 
 			</header>
 		{% endif %}
-		<div class="my-16 post-main">{{ content | safe }}</div>
+		<div class="my-16 post-main prose-tcqb">{{ content | safe }}</div>
 	</div>
 
 	{% set nextPost = collections.publishedPosts | getPreviousCollectionItem(page) %}
@@ -38,11 +38,11 @@ layout: base
 			{# ===== Previous and Next =====  #}
 
 			{# TODO : trouver comment centrer en mobile. W-max marche pas. #}
-			<nav class="relative flex flex-col gap-12 px-4 py-12 post-pagination lg:py-12 lg:px-4 md:flex-row md:justify-between">
+			<nav class="relative flex flex-col gap-12 px-4 py-12 post-pagination lg:py-12 lg:px-4 md:flex-row md:justify-between block-dark">
 				<div id="pagination-left" class="lg:w-1/2l ">
 					{% if previousPost %}
-						<a class="relative flex flex-col justify-between w-full h-full gap-3 text-white sm:w-auto sm:gap-4 sm:py-0 hover:underline text-shadow-lg-dark hover:text-accent2" href="{{ previousPost.url | url }}">
-							<p>{{ previousPost.data.title }}</p>
+						<a class="relative flex flex-col justify-between w-full h-full gap-3 sm:w-auto sm:gap-4 sm:py-0 text-shadow-lg-dark " href="{{ previousPost.url | url }}">
+							<p>{{ previousPost.data.title | removeMD}}</p>
 							<img  alt="" class="self-start rotate-180 w-[14px]" src="/assets/UI/pointe.svg">
 
 						</a>
@@ -50,8 +50,8 @@ layout: base
 				</div>
 				<div id="pagination-right" class="lg:w-1/2 ">
 					{% if nextPost %}
-						<a class="relative flex flex-col justify-between w-full h-full gap-3 text-right text-white sm:w-auto sm:gap-4 sm:py-0 hover:underline text-shadow-lg-dark hover:text-accent2" href="{{ nextPost.url | url}}">
-							<p>{{ nextPost.data.title }}</p>
+						<a class="relative flex flex-col justify-between w-full h-full gap-3 text-right sm:w-auto sm:gap-4 sm:py-0 text-shadow-lg-dark " href="{{ nextPost.url | url}}">
+							<p>{{ nextPost.data.title | removeMD}}</p>
 							<img  alt="" class="self-end w-[14px] " src="/assets/UI/pointe.svg">
 
 						</a>
