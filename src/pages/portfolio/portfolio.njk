@@ -19,7 +19,7 @@ eleventyNavigation:
   {% include 'components/hero-split.njk' %}</div>
 
 
-    <div class="flex flex-col gap-8 sections ">
+    <div class="flex flex-col gap-12 my-20 lg:gap-16 sections ">
       <section class="flex flex-col gap-6">
         {% markdown %}
 ## C'est quoi un designer [ux]{.small-caps} ?
@@ -57,7 +57,7 @@ En bonus je fais aussi :
 
 Intéressé-e ?
 
-[Contactez-moi](/contact){.cta}
+[Contactez-moi](/contact){.cta .not-prose}
 
         {% endmarkdown %}
       </section>
@@ -136,7 +136,7 @@ Intéressé-e ?
                     </dl>
                     {% endif %}
 
-                    <div class="no-prose">
+                    <div class="not-prose">
                       {% if  ref.CTA %}
                       <a href="{{ref.CTALink}}" class="w-3/5 mx-auto cta">{{ref.CTA}}</a>
                       {%else %}
