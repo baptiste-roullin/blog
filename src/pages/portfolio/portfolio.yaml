@@ -10,7 +10,6 @@ refs:
       * des calculs d’itinéraires adaptés aux routiers (volume du camion, temps de pause...)
       * de retrouver ses amis sur la route
 
-      Roadconnect n’est plus en ligne mais j’ai aussi travaillé sur Truckfly, l’app qui l'a remplacé.
     durée:  Un an quasi à temps plein
     tasks:
       - 20 sprints
@@ -20,7 +19,8 @@ refs:
       - 50 wireframes
       - Stories et tests de régression
       - Suivi du développement
-    CTA: Voir le site
+    note: Roadconnect n’est plus en ligne mais j’ai aussi travaillé sur Truckfly, l’app qui l'a remplacé.
+    CTA: Voir l'app
     CTALink: https://truckfly.com/
     photos:
       - url: /assets/images/michelin1.png
