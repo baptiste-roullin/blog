@@ -3,7 +3,7 @@
 
       <li class="inline-block my-3 sm:my-2 min-w-1/2 sm:min-w-min">
         <a  href="{{ '/tags/' | url}}{{tagName | slugify  }}/"
-        class=" hover:text-accent hover:underline label text-accent2">{{ tagName | capitalize}}
+        class=" hover:text-accent hover:underline label text-accent2">{{ tagName }}
         </a>
         <span class="">❨{{tagCount}}❩</span>
         {% if not loop.last %}

@@ -20,7 +20,7 @@ layout: post
 				{% for tagName, tagCount in tags %}
 					<li >
 						<a  href="{{ '/tags/' | url}}{{tagName | slugify  }}/">
-							{{ tagName | capitalize}}
+							{{ tagName }}
 						</a>
 					</li>
 				{% endfor %}
