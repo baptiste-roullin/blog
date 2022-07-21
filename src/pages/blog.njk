@@ -26,7 +26,7 @@ permalink: "/{{page.fileSlug}}/{% if pagination.pageNumber %}{{ pagination.pageN
 </noscript>
 <form class="search " id="search-form" aria-controls="post-list">
   <div class="flex flex-col sm:w-1/2 field">
-    <label for="searchField" class="label">Rechercher</label>
+    <label for="searchField" class="mt-0 label">Rechercher</label>
     <div class="relative">
       <input type="search"  class="w-full p-2 border-gray-600 rounded-md " placeholder="" id="searchField"/>
       <input type="image" name="submit" src="/assets/UI/search.svg" alt="" class="absolute h-10 p-2 right-2">
@@ -39,9 +39,8 @@ permalink: "/{{page.fileSlug}}/{% if pagination.pageNumber %}{{ pagination.pageN
 {% set postslist = posts %}
 
 {% include 'components/postslist.njk' %}
-<div class=" xl:container-wide">
-  <hr class="my-8">
-  <h1 class="text-gray-700">Tous les thèmes</h1>
+<div class=" 2xl:container-wide">
+  <h1 class="my-12 text-gray-700">Tous les thèmes</h1>
   {% set tags = collections.tagList %}
   {% include "components/tagpills.njk" %}
 </div>
