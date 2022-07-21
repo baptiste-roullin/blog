@@ -10,7 +10,6 @@ refs:
       * des calculs d’itinéraires adaptés aux routiers (volume du camion, temps de pause...)
       * de retrouver ses amis sur la route
 
-      Roadconnect n’est plus en ligne mais j’ai aussi travaillé sur Truckfly, l’app qui l'a remplacé.
     durée:  Un an quasi à temps plein
     tasks:
       - 20 sprints
@@ -20,7 +19,8 @@ refs:
       - 50 wireframes
       - Stories et tests de régression
       - Suivi du développement
-    CTA: Voir le site
+    note: Roadconnect n’est plus en ligne mais j’ai aussi travaillé sur Truckfly, l’app qui l'a remplacé.
+    CTA: Voir l'app
     CTALink: https://truckfly.com/
     photos:
       - url: /assets/images/michelin1.png
@@ -98,7 +98,7 @@ refs:
       - url: /assets/images/safran3.png
         alt: null
 
-  - title: Refonte du site institutionnel et catalogue de Studi
+  - title: Refonte du site vitrine et catalogue de Studi
     name: Studi
     logo: /assets/images/studi.svg
     description: |
@@ -124,6 +124,30 @@ refs:
       - url: /assets/images/studi4.png
         alt: null
 
+
+
+  - title: "Outil de suivi des mouvements sociaux à la SNCF"
+    description: Outil à vocation de transparence, permettant la saisie décentralisée des chiffres de préavis et de grève et un suivi quantitatif et qualitatif à tous les échelons.
+    logo: /assets/images/sncf.png
+    durée: 3 mois
+    tasks:
+      - Régie à mi-temps au siège de la SNCF
+      - 30 wireframes
+      - Suivi du dev
+      - Démos en fin de sprint devant des représentants métier
+    name: SNCF
+    photos:
+        - url: /assets/images/sncf1.png
+          alt: null
+        - url: /assets/images/sncf2.png
+          alt: null
+        - url: /assets/images/sncf3.png
+          alt: null
+        - url: /assets/images/sncf4.png
+          alt: null
+
+
+
   - title: "E-boutique pour Flunch Traiteur"
     description: Refonte de la boutique B2B et B2C pour moderniser la marque, clarifier la navigation dans le catalogue et recentrer l'expérience sur un parcours contextualisé d'organisation de mon évènement (quelle date, quel lieu, quels produits pour le type d'évènement).
     logo: /assets/images/flunch.png
@@ -133,7 +157,7 @@ refs:
       - Personas
       - Ateliers de co-conceoption
       - 20 wireframes
-    name: "Flunch"
+    name: Flunch
     photos:
           - url: /assets/images/flunch1.png
             alt: null
@@ -141,6 +165,7 @@ refs:
             alt: null
           - url: /assets/images/flunch3.png
             alt: null
+
 
   - title: Concept de miroir connecté pour SEB
     name: SEB
@@ -192,8 +217,8 @@ clients:
     - 'MAIF'
   - sector: Public et associatif
     list:
-    - 'ACOSS'
-    - "Auvergne-Rhône-Alpes"
+    - ACOSS
+    - Auvergne-Rhône-Alpes
     - Bureau International des poids et des mesures
     - Croix Rouge Française
     - Département de la vendée
