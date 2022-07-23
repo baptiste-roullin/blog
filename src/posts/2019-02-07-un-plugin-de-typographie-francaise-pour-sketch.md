@@ -16,8 +16,6 @@ Résumé : j'ai créé un [plugin Sketch](https://github.com/baptiste-roullin/
 <!-- excerpt -->
 
 
-[icone du plugin](/assets/images/Icon_ombre2.png)
-
 [Typographie frenchy](https://github.com/baptiste-roullin/typographie-frenchy#readme){.cta} {.not-prose}
 
 Tout a commencé par une interface comme celle-ci :

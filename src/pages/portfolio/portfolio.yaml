@@ -1,9 +1,7 @@
 # yaml-language-server: $schema=portfolio.schema.json
 
 ---
-test:
-refs:
-
+references:
   - title: Michelin RoadConnect, un assistant mobile et réseau social pour les routiers
     name: Michelin
     logo: /assets/images/michelin.svg
@@ -14,7 +12,7 @@ refs:
       * de retrouver ses amis sur la route
 
       Roadconnect n’est plus en ligne mais j’ai aussi travaillé sur Truckfly, l’app qui l'a remplacé.
-    durée:  Un an quasi à temps plein
+    duration:  Un an quasi à temps plein
     tasks:
       - 20 sprints
       - Entretiens sur aires d’autoroute
@@ -44,7 +42,7 @@ refs:
       * Bonnes et mauvaises pratiques sur toutes les interfaces, pas juste le popin de cookies.
       * Synthèse sur la psychologie de la vie privée
       * Compilation de statistiques sur l'impact du RGPD sur les comportements
-    durée:  15 jours
+    duration:  15 jours
     tasks:
       - Synthèse de la littérature et benchmark d'applis de tous pays
       - Restitution en webinar devant 80 personnes, dont le DPO de la MAIF.
@@ -67,13 +65,13 @@ refs:
       * Refonte du site transport
         * Arborescence
         * Recherche de ligne, information voyageurs multi-modal, imbrication des niveaux régional, départemental et local…
-    durée: 3 mois
+    duration: 3 mois
     tasks:
       - Ateliers de conception avec les directions mobilité
       - Arborescence
       - wireframes
     CTA: "Visiter le site"
-    CTA-link: https://studi.fr
+    CTALink: https://www.auvergnerhonealpes.fr/
     photos:
       - url:  /assets/images/aura1.png
         alt: null
@@ -90,8 +88,8 @@ refs:
       * conception de 40 templates
       * Aide à la stratégie de contenu (modules éditoriaux, tone of voice…),
     CTA: "Visiter le site"
-    CTA-link: https://www.auvergnerhonealpes.fr
-    durée: 8 mois
+    CTALink: https://www.auvergnerhonealpes.fr
+    duration: 8 mois
     tasks: null
     photos:
       - url: /assets/images/safran1.png
@@ -109,8 +107,8 @@ refs:
 
       Le défi : comment faire pour qu'un potentiel apprenant explore la variété du catalogue (13 filières), comprenne les possibilités de financement et se persuade d'apprendre à distance pour, mettons, un diplôme d’infirmier ?
     CTA: "Visiter le site"
-    CTA-link: https://studi.fr
-    durée: 3 mois
+    CTALink: https://studi.fr
+    duration: 3 mois
     tasks:
       - Entretiens
       - Test
@@ -132,7 +130,7 @@ refs:
   - title: "Outil de suivi des mouvements sociaux à la SNCF"
     description: Outil à vocation de transparence, permettant la saisie décentralisée des chiffres de préavis et de grève et un suivi quantitatif et qualitatif à tous les échelons.
     logo: /assets/images/sncf.png
-    durée: 3 mois
+    duration: 3 mois
     tasks:
       - Régie à mi-temps au siège de la SNCF
       - 30 wireframes
@@ -154,7 +152,7 @@ refs:
   - title: "E-boutique pour Flunch Traiteur"
     description: Refonte de la boutique B2B et B2C pour moderniser la marque, clarifier la navigation dans le catalogue et recentrer l'expérience sur un parcours contextualisé d'organisation de mon évènement (quelle date, quel lieu, quels produits pour le type d'évènement).
     logo: /assets/images/flunch.png
-    durée: 3 mois
+    duration: 3 mois
     tasks:
       - Entretiens avec des profils B2B
       - Personas
@@ -179,7 +177,7 @@ refs:
       - Accompagnement d'un stagiaire SEB
       - Ateliers d'idéation
       - Tests utilisateur
-    durée: 2 mois
+    duration: 2 mois
     photos:
       - url: /assets/images/seb1.png
         alt: null

@@ -13,7 +13,7 @@ hero:
 
 J'ai fait un minuteur, il est joli, il est cool, il est disponible ici :
 
-[c'est ici](https://misc.toutcequibouge.net/Timer/){.cta} {.not-prose}
+[C'est ici](https://misc.toutcequibouge.net/Timer/){.cta} {.not-prose}
 
 
 

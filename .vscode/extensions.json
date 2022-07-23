@@ -1,0 +1,9 @@
+{
+	"recommendations": [
+		"docsmsft.docs-yaml",
+		"irongeek.vscode-env",
+		"heybourn.headwind",
+		"gruntfuggly.todo-tree",
+		"redhat.vscode-yaml"
+	]
+}

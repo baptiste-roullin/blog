@@ -1,6 +1,130 @@
 {
 	"$id": "https://json.schemastore.org/base.json",
 	"$schema": "http://json-schema.org/draft-07/schema",
+	"type": "object",
+	"required": [
+		"references",
+		"clients",
+		"tools"
+	],
+	"properties": {
+		"uniqueItems": true,
+		"references": {
+			"type": "array",
+			"uniqueItems": true,
+			"required": [
+				"title",
+				"name",
+				"logo",
+				"description"
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"title": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"duration": {
+						"type": [
+							"string",
+							"null"
+						]
+					},
+					"tasks": {
+						"type": [
+							"array",
+							"null"
+						],
+						"items": {
+							"type": "string"
+						}
+					},
+					"logo": {
+						"type": "string"
+					},
+					"description": {},
+					"note": {
+						"type": [
+							"string",
+							"null"
+						]
+					},
+					"CTA": {
+						"type": [
+							"string",
+							"null"
+						]
+					},
+					"CTALink": {
+						"type": [
+							"string",
+							"null"
+						]
+					},
+					"photos": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"url": {
+									"type": "string"
+								},
+								"alt": {
+									"type": [
+										"string",
+										"null"
+									]
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"clients": {
+			"type": "array",
+			"required": [
+				"sector",
+				"list"
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"sector": {
+						"type": "string"
+					},
+					"list": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					}
+				}
+			},
+			"uniqueItems": true
+		},
+		"tools": {
+			"type": "array",
+			"required": [
+				"sector",
+				"list"
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"logo": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	},
 	"definitions": {
 		"nullable-array": {
 			"$id": "nullable-array",
@@ -647,5 +771,5 @@
 			]
 		}
 	},
-	"title": "Common types for all schemas"
+	"title": "Portfolio schema"
 }

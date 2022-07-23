@@ -5,14 +5,14 @@
   <div class="flex justify-between w-full gap-4 md:gap-8 lg:gap-12">
     <div class="basis-full">
       {% if pagination.href.previous %}
-        <a href="{{ pagination.href.previous }}" class="block cta max-w-none">
+        <a href="{{ pagination.href.previous }}" class="block w-full cta max-w-none">
       Précédent
     </a>
       {% endif %}
     </div>
     <div class="basis-full">
       {% if pagination.href.next %}
-        <a href="{{ pagination.href.next }}" class="block cta max-w-none ">
+        <a href="{{ pagination.href.next }}" class="block w-full cta max-w-none">
       Suivant
     </a>
       {% endif %}

@@ -1,3 +1,4 @@
+import { normalize } from 'path';
 import { Item, Collection } from '../../types/eleventy';
 const meta = require('../_data/meta.js')
 
@@ -19,13 +20,19 @@ module.exports = {
 		let tagDictionary: { string?: number } = {}
 
 		getbyField(collectionAPI, 'contentType', 'post').forEach(function (item) {
+
+			function normalize(tag) {
+				return tag.slice(0, 1).toUpperCase() + tag.slice(1)
+			}
+
+
 			//@ts-ignore
 			if ('tags' in item.data) {
 				let tags: string[] = item.data.tags
 
 				// Compteur du nombre d'articles associés à un tag
-				for (const tag of tags) {
-
+				for (let tag of tags) {
+					tag = normalize(tag)
 					if (tag in tagDictionary) {
 						const oldValue = tagDictionary[tag]
 						tagDictionary[tag] = oldValue + 1
@@ -37,6 +44,7 @@ module.exports = {
 			}
 		})
 		const sortedtags = Object.entries(tagDictionary).sort((a, b) => b[1] - a[1])
+
 		return Object.fromEntries(sortedtags)
 	},
 
