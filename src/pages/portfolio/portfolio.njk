@@ -23,15 +23,12 @@ eleventyNavigation:
 
 
     <div class="flex flex-col gap-12 my-20 lg:gap-16 sections ">
-      <section class="flex flex-col gap-6">
-        {% markdown %}
-## C'est quoi un designer [ux]{.small-caps} ?
-        {% endmarkdown   %}
+      <section class="flex flex-col ">
+        {% MD %}## C'est quoi un designer [ux]{.small-caps} ?{% endMD %}
 
-    {% include "components/portfolio-tab.njk" %}
+        {% include "components/portfolio-tab.njk" %}
 
-
-        {% markdown %}
+        {% MD %}
 ## Mais encore ?
 
 Y a en gros quatre étapes :
@@ -62,19 +59,14 @@ Intéressé-e ?
 
 [Contactez-moi](/contact){.cta} {.not-prose}
 
-        {% endmarkdown %}
+        {% endMD %}
       </section>
 
 
         {# TOOLS #}
 
         <section class="tools">
-      {% markdown %}
-## Mes outils {.cta-heading}
-
-​{.hidden}
-
-        {% endmarkdown %}
+      {% MD %}## Mes outils {.cta-heading}{% endMD %}
 
         <div class="flex flex-wrap justify-start gap-10 md:justify-center md:flex-row layout-wide">
             {% for tool in tools %}
@@ -90,15 +82,10 @@ Intéressé-e ?
         {# PROJETS #}
 
       <section class="">
-        {% markdown %}
-## Quelques projets {.cta-heading}
-
-​{.hidden}
-
-       {% endmarkdown %}
+        {% MD %}## Quelques projets {.cta-heading}{% endMD %}
 
         <ul class="flex flex-col gap-8 m-auto md:gap-16 post-list layout-wide project-list">
-          {% for ref in references  %}
+          {% for ref in references%}
               <li class="flex-col card-base p-7 lg:p-12 ">
                 <div class="w-full gap-4 m-0 md:gap-0 block-heading-split">
                   <h3 class="order-1 sm:order-0 cta-heading">{{ref.title}}</h3>
@@ -156,7 +143,7 @@ Intéressé-e ?
 
                   </div>
                   <div class="flex flex-row flex-wrap gap-3 m-auto rich-picture ">
-                     {% for photo in ref.photos   %}
+                     {% for photo in ref.photos %}
                         <figure class=""><img class="w-auto shadow-md"  src="{{photo.url}}" alt="{{photo.alt}}"></figure>
                       {% endfor %}
 
@@ -172,12 +159,7 @@ Intéressé-e ?
       {# CLIENTS #}
 
       <section class="clients">
-          {% markdown %}
-## Clients principaux {.cta-heading}
-
-​{.hidden}
-
-          {% endmarkdown %}
+        {% MD %}## Clients principaux {.cta-heading}{% endMD %}
 
         <div class="flex-col items-start p-7 lg:p-12 card-base hover:shadow layout-wide">
           <ul class="flex flex-col items-start gap-8 " >
@@ -205,20 +187,3 @@ Intéressé-e ?
 </div>
 
 
-
-{#
-
-
-wireframe #1
-Un outil de gestion des plannings et activités sur les plateformes pétrolières. Enjeux :
-- Fonctionnement en offline
-- Équilibre entre améliorations de l'archi de l'information et respect des habitudes des utilisateurs (qui avaient l'habitude d'un tableau Excel avec une certaine mise en page)
-- Manipulation de données (lignes de tableau pouvant être éditées, ajoutées, supprimées, etc.).
-
-wireframe #2
-Un outil d'aide à la décision pour des commerciaux, afin qu'ils proposent la bonne machine de test médical en fonction des informations recueillies sur le prospect. Enjeux :
-- Faire comprendre aux utilisateurs l'impact des données saisies, avec une visualisation en temps réel de l'évolution du ranking des machines.
-- Concevoir un outil à la fois simple (possibilité d'enchainer les étapes fluidement façon Typeform) et souple (possibilité de faire les étapes dans le désordre, l'utilisateur pouvant recueillir des infos sur plusieurs jours).
-- Degré d'expertise variable entre les utilisateurs, donc besoin de guider (infobulle, explication du jargon…) sans trop alourdir.
-
- #}

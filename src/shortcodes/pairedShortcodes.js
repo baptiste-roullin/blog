@@ -13,7 +13,7 @@ module.exports = {
 	},
 
 
-	markdown: function (value) {
+	MD: function (value) {
 		if (!value) {
 			console.log("attention, string vide")
 			return ''
