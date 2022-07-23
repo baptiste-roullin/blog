@@ -8,9 +8,9 @@
 {#- General #}
 
 {% if r/^post-?/g.test(layout) %}
-  {% set postImage = meta.siteURL +  '/' + meta.assetsDir + '/' + collatedHeroImage %}
+  {% set postImage = meta.siteURL +  '/'  + collatedHeroImage %}
   {% set pageURL = meta.siteURL + page.url %}
-
+{{collatedHeroImage | log}}
   <script type="application/ld+json" >
     {
       "@context": "https://schema.org",
@@ -39,7 +39,6 @@
   </script>
 
   <meta property="og:image" content=" {{postImage}}"/>
-
   <meta name="description" content="{{ description | removeMD   }}"/>
   <meta property="og:description" content="{{ description | removeMD  }}"/>
   <meta property='og:type' content='article'/>

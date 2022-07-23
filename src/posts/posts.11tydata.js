@@ -12,21 +12,21 @@ module.exports = {
     collatedHeroImage: async (data) => {
       const slug = data.page.fileSlug
       const hero = data.hero
-
+      let finalName;
       if (hero === undefined || hero === {}) {
         await truchetNode(slug, 400, 280).catch(console.error);
         //URL absolue
-        return `/${meta.assetsDir}/truchet-${slug}.png`
+        finalName = `truchet-${slug}.png`
       }
       else {
         const isGif = /\.gif$/
         if (isGif.test(hero.image)) {
-          return `/${meta.assetsDir}/${hero.image}`
+          finalName = `${hero.image}`
 
         }
-        return hero.image
+        else { finalName = hero.image }
       }
-
+      return `/${meta.assetsDir}/${finalName}`
     },
   }
 };
