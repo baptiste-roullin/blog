@@ -1,4 +1,7 @@
+# yaml-language-server: $schema=portfolio.schema.json
+
 ---
+test:
 refs:
 
   - title: Michelin RoadConnect, un assistant mobile et réseau social pour les routiers
