@@ -69,7 +69,8 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.njk$/,
+/*       TODO :  https://github.com/Jax-p/vite-plugin-nunjucks
+*/        test: /\.njk$/,
         use: [
           {
             loader: 'simple-nunjucks-loader',
@@ -88,6 +89,7 @@ module.exports = {
     ],
   },
   plugins: [
+    /* TODO : https://github.com/trendyminds/rollup-plugin-hashed-mapping?utm_source=pocket_mylist */
     new WebpackAssetsManifest({
       customize(entry, original, manifest, asset) {
 
@@ -99,6 +101,7 @@ module.exports = {
       },
       output: '../../../src/_data/hashes_js.json'
     }),
+    /* TODO https://www.npmjs.com/package/copyfiles */
     new CopyPlugin({
       patterns: [
         //On copie média avec chemins relatifs ou absolus dans un dossier unique intermédiaire, que les scripts puissent processer
