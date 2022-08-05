@@ -36,4 +36,4 @@ jobs:
           unzip -n  docs.zip
         host: ${{secrets.HOST}}
         username: ${{ secrets.SSH_USER }}
-        privateKey: ${{ secrets.PASSWORD }}
+        password: ${{ secrets.PASSWORD }}
