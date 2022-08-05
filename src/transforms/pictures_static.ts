@@ -48,11 +48,13 @@ function convertPictures(image, document) {
 		image.setAttribute('width', imageDimensions.webp[0].width);
 		image.setAttribute('height', imageDimensions.webp[0].height);
 
+
 		const options = {
 			sharpWebpOptions: {
 				quality: 90,
 			},
-			widths: [360, 750, imageDimensions.width, 1140, 1530, 1920],
+			widths: [400, 1024,
+				(globalSettings.minWidth > imageDimensions.width ? imageDimensions.width : null), 1920],
 			dryRun: false,
 			formats: (
 				meta.env === "production"
