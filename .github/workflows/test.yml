@@ -2,12 +2,10 @@
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
 name: test
-on:
-  push:
-    branches: [ "main" ]
+on: workflow_dispatch
 jobs:
   build:
-    runs-on: debian-bullseye
+    runs-on: macOS-latest
     strategy:
       matrix:
         node-version: [18.7.0]
@@ -21,5 +19,13 @@ jobs:
     - run: npm ci
     - run: npm run build
     - name: zipping docs
-    run: zip -r dist.zip dist
-
+      run: zip -r dist.zip dist/*
+    - name: unzip and copy
+      uses: garygrossgarten/github-action-ssh@release
+      with:
+        command: >-
+          cd /data/www/blog/dist &&
+          unzip -n  docs.zip
+        host: ${{secrets.HOST}}
+        username: ${{ secrets.SSH_USER }}
+        privateKey: ${{ secrets.PASSWORD }}
