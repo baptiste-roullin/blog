@@ -18,8 +18,16 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build
-    - name: zipping docs
+    - name: zipping files
       run: zip -r dist.zip dist/*
+    - name: transfer files
+      uses: garygrossgarten/github-action-scp@release
+      with:
+        local: dist.zip
+        remote: /data/blog/dist/docs.zip
+        host: ${{secrets.HOST}}
+        username: ${{ secrets.SSH_USER }}
+        privateKey: ${{ secrets.PASSWORD }}
     - name: unzip and copy
       uses: garygrossgarten/github-action-ssh@release
       with:
