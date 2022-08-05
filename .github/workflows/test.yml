@@ -24,7 +24,7 @@ jobs:
       uses: garygrossgarten/github-action-scp@release
       with:
         local: dist.zip
-        remote: /data/www/blog/dist/docs.zip
+        remote: /data/www/blog/dist/dist.zip
         host: ${{secrets.HOST}}
         username: ${{ secrets.SSH_USER }}
         password: ${{ secrets.PASSWORD }}
