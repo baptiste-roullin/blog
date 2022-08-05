@@ -33,7 +33,7 @@ jobs:
       with:
         command: >-
           cd /data/www/blog/dist &&
-          unzip -n  docs.zip
+          unzip -n  dist.zip
         host: ${{secrets.HOST}}
         username: ${{ secrets.SSH_USER }}
         password: ${{ secrets.PASSWORD }}
