@@ -27,7 +27,7 @@ jobs:
         remote: /data/blog/dist/docs.zip
         host: ${{secrets.HOST}}
         username: ${{ secrets.SSH_USER }}
-        privateKey: ${{ secrets.PASSWORD }}
+        password: ${{ secrets.PASSWORD }}
     - name: unzip and copy
       uses: garygrossgarten/github-action-ssh@release
       with:
