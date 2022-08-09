@@ -1,11 +1,9 @@
 
 require('dotenv').config()
-import path from "path";
 const { promisify } = require("util");
 const { join } = require("path");
 const exec = promisify(require("child_process").exec);
 const pathToFfmpeg = require("ffmpeg-static");
-const meta = require('../_data/meta.js')
 
 
 async function convertGIFs(name, convertedName, outPath) {
@@ -25,7 +23,7 @@ async function convertGIFs(name, convertedName, outPath) {
 };
 
 
-export function handleGIFs(img) {
+module.exports = function handleGIFs(img) {
 	const outPath = `${meta.outputDir}/${meta.assetsDir}/`
 	let src = img.getAttribute("src");
 	const name = path.basename(src)

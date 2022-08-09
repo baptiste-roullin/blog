@@ -1,6 +1,6 @@
 
 window.truchet = require('./truchet_core.ts');
-
+console.log("test222");
 document.addEventListener('DOMContentLoaded', async function () {
 	[...document.querySelectorAll('canvas')].forEach(async (el) => {
 		const params = JSON.parse(el.dataset?.args || '')

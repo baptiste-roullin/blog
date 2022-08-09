@@ -2,17 +2,37 @@
 // https://github.com/google/eleventy-high-performance-blog
 
 
-
+const path = require("path")
 require('dotenv').config()
 
 const { parseHTML } = require('linkedom');
-import { handleGIFs } from './pictures_animated';
-import { handlePictures, globalSettings } from './pictures_static';
+const { handleGIFs } = require('./pictures_animated.ts')
+const handlePictures = require('./pictures_static.ts')
 
 
+function reformatURL(src: string, width): string {
+	const fullPath = `/${meta.assetsDir}/${path.basename(src)}`
 
+	return fullPath.
+		replace(
+			/^(.*)(\.[^\.]+)$/,
+			'$1-' + width + '.jpg')
+}
 
-export default function pictures_processing(html) {
+const globalSettings = {
+	selector: " #content :not(picture) > img[src]:not([srcset]):not([src$='.svg'])",
+	minWidth: 360,
+	maxWidth: 1920,
+	fallbackWidth: 750,
+	sizes: '(max-width: 60rem) 90vw, 60rem',
+	resizedImageUrl: "",
+	steps: 5,
+	classes: ['img-default'],
+	attributes: { loading: 'lazy', },
+	ignore: 'truchet-'
+}
+
+module.exports = function pictures_processing(html, globalSettings) {
 
 	const { document } = parseHTML(html);
 

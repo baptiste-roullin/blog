@@ -5,7 +5,9 @@
 // TODO	Rendre paramétrable infos d'articles à afficher
 // TODO	Format biblio APA https://www.npmjs.com/package/citation-js
 
-import { MultiReadResponse, RawItem } from '../../../types/zotero'
+//@ts-nocheck
+
+const { MultiReadResponse, RawItem } = require('../../../types/zotero')
 
 const njk = require('nunjucks')
 
@@ -13,7 +15,7 @@ const njk = require('nunjucks')
 // Client : 				https://github.com/tnajdek/zotero-api-client
 const { default: api } = require('zotero-api-client');
 
-import dateHumanFormat from "../../filters/dateFormatting";
+const dateHumanFormat = require("../../filters/dateFormatting")
 
 /*
 Comme promise.all, effectue des requête en parallèle et renvoie une promesse de tableau de résultats. Avec en plus des options, notamment une pour limiter le nombre de requêtes parallèles
@@ -21,10 +23,10 @@ Comme promise.all, effectue des requête en parallèle et renvoie une promesse d
 @param mapper — Function which is called for every item in input. Expected to return a Promise or value.
 @returns — A Promise that is fulfilled when all promises in input and ones returned from mapper are fulfilled, or rejects if any of the promises reject. The fulfilled value is an Array of the fulfilled values returned from mapper in input order.
 */
-import pMap from 'p-map';
+const pMap = require('p-map')
 
 
-import cache from '../../utils/caching'
+const cache = require('../../utils/caching.ts')
 
 async function zotero(collection: string, ...requestedTags: string[]) {
 

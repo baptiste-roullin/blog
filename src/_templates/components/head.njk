@@ -10,7 +10,6 @@
 {% if r/^post-?/g.test(layout) %}
   {% set postImage = meta.siteURL +  '/'  + collatedHeroImage %}
   {% set pageURL = meta.siteURL + page.url %}
-{{collatedHeroImage | log}}
   <script type="application/ld+json" >
     {
       "@context": "https://schema.org",

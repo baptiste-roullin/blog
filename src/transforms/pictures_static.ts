@@ -1,8 +1,6 @@
 
 require('dotenv').config()
 const convertPicturesLibrary = require("@11ty/eleventy-img");
-import path from "path";
-const meta = require('../_data/meta.js')
 const clonedeep = require('lodash.clonedeep');
 
 
@@ -10,26 +8,6 @@ function normalizePath(str) {
 	return decodeURI(str.replace(/^\s(.*)\s$/g, "$1"))
 }
 
-export const globalSettings = {
-	selector: " #content :not(picture) > img[src]:not([srcset]):not([src$='.svg'])",
-	minWidth: 360,
-	maxWidth: 1920,
-	fallbackWidth: 750,
-	sizes: '(max-width: 60rem) 90vw, 60rem',
-	resizedImageUrl: (src: string, width): string => {
-		const fullPath = `/${meta.assetsDir}/${path.basename(src)}`
-
-		return fullPath.
-			replace(
-				/^(.*)(\.[^\.]+)$/,
-				'$1-' + width + '.jpg')
-	},
-	steps: 5,
-	classes: ['img-default'],
-	attributes: { loading: 'lazy', },
-	ignore: 'truchet-'
-
-};
 
 
 
@@ -85,7 +63,7 @@ function convertPictures(image, document) {
 }
 
 
-export function prepareForLighbox(image, document) {
+function prepareForLighbox(image, document) {
 	//image.setAttribute('src', image.dataset.responsiveruRL);
 	//let caption = image.getAttribute("title");
 	if (image.closest('.rich-picture')) {
@@ -100,7 +78,7 @@ export function prepareForLighbox(image, document) {
 	}
 }
 
-export function handlePictures(image, document, globalSettings) {
+module.exports = function handlePictures(image, document, globalSettings) {
 
 	let imageSettings = clonedeep(globalSettings);
 	convertPictures(image, document);

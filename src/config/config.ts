@@ -1,4 +1,3 @@
-import { Config, UserConfig, } from '../../types/eleventy';
 
 const pluginRss = require('@11ty/eleventy-plugin-rss')
 const pluginNavigation = require('@11ty/eleventy-navigation')
@@ -7,17 +6,18 @@ const embedEverything = require("eleventy-plugin-embed-everything");
 const { EleventyRenderPlugin } = require("@11ty/eleventy");
 
 const meta = require('../_data/meta.js');
-import picturesProcessing from '../transforms/pictures_processing'
+const picturesProcessing = require('../transforms/pictures_processing.ts')
 
 
-module.exports = function (config: Config): UserConfig {
-	/**
+module.exports = function (config) {
+
+ /**
  * Custom Watch Targets
  * for when the Tailwind config or .css files change...
  * by default not watched by 11ty
  */
 	config.addWatchTarget('./src/assets/scripts/')
-	config.addWatchTarget('./src/**/*.js')
+	//	config.addWatchTarget('./src/**/*.js')
 	config.addWatchTarget('./tailwind.config.js')
 	config.setWatchThrottleWaitTime(200);
 

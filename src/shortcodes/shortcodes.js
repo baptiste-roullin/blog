@@ -1,7 +1,7 @@
 
 const svgColorDefault = 'text-indigo-500'
 const truchet = require('../features/truchet/truchet_shortcode.js')
-
+console.log("test");
 module.exports = {
   truchetItem: truchet.truchetItem,
   truchetList: truchet.truchetList,
