@@ -1,13 +1,13 @@
-import slugify from '@sindresorhus/slugify';
+import slugifyLib from '@sindresorhus/slugify';
 
 // slugify is called 1000s of times, let's memoize it
 let memoizedSlugs = {};
 
-export default slugify = (string) => {
+export default function slugify(string) {
 	if (string in memoizedSlugs) {
 		return memoizedSlugs[string];
 	} else {
-		let slug = slugify(string, {
+		let slug = slugifyLib(string, {
 			decamelize: false,
 			customReplacements: [['%', ' '], ["'", '']],
 		});
