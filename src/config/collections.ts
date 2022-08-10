@@ -50,21 +50,5 @@ export const collections = {
 
 	featuredPosts: function (collectionAPI): Item[] {
 		return getbyField(collectionAPI, 'featured', true)
-	},
-
-	listeProjets: async function (collection: Collection): Promise<any> {
-		//TODO : ça devrait pas être une collection.
-		const projets = collection.items[0].data!.projets
-
-		const collatedProjects = await Promise.all(projets.map(async (projet) => {
-
-			if (!projet.img) {
-				await truchetNode(projet.name, 400, 400).catch(console.error);
-				//chemin absolu
-				projet.img = `/${meta.assetsDir}/truchet-${projet.name}.png`
 			}
-			return projet
-		}))
-		return collatedProjects
-	},
 }

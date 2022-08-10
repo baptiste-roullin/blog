@@ -6,8 +6,8 @@ class="flex flex-col gap-4 p-5 text-center list-none transition-all duration-300
         alt=""
         loading="lazy"
         class="object-cover w-3/4 mx-auto cursor-pointer picture"
-        src="{{projet.img}}">
-
+        src="{{projet.collatedImage}}">
+{{projet.collatedImage | log}}
   <div class="flex flex-col justify-between h-full gap-4 lg:gap-6 ">
     <h3 class=" cta-heading">
       <a href="{{ projet.link }}" class="block hover:underline hover:text-accent2">
