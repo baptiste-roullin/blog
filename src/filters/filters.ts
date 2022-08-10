@@ -74,7 +74,7 @@ export const filters = {
 		return newArray;
 	},
 
-	//searchIndex: search,
+	searchIndex: search,
 
 	markdownify: (markdownString) => md.renderInline(markdownString),
 

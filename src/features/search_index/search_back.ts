@@ -25,19 +25,8 @@ export default function search(collection) {
 		this.addField("content")
 		this.setRef("url");
 	}
-	var index: ElasticLunr.Index<any>;
-	var indexStats;
-	try {
-		const indexFile = require('./dist/index.min.json')
-		indexStats = statSync('./dist/index.min.json') as Stats
-		index = elasticlunr.Index.load(indexFile)
-		console.log('index détecté et chargé')
+	var index: ElasticLunr.Index<any> = elasticlunr(createIndex)
 
-	}
-	catch (e) {
-		console.log("pas d'index. index créé")
-		index = elasticlunr(createIndex)
-	}
 
 
 
@@ -63,16 +52,10 @@ export default function search(collection) {
 		}
 
 
-		if (index.documentStore.hasDoc(page.url)) {
-			console.log(page.fileSlug, "doc déjà existant");
-			if (statSync(page.inputPath) > indexStats.mtimeMs) {
-				index.updateDoc(docOptions)
-			}
-		}
-		else {
 
-			index.addDoc(docOptions);
-		}
+
+		index.addDoc(docOptions);
+
 
 	});
 	return JSON.stringify(index.toJSON());
