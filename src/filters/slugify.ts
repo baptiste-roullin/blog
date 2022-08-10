@@ -3,7 +3,7 @@ import slugifyLib from '@sindresorhus/slugify';
 // slugify is called 1000s of times, let's memoize it
 let memoizedSlugs = {};
 
-export default function slugify(string) {
+export function slugifyFilter(string) {
 	if (string in memoizedSlugs) {
 		return memoizedSlugs[string];
 	} else {

@@ -1,4 +1,4 @@
-import slugify from './slugify'
+import { slugifyFilter } from './slugify'
 import { md } from '../config/markdown'
 /*import search from '../features/search_index/search_back'
 */import dateFormatting from './dateFormatting'
@@ -114,7 +114,7 @@ export const filters = {
    // Universal slug filter strips unsafe chars from URLs
    */
 	slugify: (string) => {
-		return slugify(string)
+		return slugifyFilter(string)
 	},
 
 }
