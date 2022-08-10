@@ -14,28 +14,18 @@ function normalizePath(str) {
 import path from 'path'
 
 
-function convertPictures(image, document, imageSettings) {
-
-
-
-	let originalPath = normalizePath(image.getAttribute('src'))
-	const intermediaryPath = "src/assets/imagesToProcess/" + path.basename(originalPath)
+function convertPictures(image, document, imageSettings, widthList, originalPath, intermediaryPath) {
 
 	try {
 		// TODO : Tester cache. Par exemple "truchet-interet legitime.jpg" est-il mis en cache une seule fois.
 
-		const imageDimensions = convertPicturesLibrary.statsSync(intermediaryPath, { statsOnly: true, formats: ["webp"] });
 
-		image.setAttribute('width', imageDimensions.webp[0].width);
-		image.setAttribute('height', imageDimensions.webp[0].height);
-
-		const originalWidhFallback = (imageSettings.minWidth > imageDimensions.width ? imageDimensions.width : null)
 
 		const options = {
 			sharpWebpOptions: {
 				quality: 90,
 			},
-			widths: [originalWidhFallback, 400, 700, 1110, 1920],
+			widths: widthList,
 			dryRun: false,
 			formats: (
 				meta.env === "production"
@@ -65,71 +55,20 @@ function convertPictures(image, document, imageSettings) {
 	}
 }
 
-
-function prepareForLighbox(image, document) {
-	//image.setAttribute('src', image.dataset.responsiveruRL);
-	//let caption = image.getAttribute("title");
-	if (image.closest('.rich-picture')) {
-		const link = document.createElement("a");
-		link.setAttribute("data-pswp-srcset", image.getAttribute('srcset'));
-
-		link.setAttribute("href", image.getAttribute('src'));
-		link.appendChild(image.cloneNode(true));
-		link.setAttribute('data-pswp-width', image.width);
-		link.setAttribute('data-pswp-height', image.height);
-		image.replaceWith(link);
-	}
-}
-
-export default function handlePictures(image, document, globalSettings) {
-
-	let imageSettings = clonedeep(globalSettings);
-	convertPictures(image, document, imageSettings);
-
-	const imageSrc = image.getAttribute('src') as string;
-	warning(`Transforming ${imageSrc}`);
-
-	const imageWidth = image.getAttribute('width');
-
+function generateList(imageSettings, imageWidth, imageSrc) {
 	if (imageWidth === null) {
 		warning(`The image should have a width attribute: ${imageSrc}`);
 	}
 
 	let srcsetList: string[] = [];
+	let widthList: number[] = [];
+
 	if (
 		imageSettings.widthsList !== undefined &&
 		imageSettings.widthsList.length > 0
 	) {
 		// TODO : redéfinir une widthslist (ou pas ?)
 
-
-		// Priority to the list of image widths for srcset
-		// Make sure there are no duplicates, and sort in ascending order
-		/*		imageSettings.widthsList = [...new Set(imageSettings.widthsList)].sort(
-					(a, b) => a - b
-				);
-				const widthsListLength = imageSettings.widthsList.length;
-				if (imageWidth !== null) {
-					// Filter out widths superiors to the image's width
-					imageSettings.widthsList = imageSettings.widthsList.filter(
-						(width) => width <= imageWidth
-					);
-					if (
-						imageSettings.widthsList.length < widthsListLength &&
-						(imageSettings.widthsList.length === 0 ||
-							imageSettings.widthsList[imageSettings.widthsList.length - 1] !==
-							imageWidth)
-					) {
-						// At least one value was removed because superior to the image's width
-						// Let's replace it/them with the image's width
-						imageSettings.widthsList.push(imageWidth);
-					}
-				}
-				// generate the srcset attribute
-				srcsetList = imageSettings.widthsList.map(
-					(width) =>
-						`${imageSettings.resizedImageUrl(imageSrc, width)} ${width}w`
-				);*/
 	} else {
 		// We don't have a list of widths for srcset, we have to compute them
 
@@ -164,9 +103,10 @@ export default function handlePictures(image, document, globalSettings) {
 		for (let i = 0; i < imageSettings.steps; i++) {
 			let stepWidth = Math.ceil(
 				imageSettings.minWidth +
-				((imageSettings.maxWidth - imageSettings.minWidth) /
-					(imageSettings.steps - 1)) *
-				i
+				(
+					(imageSettings.maxWidth - imageSettings.minWidth) /
+					(imageSettings.steps - 1)
+				) * i
 			);
 
 			if (imageWidth !== null && stepWidth >= imageWidth) {
@@ -184,6 +124,8 @@ export default function handlePictures(image, document, globalSettings) {
 				continue;
 			}
 			previousStepWidth = stepWidth;
+			widthList.push(stepWidth)
+
 			srcsetList.push(
 				`${imageSettings.resizedImageUrl(
 					imageSrc,
@@ -192,33 +134,78 @@ export default function handlePictures(image, document, globalSettings) {
 			);
 		}
 	}
+	//console.log(widthList);
 
-	if (imageSettings.classes.length > 0) {
-		image.classList.add(...imageSettings.classes);
+	return { srcsetList, widthList }
+}
+
+
+function prepareForLighbox(image, document) {
+	//image.setAttribute('src', image.dataset.responsiveruRL);
+	//let caption = image.getAttribute("title");
+	if (image.closest('.rich-picture')) {
+		const link = document.createElement("a");
+		link.setAttribute("data-pswp-srcset", image.getAttribute('srcset'));
+
+		link.setAttribute("href", image.getAttribute('src'));
+		link.appendChild(image.cloneNode(true));
+		link.setAttribute('data-pswp-width', image.width);
+		link.setAttribute('data-pswp-height', image.height);
+		image.replaceWith(link);
 	}
+}
 
-	// Change the image source
-	image.setAttribute(
-		'src',
-		imageSettings.resizedImageUrl(imageSrc, imageSettings.fallbackWidth)
-	);
 
-	image.setAttribute('srcset', srcsetList.join(', '));
+export default function handlePictures(image, document, globalSettings) {
 
-	// add sizes attribute
-	image.setAttribute('sizes', imageSettings.sizes);
+	try {
+		let originalPath = normalizePath(image.getAttribute('src'))
+		const intermediaryPath = "src/assets/imagesToProcess/" + path.basename(originalPath)
+		let imageSettings = clonedeep(globalSettings);
 
-	// add 'data-pristine' attribute with URL of the pristine image
-	image.dataset.pristine = imageSrc;
+		const imageDimensions = convertPicturesLibrary.statsSync(intermediaryPath, { statsOnly: true, formats: ["webp"] });
+		image.setAttribute('width', imageDimensions.webp[0].width);
+		image.setAttribute('height', imageDimensions.webp[0].height);
 
-	// Add attributes from the preset
-	if (Object.keys(imageSettings.attributes).length > 0) {
-		for (const attribute in imageSettings.attributes) {
-			if (imageSettings.attributes[attribute] !== null) {
-				image.setAttribute(attribute, imageSettings.attributes[attribute]);
+
+		const imageSrc = image.getAttribute('src') as string;
+		const imageWidth = image.getAttribute('width');
+		console.log(`Transforming ${imageSrc}`);
+
+
+		const { widthList, srcsetList } = generateList(imageSettings, imageWidth, imageSrc)
+
+
+		if (imageSettings.classes.length > 0) {
+			image.classList.add(...imageSettings.classes);
+		}
+		// Change the image source
+		image.setAttribute(
+			'src',
+			imageSettings.resizedImageUrl(imageSrc, imageSettings.fallbackWidth)
+		);
+		image.setAttribute('srcset', srcsetList.join(', '));
+		// add sizes attribute
+		image.setAttribute('sizes', imageSettings.sizes);
+
+		// add 'data-pristine' attribute with URL of the pristine image
+		image.dataset.pristine = imageSrc;
+
+		// Add attributes from the preset
+		if (Object.keys(imageSettings.attributes).length > 0) {
+			for (const attribute in imageSettings.attributes) {
+				if (imageSettings.attributes[attribute] !== null) {
+					image.setAttribute(attribute, imageSettings.attributes[attribute]);
+				}
 			}
 		}
-	}
 
-	prepareForLighbox(image, document);
+		convertPictures(image, document, imageSettings, widthList, originalPath, intermediaryPath);
+
+
+		prepareForLighbox(image, document);
+	} catch (e) {
+		console.log(e);
+
+	}
 }
