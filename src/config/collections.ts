@@ -1,8 +1,8 @@
-import { normalize } from 'path';
+//import { normalize } from 'path';
 import { Config, UserConfig, Data, Page, Item, Collection } from '../../types/eleventy.js';
 
-import { meta } from '../_data/meta.js';
-import truchetNode from '../features/truchet/truchet_node.js'
+const meta = require('../_data/meta')
+import truchetNode from '../features/truchet/truchet_node'
 
 
 const published = (post) => { return !post.data.draft }

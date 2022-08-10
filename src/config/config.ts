@@ -5,7 +5,7 @@ const yaml = require("js-yaml");
 const embedEverything = require("eleventy-plugin-embed-everything");
 const { EleventyRenderPlugin } = require("@11ty/eleventy");
 
-import meta from '../_data/meta';
+const meta = require('../_data/meta')
 import picturesProcessing from '../transforms/pictures_processing'
 import { collections } from './collections'
 import { md } from './markdown'

@@ -1,7 +1,7 @@
 require('dotenv').config()
 
 
-const meta = {
+module.exports = {
 	env: process.env.NODE_ENV || 'development ',
 	siteURL: 'https://toutcequibouge.net',
 	siteName: "Tout ce qui bouge",
@@ -17,4 +17,3 @@ const meta = {
 	zoteroAPIKey: process.env.zoteroAPIKey || ''
 }
 
-export default meta

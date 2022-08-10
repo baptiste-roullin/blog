@@ -1,6 +1,5 @@
 import truchetNode from '../features/truchet/truchet_node'
-import meta from '../_data/meta';
-
+const meta = require('../_data/meta')
 module.exports = {
   layout: "post",
   permalink: "blog/{{ page.date | dateHumanFormat('yyyy/MM') }}/{{ title | slugify }}/index.html",

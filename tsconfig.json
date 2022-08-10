@@ -56,6 +56,7 @@
 	},
 	"include": [
 		"./src/**/*.ts",
+		"./src/**/*.js",
 		"tsconfig.front.json"
 	],
 	"exclude": [
