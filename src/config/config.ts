@@ -26,7 +26,7 @@ module.exports = function conf(config: Config): UserConfig {
 	* by default not watched by 11ty
 	*/
 	config.addWatchTarget('./src/assets/scripts/')
-	//	config.addWatchTarget('./src/**/*.js')
+	config.addWatchTarget('./src/**/*.js')
 	config.addWatchTarget('./tailwind.config.js')
 	config.setWatchThrottleWaitTime(200);
 	config.setWatchJavaScriptDependencies(true);

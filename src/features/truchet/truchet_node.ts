@@ -1,6 +1,8 @@
 //@ts-nocheck
 import truchet from './truchet_core'
 import meta from '../../_data/meta';
+const debug = require('debug');
+const warning = debug('tcqb:warning');
 
 export default async function (slug, width, height) {
 	if (process.platform !== "win32") {
@@ -22,5 +24,9 @@ export default async function (slug, width, height) {
 					console.log('truchet pipeline succeeded.');
 				}
 			})
+	}
+	else {
+		warning('truchet désactivé');
+
 	}
 }

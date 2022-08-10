@@ -1,7 +1,7 @@
 import { slugifyFilter } from './slugify'
 import { md } from '../config/markdown'
-/*import search from '../features/search_index/search_back'
-*/import dateFormatting from './dateFormatting'
+import search from '../features/search_index/search_back'
+import dateFormatting from './dateFormatting'
 import removeMD from './removeMD'
 
 
@@ -74,8 +74,8 @@ export const filters = {
 		return newArray;
 	},
 
-	/*	searchIndex: search,
-	*/
+	//searchIndex: search,
+
 	markdownify: (markdownString) => md.renderInline(markdownString),
 
 	markdownifyBlock: (value) => {

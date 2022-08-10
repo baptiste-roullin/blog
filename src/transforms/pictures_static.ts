@@ -3,7 +3,8 @@ require('dotenv').config()
 const convertPicturesLibrary = require("@11ty/eleventy-img");
 const clonedeep = require('lodash.clonedeep');
 import meta from '../_data/meta';
-
+const debug = require('debug');
+const warning = debug('tcqb:warning');
 
 function normalizePath(str) {
 	return decodeURI(str.replace(/^\s(.*)\s$/g, "$1"))
@@ -86,12 +87,12 @@ export default function handlePictures(image, document, globalSettings) {
 	convertPictures(image, document, imageSettings);
 
 	const imageSrc = image.getAttribute('src') as string;
-	//console.log(`Transforming ${imageSrc}`);
+	warning(`Transforming ${imageSrc}`);
 
 	const imageWidth = image.getAttribute('width');
 
 	if (imageWidth === null) {
-		//console.log(`The image should have a width attribute: ${imageSrc}`);
+		warning(`The image should have a width attribute: ${imageSrc}`);
 	}
 
 	let srcsetList: string[] = [];
@@ -134,14 +135,14 @@ export default function handlePictures(image, document, globalSettings) {
 
 		// Make sure there are at least 2 steps for minWidth and maxWidth
 		if (imageSettings.steps < 2) {
-			//console.log(`Steps should be >= 2: ${imageSettings.steps} step for ${imageSrc}`);
+			warning(`Steps should be >= 2: ${imageSettings.steps} step for ${imageSrc}`);
 			imageSettings.steps = 2;
 		}
 
 		// Make sure maxWidth > minWidth
 		// (even if there would be no issue in `srcset` order)
 		if (imageSettings.minWidth > imageSettings.maxWidth) {
-			//console.log(`Combined options have minWidth > maxWidth for ${imageSrc}`);
+			warning(`Combined options have minWidth > maxWidth for ${imageSrc}`);
 			let tempMin = imageSettings.minWidth;
 			imageSettings.minWidth = imageSettings.maxWidth;
 			imageSettings.maxWidth = tempMin;
@@ -149,11 +150,11 @@ export default function handlePictures(image, document, globalSettings) {
 
 		if (imageWidth !== null) {
 			if (imageWidth < imageSettings.minWidth) {
-				//console.log(`The image is smaller than minWidth: ${imageWidth} < ${imageSettings.minWidth}`);
+				warning(`The image is smaller than minWidth: ${imageWidth} < ${imageSettings.minWidth}`);
 				imageSettings.minWidth = imageWidth;
 			}
 			if (imageWidth < imageSettings.fallbackWidth) {
-				//console.log(`The image is smaller than fallbackWidth: ${imageWidth} < ${imageSettings.fallbackWidth}`);
+				warning(`The image is smaller than fallbackWidth: ${imageWidth} < ${imageSettings.fallbackWidth}`);
 				imageSettings.fallbackWidth = imageWidth;
 			}
 		}
@@ -169,7 +170,7 @@ export default function handlePictures(image, document, globalSettings) {
 			);
 
 			if (imageWidth !== null && stepWidth >= imageWidth) {
-				//console.log(`The image is smaller than maxWidth: ${imageWidth} < ${imageSettings.maxWidth}`);
+				warning(`The image is smaller than maxWidth: ${imageWidth} < ${imageSettings.maxWidth}`);
 				srcsetList.push(
 					`${imageSettings.resizedImageUrl(
 						imageSrc,
