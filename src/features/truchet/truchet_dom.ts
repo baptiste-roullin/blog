@@ -1,5 +1,6 @@
+import truchet_core from './truchet_core.js';
 
-window.truchet = require('./truchet_core.ts');
+window.truchet = truchet_core;
 console.log("test222");
 document.addEventListener('DOMContentLoaded', async function () {
 	[...document.querySelectorAll('canvas')].forEach(async (el) => {

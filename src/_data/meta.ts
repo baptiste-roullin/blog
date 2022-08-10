@@ -1,7 +1,7 @@
 require('dotenv').config()
 
 
-module.exports = {
+export const meta = {
 	env: process.env.NODE_ENV || 'development ',
 	siteURL: 'https://toutcequibouge.net',
 	siteName: "Tout ce qui bouge",

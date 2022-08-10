@@ -1,6 +1,6 @@
 const markdownIt = require('markdown-it')
 
-const slugify = require('../filters/slugify.js');
+import slugify from '../filters/slugify.js'
 
 
 const anchor = (md, options) => {
@@ -56,7 +56,7 @@ let options = {
 	quotes: ['«\u202F', '\u202F»', '‹\u202F', '\u202F›']
 }
 
-const md = markdownIt(options)
+export const md = markdownIt(options)
 	.disable('code')
 	//.use(markdownItContainer, 'info')
 	//.use(markdownItHeadingLevel, { firstLevel: 2 })
@@ -71,4 +71,3 @@ const md = markdownIt(options)
 
 
 
-module.exports = md;

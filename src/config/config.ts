@@ -5,22 +5,30 @@ const yaml = require("js-yaml");
 const embedEverything = require("eleventy-plugin-embed-everything");
 const { EleventyRenderPlugin } = require("@11ty/eleventy");
 
-const meta = require('../_data/meta.js');
-const picturesProcessing = require('../transforms/pictures_processing.ts')
+import { meta } from '../_data/meta.js';
+import picturesProcessing from '../transforms/pictures_processing.js'
+import { collections } from './collections.js'
+import { md } from './markdown.js'
+
+import { pairedShortcodes } from '../shortcodes/pairedShortcodes.js'
+import { asyncShortcodes } from '../shortcodes/asyncShortcodes.js'
+import { shortcodes } from '../shortcodes/shortcodes.js'
+import { filters } from '../filters/filters.js'
+
+import { Config, UserConfig, Data, Page, Collection } from '../../types/eleventy.js';
 
 
-module.exports = function (config) {
+export function conf(config: Config): UserConfig {
 
- /**
- * Custom Watch Targets
- * for when the Tailwind config or .css files change...
- * by default not watched by 11ty
- */
+	/**
+	* Custom Watch Targets
+	* for when the Tailwind config or .css files change...
+	* by default not watched by 11ty
+	*/
 	config.addWatchTarget('./src/assets/scripts/')
 	//	config.addWatchTarget('./src/**/*.js')
 	config.addWatchTarget('./tailwind.config.js')
 	config.setWatchThrottleWaitTime(200);
-
 	config.setWatchJavaScriptDependencies(true);
 
 
@@ -87,7 +95,6 @@ cf. postcss.config.js pour le CSS
 	/**
 	 * Filters
 	 */
-	const filters = require('../filters/filters.ts')
 
 	Object.keys(filters).forEach((filterName) => {
 		config.addFilter(filterName, filters[filterName])
@@ -98,7 +105,6 @@ cf. postcss.config.js pour le CSS
 	/**
 	 * Shortcodes
 	 */
-	const shortcodes = require('../shortcodes/shortcodes.js')
 
 	Object.keys(shortcodes).forEach((shortcodeName) => {
 		config.addShortcode(shortcodeName, shortcodes[shortcodeName])
@@ -107,9 +113,8 @@ cf. postcss.config.js pour le CSS
 	/**
 	 * Paired Shortcodes
 	 */
-	const pairedshortcodes = require('../shortcodes/pairedShortcodes.js')
-	Object.keys(pairedshortcodes).forEach((shortcodeName) => {
-		config.addPairedShortcode(shortcodeName, pairedshortcodes[shortcodeName]
+	Object.keys(pairedShortcodes).forEach((shortcodeName) => {
+		config.addPairedShortcode(shortcodeName, pairedShortcodes[shortcodeName]
 		)
 	})
 
@@ -117,7 +122,6 @@ cf. postcss.config.js pour le CSS
 	 * Add async shortcodes
 	 *
 	 */
-	const asyncShortcodes = require('../shortcodes/asyncShortcodes.js')
 	Object.keys(asyncShortcodes).forEach((shortcodeName) => {
 		config.addNunjucksAsyncShortcode(shortcodeName, asyncShortcodes[shortcodeName])
 	})
@@ -136,7 +140,7 @@ cf. postcss.config.js pour le CSS
 		excerpt_separator: "<!-- excerpt -->"
 	});
 
-	config.setLibrary('md', require('./markdown.ts'));
+	config.setLibrary('md', md);
 
 
 
@@ -145,7 +149,6 @@ cf. postcss.config.js pour le CSS
  * ============================
 
  */
-	const collections = require('./collections.ts')
 
 	Object.keys(collections).forEach((colName) => {
 		config.addCollection(colName, collections[colName])

@@ -1,5 +1,5 @@
-var truchetNode = require('../features/truchet/truchet_node.js');
-const meta = require('../_data/meta.js')
+import truchetNode from '../features/truchet/truchet_node'
+import { meta } from '../_data/meta';
 
 module.exports = {
   layout: "post",

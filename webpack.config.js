@@ -2,7 +2,7 @@ const path = require('path')
 const CopyPlugin = require("copy-webpack-plugin");
 const WebpackAssetsManifest = require('webpack-assets-manifest');
 require('dotenv').config()
-const meta = require('./src/_data/meta.js')
+const meta = require('./src/_data/meta')
 
 
 module.exports = {

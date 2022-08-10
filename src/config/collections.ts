@@ -1,6 +1,8 @@
 import { normalize } from 'path';
-import { Item, Collection } from '../../types/eleventy';
-const meta = require('../_data/meta.js')
+import { Config, UserConfig, Data, Page, Item, Collection } from '../../types/eleventy.js';
+
+import { meta } from '../_data/meta.js';
+import truchetNode from '../features/truchet/truchet_node.js'
 
 
 const published = (post) => { return !post.data.draft }
@@ -10,7 +12,7 @@ function getbyField(collectionAPI, field, value: boolean | string) {
 		filter((item) => item.data[field] === value).
 		filter(published)
 }
-module.exports = {
+export const collections = {
 
 	publishedPosts: function (collectionAPI): Item[] {
 		return getbyField(collectionAPI, 'contentType', 'post')
@@ -25,8 +27,6 @@ module.exports = {
 				return tag.slice(0, 1).toUpperCase() + tag.slice(1)
 			}
 
-
-			//@ts-ignore
 			if ('tags' in item.data) {
 				let tags: string[] = item.data.tags
 
@@ -53,10 +53,8 @@ module.exports = {
 	},
 
 	listeProjets: async function (collection: Collection): Promise<any> {
-		var truchetNode = require('../features/truchet/truchet_node.js');
-
-		// @ts-ignore
-		const projets = collection.items[0].data.projets
+		//TODO : ça devrait pas être une collection.
+		const projets = collection.items[0].data!.projets
 
 		const collatedProjects = await Promise.all(projets.map(async (projet) => {
 

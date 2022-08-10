@@ -1,7 +1,7 @@
-const { DateTime, Settings } = require('luxon')
+import { DateTime, Settings } from 'luxon'
 Settings.defaultLocale = "fr";
 
-module.exports = function dateHumanFormat(date, format) {
+export default function dateHumanFormat(date, format) {
 
 	if (typeof date === 'string') {
 		return DateTime.fromISO(date, {

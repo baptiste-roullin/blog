@@ -2,12 +2,14 @@
 // https://github.com/google/eleventy-high-performance-blog
 
 
-const path = require("path")
+import path from 'path'
 require('dotenv').config()
 
 const { parseHTML } = require('linkedom');
-const { handleGIFs } = require('./pictures_animated.ts')
-const handlePictures = require('./pictures_static.ts')
+import handleGIFs from './pictures_animated.js'
+import handlePictures from './pictures_static.js'
+
+import { meta } from '../_data/meta.js';
 
 
 function reformatURL(src: string, width): string {
@@ -19,20 +21,23 @@ function reformatURL(src: string, width): string {
 			'$1-' + width + '.jpg')
 }
 
-const globalSettings = {
-	selector: " #content :not(picture) > img[src]:not([srcset]):not([src$='.svg'])",
-	minWidth: 360,
-	maxWidth: 1920,
-	fallbackWidth: 750,
-	sizes: '(max-width: 60rem) 90vw, 60rem',
-	resizedImageUrl: "",
-	steps: 5,
-	classes: ['img-default'],
-	attributes: { loading: 'lazy', },
-	ignore: 'truchet-'
-}
 
-module.exports = function pictures_processing(html, globalSettings) {
+
+export default function pictures_processing(html) {
+
+
+	const globalSettings = {
+		selector: " #content :not(picture) > img[src]:not([srcset]):not([src$='.svg'])",
+		minWidth: 360,
+		maxWidth: 1920,
+		fallbackWidth: 750,
+		sizes: '(max-width: 60rem) 90vw, 60rem',
+		resizedImageUrl: reformatURL,
+		steps: 5,
+		classes: ['img-default'],
+		attributes: { loading: 'lazy', },
+		ignore: 'truchet-'
+	}
 
 	const { document } = parseHTML(html);
 

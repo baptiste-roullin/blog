@@ -11,7 +11,7 @@ module.exports = {
 		'./src/**/*.html',
 		'./src/**/*.njk',
 		'./src/**/*.md',
-		'./src/_data/structure.js',
+		'./src/_data/structure.ts',
 		'./src/filters/*.{ts,js}',
 		'./src/shortcodes/*.{ts,js}',
 	],

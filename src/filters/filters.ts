@@ -1,12 +1,16 @@
-const slugify = require('./slugify.js');
-const md = require('../config/markdown.ts')
-import { search } from '../features/search_index/search_back';
-const { DateTime, Settings } = require('luxon')
+import slugify from './slugify.js'
+import { md } from '../config/markdown.js'
+/*import search from '../features/search_index/search_back.js'
+*/import dateFormatting from './dateFormatting.js'
+import removeMD from './removeMD.js'
+
+
+import { DateTime, Settings } from 'luxon'
 Settings.defaultLocale = "fr";
 
 
 
-module.exports = {
+export const filters = {
 	/**
 	 * Filters
 	 * @link https://www.11ty.dev/docs/filters/
@@ -70,8 +74,8 @@ module.exports = {
 		return newArray;
 	},
 
-	searchIndex: search,
-
+	/*	searchIndex: search,
+	*/
 	markdownify: (markdownString) => md.renderInline(markdownString),
 
 	markdownifyBlock: (value) => {
@@ -83,7 +87,7 @@ module.exports = {
 	},
 
 
-	removeMD: require('./removeMD.js'),
+	removeMD: removeMD,
 
 	dateToPermalink: function (date) {
 		return DateTime.fromJSDate(date, {
@@ -104,7 +108,7 @@ module.exports = {
 	 * And finally, example used in /src/posts/posts.json to format the permalink
 	 *  when working with old /yyyy/MM/dd/slug format from Wordpress exports
 	 */
-	dateHumanFormat: require('./dateFormatting.js'),
+	dateHumanFormat: dateFormatting,
 
 	/**
    // Universal slug filter strips unsafe chars from URLs

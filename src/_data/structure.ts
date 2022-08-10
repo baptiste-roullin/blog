@@ -1,4 +1,4 @@
-module.exports = {
+export const structure = {
 	/** ===== Globals =====
 	 * In this section we can control Global structural items like
 	 * pageWidth, margins, paddings, etc.

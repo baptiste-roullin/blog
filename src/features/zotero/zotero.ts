@@ -1,13 +1,6 @@
+import pMap from 'p-map'
 
-
-// TODO mettre en cache toutes les requêtes
-// TODO	Afficher auteurs
-// TODO	Rendre paramétrable infos d'articles à afficher
-// TODO	Format biblio APA https://www.npmjs.com/package/citation-js
-
-//@ts-nocheck
-
-const { MultiReadResponse, RawItem } = require('../../../types/zotero')
+import { MultiReadResponse, RawItem } from '../../../types/zotero.js'
 
 const njk = require('nunjucks')
 
@@ -15,7 +8,6 @@ const njk = require('nunjucks')
 // Client : 				https://github.com/tnajdek/zotero-api-client
 const { default: api } = require('zotero-api-client');
 
-const dateHumanFormat = require("../../filters/dateFormatting")
 
 /*
 Comme promise.all, effectue des requête en parallèle et renvoie une promesse de tableau de résultats. Avec en plus des options, notamment une pour limiter le nombre de requêtes parallèles
@@ -23,12 +15,14 @@ Comme promise.all, effectue des requête en parallèle et renvoie une promesse d
 @param mapper — Function which is called for every item in input. Expected to return a Promise or value.
 @returns — A Promise that is fulfilled when all promises in input and ones returned from mapper are fulfilled, or rejects if any of the promises reject. The fulfilled value is an Array of the fulfilled values returned from mapper in input order.
 */
-const pMap = require('p-map')
 
 
-const cache = require('../../utils/caching.ts')
+import cache from '../../utils/caching.js'
+import dateHumanFormat from "../../filters/dateFormatting.js"
+import { meta } from '../../_data/meta.js';
 
-async function zotero(collection: string, ...requestedTags: string[]) {
+
+export default async function zotero(collection: string, ...requestedTags: string[]) {
 
 	async function addDataToItems(items) {
 
@@ -87,7 +81,7 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 
 
 	// Appel d'un fichier de conf global qui appele ensuite les infos de connexion à l'API d'un fichier .env.
-	const meta = require('../../_data/meta.js');
+
 	const options = {
 		locale: 'fr-FR',
 		itemType: '-note',
@@ -189,4 +183,7 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 
 }
 
-module.exports = zotero
+// TODO mettre en cache toutes les requêtes
+// TODO	Afficher auteurs
+// TODO	Rendre paramétrable infos d'articles à afficher
+// TODO	Format biblio APA https://www.npmjs.com/package/citation-js

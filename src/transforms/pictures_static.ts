@@ -2,6 +2,7 @@
 require('dotenv').config()
 const convertPicturesLibrary = require("@11ty/eleventy-img");
 const clonedeep = require('lodash.clonedeep');
+import { meta } from '../_data/meta.js';
 
 
 function normalizePath(str) {
@@ -9,9 +10,10 @@ function normalizePath(str) {
 }
 
 
+import path from 'path'
 
 
-function convertPictures(image, document) {
+function convertPictures(image, document, imageSettings) {
 
 
 
@@ -32,7 +34,7 @@ function convertPictures(image, document) {
 				quality: 90,
 			},
 			widths: [400, 1024,
-				(globalSettings.minWidth > imageDimensions.width ? imageDimensions.width : null), 1920],
+				(imageSettings.minWidth > imageDimensions.width ? imageDimensions.width : null), 1920],
 			dryRun: false,
 			formats: (
 				meta.env === "production"
@@ -78,10 +80,10 @@ function prepareForLighbox(image, document) {
 	}
 }
 
-module.exports = function handlePictures(image, document, globalSettings) {
+export default function handlePictures(image, document, globalSettings) {
 
 	let imageSettings = clonedeep(globalSettings);
-	convertPictures(image, document);
+	convertPictures(image, document, imageSettings);
 
 	const imageSrc = image.getAttribute('src') as string;
 	//console.log(`Transforming ${imageSrc}`);

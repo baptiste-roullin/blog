@@ -1,9 +1,9 @@
-const slugify = require('@sindresorhus/slugify');
+import slugify from '@sindresorhus/slugify';
 
 // slugify is called 1000s of times, let's memoize it
 let memoizedSlugs = {};
 
-module.exports = (string) => {
+export default slugify = (string) => {
 	if (string in memoizedSlugs) {
 		return memoizedSlugs[string];
 	} else {
