@@ -1,7 +1,6 @@
-import truchet_core from './truchet_core.js';
-
+//@ts-nocheck
+import truchet_core from './truchet_core';
 window.truchet = truchet_core;
-console.log("test222");
 document.addEventListener('DOMContentLoaded', async function () {
 	[...document.querySelectorAll('canvas')].forEach(async (el) => {
 		const params = JSON.parse(el.dataset?.args || '')

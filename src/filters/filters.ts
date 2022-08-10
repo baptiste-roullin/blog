@@ -1,8 +1,8 @@
-import slugify from './slugify.js'
-import { md } from '../config/markdown.js'
-/*import search from '../features/search_index/search_back.js'
-*/import dateFormatting from './dateFormatting.js'
-import removeMD from './removeMD.js'
+import slugify from './slugify'
+import { md } from '../config/markdown'
+/*import search from '../features/search_index/search_back'
+*/import dateFormatting from './dateFormatting'
+import removeMD from './removeMD'
 
 
 import { DateTime, Settings } from 'luxon'

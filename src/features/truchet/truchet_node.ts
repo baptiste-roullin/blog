@@ -1,4 +1,6 @@
-import truchet_core from './truchet_core'
+//@ts-nocheck
+import truchet from './truchet_core'
+import meta from '../../_data/meta';
 
 export default async function (slug, width, height) {
 	if (process.platform !== "win32") {

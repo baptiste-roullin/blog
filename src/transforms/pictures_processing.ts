@@ -6,10 +6,10 @@ import path from 'path'
 require('dotenv').config()
 
 const { parseHTML } = require('linkedom');
-import handleGIFs from './pictures_animated.js'
-import handlePictures from './pictures_static.js'
+import handleGIFs from './pictures_animated'
+import handlePictures from './pictures_static'
 
-import { meta } from '../_data/meta.js';
+import meta from '../_data/meta';
 
 
 function reformatURL(src: string, width): string {

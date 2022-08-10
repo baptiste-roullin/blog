@@ -1,8 +1,8 @@
 import { normalize } from 'path';
-import { Config, UserConfig, Data, Page, Item, Collection } from '../../types/eleventy.js';
+import { Config, UserConfig, Data, Page, Item, Collection } from '../../types/eleventy';
 
-import { meta } from '../_data/meta.js';
-import truchetNode from '../features/truchet/truchet_node.js'
+import meta from '../_data/meta';
+import truchetNode from '../features/truchet/truchet_node'
 
 
 const published = (post) => { return !post.data.draft }
@@ -50,5 +50,5 @@ export const collections = {
 
 	featuredPosts: function (collectionAPI): Item[] {
 		return getbyField(collectionAPI, 'featured', true)
-			}
+	}
 }

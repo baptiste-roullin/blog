@@ -1,6 +1,5 @@
-import pMap from 'p-map'
 
-import { MultiReadResponse, RawItem } from '../../../types/zotero.js'
+import { MultiReadResponse, RawItem } from '../../../types/zotero'
 
 const njk = require('nunjucks')
 
@@ -17,13 +16,14 @@ Comme promise.all, effectue des requête en parallèle et renvoie une promesse d
 */
 
 
-import cache from '../../utils/caching.js'
-import dateHumanFormat from "../../filters/dateFormatting.js"
-import { meta } from '../../_data/meta.js';
+import cache from '../../utils/caching'
+import dateHumanFormat from "../../filters/dateFormatting"
+import meta from '../../_data/meta';
 
 
 export default async function zotero(collection: string, ...requestedTags: string[]) {
 
+	const { default: pMap } = await import('p-map')
 	async function addDataToItems(items) {
 
 		async function mapper(item) {

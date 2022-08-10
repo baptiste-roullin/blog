@@ -6,7 +6,7 @@ import { DateTime, Settings } from 'luxon'
 Settings.defaultLocale = "fr";
 import { Stats, statSync } from 'fs';
 
-import { meta } from '../../_data/meta.js';
+import meta from '../../_data/meta';
 const remove = require('remove-markdown');
 
 

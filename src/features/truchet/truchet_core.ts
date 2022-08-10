@@ -1,7 +1,6 @@
 // https://observablehq.com/@xenomachina/truchet-tiles-variant-intertwined-quarter-circles@552
 
 var makeRandomGenerator = require('random-seed');
-import d3  from "d3-color"
 
 
 interface Params {
@@ -19,7 +18,9 @@ interface Params {
 	[key: string]: string | number
 	curves_per_tile: number
 }
-export default async function (canvas: HTMLCanvasElement, tileCanvas: HTMLCanvasElement, params: Params, mode: string) {
+export default async function truchet(canvas: HTMLCanvasElement, tileCanvas: HTMLCanvasElement, params: Params, mode: string) {
+	const d3 = await import("d3-color")
+
 	const rand = makeRandomGenerator.create()
 
 	/*

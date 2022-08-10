@@ -2,7 +2,7 @@
 require('dotenv').config()
 const convertPicturesLibrary = require("@11ty/eleventy-img");
 const clonedeep = require('lodash.clonedeep');
-import { meta } from '../_data/meta.js';
+import meta from '../_data/meta';
 
 
 function normalizePath(str) {

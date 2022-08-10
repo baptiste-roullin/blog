@@ -4,7 +4,7 @@ const { promisify } = require("util");
 const exec = promisify(require("child_process").exec);
 const pathToFfmpeg = require("ffmpeg-static");
 import path from 'path'
-import { meta } from '../_data/meta.js';
+import meta from '../_data/meta';
 
 
 async function convertGIFs(name, convertedName, outPath) {

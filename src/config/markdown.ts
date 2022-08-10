@@ -1,6 +1,6 @@
 const markdownIt = require('markdown-it')
 
-import slugify from '../filters/slugify.js'
+import slugify from '../filters/slugify'
 
 
 const anchor = (md, options) => {
