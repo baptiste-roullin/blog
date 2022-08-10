@@ -9,8 +9,7 @@ const { parseHTML } = require('linkedom');
 import handleGIFs from './pictures_animated'
 import handlePictures from './pictures_static'
 
-import meta from '../_data/meta';
-
+const meta = require('../_data/meta')
 
 function reformatURL(src: string, width): string {
 	const fullPath = `/${meta.assetsDir}/${path.basename(src)}`

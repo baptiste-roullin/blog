@@ -2,7 +2,7 @@
 require('dotenv').config()
 const convertPicturesLibrary = require("@11ty/eleventy-img");
 const clonedeep = require('lodash.clonedeep');
-import meta from '../_data/meta';
+const meta = require('../_data/meta')
 const debug = require('debug');
 const warning = debug('tcqb:warning');
 
@@ -29,13 +29,13 @@ function convertPictures(image, document, imageSettings) {
 		image.setAttribute('width', imageDimensions.webp[0].width);
 		image.setAttribute('height', imageDimensions.webp[0].height);
 
+		const originalWidhFallback = (imageSettings.minWidth > imageDimensions.width ? imageDimensions.width : null)
 
 		const options = {
 			sharpWebpOptions: {
 				quality: 90,
 			},
-			widths: [400, 1024,
-				(imageSettings.minWidth > imageDimensions.width ? imageDimensions.width : null), 1920],
+			widths: [originalWidhFallback, 400, 700, 1110, 1920],
 			dryRun: false,
 			formats: (
 				meta.env === "production"

@@ -1,6 +1,13 @@
 
 @layer base {
 
+	.g_proseWidth {
+		@apply  max-w-screen-xl sm:px-4 lg:max-w-prose m-auto}
+	.g_pageWidth {
+		@apply  max-w-6xl mx-2 my-16 lg:mx-auto lg:max-w-7xl 2xl:max-w-9xl}
+	.g_homeWidth {
+		@apply   m-auto}
+
 	body {
 		background-color: #fdfcfb;
 		overflow-x: hidden;
