@@ -73,7 +73,7 @@
     "zotero-api-client": "^0.40.0"
   },
   "optionalDependencies": {
-    "canvas": "^2.8.0"
+    "canvas": "^2.9.0"
   },
   "dependencies": {
     "@types/webpack": "^5.28.0",
