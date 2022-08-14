@@ -21,7 +21,7 @@ export default async function (slug, width, height) {
 				if (err) {
 					console.error('Pipeline failed.', err);
 				} else {
-					console.log('truchet pipeline succeeded.');
+					warning('truchet pipeline succeeded.');
 				}
 			})
 	}
