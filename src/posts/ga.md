@@ -5,7 +5,7 @@ date: 2022-08-15
 draft: false
 tags:
   - projets
-  - "Utilisateurs"
+  - "utilisateurs"
 ---
 
 Vous voulez savoir si vos utilisateurs ont des petits ou des gros smartphones ? Des laptops ou des écrans externes ? La taille de la fenêtre de leur navigateur, indépendamment de l'écran ?

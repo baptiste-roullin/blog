@@ -3,7 +3,7 @@ import { md } from '../config/markdown'
 import search from '../features/search_index/search_back'
 import dateFormatting from './dateFormatting'
 import removeMD from './removeMD'
-
+import normalizeTag from '../filters/normalizeTag'
 
 import { DateTime, Settings } from 'luxon'
 Settings.defaultLocale = "fr";
@@ -15,6 +15,8 @@ export const filters = {
 	 * Filters
 	 * @link https://www.11ty.dev/docs/filters/
 	 */
+
+	normalizeTag: normalizeTag,
 
 	published: function (collection) {
 		//const pub = collections['publishedPosts']
