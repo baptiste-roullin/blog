@@ -47,9 +47,9 @@ export default function pictures_processing(html) {
 		.filter((image) => {
 			// filter out images without a src, or not SVG, or with already a srcset
 			return (
-				image.getAttribute('src') !== null &&
+				image.getAttribute('src') &&
 				!image.getAttribute('src').match(/\.svg$/) &&
-				image.getAttribute('srcset') === null
+				!image.getAttribute('srcset')
 			);
 		})
 		.forEach(async (image) => {
