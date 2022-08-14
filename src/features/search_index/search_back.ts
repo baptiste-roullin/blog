@@ -52,8 +52,6 @@ export default function search(collection) {
 		}
 
 
-
-
 		index.addDoc(docOptions);
 
 
