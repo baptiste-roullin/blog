@@ -53,7 +53,7 @@ cf. postcss.config.js pour le CSS
 	if (meta.env === "production") {
 		config.addPassthroughCopy('src/assets/docs/')
 
-		config.addPassthroughCopy({ 'src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}': meta.assetsDir })
+		config.addPassthroughCopy({ 'src/posts/**/*': meta.assetsDir })
 		config.addPassthroughCopy('src/assets/images')
 
 		config.addTransform(

@@ -32,13 +32,7 @@ export default function search(collection) {
 
 	// loop through each page and add it to the index
 	collection.forEach((page) => {
-		let img = page.data.collatedHeroImage;
-		if (/\/truchet-/.test(img)) {
-			var finalPath = page.data.collatedHeroImage as string
-		}
-		else {
-			var finalPath = `/${meta.assetsDir}/${img}`
-		}
+
 		const docOptions = {
 			url: page.url,
 			title: page.data.title,
@@ -47,7 +41,7 @@ export default function search(collection) {
 			//on accède au contenu en markdown et on le transforme en texte brut.
 			content: remove(page.template.frontMatter.content),
 			date: page.data.date,
-			collatedHeroImage: finalPath,
+			collatedHeroImage: page.data.collatedHeroImage,
 			fileSlug: page.fileSlug
 		}
 

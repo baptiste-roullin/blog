@@ -5,21 +5,19 @@ const clonedeep = require('lodash.clonedeep');
 const meta = require('../_data/meta')
 const debug = require('debug');
 const warning = debug('tcqb:warning');
+import path from 'path'
 
 function normalizePath(str) {
 	return decodeURI(str.replace(/^\s(.*)\s$/g, "$1"))
 }
 
 
-import path from 'path'
 
 
 function convertPictures(image, document, imageSettings, widthList, originalPath, intermediaryPath) {
 
 	try {
 		// TODO : Tester cache. Par exemple "truchet-interet legitime.jpg" est-il mis en cache une seule fois.
-
-
 
 		const options = {
 			sharpWebpOptions: {
