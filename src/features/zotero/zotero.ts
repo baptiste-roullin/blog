@@ -32,10 +32,10 @@ export default async function zotero(collection: string, ...requestedTags: strin
 				if (item.meta.numChildren) {
 					const attachments =
 
-						await cache("attachments", "7d", 'json', async function () {
+						await cache("attachments-" + item.key, "4w", 'json', async function () {
 							return await lib.items(item.key).children().get({ itemType: 'attachment' })
 						})
-					const data = attachments.getData()
+					const data = await cache("attachments-data-" + item.key, "4w", 'json', () => attachments.getData())
 
 					data.forEach(attachment => {
 						if (attachment.itemType === 'attachment' && new RegExp(/(.pdf$|.pdf?)/).test(attachment.url)) {
@@ -117,7 +117,7 @@ export default async function zotero(collection: string, ...requestedTags: strin
 				}
 
 			}
-			const colls = await cache("collections", "1d", 'json', collectionsCallback)
+			const colls = await cache("collections", "4w", 'json', collectionsCallback)
 
 			const collectionObject = colls.filter(coll => coll.name === collection)[0]
 			if (!collectionObject) {
@@ -146,7 +146,7 @@ export default async function zotero(collection: string, ...requestedTags: strin
 
 		if (totalCount) {
 			if (totalCount > options.limit) {
-				items = await cache("allPages", "7d", "json", getOtherPages.bind(null, totalCount, options))
+				items = await cache("allPages", "4w", "json", getOtherPages.bind(null, totalCount, options))
 			}
 			else {
 				items = firstPageItems.raw
@@ -183,7 +183,6 @@ export default async function zotero(collection: string, ...requestedTags: strin
 
 }
 
-// TODO mettre en cache toutes les requêtes
 // TODO	Afficher auteurs
 // TODO	Rendre paramétrable infos d'articles à afficher
 // TODO	Format biblio APA https://www.npmjs.com/package/citation-js
