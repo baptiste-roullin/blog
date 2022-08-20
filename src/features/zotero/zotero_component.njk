@@ -16,8 +16,9 @@
 					{% endif %}
 					{% if item.abstractNote %}
 					<details>
+						{# //TODO https://www.npmjs.com/package/detect-browser #}
 						<summary class="text-gray-600 underline cursor-pointer " >Résumé</summary>
-						<p class="relative mt-0 text-base" hidden="until-found">{{item.abstractNote}}</p>
+						<p class="relative mt-0 text-base" {#hidden="until-found"#}>{{item.abstractNote}}</p>
 					</details>
 					{% endif %}
 				</div>
