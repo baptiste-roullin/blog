@@ -3,8 +3,8 @@
   "version": "0.2.0",
   "scripts": {
     "dev:webpack": "webpack --watch  --mode development",
-    "dev:eleventy": " npx @11ty/eleventy --serve --incremental --quiet",
-    "debug:eleventy": "DEBUG=EleventyCacheAssets* npx @11ty/eleventy --incremental --quiet",
+    "dev:eleventy": " npx @11ty/eleventy --serve --incremental",
+    "debug:eleventy": "set DEBUG=EleventyCacheAssets* & npx @11ty/eleventy --incremental",
     "dev:postcss": "postcss src/assets/css/main.css -o dist/assets/css/main.css --watch",
     "dev": "npm-run-all --parallel dev:* --print-label",
     "build:webpack": "webpack  --mode production",
@@ -13,7 +13,7 @@
     "build": "run-s build:* --print-label"
   },
   "devDependencies": {
-    "@11ty/eleventy": "2.0.0-canary.14",
+    "@11ty/eleventy": "2.0.0-canary.15",
     "@11ty/eleventy-fetch": "3.0.0",
     "@11ty/eleventy-img": "2.0.1 ",
     "@11ty/eleventy-navigation": "^0.3.2",

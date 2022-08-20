@@ -6,6 +6,8 @@ const meta = require('../_data/meta')
 const debug = require('debug');
 const warning = debug('tcqb:warning');
 import path from 'path'
+import cache from '../utils/caching'
+
 
 function normalizePath(str) {
 	return decodeURI(str.replace(/^\s(.*)\s$/g, "$1"))
@@ -14,10 +16,9 @@ function normalizePath(str) {
 
 
 
-function convertPictures(image, document, imageSettings, widthList, originalPath, intermediaryPath) {
+async function convertPictures(image, document, imageSettings, widthList, originalPath, intermediaryPath) {
 
 	try {
-		// TODO : Tester cache. Par exemple "truchet-interet legitime.jpg" est-il mis en cache une seule fois.
 
 		const options = {
 			sharpWebpOptions: {
@@ -28,7 +29,7 @@ function convertPictures(image, document, imageSettings, widthList, originalPath
 			formats: (
 				meta.env === "production"
 					?
-					['webp', 'jpeg']
+					['jpeg']
 					:
 					['jpeg']
 			),
@@ -41,7 +42,7 @@ function convertPictures(image, document, imageSettings, widthList, originalPath
 				return `${name}-${width}.${modifiedFormat}`;
 			}
 		}
-		convertPicturesLibrary(intermediaryPath, options);
+		convertPicturesLibrary(intermediaryPath, options)
 
 		image.dataset.responsiver = image.className;
 		//image.dataset.responsiveruRL = metadata.jpg.url;
