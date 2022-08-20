@@ -7,7 +7,7 @@ export default function nav() {
 		//const icon = burger.querySelectorAll('svg')
 		const button = burger.querySelectorAll('button')!
 		button[0].classList.toggle('hidden')
-		button[1].classList.toggle('hidden')
+		button[1].ddd.toggle('hidden')
 		button[0].classList.toggle('inline-flex')
 		button[1].classList.toggle('inline-flex')
 

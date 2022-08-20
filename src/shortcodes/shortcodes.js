@@ -1,10 +1,10 @@
 
 const svgColorDefault = 'text-indigo-500'
-const truchet = require('../features/truchet/truchet_shortcode.js')
+import { truchetItem, truchetList } from '../features/truchet/truchet_shortcode'
 
-module.exports = {
-  truchetItem: truchet.truchetItem,
-  truchetList: truchet.truchetList,
+export const shortcodes = {
+  truchetItem: truchetItem,
+  truchetList: truchetList,
   /**
    * ===== SVGs =====
  * This shortcode is used in layouts and can be used in .md content.

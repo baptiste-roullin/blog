@@ -1,8 +1,8 @@
 
 require('dotenv').config()
+import zotero from '../features/zotero/zotero'
 
-
-module.exports = {
+export const asyncShortcodes = {
 	// @ts-ignore
-	zotero: (process.env.ZOTERO === "false" ? async () => "[ZOTÉRO DÉSACTIVÉ]" : require('../features/zotero/zotero'))
+	zotero: (process.env.ZOTERO === "false" ? async () => "[ZOTÉRO DÉSACTIVÉ]" : zotero)
 }

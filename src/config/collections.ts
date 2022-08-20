@@ -1,6 +1,10 @@
-import { normalize } from 'path';
-import { Item, Collection } from '../../types/eleventy';
-const meta = require('../_data/meta.js')
+//import { normalize } from 'path';
+import { Config, UserConfig, Data, Page, Item, Collection } from '../../types/eleventy.js';
+
+import normalizeTag from '../filters/normalizeTag'
+
+const meta = require('../_data/meta')
+import truchetNode from '../features/truchet/truchet_node'
 
 
 const published = (post) => { return !post.data.draft }
@@ -10,29 +14,23 @@ function getbyField(collectionAPI, field, value: boolean | string) {
 		filter((item) => item.data[field] === value).
 		filter(published)
 }
-module.exports = {
+export const collections = {
 
-	publishedPosts: function (collectionAPI): Item[] {
+	publishedPosts: function (collectionAPI: Collection): Item[] {
 		return getbyField(collectionAPI, 'contentType', 'post')
 	},
 
-	tagList: function (collectionAPI) {
+	tagList: function (collectionAPI: Collection) {
 		let tagDictionary: { string?: number } = {}
 
 		getbyField(collectionAPI, 'contentType', 'post').forEach(function (item) {
 
-			function normalize(tag) {
-				return tag.slice(0, 1).toUpperCase() + tag.slice(1)
-			}
 
-
-			//@ts-ignore
 			if ('tags' in item.data) {
 				let tags: string[] = item.data.tags
 
 				// Compteur du nombre d'articles associés à un tag
 				for (let tag of tags) {
-					tag = normalize(tag)
 					if (tag in tagDictionary) {
 						const oldValue = tagDictionary[tag]
 						tagDictionary[tag] = oldValue + 1
@@ -52,11 +50,8 @@ module.exports = {
 		return getbyField(collectionAPI, 'featured', true)
 	},
 
-	listeProjets: async function (collection: Collection): Promise<any> {
-		var truchetNode = require('../features/truchet/truchet_node.js');
-
-		// @ts-ignore
-		const projets = collection.items[0].data.projets
+	listeProjets: async function (collectionAPI: Collection): Promise<any> {
+		const projets = collectionAPI.items[0].data!.projets
 
 		const collatedProjects = await Promise.all(projets.map(async (projet) => {
 

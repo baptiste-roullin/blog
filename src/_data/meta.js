@@ -15,7 +15,5 @@ module.exports = {
 	assetsDir: 'assets/images',
 	zoteroProfileID: process.env.zoteroProfileID || '',
 	zoteroAPIKey: process.env.zoteroAPIKey || ''
-
-
-
 }
+

@@ -1,63 +1,35 @@
 
 require('dotenv').config()
 const convertPicturesLibrary = require("@11ty/eleventy-img");
-import path from "path";
-const meta = require('../_data/meta.js')
 const clonedeep = require('lodash.clonedeep');
+const meta = require('../_data/meta')
+const debug = require('debug');
+const warning = debug('tcqb:warning');
+import path from 'path'
+import cache from '../utils/caching'
 
 
 function normalizePath(str) {
 	return decodeURI(str.replace(/^\s(.*)\s$/g, "$1"))
 }
 
-export const globalSettings = {
-	selector: " #content :not(picture) > img[src]:not([srcset]):not([src$='.svg'])",
-	minWidth: 360,
-	maxWidth: 1920,
-	fallbackWidth: 750,
-	sizes: '(max-width: 60rem) 90vw, 60rem',
-	resizedImageUrl: (src: string, width): string => {
-		const fullPath = `/${meta.assetsDir}/${path.basename(src)}`
-
-		return fullPath.
-			replace(
-				/^(.*)(\.[^\.]+)$/,
-				'$1-' + width + '.jpg')
-	},
-	steps: 5,
-	classes: ['img-default'],
-	attributes: { loading: 'lazy', },
-	ignore: 'truchet-'
-
-};
 
 
 
-function convertPictures(image, document) {
-
-
-
-	let originalPath = normalizePath(image.getAttribute('src'))
-	const intermediaryPath = "src/assets/imagesToProcess/" + path.basename(originalPath)
+async function convertPictures(image, document, imageSettings, widthList, originalPath, intermediaryPath) {
 
 	try {
-		// TODO : Tester cache. Par exemple "truchet-interet legitime.jpg" est-il mis en cache une seule fois.
-
-		const imageDimensions = convertPicturesLibrary.statsSync(intermediaryPath, { statsOnly: true, formats: ["webp"] });
-
-		image.setAttribute('width', imageDimensions.webp[0].width);
-		image.setAttribute('height', imageDimensions.webp[0].height);
 
 		const options = {
 			sharpWebpOptions: {
 				quality: 90,
 			},
-			widths: [360, 750, imageDimensions.width, 1140, 1530, 1920],
+			widths: widthList,
 			dryRun: false,
 			formats: (
 				meta.env === "production"
 					?
-					['webp', 'jpeg']
+					['jpeg']
 					:
 					['jpeg']
 			),
@@ -70,7 +42,7 @@ function convertPictures(image, document) {
 				return `${name}-${width}.${modifiedFormat}`;
 			}
 		}
-		convertPicturesLibrary(intermediaryPath, options);
+		convertPicturesLibrary(intermediaryPath, options)
 
 		image.dataset.responsiver = image.className;
 		//image.dataset.responsiveruRL = metadata.jpg.url;
@@ -82,8 +54,92 @@ function convertPictures(image, document) {
 	}
 }
 
+function generateList(imageSettings, imageWidth, imageSrc) {
+	if (imageWidth === null) {
+		warning(`The image should have a width attribute: ${imageSrc}`);
+	}
 
-export function prepareForLighbox(image, document) {
+	let srcsetList: string[] = [];
+	let widthList: number[] = [];
+
+	if (
+		imageSettings.widthsList !== undefined &&
+		imageSettings.widthsList.length > 0
+	) {
+		// TODO : redéfinir une widthslist (ou pas ?)
+
+	} else {
+		// We don't have a list of widths for srcset, we have to compute them
+
+		// Make sure there are at least 2 steps for minWidth and maxWidth
+		if (imageSettings.steps < 2) {
+			warning(`Steps should be >= 2: ${imageSettings.steps} step for ${imageSrc}`);
+			imageSettings.steps = 2;
+		}
+
+		// Make sure maxWidth > minWidth
+		// (even if there would be no issue in `srcset` order)
+		if (imageSettings.minWidth > imageSettings.maxWidth) {
+			warning(`Combined options have minWidth > maxWidth for ${imageSrc}`);
+			let tempMin = imageSettings.minWidth;
+			imageSettings.minWidth = imageSettings.maxWidth;
+			imageSettings.maxWidth = tempMin;
+		}
+
+		if (imageWidth !== null) {
+			if (imageWidth < imageSettings.minWidth) {
+				warning(`The image is smaller than minWidth: ${imageWidth} < ${imageSettings.minWidth}`);
+				imageSettings.minWidth = imageWidth;
+			}
+			if (imageWidth < imageSettings.fallbackWidth) {
+				warning(`The image is smaller than fallbackWidth: ${imageWidth} < ${imageSettings.fallbackWidth}`);
+				imageSettings.fallbackWidth = imageWidth;
+			}
+		}
+
+		// generate the srcset attribute
+		let previousStepWidth = 0;
+		for (let i = 0; i < imageSettings.steps; i++) {
+			let stepWidth = Math.ceil(
+				imageSettings.minWidth +
+				(
+					(imageSettings.maxWidth - imageSettings.minWidth) /
+					(imageSettings.steps - 1)
+				) * i
+			);
+
+			if (imageWidth !== null && stepWidth >= imageWidth) {
+				warning(`The image is smaller than maxWidth: ${imageWidth} < ${imageSettings.maxWidth}`);
+				srcsetList.push(
+					`${imageSettings.resizedImageUrl(
+						imageSrc,
+						imageWidth
+					)} ${imageWidth}w`
+				);
+				break;
+			}
+			if (stepWidth === previousStepWidth) {
+				// Don't set twice the same image width
+				continue;
+			}
+			previousStepWidth = stepWidth;
+			widthList.push(stepWidth)
+
+			srcsetList.push(
+				`${imageSettings.resizedImageUrl(
+					imageSrc,
+					stepWidth
+				)} ${stepWidth}w`
+			);
+		}
+	}
+	//console.log(widthList);
+
+	return { srcsetList, widthList }
+}
+
+
+function prepareForLighbox(image, document) {
 	//image.setAttribute('src', image.dataset.responsiveruRL);
 	//let caption = image.getAttribute("title");
 	if (image.closest('.rich-picture')) {
@@ -98,144 +154,57 @@ export function prepareForLighbox(image, document) {
 	}
 }
 
-export function handlePictures(image, document, globalSettings) {
 
-	let imageSettings = clonedeep(globalSettings);
-	convertPictures(image, document);
+export default function handlePictures(image, document, globalSettings) {
 
-	const imageSrc = image.getAttribute('src') as string;
-	//console.log(`Transforming ${imageSrc}`);
+	try {
+		let originalPath = normalizePath(image.getAttribute('src'))
+		const intermediaryPath = "src/assets/imagesToProcess/" + path.basename(originalPath)
+		let imageSettings = clonedeep(globalSettings);
 
-	const imageWidth = image.getAttribute('width');
-
-	if (imageWidth === null) {
-		//console.log(`The image should have a width attribute: ${imageSrc}`);
-	}
-
-	let srcsetList: string[] = [];
-	if (
-		imageSettings.widthsList !== undefined &&
-		imageSettings.widthsList.length > 0
-	) {
-		// TODO : redéfinir une widthslist (ou pas ?)
+		const imageDimensions = convertPicturesLibrary.statsSync(intermediaryPath, { statsOnly: true, formats: ["webp"] });
+		image.setAttribute('width', imageDimensions.webp[0].width);
+		image.setAttribute('height', imageDimensions.webp[0].height);
 
 
-		// Priority to the list of image widths for srcset
-		// Make sure there are no duplicates, and sort in ascending order
-		/*		imageSettings.widthsList = [...new Set(imageSettings.widthsList)].sort(
-					(a, b) => a - b
-				);
-				const widthsListLength = imageSettings.widthsList.length;
-				if (imageWidth !== null) {
-					// Filter out widths superiors to the image's width
-					imageSettings.widthsList = imageSettings.widthsList.filter(
-						(width) => width <= imageWidth
-					);
-					if (
-						imageSettings.widthsList.length < widthsListLength &&
-						(imageSettings.widthsList.length === 0 ||
-							imageSettings.widthsList[imageSettings.widthsList.length - 1] !==
-							imageWidth)
-					) {
-						// At least one value was removed because superior to the image's width
-						// Let's replace it/them with the image's width
-						imageSettings.widthsList.push(imageWidth);
-					}
+		const imageSrc = image.getAttribute('src') as string;
+		const imageWidth = image.getAttribute('width');
+		warning(`Transforming ${imageSrc}`);
+
+
+		const { widthList, srcsetList } = generateList(imageSettings, imageWidth, imageSrc)
+
+
+		if (imageSettings.classes.length > 0) {
+			image.classList.add(...imageSettings.classes);
+		}
+		// Change the image source
+		image.setAttribute(
+			'src',
+			imageSettings.resizedImageUrl(imageSrc, imageSettings.fallbackWidth)
+		);
+		image.setAttribute('srcset', srcsetList.join(', '));
+		// add sizes attribute
+		image.setAttribute('sizes', imageSettings.sizes);
+
+		// add 'data-pristine' attribute with URL of the pristine image
+		image.dataset.pristine = imageSrc;
+
+		// Add attributes from the preset
+		if (Object.keys(imageSettings.attributes).length > 0) {
+			for (const attribute in imageSettings.attributes) {
+				if (imageSettings.attributes[attribute] !== null) {
+					image.setAttribute(attribute, imageSettings.attributes[attribute]);
 				}
-				// generate the srcset attribute
-				srcsetList = imageSettings.widthsList.map(
-					(width) =>
-						`${imageSettings.resizedImageUrl(imageSrc, width)} ${width}w`
-				);*/
-	} else {
-		// We don't have a list of widths for srcset, we have to compute them
-
-		// Make sure there are at least 2 steps for minWidth and maxWidth
-		if (imageSettings.steps < 2) {
-			//console.log(`Steps should be >= 2: ${imageSettings.steps} step for ${imageSrc}`);
-			imageSettings.steps = 2;
-		}
-
-		// Make sure maxWidth > minWidth
-		// (even if there would be no issue in `srcset` order)
-		if (imageSettings.minWidth > imageSettings.maxWidth) {
-			//console.log(`Combined options have minWidth > maxWidth for ${imageSrc}`);
-			let tempMin = imageSettings.minWidth;
-			imageSettings.minWidth = imageSettings.maxWidth;
-			imageSettings.maxWidth = tempMin;
-		}
-
-		if (imageWidth !== null) {
-			if (imageWidth < imageSettings.minWidth) {
-				//console.log(`The image is smaller than minWidth: ${imageWidth} < ${imageSettings.minWidth}`);
-				imageSettings.minWidth = imageWidth;
-			}
-			if (imageWidth < imageSettings.fallbackWidth) {
-				//console.log(`The image is smaller than fallbackWidth: ${imageWidth} < ${imageSettings.fallbackWidth}`);
-				imageSettings.fallbackWidth = imageWidth;
 			}
 		}
 
-		// generate the srcset attribute
-		let previousStepWidth = 0;
-		for (let i = 0; i < imageSettings.steps; i++) {
-			let stepWidth = Math.ceil(
-				imageSettings.minWidth +
-				((imageSettings.maxWidth - imageSettings.minWidth) /
-					(imageSettings.steps - 1)) *
-				i
-			);
+		convertPictures(image, document, imageSettings, widthList, originalPath, intermediaryPath);
 
-			if (imageWidth !== null && stepWidth >= imageWidth) {
-				//console.log(`The image is smaller than maxWidth: ${imageWidth} < ${imageSettings.maxWidth}`);
-				srcsetList.push(
-					`${imageSettings.resizedImageUrl(
-						imageSrc,
-						imageWidth
-					)} ${imageWidth}w`
-				);
-				break;
-			}
-			if (stepWidth === previousStepWidth) {
-				// Don't set twice the same image width
-				continue;
-			}
-			previousStepWidth = stepWidth;
-			srcsetList.push(
-				`${imageSettings.resizedImageUrl(
-					imageSrc,
-					stepWidth
-				)} ${stepWidth}w`
-			);
-		}
+
+		prepareForLighbox(image, document);
+	} catch (e) {
+		console.log(e);
+
 	}
-
-	if (imageSettings.classes.length > 0) {
-		image.classList.add(...imageSettings.classes);
-	}
-
-	// Change the image source
-	image.setAttribute(
-		'src',
-		imageSettings.resizedImageUrl(imageSrc, imageSettings.fallbackWidth)
-	);
-
-	image.setAttribute('srcset', srcsetList.join(', '));
-
-	// add sizes attribute
-	image.setAttribute('sizes', imageSettings.sizes);
-
-	// add 'data-pristine' attribute with URL of the pristine image
-	image.dataset.pristine = imageSrc;
-
-	// Add attributes from the preset
-	if (Object.keys(imageSettings.attributes).length > 0) {
-		for (const attribute in imageSettings.attributes) {
-			if (imageSettings.attributes[attribute] !== null) {
-				image.setAttribute(attribute, imageSettings.attributes[attribute]);
-			}
-		}
-	}
-
-	prepareForLighbox(image, document);
 }

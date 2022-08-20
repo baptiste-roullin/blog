@@ -1,7 +1,7 @@
 
-const md = require('../config/markdown.ts')
+import { md } from '../config/markdown'
 
-module.exports = {
+export const pairedShortcodes = {
 
 	richpicture: function (data) {
 		let content = md.render(data)

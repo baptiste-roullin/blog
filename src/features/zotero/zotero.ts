@@ -1,10 +1,4 @@
 
-
-// TODO mettre en cache toutes les requêtes
-// TODO	Afficher auteurs
-// TODO	Rendre paramétrable infos d'articles à afficher
-// TODO	Format biblio APA https://www.npmjs.com/package/citation-js
-
 import { MultiReadResponse, RawItem } from '../../../types/zotero'
 
 const njk = require('nunjucks')
@@ -13,7 +7,6 @@ const njk = require('nunjucks')
 // Client : 				https://github.com/tnajdek/zotero-api-client
 const { default: api } = require('zotero-api-client');
 
-import dateHumanFormat from "../../filters/dateFormatting";
 
 /*
 Comme promise.all, effectue des requête en parallèle et renvoie une promesse de tableau de résultats. Avec en plus des options, notamment une pour limiter le nombre de requêtes parallèles
@@ -21,13 +14,16 @@ Comme promise.all, effectue des requête en parallèle et renvoie une promesse d
 @param mapper — Function which is called for every item in input. Expected to return a Promise or value.
 @returns — A Promise that is fulfilled when all promises in input and ones returned from mapper are fulfilled, or rejects if any of the promises reject. The fulfilled value is an Array of the fulfilled values returned from mapper in input order.
 */
-import pMap from 'p-map';
 
 
 import cache from '../../utils/caching'
+import dateHumanFormat from "../../filters/dateFormatting"
+import meta from '../../_data/meta';
 
-async function zotero(collection: string, ...requestedTags: string[]) {
 
+export default async function zotero(collection: string, ...requestedTags: string[]) {
+
+	const { default: pMap } = await import('p-map')
 	async function addDataToItems(items) {
 
 		async function mapper(item) {
@@ -36,10 +32,10 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 				if (item.meta.numChildren) {
 					const attachments =
 
-						await cache("attachments", "7d", 'json', async function () {
+						await cache("attachments-" + item.key, "4w", 'json', async function () {
 							return await lib.items(item.key).children().get({ itemType: 'attachment' })
 						})
-					const data = attachments.getData()
+					const data = await cache("attachments-data-" + item.key, "4w", 'json', () => attachments.getData())
 
 					data.forEach(attachment => {
 						if (attachment.itemType === 'attachment' && new RegExp(/(.pdf$|.pdf?)/).test(attachment.url)) {
@@ -85,7 +81,7 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 
 
 	// Appel d'un fichier de conf global qui appele ensuite les infos de connexion à l'API d'un fichier .env.
-	const meta = require('../../_data/meta.js');
+
 	const options = {
 		locale: 'fr-FR',
 		itemType: '-note',
@@ -121,7 +117,7 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 				}
 
 			}
-			const colls = await cache("collections", "1d", 'json', collectionsCallback)
+			const colls = await cache("collections", "4w", 'json', collectionsCallback)
 
 			const collectionObject = colls.filter(coll => coll.name === collection)[0]
 			if (!collectionObject) {
@@ -150,7 +146,7 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 
 		if (totalCount) {
 			if (totalCount > options.limit) {
-				items = await cache("allPages", "7d", "json", getOtherPages.bind(null, totalCount, options))
+				items = await cache("allPages", "4w", "json", getOtherPages.bind(null, totalCount, options))
 			}
 			else {
 				items = firstPageItems.raw
@@ -187,4 +183,6 @@ async function zotero(collection: string, ...requestedTags: string[]) {
 
 }
 
-module.exports = zotero
+// TODO	Afficher auteurs
+// TODO	Rendre paramétrable infos d'articles à afficher
+// TODO	Format biblio APA https://www.npmjs.com/package/citation-js

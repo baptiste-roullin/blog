@@ -2,28 +2,11 @@ const path = require('path')
 const CopyPlugin = require("copy-webpack-plugin");
 const WebpackAssetsManifest = require('webpack-assets-manifest');
 require('dotenv').config()
-const meta = require('./src/_data/meta.js')
+import meta from './src/_data/meta'
+import * as webpack from 'webpack';
 
+const config: webpack.Configuration = {
 
-module.exports = {
-  devServer: {
-    stats: {
-      colors: true,
-      hash: false,
-      version: false,
-      timings: false,
-      assets: false,
-      chunks: false,
-      modules: false,
-      reasons: false,
-      children: false,
-      source: false,
-      errors: true,
-      errorDetails: false,
-      warnings: true,
-      publicPath: false
-    }
-  },
   resolve: {
     extensions: ['.ts', '.js'],
   },
@@ -37,6 +20,7 @@ module.exports = {
     arrowPagination: path.resolve(__dirname, 'src/assets/scripts/arrowPagination.ts'),
     truchet: path.resolve(__dirname, 'src/features/truchet/truchet_core.ts'),
     truchet_dom: path.resolve(__dirname, 'src/features/truchet/truchet_dom.ts'),
+    dateFormatting: path.resolve(__dirname, 'src/filters/dateFormatting.ts'),
   },
 
   output: {
@@ -79,8 +63,8 @@ module.exports = {
                 'src/_templates/components',
                 'src/_templates/utils'
               ], filters: {
-                dateHumanFormat: path.resolve('src/filters/dateFormatting.js'),
-                removeMD: path.resolve('src/filters/removeMD.js')
+                dateHumanFormat: path.resolve('src/filters/dateFormatting.ts'),
+                removeMD: path.resolve('src/filters/removeMD.ts')
               }
             }
           }
@@ -134,3 +118,4 @@ module.exports = {
 
   ],
 }
+export default config

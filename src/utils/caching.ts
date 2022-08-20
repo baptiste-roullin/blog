@@ -1,18 +1,23 @@
 const { AssetCache } = require("@11ty/eleventy-fetch");
-
-
+var debug = require('debug')('tcqb');
 export default async function (key: string, duration: string, type: "json" | "buffer" | "text", req) {
 	const cacheObject = new AssetCache(key, '.cache', { duration: duration, type: type })
 
 	if (cacheObject.isCacheValid(duration)) {
-		console.log("cache valide");
+		debug("cache valide :", key);
+		if (type !== "buffer") {
+			return await cacheObject.getCachedContents(type);
+		}
+		else {
 
-		return cacheObject.getCachedValue();
+		}
 	}
 	else {
-		//console.log("création cache");
+		debug("création cache : ", key);
 		try {
-			return await req()
+			const res = await req()
+			await cacheObject.save(res, type)
+			return res
 		} catch (error) {
 			throw error
 		}
