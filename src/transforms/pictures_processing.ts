@@ -2,17 +2,41 @@
 // https://github.com/google/eleventy-high-performance-blog
 
 
-
+import path from 'path'
 require('dotenv').config()
 
 const { parseHTML } = require('linkedom');
-import { handleGIFs } from './pictures_animated';
-import { handlePictures, globalSettings } from './pictures_static';
+import handleGIFs from './pictures_animated'
+import handlePictures from './pictures_static'
 
+const meta = require('../_data/meta')
+
+function reformatURL(src: string, width): string {
+	const fullPath = `/${meta.assetsDir}/${path.basename(src)}`
+
+	return fullPath.
+		replace(
+			/^(.*)(\.[^\.]+)$/,
+			'$1-' + width + '.jpg')
+}
 
 
 
 export default function pictures_processing(html) {
+
+
+	const globalSettings = {
+		selector: " #content :not(picture) > img[src]:not([srcset]):not([src$='.svg'])",
+		minWidth: 400,
+		maxWidth: 1920,
+		fallbackWidth: 750,
+		sizes: '(max-width: 60rem) 90vw, 60rem',
+		resizedImageUrl: reformatURL,
+		steps: 5,
+		classes: ['img-default'],
+		attributes: { loading: 'lazy', },
+		ignore: 'truchet-'
+	}
 
 	const { document } = parseHTML(html);
 
@@ -23,9 +47,9 @@ export default function pictures_processing(html) {
 		.filter((image) => {
 			// filter out images without a src, or not SVG, or with already a srcset
 			return (
-				image.getAttribute('src') !== null &&
+				image.getAttribute('src') &&
 				!image.getAttribute('src').match(/\.svg$/) &&
-				image.getAttribute('srcset') === null
+				!image.getAttribute('srcset')
 			);
 		})
 		.forEach(async (image) => {

@@ -5,3 +5,12 @@
 
 //	}
 //}
+
+
+export { };
+
+declare global {
+	interface Window {
+		truchet: Function;
+	}
+}

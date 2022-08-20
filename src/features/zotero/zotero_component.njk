@@ -1,7 +1,3 @@
----
-draft: true
----
-
 	{# PAS DE LIGNE VIDE OU D'ESPACES CONSÉCUTIFS #}
 {# Cela évite que le HTML généré soit détecté comme du markdown  #}
 <ul class="mb-5 zotero-list sm:mb-3 not-prose">
@@ -21,7 +17,7 @@ draft: true
 					{% if item.abstractNote %}
 					<details>
 						<summary class="text-gray-600 underline cursor-pointer " >Résumé</summary>
-						<p class="relative mt-0 text-base" hidden="until-found">{{item.abstractNote}}</p>
+						<span class="relative mt-0 text-base details-content" hidden="until-found">{{item.abstractNote}}</span>
 					</details>
 					{% endif %}
 				</div>
@@ -39,20 +35,23 @@ window.addEventListener('load', function () {
 		const refX = metada.getBoundingClientRect().x;
 		console.log(refX);
 			[...document.querySelectorAll(' details')].forEach(el => {
+
+					if (!('onbeforematch' in document.body) ) {
+						el.querySelector('.details-content').removeAttribute('hidden')
+					}
 			const summary = el.querySelector('summary')
 			const abstract = el.querySelector('p')
-				summary.addEventListener('click', function (e) {
-							console.log(refX)
-
-					const elX = e.currentTarget.getBoundingClientRect().x
-					abstract.style.left = (0 - elX + refX) + 'px'
-				})
+			summary.addEventListener('click', function (e) {
+				//console.log(refX)
+				const elX = e.currentTarget.getBoundingClientRect().x
+				el.querySelector('.details-content').style.left = (0 - elX + refX) + 'px'
+			})
 			})
 	}
 		window.zoteroSummary()
 	}
-
-})
+	}
+ )
 
 
 

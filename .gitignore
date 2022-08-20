@@ -8,7 +8,7 @@ src/assets/imagesToProcess/*
 src/_data/hashes_css.json
 src/_data/hashes_js.json
 
-
+src/_js
 dist
 .sync_*
 
