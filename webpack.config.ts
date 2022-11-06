@@ -61,7 +61,6 @@ const config: webpack.Configuration = {
             options: {
               searchPaths: [
                 'src/_templates/components',
-                'src/_templates/utils'
               ], filters: {
                 dateHumanFormat: path.resolve('src/filters/dateFormatting.ts'),
                 removeMD: path.resolve('src/filters/removeMD.ts')
@@ -96,6 +95,13 @@ const config: webpack.Configuration = {
             return `${context}/assets/imagesToProcess/[name][ext]`;
           },
         },
+        /*       {
+                 from: "pages/portfolio/*.{png,webp,gif,mp4,jpg,jpeg}",
+                 context: "src",
+                 to({ context, absoluteFilename }) {
+                   return `${context}/assets/imagesToProcess/[name][ext]`;
+                 },
+               },*/
         {
           from: "assets/images/*",
           context: "src",

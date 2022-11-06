@@ -6,8 +6,8 @@ import path from 'path'
 require('dotenv').config()
 
 const { parseHTML } = require('linkedom');
-import handleGIFs from './pictures_animated'
-import handlePictures from './pictures_static'
+import handleGIFs from './handleGIFs'
+import handlePictures from './handlePictures'
 
 const meta = require('../_data/meta')
 

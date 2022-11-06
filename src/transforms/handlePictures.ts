@@ -16,7 +16,7 @@ function normalizePath(str) {
 
 
 
-async function convertPictures(image, document, imageSettings, widthList, originalPath, intermediaryPath) {
+async function convertPictures(image, document, imageSettings, widthsList, originalPath, intermediaryPath) {
 
 	try {
 
@@ -24,7 +24,7 @@ async function convertPictures(image, document, imageSettings, widthList, origin
 			sharpWebpOptions: {
 				quality: 90,
 			},
-			widths: widthList,
+			widths: widthsList,
 			dryRun: false,
 			formats: (
 				meta.env === "production"
@@ -60,13 +60,12 @@ function generateList(imageSettings, imageWidth, imageSrc) {
 	}
 
 	let srcsetList: string[] = [];
-	let widthList: number[] = [];
+	let widthsList: number[] = [];
 
 	if (
 		imageSettings.widthsList !== undefined &&
 		imageSettings.widthsList.length > 0
 	) {
-		// TODO : redéfinir une widthslist (ou pas ?)
 
 	} else {
 		// We don't have a list of widths for srcset, we have to compute them
@@ -110,6 +109,8 @@ function generateList(imageSettings, imageWidth, imageSrc) {
 
 			if (imageWidth !== null && stepWidth >= imageWidth) {
 				warning(`The image is smaller than maxWidth: ${imageWidth} < ${imageSettings.maxWidth}`);
+				widthsList.push(imageWidth)
+
 				srcsetList.push(
 					`${imageSettings.resizedImageUrl(
 						imageSrc,
@@ -123,7 +124,7 @@ function generateList(imageSettings, imageWidth, imageSrc) {
 				continue;
 			}
 			previousStepWidth = stepWidth;
-			widthList.push(stepWidth)
+			widthsList.push(stepWidth)
 
 			srcsetList.push(
 				`${imageSettings.resizedImageUrl(
@@ -133,9 +134,9 @@ function generateList(imageSettings, imageWidth, imageSrc) {
 			);
 		}
 	}
-	//console.log(widthList);
+	console.log(srcsetList, widthsList);
 
-	return { srcsetList, widthList }
+	return { srcsetList, widthsList }
 }
 
 
@@ -172,7 +173,7 @@ export default function handlePictures(image, document, globalSettings) {
 		warning(`Transforming ${imageSrc}`);
 
 
-		const { widthList, srcsetList } = generateList(imageSettings, imageWidth, imageSrc)
+		const { widthsList, srcsetList } = generateList(imageSettings, imageWidth, imageSrc)
 
 
 		if (imageSettings.classes.length > 0) {
@@ -199,7 +200,7 @@ export default function handlePictures(image, document, globalSettings) {
 			}
 		}
 
-		convertPictures(image, document, imageSettings, widthList, originalPath, intermediaryPath);
+		convertPictures(image, document, imageSettings, widthsList, originalPath, intermediaryPath);
 
 
 		prepareForLighbox(image, document);
