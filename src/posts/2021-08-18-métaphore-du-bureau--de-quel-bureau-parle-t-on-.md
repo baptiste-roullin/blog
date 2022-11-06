@@ -8,7 +8,7 @@ tags:
   - "histoire"
   - "mac"
   - "bureau"
-richPicture: false
+picture_lightbox: false
 hero:
   type: split
   image: ch_1.jpg

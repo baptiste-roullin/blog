@@ -8,7 +8,7 @@ tags:
   - "systemes complexes"
 featured: true
 
-richPicture: true
+picture_lightbox: true
 
 hero:
   type: split  # options: carousel, graphic, video, split (text & image)

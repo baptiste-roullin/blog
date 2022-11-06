@@ -5,7 +5,7 @@ hero:
   type: split
   image: banner.png
   alt: "échelles de note montrant mes compétences. 'Test utilisateur' est bien noté, 'design graphique' est mal noté,  'faire valider une page d'accueil du premier coup' est très bien noté. Et 'modestie' est même noté 6/5"
-richPicture: true
+picture_lightbox: true
 eleventyNavigation:
   key: main
   title: Portfolio
@@ -18,14 +18,14 @@ eleventyNavigation:
 
   <div class="layout-wide md:mb-16 ">
 
-  {% include 'components/hero-split.njk' %}</div>
+  {% include 'components/hero_split.njk' %}</div>
 
 
     <div class="flex flex-col gap-12 my-20 lg:gap-16 sections ">
       <section class="flex flex-col ">
         {% MD %}## C'est quoi un designer [ux]{.small-caps} ?{% endMD %}
 
-        {% include "components/portfolio-tab.njk" %}
+        {% include "components/portfolio_tabs.njk" %}
 
         {% MD %}
 ## Mais encore ?

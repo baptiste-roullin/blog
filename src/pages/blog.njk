@@ -38,11 +38,11 @@ permalink: "/{{page.fileSlug}}/{% if pagination.pageNumber %}{{ pagination.pageN
 </form>
 {% set postslist = posts %}
 
-{% include 'components/postslist.njk' %}
+{% include 'components/posts_list.njk' %}
 <div class=" 2xl:container-wide">
   <h1 class="my-12 text-gray-700">Tous les thèmes</h1>
   {% set tags = collections.tagList %}
-  {% include "components/tagpills.njk" %}
+  {% include "components/tags_pills.njk" %}
 </div>
 </div>
 <script  src="/assets/scripts/{{hashes_js['search_front.js']}}" defer></script>

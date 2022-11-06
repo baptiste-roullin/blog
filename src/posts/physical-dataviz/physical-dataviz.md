@@ -7,7 +7,7 @@ tags:
   - "données"
 featured: true
 draft: false
-richPicture: true
+picture_lightbox: true
 hero:
   type: split  # options: carousel, graphic, video, split (text & image)
   image: maxwell.jpg

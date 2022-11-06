@@ -23,7 +23,7 @@ postListItemStyle:
 
     <ul class="flex flex-col gap-8 post-list">
     {%- for post in postslist -%}
-    	{% include 'components/postlistitem.njk' %}
+    	{% include 'components/posts_list_item.njk' %}
 
   {%- endfor -%}
     </ul>
@@ -38,7 +38,7 @@ postListItemStyle:
     </div>
     <ul class="flex flex-col gap-8 post-list">
     {%- for post in collections.featuredPosts | shuffle |  slice(0, 3) -%}
-    	{% include 'components/postlistitem.njk' %}
+    	{% include 'components/posts_list_item.njk' %}
   {%- endfor -%}
     </ul>
   </section>
@@ -53,7 +53,7 @@ postListItemStyle:
 
     <ul class="max-w-lg gap-8 m-auto post-list md:gap-6 2xl:gap-8 md:m-0 md:max-w-none card-container project-list">
       {% for projet in projets | reverse | slice(0, 6) %}
-        	{% include 'components/projet.njk' %}
+        	{% include 'components/project.njk' %}
 
     {% endfor %}
     </ul>
@@ -64,7 +64,7 @@ postListItemStyle:
 
    {# AILLEURS #}
 
-    {% include 'components/liens-ailleurs.njk' %}
+    {% include 'components/elsewhere_links.njk' %}
 
 
 

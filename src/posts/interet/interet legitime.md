@@ -7,7 +7,7 @@ tags:
     - RGPD
     - vie privée
 featured: true
-richPicture: true
+picture_lightbox: true
 draft: false
 ---
 

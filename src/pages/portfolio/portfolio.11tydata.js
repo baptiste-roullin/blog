@@ -1,4 +1,4 @@
-import collateHeroImage from '../../filters/collateHeroImage'
+import collateHeroImage from '../../utils/collateHeroImage'
 
 
 module.exports = {

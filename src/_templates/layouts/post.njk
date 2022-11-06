@@ -4,7 +4,7 @@ layout: base
 
 <div class="template-post-main">
 	{% if hero.image %}
-		{% include 'components/hero-split.njk' %}
+		{% include 'components/hero_split.njk' %}
 		{% endif %}
 
 	<div class="my-20 post-main prose-tcqb article g_proseWidth ">
@@ -19,7 +19,7 @@ layout: base
 							{{ page.date | dateHumanFormat("dd LLLL yyyy") }}
 						</time>
 						<span aria-hidden="true" class="mx-1 text-xl font-light sm:mx-2 sm:inline" >~</span>
-						{% include "components/tagpills-inline.njk" %}
+						{% include "components/tags_pills_inline.njk.njk" %}
 					</div>
 				{% endif %}
 

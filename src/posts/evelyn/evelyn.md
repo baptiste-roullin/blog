@@ -8,7 +8,7 @@ tags:
 hero:
   type: split
   image: evelyn-0.png
-richPicture: true
+picture_lightbox: true
 ---
 
 [Everything Everywhere All At Once](https://everythingeverywheremovie.com/synopsis/) est un film extraordinaire. Et comme j'ai une légère fascination pour les séries visuelles (exemples [ici](https://toutcequibouge.net/blog/2017/12/you-do-the-meth-tous-les-jeux-de-mots-des-generiques-de-bobs-burgers/) ou [là](https://difference--repetition.tumblr.com/)), voici une mosaïque interdimensionnelle de toutes les Evelyn, l'héroïne jouée par Michelle Yeoh.

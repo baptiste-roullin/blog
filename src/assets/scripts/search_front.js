@@ -4,7 +4,7 @@ const elasticlunr = require("elasticlunr");
 require('./lunr.stemmer.support.js')(elasticlunr);
 require('./lunr.fr.js')(elasticlunr);
 //@ts-ignore
-import createComponent from '../../../src/_templates/components/postlistitem.njk'
+import createComponent from '../../../src/_templates/components/posts_list_item.njk'
 
 
 //"use strict"

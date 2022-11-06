@@ -1,7 +1,7 @@
 //import { normalize } from 'path';
 import { Config, UserConfig, Data, Page, Item, Collection } from '../../types/eleventy.js';
 
-import normalizeTag from '../filters/normalizeTag'
+import normalizeTag from '../filters/normalize_tag'
 
 const meta = require('../_data/meta')
 import truchetNode from '../features/truchet/truchet_node'

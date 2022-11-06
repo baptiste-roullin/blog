@@ -6,7 +6,6 @@ import path from 'path'
 export default async function (data) {
 	const slug = data.page.fileSlug
 	const hero = data.hero
-	console.log(hero);
 
 	let finalName;
 	if (hero === undefined || Object.keys(hero).length === 0) {

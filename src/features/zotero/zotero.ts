@@ -17,7 +17,7 @@ Comme promise.all, effectue des requête en parallèle et renvoie une promesse d
 
 
 import cache from '../../utils/caching'
-import dateHumanFormat from "../../filters/dateFormatting"
+import dateHumanFormat from "../../filters/date_formatting"
 import meta from '../../_data/meta';
 
 

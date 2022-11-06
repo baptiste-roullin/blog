@@ -14,13 +14,13 @@ const config: webpack.Configuration = {
     search_front: path.resolve(__dirname, 'src/assets/scripts/search_front.js'),
     contact: path.resolve(__dirname, 'src/assets/scripts/contact.js'),
     main: path.resolve(__dirname, 'src/assets/scripts/main.js'),
-    richPicture: path.resolve(__dirname, 'src/assets/scripts/richPicture.ts'),
+    picture_lightbox: path.resolve(__dirname, 'src/assets/scripts/picture_lightbox.ts'),
     spin: path.resolve(__dirname, 'src/assets/scripts/spin.ts'),
     nav: path.resolve(__dirname, 'src/assets/scripts/nav.ts'),
-    arrowPagination: path.resolve(__dirname, 'src/assets/scripts/arrowPagination.ts'),
+    arrowPagination: path.resolve(__dirname, 'src/assets/scripts/arrow_pagination.ts'),
     truchet: path.resolve(__dirname, 'src/features/truchet/truchet_core.ts'),
     truchet_dom: path.resolve(__dirname, 'src/features/truchet/truchet_dom.ts'),
-    dateFormatting: path.resolve(__dirname, 'src/filters/dateFormatting.ts'),
+    dateFormatting: path.resolve(__dirname, 'src/filters/date_formatting.ts'),
   },
 
   output: {
@@ -62,8 +62,8 @@ const config: webpack.Configuration = {
               searchPaths: [
                 'src/_templates/components',
               ], filters: {
-                dateHumanFormat: path.resolve('src/filters/dateFormatting.ts'),
-                removeMD: path.resolve('src/filters/removeMD.ts')
+                dateHumanFormat: path.resolve('src/filters/date_formatting.ts'),
+                removeMD: path.resolve('src/filters/remove_MD.ts')
               }
             }
           }
