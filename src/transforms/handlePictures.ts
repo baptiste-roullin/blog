@@ -134,7 +134,6 @@ function generateList(imageSettings, imageWidth, imageSrc) {
 			);
 		}
 	}
-	console.log(srcsetList, widthsList);
 
 	return { srcsetList, widthsList }
 }
