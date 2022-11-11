@@ -174,41 +174,52 @@
 
 
 
-const tweet_id = 1576508215537201153
-var myHeaders = new Headers();
-myHeaders.append("Authorization", "Bearer AAAAAAAAAAAAAAAAAAAAACt2ZwAAAAAAQwTFZ0M87%2B7ynAkbUVUrWGEGrus%3DY4fiTyPPJ4HEus0WtX2RynHB4EAkep5A4Pr9F8IFNiIwvwfnfw");
-myHeaders.append("Cookie", "guest_id=v1%3A165865221501677794");
-
-var requestOptions: RequestInit = {
-	method: 'GET',
-	headers: myHeaders,
-	redirect: "follow"
-};
-
-fetch("https://api.twitter.com/2/tweets/1576508215537201153?expansions=referenced_tweets.id", requestOptions)
-	.then(response => response.text())
-	.then(result => console.log(result))
-	.catch(error => console.log('error', error));
 
 
-let response = pm.response.json().data
-let referenced_tweets = response?.referenced_tweets
-console.log(response.text)
 
-if (referenced_tweets) {
 
-	pm.collectionVariables.set("tweet_id", referenced_tweets[referenced_tweets.length - 1].id);
-	if (referenced_tweets.length > 0) {
 
-		referenced_tweets.forEach(tweet => console.log(tweet.id))
-	}
-	postman.setNextRequest("Single Tweet");
-} else {
-	pm.collectionVariables.clear()
-	postman.setNextRequest(null);
+function fetchTwitter() {
+	const tweet_id = 1576508215537201153
+	var myHeaders = new Headers();
+	myHeaders.append("Authorization", "Bearer AAAAAAAAAAAAAAAAAAAAACt2ZwAAAAAAQwTFZ0M87%2B7ynAkbUVUrWGEGrus%3DY4fiTyPPJ4HEus0WtX2RynHB4EAkep5A4Pr9F8IFNiIwvwfnfw");
+	myHeaders.append("Cookie", "guest_id=v1%3A165865221501677794");
 
+	var requestOptions: RequestInit = {
+		method: 'GET',
+		headers: myHeaders,
+		redirect: "follow"
+	};
+	const request = await fetch("https://api.twitter.com/2/tweets/1576508215537201153?expansions=referenced_tweets.id", requestOptions)
+
+
+	let data = await request.json()
+	let referenced_tweets = data.data?.referenced_tweets
 }
 
+
+try {
+	fetchTwitter()
+
+
+	if (referenced_tweets) {
+
+		pm.collectionVariables.set("tweet_id", referenced_tweets[referenced_tweets.length - 1].id);
+		if (referenced_tweets.length > 0) {
+
+			referenced_tweets.forEach(tweet => console.log(tweet.id))
+		}
+		postman.setNextRequest("Single Tweet");
+	} else {
+		pm.collectionVariables.clear()
+		postman.setNextRequest(null);
+
+	}
+
+
+} catch (error) {
+	console.log('error', error)
+}
 
 
 
