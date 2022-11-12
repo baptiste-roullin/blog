@@ -1,0 +1,18 @@
+---
+title: thread
+layout: page
+pagination:
+    data: threads_input
+    size: 1
+    alias: thread
+permalink: "threads/{{ thread.title | slugify }}/"
+---
+
+
+<ul>
+{% for tweet in threads %}
+    <li>
+        {{tweet.text}}
+    </li>
+{% endfor %}
+</ul>
