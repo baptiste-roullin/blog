@@ -8,9 +8,9 @@ pagination:
     size: 1,
     alias: "thread"
     },
-permalink: "threads/{{thread.title }}/",
+permalink: "threads/{{thread.title | slugify }}/",
 eleventyComputed: {
-    title:   (data) =>  data.pagination.items[0].title
+    title:   (data) =>  data.pagination?.items[0]?.title
     }
 }
 ---
