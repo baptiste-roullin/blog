@@ -1,0 +1,14 @@
+---
+title: Threads
+layout: page
+permalink: "threads/index.html"
+---
+
+<ul>
+{% for thread in threads %}
+
+    <li>
+        <a href="/threads/{{thread.title}}">{{thread.title}}</a>
+    </li>
+{% endfor %}
+</ul>

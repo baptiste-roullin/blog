@@ -1,18 +1,29 @@
----
-title: thread
-layout: page
+---js
+{
+layout: "post",
+hideMeta: true,
 pagination:
-    data: threads_input
-    size: 1
-    alias: thread
-permalink: "threads/{{ thread.title | slugify }}/"
+    {
+    data: "threads",
+    size: 1,
+    alias: "thread"
+    },
+permalink: "threads/{{ thread.title }}/index.html",
+eleventyComputed: {
+    title:   (data) =>  data.pagination.items[0].title
+    }
+}
 ---
 
 
 <ul>
-{% for tweet in threads %}
+{% for tweet in thread.tweets %}
     <li>
-        {{tweet.text}}
+        <p>{{tweet.created_at | dateHumanFormat}}</p>
+        {{tweet.text | safe}}
+        {% for url in tweet.media %}
+                    <img src="{{url}}"></img>
+        {% endfor %}
     </li>
 {% endfor %}
 </ul>

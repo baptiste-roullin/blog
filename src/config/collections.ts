@@ -5,7 +5,6 @@ import normalizeTag from '../filters/normalize_tag'
 
 const meta = require('../_data/meta')
 import truchetNode from '../features/truchet/truchet_node'
-import fetchTwitter from '../features/threads/fetchTwitter';
 
 
 const published = (post) => { return !post.data.draft }
