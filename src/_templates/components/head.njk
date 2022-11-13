@@ -1,12 +1,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  {% set titre = title | removeMD %}
-
-<title>{{  titre }}  </title>
-
-{#- General #}
-
+{% set title = title | removeMD %}
+<title>{{  title }}  </title>
 {% if r/^post-?/g.test(layout) %}
   {% set postImage = meta.siteURL +  '/'  + collatedHeroImage %}
   {% set pageURL = meta.siteURL + page.url %}
@@ -14,7 +9,7 @@
     {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
-      "headline": "{{title |  removeMD | safe}}",
+      "headline": "{{title  | safe}}",
       "image": "{{postImage}}",
       "publisher": {
         "@type": "Organization",
@@ -51,7 +46,6 @@
 {% endif %}
 
 {#- Open Graph #}
-
 <meta name="author" content="{{ meta.author }}"/>
 <meta property="og:site_name" content="{{ meta.siteName }}"/>
 <meta property="og:title" content="{{  altTitle or title }}"/>
@@ -70,24 +64,18 @@
 <link rel="icon" type="image/svg+xml" href="/assets/UI/favicon.svg">
 <link rel="icon" type="image/png" href="/assets/UI/favicon.png" sizes="32x32">
 
-{#- RSS Feed #}
 <link type="application/atom+xml" rel="alternate"  title="RSS Feed for {{ meta.siteName }}"  href="/rss" title="{{ meta.siteName }} XML Feed">
-
 <link rel="stylesheet" href="/assets/css/{{hashes_css['main.css']}}"/>
-
 <script  src="/assets/scripts/{{hashes_js['main.js']}}" defer></script>
 
 {# post intégrant des motifs de truchet en <canvas> #}
 {% if canvas === true %}
   <script  src="/assets/scripts/{{hashes_js['truchet_dom.js']}}" defer></script>
 {% endif %}
-
 {# post  #}
 {% if picture_lightbox === true %}
   <script  src="/assets/scripts/{{hashes_js['picture_lightbox.js']}}" defer></script>
 {% endif %}
-
 {% if 'blog\/' in page.url %}
   <script  src="/assets/scripts/{{hashes_js['arrowPagination.js']}}" defer></script>
 {% endif %}
-

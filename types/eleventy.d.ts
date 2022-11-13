@@ -105,7 +105,7 @@ export interface Page {
 }
 
 interface Data {
-   projets: any;
+   projects: any;
    collections: {
       [key: string]: Item[] | undefined;
    };

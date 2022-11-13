@@ -5,6 +5,7 @@ import normalizeTag from '../filters/normalize_tag'
 
 const meta = require('../_data/meta')
 import truchetNode from '../features/truchet/truchet_node'
+import fetchTwitter from '../features/threads/fetchTwitter';
 
 
 const published = (post) => { return !post.data.draft }
@@ -50,10 +51,10 @@ export const collections = {
 		return getbyField(collectionAPI, 'featured', true)
 	},
 
-	listeProjets: async function (collectionAPI: Collection): Promise<any> {
-		const projets = collectionAPI.items[0].data!.projets
+	projectsList: async function (collectionAPI: Collection): Promise<any> {
+		const projects = collectionAPI.items[0].data!.projects
 
-		const collatedProjects = await Promise.all(projets.map(async (projet) => {
+		const collatedProjects = await Promise.all(projects.map(async (projet) => {
 
 			if (!projet.img) {
 				await truchetNode(projet.name, 400, 400).catch(console.error);
@@ -64,4 +65,5 @@ export const collections = {
 		}))
 		return collatedProjects
 	},
+
 }
