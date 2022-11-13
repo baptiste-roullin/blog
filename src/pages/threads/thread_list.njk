@@ -4,11 +4,18 @@ layout: page
 permalink: "threads/index.html"
 ---
 
-<ul>
-{% for thread in threads %}
 
-    <li>
-        <a href="/threads/{{thread.title}}">{{thread.title}}</a>
-    </li>
-{% endfor %}
-</ul>
+
+
+<ul class="flex flex-col items-start gap-6 xl:gap-8 sm:flex-row ailleurs-list" >
+{% for thread in threads %}
+          <li class="list-none ">
+            <a
+            class="text-2xl ailleurs cta-heading hover:underline hover:text-accent2"
+            href="/threads/{{thread.title | slugify}}">{{thread.title}}</a>
+          </li>
+              {% if not loop.last %}
+          <span aria-hidden="true" class="hidden text-xl sm:inline " >~</span>
+         {% endif %}
+        {% endfor %}
+      </ul>
