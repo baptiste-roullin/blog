@@ -1,4 +1,8 @@
 // @ts-nocheck
+import { md } from '../config/markdown'
+import meta from './meta'
+import { scheduler } from 'node:timers/promises';
+
 
 let threads_input = [
   {
@@ -10,20 +14,15 @@ let threads_input = [
     tweet_id: "1396823864701820941",
   }]
 
-try {
-
-  threads_input.forEach(async (thread) => {
-    thread.tweets = await generateThread(thread.tweet_id)
-
-  });
 
 
 
-} catch (error) {
-  console.log('error', error)
-}
+Promise.all(
+  threads_input.map(async thread_input => fetchTwitter(thread_input, [])
+  ))
 
-module.exports = threads_input
+//console.log(JSON.stringify(threads_input));
+
 
 
 /*const metascraper = require('metascraper')([
@@ -38,52 +37,35 @@ module.exports = threads_input
   require('metascraper-url')()
 ])*/
 
-import { md } from '../config/markdown'
-import meta from './meta'
 
 //let tweet_id = '1576508215537201153'
 //let tweet_id = '1289665741365497857'
 
-var myHeaders = new Headers({
-  "Authorization": `Bearer ${meta.twitterBearer}`,
-  "Cookie": "guest_id=v1%3A165865221501677794"
 
-})
 const url_catcher = new RegExp(/(?:(?:https?):\/\/|\b(?:[a-z\d]+\.))(?:(?:[^\s()<>]+|\((?:[^\s()<>]+|(?:\([^\s()<>]+\)))?\))+(?:\((?:[^\s()<>]+|(?:\(?:[^\s()<>]+\)))?\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))?/ig)
 
-console.log(meta.twitterBearer);
-async function generateThread(id) {
 
 
-
-  const tweets = await fetchTwitter(id, [])
-  console.log(tweets);
-  return tweets
-  /*return [{
-    text: '<p>Genre finir Ocarina Time en 5 minutes en se téléportant à la scène finale. <a href="https://t.co/ioDsG5lpQd">https://t.co/ioDsG5lpQd</a></p>\n'
-  },
-  {
-    text: '<p>Un truc assez fou dans les speedruns c’est l’exécution arbitraire de code (ACE). En gros, réaliser une série d’actions avec la manette pour manipuler la mémoire du jeu, y injecter des opérations et lui faire faire a peu près ce qu’on veut.<br>\n' +
-      '<a href="https://t.co/mcSgb5MT3U">https://t.co/mcSgb5MT3U</a></p>\n'
-  }]*/
-
-}
-
-
-
-async function fetchTwitter(tweet_id, thread) {
+async function fetchTwitter(thread_input, thread) {
   try {
+    let tweet_id = thread_input.tweet_id
+    var myHeaders = new Headers({
+      "Authorization": `Bearer ${meta.twitterBearer}`,
+
+
+    })
     var requestOptions = {
       method: 'GET',
       headers: myHeaders,
-      redirect: "follow"
+      redirect: "follow",
+
     };
     const request = await fetch(
-      `https://api.twitter.com/2/tweets/${tweet_id}?
-		expansions=referenced_tweets.id,attachments.media_keys
-		&media.fields=media_key,url,alt_text
-    &tweet.fields=created_at
-		`,
+      "https://api.twitter.com/2/tweets/"
+      + tweet_id
+      + "?tweet.fields=created_at,id,referenced_tweets,text&expansions=attachments.media_keys,in_reply_to_user_id,referenced_tweets.id"
+      + "&media.fields=alt_text,media_key,type,url"
+      ,
       requestOptions)
 
 
@@ -99,7 +81,6 @@ async function fetchTwitter(tweet_id, thread) {
 
     let referenced_tweets = data.data?.referenced_tweets
 
-    console.log(data + typeof referenced_tweets)
     let tweet = {}
     tweet.created_at = data?.data.created_at
     tweet.text = md.render(data?.data?.text || '')
@@ -112,18 +93,18 @@ async function fetchTwitter(tweet_id, thread) {
     if (referenced_tweets) {
       tweet_id = referenced_tweets[referenced_tweets.length - 1].id
       //console.log(referenced_tweets.map(tweet => tweet.id) + "\n")
+      await scheduler.wait(2000);
 
-      fetchTwitter(tweet_id, thread)
+      fetchTwitter(thread_input, thread)
       /*	if (referenced_tweets.length > 0) {
 
         }*/
 
     } else {
       thread.push(tweet)
+      thread_input.tweets = thread
 
-      console.log(thread);
-
-      return thread
+      return thread_input
     }
   } catch (error) {
     console.log('error', error)
@@ -132,6 +113,7 @@ async function fetchTwitter(tweet_id, thread) {
 }
 
 
+module.exports = threads_input
 
 // https://www.npmjs.com/package/metascraper
 //https://github.com/sindresorhus/p-queue

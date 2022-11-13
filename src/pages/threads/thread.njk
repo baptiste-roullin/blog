@@ -15,9 +15,10 @@ eleventyComputed: {
 }
 ---
 
-
+{{thread.tweets | log}}
 <ul>
 {% for tweet in thread.tweets %}
+
     <li>
         <p>{{tweet.created_at | dateHumanFormat}}</p>
         {{tweet.text | safe}}
