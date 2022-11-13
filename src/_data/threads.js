@@ -5,24 +5,20 @@ import { scheduler } from 'node:timers/promises';
 
 
 let threads_input = [
-  {
-    title: "speedrun",
-    tweet_id: "1283068628372541444",
-  },
+  /*  {
+      title: "speedrun",
+      tweet_id: "1283068628372541444",
+    },*/
   {
     title: "Dispositifs anti-covid",
-    tweet_id: "1396823864701820941",
-  }]
-
-
-
-
-Promise.all(
-  threads_input.map(async thread_input => fetchTwitter(thread_input, [])
-  ))
-
-//console.log(JSON.stringify(threads_input));
-
+    tweet_id: "1582431501144100865",
+  },
+  {
+    title: "films de procès",
+    //"tweet_id": "1245822522563715072"
+    tweet_id: "1317402466636488704"
+  }
+]
 
 
 /*const metascraper = require('metascraper')([
@@ -37,22 +33,12 @@ Promise.all(
   require('metascraper-url')()
 ])*/
 
-
-//let tweet_id = '1576508215537201153'
-//let tweet_id = '1289665741365497857'
-
-
 const url_catcher = new RegExp(/(?:(?:https?):\/\/|\b(?:[a-z\d]+\.))(?:(?:[^\s()<>]+|\((?:[^\s()<>]+|(?:\([^\s()<>]+\)))?\))+(?:\((?:[^\s()<>]+|(?:\(?:[^\s()<>]+\)))?\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))?/ig)
 
-
-
-async function fetchTwitter(thread_input, thread) {
+async function fetchTwitter(tweet_id, thread, thread_input) {
   try {
-    let tweet_id = thread_input.tweet_id
     var myHeaders = new Headers({
       "Authorization": `Bearer ${meta.twitterBearer}`,
-
-
     })
     var requestOptions = {
       method: 'GET',
@@ -60,11 +46,9 @@ async function fetchTwitter(thread_input, thread) {
       redirect: "follow",
 
     };
+
     const request = await fetch(
-      "https://api.twitter.com/2/tweets/"
-      + tweet_id
-      + "?tweet.fields=created_at,id,referenced_tweets,text&expansions=attachments.media_keys,in_reply_to_user_id,referenced_tweets.id"
-      + "&media.fields=alt_text,media_key,type,url"
+      `https://api.twitter.com/2/tweets/${tweet_id}?tweet.fields=created_at,in_reply_to_user_id,id,referenced_tweets,text&expansions=attachments.media_keys,referenced_tweets.id&media.fields=alt_text,media_key,type,url`
       ,
       requestOptions)
 
@@ -84,18 +68,17 @@ async function fetchTwitter(thread_input, thread) {
     let tweet = {}
     tweet.created_at = data?.data.created_at
     tweet.text = md.render(data?.data?.text || '')
-
     if (data?.includes?.media) {
-      tweet['media'] = data?.includes.media.map(media => media.url)
+      tweet.media = data?.includes.media.map(media => media.url)
     }
     thread.push(tweet)
 
     if (referenced_tweets) {
       tweet_id = referenced_tweets[referenced_tweets.length - 1].id
       //console.log(referenced_tweets.map(tweet => tweet.id) + "\n")
-      await scheduler.wait(2000);
+      await scheduler.wait(3000);
 
-      fetchTwitter(thread_input, thread)
+      return await fetchTwitter(tweet_id, thread, thread_input)
       /*	if (referenced_tweets.length > 0) {
 
         }*/
@@ -113,7 +96,12 @@ async function fetchTwitter(thread_input, thread) {
 }
 
 
-module.exports = threads_input
+module.exports = async function () {
+  return Promise.all(threads_input.map(
+    async thread_input => fetchTwitter(thread_input.tweet_id, [], thread_input))
+  )
+
+}
 
 // https://www.npmjs.com/package/metascraper
 //https://github.com/sindresorhus/p-queue
