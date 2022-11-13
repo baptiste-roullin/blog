@@ -8,23 +8,22 @@ pagination:
     size: 1,
     alias: "thread"
     },
-permalink: "threads/{{ thread.title }}/index.html",
+permalink: "threads/{{thread.title }}/",
 eleventyComputed: {
     title:   (data) =>  data.pagination.items[0].title
     }
 }
 ---
 
-{{thread.tweets | log}}
-<ul>
-{% for tweet in thread.tweets %}
 
-    <li>
-        <p>{{tweet.created_at | dateHumanFormat}}</p>
-        {{tweet.text | safe}}
+{% for tweet in thread.tweets %}
+    <article>
+        <h2>{{tweet.created_at | dateHumanFormat("dd LLLL yyyy")}}</h2>
+        {{tweet.text }}
         {% for url in tweet.media %}
                     <img src="{{url}}"></img>
         {% endfor %}
-    </li>
+    </article>
+
 {% endfor %}
-</ul>
+
