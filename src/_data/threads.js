@@ -46,7 +46,6 @@ async function fetchTwitter(tweet_id, thread, thread_input) {
       redirect: "follow",
 
     };
-    console.log(tweet_id);
 
     const request = await fetch(
       `https://api.twitter.com/2/tweets/${tweet_id}?tweet.fields=created_at,in_reply_to_user_id,id,referenced_tweets,text&expansions=attachments.media_keys,referenced_tweets.id&media.fields=alt_text,media_key,type,url`
