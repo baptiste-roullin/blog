@@ -9,10 +9,10 @@ let threads_input = [
       title: "speedrun",
       tweet_id: "1283068628372541444",
     },*/
-  {
-    title: "Dispositifs anti-covid",
-    tweet_id: "1582431501144100865",
-  },
+  /*  {
+      title: "Dispositifs anti-covid",
+      tweet_id: "1582431501144100865",
+    },*/
   {
     title: "films de procès",
     //"tweet_id": "1245822522563715072"
@@ -76,7 +76,7 @@ async function fetchTwitter(tweet_id, thread, thread_input) {
     if (referenced_tweets) {
       tweet_id = referenced_tweets[referenced_tweets.length - 1].id
       //console.log(referenced_tweets.map(tweet => tweet.id) + "\n")
-      await scheduler.wait(3000);
+      await scheduler.wait(4000);
 
       return await fetchTwitter(tweet_id, thread, thread_input)
       /*	if (referenced_tweets.length > 0) {
