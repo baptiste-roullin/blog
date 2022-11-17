@@ -9,14 +9,14 @@ let threads_input = [
       title: "speedrun",
       tweet_id: "1283068628372541444",
     },*/
-  /*  {
-      title: "Dispositifs anti-covid",
-      tweet_id: "1582431501144100865",
-    },*/
+  {
+    title: "Dispositifs anti-covid",
+    tweet_id: "1582431501144100865",
+  },
   {
     title: "films de procès",
-    //"tweet_id": "1245822522563715072"
-    tweet_id: "1317402466636488704"
+    "tweet_id": "1245822522563715072"
+    //tweet_id: "1317402466636488704"
   }
 ]
 
