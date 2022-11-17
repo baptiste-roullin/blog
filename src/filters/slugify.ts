@@ -7,6 +7,10 @@ export function slugifyFilter(string) {
 	if (string in memoizedSlugs) {
 		return memoizedSlugs[string];
 	} else {
+		if (!string) {
+			console.log("slug string is empty")
+			return ""
+		}
 		let slug = slugifyLib(string, {
 			decamelize: false,
 			customReplacements: [['%', ' '], ["'", '']],

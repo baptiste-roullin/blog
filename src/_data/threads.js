@@ -1,21 +1,22 @@
 // @ts-nocheck
-import { md } from '../config/markdown'
 import meta from './meta'
 import { scheduler } from 'node:timers/promises';
 
 
+
 let threads_input = [
   /*  {
-      title: "speedrun",
+      title: "Speedrun",
       tweet_id: "1283068628372541444",
     },*/
   {
     title: "Dispositifs anti-covid",
-    tweet_id: "1582431501144100865",
+    tweet_id: "1593334707093209099",
+    //tweet_id: "1289665741365497857"
   },
   {
     title: "films de procès",
-    "tweet_id": "1245822522563715072"
+    tweet_id: "1245822522563715072"
     //tweet_id: "1317402466636488704"
   }
 ]
@@ -67,7 +68,7 @@ async function fetchTwitter(tweet_id, thread, thread_input) {
 
     let tweet = {}
     tweet.created_at = data?.data.created_at
-    tweet.text = md.render(data?.data?.text || '')
+    tweet.text = data?.data?.text || ''
     if (data?.includes?.media) {
       tweet.media = data?.includes.media.map(media => media.url)
     }
@@ -76,7 +77,7 @@ async function fetchTwitter(tweet_id, thread, thread_input) {
     if (referenced_tweets) {
       tweet_id = referenced_tweets[referenced_tweets.length - 1].id
       //console.log(referenced_tweets.map(tweet => tweet.id) + "\n")
-      await scheduler.wait(4000);
+      await scheduler.wait(3000);
 
       return await fetchTwitter(tweet_id, thread, thread_input)
       /*	if (referenced_tweets.length > 0) {

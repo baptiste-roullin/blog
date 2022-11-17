@@ -1,0 +1,30 @@
+---js
+{
+layout: "post",
+hideMeta: true,
+pagination:
+    {
+    data: "threads",
+    size: 1,
+    alias: "thread"
+    },
+permalink: "threads/{{thread.title | slugify }}/",
+eleventyComputed: {
+    title: (data) =>  data.pagination?.items[0]?.title
+    }
+}
+---
+
+
+{% for tweet in thread.tweets %}
+    <article class="prose-tcqb">
+        <h2>{{tweet.created_at | dateHumanFormat("dd LLLL yyyy")}}</h2>
+            {{tweet.text | markdownify | safe  }}
+
+        {% for url in tweet.media %}
+                    <img src="{{url}}"></img>
+        {% endfor %}
+    </article>
+
+{% endfor %}
+

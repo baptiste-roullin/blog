@@ -26,7 +26,7 @@ export default function pictures_processing(html) {
 
 
 	const globalSettings = {
-		selector: " #content :not(picture) > img[src]:not([srcset]):not([src$='.svg'])",
+		selector: ` #content :not(picture) > img[src]:not([srcset]):not([src$='.svg'])[src^=${meta.siteURL}]`,
 		minWidth: 400,
 		maxWidth: 1920,
 		fallbackWidth: 750,
