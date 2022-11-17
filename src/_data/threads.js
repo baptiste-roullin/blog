@@ -5,17 +5,13 @@ import { scheduler } from 'node:timers/promises';
 
 
 let threads_input = [
-  /*  {
-      title: "Speedrun",
-      tweet_id: "1283068628372541444",
-    },*/
   {
     title: "Dispositifs anti-covid",
     tweet_id: "1593334707093209099",
     //tweet_id: "1289665741365497857"
   },
   {
-    title: "films de procès",
+    title: "Films de procès",
     tweet_id: "1245822522563715072"
     //tweet_id: "1317402466636488704"
   }

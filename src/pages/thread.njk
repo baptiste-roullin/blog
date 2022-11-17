@@ -14,7 +14,7 @@ eleventyComputed: {
     }
 }
 ---
-
+{{thread.title | log }}
 
 {% for tweet in thread.tweets %}
     <article class="prose-tcqb">
