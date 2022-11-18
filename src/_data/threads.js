@@ -18,6 +18,17 @@ let threads_input = [
 ]
 
 
+// @Todo : if lien externe générer card
+// @Todo : if quote tweet : suivre lien et générer card
+// @todo : card twitter dans <head>
+// @todo : remonter la chaine uniquement si author=saint_loup
+// @todo : design
+// @todo : mettre en cache json résultats
+// @todo : arrêter les requêtes si tweet_id = tweet déjà en cache.
+// @todo : compteur de requêtes pour ne jamais dépasser le rate limit
+// @todo : déplacer threads_input dans fichier yaml.
+// @todo : retester de sortir thread.js du dossier_data.
+
 /*const metascraper = require('metascraper')([
   require('metascraper-author')(),
   require('metascraper-date')(),
