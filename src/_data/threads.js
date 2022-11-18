@@ -11,9 +11,9 @@ let threads_input = [
     //tweet_id: "1289665741365497857"
   },
   {
-    title: "Films de procès",
-    tweet_id: "1245822522563715072"
-    //tweet_id: "1317402466636488704"
+    title: "films de procès",
+    tweet_id: "1317402466636488704"
+    //tweet_id: "1245822522563715072"
   }
 ]
 
@@ -74,11 +74,7 @@ async function fetchTwitter(tweet_id, thread, thread_input) {
       tweet_id = referenced_tweets[referenced_tweets.length - 1].id
       //console.log(referenced_tweets.map(tweet => tweet.id) + "\n")
       await scheduler.wait(3000);
-
       return await fetchTwitter(tweet_id, thread, thread_input)
-      /*	if (referenced_tweets.length > 0) {
-
-        }*/
 
     } else {
       thread.push(tweet)
