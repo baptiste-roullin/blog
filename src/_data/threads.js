@@ -77,8 +77,8 @@ async function fetchTwitter(tweet_id, thread, thread_input) {
       return await fetchTwitter(tweet_id, thread, thread_input)
 
     } else {
-      thread.push(tweet)
-      thread_input.tweets = thread
+      //thread.push(tweet)
+      thread_input.tweets = thread.reverse()
 
       return thread_input
     }
