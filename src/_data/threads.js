@@ -28,6 +28,7 @@ let threads_input = [
 // @todo : compteur de requêtes pour ne jamais dépasser le rate limit
 // @todo : déplacer threads_input dans fichier yaml.
 // @todo : retester de sortir thread.js du dossier_data.
+// @todo : Acces à la liste quelque part dans la nav ou le site.
 
 /*const metascraper = require('metascraper')([
   require('metascraper-author')(),
