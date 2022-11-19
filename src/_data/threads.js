@@ -23,7 +23,7 @@ let threads_input = [
 // @todo : card twitter dans <head>
 // @todo : remonter la chaine uniquement si author=saint_loup
 // @todo : design
-// @todo : mettre en cache json résultats
+// @todo : mettre en cache json résultats avec eleventy-fetch
 // @todo : arrêter les requêtes si tweet_id = tweet déjà en cache.
 // @todo : compteur de requêtes pour ne jamais dépasser le rate limit
 // @todo : déplacer threads_input dans fichier yaml.
