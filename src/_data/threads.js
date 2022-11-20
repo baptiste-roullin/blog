@@ -17,7 +17,8 @@ let threads_input = [
   }
 ]
 
-
+// @todo : ajouter fichier YAMLde test
+// @todo : ajouter des debug.warning()
 // @Todo : if lien externe générer card
 // @Todo : if quote tweet : suivre lien et générer card
 // @todo : card twitter dans <head>
@@ -29,6 +30,7 @@ let threads_input = [
 // @todo : déplacer threads_input dans fichier yaml.
 // @todo : retester de sortir thread.js du dossier_data.
 // @todo : Acces à la liste quelque part dans la nav ou le site.
+// @todo : fetchTwitter devrait retourner du json avec plein d'infos (id, etc.)
 
 /*const metascraper = require('metascraper')([
   require('metascraper-author')(),
