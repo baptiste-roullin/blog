@@ -2,7 +2,8 @@
 import meta from './meta'
 import { scheduler } from 'node:timers/promises';
 
-
+// fichier pourrait être placé dans le dossier pages/threads, si on n'utilisait pas le plugin de pagination.
+// le plugin ne résoud pas les promesses venant de fichier *.11tydata.js
 
 let threads_input = [
   {
