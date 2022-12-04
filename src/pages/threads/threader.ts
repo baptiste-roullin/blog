@@ -183,8 +183,9 @@ export default async function threader() {
 		return await Promise.all(threads_list.map(
 			async thread => {
 				let cachedThread = new AssetCache(String(thread.tweetID), ".cache", { duration: "1s", type: "json" })
-				if (typeof thread.tweetID === "number") {
-					thread.tweetID = String(BigInt(thread.tweetID))
+				if (typeof thread.tweetID !== "string") {
+					warning("tweetID must be a string")
+					return
 				}
 				let tweets = []
 				thread.startingID = thread.tweetID
