@@ -15,7 +15,7 @@ eleventyComputed: {
 }
 ---
 
-{% for tweet in thread.tweets %}
+{% for tweet in thread.tweets | reverse %}
     <article class="prose-tcqb">
         <h2>{{tweet.created_at | dateHumanFormat("dd LLLL yyyy")}}</h2>
             {{tweet.text | markdownify | safe  }}

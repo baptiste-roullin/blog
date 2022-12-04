@@ -15,6 +15,7 @@ module.exports = {
 	assetsDir: 'assets/images',
 	zoteroProfileID: process.env.zoteroProfileID || '',
 	zoteroAPIKey: process.env.zoteroAPIKey || '',
-	twitterBearer: process.env.TWITTER_BEARER
+	twitterBearer: process.env.TWITTER_BEARER,
+	twitterThread: process.env.TWITTER_THREAD
 }
 
