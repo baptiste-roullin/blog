@@ -6,7 +6,7 @@ const meta = require('../_data/meta')
 const debug = require('debug');
 const warning = debug('tcqb:warning');
 import path from 'path'
-import cache from '../utils/caching'
+//import cache from '../utils/caching'
 
 
 function normalizePath(str) {
@@ -16,7 +16,7 @@ function normalizePath(str) {
 
 
 
-async function convertPictures(image, document, imageSettings, widthsList, originalPath, intermediaryPath) {
+async function convertPictures(image, widthsList, originalPath, intermediaryPath) {
 
 	try {
 
@@ -35,7 +35,7 @@ async function convertPictures(image, document, imageSettings, widthsList, origi
 			),
 			urlPath: '/assets/imagesToProcess/',
 			outputDir: `./${meta.outputDir}/${meta.assetsDir}/`,
-			filenameFormat: function (id, src, width, format, options) {
+			filenameFormat: function (src, width, format) {
 				const extension = path.extname(src);
 				const name = path.basename(src, extension);
 				const modifiedFormat = (format === 'jpeg' ? 'jpg' : format);
@@ -199,7 +199,7 @@ export default function handlePictures(image, document, globalSettings) {
 			}
 		}
 
-		convertPictures(image, document, imageSettings, widthsList, originalPath, intermediaryPath);
+		convertPictures(image, widthsList, originalPath, intermediaryPath);
 
 
 		prepareForLighbox(image, document);
