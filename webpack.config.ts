@@ -74,7 +74,7 @@ const config: webpack.Configuration = {
   plugins: [
     /* TODO : https://github.com/trendyminds/rollup-plugin-hashed-mapping?utm_source=pocket_mylist */
     new WebpackAssetsManifest({
-      customize(entry, original, manifest, asset) {
+      customize(entry) {
 
         // l'otpion fileExtRegex devrait servir à ça, mais pas réussi à la faire marcher.
         if (!(entry.key.endsWith('.js'))) {
@@ -91,28 +91,28 @@ const config: webpack.Configuration = {
         {
           from: "posts/**/*.{png,webp,gif,mp4,jpg,jpeg}",
           context: "src",
-          to({ context, absoluteFilename }) {
+          to({ context }) {
             return `${context}/assets/imagesToProcess/[name][ext]`;
           },
         },
         /*       {
                  from: "pages/portfolio/*.{png,webp,gif,mp4,jpg,jpeg}",
                  context: "src",
-                 to({ context, absoluteFilename }) {
+                 to({ context }) {
                    return `${context}/assets/imagesToProcess/[name][ext]`;
                  },
                },*/
         {
           from: "assets/images/*",
           context: "src",
-          to({ context, absoluteFilename }) {
+          to({ context }) {
             return `${context}/assets/imagesToProcess/[name][ext]`;
           },
         },
         {
           from: "assets/UI/*",
           context: "src",
-          to({ context, absoluteFilename }) {
+          to({ context }) {
             return `${context}/assets/imagesToProcess/[name][ext]`;
           },
         },

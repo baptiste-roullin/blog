@@ -3,7 +3,7 @@ const markdownIt = require('markdown-it')
 import { slugifyFilter as slugify } from '../filters/slugify'
 
 
-const anchor = (md, options) => {
+const anchor = (md) => {
 
 	md.renderer.rules.heading_open = function (tokens, index) {
 		const contentToken = tokens[index + 1];
@@ -22,15 +22,17 @@ const anchor = (md, options) => {
 	};
 
 	md.renderer.rules.heading_close = function (tokens, index) {
-		const contentToken = tokens[index - 1];
-		const slug = slugify(contentToken.content);
+		//const contentToken = tokens[index - 1];
+		//const slug = slugify(contentToken.content);
 		return `</${tokens[index].tag}>`;
 	};
 };
 
-// TODO https://github.com/markdown-it/markdown-it/blob/master/lib/rules_core/replacements.js
 
-const double_punctuation = (md, options) => {
+
+//TODO : ortho-typo https://github.com/markdown-it/markdown-it/blob/master/lib/rules_core/replacements.js
+
+/*const double_punctuation = (md, options) => {
 	const NBSP_DOUBLE_PUNCTUATION = /(\w+(?:\s?»)?)(\s?)([?!;:])(\s|$)/gu
 	const U = {
 		ELLIPSIS: '\u2026',
@@ -41,13 +43,13 @@ const double_punctuation = (md, options) => {
 		CLOSING_QUOTE: '»',
 	}
 
-	/*	str.replace(NBSP_DOUBLE_PUNCTUATION, (match, $1, $2, $3, $4) => {
+		str.replace(NBSP_DOUBLE_PUNCTUATION, (match, $1, $2, $3, $4) => {
 			console.log('espaces fines insécables avant ? ! ; :')
 			return $1 + U.NNBSP + $3 + $4
-		})*/
+		})
 }
 
-
+*/
 let options = {
 	html: true,
 	breaks: true,
@@ -62,7 +64,7 @@ export const md = markdownIt(options)
 	//.use(markdownItHeadingLevel, { firstLevel: 2 })
 	.use(require('markdown-it-footnote'))
 	.use(anchor)
-	.use(double_punctuation)
+	//.use(double_punctuation)
 	.use(require('markdown-it-bracketed-spans'))
 	.use(require('markdown-it-attrs'))
 	.use(require('markdown-it-blockquote-cite'))

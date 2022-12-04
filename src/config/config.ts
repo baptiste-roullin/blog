@@ -2,9 +2,9 @@
 
 const pluginRss = require('@11ty/eleventy-plugin-rss')
 const pluginNavigation = require('@11ty/eleventy-navigation')
-const yaml = require("js-yaml");
-const embedEverything = require("eleventy-plugin-embed-everything");
-const { EleventyRenderPlugin } = require("@11ty/eleventy");
+const yaml = require("js-yaml")
+const embedEverything = require("eleventy-plugin-embed-everything")
+const { EleventyRenderPlugin } = require("@11ty/eleventy")
 
 const meta = require('../_data/meta')
 import picturesProcessing from '../transforms/pictures_processing'
@@ -16,7 +16,7 @@ import { asyncShortcodes } from '../shortcodes/asyncShortcodes'
 import { shortcodes } from '../shortcodes/shortcodes'
 import { filters } from '../filters/filters'
 
-import { Config, UserConfig, Data, Page, Collection } from '../../types/eleventy';
+import { Config, UserConfig } from '../../types/eleventy';
 
 
 module.exports = function conf(config: Config): UserConfig {
@@ -32,6 +32,7 @@ module.exports = function conf(config: Config): UserConfig {
 	config.setWatchThrottleWaitTime(200);
 	config.setWatchJavaScriptDependencies(true);
 
+	console.log('aaaaaaaaaaaazzzzaaaaaaaaaa');
 
 
 	/**
@@ -168,6 +169,6 @@ cf. postcss.config.js pour le CSS
 		passthroughFileCopy: true,
 		templateFormats: ['html', 'njk', 'md'],
 		htmlTemplateEngine: 'njk',
-		markdownTemplateEngine: 'njk',
+		markdownTemplateEngine: 'njk'
 	}
 }
