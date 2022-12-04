@@ -112,6 +112,8 @@ async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedT
 
 	if (response.errors) {
 		error(new Error(JSON.stringify(response.errors[0])))
+		info(thread.title)
+		return thread
 	}
 	else if (response.data) {
 		info("tweet fetché", response.data.text)
@@ -142,7 +144,7 @@ async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedT
 						tweet.text = tweet.text.replace(url_catcher, "")
 						tweet.text = (tweet.text === "" ? "Message vide. Le tweet était probablement juste un \"quote tweet\"" : tweet.text)
 						tweets.push(tweet)
-						await scheduler.wait(4000)
+						await scheduler.wait(3500)
 						info("the thread continues")
 						return await getTweet(thread, tweets, client, cachedThread)
 					case 'quoted':
@@ -180,7 +182,10 @@ export default async function threader() {
 
 		return await Promise.all(threads_list.map(
 			async thread => {
-				let cachedThread = new AssetCache(thread.tweetID, ".cache", { duration: "1s" })
+				let cachedThread = new AssetCache(String(thread.tweetID), ".cache", { duration: "1s", type: "json" })
+				if (typeof thread.tweetID === "number") {
+					thread.tweetID = String(BigInt(thread.tweetID))
+				}
 				let tweets = []
 				thread.startingID = thread.tweetID
 

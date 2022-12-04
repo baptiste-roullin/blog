@@ -10,3 +10,4 @@ module.exports = (meta.twitterThread === "false" ? ["feature disabled"] : thread
 //TODO : compteur de requêtes pour ne jamais dépasser le rate limit
 //TODO : card twitter dans <head>
 //TODO : Ré-héberger images
+//TODO : check si cache est inutilisable.
