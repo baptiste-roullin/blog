@@ -1,5 +1,5 @@
-import threads from './threads'
+import threader from './threader'
 
 (async function () {
-	await threads()
+	await threader()
 }())

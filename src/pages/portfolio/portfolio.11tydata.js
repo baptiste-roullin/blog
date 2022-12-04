@@ -8,4 +8,4 @@ module.exports = {
   eleventyComputed: {
     collatedHeroImage: collateHeroImage
   }
-};
+}

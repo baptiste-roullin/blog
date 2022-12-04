@@ -16,7 +16,7 @@ import { asyncShortcodes } from '../shortcodes/asyncShortcodes'
 import { shortcodes } from '../shortcodes/shortcodes'
 import { filters } from '../filters/filters'
 
-import { Config, UserConfig } from '../../types/eleventy';
+import { Config, UserConfig } from '../../types/eleventy'
 
 
 module.exports = function conf(config: Config): UserConfig {
@@ -29,10 +29,9 @@ module.exports = function conf(config: Config): UserConfig {
 	config.addWatchTarget('./src/assets/scripts/')
 	config.addWatchTarget('./src/**/*.js')
 	config.addWatchTarget('./tailwind.config.js')
-	config.setWatchThrottleWaitTime(200);
-	config.setWatchJavaScriptDependencies(true);
+	config.setWatchThrottleWaitTime(200)
+	config.setWatchJavaScriptDependencies(true)
 
-	console.log('aaaaaaaaaaaazzzzaaaaaaaaaa');
 
 
 	/**
@@ -64,9 +63,9 @@ cf. postcss.config.js pour le CSS
 			'picturesProcessing',
 			(content, outputPath) => {
 				if (outputPath && outputPath.endsWith('.html')) {
-					return picturesProcessing(content);
+					return picturesProcessing(content)
 				}
-				return content;
+				return content
 			}
 		)
 	}
@@ -91,9 +90,9 @@ cf. postcss.config.js pour le CSS
 	config.addPlugin(pluginNavigation)
 	config.addPlugin(embedEverything, {
 		use: ['vimeo', 'youtube', 'twitter'], twitter: { options: { align: 'center' } }
-	});
+	})
 	config.addPlugin(pluginRss)
-	config.addPlugin(EleventyRenderPlugin);
+	config.addPlugin(EleventyRenderPlugin)
 
 
 	/**
@@ -134,7 +133,7 @@ cf. postcss.config.js pour le CSS
 	/**
 	MARKDOWN
 	*/
-	config.addDataExtension("yaml", contents => yaml.load(contents));
+	config.addDataExtension("yaml", contents => yaml.load(contents))
 
 	config.setFrontMatterParsingOptions({
 		excerpt: true,
@@ -142,9 +141,9 @@ cf. postcss.config.js pour le CSS
 		excerpt_alias: 'description',
 		//Si <!-- excerpt --> est présent, sa valeur remplit le tag description, pas page.description.
 		excerpt_separator: "<!-- excerpt -->"
-	});
+	})
 
-	config.setLibrary('md', md);
+	config.setLibrary('md', md)
 
 
 

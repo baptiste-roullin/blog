@@ -116,15 +116,10 @@ async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedT
 		let referenced_tweets = response.data?.referenced_tweets
 
 		let tweet: Tweet = Object.assign(response.data, response?.includes)
-
-
 		const urls = response.data.text.match(url_catcher)
 		if (urls) {
 			tweet.linksMetadata = await generateCard(urls, tweet) as Links[]
-
 		}
-
-
 
 		if (referenced_tweets) {
 			thread.tweetID = referenced_tweets[referenced_tweets.length - 1].id
@@ -132,7 +127,9 @@ async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedT
 				switch (referenced_tweet.type) {
 					case "replied_to":
 						await scheduler.wait(1000)
-						return await getTweet(thread, tweets, client, cachedThread)
+						await getTweet(thread, tweets, client, cachedThread)
+						tweets.push(tweet)
+						break
 					case 'quoted':
 						await getQT(referenced_tweet.id, tweet)
 						break
@@ -141,7 +138,6 @@ async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedT
 				}
 			}
 
-			tweets.push(tweet)
 
 		} else {
 			if (tweets.length === 1) {
@@ -157,15 +153,13 @@ async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedT
 	}
 }
 
-export default async function threads() {
+export default async function threader() {
 
 	try {
 		const client = new Client(meta.twitterBearer)
 		const threads_list = yaml.load(fs.readFileSync('./src/pages/threads/threads_input_TEST.yaml', 'utf8')) as Thread[]
 
-		if (meta.twitterThread === false) {
-			return []
-		}
+
 		return await Promise.all(threads_list.map(
 			async thread => {
 				let cachedThread = new AssetCache(thread.tweetID, ".cache", { duration: "1s" })
