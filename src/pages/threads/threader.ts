@@ -34,13 +34,13 @@ type Tweet =
 	components["schemas"]["Expansions"] &
 	{ linksMetadata?: Links[] } &
 	{
-		QT?:
-		components["schemas"]["Tweet"] &
-		components["schemas"]["Expansions"]
+		QTList?: Array<
+			components["schemas"]["Tweet"] &
+			components["schemas"]["Expansions"]>
 	}
 
 interface Thread {
-	tweets: Tweet[] | undefined,
+	tweets: Tweet[],
 	title: string,
 	tweetID: string,
 	startingID: string | undefined,
@@ -67,12 +67,15 @@ async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedT
 	const { default: pMap } = await import('p-map')
 
 
-	async function getQT(tweetID, tweet: Tweet) {
+	// alternative moins complète : requêter le tweet qui cite avec :
+	//"expansions": ["referenced_tweets.id"],
+
+	async function getQT(tweetID): Promise<Tweet | undefined> {
 		const response = await client.tweets.findTweetById(
 			tweetID,
 			{
-				"tweet.fields": ["created_at", "in_reply_to_user_id", "id", "referenced_tweets", "text"],
-				"expansions": ["attachments.media_keys", "referenced_tweets.id"],
+				"tweet.fields": ["author_id", "created_at", "in_reply_to_user_id", "id", "referenced_tweets", "text"],
+				"expansions": ["attachments.media_keys", "referenced_tweets.id", "author_id"],
 				"media.fields": ["alt_text", "media_key", "type", "url"]
 			})
 
@@ -80,10 +83,9 @@ async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedT
 			error(new Error(JSON.stringify(response.errors[0])))
 		}
 		else if (response.data) {
-			info("QT fetché", response.data.text)
-			let QT: Tweet = Object.assign(response.data, response?.includes)
+			//info("QT fetché", response.data.text)
 
-			tweet.QT = QT
+			return Object.assign(response.data, response?.includes)
 		}
 	}
 
@@ -91,9 +93,9 @@ async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedT
 		return await pMap(urls,
 			async (url: string) => {
 				const response = await fetch(url)
-				if (!response.url.includes("https://twitter.com")) {
-					const html = await response.text()
-					const metadata = await metascraper({ url: url, html: html })
+				const html = await response.text()
+				const metadata = await metascraper({ url: url, html: html })
+				if (!metadata.url.includes("https://twitter.com")) {
 					return metadata
 				}
 
@@ -104,7 +106,7 @@ async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedT
 		thread.tweetID,
 		{
 			"tweet.fields": ["created_at", "in_reply_to_user_id", "id", "referenced_tweets", "text"],
-			"expansions": ["attachments.media_keys", "referenced_tweets.id"],
+			"expansions": ["attachments.media_keys", "author_id"],
 			"media.fields": ["alt_text", "media_key", "type", "url"]
 		})
 
@@ -117,28 +119,42 @@ async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedT
 
 		let tweet: Tweet = Object.assign(response.data, response?.includes)
 		const urls = response.data.text.match(url_catcher)
-		if (urls) {
-			tweet.linksMetadata = await generateCard(urls, tweet) as Links[]
+
+		if (urls !== null) {
+			const links = await generateCard(urls, tweet) as Links[]
+			if (links) {
+				tweet.linksMetadata = []
+				tweet.linksMetadata = links
+				if (tweet.linksMetadata.length < 1) {
+					delete tweet.linksMetadata
+				}
+			}
 		}
 
 		if (referenced_tweets) {
-			thread.tweetID = referenced_tweets[referenced_tweets.length - 1].id
 			for await (const referenced_tweet of referenced_tweets) {
+				thread.tweetID = referenced_tweet.id
+				if (!tweet.QTList) {
+					tweet.QTList = []
+				}
 				switch (referenced_tweet.type) {
 					case "replied_to":
-						await scheduler.wait(1000)
-						await getTweet(thread, tweets, client, cachedThread)
+						tweet.text = tweet.text.replace(url_catcher, "")
+						tweet.text = (tweet.text === "" ? "Message vide. Le tweet était probablement juste un \"quote tweet\"" : tweet.text)
 						tweets.push(tweet)
-						break
+						await scheduler.wait(4000)
+						info("the thread continues")
+						return await getTweet(thread, tweets, client, cachedThread)
 					case 'quoted':
-						await getQT(referenced_tweet.id, tweet)
+						const QT = await getQT(thread.tweetID)
+						if (QT) {
+							tweet.QTList!.push(QT!)
+						}
 						break
 					default:
 						break
 				}
 			}
-
-
 		} else {
 			if (tweets.length === 1) {
 				warning("This tweet doesn't answer to another tweet. Are you sure this is a thread ?")
@@ -146,6 +162,8 @@ async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedT
 
 			info("found end of thread")
 			thread.tweets = tweets
+			//info(thread)
+
 			await cachedThread.save(thread, "json")
 
 			return thread
@@ -191,8 +209,4 @@ export default async function threader() {
 }
 
 
-
-
-
-// https://www.npmjs.com/package/metascraper
 //https://github.com/sindresorhus/p-queue

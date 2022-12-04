@@ -1,0 +1,43 @@
+<article class="flex flex-col lg:flex-row lg:gap-16 ">
+    <div class="lg:w-1/4 prose-tcqb">
+        <h2 class="m-0 thread-heading ">
+            {{tweet.created_at | dateHumanFormat("dd LLLL yyyy")}}
+        </h2>
+        <p> <a href="https://twitter.com/{{tweet.users[0].username}}/status/{{tweet.id}}">Lien d'origine</a> </p>
+        <p class="block">
+  {#          {% if tweet.QTList %}
+                <span>Citation de :</span>
+            {% endif %}
+            #}
+            <span>{{tweet.users[0].name}}, @{{tweet.users[0].username}}</span>
+        </p>
+    </div>
+
+    <div class="prose-tcqb">
+        {{tweet.text | markdownifyBlock | safe  }}
+
+        {% for link in tweet.linksMetadata %}
+        {% if link %}
+        <div class="flex flex-col gap-8 my-8">
+            <div class="flex flex-row gap-6 bg-gray-100 border border-gray-100 row h-36">
+                <div class="w-1/4 bg-gray-200 border-none ">
+                    <img class="object-cover w-full h-full m-0"   src="{{link.image}}" alt="">
+                </div>
+                <div class="flex-col gap-4 mt-4">
+                    <a class="block font-medium" href="{{link.url}}">{{link.title}}</a>
+                    <span class="block text-base label">{{link.date | dateHumanFormat("dd LLLL yyyy")}} ~  {{link.publisher}}</span>
+
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+
+        <div class="">
+        {% for media in tweet.media %}
+                <img src="{{media.url}}"></img>
+        {% endfor %}
+        </div>
+    </div>
+</article>

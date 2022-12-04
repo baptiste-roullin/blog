@@ -4,7 +4,8 @@ import threads from '../pages/threads/threader'
 module.exports = (meta.twitterThread === "false" ? ["feature disabled"] : threads)
 
 
-
+//todo : si tweet contient uniquement QT : vider tweet ou remplacer par QT
+//too : remplacer br par \n\n
 //TODO : arrêter les requêtes si tweet_id = tweet déjà en cache (pas juste le tout premier tweet)
 //TODO : if lien externe générer card.
 //TODO : if quote tweet : suivre lien et générer card. les données sont là, manque  le template.

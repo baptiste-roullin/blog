@@ -203,12 +203,22 @@
 		@apply text-accent3  text-lg-bis md:text-2xl font-medium leading-7 lg:leading-10 lg:text-3xl
 	}
 
+
 	.cta-card {
 		@apply text-lg font-normal leading-6 lg:leading-7 lg:text-xl text-accent2
 	}
 
 	.cta-link {
 		@apply text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-accent4
+	}
+
+	.thread-heading {
+		@apply text-3xl font-medium text-gray-700;
+	}
+
+	.thread article p:first-child {
+		margin-top: 0;
+
 	}
 
 }

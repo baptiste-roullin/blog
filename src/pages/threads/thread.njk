@@ -1,7 +1,6 @@
 ---js
 {
-layout: "post",
-hideMeta: true,
+layout: "page",
 contentType:"thread",
 pagination:
 	 {
@@ -15,29 +14,18 @@ eleventyComputed: {
 	 }
 }
 ---
+{% set tweets = thread.tweets   %}
 
-{% for tweet in thread.tweets | reverse %}
-	 <article class="prose-tcqb">
-		  <h2 class=".cta-heading2 ">{{tweet.created_at | dateHumanFormat("dd LLLL yyyy")}}</h2>
-				{{tweet.text | markdownify | safe  }}
-		  <div class="rich-picture-gallery">
-				{% for url in tweet.media %}
-					 <img src="{{url}}"></img>
-				{% endfor %}
-		  </div>
-		  <div>
-				{% for tweet in tweet.QT | reverse %}
-					 <h2 class=".cta-heading2 ">{{tweet.created_at | dateHumanFormat("dd LLLL yyyy")}}</h2>
-					 {{tweet.text | markdownify | safe  }}
-					 <div class="rich-picture-gallery">
-						  {% for url in tweet.media %}
-								<img src="{{url}}"></img>
-							{% endfor %}
-				{% endfor %}
+<div class="flex flex-col gap-12 mt-12 thread">
+	{% for tweet in  tweets | reverse %}
 
-		  </div>
+		{% include "../../_templates/components/tweet.njk" %}
 
-	 </article>
+		{% set tweets = tweet.QTList  %}
+		{% for tweet in tweets | reverse %}
+			{% include "../../_templates/components/tweet.njk" %}
+		{% endfor %}
 
-{% endfor %}
+	{% endfor %}
+</div>
 
