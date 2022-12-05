@@ -2,23 +2,30 @@ const meta = require('./meta')
 
 import threads from '../pages/threads/threader'
 module.exports = (meta.twitterThread === "false" ? ["feature disabled"] : function () {
-  return threads('./src/pages/threads/threads_input.yaml', "saint_loup", false, 6000)
+  const path = (meta.env === "dev" ?
+    './src/pages/threads/threads_input_TEST.yaml' :
+    './src/pages/threads/threads_input.yaml')
+  return threads(path, "saint_loup", false, 6000)
 })
 
 //todo : supprimer ou améliorer "message vide"
 //todo : réparer env TWITTER_THREAD
+//todo : supprimer auteurs sauf si QT et /== de saint_loup
+//todo : tag "QT" en dessous de la date
+//todo : diminuer line height si QT
 //todo : ajouter vidéos
+//todo : lazy-loader img
 //todo : gérer les fetch annulés https://javascript.info/fetch-abort
-
+//todo : exemple https://twitter.com/Saint_loup/status/1384527253367894016
+//todo : ajouter ancres aux hx
 //TODO : arrêter les requêtes si tweet_id = tweet déjà en cache (pas juste le tout premier tweet)
 //TODO : remonter la chaine uniquement si author=saint_loup
-
 //TODO : compteur de requêtes pour ne jamais dépasser le rate limit
 //TODO : card twitter dans <head>
 //TODO : Ré-héberger images
 //TODO : check si cache est inutilisable.
+//TODO : image : max-height
 //TODO : "tweet cité" : gérer pluriels
-
 
 /* [build:eleventy]   status: 429,
 [build:eleventy]   statusText: 'Too Many Requests',

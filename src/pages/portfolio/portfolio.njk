@@ -71,7 +71,7 @@ Intéressé-e ?
             {% for tool in tools %}
               <div class="flex flex-col items-center justify-between gap-2 ">
                 <span class="text-xl leading-5 text-center w-min">{{tool.name}}</span>
-                  <img class="w-[5.5rem] md:w-24 shadow-md rounded-[22px]" src="{{tool.logo}}" alt="">
+                  <img loading="lazy" class="w-[5.5rem] md:w-24 shadow-md rounded-[22px]" src="{{tool.logo}}" alt="">
               </div>
             {% endfor %}
           </div>
@@ -143,7 +143,7 @@ Intéressé-e ?
                   </div>
                   <div class="flex flex-row flex-wrap gap-3 m-auto rich-picture ">
                      {% for photo in ref.photos %}
-                        <figure class=""><img class="w-auto shadow-md"  src="{{photo.url}}" alt="{{photo.alt}}"></figure>
+                        <figure class=""><img loading="lazy" class="w-auto shadow-md"  src="{{photo.url}}" alt="{{photo.alt}}"></figure>
                       {% endfor %}
 
                     </div>

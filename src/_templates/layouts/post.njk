@@ -42,7 +42,7 @@ layout: base
 					{% if previousPost %}
 						<a class="relative flex flex-col justify-between w-full h-full gap-3 sm:w-auto sm:gap-4 sm:py-0 text-shadow-lg-dark " href="{{ previousPost.url  }}">
 							<p>{{ previousPost.data.title | removeMD}}</p>
-							<img  alt="" class="self-start rotate-180 w-[14px]" src="/assets/UI/pointe.svg">
+							<img  loading="lazy" alt="" class="self-start rotate-180 w-[14px]" src="/assets/UI/pointe.svg">
 
 						</a>
 					{% endif %}

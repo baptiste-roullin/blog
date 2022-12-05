@@ -30,7 +30,7 @@
         {% endfor %}
         <div class="">
         {% for media in tweet.media %}
-                <img src="{{media.url}}"></img>
+                <img loading="lazy" src="{{media.url}}"></img>
         {% endfor %}
         </div>
     </div>
