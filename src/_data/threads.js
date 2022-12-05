@@ -1,7 +1,9 @@
 const meta = require('./meta')
 
 import threads from '../pages/threads/threader'
-module.exports = (meta.twitterThread === "false" ? ["feature disabled"] : threads)
+module.exports = (meta.twitterThread === "false" ? ["feature disabled"] : function () {
+	return threads('./src/pages/threads/threads_input.yaml', "saint_loup", false)
+})
 
 //todo : supprimer ou améliorer "message vide"
 //todo : réparer env TWITTER_THREAD
