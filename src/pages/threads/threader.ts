@@ -64,7 +64,6 @@ const url_catcher = new RegExp(/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)
 
 
 async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedThread) {
-	const { default: pMap } = await import('p-map')
 
 
 	// alternative moins complète : requêter le tweet qui cite avec :
@@ -90,10 +89,14 @@ async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedT
 	}
 
 	async function generateCard(urls, tweet): Promise<{}[]> {
+		const { default: pMap } = await import('p-map')
+
 		return await pMap(urls,
 			async (url: string) => {
 				const response = await fetch(url)
 				const html = await response.text()
+				console.log(response.url, response.headers)
+
 				const metadata = await metascraper({ url: url, html: html })
 				if (!metadata.url.includes("https://twitter.com")) {
 					return metadata
@@ -144,7 +147,7 @@ async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedT
 						tweet.text = tweet.text.replace(url_catcher, "")
 						tweet.text = (tweet.text === "" ? "Message vide. Le tweet était probablement juste un \"quote tweet\"" : tweet.text)
 						tweets.push(tweet)
-						await scheduler.wait(3500)
+						await scheduler.wait(4000)
 						info("the thread continues")
 						return await getTweet(thread, tweets, client, cachedThread)
 					case 'quoted':
@@ -174,40 +177,47 @@ async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedT
 }
 
 export default async function threader() {
+	const { default: pMap } = await import('p-map')
 
 	try {
 		const client = new Client(meta.twitterBearer)
-		const threads_list = yaml.load(fs.readFileSync('./src/pages/threads/threads_input.yaml', 'utf8')) as Thread[]
+		const threads_list = yaml.load(fs.readFileSync('./src/pages/threads/threads_input_TEST.yaml', 'utf8')) as Thread[]
 
+		const threads = await pMap(threads_list, async thread => {
+			let cachedThread = new AssetCache(String(thread.tweetID), ".cache", { duration: "1s", type: "json" })
+			if (typeof thread.tweetID !== "string") {
+				warning("tweetID must be a string")
+				return
+			}
+			let tweets = []
+			thread.startingID = thread.tweetID
 
-		return await Promise.all(threads_list.map(
-			async thread => {
-				let cachedThread = new AssetCache(String(thread.tweetID), ".cache", { duration: "1s", type: "json" })
-				if (typeof thread.tweetID !== "string") {
-					warning("tweetID must be a string")
-					return
-				}
-				let tweets = []
-				thread.startingID = thread.tweetID
-
-				if (cachedThread.cachedObject) {
-					info("found cache")
-					const oldThread: Thread = await cachedThread.getCachedValue()
-					if (thread.startingID === oldThread.startingID) {
-						info("found tweet already saved")
-						thread.tweets = oldThread.tweets!
-						return thread
-					}
-					else {
-						return getTweet(thread, tweets, client, cachedThread)
-
-					}
+			if (cachedThread.cachedObject) {
+				info("found cache")
+				const oldThread: Thread = await cachedThread.getCachedValue()
+				if (thread.startingID === oldThread.startingID) {
+					info("found tweet already saved")
+					thread.tweets = oldThread.tweets!
+					return thread
 				}
 				else {
 					return getTweet(thread, tweets, client, cachedThread)
+
 				}
 			}
-		))
+			else {
+				return getTweet(thread, tweets, client, cachedThread)
+			}
+		})
+
+
+		if (threads) {
+			return threads
+		}
+		else {
+
+			throw new Error("erreur lors de la génération des fils")
+		}
 
 	} catch (error) {
 		console.log('error', error)
