@@ -101,7 +101,7 @@ async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedT
 						return { url: url, title: "Lien vers la ressource" }
 					}
 					const html = await response.text()
-					info(response.url, response.headers)
+					//info(response.url, response.headers)
 					const metadata = await metascraper({ url: url, html: html })
 					if (!metadata.url.includes("https://twitter.com")) {
 						return metadata
@@ -215,20 +215,10 @@ export default async function threader() {
 				return getTweet(thread, tweets, client, cachedThread)
 			}
 		})
+		return threads
 
-
-		if (threads) {
-			return threads
-		}
-		else {
-
-			throw new Error("erreur lors de la génération des fils")
-		}
 
 	} catch (error) {
 		console.log('error', error)
 	}
 }
-
-
-//https://github.com/sindresorhus/p-queue
