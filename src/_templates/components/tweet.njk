@@ -12,7 +12,6 @@
             <span>{{tweet.users[0].name}}, @{{tweet.users[0].username}}</span>
         </p>
     </div>
-
     <div class="w-full prose-tcqb">
         {{tweet.text | markdownifyBlock | safe  }}
 
@@ -26,14 +25,11 @@
                 <div class="flex-col gap-4 mt-4">
                     <a class="block font-medium" href="{{link.url}}">{{link.title}}</a>
                     <span class="block text-base label">{{link.date | dateHumanFormat("dd LLLL yyyy")}} ~  {{link.publisher}}</span>
-
                 </div>
             </div>
         </div>
         {% endif %}
         {% endfor %}
-
-
         <div class="">
         {% for media in tweet.media %}
                 <img src="{{media.url}}"></img>
