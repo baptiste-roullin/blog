@@ -5,7 +5,7 @@
 import path from 'path'
 require('dotenv').config()
 
-const { parseHTML } = require('linkedom');
+const { parseHTML } = require('linkedom')
 import handleGIFs from './handle_GIFs'
 import handlePictures from './handle_pictures'
 
@@ -26,7 +26,7 @@ export default function pictures_processing(html) {
 
 
 	const globalSettings = {
-		selector: ` #content :not(picture) > img[src]:not([srcset]):not([src$='.svg'])[src^=${meta.siteURL}]`,
+		selector: ` .template-post  :not(picture) > img[src]:not([srcset]):not([src$='.svg'])`,
 		minWidth: 400,
 		maxWidth: 1920,
 		fallbackWidth: 750,
@@ -50,7 +50,7 @@ export default function pictures_processing(html) {
 				image.getAttribute('src') &&
 				!image.getAttribute('src').match(/\.svg$/) &&
 				!image.getAttribute('srcset')
-			);
+			)
 		})
 		.forEach(async (image) => {
 
@@ -60,8 +60,8 @@ export default function pictures_processing(html) {
 			else {
 				handlePictures(image, document, globalSettings)
 			}
-		});
+		})
 
-	return document.toString();
+	return document.toString()
 };
 
