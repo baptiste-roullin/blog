@@ -3,9 +3,7 @@ const meta = require('./meta')
 import threads from '../pages/threads/threader'
 module.exports = (meta.twitterThread === "false" ? ["feature disabled"] : threads)
 
-
 //todo : supprimer ou améliorer "message vide"
-//todo : indenter QT
 //todo : réparer env TWITTER_THREAD
 //todo : ajouter vidéos
 //TODO : arrêter les requêtes si tweet_id = tweet déjà en cache (pas juste le tout premier tweet)

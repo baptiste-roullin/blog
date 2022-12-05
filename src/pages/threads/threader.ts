@@ -83,7 +83,6 @@ async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedT
 		}
 		else if (response.data) {
 			//info("QT fetché", response.data.text)
-
 			return Object.assign(response.data, response?.includes)
 		}
 	}
@@ -144,16 +143,17 @@ async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedT
 		}
 		tweet.QTList = []
 		if (referenced_tweets) {
+			tweet.text = tweet.text.replace(url_catcher, "")
+			tweet.text = (tweet.text === "" ? "Message vide." : tweet.text)
+			tweets.push(tweet)
 			for await (const referenced_tweet of referenced_tweets) {
 				thread.tweetID = referenced_tweet.id
 
-				tweet.text = tweet.text.replace(url_catcher, "")
-				tweet.text = (tweet.text === "" ? "Message vide." : tweet.text)
-				tweets.push(tweet)
+
 				switch (referenced_tweet.type) {
 					case "replied_to":
 
-						await scheduler.wait(4000)
+						await scheduler.wait(4500)
 						info("the thread continues")
 						return await getTweet(thread, tweets, client, cachedThread)
 					case 'quoted':
@@ -190,7 +190,7 @@ export default async function threader() {
 
 	try {
 		const client = new Client(meta.twitterBearer)
-		const threads_list = yaml.load(fs.readFileSync('./src/pages/threads/threads_input.yaml', 'utf8')) as Thread[]
+		const threads_list = yaml.load(fs.readFileSync('./src/pages/threads/threads_input_TEST.yaml', 'utf8')) as Thread[]
 
 		const threads = await pMap(threads_list, async thread => {
 			let cachedThread = new AssetCache(String(thread.tweetID), ".cache", { duration: "1s", type: "json" })

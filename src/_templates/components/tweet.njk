@@ -10,12 +10,12 @@
             {{tweet.users[0].name}}, @{{tweet.users[0].username}}
         </span>
     </div>
-    <div class="w-full prose-tcqb">
+    <div class="flex flex-col w-full gap-8 prose-tcqb">
         {{tweet.text | markdownifyBlock | safe  }}
 
         {% for link in tweet.linksMetadata %}
         {% if link %}
-        <div class="flex flex-col w-full gap-8 my-8">
+        <div class="flex flex-col w-full gap-8 ">
             <div class="flex flex-row w-full gap-6 bg-gray-100 border border-gray-100 rounded-md row h-36">
                 <div class="w-1/4 bg-gray-200 border-none ">
                     <img class="object-cover w-full h-full m-0 rounded-l-md"   src="{{link.image}}" alt="">
