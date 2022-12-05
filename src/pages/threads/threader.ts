@@ -190,7 +190,7 @@ export default async function threader() {
 
 	try {
 		const client = new Client(meta.twitterBearer)
-		const threads_list = yaml.load(fs.readFileSync('./src/pages/threads/threads_input_TEST.yaml', 'utf8')) as Thread[]
+		const threads_list = yaml.load(fs.readFileSync('./src/pages/threads/threads_input.yaml', 'utf8')) as Thread[]
 
 		const threads = await pMap(threads_list, async thread => {
 			let cachedThread = new AssetCache(String(thread.tweetID), ".cache", { duration: "1s", type: "json" })

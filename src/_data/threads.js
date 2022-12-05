@@ -12,6 +12,7 @@ module.exports = (meta.twitterThread === "false" ? ["feature disabled"] : thread
 //TODO : card twitter dans <head>
 //TODO : Ré-héberger images
 //TODO : check si cache est inutilisable.
+//TODO : "tweet cité" : gérer pluriels
 
 
 /* [build:eleventy]   status: 429,
