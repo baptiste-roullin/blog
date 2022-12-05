@@ -19,10 +19,16 @@ eleventyComputed: {
 <div class="flex flex-col gap-12 mt-12 thread">
 	{% for tweet in  tweets | reverse %}
 		{% include "../../_templates/components/tweet.njk" %}
+
 		{% set tweets = tweet.QTList  %}
-		{% for tweet in tweets | reverse %}
-			{% include "../../_templates/components/tweet.njk" %}
-		{% endfor %}
+		{% if tweets | length  %}
+		<div class="-mt-6 border-l-2 border-gray-300 QT-list">
+			<span class="block mb-3 lg:pl-12 text-accent">Tweets cités</span>
+			{% for tweet in tweets | reverse %}
+				{% include "../../_templates/components/tweet.njk" %}
+			{% endfor %}
+		</div>
+		{% endif %}
 
 	{% endfor %}
 </div>

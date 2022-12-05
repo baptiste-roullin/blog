@@ -218,7 +218,10 @@
 
 	.thread article p:first-child {
 		margin-top: 0;
+	}
 
+	.thread .QT-list .tweet-left {
+		@apply lg:pl-12
 	}
 
 }

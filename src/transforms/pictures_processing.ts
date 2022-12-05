@@ -21,9 +21,7 @@ function reformatURL(src: string, width): string {
 }
 
 
-
 export default function pictures_processing(html) {
-
 
 	const globalSettings = {
 		selector: ` .template-post  :not(picture) > img[src]:not([srcset]):not([src$='.svg'])`,

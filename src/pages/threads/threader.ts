@@ -142,19 +142,18 @@ async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedT
 				}
 			}
 		}
-
+		tweet.QTList = []
 		if (referenced_tweets) {
 			for await (const referenced_tweet of referenced_tweets) {
 				thread.tweetID = referenced_tweet.id
-				if (!tweet.QTList) {
-					tweet.QTList = []
-				}
+
+				tweet.text = tweet.text.replace(url_catcher, "")
+				tweet.text = (tweet.text === "" ? "Message vide." : tweet.text)
+				tweets.push(tweet)
 				switch (referenced_tweet.type) {
 					case "replied_to":
-						tweet.text = tweet.text.replace(url_catcher, "")
-						tweet.text = (tweet.text === "" ? "Message vide." : tweet.text)
-						tweets.push(tweet)
-						await scheduler.wait(4000)
+
+						await scheduler.wait(1000)
 						info("the thread continues")
 						return await getTweet(thread, tweets, client, cachedThread)
 					case 'quoted':
@@ -169,16 +168,16 @@ async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedT
 			}
 		} else {
 			if (tweets.length === 1) {
-				warning("This tweet doesn't answer to another tweet. Are you sure this is a thread ?")
+				warning("This tweet doesn't answer to another tweet. Are you sure this is a thread?")
 			}
+
 			tweet.text = tweet.text.replace(url_catcher, "")
 			tweet.text = (tweet.text === "" ? "Message vide." : tweet.text)
 			tweets.push(tweet)
 
-			info("found end of thread")
-			thread.tweets = tweets
-			//info(thread)
 
+			console.log("found end of thread")
+			thread.tweets = tweets
 			await cachedThread.save(thread, "json")
 
 			return thread
@@ -191,7 +190,7 @@ export default async function threader() {
 
 	try {
 		const client = new Client(meta.twitterBearer)
-		const threads_list = yaml.load(fs.readFileSync('./src/pages/threads/threads_input.yaml', 'utf8')) as Thread[]
+		const threads_list = yaml.load(fs.readFileSync('./src/pages/threads/threads_input_TEST.yaml', 'utf8')) as Thread[]
 
 		const threads = await pMap(threads_list, async thread => {
 			let cachedThread = new AssetCache(String(thread.tweetID), ".cache", { duration: "1s", type: "json" })
@@ -206,7 +205,7 @@ export default async function threader() {
 				info("found cache")
 				const oldThread: Thread = await cachedThread.getCachedValue()
 				if (thread.startingID === oldThread.startingID) {
-					info("found tweet already saved")
+					console.log("found tweet already saved")
 					thread.tweets = oldThread.tweets!
 					return thread
 				}

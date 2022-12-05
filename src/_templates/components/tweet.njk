@@ -1,16 +1,14 @@
 <article class="flex flex-col lg:flex-row lg:gap-16 ">
-    <div class="lg:w-1/4 prose-tcqb">
+    <div class="flex flex-col gap-2 lg:w-1/4 prose-tcqb tweet-left">
         <h2 class="m-0 thread-heading ">
             {{tweet.created_at | dateHumanFormat("dd LLLL yyyy")}}
         </h2>
-        <p> <a href="https://twitter.com/{{tweet.users[0].username}}/status/{{tweet.id}}">Lien d'origine</a> </p>
-        <p class="block">
-  {#          {% if tweet.QTList %}
-                <span>Citation de :</span>
-            {% endif %}
-            #}
-            <span>{{tweet.users[0].name}}, @{{tweet.users[0].username}}</span>
-        </p>
+        <span class="text-base ">
+            <a href="https://twitter.com/{{tweet.users[0].username}}/status/{{tweet.id}}">Lien d'origine</a>
+            </span >
+        <span class="block text-base " >
+            {{tweet.users[0].name}}, @{{tweet.users[0].username}}
+        </span>
     </div>
     <div class="w-full prose-tcqb">
         {{tweet.text | markdownifyBlock | safe  }}
