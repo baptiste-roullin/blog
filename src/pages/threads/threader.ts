@@ -94,7 +94,10 @@ async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedT
 			return await pMap(urls,
 				async (url: string) => {
 					const response = await fetch(url)
-					if (response.headers.get('content-type') !== "text/html") {
+					if (!response.ok) {
+						return
+					}
+					if (!response.headers.get('content-type')!.includes("text/html")) {
 						return { url: url, title: "Lien vers la ressource" }
 					}
 					const html = await response.text()
@@ -149,7 +152,7 @@ async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedT
 				switch (referenced_tweet.type) {
 					case "replied_to":
 						tweet.text = tweet.text.replace(url_catcher, "")
-						tweet.text = (tweet.text === "" ? "Message vide. Le tweet était probablement juste un \"quote tweet\"" : tweet.text)
+						tweet.text = (tweet.text === "" ? "Message vide." : tweet.text)
 						tweets.push(tweet)
 						await scheduler.wait(4000)
 						info("the thread continues")

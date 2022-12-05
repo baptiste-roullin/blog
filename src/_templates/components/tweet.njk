@@ -13,15 +13,15 @@
         </p>
     </div>
 
-    <div class="prose-tcqb">
+    <div class="w-full prose-tcqb">
         {{tweet.text | markdownifyBlock | safe  }}
 
         {% for link in tweet.linksMetadata %}
         {% if link %}
-        <div class="flex flex-col gap-8 my-8">
-            <div class="flex flex-row gap-6 bg-gray-100 border border-gray-100 row h-36">
+        <div class="flex flex-col w-full gap-8 my-8">
+            <div class="flex flex-row w-full gap-6 bg-gray-100 border border-gray-100 rounded-md row h-36">
                 <div class="w-1/4 bg-gray-200 border-none ">
-                    <img class="object-cover w-full h-full m-0"   src="{{link.image}}" alt="">
+                    <img class="object-cover w-full h-full m-0 rounded-l-md"   src="{{link.image}}" alt="">
                 </div>
                 <div class="flex-col gap-4 mt-4">
                     <a class="block font-medium" href="{{link.url}}">{{link.title}}</a>
