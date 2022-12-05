@@ -171,6 +171,9 @@ async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedT
 			if (tweets.length === 1) {
 				warning("This tweet doesn't answer to another tweet. Are you sure this is a thread ?")
 			}
+			tweet.text = tweet.text.replace(url_catcher, "")
+			tweet.text = (tweet.text === "" ? "Message vide." : tweet.text)
+			tweets.push(tweet)
 
 			info("found end of thread")
 			thread.tweets = tweets
