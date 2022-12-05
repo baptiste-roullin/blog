@@ -88,21 +88,25 @@ async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedT
 		}
 	}
 
-	async function generateCard(urls, tweet): Promise<{}[]> {
+	async function generateCard(urls, tweet): Promise<{}[] | undefined> {
 		const { default: pMap } = await import('p-map')
-
-		return await pMap(urls,
-			async (url: string) => {
-				const response = await fetch(url)
-				const html = await response.text()
-				console.log(response.url, response.headers)
-
-				const metadata = await metascraper({ url: url, html: html })
-				if (!metadata.url.includes("https://twitter.com")) {
-					return metadata
-				}
-
-			})
+		try {
+			return await pMap(urls,
+				async (url: string) => {
+					const response = await fetch(url)
+					if (response.headers.get('content-type') !== "text/html") {
+						return { url: url, title: "Lien vers la ressource" }
+					}
+					const html = await response.text()
+					info(response.url, response.headers)
+					const metadata = await metascraper({ url: url, html: html })
+					if (!metadata.url.includes("https://twitter.com")) {
+						return metadata
+					}
+				})
+		} catch (error) {
+			console.log(error)
+		}
 
 	}
 	const response = await client.tweets.findTweetById(
@@ -181,7 +185,7 @@ export default async function threader() {
 
 	try {
 		const client = new Client(meta.twitterBearer)
-		const threads_list = yaml.load(fs.readFileSync('./src/pages/threads/threads_input_TEST.yaml', 'utf8')) as Thread[]
+		const threads_list = yaml.load(fs.readFileSync('./src/pages/threads/threads_input.yaml', 'utf8')) as Thread[]
 
 		const threads = await pMap(threads_list, async thread => {
 			let cachedThread = new AssetCache(String(thread.tweetID), ".cache", { duration: "1s", type: "json" })
@@ -202,7 +206,6 @@ export default async function threader() {
 				}
 				else {
 					return getTweet(thread, tweets, client, cachedThread)
-
 				}
 			}
 			else {
