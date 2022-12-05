@@ -2,14 +2,17 @@ const meta = require('./meta')
 
 import threads from '../pages/threads/threader'
 module.exports = (meta.twitterThread === "false" ? ["feature disabled"] : function () {
-	return threads('./src/pages/threads/threads_input.yaml', "saint_loup", false)
+  return threads('./src/pages/threads/threads_input.yaml', "saint_loup", false, 6000)
 })
 
 //todo : supprimer ou améliorer "message vide"
 //todo : réparer env TWITTER_THREAD
 //todo : ajouter vidéos
+//todo : gérer les fetch annulés https://javascript.info/fetch-abort
+
 //TODO : arrêter les requêtes si tweet_id = tweet déjà en cache (pas juste le tout premier tweet)
 //TODO : remonter la chaine uniquement si author=saint_loup
+
 //TODO : compteur de requêtes pour ne jamais dépasser le rate limit
 //TODO : card twitter dans <head>
 //TODO : Ré-héberger images
@@ -50,3 +53,14 @@ module.exports = (meta.twitterThread === "false" ? ["feature disabled"] : functi
 [build:eleventy]     status: 429
 [build:eleventy]   }
 [build:eleventy] } */
+
+
+/*[build:eleventy] TypeError: terminated
+[build:eleventy]     at Fetch.onAborted(node: internal / deps / undici / undici: 6970: 53)
+[build:eleventy][cause]: Error: unexpected end of file
+[build:eleventy]       at Zlib.zlibOnError[as onerror](node: zlib:189:17) {
+[build: eleventy]     errno: -5,
+  [build: eleventy]     code: 'Z_BUF_ERROR'
+  [build:eleventy]
+}
+[build: eleventy] }*/

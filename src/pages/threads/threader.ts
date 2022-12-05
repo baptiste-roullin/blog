@@ -61,132 +61,129 @@ const metascraper = require('metascraper')([
 
 const url_catcher = new RegExp(/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/ig)
 
+export default async function threader(path: string, author, forceCacheReset: boolean, delay: number) {
+	const { default: pMap } = await import('p-map')
 
+	async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedThread) {
 
-async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedThread) {
+		// alternative moins complète : requêter le tweet qui cite avec :
+		//"expansions": ["referenced_tweets.id"],
 
+		async function getQT(tweetID): Promise<Tweet | undefined> {
+			const response = await client.tweets.findTweetById(
+				tweetID,
+				{
+					"tweet.fields": ["author_id", "created_at", "in_reply_to_user_id", "id", "referenced_tweets", "text"],
+					"expansions": ["attachments.media_keys", "referenced_tweets.id", "author_id"],
+					"media.fields": ["alt_text", "media_key", "type", "url"]
+				})
 
-	// alternative moins complète : requêter le tweet qui cite avec :
-	//"expansions": ["referenced_tweets.id"],
+			if (response.errors) {
+				error(new Error(JSON.stringify(response.errors[0])))
+			}
+			else if (response.data) {
+				//info("QT fetché", response.data.text)
+				return Object.assign(response.data, response?.includes)
+			}
+		}
 
-	async function getQT(tweetID): Promise<Tweet | undefined> {
+		async function generateCard(urls, tweet): Promise<{}[] | undefined> {
+			const { default: pMap } = await import('p-map')
+			try {
+				return await pMap(urls,
+					async (url: string) => {
+						const response = await fetch(url)
+						if (!response.ok) {
+							return
+						}
+						if (!response.headers.get('content-type')!.includes("text/html")) {
+							return { url: url, title: "Lien vers la ressource" }
+						}
+						const html = await response.text()
+						//info(response.url, response.headers)
+						const metadata = await metascraper({ url: url, html: html })
+						if (!metadata.url.includes("https://twitter.com")) {
+							return metadata
+						}
+					})
+			} catch (error) {
+				console.log(error)
+			}
+
+		}
 		const response = await client.tweets.findTweetById(
-			tweetID,
+			thread.tweetID,
 			{
-				"tweet.fields": ["author_id", "created_at", "in_reply_to_user_id", "id", "referenced_tweets", "text"],
-				"expansions": ["attachments.media_keys", "referenced_tweets.id", "author_id"],
+				"tweet.fields": ["created_at", "in_reply_to_user_id", "id", "referenced_tweets", "text"],
+				"expansions": ["attachments.media_keys", "author_id"],
 				"media.fields": ["alt_text", "media_key", "type", "url"]
 			})
 
 		if (response.errors) {
 			error(new Error(JSON.stringify(response.errors[0])))
-		}
-		else if (response.data) {
-			//info("QT fetché", response.data.text)
-			return Object.assign(response.data, response?.includes)
-		}
-	}
-
-	async function generateCard(urls, tweet): Promise<{}[] | undefined> {
-		const { default: pMap } = await import('p-map')
-		try {
-			return await pMap(urls,
-				async (url: string) => {
-					const response = await fetch(url)
-					if (!response.ok) {
-						return
-					}
-					if (!response.headers.get('content-type')!.includes("text/html")) {
-						return { url: url, title: "Lien vers la ressource" }
-					}
-					const html = await response.text()
-					//info(response.url, response.headers)
-					const metadata = await metascraper({ url: url, html: html })
-					if (!metadata.url.includes("https://twitter.com")) {
-						return metadata
-					}
-				})
-		} catch (error) {
-			console.log(error)
-		}
-
-	}
-	const response = await client.tweets.findTweetById(
-		thread.tweetID,
-		{
-			"tweet.fields": ["created_at", "in_reply_to_user_id", "id", "referenced_tweets", "text"],
-			"expansions": ["attachments.media_keys", "author_id"],
-			"media.fields": ["alt_text", "media_key", "type", "url"]
-		})
-
-	if (response.errors) {
-		error(new Error(JSON.stringify(response.errors[0])))
-		info(thread.title)
-		return thread
-	}
-	else if (response.data) {
-		info("tweet fetché", response.data.text)
-		let referenced_tweets = response.data?.referenced_tweets
-
-		let tweet: Tweet = Object.assign(response.data, response?.includes)
-		const urls = response.data.text.match(url_catcher)
-
-		if (urls !== null) {
-			const links = await generateCard(urls, tweet) as Links[]
-			if (links) {
-				tweet.linksMetadata = []
-				tweet.linksMetadata = links
-				if (tweet.linksMetadata.length < 1) {
-					delete tweet.linksMetadata
-				}
-			}
-		}
-		tweet.QTList = []
-		if (referenced_tweets) {
-			tweet.text = tweet.text.replace(url_catcher, "")
-			tweet.text = (tweet.text === "" ? "Message vide." : tweet.text)
-			tweets.push(tweet)
-			for await (const referenced_tweet of referenced_tweets) {
-				thread.tweetID = referenced_tweet.id
-
-
-				switch (referenced_tweet.type) {
-					case "replied_to":
-
-						await scheduler.wait(4500)
-						info("the thread continues")
-						return await getTweet(thread, tweets, client, cachedThread)
-					case 'quoted':
-						const QT = await getQT(thread.tweetID)
-						if (QT) {
-							tweet.QTList!.push(QT!)
-						}
-						break
-					default:
-						break
-				}
-			}
-		} else {
-			if (tweets.length === 1) {
-				warning("This tweet doesn't answer to another tweet. Are you sure this is a thread?")
-			}
-
-			tweet.text = tweet.text.replace(url_catcher, "")
-			tweet.text = (tweet.text === "" ? "Message vide." : tweet.text)
-			tweets.push(tweet)
-
-
-			console.log("found end of thread")
-			thread.tweets = tweets
-			await cachedThread.save(thread, "json")
-
+			info(thread.title)
 			return thread
 		}
-	}
-}
+		else if (response.data) {
+			info("tweet fetché", response.data.text)
+			let referenced_tweets = response.data?.referenced_tweets
 
-export default async function threader(path: string, author, forceCacheReset: boolean) {
-	const { default: pMap } = await import('p-map')
+			let tweet: Tweet = Object.assign(response.data, response?.includes)
+			const urls = response.data.text.match(url_catcher)
+
+			if (urls !== null) {
+				const links = await generateCard(urls, tweet) as Links[]
+				if (links) {
+					tweet.linksMetadata = []
+					tweet.linksMetadata = links
+					if (tweet.linksMetadata.length < 1) {
+						delete tweet.linksMetadata
+					}
+				}
+			}
+			tweet.QTList = []
+			if (referenced_tweets) {
+				tweet.text = tweet.text.replace(url_catcher, "")
+				tweet.text = (tweet.text === "" ? "Message vide." : tweet.text)
+				tweets.push(tweet)
+				for await (const referenced_tweet of referenced_tweets) {
+					thread.tweetID = referenced_tweet.id
+
+
+					switch (referenced_tweet.type) {
+						case "replied_to":
+
+							await scheduler.wait(delay)
+							info("the thread continues")
+							return await getTweet(thread, tweets, client, cachedThread)
+						case 'quoted':
+							const QT = await getQT(thread.tweetID)
+							if (QT) {
+								tweet.QTList!.push(QT!)
+							}
+							break
+						default:
+							break
+					}
+				}
+			} else {
+				if (tweets.length === 1) {
+					warning("This tweet doesn't answer to another tweet. Are you sure this is a thread?")
+				}
+
+				tweet.text = tweet.text.replace(url_catcher, "")
+				tweet.text = (tweet.text === "" ? "Message vide." : tweet.text)
+				tweets.push(tweet)
+
+
+				console.log("found end of thread")
+				thread.tweets = tweets
+				await cachedThread.save(thread, "json")
+
+				return thread
+			}
+		}
+	}
 
 	try {
 		const client = new Client(meta.twitterBearer)
