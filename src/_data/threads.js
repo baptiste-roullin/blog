@@ -1,19 +1,22 @@
 const meta = require('./meta')
 
 import threads from '../pages/threads/threader'
-module.exports = (meta.twitterThread === "false" ? ["feature disabled"] : function () {
+const threader = function () {
   const path = (meta.env === "dev" ?
     './src/pages/threads/threads_input_TEST.yaml' :
     './src/pages/threads/threads_input.yaml')
   return threads(path, "saint_loup", false, 6000)
-})
+}
+module.exports =
+  (meta.twitterThread === "false" || !threader ?
+    [{ "title": "fonctionnalité désactivée" }] :
+    threader
+  )
 
 //todo : supprimer ou améliorer "message vide"
-//todo : réparer env TWITTER_THREAD
-//todo : supprimer auteurs sauf si QT et /== de saint_loup
+//todo : supprimer auteurs sauf si QT est /== de saint_loup
 //todo : tag "QT" en dessous de la date
 //todo : diminuer line height si QT
-//todo : ajouter vidéos
 //todo : gérer les fetch annulés https://javascript.info/fetch-abort
 //todo : exemple https://twitter.com/Saint_loup/status/1384527253367894016
 //todo : ajouter ancres aux hx
@@ -23,7 +26,6 @@ module.exports = (meta.twitterThread === "false" ? ["feature disabled"] : functi
 //TODO : card twitter dans <head>
 //TODO : Ré-héberger images
 //TODO : check si cache est inutilisable.
-//TODO : image : max-height
 //TODO : "tweet cité" : gérer pluriels
 
 /* [build:eleventy]   status: 429,

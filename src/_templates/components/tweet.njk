@@ -18,7 +18,7 @@
         <div class="flex flex-col w-full gap-8 ">
             <div class="flex flex-row w-full gap-6 bg-gray-100 border border-gray-100 rounded-md row h-36">
                 <div class="w-1/4 bg-gray-200 border-none ">
-                    <img class="object-cover w-full h-full m-0 rounded-l-md"   src="{{link.image}}" alt="">
+                    <img loading="lazy" class="object-cover w-full h-full m-0 rounded-l-md"   src="{{link.image}}" alt="">
                 </div>
                 <div class="flex-col gap-4 mt-4">
                     <a class="block font-medium" href="{{link.url}}">{{link.title}}</a>
@@ -30,8 +30,14 @@
         {% endfor %}
         <div class="">
         {% for media in tweet.media %}
-                <img loading="lazy" src="{{media.url}}"></img>
+        {% if media.type === 'photo' %}
+            <img loading="lazy" src="{{media.url}}" alt="media.alt_text"></img>
+   		{% else %}
+				<p>Vidéo ou son présent dans le lien d'origine.</p>
+        {% endif %}
+
         {% endfor %}
+
         </div>
     </div>
 </article>

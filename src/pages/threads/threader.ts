@@ -61,7 +61,7 @@ const metascraper = require('metascraper')([
 
 const url_catcher = new RegExp(/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/ig)
 
-export default async function threader(path: string, author, forceCacheReset: boolean, delay: number) {
+export default async function threader(path: string, author, forceCacheReset: boolean, delay: number): Promise<Thread[] | undefined> {
 	const { default: pMap } = await import('p-map')
 
 	async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedThread) {
