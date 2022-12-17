@@ -14,7 +14,6 @@ module.exports = (meta.twitterThread === "false" ? ["feature disabled"] : functi
 //todo : tag "QT" en dessous de la date
 //todo : diminuer line height si QT
 //todo : ajouter vidéos
-//todo : lazy-loader img
 //todo : gérer les fetch annulés https://javascript.info/fetch-abort
 //todo : exemple https://twitter.com/Saint_loup/status/1384527253367894016
 //todo : ajouter ancres aux hx
