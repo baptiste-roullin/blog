@@ -126,9 +126,10 @@ export default async function threader(path: string, author, forceCacheReset: bo
 		}
 		else if (response.data) {
 			info("tweet fetché", response.data.text)
-			let referenced_tweets = response.data?.referenced_tweets
-
 			let tweet: Tweet = Object.assign(response.data, response?.includes)
+			if (tweet.author_id !== '67752627') {
+				return thread
+			}
 			const urls = response.data.text.match(url_catcher)
 
 			if (urls !== null) {
@@ -141,10 +142,11 @@ export default async function threader(path: string, author, forceCacheReset: bo
 					}
 				}
 			}
+			let referenced_tweets = response.data?.referenced_tweets
 			tweet.QTList = []
 			if (referenced_tweets) {
 				tweet.text = tweet.text.replace(url_catcher, "")
-				tweet.text = (tweet.text === "" ? "Message vide." : tweet.text)
+				tweet.text = (tweet.text === "" ? "Pas de texte dans ce tweet" : tweet.text)
 				tweets.push(tweet)
 				for await (const referenced_tweet of referenced_tweets) {
 					thread.tweetID = referenced_tweet.id

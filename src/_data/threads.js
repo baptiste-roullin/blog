@@ -5,28 +5,21 @@ const threader = function () {
   const path = (meta.env === "dev" ?
     './src/pages/threads/threads_input_TEST.yaml' :
     './src/pages/threads/threads_input.yaml')
+  console.log(path)
   return threads(path, "saint_loup", false, 6000)
 }
 module.exports =
   (meta.twitterThread === "false" || !threader ?
-    [{ "title": "fonctionnalité désactivée" }] :
-    threader
+    [{ "title": "fonctionnalité désactivée" }] : threader
   )
 
-//todo : supprimer ou améliorer "message vide"
-//todo : supprimer auteurs sauf si QT est /== de saint_loup
-//todo : tag "QT" en dessous de la date
-//todo : diminuer line height si QT
 //todo : gérer les fetch annulés https://javascript.info/fetch-abort
 //todo : exemple https://twitter.com/Saint_loup/status/1384527253367894016
-//todo : ajouter ancres aux hx
 //TODO : arrêter les requêtes si tweet_id = tweet déjà en cache (pas juste le tout premier tweet)
-//TODO : remonter la chaine uniquement si author=saint_loup
 //TODO : compteur de requêtes pour ne jamais dépasser le rate limit
 //TODO : card twitter dans <head>
 //TODO : Ré-héberger images
 //TODO : check si cache est inutilisable.
-//TODO : "tweet cité" : gérer pluriels
 
 /* [build:eleventy]   status: 429,
 [build:eleventy]   statusText: 'Too Many Requests',

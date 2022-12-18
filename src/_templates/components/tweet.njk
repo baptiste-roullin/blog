@@ -1,15 +1,29 @@
 <article class="flex flex-col lg:flex-row lg:gap-16 ">
     <div class="flex flex-col gap-2 lg:w-1/4 prose-tcqb tweet-left">
-        <h2 class="m-0 thread-heading ">
-            {{tweet.created_at | dateHumanFormat("dd LLLL yyyy")}}
+{% set humanDate = tweet.created_at  | dateHumanFormat("dd LLLL yyyy")  %}
+{% set sluggedDate = tweet.created_at  | slugify  %}
+
+        <h2 class="m-0 thread-heading " id="{{sluggedDate}}">
+            <a class="header-anchor" href="#{{sluggedDate}}">
+                <span aria-hidden="true">§︎</span>
+                <span class="sr-only">Ancre pour le titre : {{humanDate}}</span>
+            </a>
+            {{humanDate}}
         </h2>
+
+
         <span class="text-base ">
             <a href="https://twitter.com/{{tweet.users[0].username}}/status/{{tweet.id}}">Lien d'origine</a>
             </span >
-        <span class="block text-base " >
-            {{tweet.users[0].name}}, @{{tweet.users[0].username}}
-        </span>
-    </div>
+        {% if quoteTweet %}
+            <div class="text-base">
+                <span class="" >
+                Citation de : {{tweet.users[0].name}} / @{{tweet.users[0].username}}
+                </span>
+            </div>
+
+        {% endif %}
+     </div>
     <div class="flex flex-col w-full gap-8 prose-tcqb">
         {{tweet.text | markdownifyBlock | safe  }}
 
