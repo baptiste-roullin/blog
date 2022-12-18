@@ -1,5 +1,5 @@
 ---
-title: "Archive d'animation Flash classique"
+title: "Archives de classiques de l'animation Flash"
 date: 2022-11-20
 tags:
   - "projets"

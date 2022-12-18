@@ -2,11 +2,11 @@ const meta = require('./meta')
 
 import threads from '../pages/threads/threader'
 const threader = function () {
-  const path = (meta.env === "dev" ?
+  const path = (meta.env !== "production" ?
     './src/pages/threads/threads_input_TEST.yaml' :
     './src/pages/threads/threads_input.yaml')
   console.log(path)
-  return threads(path, "saint_loup", false, 6000)
+  return threads(path, "67752627", false, 6000)
 }
 module.exports =
   (meta.twitterThread === "false" || !threader ?
@@ -17,7 +17,6 @@ module.exports =
 //todo : exemple https://twitter.com/Saint_loup/status/1384527253367894016
 //TODO : arrêter les requêtes si tweet_id = tweet déjà en cache (pas juste le tout premier tweet)
 //TODO : compteur de requêtes pour ne jamais dépasser le rate limit
-//TODO : card twitter dans <head>
 //TODO : Ré-héberger images
 //TODO : check si cache est inutilisable.
 
