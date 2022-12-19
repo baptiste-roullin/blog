@@ -168,13 +168,14 @@ export default async function threader(author_id: string, token: string | undefi
 			}
 		}
 	}
-
-	async function generateThread(thread, client) {
-		let cachedThread = new AssetCache(String(thread.tweetID), options.outputFolder, { duration: "1s", type: "json" })
+	//mapper callback
+	const generateThread = async (thread, index, client) => {
 		if (typeof thread.tweetID !== "string") {
 			warning("tweetID must be a string")
-			return
+
 		}
+		let cachedThread = new AssetCache(String(thread.tweetID), options.outputFolder, { duration: "1s", type: "json" })
+
 		let tweets = []
 		thread.startingID = thread.tweetID
 
@@ -203,9 +204,11 @@ export default async function threader(author_id: string, token: string | undefi
 		if (!token) {
 			throw new Error("You need a bearer token")
 		}
-		const client = new Client(token)
-		//TODO : test bind()
-		return pMap(threads_list, generateThread.bind(null, client))
+
+
+		return pMap(threads_list, (thread, index) => {
+			return generateThread(thread, index, new Client(token))
+		})
 	} catch (error) {
 		console.log('error', error)
 	}
