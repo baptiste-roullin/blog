@@ -12,9 +12,9 @@ Il faut se tourner vers des outils externes.
 
 Pour exporter un **fil récent**, on peut [utiliser cet outil en ligne](https://threadreaderapp.com/), très simple puisqu'il suffit d'entrer l'URL d'un tweet. Mais ne marche pas avec de vieux messages.
 
-Avec **un export officiel**,  on peut utiliser cet [outil un peu compliqué](https://github.com/tweetback/tweetback/) ou [celui-ci, plus simple](https://tinysubversions.com/twitter-archive/make-your-own/). Ils créent un mini-site web avec tous ses tweets, issus de fils ou non.
+Avec **un export officiel**,  on peut utiliser cet [outil un peu compliqué](https://github.com/tweetback/tweetback/) ou [celui-ci, plus simple](https://tinysubversions.com/twitter-archive/make-your-own/). Tous deux créent un mini-site web avec l'intégralité des tweets, issus de fils ou non.
 
-Il y a cette [expérimentation en ligne](https://social.perma.cc/#why-faq) qui simule un navigateur scrollant Twitter pour **générer un PDF**, à des fins de notarisation et de preuve d'authenticité.
+Il y a aussi cette [expérimentation en ligne](https://social.perma.cc/#why-faq) qui simule un navigateur scrollant Twitter pour **générer un PDF**, à des fins de notarisation et de preuve d'authenticité.
 
 Et à ma connaissance, c'est tout. A cause des limites de l'API, il n'existe pas d'outils respectant les critères suivant :
 
@@ -22,7 +22,7 @@ Et à ma connaissance, c'est tout. A cause des limites de l'API, il n'existe pas
 2. Marche avec des vieux threads ou des threads couvrant une longue période ;
 3. Marche à partir du premier tweet d'un fil, pas uniquement le dernier ;
 
-Du coup j'ai codé [un truc](https://github.com/baptiste-roullin/blog/blob/dev/src/pages/threads/threader.ts). Bon c'est moins complet que les autres et ça respecte pas le troisième critère (impossible avec l'API), mais en gros vous lui donnez un token d'accès à l'API et une liste de threads (un titre et l'ID d'un tweet de départ) et ça recrache un fichier JSON avec en gros :
+Du coup j'ai codé [un truc](https://github.com/baptiste-roullin/blog/blob/dev/src/pages/threads/threader.ts). Bon c'est moins fignolé que les autres et ça respecte pas le troisième critère (impossible avec l'API), mais en gros vous lui donnez un token d'accès à l'API et une liste de threads (un titre et l'ID d'un tweet de départ) et ça recrache un fichier JSON avec en gros :
 
 - Le contenu des tweets eux-même
 - Le contenu des tweets cités, même d'autres auteurs, souvent indispensable à la compréhension d'un fil.
