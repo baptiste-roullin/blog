@@ -11,7 +11,7 @@ const threader = function () {
   const threads_list = yaml.load(fs.readFileSync(path, 'utf8'))
 
 
-  return threads("67752627", false, 6000, meta.twitterBearer, threads_list)
+  return threads("67752627", meta.twitterBearer, threads_list, { outputFolder: '.cache', forceCacheDelete: false, delay: 5000 },)
 }
 module.exports =
   (meta.twitterThread === "false" || !threader ?

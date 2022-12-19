@@ -1,6 +1,10 @@
-# Archiver des fils Twitter : panorama des possibilités
-
-
+---
+title: "# Archiver des fils Twitter : panorama des possibilités"
+date: 2022-12-20
+tags:
+  - "tout ce qui bouge"
+  - "projets"
+---
 
 Pour archiver des fils de votre compte Twitter, il y a plusieurs possibilités.
 
@@ -10,10 +14,13 @@ Avec **un export officiel**, avec on peut utiliser [outil un peu compliqué](htt
 
 Il y a cette [expérimentation en ligne](https://social.perma.cc/#why-faq) qui simule un navigateur scrollant Twitter pour **générer un PDF**, à des fins de notarisation et de preuve d'authenticité.
 
-Et à ma connaissance, c'est tout. A cause des limites de l'API, il n'existe pas d'outils respectant les contraintes suivant :
+Et à ma connaissance, c'est tout. A cause des limites de l'API, il n'existe pas d'outils respectant les critères suivant :
 
 1. Pas besoin de télécharger l'export officiel si le fil évolue
 2. Marche avec des vieux threads ou des threads couvrant une longue période
-3. Marche aussi bien à partir du premier tweet d'un fil que du dernier.
+3. Marche à partir du premier tweet d'un fil, pas uniquement le dernier
 
-Du coup 
+Du coup j'ai codé [un truc](https://github.com/baptiste-roullin/blog/blob/dev/src/pages/threads/threader.ts). Bon c'est moins complet que les autres et ça respecte pas le troisième critère (impossible avec l'API), mais en gros vous lui donnez un token d'accès à l'API et une liste de threads (un titre et l'ID d'un tweet de départ) et ça recrache un fichier JSON.
+
+Le script est pensé pour tourner régulièrement et alimenter mon blog. Si aucun nouveau tweet n'est détecté, il s'arrête et réutiliser les anciennes données en cache.
+
