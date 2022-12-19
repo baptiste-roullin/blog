@@ -1,4 +1,6 @@
 const meta = require('./meta')
+const yaml = require('js-yaml')
+const fs = require('fs')
 
 import threads from '../pages/threads/threader'
 const threader = function () {
@@ -6,7 +8,10 @@ const threader = function () {
     './src/pages/threads/threads_input_TEST.yaml' :
     './src/pages/threads/threads_input.yaml')
   console.log(path)
-  return threads(path, "67752627", false, 6000)
+  const threads_list = yaml.load(fs.readFileSync(path, 'utf8'))
+
+
+  return threads("67752627", false, 6000, meta.twitterBearer, threads_list)
 }
 module.exports =
   (meta.twitterThread === "false" || !threader ?
