@@ -1,8 +1,5 @@
-const meta = require('../../_data/meta')
 // @ts-ignore
 import { scheduler } from 'node:timers/promises'
-const yaml = require('js-yaml')
-const fs = require('fs')
 
 const debug = require('debug')
 const error = debug('threader:error')
@@ -61,7 +58,7 @@ const metascraper = require('metascraper')([
 
 const url_catcher = new RegExp(/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/ig)
 
-export default async function threader(path: string, author_id, forceCacheReset: boolean, delay: number): Promise<Thread[] | undefined> {
+export default async function threader(author_id: string, forceCacheReset: boolean, delay: number, token: string | undefined, threads_list: Thread[]): Promise<Thread[] | undefined> {
 	const { default: pMap } = await import('p-map')
 
 	async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedThread) {
@@ -109,7 +106,6 @@ export default async function threader(path: string, author_id, forceCacheReset:
 			} catch (error) {
 				console.log(error)
 			}
-
 		}
 		const response = await client.tweets.findTweetById(
 			thread.tweetID,
@@ -150,11 +146,8 @@ export default async function threader(path: string, author_id, forceCacheReset:
 				tweets.push(tweet)
 				for await (const referenced_tweet of referenced_tweets) {
 					thread.tweetID = referenced_tweet.id
-
-
 					switch (referenced_tweet.type) {
 						case "replied_to":
-
 							await scheduler.wait(delay)
 							info("the thread continues")
 							return await getTweet(thread, tweets, client, cachedThread)
@@ -172,12 +165,9 @@ export default async function threader(path: string, author_id, forceCacheReset:
 				if (tweets.length === 1) {
 					warning("This tweet doesn't answer to another tweet. Are you sure this is a thread?")
 				}
-
 				tweet.text = tweet.text.replace(url_catcher, "")
 				tweet.text = (tweet.text === "" ? "Message vide." : tweet.text)
 				tweets.push(tweet)
-
-
 				console.log("found end of thread")
 				thread.tweets = tweets
 				await cachedThread.save(thread, "json")
@@ -188,8 +178,10 @@ export default async function threader(path: string, author_id, forceCacheReset:
 	}
 
 	try {
-		const client = new Client(meta.twitterBearer)
-		const threads_list = yaml.load(fs.readFileSync(path, 'utf8')) as Thread[]
+		if (!token) {
+			throw new Error("You need a bearer token")
+		}
+		const client = new Client(token)
 
 		const threads = await pMap(threads_list, async thread => {
 			let cachedThread = new AssetCache(String(thread.tweetID), ".cache", { duration: "1s", type: "json" })
