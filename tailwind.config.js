@@ -1,8 +1,5 @@
-/** @type {import('tailwindcss').Config} */
-
-/*const { opacity, fontFamily } = require('tailwindcss/defaultTheme')
-const defaultTheme = require('tailwindcss/defaultTheme')*/
 const colors = require('tailwindcss/colors')
+
 module.exports = {
 	corePlugins: {
 	},
@@ -196,9 +193,7 @@ module.exports = {
 
 	},
 	plugins: [
-		require('@tailwindcss/typography')({
-			modifiers: ['lg', 'xl', '2xl'],
-		}),
+		require('@tailwindcss/typography'),
 		require('tailwindcss/nesting'),
 		require('tailwindcss-textshadow'),
 		require('@tailwindcss/forms'),
