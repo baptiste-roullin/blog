@@ -9,12 +9,12 @@
 		}
 
 	input[type="radio"]:checked + label {
-		@apply bg-accent text-white;
+		@apply bg-red text-white;
 	}
 
 
 	section h2 {
-		@apply text-dark-light text-2xl lg:text-3xl font-bold
+		@apply text-blue-lighter text-2xl lg:text-3xl font-bold
 	}
 	.metadata {
 		display:none;
@@ -34,7 +34,7 @@
 	}
 
 	dt {
-		@apply text-accent3 font-bold
+		@apply text-brown font-bold
 	}
 
 	dl {
