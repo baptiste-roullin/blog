@@ -4,11 +4,12 @@ layout: page
 permalink: "threads/index.html"
 eleventyNavigation:
   key: main
-  title: Fils
+  title: Écheveau
   order: 4
+
 ---
 
-<p class="prose-tcqb">Import de quelqu'uns de mes fils depuis Twitter. Ce sont plutôt des veilles thématiques au long cours que des tweet-storms ponctuelles, d'où le fait que je ne les ai pas transformé en articles.</p>
+<p class="prose-tcqb">Tentative de rassembler ici les fils de veille thématique que je tiens (tenais ?) sur Twitter, à la fois pour les préserver et les rendre plus lisibles. Quelques compléments d'explication dans <a href="/blog/2022/12/archiver-des-fils-twitter-panorama-des-possibilites/">ce texte</a>.</p>
 
 
 <ul class="flex flex-col items-start gap-6 my-8 xl:gap-8 " >
@@ -19,6 +20,7 @@ eleventyNavigation:
     class="text-2xl ailleurs cta-heading hover:underline hover:text-brown-light"
     href="/threads/{{thread.title | slugify}}">{{thread.title}}</a>
   </li>
-
 {% endfor %}
 </ul>
+
+<figure><img src="/assets/images/echeveau.jpg" alt=""><figcaption>Photo par <a href="https://fr.wiktionary.org/wiki/%C3%A9cheveau#/media/Fichier:Yarn_hanks_or_skeins.JPG">Pschemp</a></figcaption></figure>

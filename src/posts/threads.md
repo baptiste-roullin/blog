@@ -1,5 +1,5 @@
 ---
-title: "# Archiver des fils Twitter : panorama des possibilités"
+title: "Archiver des fils Twitter : panorama des possibilités"
 date: 2022-12-20
 tags:
   - "tout ce qui bouge"
@@ -22,7 +22,7 @@ Et à ma connaissance, c'est tout. A cause des limites de l'API, il n'existe pas
 2. Marche avec des vieux threads ou des threads couvrant une longue période ;
 3. Marche à partir du premier tweet d'un fil, pas uniquement le dernier ;
 
-Du coup j'ai codé [un truc](https://github.com/baptiste-roullin/blog/blob/dev/src/pages/threads/threader.ts). Bon c'est moins complet que les autres et ça respecte pas le troisième critère (impossible avec l'API), mais en gros vous lui donnez un token d'accès à l'API et une liste de threads (un titre et l'ID d'un tweet de départ) et ça recrache un fichier JSON avec : 
+Du coup j'ai codé [un truc](https://github.com/baptiste-roullin/blog/blob/dev/src/pages/threads/threader.ts). Bon c'est moins complet que les autres et ça respecte pas le troisième critère (impossible avec l'API), mais en gros vous lui donnez un token d'accès à l'API et une liste de threads (un titre et l'ID d'un tweet de départ) et ça recrache un fichier JSON avec en gros :
 
 - Le contenu des tweets eux-même
 - Le contenu des tweets cités, même d'autres auteurs, souvent indispensable à la compréhension d'un fil.
