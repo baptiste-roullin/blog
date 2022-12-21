@@ -1,5 +1,6 @@
 require('dotenv').config()
 
+// TODO convert boolean-like string to true booleans.
 
 module.exports = {
 	env: process.env.NODE_ENV || 'development ',
