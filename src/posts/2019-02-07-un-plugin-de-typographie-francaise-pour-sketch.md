@@ -6,7 +6,7 @@ tags:
   - "projets"
 
 hero:
-  type: split  # options: carousel, graphic, video, split (text & image)
+  # options: carousel, graphic, video, split (text & image)
   image: "Icon_ombre2.png"
 
 ---

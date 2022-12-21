@@ -15,20 +15,16 @@
 			</time>
 			<span aria-hidden="true" class="mx-1 text-xl font-light sm:mx-2 sm:inline" >~</span>
 
-			{% include "components/tags_pills_inline.njk.njk" %}
-
+			{% include "components/tags_pills_inline.njk" %}
 		</div>
-
 	</div>
 	<div
         class="flex justify-center h-auto mx-auto lg:w-1/2 img-wrapper"
       >
-
 		<img  alt="{{hero.alt}}"
           title="{{hero.alt}}"
           class="shadow-lg-dark"
-          src="{{ collatedHeroImage }}"
+          src="{{collatedHeroImage}}"
 />
-
 	</div>
 </header>

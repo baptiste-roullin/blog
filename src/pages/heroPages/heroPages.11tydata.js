@@ -2,7 +2,7 @@ import collateHeroImage from '../../utils/collateHeroImage'
 
 
 module.exports = {
-  layout: "post",
+  layout: "base",
   "permalink": "/{{page.fileSlug}}/index.html",
   author: "{{ meta.author }}",
   eleventyComputed: {

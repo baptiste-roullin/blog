@@ -4,7 +4,7 @@ date: 2014-09-17
 tags:
   - "objets"
 hero:
-  type: split  # options: carousel, graphic, video, split (text & image)
+  # options: carousel, graphic, video, split (text & image)
   image: distiller_02.jpg
 ---
 

@@ -5,7 +5,7 @@ tags:
   - "architecture"
   - "ville"
 hero:
-  type: split  # options: carousel, graphic, video, split (text & image)
+  # options: carousel, graphic, video, split (text & image)
   image: "archisuits-bench.jpg"
   alt: "Un banc anti SDF, anti-dealer, anti-tagueur, anti-skater"
 ---

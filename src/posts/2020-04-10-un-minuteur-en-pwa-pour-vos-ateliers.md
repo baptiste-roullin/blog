@@ -4,7 +4,7 @@ date: 2020-04-10
 tags:
   - projets
 hero:
-  type: split  # options: carousel, graphic, video, split (text & image)
+  # options: carousel, graphic, video, split (text & image)
   image: "screenshot.png"
   alt: "screenshot de l'interface du minuteur"
 

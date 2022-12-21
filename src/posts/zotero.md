@@ -7,7 +7,6 @@ tags:
 description: "Comment importer une collection d'articles depuis Zotero et l'afficher dans Eleventy."
 templateEngineOverride: md
 hero:
-  type: split
   image: is_it_worth_the_time.png
   alt: Tableau avec en colonne 'à quelle fréquence je réalise cette tâche' et en abscisses 'combien de temps je gagne en l'automatisant'
 

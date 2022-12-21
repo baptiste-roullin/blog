@@ -3,7 +3,7 @@
 @import "./images.scss";
 @import "./nav.scss";
 @import "./global.scss";
-@import "../../pages/portfolio/portfolio.scss";
+@import "../../heroPages/portfolio/portfolio.scss";
 @import "../../features/truchet/truchet.scss";
 
 @tailwind base;

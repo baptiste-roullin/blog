@@ -11,7 +11,7 @@ featured: true
 picture_lightbox: true
 
 hero:
-  type: split  # options: carousel, graphic, video, split (text & image)
+  # options: carousel, graphic, video, split (text & image)
   image: le-chant-du-loup-e1581375123572.jpg
 
 
