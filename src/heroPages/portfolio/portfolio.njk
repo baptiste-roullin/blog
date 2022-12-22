@@ -10,23 +10,20 @@ eleventyNavigation:
   order: 3
 ---
 
-
 <div class="mb-16 text-xl 2xl:text-2xl lg:mx-auto template-post-main">
-
 
   <div class="layout-wide md:mb-16 ">
 
-  {% include 'components/post_header_image.njk' %}</div>
+    {% include 'components/header_hero_image.njk' %}</div>
 
+  <div class="flex flex-col gap-12 my-20 lg:gap-16 sections ">
+    <section class="flex flex-col ">
+      {# anchors en .njk avec un composant, idiot bête. #}
+      {% MD %}## C'est quoi un designer [ux]{.small-caps} ?{% endMD %}
 
-    <div class="flex flex-col gap-12 my-20 lg:gap-16 sections ">
-      <section class="flex flex-col ">
-        {# anchors en .njk avec un composant, idiot bête. #}
-        {% MD %}## C'est quoi un designer [ux]{.small-caps} ?{% endMD %}
+      {% include "components/portfolio_tabs.njk" %}
 
-        {% include "components/portfolio_tabs.njk" %}
-
-        {% MD %}
+      {% MD %}
 ## Mais encore ?
 
 Y a en gros quatre étapes :
@@ -58,130 +55,125 @@ Intéressé-e ?
 [Contactez-moi](/contact){.cta} {.not-prose}
 
         {% endMD %}
-      </section>
+    </section>
 
+    {# TOOLS #}
 
-        {# TOOLS #}
-
-        <section class="tools">
+    <section class="tools">
       {% MD %}## Mes outils {.cta-heading}{% endMD %}
 
-        <div class="flex flex-wrap justify-start gap-10 md:justify-center md:flex-row layout-wide">
-            {% for tool in tools %}
-              <div class="flex flex-col items-center justify-between gap-2 ">
-                <span class="text-xl leading-5 text-center w-min">{{tool.name}}</span>
-                  <img loading="lazy" class="w-[5.5rem] md:w-24 shadow-md rounded-[22px]" src="{{tool.logo}}" alt="">
-              </div>
-            {% endfor %}
+      <div class="flex flex-wrap justify-start gap-10 md:justify-center md:flex-row layout-wide">
+        {% for tool in tools %}
+          <div class="flex flex-col items-center justify-between gap-2 ">
+            <span class="text-xl leading-5 text-center w-min">{{tool.name}}</span>
+            <img loading="lazy" class="w-[5.5rem] md:w-24 shadow-md rounded-[22px]" src="{{tool.logo}}" alt="">
           </div>
+        {% endfor %}
+      </div>
 
-      </section>
+    </section>
 
-        {# PROJETS #}
+    {# PROJETS #}
 
-      <section class="">
-        {% MD %}## Quelques projets {.cta-heading}{% endMD %}
+    <section class="">
+      {% MD %}## Quelques projets {.cta-heading}{% endMD %}
 
-        <ul class="flex flex-col gap-8 m-auto md:gap-16 post-list layout-wide project-list">
-          {% for ref in references%}
-              <li class="flex-col card-base p-7 lg:p-12 ">
-                <div class="w-full gap-4 m-0 md:gap-0 block-heading-split">
-                  <h3 class="order-1 sm:order-0 cta-heading">{{ref.title}}</h3>
-                  <img src="{{ref.logo}}" class="h-auto order-0 sm:order-1 w-22 md:w-28" alt="{{ref.name}}">
+      <ul class="flex flex-col gap-8 m-auto md:gap-16 post-list layout-wide project-list">
+        {% for ref in references%}
+          <li class="flex-col card-base p-7 lg:p-12 ">
+            <div class="w-full gap-4 m-0 md:gap-0 block-heading-split">
+              <h3 class="order-1 sm:order-0 cta-heading">{{ref.title}}</h3>
+              <img src="{{ref.logo}}" class="h-auto order-0 sm:order-1 w-22 md:w-28" alt="{{ref.name}}">
+            </div>
+
+            {# DÉTAILS #}
+            <div class="flex flex-col justify-between gap-6 md:grid lg:gap-8 details ">
+              <div class="flex flex-col gap-5 lg:gap-7">
+                {% if ref.description %}
+                  <dl>
+                    <dt>C'est quoi</dt>
+                    <dd>{{ref.description | markdownifyBlock | safe}}</dd>
+                  </dl>
+                {% endif %}
+
+                {% if ref.duration %}
+                  <dl>
+                    <dt>Durée</dt>
+                    <dd>{{ref.duration if ref.duration}}</dd>
+                  </dl>
+                {% endif %}
+
+                {% if ref.tasks %}
+                  <dl>
+                    <dt>Ce que j'ai fait</dt>
+                    <dd>
+                      <ul class="inline tagpills">
+                        {% for task in ref.tasks %}
+                          <li class="inline-block my-auto">
+                            {{ task }}
+                            {% include "components/separator.njk" %}
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    </dd>
+                  </dl>
+                {% endif %}
+
+                {% if ref.note %}
+                  <dl>
+                    <dt>Remarque</dt>
+                    <dd>{{ref.note if ref.note}}</dd>
+                  </dl>
+                {% endif %}
+
+                <div class="not-prose">
+                  {% if ref.CTA %}
+                    <a href="{{ref.CTALink}}" class="w-full mx-auto sm:w-3/5 lg:w-2/5 cta">{{ref.CTA}}</a>
+                  {%else %}
+                    <div class="w-full mx-auto text-gray-800 bg-gray-300 sm:w-3/5 lg:w-2/5 hover:bg-gray-400 cta">En cours ou confidentiel</div>
+                  {% endif %}
                 </div>
 
-                {# DÉTAILS #}
-                <div class="flex flex-col justify-between gap-6 md:grid lg:gap-8 details ">
-                  <div class="flex flex-col gap-5 lg:gap-7">
-                    {% if ref.description %}
-                    <dl>
-                      <dt>C'est quoi</dt>
-                      <dd>{{ref.description | markdownifyBlock | safe}}</dd>
-                    </dl>
-                    {% endif %}
+              </div>
+              <div class="flex flex-row flex-wrap gap-3 m-auto rich-picture ">
+                {% for photo in ref.photos %}
+                  <figure class=""><img loading="lazy" class="w-auto shadow-md"  src="{{photo.url}}" alt="{{photo.alt}}"></figure>
+                {% endfor %}
 
-
-                    {% if ref.duration %}
-                    <dl>
-                      <dt>Durée</dt>
-                      <dd>{{ref.duration if ref.duration}}</dd>
-                    </dl>
-                    {% endif %}
-
-                    {% if ref.tasks %}
-                    <dl>
-                      <dt>Ce que j'ai fait</dt>
-                      <dd>
-                          <ul class="inline tagpills">
-                              {% for task in ref.tasks %}
-                                  <li class="inline-block my-auto">
-                                    {{ task }}
-                                    {% include "components/separator.njk" %}
-                                  </li>
-                              {% endfor %}
-                          </ul>
-                      </dd>
-                    </dl>
-                    {% endif %}
-
-                    {% if ref.note %}
-                    <dl>
-                      <dt>Remarque</dt>
-                      <dd>{{ref.note if ref.note}}</dd>
-                    </dl>
-                    {% endif %}
-
-                    <div class="not-prose">
-                      {% if  ref.CTA %}
-                      <a href="{{ref.CTALink}}" class="w-full mx-auto sm:w-3/5 lg:w-2/5 cta">{{ref.CTA}}</a>
-                      {%else %}
-                      <div class="w-full mx-auto text-gray-800 bg-gray-300 sm:w-3/5 lg:w-2/5 hover:bg-gray-400 cta">En cours ou confidentiel</div>
-                      {% endif %}
-                    </div>
-
-                  </div>
-                  <div class="flex flex-row flex-wrap gap-3 m-auto rich-picture ">
-                     {% for photo in ref.photos %}
-                        <figure class=""><img loading="lazy" class="w-auto shadow-md"  src="{{photo.url}}" alt="{{photo.alt}}"></figure>
-                      {% endfor %}
-
-                    </div>
-                </div>
-              </li>
+              </div>
+            </div>
+          </li>
 
         {% endfor %}
-        </ul>
-      </section>
+      </ul>
+    </section>
 
+    {# CLIENTS #}
 
-      {# CLIENTS #}
+    <section class="clients">
+      {% MD %}## Clients principaux {.cta-heading}{% endMD %}
 
-      <section class="clients">
-        {% MD %}## Clients principaux {.cta-heading}{% endMD %}
-
-        <div class="flex-col items-start p-7 lg:p-12 card-base hover:shadow layout-wide">
-          <ul class="flex flex-col items-start gap-8 " >
+      <div class="flex-col items-start p-7 lg:p-12 card-base hover:shadow layout-wide">
+        <ul class="flex flex-col items-start gap-8 " >
           {% for client in clients %}
 
             <li class="flex flex-col w-full gap-4 m-0 list-none md:flex-row md:gap-7">
               <span class="text-xl font-medium list-none md:text-right text-brown sector basis-1/4 shrink-0 ">{{client.sector}}</span>
               <ul class="flex flex-row flex-wrap m-0 md:items-center gap-y-2 gap-x-2 xl:gap-x-3 " >
-                    {% for item in client.list %}
-                <li class="m-0 text-xl list-none ">
-                  {{item}}
-                </li>
-                {% if not loop.last %}
-                <span aria-hidden="true" class="text-xl " >~</span>
-                {% endif %}
-                    {% endfor %}
+                {% for item in client.list %}
+                  <li class="m-0 text-xl list-none ">
+                    {{item}}
+                  </li>
+                  {% if not loop.last %}
+                    <span aria-hidden="true" class="text-xl " >~</span>
+                  {% endif %}
+                {% endfor %}
               </ul>
             </li>
           {% endfor %}
-          </ul>
-        </div>
-      </section>
-    </div>
+        </ul>
+      </div>
+    </section>
   </div>
 </div>
-
-
+</div>
