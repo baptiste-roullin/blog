@@ -63,17 +63,7 @@
 
 @layer utilities {
 
-.spin {
-	display:inline-block;
-	transition:transform 2.5s ease, color .5s ease;
 
-	transform-origin:50% 75% 0
-}
-
-#site-title:hover .spin {
-	transform:rotate(2turn);
-	@apply text-red
-}
 
 .link-hover {
 	text-decoration: underline;
