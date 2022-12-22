@@ -27,8 +27,15 @@
 					  class="shadow-lg-dark"
 					  src="{{collatedHeroImage}}"
 			/>
-			<figcaption>Photo par <a href="https://fr.wiktionary.org/wiki/%C3%A9cheveau#/media/Fichier:Yarn_hanks_or_skeins.JPG">Pschemp</a>
-			</figcaption>
+			{% if hero.caption %}
+				<figcaption class="mt-2 text-base">
+					<details>
+						<summary>Légende</summary>
+						{{hero.caption | markdownify | safe}}
+					</details>
+				</figcaption>
+			{% endif %}
+
 		</figure>
 	</div>
 </header>
