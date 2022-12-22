@@ -2,7 +2,7 @@ const meta = require('./meta')
 const yaml = require('js-yaml')
 const fs = require('fs')
 
-import threads from '../pages/heroPages/threads/threader'
+import threads from '../heroPages/threads/threader'
 const threader = function () {
   const path = (meta.env !== "production" ?
     './src/pages/threads/threads_input_TEST.yaml' :
