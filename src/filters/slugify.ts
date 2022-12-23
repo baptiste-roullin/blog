@@ -1,21 +1,21 @@
-import slugifyLib from '@sindresorhus/slugify';
+import slugifyLib from '@sindresorhus/slugify'
 
 // slugify is called 1000s of times, let's memoize it
-let memoizedSlugs = {};
+let memoizedSlugs = {}
 
 export function slugifyFilter(string) {
 	if (string in memoizedSlugs) {
-		return memoizedSlugs[string];
+		return memoizedSlugs[string]
 	} else {
 		if (!string) {
-			console.log("slug string is empty")
+			console.log("slugify: slug string is empty")
 			return ""
 		}
 		let slug = slugifyLib(string, {
 			decamelize: false,
 			customReplacements: [['%', ' '], ["'", '']],
-		});
-		memoizedSlugs[string] = slug;
-		return slug;
+		})
+		memoizedSlugs[string] = slug
+		return slug
 	}
 };
