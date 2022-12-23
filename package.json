@@ -6,10 +6,10 @@
   "scripts": {
     "dev:webpack": "webpack --watch  --mode development",
     "dev:eleventy": "  npx @11ty/eleventy  --incremental --serve --quiet",
-    "debug:eleventy": "set DEBUG=* & npx @11ty/eleventy --incremental",
+    "debug:eleventy": "npx @11ty/eleventy --incremental",
     "dev:postcss": "postcss src/assets/css/main.css -o dist/assets/css/main.css --watch",
     "dev": "npm-run-all --parallel dev:* --print-label",
-    "threader": "  set DEBUG=threader:* & npx tsx watch ./src/pages/threads/threads_test.ts",
+    "threader": "  set DEBUG=threader:* & npx tsx watch ./src/heroPages/threads/threads_test.ts",
     "build:webpack": "webpack  --mode production",
     "build:postcss": "cross-env NODE_ENV=production postcss --verbose src/assets/css/main.css -o dist/assets/css/main.css",
     "build:eleventy": "cross-env NODE_ENV=production npx @11ty/eleventy  --incremental",

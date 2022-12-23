@@ -55,7 +55,7 @@ cf. postcss.config.js pour le CSS
 		config.addPassthroughCopy('src/assets/docs/')
 
 		config.addPassthroughCopy({ 'src/posts/**/*': meta.assetsDir })
-		config.addPassthroughCopy({ 'src/pages/portfolio/*': meta.assetsDir })
+		config.addPassthroughCopy({ 'src/heroPages/portfolio/*': meta.assetsDir })
 
 		config.addPassthroughCopy('src/assets/images')
 
@@ -82,6 +82,8 @@ cf. postcss.config.js pour le CSS
 	config.addLayoutAlias('base', 'layouts/base.njk')
 	config.addLayoutAlias('page', 'layouts/page.njk')
 	config.addLayoutAlias('post', 'layouts/post.njk')
+	config.addLayoutAlias('heroPage', 'layouts/heroPage.njk')
+
 
 
 	/**

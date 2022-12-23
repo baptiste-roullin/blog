@@ -5,8 +5,8 @@ const fs = require('fs')
 import threads from '../heroPages/threads/threader'
 const threader = function () {
   const path = (meta.env !== "production" ?
-    './src/pages/threads/threads_input_TEST.yaml' :
-    './src/pages/threads/threads_input.yaml')
+    './src/heroPages/threads/threads_input_TEST.yaml' :
+    './src/heroPages/threads/threads_input.yaml')
   console.log(path)
   const threads_list = yaml.load(fs.readFileSync(path, 'utf8'))
 

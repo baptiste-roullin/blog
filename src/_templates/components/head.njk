@@ -1,6 +1,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {% set cleanedTitle = title | removeMD %}
+{% set cleanedDescription = description | removeMD %}
+
 <title>{{  cleanedTitle }}
 </title>
 {% if r/^post-?/g.test(layout) %}
@@ -10,7 +12,7 @@
     {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
-      "headline": "{{cleanedTitle  | safe}}",
+      "headline": "{{cleanedTitle }}",
       "image": "{{postImage}}",
       "publisher": {
         "@type": "Organization",
@@ -20,7 +22,7 @@
       "url": "{{pageURL}}",
       "datePublished": "{{page.date | dateISOFormat}}",
       "dateCreated": "{{page.date | dateISOFormat}}",
-      "description": "{{description | removeMD | safe}}",
+      "description": "{{cleanedDescription }}",
       "author": {
         "@type": "Person",
         "name": "{{meta.author}}",
@@ -34,15 +36,15 @@
   </script>
 
   <meta property="og:image" content=" {{postImage}}"/>
-  <meta name="description" content="{{ description | removeMD   }}"/>
-  <meta property="og:description" content="{{ description | removeMD  }}"/>
+  <meta name="description" content="{{ cleanedDescription    }}"/>
+  <meta property="og:description" content="{{ cleanedDescription   }}"/>
   <meta property='og:type' content='article'/>
   <meta property='article:author' content='{{meta.author}}'/>
   <meta property='article:publisher' content='{{meta.siteURL}}'/>
 
 {% else %}
-  <meta name="description" content="{{ description | removeMD or meta.siteDescription }}"/>
-  <meta property="og:description" content="{{ description | removeMD or meta.siteDescription }}"/>
+  <meta name="description" content="{{ cleanedDescription  or meta.siteDescription }}"/>
+  <meta property="og:description" content="{{ cleanedDescription  or meta.siteDescription }}"/>
   <meta property="og:image" content="{{meta.siteURL}}/{{ meta.image}}"/>
 {% endif %}
 
@@ -61,7 +63,6 @@
 <meta name="twitter:description" content="{{ description or meta.siteDescription }}"/>
 
 {#- Favicon #}
-{#<link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/favicon/apple-touch-icon.png' | url }}">#}
 <link rel="icon" type="image/svg+xml" href="/assets/UI/favicon.svg">
 <link rel="icon" type="image/png" href="/assets/UI/favicon.png" sizes="32x32">
 

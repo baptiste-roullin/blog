@@ -1,7 +1,7 @@
 {% macro heading(level, class, label) %}
 	{% set slug = label | slugify %}
 	{# virer les set en remplaçant composants par macro #}
-	<h{{level}} class="m-0 {{class}}" id="{{slug}}">
+	<h{{level}} class=" {{class}}" id="{{slug}}">
 		<a class="header-anchor" href="#{{slug}}">
 			<span aria-hidden="true">§︎</span>
 			<span class="sr-only">Ancre pour le titre : {{label}}</span>

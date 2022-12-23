@@ -6,8 +6,7 @@ import normalizeTag from './normalize_tag'
 
 import { DateTime, Settings } from 'luxon'
 Settings.defaultLocale = "fr"
-const remove = require('remove-markdown')
-
+import removeMD from './remove_MD'
 
 
 export const filters = {
@@ -89,20 +88,7 @@ export const filters = {
 	},
 
 
-	removeMD: function removeMD(string) {
-		/*		if (!string) {
-					console.log(string + "removeMD: slug string is empty")
-					return ""
-				}*/
-
-		/* TODO : pourquoi string est souvent undefined ? */
-		return remove(
-			// cas spécial, par exemple pour evelyn.md et portfolio.njk
-			string.replace(/\[(.*)\]\{.*\}/g, "$1")
-				.replace(/&NewLine;/g, "$1")
-		)
-	}
-	,
+	removeMD: removeMD,
 
 	dateToPermalink: function (date) {
 		return DateTime.fromJSDate(date, {
@@ -112,6 +98,10 @@ export const filters = {
 
 
 	dateISOFormat: function (date) {
+		if (!date) {
+			console.log("date string is empty")
+			return ""
+		}
 		return DateTime.fromJSDate(date).toISODate()
 	},
 
