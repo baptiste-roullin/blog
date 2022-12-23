@@ -3,7 +3,7 @@
       <li class="inline-block my-auto">
         <a title="mot clé {{ tag }}" aria-label="mot clé {{ tag }}" href="{{ '/tags/' | url}}{{tag | slugify  }}/"
         class="link-hover">{{ tag | normalizeTag}}</a>
-        {% include "./separator.njk" %}
+					{% include "components/separator.njk" %}
       </li>
   {% endfor %}
 </ul>

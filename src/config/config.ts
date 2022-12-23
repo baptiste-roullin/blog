@@ -82,6 +82,8 @@ cf. postcss.config.js pour le CSS
 	config.addLayoutAlias('base', 'layouts/base.njk')
 	config.addLayoutAlias('page', 'layouts/page.njk')
 	config.addLayoutAlias('post', 'layouts/post.njk')
+	config.addLayoutAlias('heroPage', 'layouts/heroPage.njk')
+
 
 
 	/**

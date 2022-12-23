@@ -40,7 +40,7 @@ permalink: "/{{page.fileSlug}}/{% if pagination.pageNumber %}{{ pagination.pageN
 
 {% include 'components/posts_list.njk' %}
 <div class=" 2xl:container-wide">
-  <h1 class="my-12 text-gray-700">Tous les thèmes</h1>
+  <h1 class="mt-16 mb-6 text-gray-700">Tous les thèmes</h1>
   {% set tags = collections.tagList %}
   {% include "components/tags_pills.njk" %}
 </div>

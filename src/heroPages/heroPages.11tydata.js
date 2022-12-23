@@ -2,7 +2,7 @@ import collateHeroImage from '../utils/collateHeroImage'
 
 
 module.exports = {
-  layout: "base",
+  layout: "heroPage",
   hideMeta: true,
   author: "{{ meta.author }}",
   eleventyComputed: {

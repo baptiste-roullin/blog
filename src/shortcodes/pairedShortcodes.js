@@ -13,15 +13,6 @@ export const pairedShortcodes = {
 	},
 
 
-	MD: function (value) {
-		if (!value) {
-			console.log("attention, string vide")
-			return ''
-		}
-		return `<div class="prose-tcqb container-prose max-w-screen-xl gap-6 m-auto lg:max-w-prose w-full">${md.render(value)}</div>`
-
-	},
-
 	/**
 	 * ===== Wrapper =====
 	 *
