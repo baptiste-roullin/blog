@@ -22,7 +22,7 @@
       <a
 			href="{{ post.url }}"
 			class="block link-hover hover:text-brown-light">
-        {{ post.data.title | removeMD  }}
+        {{ post.data.title | removeMD | safe }}
       </a>
     </h{{hx}}>
 
