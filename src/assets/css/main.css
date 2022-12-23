@@ -2,6 +2,9 @@
 @import "./post.scss";
 @import "./images.scss";
 @import "./nav.scss";
+@import "./actions.scss";
+@import "./cards.scss";
+@import "./headings.scss";
 @import "./global.scss";
 @import "../../heroPages/portfolio/portfolio.scss";
 @import "../../features/truchet/truchet.scss";

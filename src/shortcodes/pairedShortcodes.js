@@ -9,7 +9,7 @@ export const pairedShortcodes = {
 		if (data.match(/\!\[/g).length > 1) {
 			width = 'container-wide'
 		}
-		return `<div class="rich-picture rich-picture-gallery ${width} " >${content}</div>`;
+		return `<div class="rich-picture rich-picture-gallery ${width} " >${content}</div>`
 	},
 
 
@@ -18,7 +18,7 @@ export const pairedShortcodes = {
 			console.log("attention, string vide")
 			return ''
 		}
-		return `<div class="prose-tcqb layout-prose max-w-screen-xl gap-6 m-auto lg:max-w-prose w-full">${md.render(value)}</div>`
+		return `<div class="prose-tcqb container-prose max-w-screen-xl gap-6 m-auto lg:max-w-prose w-full">${md.render(value)}</div>`
 
 	},
 

@@ -47,9 +47,9 @@
         {% set navEntry = meta.siteURL + entry.url %}
         <a href="{{ entry.url | url }}"
           {{ "aria-current='true'" if navEntry in currentPage }}
-          class="relative items-center mt-1 lg:mt-1.5 h-full text-lg font-medium text-gray-100 lg:text-xl group text-shadow focus:text-white focus:group-red-700">
+          class="relative items-center h-full text-lg font-medium text-gray-100 lg:text-xl group text-shadow focus:text-white focus:group-red-700">
           <span
-          class=" xl:px-6
+          class=" xl:px-6 pt-1 lg:pt-1.5
             flex items-center justify-center h-full
             {{ 'underline' if navEntry in currentPage }}
             group-hover:text-white group-hover:bg-red-700 transition-all duration-300
