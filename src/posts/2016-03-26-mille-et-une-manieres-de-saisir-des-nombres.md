@@ -5,7 +5,6 @@ tags:
   - "histoire"
   - "objets"
 hero:
-  # options: carousel, graphic, video, split (text & image)
   image: Curta_II.jpg
 
 ---

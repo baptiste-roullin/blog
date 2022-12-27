@@ -4,9 +4,7 @@ date: 2021-02-17
 tags:
   - "objets"
 featured: true
-
 hero:
-  # options: carousel, graphic, video, split (text & image)
   image: joyboard2.jpg
 
 ---

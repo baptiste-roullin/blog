@@ -7,7 +7,6 @@ tags:
   - "sciences cognitives"
   - "utilisateurs"
 hero:
-  # options: carousel, graphic, video, split (text & image)
   image: "bartle0.jpg"
   alt: "Les quatre profils du modèle de Bartle : Tueur, Social, Explorateur, Collectionneur"
 ---

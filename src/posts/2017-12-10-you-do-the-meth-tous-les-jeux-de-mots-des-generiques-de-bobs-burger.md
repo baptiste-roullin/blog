@@ -6,7 +6,6 @@ tags:
   - "projets"
   - "répétition"
 hero:
-  # options: carousel, graphic, video, split (text & image)
   image: Bobs-Burgers-S07E17-Zero-Larp-Thirty.png
 picture_lightbox: true
 ---

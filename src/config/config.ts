@@ -21,6 +21,11 @@ import { Config, UserConfig } from '../../types/eleventy'
 
 module.exports = function conf(config: Config): UserConfig {
 
+
+	if (meta.env === "dev") {
+		config.ignores.add("src/posts/2*")
+	}
+
 	/**
 	* Custom Watch Targets
 	* for when the Tailwind config or .css files change...

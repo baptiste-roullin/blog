@@ -7,7 +7,6 @@ tags:
   - "utilisateurs"
 featured: true
 hero:
-  # options: carousel, graphic, video, split (text & image)
   image: "souris_btn.png"
   alt: Clavier auxiliaire utilisé par Tesler pour tester la fonction de couper-coller, avec des étiquettes notées "cut" et "paste".
 ---

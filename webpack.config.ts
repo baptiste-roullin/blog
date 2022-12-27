@@ -1,9 +1,9 @@
 const path = require('path')
-const CopyPlugin = require("copy-webpack-plugin");
-const WebpackAssetsManifest = require('webpack-assets-manifest');
+const CopyPlugin = require("copy-webpack-plugin")
+const WebpackAssetsManifest = require('webpack-assets-manifest')
 require('dotenv').config()
-import meta from './src/_data/meta'
-import * as webpack from 'webpack';
+const meta = require('./src/_data/meta.js')
+import * as webpack from 'webpack'
 
 const config: webpack.Configuration = {
 
@@ -27,7 +27,7 @@ const config: webpack.Configuration = {
     path: path.resolve(__dirname, meta.outputDir + '/assets/scripts'),
     /*    détournement du publicpatch*/
     //publicPath: path.resolve(__dirname, 'src'),
-    filename: () => (process.env.NODE_ENV === "production" ? '[name].[contenthash].js' : '[name].js')
+    filename: () => (meta.env === "production" ? '[name].[contenthash].js' : '[name].js')
   },
   module: {
     rules: [
@@ -78,7 +78,7 @@ const config: webpack.Configuration = {
 
         // l'otpion fileExtRegex devrait servir à ça, mais pas réussi à la faire marcher.
         if (!(entry.key.endsWith('.js'))) {
-          return false;
+          return false
         }
         return entry
       },
@@ -92,7 +92,7 @@ const config: webpack.Configuration = {
           from: "posts/**/*.{png,webp,gif,mp4,jpg,jpeg}",
           context: "src",
           to({ context }) {
-            return `${context}/assets/imagesToProcess/[name][ext]`;
+            return `${context}/assets/imagesToProcess/[name][ext]`
           },
         },
         /*       {
@@ -106,14 +106,14 @@ const config: webpack.Configuration = {
           from: "assets/images/*",
           context: "src",
           to({ context }) {
-            return `${context}/assets/imagesToProcess/[name][ext]`;
+            return `${context}/assets/imagesToProcess/[name][ext]`
           },
         },
         {
           from: "assets/UI/*",
           context: "src",
           to({ context }) {
-            return `${context}/assets/imagesToProcess/[name][ext]`;
+            return `${context}/assets/imagesToProcess/[name][ext]`
           },
         },
       ],
