@@ -6,7 +6,6 @@ tags:
   - "objets"
 picture_lightbox: true
 hero:
-  # options: carousel, graphic, video, split (text & image)
   image: large_the_apartment_blu-ray_1.jpg
 ---
 

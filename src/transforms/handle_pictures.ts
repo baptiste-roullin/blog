@@ -14,7 +14,7 @@ function normalizePath(str) {
 }
 
 
-/* TODO : images de Furtifs marche pas. */
+/* TODO: images de Furtifs marche pas. */
 
 async function convertPictures(image, widthsList, originalPath, intermediaryPath) {
 	try {

@@ -6,7 +6,6 @@ tags:
   - "litterature"
 featured: true
 hero:
-  # options: carousel, graphic, video, split (text & image)
   image: "1-uFzbZEP0dfQZzBpgwPndGA-e1582155605785.jpeg"
 ---
 
