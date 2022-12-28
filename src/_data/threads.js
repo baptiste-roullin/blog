@@ -14,7 +14,7 @@ const threader = function () {
   return threads("67752627", meta.twitterBearer, threads_list, { outputFolder: '.cache', forceCacheDelete: false, delay: 5000 },)
 }
 module.exports =
-  (meta.twitterThread === "false" || !threader ?
+  (!meta.twitterThread || !threader ?
     [{ "title": "fonctionnalité désactivée" }] : threader
   )
 

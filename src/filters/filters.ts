@@ -87,7 +87,6 @@ export const filters = {
 		return `<div class="prose-tcqb">${md.render(value)}</div>`
 	},
 
-
 	removeMD: removeMD,
 
 	dateToPermalink: function (date) {
@@ -95,7 +94,6 @@ export const filters = {
 			zone: 'utc',
 		}).toFormat('yyyy/MM')
 	},
-
 
 	dateISOFormat: function (date) {
 		if (!date) {

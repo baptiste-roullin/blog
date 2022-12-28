@@ -12,7 +12,8 @@ hero:
 
 J'ai fait un minuteur, il est joli, il est cool, il est disponible ici :
 
-[C'est ici](https://misc.toutcequibouge.net/Timer/){.cta} {.not-prose}
+
+{% ctaLink "C'est ici", "https://misc.toutcequibouge.net/Timer/", "big", "not-prose"  %}
 
 
 

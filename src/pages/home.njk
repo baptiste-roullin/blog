@@ -16,7 +16,7 @@ postListItemStyle:
   <section class="">
     <div class="block-heading-split ">
       <h2 class="">Bafouilles récentes</h2>
-      <a href="/blog" class="cta-link">Voir tout <span aria-hidden="true">⤳</span></a>
+      {% ctaLink "Voir tout", "/blog" %}
     </div>
 
       {% set postslist = collections.publishedPosts | reverse | slice(0, 3) %}
@@ -34,7 +34,7 @@ postListItemStyle:
   <section class="">
     <div class="block-heading-split ">
       <h2  class="">Bafouilles dont je suis content</h2>
-            <a href="/tags/featuredPosts" class="cta-link">Voir tout <span aria-hidden="true">⤳</span></a>
+      {% ctaLink "Voir tout", "/tags/featuredPosts" %}
     </div>
     <ul class="flex flex-col gap-8 post-list">
     {%- for post in collections.featuredPosts | shuffle |  slice(0, 3) -%}
@@ -48,7 +48,8 @@ postListItemStyle:
   <section class="">
     <div class="block-heading-split ">
       <h2 class="">Bidouilles</h2>
-        <a href="/projets" class="cta-link">Voir tout <span aria-hidden="true">⤳</span></a>
+          {% ctaLink "Voir tout", "/projets" %}
+
     </div>
 
     <ul class="max-w-lg gap-8 m-auto post-list md:gap-6 2xl:gap-8 md:m-0 md:max-w-none card-container project-list">

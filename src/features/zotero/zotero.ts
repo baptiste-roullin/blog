@@ -5,7 +5,7 @@ const njk = require('nunjucks')
 
 // Documentation de l'API : https://www.zotero.org/support/dev/web_api/v3/basics
 // Client : 				https://github.com/tnajdek/zotero-api-client
-const { default: api } = require('zotero-api-client');
+const { default: api } = require('zotero-api-client')
 
 
 /*
@@ -18,8 +18,7 @@ Comme promise.all, effectue des requête en parallèle et renvoie une promesse d
 
 import cache from '../../utils/caching'
 import dateHumanFormat from "../../filters/date_formatting"
-import meta from '../../_data/meta';
-
+const meta = require("../../_data/meta")
 
 export default async function zotero(collection: string, ...requestedTags: string[]) {
 
@@ -166,19 +165,19 @@ export default async function zotero(collection: string, ...requestedTags: strin
 
 			// options, notamment pour supprimer les vides inutiles.
 			{ autoescape: true, trimBlocks: true, lstripBlocks: true }
-		);
+		)
 
 		// Ajout d'un filtre utilisé par zotero.njk
 		env.addFilter('dateHumanFormat', dateHumanFormat)
 
 		//génération du HTML
-		return await env.render('zotero_component.njk', { items: completedItems });
+		return await env.render('zotero_component.njk', { items: completedItems })
 
 	} catch (error) {
 		// TODO : avertir plus précisément des erreur
 		//403 : mauvaises infos de connexion
 		// 500 : requête mal formée
-		console.log(error);
+		console.log(error)
 	}
 
 }

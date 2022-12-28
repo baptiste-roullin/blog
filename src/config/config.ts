@@ -115,7 +115,6 @@ cf. postcss.config.js pour le CSS
 	/**
 	 * Shortcodes
 	 */
-
 	Object.keys(shortcodes).forEach((shortcodeName) => {
 		config.addShortcode(shortcodeName, shortcodes[shortcodeName])
 	})
@@ -130,7 +129,6 @@ cf. postcss.config.js pour le CSS
 
 	/**
 	 * Add async shortcodes
-	 *
 	 */
 	Object.keys(asyncShortcodes).forEach((shortcodeName) => {
 		config.addNunjucksAsyncShortcode(shortcodeName, asyncShortcodes[shortcodeName])

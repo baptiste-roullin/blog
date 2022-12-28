@@ -1,6 +1,6 @@
 require('dotenv').config()
 
-import convertToBool from '../utils/convertToBool'
+const { convertToBool } = require('../utils/convertToBool')
 
 module.exports = {
 	env: process.env.NODE_ENV || 'production ',
