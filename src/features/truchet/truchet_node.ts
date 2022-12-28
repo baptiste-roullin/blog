@@ -1,6 +1,7 @@
 //@ts-nocheck
 import truchet from './truchet_core'
-import { meta } from '../../_data/meta'
+const meta = require('../../_data/meta')
+
 const debug = require('debug')
 const warning = debug('tcqb:warning')
 
