@@ -1,15 +1,40 @@
 
-const svgColorDefault = 'text-indigo-500'
 import { truchetItem, truchetList } from '../features/truchet/truchet_shortcode'
+import { slugifyFilter as slugify } from '../filters/slugify'
 
 export const shortcodes = {
   truchetItem: truchetItem,
   truchetList: truchetList,
+  heading: function (level, className, label) {
+    if (typeof label === "object") {
+      label = label.val
+    }
+    const slug = slugify(label)
+    return `<h${level} class='${className}' id='${slug}'>
+              <a class='header-anchor' href='#${slug}'>
+                <span aria-hidden='true'>§︎</span>
+                <span class='sr-only'>Ancre pour le titre : ${label}</span>
+              </a>
+	          	${label}
+          	</h${level}>`
+  },
+  ctaLink: function (label, url, size, className) {
+    if (size) {
+      className = className + " "
+    }
+    return `<div class="not-prose cta-link-wrapper">
+      <a
+              href="${url}"
+              class="${className} cta-link text-brown">
+              ${label} <span aria-hidden="true">⤳</span>
+              </a>
+    </div>  `
+  },
   /**
    * ===== SVGs =====
  * This shortcode is used in layouts and can be used in .md content.
  *
- * Set the default color above in the "svgColorDefault" variable.
+ * Set the default color above in the 'svgColorDefault" variable.
  *
  * The SVGs MUST exist in the /src/assets/svg/ directory and must me named
  * according to the existing examples.
@@ -40,7 +65,7 @@ export const shortcodes = {
     const nameAttr = name ? name : 'piedpiper'
     const classesAttr = classes
       ? `${classes} fill-current`
-      : `${svgColorDefault} fill-current`
+      : `text-indigo-500 fill-current`
     const descAttr = desc ? desc : `${nameAttr} icon`
     const locationAttr = location ? location : 'content'
     return `<svg class="${classesAttr}" aria-describedby="symbol-${nameAttr}-desc" aria-labelledby="symbol-${nameAttr}-desc" role="group">

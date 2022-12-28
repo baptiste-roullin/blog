@@ -9,7 +9,6 @@ tags:
   - vie privée
   - utilisateurs
 hero:
-  type: split
   image: TOS.jpg
   alt: "Couverture d'une bande dessinée appelée en anglais 'Conditions générales d'utilisation - la bande dessinée' et montrant Steve Jobs en Wolwerine, transperçant un téléphone avec ses griffes.  "
 ---

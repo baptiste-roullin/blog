@@ -1,4 +1,4 @@
-require('dotenv').config()
+const meta = require('./src/_data/meta')
 
 module.exports = {
   plugins: [
@@ -6,9 +6,9 @@ module.exports = {
     require('tailwindcss/nesting'),
     require('tailwindcss')({ config: './tailwind.config.js' }),
     require('autoprefixer'),
-    ...process.env.NODE_ENV === "production" ? [require('cssnano')] : [],
+    ...(meta.env === "production" ? [require('cssnano')] : []),
     require('postcss-hash')({
       manifest: './src/_data/hashes_css.json',
     }),
   ]
-};
+}

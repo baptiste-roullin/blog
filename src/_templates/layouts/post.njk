@@ -3,62 +3,61 @@ layout: base
 ---
 
 <div class="template-post-main">
-	{% if hero.image %}
-		{% include 'components/hero_split.njk' %}
-		{% endif %}
+  {% if hero.image %}
+    {% include 'components/header_hero_image.njk' %}
+  {% endif %}
 
-	<div class="my-20 post-main prose-tcqb article g_proseWidth ">
+  <div class="my-20 post-main prose-tcqb article sm:px-4 xl:px-0 container-prose ">
 
-		{% if not hero.image %}
-			<header class="">
-				<h1 class="text-gray-700 ">{{ title }}</h1>
+    {% if not hero.image %}
+      <header class="">
+        <h1 class="m-auto text-gray-700">{{ title }}</h1>
+        {% if not hideMeta %}
+          <div class="pt-4 text-sm sm:text-base not-prose">
+            <time datetime="{{ page.date | dateHumanFormat("yyyy-MM-dd") }}">
+              {{ page.date | dateHumanFormat("dd LLLL yyyy") }}
+            </time>
+            {% include "components/separator.njk" %}
+            {% include "components/tags_pills_inline.njk" %}
+          </div>
+        {% endif %}
 
-				{% if not hideMeta %}
-					<div class="pt-4 text-sm sm:text-base not-prose">
-						<time datetime="{{ page.date | dateHumanFormat("yyyy-MM-dd") }}">
-							{{ page.date | dateHumanFormat("dd LLLL yyyy") }}
-						</time>
-						<span aria-hidden="true" class="mx-1 text-xl font-light sm:mx-2 sm:inline" >~</span>
-						{% include "components/tags_pills_inline.njk" %}
-					</div>
-				{% endif %}
+      </header>
+    {% endif %}
+    <div class="my-16 post-main prose-tcqb">{{ content | safe }}</div>
+  </div>
 
-			</header>
-		{% endif %}
-		<div class="my-16 post-main prose-tcqb">{{ content | safe }}</div>
-	</div>
+  {% set nextPost = collections.publishedPosts | getPreviousCollectionItem %}
+  {% set previousPost = collections.publishedPosts | getNextCollectionItem %}
+  {% if nextPost or previousPost %}
 
-	{% set nextPost = collections.publishedPosts | getPreviousCollectionItem %}
-	{% set previousPost = collections.publishedPosts | getNextCollectionItem %}
-	{% if nextPost or previousPost %}
+    <footer class="relative mt-16 text-xl d-mb-10 md:text-2xl lg:3xl ">
+      <div class="h-full decor-dark bg-blue-light"></div>
+      {# ===== Previous and Next =====  #}
 
-		<footer class="relative mt-16 text-xl d-mb-10 md:text-2xl lg:3xl ">
-			<div class="h-full decor-dark bg-blue-light"></div>
-			{# ===== Previous and Next =====  #}
+      {# TODO : trouver comment centrer en mobile. W-max marche pas. #}
+      <nav class="relative flex flex-col gap-12 px-4 py-12 post-pagination lg:py-12 lg:px-4 md:flex-row md:justify-between block-dark">
+        <div id="pagination-left" class="lg:w-1/2l ">
+          {% if previousPost %}
+            <a class="relative flex flex-col justify-between w-full h-full gap-3 sm:w-auto sm:gap-4 sm:py-0 text-shadow-lg-dark " href="{{ previousPost.url  }}">
+              <p>{{ previousPost.data.title | removeMD}}</p>
+              <img  loading="lazy" alt="" class="self-start rotate-180 w-[14px]" src="/assets/UI/pointe.svg">
 
-			{# TODO : trouver comment centrer en mobile. W-max marche pas. #}
-			<nav class="relative flex flex-col gap-12 px-4 py-12 post-pagination lg:py-12 lg:px-4 md:flex-row md:justify-between block-dark">
-				<div id="pagination-left" class="lg:w-1/2l ">
-					{% if previousPost %}
-						<a class="relative flex flex-col justify-between w-full h-full gap-3 sm:w-auto sm:gap-4 sm:py-0 text-shadow-lg-dark " href="{{ previousPost.url  }}">
-							<p>{{ previousPost.data.title | removeMD}}</p>
-							<img  loading="lazy" alt="" class="self-start rotate-180 w-[14px]" src="/assets/UI/pointe.svg">
+            </a>
+          {% endif %}
+        </div>
+        <div id="pagination-right" class="lg:w-1/2 ">
+          {% if nextPost %}
+            <a class="relative flex flex-col justify-between w-full h-full gap-3 text-right sm:w-auto sm:gap-4 sm:py-0 text-shadow-lg-dark " href="{{ nextPost.url }}">
+              <p>{{ nextPost.data.title | removeMD}}</p>
+              <img  alt="" class="self-end w-[14px] " src="/assets/UI/pointe.svg">
 
-						</a>
-					{% endif %}
-				</div>
-				<div id="pagination-right" class="lg:w-1/2 ">
-					{% if nextPost %}
-						<a class="relative flex flex-col justify-between w-full h-full gap-3 text-right sm:w-auto sm:gap-4 sm:py-0 text-shadow-lg-dark " href="{{ nextPost.url }}">
-							<p>{{ nextPost.data.title | removeMD}}</p>
-							<img  alt="" class="self-end w-[14px] " src="/assets/UI/pointe.svg">
-
-						</a>
-					{% endif %}
-				</div>
-			</nav>
-		</footer>
-	{% endif %}
+            </a>
+          {% endif %}
+        </div>
+      </nav>
+    </footer>
+  {% endif %}
 
 </div>
 

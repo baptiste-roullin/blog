@@ -10,7 +10,6 @@ tags:
   - "bureau"
 picture_lightbox: false
 hero:
-  type: split
   image: ch_1.jpg
   alt: ''
 ---

@@ -6,7 +6,6 @@ tags:
   - "réflexions"
 featured: true
 hero:
-  type: split  # options: carousel, graphic, video, split (text & image)
   image: "falcon.gif"
   alt: "Han Solo tape sur un panneau du cockpit du Millenium Falcon pour le faire fonctionner."
 

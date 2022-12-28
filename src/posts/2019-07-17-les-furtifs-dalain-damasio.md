@@ -6,8 +6,7 @@ tags:
   - "litterature"
 featured: true
 hero:
-  type: split  # options: carousel, graphic, video, split (text & image)
-  image: "1-uFzbZEP0dfQZzBpgwPndGA-e1582155605785.jpeg"
+  image: "furtifs.jpeg"
 ---
 
 Alors que j'avais dévoré La Horde du contrevent, le nouveau roman d’Alain Damasio m’est tombé des mains. Voici une tentative de critique.
@@ -15,8 +14,6 @@ Alors que j'avais dévoré La Horde du contrevent, le nouveau roman d’Alain Da
 Les connaisseurs de son œuvre seront en terrain connu. De la Horde, on retrouve les thématiques, la narration polyphonique autour d’une équipe militaire et les jeux sur le langage. Il y a aussi des aspects déjà présents dans La Zone du dehors : l’exploration des sociétés de contrôle, la surveillance, la servitude volontaire et l’horizontalité.
 
 Vous allez me dire qu’il creuse et fait foisonner ses obsessions. Je trouve surtout qu’il se répète et se caricature lui-même.
-
-![Couverture des Furtifs](/assets/images/1-uFzbZEP0dfQZzBpgwPndGA.jpeg)
 
 ## Une fan fiction des mouvements libertaires
 

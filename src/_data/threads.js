@@ -1,12 +1,13 @@
+//@ts-nocheck
 const meta = require('./meta')
 const yaml = require('js-yaml')
 const fs = require('fs')
 
-import threads from '../pages/threads/threader'
+import threads from '../heroPages/threads/threader'
 const threader = function () {
   const path = (meta.env !== "production" ?
-    './src/pages/threads/threads_input_TEST.yaml' :
-    './src/pages/threads/threads_input.yaml')
+    './src/heroPages/threads/threads_input_TEST.yaml' :
+    './src/heroPages/threads/threads_input.yaml')
   console.log(path)
   const threads_list = yaml.load(fs.readFileSync(path, 'utf8'))
 
@@ -14,7 +15,7 @@ const threader = function () {
   return threads("67752627", meta.twitterBearer, threads_list, { outputFolder: '.cache', forceCacheDelete: false, delay: 5000 },)
 }
 module.exports =
-  (meta.twitterThread === "false" || !threader ?
+  (!meta.twitterThread || !threader ?
     [{ "title": "fonctionnalité désactivée" }] : threader
   )
 

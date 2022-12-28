@@ -1,0 +1,85 @@
+@layer base {
+	h1 {
+		@apply font-bold text-gray-700 text-4xl;
+	}
+
+	h2 {
+		@apply font-bold text-gray-700 pt-12 text-2xl lg:text-3xl;
+	}
+
+	h3 {
+		@apply text-2xl font-bold text-gray-700;
+	}
+
+	h4 {
+		@apply text-xl font-bold text-gray-500;
+	}
+
+	h5 {
+		@apply text-lg font-bold text-gray-500;
+	}
+
+
+	@media only screen and (min-width:640px) {
+		#content {
+			h2 {
+				position: relative;
+				left: -2em;
+				padding-left: 2em;
+
+				&:hover .header-anchor {
+					display: inline-block;
+				}
+			}
+
+			.header-anchor {
+				position: absolute;
+				left: 0.5em;
+				display: none;
+				font-size: 1em;
+				@apply text-brown-light;
+			}
+		}
+	}
+
+
+	@media only screen and (max-width:639px) {
+
+		.prose {
+			.header-anchor {
+				display: none;
+			}
+		}
+	}
+}
+
+
+@layer utilities {
+
+
+	.cta-heading {
+		@apply text-brown text-lg-bis md:text-3xl font-medium leading-7 2xl:leading-10 2xl:text-4xl
+	}
+
+	.cta-heading2 {
+		@apply text-brown text-lg-bis md:text-2xl font-medium leading-7 lg:leading-10 lg:text-3xl
+	}
+
+	.cta-heading3 {
+		@apply text-2xl font-medium leading-7 text-brown hover:underline;
+	}
+
+	.thread-heading {
+		@apply text-3xl font-medium text-gray-700;
+	}
+
+	.page-portflio	section h2 {
+		@apply text-blue-lighter text-2xl lg:text-3xl font-bold
+	}
+
+	.page-portflio h1 {
+		line-height: 1.2 !important;
+		font-family:  brandon !important;
+
+	}
+}

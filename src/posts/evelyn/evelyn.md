@@ -6,7 +6,6 @@ tags:
  - "projets"
  - "répétition"
 hero:
-  type: split
   image: evelyn-0.png
 picture_lightbox: true
 ---

@@ -12,10 +12,6 @@
 		@apply bg-red-700 text-white;
 	}
 
-
-	section h2 {
-		@apply text-blue-lighter text-2xl lg:text-3xl font-bold
-	}
 	.metadata {
 		display:none;
 	}
@@ -33,21 +29,6 @@
 		@apply md:gap-7 gap-9
 	}
 
-	dt {
-		@apply text-brown font-bold
-	}
-
-	dl {
-		display: flex;
-		flex-direction: column;
-		gap: 0rem;
-	}
-
-	h1 {
-		line-height: 1.2 !important;
-		font-family:  brandon !important;
-
-	}
 
 	.details figure {
 		flex: 1 1 0;

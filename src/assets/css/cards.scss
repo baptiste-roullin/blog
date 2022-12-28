@@ -1,0 +1,28 @@
+@layer components {
+.card-base:hover a {
+		text-decoration-color: inherit;
+	}
+
+	.card-shadow-hover {
+		@apply hover:shadow-flat
+	}
+
+	.card-base {
+		@apply flex items-center p-0 rounded-md md:shadow gap-6 lg:gap-10 bg-cream shadow-flat sm:shadow-sm transition-all duration-300
+	}
+
+	.card-item {
+		@apply	my-2 w-full sm:w-1/2 md:w-1/3
+	}
+
+	.card-container {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+		margin-bottom: 2rem;
+		@apply gap-16
+	}
+
+	 .info-block{
+		@apply bg-cream flex justify-center gap-16 py-4
+ 	}
+}

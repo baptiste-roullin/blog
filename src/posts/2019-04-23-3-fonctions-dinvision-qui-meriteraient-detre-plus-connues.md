@@ -4,7 +4,6 @@ date: 2019-04-23
 tags:
   - "prototypage"
 hero:
-  type: split  # options: carousel, graphic, video, split (text & image)
   image: "2019-04-23_19h12_30.png"
 ---
 

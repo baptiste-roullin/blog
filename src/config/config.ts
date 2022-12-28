@@ -21,6 +21,11 @@ import { Config, UserConfig } from '../../types/eleventy'
 
 module.exports = function conf(config: Config): UserConfig {
 
+
+	if (meta.env === "dev") {
+		config.ignores.add("src/posts/2*")
+	}
+
 	/**
 	* Custom Watch Targets
 	* for when the Tailwind config or .css files change...
@@ -55,7 +60,7 @@ cf. postcss.config.js pour le CSS
 		config.addPassthroughCopy('src/assets/docs/')
 
 		config.addPassthroughCopy({ 'src/posts/**/*': meta.assetsDir })
-		config.addPassthroughCopy({ 'src/pages/portfolio/*': meta.assetsDir })
+		config.addPassthroughCopy({ 'src/heroPages/portfolio/*': meta.assetsDir })
 
 		config.addPassthroughCopy('src/assets/images')
 
@@ -82,6 +87,8 @@ cf. postcss.config.js pour le CSS
 	config.addLayoutAlias('base', 'layouts/base.njk')
 	config.addLayoutAlias('page', 'layouts/page.njk')
 	config.addLayoutAlias('post', 'layouts/post.njk')
+	config.addLayoutAlias('heroPage', 'layouts/heroPage.njk')
+
 
 
 	/**
@@ -108,7 +115,6 @@ cf. postcss.config.js pour le CSS
 	/**
 	 * Shortcodes
 	 */
-
 	Object.keys(shortcodes).forEach((shortcodeName) => {
 		config.addShortcode(shortcodeName, shortcodes[shortcodeName])
 	})
@@ -123,7 +129,6 @@ cf. postcss.config.js pour le CSS
 
 	/**
 	 * Add async shortcodes
-	 *
 	 */
 	Object.keys(asyncShortcodes).forEach((shortcodeName) => {
 		config.addNunjucksAsyncShortcode(shortcodeName, asyncShortcodes[shortcodeName])

@@ -2,10 +2,9 @@
 <html lang="fr" class="font-sans">
 	<head>
 		{%- include "components/head.njk" %}
-
 	</head>
 	<body
-  class="template-{{layout}} page-{{page.fileSlug}} text-gray-900 sans min-h-screen mx-auto container-2xl">
+  class="template-{{layout}}  text-gray-900 sans min-h-screen mx-auto ">
 		<div >
 			<a class="-top-[10000px] absolute focus:top-0 m-4 focus:static underline" href="#content">Accéder au contenu</a>
 		</div>
@@ -13,10 +12,22 @@
 		<main
       id="content"
 	  role="main"
-       class="relative flex-grow block max-w-full transition-all duration-300 ease-out sm:px-per-lg px-per" id="content">
+       class="page-{{page.fileSlug}} relative flex-grow block max-w-full transition-all duration-300 ease-out sm:px-per-lg px-per " id="content">
 			{{ content | safe }}
 		</main>
 		{% include "components/footer.njk" %}
 
 	</body>
 </html>
+
+{#
+hiérarchie des templates
+
+posts
+page
+heropage
+messages => actuellement traité comme un post, mais à rapproche de contact avec image à droite ? (avec image truchet auto-répétée en front)
+	sitemap
+	404
+contact
+ #}

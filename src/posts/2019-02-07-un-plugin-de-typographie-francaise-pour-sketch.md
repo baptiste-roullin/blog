@@ -6,7 +6,6 @@ tags:
   - "projets"
 
 hero:
-  type: split  # options: carousel, graphic, video, split (text & image)
   image: "Icon_ombre2.png"
 
 ---
@@ -15,8 +14,9 @@ Résumé : j'ai créé un [plugin Sketch](https://github.com/baptiste-roullin/
 
 <!-- excerpt -->
 
-
-[Typographie frenchy](https://github.com/baptiste-roullin/typographie-frenchy#readme){.cta} {.not-prose}
+::: info-block
+{% ctaLink "Voir le projet", "https://github.com/baptiste-roullin/typographie-frenchy#readme"  %}
+:::
 
 Tout a commencé par une interface comme celle-ci :
 

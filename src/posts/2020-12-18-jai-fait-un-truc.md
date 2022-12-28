@@ -5,12 +5,14 @@ tags:
   - "projets"
 description: Une mosaïque des livres, jeux, films... que je "pratique", filtrables par année et catégorie. Un variateur permet de changer la taille des vignettes, pour avoir une vue panoramique ou au contraire très détaillée.
 hero:
-  type: split  # options: carousel, graphic, video, split (text & image)
   image: tb.jpg
 ---
 
 
-[C'est ici](http://table-basse.toutcequibouge.net/){.cta} {.not-prose}
+
+::: info-block
+{% ctaLink "Voir le projet", "https://github.com/baptiste-roullin/data-from-clipboard"  %}
+:::
 
 Soyez patient pour le premier chargement, car l'hébergeur (Heroku version gratuite) éteint le serveur après 30 min d'inactivité.
 
