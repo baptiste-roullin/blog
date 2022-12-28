@@ -56,13 +56,13 @@ cf. postcss.config.js pour le CSS
 
 	config.setUseGitIgnore(false)
 
-	if (meta.env === "production") {
+	if (meta.pictures) {
 		config.addPassthroughCopy('src/assets/docs/')
-
-		config.addPassthroughCopy({ 'src/posts/**/*': meta.assetsDir })
 		config.addPassthroughCopy({ 'src/heroPages/portfolio/*': meta.assetsDir })
 
-		config.addPassthroughCopy('src/assets/images')
+		//config.addPassthroughCopy({ 'src/posts/**/* ': meta.assetsDir })
+		//config.addPassthroughCopy('src/assets/images')
+
 
 		config.addTransform(
 			'picturesProcessing',

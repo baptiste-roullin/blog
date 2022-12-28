@@ -5,8 +5,8 @@
   },
   "scripts": {
     "dev:webpack": "webpack --watch  --mode development",
-    "dev:eleventy": "  npx @11ty/eleventy  --incremental --serve --quiet",
-    "debug:eleventy": "npx @11ty/eleventy --incremental",
+    "dev:eleventy": "  npx @11ty/eleventy  --incremental --serve",
+    "debug:eleventy": "set DEBUG=pictures:* & npx @11ty/eleventy --incremental",
     "dev:postcss": "postcss src/assets/css/main.css -o dist/assets/css/main.css --watch",
     "dev": "npm-run-all --parallel dev:* --print-label",
     "threader": "  set DEBUG=threader:* & npx tsx watch ./src/heroPages/threads/threads_test.ts",

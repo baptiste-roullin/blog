@@ -27,12 +27,11 @@ export default function pictures_processing(html) {
 		selector: ` .template-post  :not(picture) > img[src]:not([srcset]):not([src$='.svg'])`,
 		minWidth: 400,
 		maxWidth: 1920,
-		fallbackWidth: 750,
-		sizes: '(max-width: 60rem) 90vw, 60rem',
+/*		fallbackWidth: 750,
+*/		sizes: '(max-width: 60rem) 90vw, 60rem',
 		resizedImageUrl: reformatURL,
 		steps: 5,
 		classes: ['img-default'],
-		attributes: { loading: 'lazy', },
 		ignore: 'truchet-'
 	}
 

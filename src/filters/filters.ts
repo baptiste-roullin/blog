@@ -10,6 +10,7 @@ import removeMD from './remove_MD'
 import meta from '../../src/_data/meta'
 
 
+
 export const filters = {
 	/**
 	 * Filters
@@ -75,7 +76,7 @@ export const filters = {
 
 		return newArray
 	},
-	searchIndex: (!meta.search ? () => "[RECHERCHE DÉSACTIVÉE]" : search)
+	searchIndex: (!meta.search ? () => "{'t':'RECHERCHE DÉSACTIVÉE'}" : search)
 	,
 
 	markdownify: (markdownString) => md.renderInline(markdownString),

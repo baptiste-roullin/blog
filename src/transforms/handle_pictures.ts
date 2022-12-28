@@ -4,7 +4,7 @@ const convertPicturesLibrary = require("@11ty/eleventy-img")
 const clonedeep = require('lodash.clonedeep')
 const meta = require('../_data/meta')
 const debug = require('debug')
-const warning = debug('tcqb:warning')
+const warning = debug('pictures:warning')
 import path from 'path'
 //import cache from '../utils/caching'
 
@@ -14,39 +14,14 @@ function normalizePath(str) {
 }
 
 
-/* TODO: images de Furtifs marche pas. */
-
-async function convertPictures(image, widthsList, originalPath, intermediaryPath) {
+async function convertPictures(intermediaryPath, options) {
 	try {
-		const options = {
-			sharpWebpOptions: {
-				quality: 90,
-			},
-			widths: widthsList,
-			dryRun: false,
-			formats: (
-				meta.env === "production"
-					?
-					['jpeg']
-					:
-					['jpeg']
-			),
-			urlPath: '/assets/imagesToProcess/',
-			outputDir: `./${meta.outputDir}/${meta.assetsDir}/`,
-			filenameFormat: function (id, src, width, format) {
-				const extension = path.extname(src)
-				const name = path.basename(src, extension)
-				const modifiedFormat = (format === 'jpeg' ? 'jpg' : format)
-				return `${name}-${width}.${modifiedFormat}`
-			}
-		}
+
 		convertPicturesLibrary(intermediaryPath, options)
-		image.dataset.responsiver = image.className
-		//image.dataset.responsiveruRL = metadata.jpg.url;
-		image.dataset.size = image.className
+
 	}
 	catch (e) {
-		console.log("debug images-resp: " + originalPath + "  " + e)
+		console.log("debug images-resp: " + intermediaryPath + "  " + e)
 	}
 }
 
@@ -121,13 +96,8 @@ function generateList(imageSettings, imageWidth, imageSrc) {
 			}
 			previousStepWidth = stepWidth
 			widthsList.push(stepWidth)
-
-			srcsetList.push(
-				`${imageSettings.resizedImageUrl(
-					imageSrc,
-					stepWidth
-				)} ${stepWidth}w`
-			)
+			const url = imageSettings.resizedImageUrl(imageSrc, stepWidth)
+			srcsetList.push(`${url} ${stepWidth}w`)
 		}
 	}
 
@@ -154,12 +124,13 @@ function prepareForLighbox(image, document) {
 export default function handlePictures(image, document, globalSettings) {
 
 	try {
-		let originalPath = normalizePath(image.getAttribute('src'))
+		let originalPath = path.normalize(image.getAttribute('src'))
 		const intermediaryPath = "src/assets/imagesToProcess/" + path.basename(originalPath)
 		let imageSettings = clonedeep(globalSettings)
 
 		const imageDimensions = convertPicturesLibrary.statsSync(intermediaryPath, { statsOnly: true, formats: ["webp"] })
-		image.setAttribute('width', imageDimensions.webp[0].width)
+		const originalWidth = imageDimensions.webp[0].width
+		image.setAttribute('width', originalWidth)
 		image.setAttribute('height', imageDimensions.webp[0].height)
 
 
@@ -168,35 +139,68 @@ export default function handlePictures(image, document, globalSettings) {
 		warning(`Transforming ${imageSrc}`)
 
 
-		const { widthsList, srcsetList } = generateList(imageSettings, imageWidth, imageSrc)
-
+		let { widthsList, srcsetList } = generateList(imageSettings, imageWidth, imageSrc)
+		widthsList.push(originalWidth)
 
 		if (imageSettings.classes.length > 0) {
 			image.classList.add(...imageSettings.classes)
 		}
-		// Change the image source
-		image.setAttribute(
-			'src',
-			imageSettings.resizedImageUrl(imageSrc, imageSettings.fallbackWidth)
-		)
+		if (imageSettings.fallbackWidth) {
+			image.setAttribute(
+				'src',
+				imageSettings.resizedImageUrl(imageSrc, imageSettings.fallbackWidth)
+			)
+		}
 		image.setAttribute('srcset', srcsetList.join(', '))
 		// add sizes attribute
 		image.setAttribute('sizes', imageSettings.sizes)
-
+		image.dataset.responsiver = image.className
+		//image.dataset.responsiveruRL = metadata.jpg.url;
+		image.dataset.size = image.className
 		// add 'data-pristine' attribute with URL of the pristine image
 		image.dataset.pristine = imageSrc
+		image.setAttribute("loading", "lazy")
 
 		// Add attributes from the preset
-		if (Object.keys(imageSettings.attributes).length > 0) {
-			for (const attribute in imageSettings.attributes) {
-				if (imageSettings.attributes[attribute] !== null) {
-					image.setAttribute(attribute, imageSettings.attributes[attribute])
-				}
+		/*		if (Object.keys(imageSettings.attributes).length > 0) {
+					for (const attribute in imageSettings.attributes) {
+						if (imageSettings.attributes[attribute] !== null) {
+							image.setAttribute(attribute, imageSettings.attributes[attribute])
+						}
+					}
+				}*/
+		let options = {
+			sharpWebpOptions: {
+				quality: 90,
+			},
+			widths: widthsList,
+			dryRun: false,
+			formats: (
+				meta.env === "production"
+					?
+					['webp']
+					:
+					['jpg']
+			),
+			urlPath: '/assets/imagesToProcess/',
+			outputDir: `./${meta.outputDir}/${meta.assetsDir}/`,
+			filenameFormat: function (id, src, width, format, options) {
+				const extension = path.extname(src)
+				const name = path.basename(src, extension)
+				//const modifiedFormat = (format === 'jpeg' ? 'jpg' : format)
+				return `${name}-${width}.${options.formats[0]}`
 			}
 		}
+		convertPictures(intermediaryPath, options)
 
-		convertPictures(image, widthsList, originalPath, intermediaryPath)
-
+		// on fait tourner la conversion une seconde fois pour juste compresser l'image, sans changement de format et avec une seule largeur.
+		// surtout pour la page /blog
+		options.widths = [originalWidth]
+		options.formats = [(path.extname(imageSrc)).replace('\.', '')]
+		options.filenameFormat = function (id, src, width, format) {
+			return path.basename(src)
+		}
+		convertPictures(intermediaryPath, options)
 
 		prepareForLighbox(image, document)
 	} catch (e) {

@@ -1,5 +1,4 @@
 require('dotenv').config()
-
 const { convertToBool } = require('../utils/convertToBool')
 
 module.exports = {
@@ -19,7 +18,8 @@ module.exports = {
 	zoteroAPIKey: process.env.zoteroAPIKey || '',
 	twitterBearer: process.env.TWITTER_BEARER,
 	twitterThread: convertToBool(process.env.TWITTER_THREAD),
-	search: convertToBool(process.env.TWITTER_THREAD)
+	search: convertToBool(process.env.SEARCH),
+	pictures: process.env.PICTURES || true
 
 }
 
