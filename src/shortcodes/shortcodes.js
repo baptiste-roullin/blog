@@ -4,7 +4,7 @@ import { slugifyFilter as slugify } from '../filters/slugify'
 
 export const shortcodes = {
   truchetItem: truchetItem,
-  truchetLisst: truchetList,
+  truchetList: truchetList,
   heading: function (level, className, label) {
     if (typeof label === "object") {
       label = label.val
@@ -22,11 +22,13 @@ export const shortcodes = {
     if (size) {
       className = className + " "
     }
-    return `<a
-            href="${url}"
-            class="${className} cta-link">
-            Voir tout <span aria-hidden="true">⤳</span>
-            </a>    `
+    return `<div class="not-prose cta-link-wrapper">
+      <a
+              href="${url}"
+              class="${className} cta-link text-brown">
+              ${label} <span aria-hidden="true">⤳</span>
+              </a>
+    </div>  `
   },
   /**
    * ===== SVGs =====

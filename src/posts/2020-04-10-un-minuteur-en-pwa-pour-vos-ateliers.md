@@ -10,11 +10,11 @@ hero:
 
 ---
 
-J'ai fait un minuteur, il est joli, il est cool, il est disponible ici :
+J'ai fait un minuteur, il est joli, il est cool.
 
-
-{% ctaLink "C'est ici", "https://misc.toutcequibouge.net/Timer/", "big", "not-prose"  %}
-
+::: info-block
+{% ctaLink "Voir le projet, "https://misc.toutcequibouge.net/Timer/"  %}
+:::
 
 
 [![](/assets/images/screenshot.png)](https://misc.toutcequibouge.net/Timer/)

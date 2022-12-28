@@ -7,6 +7,7 @@ import normalizeTag from './normalize_tag'
 import { DateTime, Settings } from 'luxon'
 Settings.defaultLocale = "fr"
 import removeMD from './remove_MD'
+import meta from '../../src/_data/meta'
 
 
 export const filters = {
@@ -74,8 +75,8 @@ export const filters = {
 
 		return newArray
 	},
-
-	searchIndex: search,
+	searchIndex: (!meta.search ? () => "[RECHERCHE DÉSACTIVÉE]" : search)
+	,
 
 	markdownify: (markdownString) => md.renderInline(markdownString),
 

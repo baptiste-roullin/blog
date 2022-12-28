@@ -4,5 +4,5 @@ const meta = require('../_data/meta')
 
 export const asyncShortcodes = {
 	// @ts-ignore
-	zotero: (!meta.ZOTERO ? async () => "[ZOTÉRO DÉSACTIVÉ]" : zotero)
+	zotero: (!meta.zotero ? async () => "[ZOTÉRO DÉSACTIVÉ]" : zotero)
 }

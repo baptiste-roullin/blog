@@ -21,4 +21,8 @@
 		margin-bottom: 2rem;
 		@apply gap-16
 	}
+
+	 .info-block{
+		@apply bg-cream flex justify-center gap-16 py-4
+ 	}
 }

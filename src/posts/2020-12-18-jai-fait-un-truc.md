@@ -9,7 +9,10 @@ hero:
 ---
 
 
-[C'est ici](http://table-basse.toutcequibouge.net/){.cta} {.not-prose}
+
+::: info-block
+{% ctaLink "Voir le projet", "https://github.com/baptiste-roullin/data-from-clipboard"  %}
+:::
 
 Soyez patient pour le premier chargement, car l'hébergeur (Heroku version gratuite) éteint le serveur après 30 min d'inactivité.
 

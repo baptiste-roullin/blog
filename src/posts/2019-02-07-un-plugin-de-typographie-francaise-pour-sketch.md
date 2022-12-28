@@ -14,8 +14,9 @@ Résumé : j'ai créé un [plugin Sketch](https://github.com/baptiste-roullin/
 
 <!-- excerpt -->
 
-
-{% ctaLink "Typographie Frenchy", "https://github.com/baptiste-roullin/typographie-frenchy#readme", "big", "not-prose"  %}
+::: info-block
+{% ctaLink "Voir le projet", "https://github.com/baptiste-roullin/typographie-frenchy#readme"  %}
+:::
 
 Tout a commencé par une interface comme celle-ci :
 
