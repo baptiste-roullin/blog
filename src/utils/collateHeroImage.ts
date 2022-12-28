@@ -8,7 +8,8 @@ export default async function (data) {
 	const hero = data.hero
 
 	let finalName
-	if (hero === undefined || Object.keys(hero).length === 0) {
+
+	if (typeof hero !== "object" || typeof hero?.image !== "string") {
 		await truchetNode(slug, 400, 280).catch(console.error)
 		//URL absolue
 		finalName = `truchet-${slug}.png`
@@ -16,9 +17,7 @@ export default async function (data) {
 	else if (/\.gif$/.test(hero.image)) {
 		finalName = hero.image
 	}
-	else if (data.contentType === "thread") {
 
-	}
 	else { finalName = hero.image }
 
 
