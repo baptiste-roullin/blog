@@ -25,6 +25,8 @@ module.exports = function conf(config: Config): UserConfig {
 	if (meta.env === "dev") {
 		config.ignores.add("src/posts/2*")
 	}
+	config.ignores.add("src/heroPages/portfolio/portfolioIntro.md")
+
 
 	/**
 	* Custom Watch Targets
