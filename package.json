@@ -15,6 +15,11 @@
     "build:eleventy": "cross-env NODE_ENV=production npx @11ty/eleventy  --incremental",
     "build": "run-s build:* --print-label"
   },
+  "overrides": {
+    "@11ty/eleventy-plugin-vite": {
+      "vite": "^4.0.0"
+    }
+  },
   "devDependencies": {
     "@11ty/eleventy": "2.0.0-canary.23",
     "@11ty/eleventy-fetch": "3.0.0",
@@ -95,6 +100,8 @@
     "canvas": "^2.10.2"
   },
   "dependencies": {
+    "@11ty/eleventy-plugin-vite": "^1.0.0",
+    "@11ty/eleventy-plugin-webc": "^0.8.1",
     "elasticlunr": "github:weixsong/elasticlunr.js#v0.9.6",
     "photoswipe": "^5.3.4",
     "text-metrics": "^3.0.0"

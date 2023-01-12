@@ -17,13 +17,13 @@ import { shortcodes } from '../shortcodes/shortcodes'
 import { filters } from '../filters/filters'
 
 import { Config, UserConfig } from '../../types/eleventy'
-
+const EleventyVitePlugin = require("@11ty/eleventy-plugin-vite")
 
 module.exports = function conf(config: Config): UserConfig {
 
 
 	if (meta.env === "dev") {
-		config.ignores.add("src/posts/2*")
+		config.ignores.add("src/posts/*")
 	}
 	config.ignores.add("src/heroPages/portfolio/portfolioIntro.md")
 
@@ -57,7 +57,33 @@ cf. postcss.config.js pour le CSS
 	config.addPassthroughCopy('src/assets/UI')
 
 	config.setUseGitIgnore(false)
+	config.addPlugin(EleventyVitePlugin,
+		{
+			tempFolderName: ".11ty-vite", // Default name of the temp folder
 
+			viteOptions: {
+				publicDir: "assets",
+				build: {
+
+					// This is important: Generate directly to _site and then assetsDir.
+					// You could opt to build in an intermediate directory,
+					// and have Eleventy copy the flies instead.
+					outDir: "dist",
+					// This is the default assetsDir. If you are using assets
+					// for anything else, consider renaming assetsDir.
+					// This can help you set cache headers for hashed output more easily.
+					assetsDir: "assets",
+
+					// This is critical: generate manifest.json in outDir
+					manifest: true,
+					//rollupOptions: {
+					//	// This is critical: overwrite default .html entry
+					//	input: "./src/assets/scripts/main.js",
+					//},
+				},
+			}
+		}
+	)
 	if (meta.pictures) {
 		config.addPassthroughCopy('src/assets/docs/')
 		config.addPassthroughCopy({ 'src/heroPages/portfolio/*': meta.assetsDir })
@@ -163,7 +189,6 @@ cf. postcss.config.js pour le CSS
 	Object.keys(collections).forEach((colName) => {
 		config.addCollection(colName, collections[colName])
 	})
-
 
 	return {
 		dir: {

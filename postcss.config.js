@@ -7,8 +7,5 @@ module.exports = {
     require('tailwindcss')({ config: './tailwind.config.js' }),
     require('autoprefixer'),
     ...(meta.env === "production" ? [require('cssnano')] : []),
-    require('postcss-hash')({
-      manifest: './src/_data/hashes_css.json',
-    }),
   ]
 }
