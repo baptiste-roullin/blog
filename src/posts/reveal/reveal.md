@@ -1,7 +1,6 @@
 ---
 title: Faire des slides comme un dev quand on est designer
 date: '2022-02-05'
-picture_lightbox: true
 tags:
 - projets
 ---

@@ -4,7 +4,6 @@ date: 2016-02-14
 tags:
   - "histoire"
   - "objets"
-picture_lightbox: true
 hero:
   image: large_the_apartment_blu-ray_1.jpg
 ---

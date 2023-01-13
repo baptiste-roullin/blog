@@ -2,7 +2,6 @@
 title: Bibliographie sur le consentement et la vie privée
 date: 2021-08-02T00:00:00.000Z
 draft: false
-picture_lightbox: true
 tags:
   - RGPD
   - droit

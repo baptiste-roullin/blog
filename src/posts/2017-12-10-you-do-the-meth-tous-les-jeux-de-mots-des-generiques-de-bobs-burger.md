@@ -7,7 +7,6 @@ tags:
   - "répétition"
 hero:
   image: Bobs-Burgers-S07E17-Zero-Larp-Thirty.png
-picture_lightbox: true
 ---
 
 

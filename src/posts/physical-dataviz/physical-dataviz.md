@@ -7,7 +7,6 @@ tags:
   - "données"
 featured: true
 draft: false
-picture_lightbox: true
 hero:
   image: maxwell.jpg
   alt: "modèle en plâtre sur lequel est tracé des courbes, pour expliquer la thermodynamique."
