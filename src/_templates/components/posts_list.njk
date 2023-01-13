@@ -6,8 +6,6 @@
 			{% endfor %}
 		</ul>
 
-		{# ===== Paginate based on "size" frontmatter value above =====  #}
-		{# Don't even include the pagination component if there are fewer posts than needed to paginate  #}
 		{% if (collections.publishedPosts.length > pagination.size) and (postListItemStyle.showPagination) %}
 
 			{% include "components/pagination.njk" %}
