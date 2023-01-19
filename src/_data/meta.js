@@ -19,7 +19,7 @@ module.exports = {
 	twitterBearer: process.env.TWITTER_BEARER,
 	twitterThread: convertToBool(process.env.TWITTER_THREAD),
 	search: convertToBool(process.env.SEARCH),
-	pictures: process.env.PICTURES || true
+	pictures: convertToBool(process.env.PICTURES)
 
 }
 

@@ -46,17 +46,14 @@ module.exports = function conf(config: Config): UserConfig {
 
 cf. webpack.configs.js pour le JS
 cf. postcss.config.js pour le CSS
-
 */
-
 	//On copie tels quels les média avec chemins relatifs ou absolus dans /dist, qu'ils puissent être lus par du balisage non-transformé (sans srcset ou gif -> vidéo)
-
 
 	config.addPassthroughCopy('src/robots.txt')
 	config.addPassthroughCopy('src/assets/css/fonts')
 	config.addPassthroughCopy('src/assets/UI')
-
 	config.setUseGitIgnore(false)
+	console.log(meta.pictures)
 
 	if (meta.pictures) {
 		config.addPassthroughCopy('src/assets/docs/')
@@ -64,7 +61,6 @@ cf. postcss.config.js pour le CSS
 
 		//config.addPassthroughCopy({ 'src/posts/**/* ': meta.assetsDir })
 		//config.addPassthroughCopy('src/assets/images')
-
 
 		config.addTransform(
 			'picturesProcessing',

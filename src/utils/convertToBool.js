@@ -3,9 +3,9 @@ module.exports = {
 		const str = (string ? string.toLowerCase() : undefined)
 		switch (str) {
 			case "true":
+			case "undefined":
 				return true
 			case "false":
-			case "undefined":
 			default:
 				return false
 		}
