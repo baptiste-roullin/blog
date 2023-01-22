@@ -4,6 +4,7 @@ module.exports = {
 		switch (str) {
 			case "true":
 			case "undefined":
+			case undefined:
 				return true
 			case "false":
 			default:
