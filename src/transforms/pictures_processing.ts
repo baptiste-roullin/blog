@@ -4,10 +4,11 @@
 
 import path from 'path'
 require('dotenv').config()
-
+import { writeFile, readFile } from 'node:fs/promises'
 const { parseHTML } = require('linkedom')
 import handleGIFs from './handle_GIFs'
 import handlePictures from './handle_pictures'
+import fileExists from '../utils/fileExists'
 
 const meta = require('../_data/meta')
 
@@ -21,14 +22,14 @@ function reformatURL(src: string, width): string {
 }
 
 
-export default function pictures_processing(html) {
+export default async function pictures_processing(html) {
 
 	const globalSettings = {
 		selector: ` .template-post  :not(picture) > img[src]:not([srcset]):not([src$='.svg'])`,
 		minWidth: 400,
 		maxWidth: 1920,
-/*		fallbackWidth: 750,
-*/		sizes: '(max-width: 60rem) 90vw, 60rem',
+		/*		fallbackWidth: 750,*/
+		sizes: '(max-width: 60rem) 90vw, 60rem',
 		resizedImageUrl: reformatURL,
 		steps: 5,
 		classes: ['img-default'],
@@ -55,9 +56,10 @@ export default function pictures_processing(html) {
 				await handleGIFs(image)
 			}
 			else {
-				handlePictures(image, document, globalSettings)
+				handlePictures(image, document, globalSettings, index)
 			}
 		})
+	writeFile("src/assets/imagesToProcess/picturesIndex.json", JSON.stringify(Array.from(index)))
 
 	return document.toString()
 };

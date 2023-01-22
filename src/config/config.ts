@@ -19,12 +19,12 @@ import { filters } from '../filters/filters'
 import { Config, UserConfig } from '../../types/eleventy'
 
 
-module.exports = function conf(config: Config): UserConfig {
+module.exports = async function (config: Config): UserConfig {
 
 
-	if (meta.env === "dev") {
+	/*if (meta.env === "dev") {
 		config.ignores.add("src/posts/2*")
-	}
+	}*/
 	config.ignores.add("src/heroPages/portfolio/portfolioIntro.md")
 
 
@@ -61,7 +61,6 @@ cf. postcss.config.js pour le CSS
 
 		//config.addPassthroughCopy({ 'src/posts/**/* ': meta.assetsDir })
 		//config.addPassthroughCopy('src/assets/images')
-
 		config.addTransform(
 			'picturesProcessing',
 			(content, outputPath) => {

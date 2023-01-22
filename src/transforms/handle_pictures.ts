@@ -14,14 +14,20 @@ function normalizePath(str) {
 }
 
 
-async function convertPictures(intermediaryPath, options) {
+async function convertPictures(tempFilePath, options, index: Set<String>) {
 	try {
-
-		convertPicturesLibrary(intermediaryPath, options)
+		if (!index.has(tempFilePath)) {
+			convertPicturesLibrary(tempFilePath, options)
+			index.add(tempFilePath)
+			warning(tempFilePath + "converted added to index")
+		}
+		else {
+			warning(tempFilePath + "already converted ")
+		}
 
 	}
 	catch (e) {
-		console.log("debug images-resp: " + intermediaryPath + "  " + e)
+		console.log("debug images-resp: " + tempFilePath + "  " + e)
 	}
 }
 
@@ -121,14 +127,14 @@ function prepareForLighbox(image, document) {
 }
 
 
-export default function handlePictures(image, document, globalSettings) {
+export default function handlePictures(image, document, globalSettings, index: Set<string>) {
 
 	try {
 		let originalPath = path.normalize(image.getAttribute('src'))
-		const intermediaryPath = "src/assets/imagesToProcess/" + path.basename(originalPath)
+		const tempFilePath = "src/assets/imagesToProcess/" + path.basename(originalPath)
 		let imageSettings = clonedeep(globalSettings)
 
-		const imageDimensions = convertPicturesLibrary.statsSync(intermediaryPath, { statsOnly: true, formats: ["webp"] })
+		const imageDimensions = convertPicturesLibrary.statsSync(tempFilePath, { statsOnly: true, formats: ["webp"] })
 		const originalWidth = imageDimensions.webp[0].width
 		image.setAttribute('width', originalWidth)
 		image.setAttribute('height', imageDimensions.webp[0].height)
@@ -191,7 +197,7 @@ export default function handlePictures(image, document, globalSettings) {
 				return `${name}-${width}.${options.formats[0]}`
 			}
 		}
-		convertPictures(intermediaryPath, options)
+		convertPictures(tempFilePath, options, index)
 
 		// on fait tourner la conversion une seconde fois pour juste compresser l'image, sans changement de format et avec une seule largeur.
 		// surtout pour la page /blog
@@ -200,7 +206,7 @@ export default function handlePictures(image, document, globalSettings) {
 		options.filenameFormat = function (id, src, width, format) {
 			return path.basename(src)
 		}
-		convertPictures(intermediaryPath, options)
+		convertPictures(tempFilePath, options, index)
 
 		prepareForLighbox(image, document)
 	} catch (e) {
