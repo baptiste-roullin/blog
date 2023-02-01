@@ -30,26 +30,22 @@ const anchor = (md) => {
 
 
 
-//TODO : ortho-typo https://github.com/markdown-it/markdown-it/blob/master/lib/rules_core/replacements.js
+//TODO : manque ortho-typo pour ? et !
+// https://github.com/markdown-it/markdown-it/blob/master/lib/rules_core/replacements.js
 
-/*const double_punctuation = (md, options) => {
+const double_punctuation = (md) => {
 	const NBSP_DOUBLE_PUNCTUATION = /(\w+(?:\s?»)?)(\s?)([?!;:])(\s|$)/gu
-	const U = {
-		ELLIPSIS: '\u2026',
-		SPACE: '\u0020', // Good ol' space
-		WNBSP: '\u00A0', // wide non breakable space
-		NNBSP: '\u202F', // narrow non breakable space
-		OPENING_QUOTE: '«',
-		CLOSING_QUOTE: '»',
-	}
+	const NNBSP = '\u202F' // narrow non breakable space
 
-		str.replace(NBSP_DOUBLE_PUNCTUATION, (match, $1, $2, $3, $4) => {
+	md.inline.ruler.push('double_punctuation', (state) => {
+		state.replace(NBSP_DOUBLE_PUNCTUATION, (match, $1, $2, $3, $4) => {
 			console.log('espaces fines insécables avant ? ! ; :')
-			return $1 + U.NNBSP + $3 + $4
+			return $1 + NNBSP + $3 + $4
 		})
+	})
 }
 
-*/
+
 let options = {
 	html: true,
 	breaks: true,
@@ -64,7 +60,7 @@ export const md = markdownIt(options)
 	//.use(markdownItHeadingLevel, { firstLevel: 2 })
 	.use(require('markdown-it-footnote'))
 	.use(anchor)
-	//.use(double_punctuation)
+	.use(double_punctuation)
 	.use(require('markdown-it-bracketed-spans'))
 	.use(require('markdown-it-attrs'))
 	.use(require('markdown-it-blockquote-cite'))

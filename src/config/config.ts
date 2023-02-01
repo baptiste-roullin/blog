@@ -54,7 +54,6 @@ cf. postcss.config.js pour le CSS
 	config.addPassthroughCopy('src/assets/css/fonts')
 	config.addPassthroughCopy('src/assets/UI')
 	config.setUseGitIgnore(false)
-	console.log(meta.pictures)
 
 	if (meta.pictures) {
 		config.addPassthroughCopy('src/assets/docs/')
@@ -71,8 +70,6 @@ cf. postcss.config.js pour le CSS
 					outputPath.endsWith('.html') &&
 					(outputPath.startsWith('dist/blog/') || outputPath.startsWith('dist/portfolio/'))
 				) {
-					console.log(outputPath)
-
 					return picturesProcessing(content)
 				}
 				return content
