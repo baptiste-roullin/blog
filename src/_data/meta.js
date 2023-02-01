@@ -14,12 +14,13 @@ module.exports = {
 	outputDir: "dist",
 	assetsDir: 'assets/images',
 	zotero: convertToBool(process.env.ZOTERO),
-	zoteroProfileID: process.env.zoteroProfileID || '',
-	zoteroAPIKey: process.env.zoteroAPIKey || '',
 	twitterBearer: process.env.TWITTER_BEARER,
 	twitterThread: convertToBool(process.env.TWITTER_THREAD),
 	search: convertToBool(process.env.SEARCH),
-	pictures: convertToBool(process.env.PICTURES)
+	pictures: convertToBool(process.env.PICTURES),
+	zoteroProfileID: process.env.zoteroProfileID || '',
+	zoteroAPIKey: process.env.zoteroAPIKey || ''
+
 
 }
 

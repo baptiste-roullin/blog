@@ -22,10 +22,11 @@ import { Config, UserConfig } from '../../types/eleventy'
 module.exports = async function (config: Config): UserConfig {
 
 
-	/*if (meta.env === "dev") {
-		config.ignores.add("src/posts/2*")
-	}*/
-	config.ignores.add("src/heroPages/portfolio/portfolioIntro.md")
+	/*	if (meta.env === "dev") {
+			config.ignores.add("src/posts/2*")
+		}*/
+	config.ignores.add("./src/heroPages/portfolio/portfolioIntro.md")
+	config.ignores.add("./src/features/zotero/zotero_component.njk")
 
 
 	/**
@@ -53,7 +54,6 @@ cf. postcss.config.js pour le CSS
 	config.addPassthroughCopy('src/assets/css/fonts')
 	config.addPassthroughCopy('src/assets/UI')
 	config.setUseGitIgnore(false)
-	console.log(meta.pictures)
 
 	if (meta.pictures) {
 		config.addPassthroughCopy('src/assets/docs/')
@@ -64,7 +64,11 @@ cf. postcss.config.js pour le CSS
 		config.addTransform(
 			'picturesProcessing',
 			(content, outputPath) => {
-				if (outputPath && outputPath.endsWith('.html')) {
+				if (
+					outputPath &&
+					outputPath.endsWith('.html') &&
+					(outputPath.startsWith('dist/blog/') || outputPath.startsWith('dist/portfolio/'))
+				) {
 					return picturesProcessing(content)
 				}
 				return content
@@ -76,8 +80,6 @@ cf. postcss.config.js pour le CSS
 		//config.addPassthroughCopy('src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}')
 	}
 
-
-
 	/**
 	 * Add layout aliases
 	 */
@@ -85,8 +87,6 @@ cf. postcss.config.js pour le CSS
 	config.addLayoutAlias('page', 'layouts/page.njk')
 	config.addLayoutAlias('post', 'layouts/post.njk')
 	config.addLayoutAlias('heroPage', 'layouts/heroPage.njk')
-
-
 
 	/**
 	 * Plugins

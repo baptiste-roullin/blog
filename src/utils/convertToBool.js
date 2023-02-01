@@ -5,6 +5,7 @@ module.exports = {
 			case "true":
 			case undefined:
 			case "undefined":
+			case undefined:
 				return true
 			case "false":
 			default:

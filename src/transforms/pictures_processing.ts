@@ -59,7 +59,8 @@ export default async function pictures_processing(html) {
 				handlePictures(image, document, globalSettings, index)
 			}
 		})
-	writeFile("src/assets/imagesToProcess/picturesIndex.json", JSON.stringify(Array.from(index)))
+	// TODO : utiliser le retour de eleventy-img https://www.11ty.dev/docs/plugins/image/#usage
+	//writeFile("src/assets/imagesToProcess/picturesIndex.json", JSON.stringify(Array.from(index)))
 
 	return document.toString()
 };
