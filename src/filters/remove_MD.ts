@@ -11,6 +11,7 @@ export default function removeMD(string) {
 		// cas spécial, par exemple pour evelyn.md
 		string.replace(/\[(.*)\]\{.*\}/g, "$1")
 			.replace(/&NewLine;/g, "")
+			.replace(/::: info-block\n.*\n:::\n/, '')
 	)
 
 }
