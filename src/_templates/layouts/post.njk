@@ -2,29 +2,28 @@
 layout: base
 ---
 
-<div class="template-post-main">
-  {% if hero.image %}
-    {% include 'components/header_hero_image.njk' %}
-  {% endif %}
-
-  <div class="my-20 post-main prose-tcqb article sm:px-4 xl:px-0 container-prose ">
-
-    {% if not hero.image %}
-      <header class="">
-        <h1 class="m-auto text-gray-700">{{ title }}</h1>
-        {% if not hideMeta %}
-          <div class="pt-4 text-sm sm:text-base not-prose">
-            <time datetime="{{ page.date | dateHumanFormat("yyyy-MM-dd") }}">
-              {{ page.date | dateHumanFormat("dd LLLL yyyy") }}
-            </time>
-            {% include "components/separator.njk" %}
-            {% include "components/tags_pills_inline.njk" %}
-          </div>
-        {% endif %}
-
-      </header>
+<div >
+  <div class="template-post-main">
+    {% if hero.image %}
+      {% include 'components/header_hero_image.njk' %}
     {% endif %}
-    <div class="my-16 post-main prose-tcqb">{{ content | safe }}</div>
+    <div class="my-20 post-main prose-tcqb article sm:px-4 xl:px-0 container-prose ">
+      {% if not hero.image %}
+        <header class="">
+          <h1 class="m-auto text-gray-700">{{ title }}</h1>
+          {% if not hideMeta %}
+            <div class="pt-4 text-sm sm:text-base not-prose">
+              <time datetime="{{ page.date | dateHumanFormat("yyyy-MM-dd") }}">
+                {{ page.date | dateHumanFormat("dd LLLL yyyy") }}
+              </time>
+              {% include "components/separator.njk" %}
+              {% include "components/tags_pills_inline.njk" %}
+            </div>
+          {% endif %}
+        </header>
+      {% endif %}
+      <div class="my-16 post-main prose-tcqb">{{ content | safe }}</div>
+    </div>
   </div>
 
   {% set nextPost = collections.publishedPosts | getPreviousCollectionItem %}
