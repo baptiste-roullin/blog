@@ -3,7 +3,7 @@
 {% set title = title | removeMD %}
 <title>{{  title }}  </title>
 {% if r/^post-?/g.test(layout) %}
-  {% set postImage = meta.siteURL +  '/'  + collatedHeroImage %}
+  {% set postImage = meta.siteURL  + collatedHeroImage %}
   {% set pageURL = meta.siteURL + page.url %}
   <script type="application/ld+json" >
     {
@@ -14,9 +14,9 @@
       "publisher": {
         "@type": "Organization",
         "name": "Baptiste Roullin",
-        "url": "{{meta.siteURL }}"
+        "url": "https://{{meta.siteURL }}"
       },
-      "url": "{{pageURL}}",
+      "url": "https://{{pageURL}}",
       "datePublished": "{{page.date | dateISOFormat}}",
       "dateCreated": "{{page.date | dateISOFormat}}",
       "description": "{{description | removeMD | safe}}",
@@ -27,7 +27,7 @@
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "{{meta.siteURL}}/blog"
+        "@id": "https://{{meta.siteURL}}/blog"
       }
     }
   </script>
