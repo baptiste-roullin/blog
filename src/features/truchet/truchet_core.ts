@@ -71,7 +71,7 @@ export default async function truchet(canvas: HTMLCanvasElement, tileCanvas: HTM
 	const curveWidth = Math.max(2, tile_size / segments * curve_thickness + 1);
 
 
-	function randomize_curves(x, y, tile_size) {
+	function randomize_curves(tile_size) {
 
 		// soit 0, soit tile_size
 		// pour définir l'origine du cercle
@@ -179,7 +179,7 @@ export default async function truchet(canvas: HTMLCanvasElement, tileCanvas: HTM
 			tileContext.fillRect(parity ? tile_size / 2 : 0, tile_size / 2, tile_size / 2, tile_size / 2);
 
 			// COURBE
-			const curves = randomize_curves(x, y, tile_size)
+			const curves = randomize_curves(tile_size)
 			for (let j = 0; j < curves.length; ++j) {
 				let [i, tx, ty] = curves[j];
 				const hue_should_flip = ((x + y + tx + ty) / tile_size) % 2

@@ -13,6 +13,7 @@
 		] /* Specify library files to be included in the compilation. */,
 		"checkJs": true /* Report errors in .js files. */,
 		"allowJs": true,
+		"skipLibCheck": true,
 		"declaration": true, /* Generates corresponding '.d.ts' file. */
 		"declarationMap": true, /* Generates a sourcemap for each corresponding '.d.ts' file. */
 		"sourceMap": true, /* Generates corresponding '.map' file. */
@@ -21,13 +22,13 @@
 		// "composite": true,                     /* Enable project compilation */
 		"incremental": true, /* Enable incremental compilation */
 		// "tsBuildInfoFile": "./",               /* Specify file to store incremental compilation information */
-		"removeComments": true, /* Do not emit comments to output. */
+		"removeComments": false, /* Do not emit comments to output. */
 		"noEmit": true /* Do not emit outputs. (BECAUSE WE'RE USING TS-NODE!) */,
 		"importHelpers": false, /* Import emit helpers from 'tslib'. */
 		// "downlevelIteration": true,            /* Provide full support for iterables in 'for-of', spread, and destructuring when targeting 'ES5' or 'ES3'. */
 		// "isolatedModules": true,               /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */
 		/* Strict Type-Checking Options */
-		"strict": true /* Enable all strict type-checking options. */,
+		"strict": false /* Enable all strict type-checking options. */,
 		/* Additional Checks */
 		"noUnusedLocals": false /* Report errors on unused locals. */,
 		"noUnusedParameters": false /* Report errors on unused parameters. */,
@@ -57,6 +58,7 @@
 	"include": [
 		"./src/**/*.ts",
 		"./src/**/*.js",
+		"./src/config/config.ts",
 		"tsconfig.front.json"
 	],
 	"exclude": [

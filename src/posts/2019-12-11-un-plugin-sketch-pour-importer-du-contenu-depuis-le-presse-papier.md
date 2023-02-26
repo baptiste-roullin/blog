@@ -9,7 +9,13 @@ tags:
 
 ---
 
-[C'est ici](https://github.com/baptiste-roullin/data-from-clipboard){.cta} {.not-prose}
+
+::: info-block
+{% ctaLink "Télécharger le fichier", "https://github.com/baptiste-roullin/data-from-clipboard/releases/latest/data-from-clipboard.sketchplugin.zip"  %}{% ctaLink "Voir le projet", "https://github.com/baptiste-roullin/data-from-clipboard"  %}
+:::
+
+
+
 
 Beaucoup de plugins Sketch pour l'import de contenu ([Craft](https://www.invisionapp.com/craft), [Data Populator](https://www.datapopulator.com/)…) sont pensés pour des sources de données non modifiables (banque d'images, noms de pays...), ou pour des données complexes à synchroniser avec des maquettes graphiques abouties. Suivant les plugins, ça implique de renommer des calques, d'avoir un fichier de données en TXT voire en JSON... bref des procédures un peu lourdes.
 
@@ -17,11 +23,6 @@ Mon cas d'usage est beaucoup plus simple : le plus souvent, je veux rapidement
 
 Qu'à cela ne tienne, j'ai créé [un plugin pour Sketch](https://github.com/baptiste-roullin/data-from-clipboard).
 
-* * *
-
-[**Lien vers le fichier**](https://github.com/baptiste-roullin/data-from-clipboard/releases/latest/data-from-clipboard.sketchplugin.zip)[](https://github.com/baptiste-roullin/data-from-clipboard/releases/latest/data-from-clipboard.sketchplugin.zip)
-
-* * *
 
 Comment l'utiliser ?
 

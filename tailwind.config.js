@@ -1,9 +1,7 @@
-/** @type {import('tailwindcss').Config} */
-
-/*const { opacity, fontFamily } = require('tailwindcss/defaultTheme')
-const defaultTheme = require('tailwindcss/defaultTheme')*/
 const colors = require('tailwindcss/colors')
+
 module.exports = {
+	darkMode: 'class',
 	corePlugins: {
 	},
 	safelist: ['sr-only'],
@@ -32,48 +30,51 @@ module.exports = {
 			],
 		},
 		colors: {
+			/* passer aux couleurs tailwind, potentiellement en les tweakant */
 			transparent: 'transparent',
 			current: 'currentColor',
 			black: colors.black,
 			white: colors.white,
 			gray: colors.gray,
 			indigo: colors.indigo,
+			red: colors.red,
+			'blue': {
+				DEFAULT: 'hsl(202, 78%, 16%)',
+				lighter: 'hsl(217,32%,32%)',
+				light: 'hsl(202, 70%, 20%)'
+			},
+			/*			'red': 'hsl(5, 77%, 37%)',*/
+			"brown": {
+				DEFAULT: 'hsl(30.8, 95%, 17.3%)',
+				'light': 'hsl(31, 67%, 34%)',
+			},
+			'orange': 'hsl(36, 100%, 50%)',
+			'cream': '#fff4ed'
 		},
 
 		extend: {
+
 			maxWidth: {
 				'8xl': '90rem',
 				'9xl': '100rem',
 				'1/3': '33%',
 				'1/4': '25%',
-
-
 			},
 			borderRadius: {
 				'4xl': '3rem'
 			},
 			minHeight: {
-
 				'1/4h': '25vh',
-
 				'1/2h': '50vh',
-
 				'3/4h': '75vh',
-
-
 				'full': '100vh',
 			},
 			minWidth: {
-
 				'1/4': '25%',
-
 				'1/2': '50%',
-
 				'3/4': '75%',
-
 			},
 			spacing: {
-				'per-lg': '2%',
 				'per': '4%',
 			},
 			fontSize: {
@@ -83,31 +84,17 @@ module.exports = {
 			},
 			// TODO https://github.com/tailwindlabs/tailwindcss-typography/releases/tag/v0.5.0
 			textShadow: {
-				"lg-dark": "3px 3px 6px rgb(0 0 0 / 46%), 0 0 5px rgb(15 3 86 / 42%)"
+				"lg-blue": "3px 3px 6px rgb(0 0 0 / 46%), 0 0 5px rgb(15 3 86 / 42%)"
 			},
 			boxShadow: {
 				"flat": "0 4px 5px 0px rgba(100,0,0,0.25)",
-				"lg-dark":
+				"lg-blue":
 					"0 1.3px 1.9px rgba(0, 0, 0, 0.1),  0 3.3px 4.9px rgba(0, 0, 0, 0.133),  0 6.7px 9.9px rgba(0, 0, 0, 0.167),  0 13.9px 20.4px rgba(0, 0, 0, 0.207),  0 38px 56px rgba(0, 0, 0, 0.2);"
 			},
-			colors: {
-				'dark': {
-					DEFAULT: 'hsl(202, 78%, 16%)',
-					light: 'hsl(217,32%,32%)',
-					lighter: 'hsl(202, 70%, 20%)'
-				},
-				'accent': 'hsl(5, 77%, 37%)',
-				'accent2': 'hsl(31, 67%, 34%)',
-				'accent3': 'hsl(30.8, 95%, 17.3%)',
-				'accent4': 'ff9b00',
-				'accent-light': '#fff4ed'
-			},
-
 			typography: (theme) => ({
 				'xl': {
 					css: {
 						'line-height': '1.7',
-
 						'ul > li:before':
 						{
 							top: '.8em !important'
@@ -148,7 +135,7 @@ module.exports = {
 							fontWeight: 'normal',
 							transition: 'all .15s ease-in',
 							'&:hover': {
-								color: theme('colors.accent2'),
+								color: theme('colors.brown-light'),
 							},
 						},
 						blockquote: {
@@ -207,9 +194,7 @@ module.exports = {
 
 	},
 	plugins: [
-		require('@tailwindcss/typography')({
-			modifiers: ['lg', 'xl', '2xl'],
-		}),
+		require('@tailwindcss/typography'),
 		require('tailwindcss/nesting'),
 		require('tailwindcss-textshadow'),
 		require('@tailwindcss/forms'),

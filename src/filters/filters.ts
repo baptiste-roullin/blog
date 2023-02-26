@@ -2,11 +2,12 @@ import { slugifyFilter } from './slugify'
 import { md } from '../config/markdown'
 import search from '../features/search_index/search_back'
 import dateFormatting from './date_formatting'
-import removeMD from './remove_MD'
 import normalizeTag from './normalize_tag'
 
 import { DateTime, Settings } from 'luxon'
-Settings.defaultLocale = "fr";
+Settings.defaultLocale = "fr"
+import removeMD from './remove_MD'
+import meta from '../../src/_data/meta'
 
 
 
@@ -33,61 +34,60 @@ export const filters = {
 
 	cleanHeaderAnchors: (content) => {
 		if (content === undefined) {
-			return '';
+			return ''
 		}
-		const regex = /<a class="header-anchor"((?!(<\/a>)).|\n)+<\/a>/gm;
-		return content.replace(regex, '');
+		const regex = /<a class="header-anchor"((?!(<\/a>)).|\n)+<\/a>/gm
+		return content.replace(regex, '')
 	},
 
 	similarPosts: function (collection, path, categories) {
 
 		const getSimilarCategories = function (categoriesA, categoriesB) {
-			return categoriesA.filter(Set.prototype.has, new Set(categoriesB)).length;
+			return categoriesA.filter(Set.prototype.has, new Set(categoriesB)).length
 		}
 		return collection.filter((post) => {
-			return getSimilarCategories(post.data.categories, categories) >= 1 && post.data.page.inputPath !== path;
+			return getSimilarCategories(post.data.categories, categories) >= 1 && post.data.page.inputPath !== path
 		}).sort((a, b) => {
-			return getSimilarCategories(b.data.categories, categories) - getSimilarCategories(a.data.categories, categories);
-		});
+			return getSimilarCategories(b.data.categories, categories) - getSimilarCategories(a.data.categories, categories)
+		})
 	},
 
 	slice: function (arr, a, b = 5) {
-		return arr.slice(a, b);
+		return arr.slice(a, b)
 	},
 
 	shuffle: function (array) {
 
 		const newArray = [...array]
-		var currentIndex = newArray.length;
-		var temporaryValue, randomIndex;
+		var currentIndex = newArray.length
+		var temporaryValue, randomIndex
 
 		// While there remain elements to shuffle...
 		while (0 !== currentIndex) {
 			// Pick a remaining element...
-			randomIndex = Math.floor(Math.random() * currentIndex);
-			currentIndex -= 1;
+			randomIndex = Math.floor(Math.random() * currentIndex)
+			currentIndex -= 1
 
 			// And swap it with the current element.
-			temporaryValue = newArray[currentIndex];
-			newArray[currentIndex] = newArray[randomIndex];
-			newArray[randomIndex] = temporaryValue;
+			temporaryValue = newArray[currentIndex]
+			newArray[currentIndex] = newArray[randomIndex]
+			newArray[randomIndex] = temporaryValue
 		}
 
-		return newArray;
+		return newArray
 	},
-
-	searchIndex: search,
+	searchIndex: (!meta.search ? () => "{'t':'RECHERCHE DÉSACTIVÉE'}" : search)
+	,
 
 	markdownify: (markdownString) => md.renderInline(markdownString),
 
 	markdownifyBlock: (value) => {
 		if (!value) {
-			console.log("attention, string vide")
+			console.log("markdownifyBlock: empty string")
 			return ''
 		}
 		return `<div class="prose-tcqb">${md.render(value)}</div>`
 	},
-
 
 	removeMD: removeMD,
 
@@ -97,8 +97,11 @@ export const filters = {
 		}).toFormat('yyyy/MM')
 	},
 
-
 	dateISOFormat: function (date) {
+		if (!date) {
+			console.log("date string is empty")
+			return ""
+		}
 		return DateTime.fromJSDate(date).toISODate()
 	},
 

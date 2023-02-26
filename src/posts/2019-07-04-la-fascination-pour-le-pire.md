@@ -4,7 +4,6 @@ date: 2019-07-04
 tags:
   - "conception"
 hero:
-  type: split  # options: carousel, graphic, video, split (text & image)
   image: "012cukejqs1z.png"
 ---
 

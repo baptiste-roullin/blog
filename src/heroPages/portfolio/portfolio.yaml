@@ -1,0 +1,245 @@
+# yaml-language-server: $schema=portfolio.schema.json
+
+---
+references:
+  - title: Michelin RoadConnect, un assistant mobile et réseau social pour les routiers
+    name: Michelin
+    logo: /assets/images/michelin.svg
+    description: |
+      Issu d’un hackaton et piloté par un pôle d’innovation de Michelin, c’est une application mobile permettant :
+
+      * des calculs d’itinéraires adaptés aux routiers (volume du camion, temps de pause...)
+      * de retrouver ses amis sur la route
+
+      Roadconnect n’est plus en ligne mais j’ai aussi travaillé sur Truckfly, l’app qui l'a remplacé.
+    duration:  Un an quasi à temps plein
+    tasks:
+      - 20 sprints
+      - Entretiens sur aires d’autoroute
+      - Pitch de nouvelles fonctions
+      - User flows
+      - 50 wireframes
+      - Stories et tests de régression
+      - Suivi du développement
+    CTA: Voir le site
+    CTALink: https://truckfly.com/
+    photos:
+      - url: /assets/images/michelin1.png
+        alt: null
+      - url:  /assets/images/michelin2.png
+        alt: null
+      - url:  /assets/images/michelin3.png
+        alt: null
+      - url:  /assets/images/michelin4.png
+        alt: null
+
+  - title: Étude sur le consentement pour la MAIF
+    name: MAIF
+    logo: /assets/images/maif.svg
+    description: |
+      Une étude sur l'état de l'art en matière de recueil et de gestion du consentement, avec un focus mobile.
+
+      * Bonnes et mauvaises pratiques sur toutes les interfaces, pas juste le popin de cookies.
+      * Synthèse sur la psychologie de la vie privée
+      * Compilation de statistiques sur l'impact du RGPD sur les comportements
+    duration:  15 jours
+    tasks:
+      - Synthèse de la littérature et benchmark d'applis de tous pays
+      - Restitution en webinar devant 80 personnes, dont le DPO de la MAIF.
+    photos:
+      - url: /assets/images/maif1.png
+        alt: null
+      - url: /assets/images/maif2.png
+        alt: null
+      - url: /assets/images/maif3.png
+        alt: null
+      - url: /assets/images/maif4.png
+        alt: null
+
+  - title: Refonte de l'écosystème numérique d'Auvergne-Rhone-Alpes
+    logo: /assets/images/aura.svg
+    description: |
+      * Évolution de l’écosystème numérique de la Région. En collaboration avec une agence AMOA :
+        * Réflexion transverse sur la navigation
+        * Mise en place d’un système de conception
+      * Refonte du site transport
+        * Arborescence
+        * Recherche de ligne, information voyageurs multi-modal, imbrication des niveaux régional, départemental et local…
+    duration: 3 mois
+    tasks:
+      - Ateliers de conception avec les directions mobilité
+      - Arborescence
+      - wireframes
+    CTA: "Visiter le site"
+    CTALink: https://www.auvergnerhonealpes.fr/
+    photos:
+      - url:  /assets/images/aura1.png
+        alt: null
+
+  - title: Création d'un méga-site institutionnel pour Safran
+    name: Safran
+    logo: /assets/images/safran.svg
+    description: |
+      Fusion de 27 sites institutionnels en un site monde.
+
+      * 10 ateliers fonctionnels et UX
+      * Navigation par profil
+      * Création et test de l’arborescence (quanti à distance)
+      * conception de 40 templates
+      * Aide à la stratégie de contenu (modules éditoriaux, tone of voice…),
+    CTA: "Visiter le site"
+    CTALink: https://www.auvergnerhonealpes.fr
+    duration: 8 mois
+    tasks: null
+    photos:
+      - url: /assets/images/safran1.png
+        alt: null
+      - url: /assets/images/safran2.png
+        alt: null
+      - url: /assets/images/safran3.png
+        alt: null
+
+  - title: Refonte du site vitrine et catalogue de Studi
+    name: Studi
+    logo: /assets/images/studi.svg
+    description: |
+      Gros acteur du elearning à la croissance explosive, vous les avez peut-être vu à la télé.
+
+      Le défi : comment faire pour qu'un potentiel apprenant explore la variété du catalogue (13 filières), comprenne les possibilités de financement et se persuade d'apprendre à distance pour, mettons, un diplôme d’infirmier ?
+    CTA: "Visiter le site"
+    CTALink: https://studi.fr
+    duration: 3 mois
+    tasks:
+      - Entretiens
+      - Test
+      - Arborescence
+      - Parcours
+      - Wireframes
+    photos:
+      - url: /assets/images/studi1.png
+        alt: null
+      - url: /assets/images/studi2.png
+        alt: null
+      - url: /assets/images/studi3.png
+        alt: null
+      - url: /assets/images/studi4.png
+        alt: null
+
+
+
+  - title: "Outil de suivi des mouvements sociaux à la SNCF"
+    description: Outil à vocation de transparence, permettant la saisie décentralisée des chiffres de préavis et de grève et un suivi quantitatif et qualitatif à tous les échelons.
+    logo: /assets/images/sncf.png
+    duration: 3 mois
+    tasks:
+      - Régie à mi-temps au siège de la SNCF
+      - 30 wireframes
+      - Suivi du dev
+      - Démos en fin de sprint devant des représentants métier
+    name: SNCF
+    photos:
+        - url: /assets/images/sncf1.png
+          alt: null
+        - url: /assets/images/sncf2.png
+          alt: null
+        - url: /assets/images/sncf3.png
+          alt: null
+        - url: /assets/images/sncf4.png
+          alt: null
+
+
+
+  - title: "E-boutique pour Flunch Traiteur"
+    description: Refonte de la boutique B2B et B2C pour moderniser la marque, clarifier la navigation dans le catalogue et recentrer l'expérience sur un parcours contextualisé d'organisation de mon évènement (quelle date, quel lieu, quels produits pour le type d'évènement).
+    logo: /assets/images/flunch.png
+    duration: 3 mois
+    tasks:
+      - Entretiens avec des profils B2B
+      - Personas
+      - Ateliers de co-conceoption
+      - 20 wireframes
+    name: Flunch
+    photos:
+          - url: /assets/images/flunch1.png
+            alt: null
+          - url: /assets/images/flunch2.png
+            alt: null
+          - url: /assets/images/flunch3.png
+            alt: null
+
+
+  - title: Concept de miroir connecté pour SEB
+    name: SEB
+    logo: /assets/images/seb.png
+    description: |
+      SEB réfléchissait à créer des services numériques intégrés au quotidien et complémentaire des produits existants (sèche-cheveux, rasoirs...). Nous devions donc interroger les gens sur leur rapport au "soin de soi", imaginer des concepts et les tester avec un prototype papier.
+    tasks:
+      - Accompagnement d'un stagiaire SEB
+      - Ateliers d'idéation
+      - Tests utilisateur
+    duration: 2 mois
+    photos:
+      - url: /assets/images/seb1.png
+        alt: null
+
+
+clients:
+  - sector: Industrie & transport
+    list:
+    - Alstom
+    - Engie
+    - GDF Suez
+    - Michelin
+    - RATP
+    - Renault
+    - Renault Trucks
+    - Safran
+    - SCNF
+    - SEB
+    - Soltracing
+  - sector: Culture et éducation
+    list:
+    - France Galop
+    - Mucem
+    - Studi
+    - Université de Lyon
+  - sector: Retail
+    list:
+    - Boulanger
+    - Flunch Traiteur
+    - Franprix
+    - Grand Frais
+    - La Halle
+    - Mercialys
+  - sector: Services
+    list:
+    - Edenred
+    - Orange
+    - 'MAIF'
+  - sector: Public et associatif
+    list:
+    - ACOSS
+    - Auvergne-Rhône-Alpes
+    - Bureau International des poids et des mesures
+    - Croix Rouge Française
+    - Département de la vendée
+    - Ministère de la défense
+    - Ministère du travail
+
+tools:
+  - name: Figma
+    logo: tool-1.png
+  - name: Sketch
+    logo: tool-2.png
+  - name: Axure
+    logo: tool-3.png
+  - name: Miro
+    logo: tool-4.png
+  - name: Hotjar
+    logo: tool-5.png
+  - name: Optimal Workshop
+    logo: tool-6.png
+  - name: Google Analytics
+    logo: tool-7.png
+  - name: Lookback
+    logo: tool-8.png

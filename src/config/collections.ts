@@ -1,7 +1,8 @@
-//import { normalize } from 'path';
-import { Config, UserConfig, Data, Page, Item, Collection } from '../../types/eleventy.js';
 
-import normalizeTag from '../filters/normalize_tag'
+//import { normalize } from 'path';
+import { Item, Collection } from '../../types/eleventy.js';
+
+//import normalizeTag from '../filters/normalize_tag'
 
 const meta = require('../_data/meta')
 import truchetNode from '../features/truchet/truchet_node'
@@ -10,6 +11,7 @@ import truchetNode from '../features/truchet/truchet_node'
 const published = (post) => { return !post.data.draft }
 
 function getbyField(collectionAPI, field, value: boolean | string) {
+
 	return collectionAPI.getAllSorted().
 		filter((item) => item.data[field] === value).
 		filter(published)

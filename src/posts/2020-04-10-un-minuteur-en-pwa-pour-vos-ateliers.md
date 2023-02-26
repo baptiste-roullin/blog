@@ -2,19 +2,17 @@
 title: Un minuteur en PWA pour vos ateliers
 date: 2020-04-10
 tags:
-  - projets
+  - "projets"
 hero:
-  type: split  # options: carousel, graphic, video, split (text & image)
   image: "screenshot.png"
   alt: "screenshot de l'interface du minuteur"
-
-
 ---
 
-J'ai fait un minuteur, il est joli, il est cool, il est disponible ici :
+J'ai fait un minuteur, il est joli, il est cool.
 
-[C'est ici](https://misc.toutcequibouge.net/Timer/){.cta} {.not-prose}
-
+::: info-block
+{% ctaLink "Voir le projet", "https://misc.toutcequibouge.net/Timer/"  %}
+:::
 
 
 [![](/assets/images/screenshot.png)](https://misc.toutcequibouge.net/Timer/)

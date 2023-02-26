@@ -5,7 +5,7 @@
 import path from 'path'
 require('dotenv').config()
 
-const { parseHTML } = require('linkedom');
+const { parseHTML } = require('linkedom')
 import handleGIFs from './handle_GIFs'
 import handlePictures from './handle_pictures'
 
@@ -21,20 +21,17 @@ function reformatURL(src: string, width): string {
 }
 
 
-
 export default function pictures_processing(html) {
 
-
 	const globalSettings = {
-		selector: ` #content :not(picture) > img[src]:not([srcset]):not([src$='.svg'])[src^=${meta.siteURL}]`,
+		selector: ` .template-post  :not(picture) > img[src]:not([srcset]):not([src$='.svg'])`,
 		minWidth: 400,
 		maxWidth: 1920,
-		fallbackWidth: 750,
-		sizes: '(max-width: 60rem) 90vw, 60rem',
+/*		fallbackWidth: 750,
+*/		sizes: '(max-width: 60rem) 90vw, 60rem',
 		resizedImageUrl: reformatURL,
 		steps: 5,
 		classes: ['img-default'],
-		attributes: { loading: 'lazy', },
 		ignore: 'truchet-'
 	}
 
@@ -50,7 +47,7 @@ export default function pictures_processing(html) {
 				image.getAttribute('src') &&
 				!image.getAttribute('src').match(/\.svg$/) &&
 				!image.getAttribute('srcset')
-			);
+			)
 		})
 		.forEach(async (image) => {
 
@@ -60,8 +57,8 @@ export default function pictures_processing(html) {
 			else {
 				handlePictures(image, document, globalSettings)
 			}
-		});
+		})
 
-	return document.toString();
+	return document.toString()
 };
 

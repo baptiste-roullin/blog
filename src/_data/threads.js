@@ -1,104 +1,72 @@
-// @ts-nocheck
-import meta from './meta'
-import { scheduler } from 'node:timers/promises';
+//@ts-nocheck
+const meta = require('./meta')
+const yaml = require('js-yaml')
+const fs = require('fs')
+
+import threads from '../heroPages/threads/threader'
+const threader = function () {
+  const path = (meta.env !== "production" ?
+    './src/heroPages/threads/threads_input_TEST.yaml' :
+    './src/heroPages/threads/threads_input.yaml')
+  console.log(path)
+  const threads_list = yaml.load(fs.readFileSync(path, 'utf8'))
 
 
-
-let threads_input = [
-  {
-    title: "Dispositifs anti-covid",
-    tweet_id: "1593334707093209099",
-    //tweet_id: "1289665741365497857"
-  },
-  {
-    title: "Films de procès",
-    tweet_id: "1245822522563715072"
-    //tweet_id: "1317402466636488704"
-  }
-]
-
-
-/*const metascraper = require('metascraper')([
-  require('metascraper-author')(),
-  require('metascraper-date')(),
-  require('metascraper-description')(),
-  require('metascraper-image')(),
-  require('metascraper-logo')(),
-  require('metascraper-clearbit')(),
-  require('metascraper-publisher')(),
-  require('metascraper-title')(),
-  require('metascraper-url')()
-])*/
-
-const url_catcher = new RegExp(/(?:(?:https?):\/\/|\b(?:[a-z\d]+\.))(?:(?:[^\s()<>]+|\((?:[^\s()<>]+|(?:\([^\s()<>]+\)))?\))+(?:\((?:[^\s()<>]+|(?:\(?:[^\s()<>]+\)))?\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))?/ig)
-
-async function fetchTwitter(tweet_id, thread, thread_input) {
-  try {
-    var myHeaders = new Headers({
-      "Authorization": `Bearer ${meta.twitterBearer}`,
-    })
-    var requestOptions = {
-      method: 'GET',
-      headers: myHeaders,
-      redirect: "follow",
-
-    };
-
-    const request = await fetch(
-      `https://api.twitter.com/2/tweets/${tweet_id}?tweet.fields=created_at,in_reply_to_user_id,id,referenced_tweets,text&expansions=attachments.media_keys,referenced_tweets.id&media.fields=alt_text,media_key,type,url`
-      ,
-      requestOptions)
-
-
-    let data = await request.json()
-
-    if (data.errors) {
-      throw new Error(JSON.stringify(data.errors[0]))
-    }
-
-    if (data.status >= 400) {
-      throw new Error(JSON.stringify(data))
-    }
-
-    let referenced_tweets = data.data?.referenced_tweets
-
-    let tweet = {}
-    tweet.created_at = data?.data.created_at
-    tweet.text = data?.data?.text || ''
-    if (data?.includes?.media) {
-      tweet.media = data?.includes.media.map(media => media.url)
-    }
-    thread.push(tweet)
-
-    if (referenced_tweets) {
-      tweet_id = referenced_tweets[referenced_tweets.length - 1].id
-      //console.log(referenced_tweets.map(tweet => tweet.id) + "\n")
-      await scheduler.wait(3000);
-
-      return await fetchTwitter(tweet_id, thread, thread_input)
-      /*	if (referenced_tweets.length > 0) {
-
-        }*/
-
-    } else {
-      thread.push(tweet)
-      thread_input.tweets = thread
-
-      return thread_input
-    }
-  } catch (error) {
-    console.log('error', error)
-  }
-
+  return threads("67752627", meta.twitterBearer, threads_list, { outputFolder: '.cache', forceCacheDelete: false, delay: 5000 },)
 }
-
-
-module.exports = async function () {
-  return Promise.all(threads_input.map(
-    async thread_input => fetchTwitter(thread_input.tweet_id, [], thread_input))
+module.exports =
+  (!meta.twitterThread || !threader ?
+    [{ "title": "fonctionnalité désactivée" }] : threader
   )
 
-}
+//todo : gérer les fetch annulés https://javascript.info/fetch-abort
+//todo : exemple https://twitter.com/Saint_loup/status/1384527253367894016
+//TODO : arrêter les requêtes si tweet_id = tweet déjà en cache (pas juste le tout premier tweet)
+//TODO : compteur de requêtes pour ne jamais dépasser le rate limit
+//TODO : Ré-héberger images
+//TODO : check si cache est inutilisable.
 
-// https://www.npmjs.com/package/metascraper
-//https://github.com/sindresorhus/p-queue
+/* [build:eleventy]   status: 429,
+[build:eleventy]   statusText: 'Too Many Requests',
+[build:eleventy]   headers: {
+[build:eleventy]     'api-version': '2.55',
+[build:eleventy]     'cache-control': 'no-cache, no-store, max-age=0',
+[build:eleventy]     connection: 'close',
+[build:eleventy]     'content-disposition': 'attachment; filename=json.json',
+[build:eleventy]     'content-encoding': 'gzip',
+[build:eleventy]     'content-length': '94',
+[build:eleventy]     'content-type': 'application/json; charset=utf-8',
+[build:eleventy]     date: 'Sun, 04 Dec 2022 23:03:47 UTC',
+[build:eleventy]     perf: '7626143928',
+[build:eleventy]     server: 'tsa_f',
+[build:eleventy]     'set-cookie': 'guest_id=v1%3A167019502791388356; Max-Age=34214400; Expires=Thu, 04 Jan 2024 23:03:47 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None',
+[build:eleventy]     'strict-transport-security': 'max-age=631138519',
+[build:eleventy]     'x-access-level': 'read',
+[build:eleventy]     'x-connection-hash': '6e3d02eff4c2dbd7ec148ea546458df8d40ec79af5ccd18f57f34ddd0abe5f7a',
+[build:eleventy]     'x-content-type-options': 'nosniff',
+[build:eleventy]     'x-frame-options': 'SAMEORIGIN',
+[build:eleventy]     'x-rate-limit-limit': '300',
+[build:eleventy]     'x-rate-limit-remaining': '0',
+[build:eleventy]     'x-rate-limit-reset': '1670195259',
+[build:eleventy]     'x-response-time': '110',
+[build:eleventy]     'x-transaction-id': '1f254eb9d714fc2d',
+[build:eleventy]     'x-xss-protection': '0'
+[build:eleventy]   },
+[build:eleventy]   error: {
+[build:eleventy]     title: 'Too Many Requests',
+[build:eleventy]     detail: 'Too Many Requests',
+[build:eleventy]     type: 'about:blank',
+[build:eleventy]     status: 429
+[build:eleventy]   }
+[build:eleventy] } */
+
+
+/*[build:eleventy] TypeError: terminated
+[build:eleventy]     at Fetch.onAborted(node: internal / deps / undici / undici: 6970: 53)
+[build:eleventy][cause]: Error: unexpected end of file
+[build:eleventy]       at Zlib.zlibOnError[as onerror](node: zlib:189:17) {
+[build: eleventy]     errno: -5,
+  [build: eleventy]     code: 'Z_BUF_ERROR'
+  [build:eleventy]
+}
+[build: eleventy] }*/

@@ -7,7 +7,6 @@ tags:
   - "systemes complexes"
 featured: true
 hero:
-  type: split  # options: carousel, graphic, video, split (text & image)
   image: "janewu.png"
 ---
 

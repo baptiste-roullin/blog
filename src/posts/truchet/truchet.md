@@ -7,10 +7,8 @@ tags:
 
 draft: false
 canvas: true
-picture_lightbox: true
 description: "Générer procéduralement une image de substitution quand un article n'a pas d'image principale, par le truchement des motifs de Truchet."
 hero:
-  type: split
   image: demo-truchet.png
 ---
 

@@ -7,7 +7,7 @@ tags:
 picture_lightbox: false
 
 hero:
-  type: split  #  options: carousel, graphic, video, split (text & image)
+  #  options: carousel, graphic, video, split (text & image)
   image: moving_castle.png
   alt: Chateau ambulant réduit à une plateforme avec deux image. Image du film de Miyazaki
 ---

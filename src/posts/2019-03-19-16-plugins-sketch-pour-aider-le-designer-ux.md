@@ -5,7 +5,6 @@ tags:
   - "prototypage"
   - "sketch"
 hero:
-  type: split  # options: carousel, graphic, video, split (text & image)
   image: "2019-03-19_20h12_29.png"
 ---
 

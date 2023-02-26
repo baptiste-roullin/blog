@@ -2,7 +2,7 @@
 class="flex flex-col prose-tcqb"
 	x-data="{niveauDeLangue, state: niveauDeLangue[1].description}"
 >
-	<div class="inline-flex flex-col w-3/4 mx-auto mt-2 overflow-hidden sm:mx-0 rounded-xl sm:rounded-full sm:flex-row bg-accent-light md:w-max">
+	<div class="inline-flex flex-col w-3/4 mx-auto mt-2 overflow-hidden bg-cream sm:mx-0 rounded-xl sm:rounded-full sm:flex-row light md:w-max">
 		<template x-for="radio in niveauDeLangue">
 			<div
 		>
@@ -17,7 +17,7 @@ class="flex flex-col prose-tcqb"
 				/>
 				<label
 				:for="radio.id"
-				class="block px-5 py-2 text-lg text-center cursor-pointer rounded-xl sm:rounded-full hover:bg-accent2 hover:text-white"
+				class="block px-5 py-2 text-lg text-center cursor-pointer rounded-xl sm:rounded-full hover:bg-brown-light hover:text-white"
 				x-text="radio.label"
 				></label>
 			</div>

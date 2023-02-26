@@ -2,14 +2,12 @@
 title: Bibliographie sur le consentement et la vie privée
 date: 2021-08-02T00:00:00.000Z
 draft: false
-picture_lightbox: true
 tags:
   - RGPD
   - droit
   - vie privée
   - utilisateurs
 hero:
-  type: split
   image: TOS.jpg
   alt: "Couverture d'une bande dessinée appelée en anglais 'Conditions générales d'utilisation - la bande dessinée' et montrant Steve Jobs en Wolwerine, transperçant un téléphone avec ses griffes.  "
 ---

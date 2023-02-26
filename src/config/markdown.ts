@@ -3,11 +3,11 @@ const markdownIt = require('markdown-it')
 import { slugifyFilter as slugify } from '../filters/slugify'
 
 
-const anchor = (md, options) => {
+const anchor = (md) => {
 
 	md.renderer.rules.heading_open = function (tokens, index) {
-		const contentToken = tokens[index + 1];
-		const slug = slugify(contentToken.content);
+		const contentToken = tokens[index + 1]
+		const slug = slugify(contentToken.content)
 
 		if (tokens[index].tag === 'h2') {
 			return `
@@ -16,35 +16,33 @@ const anchor = (md, options) => {
          		<span aria-hidden="true">§︎</span>
           		<span class="sr-only">Ancre pour le titre : ${contentToken.content}</span>
         	</a>
-			`;
+			`
 		}
-		return `<${tokens[index].tag}>`;
-	};
-
-	md.renderer.rules.heading_close = function (tokens, index) {
-		const contentToken = tokens[index - 1];
-		const slug = slugify(contentToken.content);
-		return `</${tokens[index].tag}>`;
-	};
-};
-
-// TODO https://github.com/markdown-it/markdown-it/blob/master/lib/rules_core/replacements.js
-
-const double_punctuation = (md, options) => {
-	const NBSP_DOUBLE_PUNCTUATION = /(\w+(?:\s?»)?)(\s?)([?!;:])(\s|$)/gu
-	const U = {
-		ELLIPSIS: '\u2026',
-		SPACE: '\u0020', // Good ol' space
-		WNBSP: '\u00A0', // wide non breakable space
-		NNBSP: '\u202F', // narrow non breakable space
-		OPENING_QUOTE: '«',
-		CLOSING_QUOTE: '»',
+		return `<${tokens[index].tag}>`
 	}
 
-	/*	str.replace(NBSP_DOUBLE_PUNCTUATION, (match, $1, $2, $3, $4) => {
+	md.renderer.rules.heading_close = function (tokens, index) {
+		//const contentToken = tokens[index - 1];
+		//const slug = slugify(contentToken.content);
+		return `</${tokens[index].tag}>`
+	}
+}
+
+
+
+//TODO : manque ortho-typo pour ? et !
+// https://github.com/markdown-it/markdown-it/blob/master/lib/rules_core/replacements.js
+
+const double_punctuation = (md) => {
+	const NBSP_DOUBLE_PUNCTUATION = /(\w+(?:\s?»)?)(\s?)([?!;:])(\s|$)/gu
+	const NNBSP = '\u202F' // narrow non breakable space
+
+	md.inline.ruler.push('double_punctuation', (state) => {
+		state.replace(NBSP_DOUBLE_PUNCTUATION, (match, $1, $2, $3, $4) => {
 			console.log('espaces fines insécables avant ? ! ; :')
-			return $1 + U.NNBSP + $3 + $4
-		})*/
+			return $1 + NNBSP + $3 + $4
+		})
+	})
 }
 
 
@@ -58,7 +56,7 @@ let options = {
 
 export const md = markdownIt(options)
 	.disable('code')
-	//.use(markdownItContainer, 'info')
+	.use(require('markdown-it-container'), 'info-block')
 	//.use(markdownItHeadingLevel, { firstLevel: 2 })
 	.use(require('markdown-it-footnote'))
 	.use(anchor)

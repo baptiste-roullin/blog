@@ -2,11 +2,9 @@ import ElasticLunr from "elasticlunr";
 import elasticlunr from "elasticlunr";
 require('./lunr.stemmer.support.js')(elasticlunr);
 require('./lunr.fr.js')(elasticlunr);
-import { DateTime, Settings } from 'luxon'
+import { Settings } from 'luxon'
 Settings.defaultLocale = "fr";
-import { Stats, statSync } from 'fs';
 
-import meta from '../../_data/meta';
 const remove = require('remove-markdown');
 
 

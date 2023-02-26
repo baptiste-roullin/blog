@@ -1,9 +1,10 @@
+//@todo : plus besoin de .eleventyignore en env de dev. https://www.11ty.dev/docs/ignores/#configuration-api
 
 const pluginRss = require('@11ty/eleventy-plugin-rss')
 const pluginNavigation = require('@11ty/eleventy-navigation')
-const yaml = require("js-yaml");
-const embedEverything = require("eleventy-plugin-embed-everything");
-const { EleventyRenderPlugin } = require("@11ty/eleventy");
+const yaml = require("js-yaml")
+const embedEverything = require("eleventy-plugin-embed-everything")
+const { EleventyRenderPlugin } = require("@11ty/eleventy")
 
 const meta = require('../_data/meta')
 import picturesProcessing from '../transforms/pictures_processing'
@@ -15,10 +16,18 @@ import { asyncShortcodes } from '../shortcodes/asyncShortcodes'
 import { shortcodes } from '../shortcodes/shortcodes'
 import { filters } from '../filters/filters'
 
-import { Config, UserConfig, Data, Page, Collection } from '../../types/eleventy';
+import { Config, UserConfig } from '../../types/eleventy'
 
 
 module.exports = function conf(config: Config): UserConfig {
+
+
+	/*	if (meta.env === "dev") {
+			config.ignores.add("src/posts/2*")
+		}*/
+	config.ignores.add("./src/heroPages/portfolio/portfolioIntro.md")
+	config.ignores.add("./src/features/zotero/zotero_component.njk")
+
 
 	/**
 	* Custom Watch Targets
@@ -28,8 +37,8 @@ module.exports = function conf(config: Config): UserConfig {
 	config.addWatchTarget('./src/assets/scripts/')
 	config.addWatchTarget('./src/**/*.js')
 	config.addWatchTarget('./tailwind.config.js')
-	config.setWatchThrottleWaitTime(200);
-	config.setWatchJavaScriptDependencies(true);
+	config.setWatchThrottleWaitTime(200)
+	config.setWatchJavaScriptDependencies(true)
 
 
 
@@ -38,33 +47,32 @@ module.exports = function conf(config: Config): UserConfig {
 
 cf. webpack.configs.js pour le JS
 cf. postcss.config.js pour le CSS
-
 */
-
 	//On copie tels quels les média avec chemins relatifs ou absolus dans /dist, qu'ils puissent être lus par du balisage non-transformé (sans srcset ou gif -> vidéo)
-
 
 	config.addPassthroughCopy('src/robots.txt')
 	config.addPassthroughCopy('src/assets/css/fonts')
 	config.addPassthroughCopy('src/assets/UI')
-
 	config.setUseGitIgnore(false)
 
-	if (meta.env === "production") {
+	if (meta.pictures) {
 		config.addPassthroughCopy('src/assets/docs/')
+		config.addPassthroughCopy({ 'src/heroPages/portfolio/*': meta.assetsDir })
 
-		config.addPassthroughCopy({ 'src/posts/**/*': meta.assetsDir })
-		config.addPassthroughCopy({ 'src/pages/portfolio/*': meta.assetsDir })
-
-		config.addPassthroughCopy('src/assets/images')
+		//config.addPassthroughCopy({ 'src/posts/**/* ': meta.assetsDir })
+		//config.addPassthroughCopy('src/assets/images')
 
 		config.addTransform(
 			'picturesProcessing',
 			(content, outputPath) => {
-				if (outputPath && outputPath.endsWith('.html')) {
-					return picturesProcessing(content);
+				if (
+					outputPath &&
+					outputPath.endsWith('.html') &&
+					(outputPath.startsWith('dist/blog/') || outputPath.startsWith('dist/portfolio/'))
+				) {
+					return picturesProcessing(content)
 				}
-				return content;
+				return content
 			}
 		)
 	}
@@ -73,15 +81,13 @@ cf. postcss.config.js pour le CSS
 		//config.addPassthroughCopy('src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}')
 	}
 
-
-
 	/**
 	 * Add layout aliases
 	 */
 	config.addLayoutAlias('base', 'layouts/base.njk')
 	config.addLayoutAlias('page', 'layouts/page.njk')
 	config.addLayoutAlias('post', 'layouts/post.njk')
-
+	config.addLayoutAlias('heroPage', 'layouts/heroPage.njk')
 
 	/**
 	 * Plugins
@@ -89,9 +95,9 @@ cf. postcss.config.js pour le CSS
 	config.addPlugin(pluginNavigation)
 	config.addPlugin(embedEverything, {
 		use: ['vimeo', 'youtube', 'twitter'], twitter: { options: { align: 'center' } }
-	});
+	})
 	config.addPlugin(pluginRss)
-	config.addPlugin(EleventyRenderPlugin);
+	config.addPlugin(EleventyRenderPlugin)
 
 
 	/**
@@ -107,7 +113,6 @@ cf. postcss.config.js pour le CSS
 	/**
 	 * Shortcodes
 	 */
-
 	Object.keys(shortcodes).forEach((shortcodeName) => {
 		config.addShortcode(shortcodeName, shortcodes[shortcodeName])
 	})
@@ -122,7 +127,6 @@ cf. postcss.config.js pour le CSS
 
 	/**
 	 * Add async shortcodes
-	 *
 	 */
 	Object.keys(asyncShortcodes).forEach((shortcodeName) => {
 		config.addNunjucksAsyncShortcode(shortcodeName, asyncShortcodes[shortcodeName])
@@ -132,7 +136,7 @@ cf. postcss.config.js pour le CSS
 	/**
 	MARKDOWN
 	*/
-	config.addDataExtension("yaml", contents => yaml.load(contents));
+	config.addDataExtension("yaml", contents => yaml.load(contents))
 
 	config.setFrontMatterParsingOptions({
 		excerpt: true,
@@ -140,9 +144,9 @@ cf. postcss.config.js pour le CSS
 		excerpt_alias: 'description',
 		//Si <!-- excerpt --> est présent, sa valeur remplit le tag description, pas page.description.
 		excerpt_separator: "<!-- excerpt -->"
-	});
+	})
 
-	config.setLibrary('md', md);
+	config.setLibrary('md', md)
 
 
 
@@ -167,6 +171,6 @@ cf. postcss.config.js pour le CSS
 		passthroughFileCopy: true,
 		templateFormats: ['html', 'njk', 'md'],
 		htmlTemplateEngine: 'njk',
-		markdownTemplateEngine: 'njk',
+		markdownTemplateEngine: 'njk'
 	}
 }
