@@ -3,7 +3,7 @@ const { convertToBool } = require('../utils/convertToBool')
 
 module.exports = {
 	env: process.env.NODE_ENV || 'production ',
-	siteURL: 'toutcequibouge.net',
+	siteURL: 'https://toutcequibouge.net',
 	siteName: "Tout ce qui bouge",
 	siteDescription: 'Veille et réflexion sur la technologie, ses usages et mésusages.',
 	image: 'assets/UI/linotype.png',
