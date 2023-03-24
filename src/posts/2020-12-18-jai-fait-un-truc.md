@@ -11,7 +11,7 @@ hero:
 
 
 ::: info-block
-{% ctaLink "Voir le projet", "https://github.com/baptiste-roullin/data-from-clipboard"  %}
+{% ctaLink "Voir le projet", "https://github.com/baptiste-roullin/table-basse"  %}
 :::
 
 Soyez patient pour le premier chargement, car l'hébergeur (Heroku version gratuite) éteint le serveur après 30 min d'inactivité.
