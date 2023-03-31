@@ -27,7 +27,6 @@ module.exports = function conf(config: Config): UserConfig {
 		}*/
 	config.ignores.add("./src/heroPages/portfolio/portfolioIntro.md")
 	config.ignores.add("./src/features/zotero/zotero_component.njk")
-	config.ignores.add("./src/heroPages/threads/")
 
 
 	/**
