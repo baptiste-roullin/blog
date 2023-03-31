@@ -120,13 +120,15 @@ export default async function threader(author_id: string, token: string | undefi
 				return thread
 			}
 			const urls = response.data.text.match(url_catcher)
-
 			if (urls !== null) {
-				const links = await generateCard(urls, tweet) as Links[]
-				if (links) {
-					tweet.linksMetadata = links
-					if (tweet.linksMetadata.length < 1) {
-						delete tweet.linksMetadata
+				// les tweets vides avec juste une photo incluent quand même l'URL de la photo. On évite de générer un aperçu de cette URL.
+				if (!(urls[0].length === response.data.text.length && "attachments" in response.data)) {
+					const links = await generateCard(urls, tweet) as Links[]
+					if (links) {
+						tweet.linksMetadata = links
+						if (tweet.linksMetadata.length < 1) {
+							delete tweet.linksMetadata
+						}
 					}
 				}
 			}
