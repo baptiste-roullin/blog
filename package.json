@@ -5,7 +5,7 @@
   },
   "scripts": {
     "dev:webpack": "webpack --watch  --mode development",
-    "dev:eleventy": "  npx @11ty/eleventy  --incremental --serve",
+    "dev:eleventy": "  npx @11ty/eleventy  --incremental --serve --quiet",
     "debug:eleventy": "npx @11ty/eleventy --incremental",
     "dev:postcss": "postcss src/assets/css/main.css -o dist/assets/css/main.css --watch",
     "dev": "npm-run-all --parallel dev:* --print-label",
