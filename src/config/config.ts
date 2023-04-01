@@ -7,7 +7,7 @@ const embedEverything = require("eleventy-plugin-embed-everything")
 const { EleventyRenderPlugin } = require("@11ty/eleventy")
 
 const meta = require('../_data/meta')
-import picturesProcessing from '../transforms/pictures_processing'
+import picturesProcessing from '../transforms/media_processing'
 import { collections } from './collections'
 import { md } from './markdown'
 
@@ -27,6 +27,7 @@ module.exports = function conf(config: Config): UserConfig {
 		}*/
 	config.ignores.add("./src/heroPages/portfolio/portfolioIntro.md")
 	config.ignores.add("./src/features/zotero/zotero_component.njk")
+	config.ignores.add("./src/heroPages/threads/*")
 
 
 	/**

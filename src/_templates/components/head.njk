@@ -5,7 +5,7 @@
 <title>{{  cleanedTitle }}
 </title>
 {% if r/^post-?/g.test(layout) %}
-  {% set postImage = meta.siteURL + '/' + collatedHeroImage %}
+  {% set postImage = meta.siteURL + collatedHeroImage %}
   {% set pageURL = meta.siteURL + page.url %}
   <script type="application/ld+json" >
     {
