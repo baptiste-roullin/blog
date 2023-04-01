@@ -3,20 +3,22 @@ const meta = require('./meta')
 const yaml = require('js-yaml')
 const fs = require('fs')
 
-import threads from '../heroPages/threads/threader'
-const threader = function () {
+import threader from '../heroPages/threads/threader_core'
+
+
+// executing  threader_core and adding the result to global Eleventy data scope.
+const threads = function () {
   const path = (meta.env !== "production" ?
     './src/heroPages/threads/threads_input_TEST.yaml' :
     './src/heroPages/threads/threads_input.yaml')
-  console.log(path)
   const threads_list = yaml.load(fs.readFileSync(path, 'utf8'))
 
-
-  return threads("67752627", meta.twitterBearer, threads_list, { outputFolder: '.cache', forceCacheDelete: false, delay: 5000 },)
+  return threader("67752627", meta.twitterBearer, threads_list, { outputFolder: '.cache', forceCacheDelete: false, delay: 5000 },)
 }
+
 module.exports =
-  (!meta.twitterThread || !threader ?
-    [{ "title": "fonctionnalité désactivée" }] : threader
+  (!meta.twitterThread || !threads ?
+    [{ "title": "fonctionnalité désactivée" }] : threads
   )
 
 //todo : gérer les fetch annulés https://javascript.info/fetch-abort

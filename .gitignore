@@ -1,5 +1,4 @@
 # réglages spécifiques à Windows pour ne pas installer une dépendence et éviter des conflits
-package-lock.json
 .npmrc
 *.code-workspace
 

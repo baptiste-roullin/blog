@@ -27,7 +27,14 @@ module.exports = function conf(config: Config): UserConfig {
 		}*/
 	config.ignores.add("./src/heroPages/portfolio/portfolioIntro.md")
 	config.ignores.add("./src/features/zotero/zotero_component.njk")
-	config.ignores.add("./src/heroPages/threads/*")
+
+
+	if (meta.TWITTER_THREAD) {
+		config.ignores.add("./src/nav_entry_threader.njk")
+	}
+	else {
+		config.ignores.add("./src/heroPages/threads/*")
+	}
 
 
 	/**

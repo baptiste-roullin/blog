@@ -18,14 +18,14 @@ eleventyComputed: {
 
 <div class="flex flex-col gap-12 mt-12 thread">
 	{% for tweet in  tweets | reverse %}
-		{% include "../../_templates/components/tweet.njk" %}
+		{% include "../../_templates/components/thread_tweet.njk" %}
 
 		{% set tweets = tweet.QTList  %}
 		{% if tweets | length  %}
 		<div class="-mt-6 border-l-2 border-gray-300 QT-list">
 			{% for tweet in tweets | reverse %}
 				{% set quoteTweet = true  %}
-				{% include "../../_templates/components/tweet.njk" %}
+				{% include "../../_templates/components/thread_tweet.njk" %}
 			{% endfor %}
 		</div>
 		{% endif %}
