@@ -53,6 +53,7 @@ const url_catcher = new RegExp(/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)
 
 export default async function threader(author_id: string, token: string | undefined, threads_list: Thread[], options: { outputFolder: string, delay: number, forceCacheDelete: boolean }): Promise<Thread[] | undefined> {
 
+	// recursive function
 	async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedThread) {
 
 		// alternative moins complète : requêter le tweet qui cite avec :
@@ -121,12 +122,15 @@ export default async function threader(author_id: string, token: string | undefi
 			}
 			const urls = response.data.text.match(url_catcher)
 			if (urls !== null) {
-				// les tweets vides avec juste une photo incluent quand même l'URL de la photo. On évite de générer un aperçu de cette URL.
-				if (!(urls[0].length === response.data.text.length && "attachments" in response.data)) {
+				// les tweets avec photo incluent l'URL de la photo. On évite de générer un aperçu de cette URL.
+				if (
+					// Cas tweet vide
+					!(urls[0].length === response.data.text.length && "attachments" in response.data)
+				) {
 					const links = await generateCard(urls, tweet) as Links[]
 					if (links) {
 						tweet.linksMetadata = links
-						if (tweet.linksMetadata.length < 1) {
+						if (tweet.linksMetadata.length < 1 && !tweet.linksMetadata[0].title) {
 							delete tweet.linksMetadata
 						}
 					}
@@ -170,7 +174,9 @@ export default async function threader(author_id: string, token: string | undefi
 			}
 		}
 	}
-	//mapper callback
+
+
+	// callback for promise map
 	const generateThread = async (thread, index, client) => {
 		if (typeof thread.tweetID !== "string") {
 			warning("tweetID must be a string")
@@ -207,7 +213,7 @@ export default async function threader(author_id: string, token: string | undefi
 			throw new Error("You need a bearer token")
 		}
 
-
+		// returns a list of threads
 		return pMap(threads_list, (thread, index) => {
 			return generateThread(thread, index, new Client(token))
 		})
