@@ -59,6 +59,7 @@ cf. postcss.config.js pour le CSS
 	if (meta.pictures) {
 		config.addPassthroughCopy('src/assets/docs/')
 		config.addPassthroughCopy({ 'src/heroPages/portfolio/*': meta.assetsDir })
+		config.addPassthroughCopy({ 'src/assets/images/*.svg': meta.assetsDir })
 
 		//config.addPassthroughCopy({ 'src/posts/**/* ': meta.assetsDir })
 		//config.addPassthroughCopy('src/assets/images')
