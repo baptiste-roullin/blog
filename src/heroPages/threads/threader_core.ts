@@ -65,9 +65,9 @@ export default async function threader(author_id: string, token: string | undefi
 	// Récupérer éventuel tweet cité
 	// alternative moins complète : requêter le tweet qui cite avec :
 	//"expansions": ["referenced_tweets.id"],
-	async function getQT(tweetID, Client): Promise<Tweet | undefined> {
+	async function getQT(tweetID, client: Client): Promise<Tweet | undefined> {
 		try {
-			const response = await Client.tweets.findTweetById(tweetID, fields)
+			const response = await client.tweets.findTweetById(tweetID, fields)
 
 			if (response.errors) {
 				error(new Error(JSON.stringify(response.errors[0])))
@@ -116,9 +116,7 @@ export default async function threader(author_id: string, token: string | undefi
 	// recursive function
 	async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedThread) {
 		try {
-
 			const response = await client.tweets.findTweetById(thread.tweetID, fields)
-
 			if (response.errors) {
 				error(new Error(JSON.stringify(response.errors[0])))
 				info(thread.title)
@@ -174,7 +172,7 @@ export default async function threader(author_id: string, token: string | undefi
 								return await getTweet(thread, tweets, client, cachedThread)
 							// Si c'est une citation, on récupère le QT et on l'ajoute dans une clé dédiée de l'objet Tweet.
 							case 'quoted':
-								const QT = await getQT(thread.tweetID, Client)
+								const QT = await getQT(thread.tweetID, client)
 								if (QT) {
 									tweet.QTList.push(QT!)
 								}
@@ -199,9 +197,7 @@ export default async function threader(author_id: string, token: string | undefi
 			}
 		} catch (error) {
 			console.log(error)
-
 		}
-
 	}
 
 
