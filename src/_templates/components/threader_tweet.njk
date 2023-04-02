@@ -24,7 +24,7 @@
 
         {% endif %}
      </div>
-    <div class="flex flex-col w-full gap-8 prose-tcqb">
+    <div class="flex flex-col w-full prose-tcqb">
         {{tweet.text | markdownifyBlock | safe  }}
 
         {% for link in tweet.linksMetadata %}
