@@ -147,7 +147,7 @@ export default async function threader(author_id: string, token: string | undefi
 						if (links && links.length > 0) {
 							tweet.linksMetadata = links.filter(
 								link => {
-									console.log("link \n\n" + link)
+									console.log("link \n\n", link)
 									return !(!link?.title && /^https:\/\/t\.co/.test(link?.url))
 								}
 							)
