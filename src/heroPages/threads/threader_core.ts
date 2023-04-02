@@ -146,7 +146,10 @@ export default async function threader(author_id: string, token: string | undefi
 						const links = await generateCard(urls, tweet) as Links[]
 						if (links && links.length > 0) {
 							tweet.linksMetadata = links.filter(
-								link => !(!link.title && /^https:\/\/t\.co/.test(link.url))
+								link => {
+									console.log("link \n\n" + link)
+									return !(!link?.title && /^https:\/\/t\.co/.test(link?.url))
+								}
 							)
 						}
 					}
