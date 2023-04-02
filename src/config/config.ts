@@ -21,15 +21,11 @@ import { Config, UserConfig } from '../../types/eleventy'
 
 module.exports = function conf(config: Config): UserConfig {
 
-
-	/*	if (meta.env === "dev") {
-			config.ignores.add("src/posts/2*")
-		}*/
 	config.ignores.add("./src/heroPages/portfolio/portfolioIntro.md")
 	config.ignores.add("./src/features/zotero/zotero_component.njk")
 
 
-	if (meta.TWITTER_THREAD) {
+	if (meta.twitterThread) {
 		config.ignores.add("./src/nav_entry_threader.njk")
 	}
 	else {
