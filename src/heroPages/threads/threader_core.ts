@@ -53,19 +53,19 @@ interface Thread {
 export default async function threader(author_id: string, token: string | undefined, threads_list: Thread[], options: { outputFolder: string, delay: number, forceCacheDelete: boolean }): Promise<Thread[] | undefined> {
 
 	const url_catcher = new RegExp(/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/ig)
-
 	var fields = {
 		"tweet.fields": ["author_id", "created_at", "in_reply_to_user_id", "id", "referenced_tweets", "text"],
 		"expansions": ["attachments.media_keys", "referenced_tweets.id", "author_id"],
 		"media.fields": ["alt_text", "media_key", "type", "url"]
 	} as TwitterParams<findTweetById>
+	const { default: pMap } = await import('p-map')
 
-
+	const client = new Client(token)
 
 	// Récupérer éventuel tweet cité
 	// alternative moins complète : requêter le tweet qui cite avec :
 	//"expansions": ["referenced_tweets.id"],
-	async function getQT(tweetID, client: Client): Promise<Tweet | undefined> {
+	async function getQT(tweetID): Promise<Tweet | undefined> {
 		try {
 			const response = await client.tweets.findTweetById(tweetID, fields)
 
@@ -114,7 +114,7 @@ export default async function threader(author_id: string, token: string | undefi
 		tweets.push(tweet)
 	}
 	// recursive function
-	async function getTweet(thread: Thread, tweets: Tweet[], client: Client, cachedThread) {
+	async function getTweet(thread: Thread, tweets: Tweet[], cachedThread) {
 		try {
 			const response = await client.tweets.findTweetById(thread.tweetID, fields)
 			if (response.errors) {
@@ -169,10 +169,10 @@ export default async function threader(author_id: string, token: string | undefi
 							case "replied_to":
 								await scheduler.wait(options.delay)
 								info("the thread continues")
-								return await getTweet(thread, tweets, client, cachedThread)
+								return await getTweet(thread, tweets, cachedThread)
 							// Si c'est une citation, on récupère le QT et on l'ajoute dans une clé dédiée de l'objet Tweet.
 							case 'quoted':
-								const QT = await getQT(thread.tweetID, client)
+								const QT = await getQT(thread.tweetID)
 								if (QT) {
 									tweet.QTList.push(QT!)
 								}
@@ -200,9 +200,8 @@ export default async function threader(author_id: string, token: string | undefi
 		}
 	}
 
-
 	// callback for promise map
-	const generateThread = async (thread, index, client) => {
+	const generateThread = async (thread, index) => {
 		if (typeof thread.tweetID !== "string") {
 			warning("tweetID must be a string")
 
@@ -221,26 +220,25 @@ export default async function threader(author_id: string, token: string | undefi
 				return thread
 			}
 			else {
-				return getTweet(thread, tweets, client, cachedThread)
+				return getTweet(thread, tweets, cachedThread)
 			}
 		}
 		else {
-			return getTweet(thread, tweets, client, cachedThread)
+			return getTweet(thread, tweets, cachedThread)
 		}
 	}
 
+
 	try {
-		const { default: pMap } = await import('p-map')
 		if (!options) {
 			options = { outputFolder: '.cache', forceCacheDelete: false, delay: 5000 }
 		}
 		if (!token) {
 			throw new Error("You need a bearer token")
 		}
-
 		// returns a list of threads
 		return pMap(threads_list, (thread, index) => {
-			return generateThread(thread, index, new Client(token))
+			return generateThread(thread, index)
 		})
 	} catch (error) {
 		console.log('error', error)
