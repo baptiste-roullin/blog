@@ -73,7 +73,7 @@ cf. postcss.config.js pour le CSS
 				if (
 					outputPath &&
 					outputPath.endsWith('.html') &&
-					(outputPath.startsWith('dist/blog/') || outputPath.startsWith('dist/portfolio/'))
+					!(outputPath.startsWith('dist/tags/'))
 				) {
 					return picturesProcessing(content)
 				}
