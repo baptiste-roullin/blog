@@ -3,7 +3,7 @@ const meta = require('./meta')
 const yaml = require('js-yaml')
 const fs = require('fs')
 
-import threader from '../heroPages/threads/threader_core'
+/*import threader from '../heroPages/threads/threader_core'
 
 
 // executing  threader_core and adding the result to global Eleventy data scope.
@@ -20,7 +20,7 @@ module.exports =
   (!meta.twitterThread || !threads ?
     [{ "title": "fonctionnalité désactivée" }] : threads
   )
-
+*/
 //todo : gérer les fetch annulés https://javascript.info/fetch-abort
 //todo : exemple https://twitter.com/Saint_loup/status/1384527253367894016
 //TODO : arrêter les requêtes si tweet_id = tweet déjà en cache (pas juste le tout premier tweet)
