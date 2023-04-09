@@ -20,11 +20,10 @@ function reformatURL(src: string, width): string {
 			'$1-' + width + '.jpg')
 }
 
-
 export default function pictures_processing(html) {
 
 	const globalSettings = {
-		selector: ` .image-responsiver :not(picture) > img[src]:not([srcset]):not([src$='.svg'])`,
+		selector: `.image-responsiver img[src]:not([srcset]):not([src$='.svg'])`,
 		minWidth: 400,
 		maxWidth: 1920,
 /*		fallbackWidth: 750,

@@ -8,10 +8,8 @@ hero:
   image: tb.jpg
 ---
 
-
-
 ::: info-block
-{% ctaLink "Voir le projet", "https://github.com/baptiste-roullin/table-basse"  %}
+{% ctaLink "Voir le projet", "https://table-basse.toutcequibouge.net/"  %}
 :::
 
 Soyez patient pour le premier chargement, car l'hébergeur (Heroku version gratuite) éteint le serveur après 30 min d'inactivité.
