@@ -53,8 +53,7 @@ Incorporer un calculateur à une chaussure peut aussi être glorieusement vain. 
 
 ![](/assets/images/nzxt-rtkft-studios-pc-shoes.jpeg)
 
-Sinon, via ce [tweet de Maxime Quijoux](https://twitter.com/mquijoux/status/1360129653055324163), je découvre que la retranscription de paroles enregistrées, activité chronophage s'il en est,  est parfois musclée par le recorurs à un pédalier spécifique. J'ai d'abord cru que c'était un accessoire de guitariste (Olympus est une marque  qui fait dans la musique) mais non, c'est bien un outil dédié.
-
+Sinon, via ce [tweet de Maxime Quijoux](https://twitter.com/mquijoux/status/1360129653055324163), je découvre que la retranscription de paroles enregistrées, activité chronophage s'il en est,  est parfois musclée par le recours à un pédalier spécifique. J'ai d'abord cru que c'était un accessoire de guitariste (Olympus est une marque  qui fait dans la musique) mais non, c'est bien un outil dédié.
 
 
 Voici un exemple d'une [autre marque](https://www.grundig-gbs.com/fr/solutions/materiel/digta-transcription-starter-kit/) :
@@ -63,6 +62,14 @@ Voici un exemple d'une [autre marque](https://www.grundig-gbs.com/fr/solutions/m
 
 Que ce soit pour la retranscription ou pour un autre but, écouter attentivement et de manière répétée de longues paroles est une activité assez étrange, tour à tour hypnotique et agressive, surtout avec un appareil très tactile comme un pédalier ou une roulette de montage accentue certainement l'effet. On est enveloppé et immergé dans la voix des locuteurs, alors qu'on la contrôle et l'interrompe sans cesse, au point de la disloquer et de lui faire perdre son flot.
 
+## Ajout 2023
+
+Via cette fascinante émission, je découvre aussi le pédalie des stations de chirurgie assistée par ordinateur.
+
+![](/assets/images/chir_pedale2.jpg)
+
+
+![](/assets/images/chir_pedale2.jpg)
 
 
 ***********
