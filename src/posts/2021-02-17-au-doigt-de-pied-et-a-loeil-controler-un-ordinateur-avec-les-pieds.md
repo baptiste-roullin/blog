@@ -66,7 +66,7 @@ Que ce soit pour la retranscription ou pour un autre but, écouter attentivement
 
 Via cette fascinante émission, je découvre aussi le pédalie des stations de chirurgie assistée par ordinateur.
 
-![](/assets/images/chir_pedale2.jpg)
+![](/assets/images/chir_pedale.jpg)
 
 
 ![](/assets/images/chir_pedale2.jpg)
@@ -78,5 +78,5 @@ Via cette fascinante émission, je découvre aussi le pédalie des stations de c
 
 ![](/assets/images/footloose2.gif)
 
- [Gif tiré du générique de Footloose](https://www.youtube.com/watch?v=CSWlpZSdu4E)
+([Gif tiré du générique de Footloose](https://www.youtube.com/watch?v=CSWlpZSdu4E))
 
