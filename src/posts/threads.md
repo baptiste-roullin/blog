@@ -6,7 +6,7 @@ tags:
   - "projets"
 ---
 
-**EDIT** : Ma technique [utilisée ici](https://toutcequibouge.net/threads/) est maintenant impossible (ou prohibitive) depuis l'énorme serrage de vis sur les API de Twitter par le nouveau PDG de Twitter (son nom m'échappe...).
+**EDIT** : Ma technique [utilisée ici](https://toutcequibouge.net/threads/) est maintenant impossible (ou prohibitive) depuis l'énorme serrage de vis sur les API de Twitter par leur nouveau PDG (son nom m'échappe...).
 
 
 ________
