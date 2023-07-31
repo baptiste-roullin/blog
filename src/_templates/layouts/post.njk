@@ -3,7 +3,7 @@ layout: base
 ---
 
 <div >
-  <div class="template-post image-responsiver">
+  <article class="template-post image-responsiver">
     {% if hero.image %}
       {% include 'components/header_hero_image.njk' %}
     {% endif %}
@@ -24,12 +24,11 @@ layout: base
       {% endif %}
       <div class="my-16 post-main prose-tcqb">{{ content | safe }}</div>
     </div>
-  </div>
+  </article>
 
   {% set nextPost = collections.publishedPosts | getPreviousCollectionItem %}
   {% set previousPost = collections.publishedPosts | getNextCollectionItem %}
   {% if nextPost or previousPost %}
-
     <footer class="relative mt-16 text-xl d-mb-10 md:text-2xl lg:3xl ">
       <div class="h-full decor-dark bg-blue-light"></div>
       {# ===== Previous and Next =====  #}
