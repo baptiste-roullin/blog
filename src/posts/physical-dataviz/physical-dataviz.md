@@ -5,12 +5,12 @@ tags:
   - "histoire"
   - "objets"
   - "données"
+  - "symboles"
 featured: true
 draft: false
 hero:
   image: maxwell.jpg
   alt: "modèle en plâtre sur lequel est tracé des courbes, pour expliquer la thermodynamique."
-
 ---
 
 Panorama foutraque de ce que l'on appelle parfois la physicalisation de données : visualiser des données par un support physique non-numérique.
