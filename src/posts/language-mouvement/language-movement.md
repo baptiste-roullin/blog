@@ -1,5 +1,5 @@
 ---
-title: "Un langage pour le mouvement"
+title: "Des langages pour le mouvement"
 date: 2023-09-05
 tags:
   - "histoire"
