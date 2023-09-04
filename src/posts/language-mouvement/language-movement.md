@@ -7,7 +7,7 @@ tags:
   - "symboles"
 hero:
   image: "oa.png"
-  alt: "Photogramme de la série The OA. Une main trace un symbole sur une vitre, tandis qu'une voix dit 'donc nous avons inventé des symboles pour enregistrer les mouvements"
+  alt: "Photogramme de la série The OA. Une main trace un symbole sur une vitre, tandis qu'une voix dit : donc nous avons inventé des symboles pour enregistrer les mouvements"
 ---
 
 
@@ -30,7 +30,7 @@ Il y a le LoCos inventé par Yukio Ota, l'Isotype de Neurath, la sémantographie
 
 ## De la danse…
 
-Il y a aussi des langages pas universels et dédiés au mouvement. L'idée est beaucoup plus utilisée pour la danse. Dès le 17e siècle, on trouve des premiers systèmes basiques.
+Il y a aussi des langages pas universels et dédiés au mouvement. L'idée est beaucoup utilisée pour la danse. Dès le 17e siècle, on trouve des premiers systèmes basiques.
 
 ![Diagramme en forme de rosace, avec des pétales décoratives au centre, montrant différents mouvements.](caroso.jpeg)
 
