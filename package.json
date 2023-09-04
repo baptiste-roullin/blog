@@ -1,7 +1,7 @@
 {
   "name": "tout-ce-qui-bouge",
   "engines": {
-    "node": "18.8.0"
+    "node": "18.15.0"
   },
   "scripts": {
     "dev:webpack": "webpack --watch  --mode development",
