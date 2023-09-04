@@ -1,19 +1,19 @@
 ---js
 {
   layout: "page",
-  postListItemStyle:{
+  postListItemStyle: {
     complete: true,
     showPagination: false
   },
   permalink: "/tags/{{ tag | slugify }}/",
-  eleventyComputed:{
+  eleventyComputed: {
     title: function (data) {
       const tag = data.pagination.items[0]
-      if (tag === "featuredPosts")  {
-        return "Bafouilles dont je suis content"
+      if (tag === 'featuredPosts')  {
+        return 'Bafouilles dont je suis content'
       }
       else {
-        return "Articles parlant de : " + tag"
+        return `Articles parlant de : ${tag}`
       }
     }
   },
@@ -22,7 +22,8 @@
     size: 1,
     alias: "tag",
     before: function(paginationData, fullData) {
-      paginationData['featuredPosts'] = undefined
+      console.log(paginationData)
+      paginationData.push('featuredPosts')
       return paginationData
 
     }
