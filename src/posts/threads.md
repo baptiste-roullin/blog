@@ -6,6 +6,11 @@ tags:
   - "projets"
 ---
 
+**EDIT** : Ma technique [utilisée ici](https://toutcequibouge.net/threads/) est maintenant impossible (ou prohibitive) depuis l'énorme serrage de vis sur les API de Twitter par leur nouveau PDG (son nom m'échappe...).
+
+
+________
+
 Pour archiver des fils de votre compte, l'export fourni par Twitter ne suffit pas. Chaque tweet est isolé, sans les messages auquel il répond. Plus fondamentalement, la notion de "thread" n'existe pas dans l'API.
 
 Il faut se tourner vers des outils externes.
@@ -31,3 +36,4 @@ Du coup j'ai codé [un truc](https://github.com/baptiste-roullin/blog/blob/dev/s
 Le script est pensé pour tourner régulièrement et alimenter mon blog. Si aucun nouveau tweet n'est détecté, il s'arrête et réutilise les anciennes données en cache.
 
 Par ailleurs, mon blog génère automatiquement une page [listant tous les fils](/threads) et une page pour chacun d'entre eux.
+
