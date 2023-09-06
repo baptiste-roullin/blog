@@ -8,6 +8,7 @@ tags:
 hero:
   image: "oa.png"
   alt: "Photogramme de la série The OA. Une main trace un symbole sur une vitre, tandis qu'une voix dit : donc nous avons inventé des symboles pour enregistrer les mouvements"
+  caption: "The OA"
 ---
 
 
