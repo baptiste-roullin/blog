@@ -1,7 +1,4 @@
 ---
-- name: Twitter
-  link: https://twitter.com/Saint_loup
-
 - name: Mastodon
   link: https://mastodon.design/@Saint_loup
 
@@ -14,4 +11,5 @@
 - name: Photos
   link: https://ambulando.toutcequibouge.net
 
-
+- name: Formes
+  link: https://ribambelle.club/~boucan/
