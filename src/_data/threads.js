@@ -1,9 +1,10 @@
+/*
 //@ts-nocheck
 const meta = require('./meta')
 const yaml = require('js-yaml')
 const fs = require('fs')
 
-/*import threader from '../heroPages/threads/threader_core'
+import threader from '../heroPages/threads/threader_core'
 
 
 // executing  threader_core and adding the result to global Eleventy data scope.
