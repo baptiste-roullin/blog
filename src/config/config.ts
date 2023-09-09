@@ -1,5 +1,5 @@
 //@todo : plus besoin de .eleventyignore en env de dev. https://www.11ty.dev/docs/ignores/#configuration-api
-
+//@todo : https://philna.sh/blog/2023/09/05/nodejs-supports-dotenv/
 const pluginRss = require('@11ty/eleventy-plugin-rss')
 const pluginNavigation = require('@11ty/eleventy-navigation')
 const yaml = require("js-yaml")
