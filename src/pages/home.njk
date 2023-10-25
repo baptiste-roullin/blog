@@ -34,10 +34,10 @@ postListItemStyle:
   <section class="">
     <div class="block-heading-split ">
       <h2  class="">Bafouilles dont je suis content</h2>
-      {% ctaLink "Voir tout", "/tags/featured-posts" %}
+      {% ctaLink "Voir tout", "/tags/featured" %}
     </div>
     <ul class="flex flex-col gap-8 post-list">
-    {%- for post in collections.featuredPosts | shuffle |  slice(0, 3) -%}
+    {%- for post in collections.featured | shuffle |  slice(0, 3) -%}
     	{% include 'components/posts_list_item.njk' %}
   {%- endfor -%}
     </ul>

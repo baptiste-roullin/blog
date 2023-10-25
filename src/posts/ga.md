@@ -6,7 +6,7 @@ draft: false
 tags:
   - projets
   - "utilisateurs"
-  - "featured"
+featured: true
 ---
 
 Vous voulez savoir si vos utilisateurs ont des petits ou des gros smartphones ? Des laptops ou des écrans externes ? La taille de la fenêtre de leur navigateur, indépendamment de l'écran ?

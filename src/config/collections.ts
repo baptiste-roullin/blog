@@ -1,6 +1,6 @@
 
 //import { normalize } from 'path';
-import { Item, Collection } from '../../types/eleventy.js';
+import { Item, Collection } from '../../types/eleventy.js'
 
 //import normalizeTag from '../filters/normalize_tag'
 
@@ -48,7 +48,7 @@ export const collections = {
 		return Object.fromEntries(sortedtags)
 	},
 
-	featuredPosts: function (collectionAPI): Item[] {
+	featured: function (collectionAPI): Item[] {
 		return getbyField(collectionAPI, 'featured', true)
 	},
 
@@ -58,7 +58,7 @@ export const collections = {
 		const collatedProjects = await Promise.all(projects.map(async (projet) => {
 
 			if (!projet.img) {
-				await truchetNode(projet.name, 400, 400).catch(console.error);
+				await truchetNode(projet.name, 400, 400).catch(console.error)
 				//chemin absolu
 				projet.img = `/${meta.assetsDir}/truchet-${projet.name}.png`
 			}
