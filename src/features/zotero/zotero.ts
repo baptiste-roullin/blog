@@ -1,11 +1,12 @@
 
-import { MultiReadResponse, RawItem } from '../../../types/zotero'
+import { MultiReadResponse, RawItem } from '../../../types/zotero.js'
 
-const njk = require('nunjucks')
+import njk from 'nunjucks'
+import pMap from 'p-map'
 
 // Documentation de l'API : https://www.zotero.org/support/dev/web_api/v3/basics
 // Client : 				https://github.com/tnajdek/zotero-api-client
-const { default: api } = require('zotero-api-client')
+import api from 'zotero-api-client'
 
 
 /*
@@ -16,13 +17,13 @@ Comme promise.all, effectue des requête en parallèle et renvoie une promesse d
 */
 
 
-import cache from '../../utils/caching'
-import dateHumanFormat from "../../filters/date_formatting"
-const meta = require("../../_data/meta")
+import cache from '../../utils/caching.js'
+import dateHumanFormat from '../../filters/date_formatting.js'
+import meta from '../../_data/meta.js'
 
 export default async function zotero(collection: string, ...requestedTags: string[]) {
 
-	const { default: pMap } = await import('p-map')
+
 	async function addDataToItems(items) {
 
 		async function mapper(item) {

@@ -1,5 +1,5 @@
 
-import { md } from '../config/markdown'
+import md from '../markdown'
 
 export const pairedShortcodes = {
 

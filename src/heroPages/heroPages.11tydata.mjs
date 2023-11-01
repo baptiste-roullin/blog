@@ -1,7 +1,7 @@
-import collateHeroImage from '../utils/collateHeroImage'
+import collateHeroImage from '../utils/collateHeroImage.js'
 
 
-module.exports = {
+export default {
   layout: "heroPage",
   hideMeta: true,
   author: "{{ meta.author }}",

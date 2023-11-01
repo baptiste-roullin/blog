@@ -1,5 +1,5 @@
 import truchetNode from '../features/truchet/truchet_node'
-const meta = require('../_data/meta')
+import meta from '../_data/meta'
 import path from 'path'
 
 

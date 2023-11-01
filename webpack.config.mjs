@@ -1,30 +1,35 @@
-const path = require('path')
-const CopyPlugin = require("copy-webpack-plugin")
-const WebpackAssetsManifest = require('webpack-assets-manifest')
-require('dotenv').config()
-const meta = require('./src/_data/meta.js')
-import * as webpack from 'webpack'
+import { resolve, dirname } from 'node:path'
 
-const config: webpack.Configuration = {
+import { fileURLToPath } from 'url'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+import CopyPlugin from "copy-webpack-plugin"
+import WebpackAssetsManifest from 'webpack-assets-manifest'
+import dotenv from 'dotenv'
+dotenv.config()
+import meta from './src/_data/meta.js'
+//import * as webpack from 'webpack'
+
+export default {
 
   resolve: {
     extensions: ['.ts', '.js'],
   },
   entry: {
-    search_front: path.resolve(__dirname, 'src/assets/scripts/search_front.js'),
-    contact: path.resolve(__dirname, 'src/assets/scripts/contact.js'),
-    main: path.resolve(__dirname, 'src/assets/scripts/main.js'),
-    picture_lightbox: path.resolve(__dirname, 'src/assets/scripts/picture_lightbox.ts'),
-    spin: path.resolve(__dirname, 'src/assets/scripts/spin.ts'),
-    nav: path.resolve(__dirname, 'src/assets/scripts/nav.ts'),
-    arrowPagination: path.resolve(__dirname, 'src/assets/scripts/arrow_pagination.ts'),
-    truchet: path.resolve(__dirname, 'src/features/truchet/truchet_core.ts'),
-    truchet_dom: path.resolve(__dirname, 'src/features/truchet/truchet_dom.ts'),
-    dateFormatting: path.resolve(__dirname, 'src/filters/date_formatting.ts'),
+    search_front: resolve(__dirname, 'src/assets/scripts/search_front.js'),
+    contact: resolve(__dirname, 'src/assets/scripts/contact.js'),
+    main: resolve(__dirname, 'src/assets/scripts/main.js'),
+    picture_lightbox: resolve(__dirname, 'src/assets/scripts/picture_lightbox.ts'),
+    spin: resolve(__dirname, 'src/assets/scripts/spin.ts'),
+    nav: resolve(__dirname, 'src/assets/scripts/nav.ts'),
+    arrowPagination: resolve(__dirname, 'src/assets/scripts/arrow_pagination.ts'),
+    truchet: resolve(__dirname, 'src/features/truchet/truchet_core.ts'),
+    truchet_dom: resolve(__dirname, 'src/features/truchet/truchet_dom.ts'),
+    dateFormatting: resolve(__dirname, 'src/filters/date_formatting.ts'),
   },
 
   output: {
-    path: path.resolve(__dirname, meta.outputDir + '/assets/scripts'),
+    path: resolve(__dirname, meta.outputDir + '/assets/scripts'),
     /*    détournement du publicpatch*/
     //publicPath: path.resolve(__dirname, 'src'),
     filename: () => (meta.env === "production" ? '[name].[contenthash].js' : '[name].js')
@@ -62,8 +67,8 @@ const config: webpack.Configuration = {
               searchPaths: [
                 'src/_templates/components',
               ], filters: {
-                dateHumanFormat: path.resolve('src/filters/date_formatting.ts'),
-                removeMD: path.resolve('src/filters/remove_MD.ts')
+                dateHumanFormat: resolve('src/filters/date_formatting.ts'),
+                removeMD: resolve('src/filters/remove_MD.ts')
               }
             }
           }
@@ -124,4 +129,3 @@ const config: webpack.Configuration = {
 
   ],
 }
-export default config

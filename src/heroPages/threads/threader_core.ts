@@ -1,4 +1,4 @@
-import { scheduler } from 'node:timers/promises'
+/*import { scheduler } from 'node:timers/promises'
 const debug = require('debug')
 const error = debug('threader:error')
 const warning = debug('threader:warning')
@@ -246,4 +246,4 @@ export default async function threader(author_id: string, token: string | undefi
 	} catch (error) {
 		console.log('error', error)
 	}
-}
+}*/

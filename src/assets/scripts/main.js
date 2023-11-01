@@ -1,5 +1,5 @@
-import nav from './nav'
+import nav from './nav.js'
 nav()
 
-import spin from './spin'
+import spin from './spin.js'
 spin()

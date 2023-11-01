@@ -1,11 +1,11 @@
 
 //import { normalize } from 'path';
-import { Item, Collection } from '../../types/eleventy.js'
+import { Item, Collection } from '../types/eleventy.js'
 
 //import normalizeTag from '../filters/normalize_tag'
 
-const meta = require('../_data/meta')
-import truchetNode from '../features/truchet/truchet_node'
+import meta from './_data/meta.js'
+import truchetNode from './features/truchet/truchet_node.js'
 
 
 const published = (post) => { return !post.data.draft }

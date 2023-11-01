@@ -1,13 +1,13 @@
-import { slugifyFilter } from './slugify'
-import { md } from '../config/markdown'
-import search from '../features/search_index/search_back'
-import dateFormatting from './date_formatting'
-import normalizeTag from './normalize_tag'
+import { slugifyFilter } from './slugify.js'
+import  md  from '../markdown.js'
+import search from '../features/search_index/search_back.js'
+import dateFormatting from './date_formatting.js'
+import normalizeTag from './normalize_tag.js'
 
 import { DateTime, Settings } from 'luxon'
 Settings.defaultLocale = "fr"
-import removeMD from './remove_MD'
-import meta from '../../src/_data/meta'
+import removeMD from './remove_MD.js'
+import meta from '../../src/_data/meta.js'
 
 
 

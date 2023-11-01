@@ -1,10 +1,10 @@
-const textMetrics = require('text-metrics');
+import textMetrics from 'text-metrics'
 
 
 function arrowPagination(e) {
 	//const root = document.querySelector<HTMLElement>('.post-pagination ');
-	const left = document.querySelector<HTMLElement>('#pagination-left a > p ');
-	const right = document.querySelector<HTMLElement>('#pagination-right  a > p');
+	const left = document.querySelector<HTMLElement>('#pagination-left a > p ')
+	const right = document.querySelector<HTMLElement>('#pagination-right  a > p')
 
 	//const width = window.getComputedStyle(left).width.slice(0, -2)
 
@@ -23,11 +23,11 @@ function arrowPagination(e) {
 window.addEventListener("load", arrowPagination)
 
 
-var resizeTimer;
+var resizeTimer
 window.addEventListener("resize", function (e) {
-	clearTimeout(resizeTimer);
+	clearTimeout(resizeTimer)
 	resizeTimer = setTimeout(function () {
 		arrowPagination(e)
-	}, 100);
+	}, 100)
 
 })

@@ -1,4 +1,4 @@
-const debug = require('debug')
+import debug from 'debug'
 const warning = debug('threader:warning')
 const remove = require('remove-markdown')
 

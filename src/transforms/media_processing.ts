@@ -2,14 +2,15 @@
 // https://github.com/google/eleventy-high-performance-blog
 
 
-import path from 'path'
-require('dotenv').config()
+import path from 'node:path'
+import dotenv from 'dotenv'
+dotenv.config()
 
-const { parseHTML } = require('linkedom')
-import handleGIFs from './handle_GIFs'
-import handlePictures from './handle_pictures'
+import { parseHTML } from 'linkedom.'
+import handleGIFs from './handle_GIFs.js'
+import handlePictures from './handle_pictures.js'
 
-const meta = require('../_data/meta')
+import meta from '../_data/meta.js'
 
 function reformatURL(src: string, width): string {
 	const fullPath = `/${meta.assetsDir}/${path.basename(src)}`

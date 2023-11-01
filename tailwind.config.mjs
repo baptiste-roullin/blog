@@ -1,6 +1,6 @@
 const colors = require('tailwindcss/colors')
 
-module.exports = {
+export default {
 	darkMode: 'class',
 	corePlugins: {
 	},

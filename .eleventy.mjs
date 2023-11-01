@@ -1,25 +1,30 @@
+//@ts-check
+
+/*require('ts-node').register({
+	project: 'tsconfig.json'
+})*/
 //@todo : plus besoin de .eleventyignore en env de dev. https://www.11ty.dev/docs/ignores/#configuration-api
 
-const pluginRss = require('@11ty/eleventy-plugin-rss')
-const pluginNavigation = require('@11ty/eleventy-navigation')
-const yaml = require("js-yaml")
-const embedEverything = require("eleventy-plugin-embed-everything")
-const { EleventyRenderPlugin } = require("@11ty/eleventy")
+import pluginRss from '@11ty/eleventy-plugin-rss'
+import pluginNavigation from '@11ty/eleventy-navigation'
+import yaml from "js-yaml"
+import embedEverything from "eleventy-plugin-embed-everything"
+import EleventyRenderPlugin from "@11ty/eleventy"
 
-const meta = require('../_data/meta')
-import picturesProcessing from '../transforms/media_processing'
-import { collections } from './collections'
-import { md } from './markdown'
+import meta from './src/_data/meta'
+import picturesProcessing from './src/transforms/media_processing'
+import { collections } from './src/collections'
+import md from './src/markdown'
 
-import { pairedShortcodes } from '../shortcodes/pairedShortcodes'
-import { asyncShortcodes } from '../shortcodes/asyncShortcodes'
-import { shortcodes } from '../shortcodes/shortcodes'
-import { filters } from '../filters/filters'
+import { pairedShortcodes } from './src/shortcodes/pairedShortcodes.js'
+import { asyncShortcodes } from './src/shortcodes/asyncShortcodes.js'
+import { shortcodes } from './src/shortcodes/shortcodes.js'
+import { filters } from './src/filters/filters.js'
 
-import { Config, UserConfig } from '../../types/eleventy'
+//import { Config, UserConfig } from './src/../types/eleventy'
+//import("./src/../types/eleventy").Config()
 
-
-module.exports = function conf(config: Config): UserConfig {
+export default function conf(config) {
 
 	config.ignores.add("./src/heroPages/portfolio/portfolioIntro.md")
 	config.ignores.add("./src/features/zotero/zotero_component.njk")

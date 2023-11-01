@@ -1,6 +1,14 @@
-const markdownIt = require('markdown-it')
+import markdownIt from 'markdown-it'
 
-import { slugifyFilter as slugify } from '../filters/slugify'
+import MarkdownItContainer from 'markdown-it-container'
+import * as footnote from 'markdown-it-footnote'
+import * as bracketedSpans from 'markdown-it-bracketed-spans'
+import * as attrs from 'markdown-it-attrs'
+import * as blockquoteCite from 'markdown-it-blockquote-cite'
+import * as imageFigures from 'markdown-it-image-figures'
+import highlightjs from 'markdown-it-highlightjs'
+
+import { slugifyFilter as slugify } from './filters/slugify'
 
 
 const anchor = (md) => {
@@ -54,18 +62,20 @@ let options = {
 	quotes: ['«\u202F', '\u202F»', '‹\u202F', '\u202F›']
 }
 
-export const md = markdownIt(options)
+
+
+export default markdownIt(options)
 	.disable('code')
-	.use(require('markdown-it-container'), 'info-block')
+	.use(MarkdownItContainer, 'info-block')
 	//.use(markdownItHeadingLevel, { firstLevel: 2 })
-	.use(require('markdown-it-footnote'))
+	.use(footnote)
 	.use(anchor)
 	//	.use(double_punctuation)
-	.use(require('markdown-it-bracketed-spans'))
-	.use(require('markdown-it-attrs'))
-	.use(require('markdown-it-blockquote-cite'))
-	.use(require('markdown-it-image-figures'), { figcaption: true })
-	.use(require('markdown-it-highlightjs'));
+	.use(bracketedSpans)
+	.use(attrs)
+	.use(blockquoteCite)
+	.use(imageFigures, { figcaption: true })
+	.use(highlightjs);
 
 
 

@@ -1,11 +1,11 @@
-import ElasticLunr from "elasticlunr";
-import elasticlunr from "elasticlunr";
-require('./lunr.stemmer.support.js')(elasticlunr);
-require('./lunr.fr.js')(elasticlunr);
+import ElasticLunr from "elasticlunr"
+import elasticlunr from "elasticlunr"
+require('./lunr.stemmer.support.js')(elasticlunr)
+require('./lunr.fr.js')(elasticlunr)
 import { Settings } from 'luxon'
-Settings.defaultLocale = "fr";
+Settings.defaultLocale = "fr"
 
-const remove = require('remove-markdown');
+import remove from 'remove-markdown'
 
 
 
@@ -16,12 +16,12 @@ export default function search(collection) {
 	// what fields we'd like our index to consist of
 	function createIndex(this: ElasticLunr.Index<any>) {
 		//@ts-ignore
-		this.use(lunr.fr);
+		this.use(lunr.fr)
 		this.addField("title")
 		this.addField("description")
 		this.addField("tags")
 		this.addField("content")
-		this.setRef("url");
+		this.setRef("url")
 	}
 	var index: ElasticLunr.Index<any> = elasticlunr(createIndex)
 
@@ -44,9 +44,9 @@ export default function search(collection) {
 		}
 
 
-		index.addDoc(docOptions);
+		index.addDoc(docOptions)
 
 
-	});
-	return JSON.stringify(index.toJSON());
+	})
+	return JSON.stringify(index.toJSON())
 }

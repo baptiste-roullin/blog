@@ -1,11 +1,12 @@
 
-require('dotenv').config()
-const convertPicturesLibrary = require("@11ty/eleventy-img")
-const clonedeep = require('lodash.clonedeep')
-const meta = require('../_data/meta')
-const debug = require('debug')
+import dotenv from 'dotenv'
+dotenv.config()
+import convertPicturesLibrary from "@11ty/eleventy-img"
+import clonedeep from 'lodash.clonedeep'
+import debug from 'debug'
 const warning = debug('pictures:warning')
-import path from 'path'
+import path from 'node:path'
+import meta from '../_data/meta.js'
 //import cache from '../utils/caching'
 
 
