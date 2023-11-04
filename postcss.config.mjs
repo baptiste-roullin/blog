@@ -1,26 +1,23 @@
-import * as postcss from 'postcss-import'
-import * as tailwindcss from 'tailwindcss'
-import * as nesting from 'tailwindcss/nesting'
-
-tailwindcss({ config: './tailwind.config.js' })
-import * as autoprefixer from 'autoprefixer'
+/*import * as autoprefixer from 'autoprefixer'
 import * as cssnano from 'cssnano'
 
 import * as postcssHash from 'postcss-hash'
+*/
+
+//import meta from './src/_data/meta.js'
 
 
-import meta from './src/_data/meta'
+//const nano = (meta.env === "production" ?  : ""),
 
 
 
 export default {
-  plugins: [
-    postcss,
-    nesting,
-    tailwindcss,
-    autoprefixer,
-    postcssHash,
-    ...(meta.env === "production" ? [cssnano] : []),
-
-  ]
+  plugins: {
+    'postcss-import': {},
+    'tailwindcss/nesting': {},
+    tailwindcss: { config: './tailwind.config.mjs' },
+    "autoprefixer": {},
+    "postcss-hash": {},
+    "cssnano": {}
+  }
 }
