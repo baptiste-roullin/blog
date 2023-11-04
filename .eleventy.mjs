@@ -1,6 +1,8 @@
 //@ts-check
 
-/*require('ts-node').register({
+/*import { register } from 'ts-node'
+
+register({
 	project: 'tsconfig.json'
 })*/
 //@todo : plus besoin de .eleventyignore en env de dev. https://www.11ty.dev/docs/ignores/#configuration-api

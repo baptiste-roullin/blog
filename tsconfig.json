@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		/* Basic Options */
 		"target": "ESNEXT" /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019' or 'ESNEXT'. */,
-		"module": "NodeNext" /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */,
+		"module": "ESNext" /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */,
 		"lib": [
 			"ES2016",
 			"ES2019",
@@ -36,8 +36,9 @@
 		"noFallthroughCasesInSwitch": true /* Report errors for fallthrough cases in switch statement. */,
 		"noImplicitAny": false,
 		"forceConsistentCasingInFileNames": true,
+		"allowImportingTsExtensions": true,
 		/* Module Resolution Options */
-		"moduleResolution": "NodeNext" /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */,
+		"moduleResolution": "Bundler" /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */,
 		"baseUrl": "./" /* Base directory to resolve non-absolute module names. */,
 		"paths": {
 			"*": [
@@ -45,7 +46,7 @@
 			],
 		} /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */,
 		"allowSyntheticDefaultImports": true, /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
-		"esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */,
+		"esModuleInterop": false /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */,
 		// "preserveSymlinks": true,              /* Do not resolve the real path of symlinks. */
 		/* Source Map Options */
 		// "sourceRoot": "",                      /* Specify the location where debugger should locate TypeScript files instead of source locations. */
@@ -55,12 +56,15 @@
 		/* Experimental Options */
 		"experimentalDecorators": true /* Enables experimental support for ES7 decorators. */
 	},
+	"ts-node": {
+		"esm": true,
+},
 	"include": [
 		"./src/**/*.ts",
 		"./src/**/*.js",
 		"./src/config/config.ts",
 		"tsconfig.front.json"
-, "src/heroPages/heroPages.11tydata.mjs", "src/posts/posts.11tydata.mjs"	],
+, "src/heroPages/heroPages.11tydata.js", "src/posts/posts.11tydata.mjs"	],
 	"exclude": [
 		"./src/assets/scripts",
 	]

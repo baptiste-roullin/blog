@@ -8,7 +8,7 @@ import * as blockquoteCite from 'markdown-it-blockquote-cite'
 import * as imageFigures from 'markdown-it-image-figures'
 import highlightjs from 'markdown-it-highlightjs'
 
-import { slugifyFilter as slugify } from './filters/slugify'
+import { slugifyFilter as slugify } from './filters/slugify.js'
 
 
 const anchor = (md) => {
