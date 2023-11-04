@@ -1,5 +1,5 @@
 import * as ElasticLunr from "elasticlunr"
-import * as elasticlunr from "elasticlunr"
+import * as elasticlunr from "/node_modules/elasticlunr/lib/elasticlunr.js"
 require('./lunr.stemmer.support.js')(elasticlunr)
 require('./lunr.fr.js')(elasticlunr)
 import { Settings } from 'luxon'

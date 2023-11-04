@@ -54,7 +54,6 @@ export default {
 		'./src/**/*.html',
 		'./src/**/*.njk',
 		'./src/**/*.md',
-		'./src/_data/structure.ts',
 		'./src/filters/*.{ts,js}',
 		'./src/shortcodes/*.{ts,js}',
 	],

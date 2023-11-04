@@ -1,5 +1,5 @@
-import { slugifyFilter } from './slugify.js'
-import  md  from '../markdown.js'
+import slugify from './slugify.js'
+import md from '../markdown.js'
 import search from '../features/search_index/search_back.js'
 import dateFormatting from './date_formatting.js'
 import normalizeTag from './normalize_tag.js'
@@ -119,7 +119,7 @@ export const filters = {
    // Universal slug filter strips unsafe chars from URLs
    */
 	slugify: (string) => {
-		return slugifyFilter(string)
+		return slugify(string)
 	},
 
 }

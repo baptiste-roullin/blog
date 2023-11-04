@@ -1,4 +1,4 @@
-import collateHeroImage from '../utils/collateHeroImage.ts'
+import collateHeroImage from '../utils/collateHeroImage.js'
 
 
 export default {

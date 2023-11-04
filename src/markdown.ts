@@ -6,10 +6,9 @@ import * as bracketedSpans from 'markdown-it-bracketed-spans'
 import * as attrs from 'markdown-it-attrs'
 import * as blockquoteCite from 'markdown-it-blockquote-cite'
 import * as imageFigures from 'markdown-it-image-figures'
-import highlightjs from 'markdown-it-highlightjs'
+import highlightjs from 'markdown-it-highlightjs/dist/core.js'
 
-import { slugifyFilter as slugify } from './filters/slugify.js'
-
+import slugify from './filters/slugify.js'
 
 const anchor = (md) => {
 
@@ -75,7 +74,13 @@ export default markdownIt(options)
 	.use(attrs)
 	.use(blockquoteCite)
 	.use(imageFigures, { figcaption: true })
-	.use(highlightjs);
+	.use(highlightjs, {
+		auto: true,
+		code: true,
+		inline: false,
+		ignoreIllegals: true
+	}
+	);
 
 
 
