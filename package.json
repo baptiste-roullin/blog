@@ -7,7 +7,6 @@
     "debug:eleventy": "npx @11ty/eleventy --incremental",
     "dev:postcss": "postcss src/assets/css/main.css -o dist/assets/css/main.css --watch",
     "dev": "npm-run-all --parallel dev:* --print-label",
-    "threader": "  set DEBUG=threader:* & npx tsx watch ./src/heroPages/threads/threads_test.ts",
     "build:webpack": "webpack  --mode production",
     "build:postcss": "cross-env NODE_ENV=production postcss --verbose src/assets/css/main.css -o dist/assets/css/main.css",
     "build:eleventy": "cross-env NODE_ENV=production npx @11ty/eleventy  --quiet --incremental",
@@ -67,7 +66,7 @@
     "postcss": "^8.4.19",
     "random-seed": "^0.3.0",
     "remove-markdown": "^0.5.0",
-    "simple-nunjucks-loader": "^3.2.0",
+    "simple-nunjucks-loader": "https://github.com/baptiste-roullin/nunjucks-loader",
     "style-loader": "^3.3.1",
     "tailwindcss-textshadow": "^2.1.3",
     "tailwindcss": "^3.2.4",
@@ -77,6 +76,9 @@
     "webpack-cli": "*",
     "webpack": "*",
     "zotero-api-client": "^0.43.1"
+  },
+  "optionalDependencies": {
+    "canvas": "^2.10.2"
   },
   "dependencies": {
     "elasticlunr": "https://github.com/weixsong/elasticlunr.js",

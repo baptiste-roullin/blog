@@ -6,7 +6,7 @@ import path from 'node:path'
 import dotenv from 'dotenv'
 dotenv.config()
 
-import { parseHTML } from 'linkedom.'
+import { parseHTML } from 'linkedom'
 import handleGIFs from './handle_GIFs.js'
 import handlePictures from './handle_pictures.js'
 
