@@ -9,7 +9,7 @@
     "dev": "npm-run-all --parallel dev:* --print-label",
     "build:webpack": "webpack  --mode production",
     "build:postcss": "cross-env NODE_ENV=production postcss --verbose src/assets/css/main.css -o dist/assets/css/main.css",
-    "build:eleventy": "cross-env NODE_ENV=production NODE_OPTIONS='--loader ts-node/esm' npx @11ty/eleventy  --quiet --incremental",
+    "build:eleventy": "cross-env NODE_ENV=production npx ts-node --esm  node_modules/.bin/eleventy --config=.eleventy.ts --quiet --incremental",
     "build": "run-s build:* --print-label"
   },
   "devDependencies": {

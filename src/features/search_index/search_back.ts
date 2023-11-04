@@ -8,8 +8,6 @@ Settings.defaultLocale = "fr"
 import remove from 'remove-markdown'
 
 
-
-
 export default function search(collection) {
 
 
