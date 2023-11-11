@@ -3,12 +3,12 @@
   "type": "module",
   "scripts": {
     "dev:webpack": "webpack --watch  --mode development",
-    "dev:eleventy": " cross-env NODE_OPTIONS=\"--loader ts-node/esm\" npx @11ty/eleventy --incremental --serve --quiet",
+    "dev:eleventy": " npx tsx node_modules/.bin/eleventy --config=.eleventy.js --serve --incremental",
     "dev:postcss": "postcss src/assets/css/main.css -o dist/assets/css/main.css --watch",
     "dev": "npm-run-all --parallel dev:* --print-label",
     "build:webpack": "webpack  --mode production",
     "build:postcss": "cross-env NODE_ENV=production postcss --verbose src/assets/css/main.css -o dist/assets/css/main.css",
-    "build:eleventy": "cross-env NODE_OPTIONS=\"--loader ts-node/esm\" npx @11ty/eleventy --incremental --serve --quiet",
+    "build:eleventy": " npx @11ty/eleventy --incremental --quiet",
     "build:search": "npx -y pagefind --site dist ",
     "build": "run-s build:* --print-label"
   },

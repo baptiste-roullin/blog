@@ -1,6 +1,6 @@
 
-import { truchetItem, truchetList } from '../features/truchet/truchet_shortcode.js'
-import slugify from '../filters/slugify.js'
+import { truchetItem, truchetList } from '../features/truchet/truchet_shortcode'
+import slugify from '../filters/slugify'
 
 export const shortcodes = {
   truchetItem: truchetItem,

@@ -1,5 +1,5 @@
 
-//"npx ts-node --esm  node_modules/.bin/eleventy --config=.eleventy.js --serve"
+//"npx ts-node --esm  node_modules/.bin/eleventy --config=.eleventy.js"
 //@todo : plus besoin de .eleventyignore en env de dev. https://www.11ty.dev/docs/ignores/#configuration-api
 
 import pluginRss from '@11ty/eleventy-plugin-rss'
@@ -8,15 +8,15 @@ import yaml from "js-yaml"
 import embedEverything from "eleventy-plugin-embed-everything"
 import * as EleventyRenderPlugin from "@11ty/eleventy"
 
-import meta from './src/_data/meta.js'
-import picturesProcessing from './src/transforms/media_processing.js'
-import { collections } from './src/collections.js'
-import md from './src/markdown.js'
+import meta from './src/_data/meta'
+import picturesProcessing from './src/transforms/media_processing'
+import { collections } from './src/collections'
+import md from './src/markdown'
 
-import { pairedShortcodes } from './src/shortcodes/pairedShortcodes.js'
-import { asyncShortcodes } from './src/shortcodes/asyncShortcodes.js'
-import { shortcodes } from './src/shortcodes/shortcodes.js'
-import { filters } from './src/filters/filters.js'
+import { pairedShortcodes } from './src/shortcodes/pairedShortcodes'
+import { asyncShortcodes } from './src/shortcodes/asyncShortcodes'
+import { shortcodes } from './src/shortcodes/shortcodes'
+import { filters } from './src/filters/filters'
 
 //import { Config, UserConfig } from './src/../types/eleventy'
 //import("./src/../types/eleventy").Config()

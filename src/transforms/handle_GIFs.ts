@@ -6,8 +6,8 @@ import { promisify } from "node:util"
 import child_process from "child_process"
 const exec = promisify(child_process.exec)
 import pathToFfmpeg from "ffmpeg-static"
-import meta from '../_data/meta.js'
-import fileExists from '../utils/fileExists.js'
+import meta from '../_data/meta'
+import fileExists from '../utils/fileExists'
 
 async function convertGIFs(name, convertedName, outPath) {
 

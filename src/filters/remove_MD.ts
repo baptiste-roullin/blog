@@ -1,6 +1,6 @@
 import debug from 'debug'
 const warning = debug('threader:warning')
-const remove = require('remove-markdown')
+import remove from 'remove-markdown'
 
 export default function removeMD(string) {
 	if (!string) {

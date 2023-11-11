@@ -1,11 +1,11 @@
-import slugify from './slugify.js'
-import md from '../markdown.js'
-import dateFormatting from './date_formatting.js'
-import normalizeTag from './normalize_tag.js'
+import slugify from './slugify'
+import md from '../markdown'
+import dateFormatting from './date_formatting'
+import normalizeTag from './normalize_tag'
 
 import { DateTime, Settings } from 'luxon'
 Settings.defaultLocale = "fr"
-import removeMD from './remove_MD.js'
+import removeMD from './remove_MD'
 
 
 

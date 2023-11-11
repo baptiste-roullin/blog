@@ -1,15 +1,15 @@
-//@ts-nocheck
-import truchet from './truchet_core'
-import meta from '../_data/meta.js'
 
 import debug from 'debug'
+import truchet from './truchet_core'
+import meta from '../../_data/meta'
+import fs from 'fs'
+import promises from 'stream'
 const warning = debug('tcqb:warning')
 
 export default async function (slug, width, height) {
 	if (process.platform !== "win32") {
-		import { createCanvas } from 'canvas'
-		import fs from 'fs'
-		import promises from 'stream'
+		const { createCanvas } = await import('canvas')
+
 		const pipeline = promises.pipeline
 
 		const path = `${meta.outputDir}/${meta.assetsDir}/truchet-${slug}.png`

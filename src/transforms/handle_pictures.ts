@@ -6,7 +6,7 @@ import clonedeep from 'lodash.clonedeep'
 import debug from 'debug'
 const warning = debug('pictures:warning')
 import path from 'node:path'
-import meta from '../_data/meta.js'
+import meta from '../_data/meta'
 //import cache from '../utils/caching'
 
 

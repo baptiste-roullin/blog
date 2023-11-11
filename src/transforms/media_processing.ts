@@ -7,10 +7,10 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 import { parseHTML } from 'linkedom'
-import handleGIFs from './handle_GIFs.js'
-import handlePictures from './handle_pictures.js'
+import handleGIFs from './handle_GIFs'
+import handlePictures from './handle_pictures'
 
-import meta from '../_data/meta.js'
+import meta from '../_data/meta'
 
 function reformatURL(src: string, width): string {
 	const fullPath = `/${meta.assetsDir}/${path.basename(src)}`

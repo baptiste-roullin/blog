@@ -1,0 +1,11 @@
+{
+"version": "<some-version>",
+"configurations": [
+    {
+        "type": "node",
+        "runtimeVersion": "4.8.7", // If i need to run node 4.8.7
+        "request": "launch",
+        "name": "Launch",
+        "program": "${workspaceFolder}/sample.js"
+    }
+]}
