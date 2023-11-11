@@ -1,5 +1,5 @@
 
-//"npx ts-node --esm  node_modules/.bin/eleventy --config=.eleventy.ts"
+//"npx ts-node --esm  node_modules/.bin/eleventy --config=.eleventy.js --serve"
 //@todo : plus besoin de .eleventyignore en env de dev. https://www.11ty.dev/docs/ignores/#configuration-api
 
 import pluginRss from '@11ty/eleventy-plugin-rss'

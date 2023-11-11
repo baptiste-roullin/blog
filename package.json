@@ -8,7 +8,8 @@
     "dev": "npm-run-all --parallel dev:* --print-label",
     "build:webpack": "webpack  --mode production",
     "build:postcss": "cross-env NODE_ENV=production postcss --verbose src/assets/css/main.css -o dist/assets/css/main.css",
-    "build:eleventy": "npx ts-node --esm  node_modules/.bin/eleventy --config=.eleventy.js --serve --quiet --incremental",
+    "build:eleventy": "cross-env NODE_OPTIONS=\"--loader ts-node/esm\" npx @11ty/eleventy --incremental --serve --quiet",
+    "build:search": "npx -y pagefind --site dist ",
     "build": "run-s build:* --print-label"
   },
   "devDependencies": {
@@ -23,7 +24,6 @@
     "@babel/preset-env": "^7.20.2",
     "@tailwindcss/forms": "*",
     "@tailwindcss/typography": "*",
-    "@types/elasticlunr": "^0.9.5",
     "@types/luxon": "^3.1.0",
     "@types/markdown-it": "^13.0.5",
     "@types/markdown-it-container": "^2.0.5",
@@ -78,7 +78,6 @@
     "canvas": "^2.10.2"
   },
   "dependencies": {
-    "elasticlunr": "https://github.com/weixsong/elasticlunr.js",
     "lodash": "^4.17.21",
     "photoswipe": "^5.3.4",
     "text-metrics": "^4.0.1"
