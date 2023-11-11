@@ -13,10 +13,10 @@ import meta from './src/_data/meta.js'
 export default {
 
   resolve: {
-    extensions: ['.ts', '.js'],
+    extensions: ['.ts', '.js', '.mjs'],
   },
   entry: {
-    /*search_front: resolve(__dirname, 'src/assets/scripts/search_front.js'),*/
+    search_front: resolve(__dirname, 'src/assets/scripts/search_front.ts'),
     contact: resolve(__dirname, 'src/assets/scripts/contact.js'),
     main: resolve(__dirname, 'src/assets/scripts/main.js'),
     picture_lightbox: resolve(__dirname, 'src/assets/scripts/picture_lightbox.js'),

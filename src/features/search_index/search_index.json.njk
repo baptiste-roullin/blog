@@ -1,0 +1,8 @@
+---
+permalink: /index.min.json
+eleventyExcludeFromCollections: true,
+---
+
+{% if meta.env === 'production' %}
+	{{ collections.publishedPosts | searchIndex   | safe }}
+{% endif %}
