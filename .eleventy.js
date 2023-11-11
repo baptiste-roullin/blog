@@ -3,10 +3,11 @@
 //@todo : plus besoin de .eleventyignore en env de dev. https://www.11ty.dev/docs/ignores/#configuration-api
 
 import pluginRss from '@11ty/eleventy-plugin-rss'
-import * as  pluginNavigation from '@11ty/eleventy-navigation'
+import pluginNavigation from '@11ty/eleventy-navigation'
 import yaml from "js-yaml"
 import embedEverything from "eleventy-plugin-embed-everything"
-import * as EleventyRenderPlugin from "@11ty/eleventy"
+import EleventyRenderPlugin from "./node_modules/@11ty/eleventy/src/Plugins/RenderPlugin.js"
+import pluginWebc from "@11ty/eleventy-plugin-webc"
 
 import meta from './src/_data/meta'
 import picturesProcessing from './src/transforms/media_processing'
@@ -105,6 +106,7 @@ cf. postcss.config.js pour le CSS
 	})
 	config.addPlugin(pluginRss)
 	config.addPlugin(EleventyRenderPlugin)
+	config.addPlugin(pluginWebc)
 
 
 	/**

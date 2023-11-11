@@ -17,7 +17,7 @@ export default {
     'tailwindcss/nesting': {},
     tailwindcss: { config: './tailwind.config.mjs' },
     "autoprefixer": {},
-    "postcss-hash": {},
+    //    "postcss-hash": {},
     "cssnano": {}
   }
 }

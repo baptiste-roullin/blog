@@ -4,6 +4,7 @@
 
 src/assets/imagesToProcess/*
 src/_data/hashes_css.json
+manifest.json
 src/_data/hashes_js.json
 
 src/_js

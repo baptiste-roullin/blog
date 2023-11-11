@@ -3,9 +3,10 @@
   "type": "module",
   "scripts": {
     "dev:webpack": "webpack --watch  --mode development",
-    "dev:eleventy": " npx tsx node_modules/.bin/eleventy --config=.eleventy.js --serve --incremental",
+    "dev:eleventy": " npx tsx node_modules/.bin/eleventy --config=.eleventy.js --serve --incremental --quiet --ignore-initial",
     "dev:postcss": "postcss src/assets/css/main.css -o dist/assets/css/main.css --watch",
     "dev": "npm-run-all --parallel dev:* --print-label",
+    "search": "npx -y pagefind --site dist --glob \"{blog/, portfolio}/**\" ",
     "build:webpack": "webpack  --mode production",
     "build:postcss": "cross-env NODE_ENV=production postcss --verbose src/assets/css/main.css -o dist/assets/css/main.css",
     "build:eleventy": " npx @11ty/eleventy --incremental --quiet",

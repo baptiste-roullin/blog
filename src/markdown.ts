@@ -1,11 +1,11 @@
 import markdownIt from 'markdown-it'
 
 import MarkdownItContainer from 'markdown-it-container'
-import * as footnote from 'markdown-it-footnote'
-import * as bracketedSpans from 'markdown-it-bracketed-spans'
-import * as attrs from 'markdown-it-attrs'
-import * as blockquoteCite from 'markdown-it-blockquote-cite'
-import * as imageFigures from 'markdown-it-image-figures'
+import footnote from 'markdown-it-footnote'
+import bracketedSpans from 'markdown-it-bracketed-spans'
+import attrs from 'markdown-it-attrs'
+import blockquoteCite from 'markdown-it-blockquote-cite'
+import imageFigures from 'markdown-it-image-figures'
 //import highlightjs from 'markdown-it-highlightjs/dist/core.js'
 
 import highlightjs from "markdown-it-highlightjs"
