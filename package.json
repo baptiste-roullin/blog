@@ -70,6 +70,7 @@
     "tailwindcss": "*",
     "ts-loader": "^9.4.1",
     "ts-node": "^10.9.1",
+    "vite-plugin-nunjucks": "^0.1.10",
     "webpack": "*",
     "webpack-assets-manifest": "^5.1.0",
     "webpack-cli": "*",

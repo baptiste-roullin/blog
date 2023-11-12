@@ -16,7 +16,7 @@ export default {
     extensions: ['.ts', '.js', '.mjs'],
   },
   entry: {
-    search_front: resolve(__dirname, 'src/assets/scripts/search_front.ts'),
+    search_front: resolve(__dirname, 'src/assets/scripts/search_front.js'),
     contact: resolve(__dirname, 'src/assets/scripts/contact.js'),
     main: resolve(__dirname, 'src/assets/scripts/main.js'),
     picture_lightbox: resolve(__dirname, 'src/assets/scripts/picture_lightbox.js'),
@@ -25,13 +25,12 @@ export default {
     arrowPagination: resolve(__dirname, 'src/assets/scripts/arrow_pagination.js'),
     truchet: resolve(__dirname, 'src/features/truchet/truchet_core.ts'),
     truchet_dom: resolve(__dirname, 'src/features/truchet/truchet_dom.ts'),
-    dateFormatting: resolve(__dirname, 'src/filters/date_formatting.ts'),
+    dateFormatting: resolve(__dirname, 'src/filters/date_formatting.mjs'),
   },
 
   output: {
     path: resolve(__dirname, meta.outputDir + '/assets/scripts'),
-    /*    détournement du publicpatch*/
-    //publicPath: path.resolve(__dirname, 'src'),
+
     filename: () => (meta.env === "production" ? '[name].[contenthash].js' : '[name].js')
   },
   module: {
@@ -59,7 +58,7 @@ export default {
               searchPaths: [
                 'src/_templates/components',
               ], filters: {
-                dateHumanFormat: resolve('src/filters/date_formatting.ts'),
+                dateHumanFormat: resolve('src/filters/date_formatting.mjs'),
                 removeMD: resolve('src/filters/remove_MD.ts')
               }
             }

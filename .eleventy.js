@@ -70,6 +70,26 @@ cf. postcss.config.js pour le CSS
 		//config.addPassthroughCopy({ 'src/posts/**/* ': meta.assetsDir })
 		//config.addPassthroughCopy('src/assets/images')
 
+
+
+		/*	{
+	
+					use: [
+						{
+							loader: 'simple-nunjucks-loader',
+							options: {
+								searchPaths: [
+									'src/_templates/components',
+								], filters: {
+									dateHumanFormat: resolve('src/filters/date_formatting.mjs'),
+									removeMD: resolve('src/filters/remove_MD.ts')
+								}
+							}
+						}
+					]
+			},
+	*/
+
 		config.addTransform(
 			'picturesProcessing',
 			(content, outputPath) => {
