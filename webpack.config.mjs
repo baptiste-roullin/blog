@@ -13,11 +13,17 @@ import meta from './src/_data/meta.js'
 export default {
 
   resolve: {
-    extensions: ['.ts', '.js', '.mjs'],
+    extensions: [".ts", ".tsx", ".js"],
+    // Add support for TypeScripts fully qualified ESM imports.
+    extensionAlias: {
+      ".js": [".js", ".ts"],
+      ".cjs": [".cjs", ".cts"],
+      ".mjs": [".mjs", ".mts"]
+    },
   },
   entry: {
-    search_front: resolve(__dirname, 'src/assets/scripts/search_front.js'),
-    contact: resolve(__dirname, 'src/assets/scripts/contact.js'),
+    search_front: resolve(__dirname, 'src/assets/scripts/search_front.ts'),
+    contact: resolve(__dirname, 'src/assets/scripts/contact.ts'),
     main: resolve(__dirname, 'src/assets/scripts/main.js'),
     picture_lightbox: resolve(__dirname, 'src/assets/scripts/picture_lightbox.js'),
     spin: resolve(__dirname, 'src/assets/scripts/spin.js'),
@@ -25,7 +31,7 @@ export default {
     arrowPagination: resolve(__dirname, 'src/assets/scripts/arrow_pagination.js'),
     truchet: resolve(__dirname, 'src/features/truchet/truchet_core.ts'),
     truchet_dom: resolve(__dirname, 'src/features/truchet/truchet_dom.ts'),
-    dateFormatting: resolve(__dirname, 'src/filters/date_formatting.mjs'),
+    dateFormatting: resolve(__dirname, 'src/filters/date_formatting.ts'),
   },
 
   output: {
@@ -36,7 +42,7 @@ export default {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.[jt]s$/,
         loader: 'ts-loader',
         exclude: /node_modules/,
         options: {
@@ -58,7 +64,7 @@ export default {
               searchPaths: [
                 'src/_templates/components',
               ], filters: {
-                dateHumanFormat: resolve('src/filters/date_formatting.mjs'),
+                dateHumanFormat: resolve('src/filters/date_formatting.ts'),
                 removeMD: resolve('src/filters/remove_MD.ts')
               }
             }

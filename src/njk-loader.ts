@@ -1,9 +1,9 @@
-
+/*
 
 import * as path from 'path'
 import { HmrContext, IndexHtmlTransformContext, IndexHtmlTransformResult, Plugin } from "vite"
 
-import nunjucks, { ConfigureOptions, Environment, Extension } from "nunjucks"
+import nunjucks, { ConfigureOptions, Environment, Extension, Template } from "nunjucks"
 
 export type templateVariables = Record<string, object>
 
@@ -27,20 +27,13 @@ export interface nunjucksEnvironmentOptions {
 
 export const globalVariablesKey = '*'
 
-export default (options: nunjucksPluginOptions = {}): Plugin => {
+export default async (options: nunjucksPluginOptions = {}): Promise<string> => {
+
 	const env = options.nunjucksEnvironment instanceof Environment
 		? options.nunjucksEnvironment
 		: createNunjucksEnvironment(options.nunjucksEnvironment || {})
 
-	return {
-		name: 'nunjucks',
-		enforce: 'pre',
-		handleHotUpdate: handleHotUpdate,
-		transformIndexHtml: {
-			enforce: 'pre',
-			transform: handleTransformHtml
-		}
-	}
+	return await handleTransformHtml()
 
 	function createNunjucksEnvironment({ extensions, filters }: nunjucksEnvironmentOptions): Environment {
 		options = { ...options }
@@ -58,8 +51,8 @@ export default (options: nunjucksPluginOptions = {}): Plugin => {
 		return env
 	}
 
-	function handleTransformHtml(html: string, context: IndexHtmlTransformContext): IndexHtmlTransformResult | void | Promise<IndexHtmlTransformResult | void> {
-		const key = path.basename(context.path)
+	function handleTransformHtml(html: string, path): Promise<string> {
+		const key = path.basename(path)
 		const globalVariables = options.variables?.[globalVariablesKey] || {}
 		const templateVariables = options.variables?.[key] || {}
 		return new Promise((resolve, reject) => {
@@ -81,3 +74,4 @@ export default (options: nunjucksPluginOptions = {}): Plugin => {
 		return []
 	}
 }
+*/

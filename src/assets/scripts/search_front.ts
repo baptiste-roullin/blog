@@ -1,16 +1,17 @@
 // @ts-nocheck
 
-const elasticlunr = require("elasticlunr");
-require('./lunr.stemmer.support.js')(elasticlunr);
-require('./lunr.fr.js')(elasticlunr);
-//@ts-ignore
+import elasticlunr from "elasticlunr"
+import * as stemmer from './lunr.stemmer.support.js'
+stemmer(elasticlunr)
+import { lunr } from './lunr.fr.js'
+lunr(elasticlunr)
 import createComponent from '../../../src/_templates/components/posts_list_item.njk'
 
 
 //"use strict"
 
 async function search(e) {
-	e.preventDefault();
+	e.preventDefault()
 	const value = e.target[0].value
 
 	const results = window
@@ -24,30 +25,30 @@ async function search(e) {
 				tags: { boost: 5 },
 				content: { boost: 2 },
 			}
-		});
-	const noResultsEl = document.getElementById("noResultsFound");
-	const container = document.querySelector('.post-wrapper');
+		})
+	const noResultsEl = document.getElementById("noResultsFound")
+	const container = document.querySelector('.post-wrapper')
 	const postList = container.children[0]
 	const searchList = container.children[1]
 
 	if (!value) {
 		console.log('champ vide')
 		postList.style.display = 'flex'
-		searchList.style.display = 'none';
+		searchList.style.display = 'none'
 	}
 	else {
-		postList.style.display = 'none';
-		searchList.style.display = 'flex';
+		postList.style.display = 'none'
+		searchList.style.display = 'flex'
 		while (searchList.hasChildNodes()) {
 			searchList.removeChild(searchList.lastChild)
 		}
 		if (results.length > 0) {
 
-			noResultsEl.style.display = "none";
+			noResultsEl.style.display = "none"
 			results.forEach((r) => {
 				const doc = window.searchIndex.documentStore.getDoc(r.ref)
 
-				let { url, title, description, date, fileSlug, collatedHeroImage } = doc;
+				let { url, title, description, date, fileSlug, collatedHeroImage } = doc
 
 				const el = createComponent({
 					postListItemStyle: { complete: 'complete' },
@@ -65,11 +66,11 @@ async function search(e) {
 						}
 					}
 				})
-				searchList.insertAdjacentHTML('beforeend', el);
-			});
+				searchList.insertAdjacentHTML('beforeend', el)
+			})
 		} else {
 			console.log('no results')
-			noResultsEl.style.display = "block";
+			noResultsEl.style.display = "block"
 		}
 	}
 
@@ -78,15 +79,15 @@ async function search(e) {
 document.addEventListener('DOMContentLoaded', function () {
 
 	document.getElementById("search-form")
-		.addEventListener("submit", search);
+		.addEventListener("submit", search)
 
 	document.getElementById("search-form")
 		.addEventListener("input", async function (e) {
 			if (!window.searchIndex) {
 				const rawIndex = await fetch("/index.min.json")
-				window.searchIndex = elasticlunr.Index.load(await rawIndex.json());
+				window.searchIndex = elasticlunr.Index.load(await rawIndex.json())
 			}
 
-		});
+		})
 
 })

@@ -1,6 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 
-import _ from 'lodash'
+import fromPairs from 'lodash.frompairs'
+import map from 'lodash.map'
+
 import plugin from 'tailwindcss/plugin'
 
 const textShadow = plugin(function ({ addUtilities, e, theme, addVariant }) {
@@ -8,8 +10,8 @@ const textShadow = plugin(function ({ addUtilities, e, theme, addVariant }) {
 
 	//const textShadowVariants = addVariant('textShadow', []) //TODO : vérifier si vraiment inutile
 
-	const utilities = _.fromPairs(
-		_.map(textShadow, (value, modifier) => {
+	const utilities = fromPairs(
+		map(textShadow, (value, modifier) => {
 			const className = modifier === 'default' ? 'text-shadow' : `${e(`text-shadow-${modifier}`)}`
 			return [
 				`.${className}`,
