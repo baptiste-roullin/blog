@@ -17,13 +17,14 @@
 		"declaration": true, /* Generates corresponding '.d.ts' file. */
 		"declarationMap": true, /* Generates a sourcemap for each corresponding '.d.ts' file. */
 		"sourceMap": true, /* Generates corresponding '.map' file. */
+		"outDir": "build",
 		// "outFile": "./",                       /* Concatenate and emit output to single file. */
 		// "rootDir": "./",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
 		// "composite": true,                     /* Enable project compilation */
 		"incremental": true, /* Enable incremental compilation */
 		// "tsBuildInfoFile": "./",               /* Specify file to store incremental compilation information */
 		"removeComments": false, /* Do not emit comments to output. */
-		"noEmit": true /* Do not emit outputs. (BECAUSE WE'RE USING TS-NODE!) */,
+		"noEmit": false /* Do not emit outputs.*/,
 		"importHelpers": false, /* Import emit helpers from 'tslib'. */
 		// "downlevelIteration": true,            /* Provide full support for iterables in 'for-of', spread, and destructuring when targeting 'ES5' or 'ES3'. */
 		// "isolatedModules": true,               /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */
@@ -36,7 +37,6 @@
 		"noFallthroughCasesInSwitch": true /* Report errors for fallthrough cases in switch statement. */,
 		"noImplicitAny": false,
 		"forceConsistentCasingInFileNames": true,
-		"allowImportingTsExtensions": true,
 		/* Module Resolution Options */
 		"moduleResolution": "Bundler" /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */,
 		"baseUrl": "./" /* Base directory to resolve non-absolute module names. */,
@@ -56,16 +56,13 @@
 		/* Experimental Options */
 		"experimentalDecorators": true /* Enables experimental support for ES7 decorators. */
 	},
-	"ts-node": {
-		"esm": true,
-},
 	"include": [
 		"./src/**/*.ts",
 		"./src/**/*.js",
 		"./src/**/*.mjs",
 		"./src/config/config.ts",
 		"tsconfig.front.json",
-		"src/heroPages/heroPages.11tydata.js"],
+	],
 	"exclude": [
 		"./src/assets/scripts",
 	]

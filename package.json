@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "dev:webpack": "webpack  --mode development",
-    "dev:eleventy": "npx tsx node_modules/.bin/eleventy --config=.eleventy.js --serve --incremental --quiet --ignore-initial",
+    "dev:eleventy": "npx tsc && npx @11ty/eleventy --incremental  --serve --incremental",
     "dev:postcss": "postcss src/assets/css/main.css -o dist/assets/css/main.css --watch",
     "dev": "npm-run-all --parallel dev:* --print-label",
     "build:webpack": "webpack  --mode production",
@@ -71,16 +71,16 @@
     "webpack": "*",
     "webpack-assets-manifest": "^5.1.0",
     "webpack-cli": "*",
-    "zotero-api-client": "^0.43.1"
+    "zotero-api-client": "^0.43.1",
+    "simple-nunjucks-loader": "github:baptiste-roullin/nunjucks-loader"
   },
   "optionalDependencies": {
     "canvas": "^2.10.2"
   },
   "dependencies": {
-    "elasticlunr": "^0.9.5",
     "photoswipe": "^5.3.4",
-    "simple-nunjucks-loader": "github:baptiste-roullin/nunjucks-loader",
-    "text-metrics": "^4.0.1"
+    "text-metrics": "^4.0.1",
+    "tsx": "^4.1.1"
   },
   "browserslist": [
     "> 1%",

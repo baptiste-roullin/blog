@@ -1,5 +1,5 @@
 import truchetNode from '../features/truchet/truchet_node'
-import meta from '../_data/meta'
+import meta from '../_data/meta.js'
 import path from 'path'
 
 

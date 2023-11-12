@@ -9,6 +9,7 @@ src/_data/hashes_js.json
 
 src/_js
 dist
+build
 .sync_*
 
 .cache

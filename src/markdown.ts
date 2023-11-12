@@ -9,7 +9,7 @@ import imageFigures from 'markdown-it-image-figures'
 //import highlightjs from 'markdown-it-highlightjs/dist/core.js'
 
 import highlightjs from "markdown-it-highlightjs"
-import slugify from './filters/slugify'
+import slugify from './filters/slugify.js'
 
 const anchor = (md) => {
 

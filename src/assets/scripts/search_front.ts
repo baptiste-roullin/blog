@@ -1,11 +1,13 @@
-// @ts-nocheck
+//@ts-ignore
+import createComponent from '../../../src/_templates/components/posts_list_item.njk'
 
+// @ts-nocheck
+/*
 import elasticlunr from "elasticlunr"
 import * as stemmer from './lunr.stemmer.support.js'
 stemmer(elasticlunr)
 import { lunr } from './lunr.fr.js'
 lunr(elasticlunr)
-import createComponent from '../../../src/_templates/components/posts_list_item.njk'
 
 
 //"use strict"
@@ -91,3 +93,4 @@ document.addEventListener('DOMContentLoaded', function () {
 		})
 
 })
+*/

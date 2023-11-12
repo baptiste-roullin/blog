@@ -1,11 +1,17 @@
 // https://observablehq.com/@xenomachina/truchet-tiles-variant-intertwined-quarter-circles@552
 
 import { BlobOptions } from 'buffer'
-import { Canvas } from 'canvas'
 
 import makeRandomGenerator from 'random-seed'
 
+interface customCanvas extends HTMLCanvasElement {
+	createPNGStream: Function
+}
 
+if (process.platform !== "win32") {
+	// @ts-ignore
+	const { createCanvas } = await import('canvas')
+}
 interface Params {
 	height: number
 	width: number
@@ -28,7 +34,7 @@ interface Params {
 	//	[key: string]: string | number
 
 }
-export default async function truchet(canvas: Canvas, tileCanvas: Canvas, params: Params, mode: string) {
+export default async function truchet(canvas: customCanvas, tileCanvas: customCanvas, params: Params, mode: string) {
 	const d3 = await import("d3-color")
 
 	const rand = makeRandomGenerator.create()

@@ -4,8 +4,8 @@ import { Item, Collection } from '../types/eleventy.js'
 
 //import normalizeTag from '../filters/normalize_tag'
 
-import meta from './_data/meta'
-import truchetNode from './features/truchet/truchet_node'
+import meta from './_data/meta.js'
+import truchetNode from './features/truchet/truchet_node.js'
 
 
 const published = (post) => { return !post.data.draft }

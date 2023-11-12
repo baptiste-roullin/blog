@@ -1,4 +1,3 @@
-
 //"npx ts-node --esm  node_modules/.bin/eleventy --config=.eleventy.js"
 //@todo : plus besoin de .eleventyignore en env de dev. https://www.11ty.dev/docs/ignores/#configuration-api
 
@@ -6,18 +5,18 @@ import pluginRss from '@11ty/eleventy-plugin-rss'
 import pluginNavigation from '@11ty/eleventy-navigation'
 import yaml from "js-yaml"
 import embedEverything from "eleventy-plugin-embed-everything"
-import EleventyRenderPlugin from "./node_modules/@11ty/eleventy/src/Plugins/RenderPlugin.js"
+import EleventyRenderPlugin from "@11ty/eleventy/src/Plugins/RenderPlugin.js"
 import pluginWebc from "@11ty/eleventy-plugin-webc"
 
-import meta from './src/_data/meta'
-import picturesProcessing from './src/transforms/media_processing'
-import { collections } from './src/collections'
-import md from './src/markdown'
+import meta from './src/_data/meta.js'
+import picturesProcessing from './src/transforms/media_processing.js'
+import { collections } from './src/collections.js'
+import md from './src/markdown.js'
 
-import { pairedShortcodes } from './src/shortcodes/pairedShortcodes'
-import { asyncShortcodes } from './src/shortcodes/asyncShortcodes'
-import { shortcodes } from './src/shortcodes/shortcodes'
-import { filters } from './src/filters/filters'
+import { pairedShortcodes } from './src/shortcodes/pairedShortcodes.js'
+import { asyncShortcodes } from './src/shortcodes/asyncShortcodes.js'
+import { shortcodes } from './src/shortcodes/shortcodes.js'
+import { filters } from './src/filters/filters.js'
 
 //import { Config, UserConfig } from './src/../types/eleventy'
 //import("./src/../types/eleventy").Config()
@@ -73,7 +72,7 @@ cf. postcss.config.js pour le CSS
 
 
 		/*	{
-	
+
 					use: [
 						{
 							loader: 'simple-nunjucks-loader',
@@ -192,7 +191,7 @@ cf. postcss.config.js pour le CSS
 
 	return {
 		dir: {
-			input: 'src',
+			input: 'build/src/',
 			output: meta.outputDir,
 			includes: '_templates',
 			data: '_data',

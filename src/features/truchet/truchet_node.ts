@@ -8,6 +8,7 @@ const warning = debug('tcqb:warning')
 
 export default async function (slug, width, height) {
 	if (process.platform !== "win32") {
+		// @ts-ignore
 		const { createCanvas } = await import('canvas')
 
 		const pipeline = promises.pipeline
