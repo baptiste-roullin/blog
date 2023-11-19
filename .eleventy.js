@@ -1,3 +1,6 @@
+/**
+ * @typedef { import("@11ty/eleventy").UserConfig } UserConfig
+ */
 
 //"npx ts-node --esm  node_modules/.bin/eleventy --config=.eleventy.js"
 //@todo : plus besoin de .eleventyignore en env de dev. https://www.11ty.dev/docs/ignores/#configuration-api
@@ -22,17 +25,18 @@ import { filters } from './src/filters/filters'
 //import { Config, UserConfig } from './src/../types/eleventy'
 //import("./src/../types/eleventy").Config()
 
+/** @param {UserConfig} config */
 export default function conf(config) {
 
-	config.ignores.add("./src/heroPages/portfolio/portfolioIntro.md")
-	config.ignores.add("./src/features/zotero/zotero_component.njk")
+	config.ignores?.add("./src/heroPages/portfolio/portfolioIntro.md")
+	config.ignores?.add("./src/features/zotero/zotero_component.njk")
 
 
 	if (meta.twitterThread) {
-		config.ignores.add("./src/nav_entry_threader.njk")
+		config.ignores?.add("./src/nav_entry_threader.njk")
 	}
 	else {
-		config.ignores.add("./src/heroPages/threads/*")
+		config.ignores?.add("./src/heroPages/threads/*")
 	}
 
 
@@ -73,7 +77,7 @@ cf. postcss.config.js pour le CSS
 
 
 		/*	{
-	
+
 					use: [
 						{
 							loader: 'simple-nunjucks-loader',
