@@ -4,6 +4,7 @@
     "node": "18.15.0"
   },
   "scripts": {
+    "dev:copy": "zsh copy.sh",
     "dev:webpack": "webpack --watch  --mode development",
     "dev:eleventy": "  npx @11ty/eleventy  --incremental --serve --quiet",
     "debug:eleventy": "npx @11ty/eleventy --incremental",
