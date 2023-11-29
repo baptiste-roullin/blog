@@ -10,7 +10,7 @@
     {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
-      "headline": "{{cleanedTitle }}",
+      "headline": "{{altTitle or cleanedTitle }}",
       "image": "{{postImage}}",
       "publisher": {
         "@type": "Organization",
@@ -34,8 +34,8 @@
   </script>
 
   <meta property="og:image" content=" {{postImage}}"/>
-  <meta name="description" content="{{ cleanedDescription    }}"/>
-  <meta property="og:description" content="{{ cleanedDescription   }}"/>
+  <meta name="description" content="{{ cleanedDescription }}"/>
+  <meta property="og:description" content="{{ cleanedDescription }}"/>
   <meta property='og:type' content='article'/>
   <meta property='article:author' content='{{meta.author}}'/>
   <meta property='article:publisher' content='{{meta.siteURL}}'/>
