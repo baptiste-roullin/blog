@@ -77,8 +77,8 @@ postListItemStyle:
 <script type="module" src="/assets/scripts/island.js"></script>
 <script>
   const listener =  (e) => {
-    document.querySelector('snow-fall').style.opacity=0;
-    clickTarget.removeEventListener("click", listener, false);
+    document.body.querySelector('snow-fall').style.opacity=0;
+    document.body.removeEventListener("click", listener, false);
 }
   document.body.addEventListener("click", listener, false)
 
