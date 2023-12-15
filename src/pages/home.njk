@@ -75,6 +75,14 @@ postListItemStyle:
 </div>
 <script type="module" src="/assets/scripts/snow.js"></script>
 <script type="module" src="/assets/scripts/island.js"></script>
+<script>
+  const listener =  (e) => {
+    document.querySelector('snow-fall').style.opacity=0;
+    clickTarget.removeEventListener("click", listener, false);
+}
+  document.body.addEventListener("click", listener, false)
+
+</script>
 <is-land style="--snow-fall-color: rebeccapurple" on:media="(prefers-reduced-motion: no-preference)">
 	<snow-fall></snow-fall>
 </is-land>
