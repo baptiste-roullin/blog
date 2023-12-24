@@ -29,9 +29,9 @@ export default {
     spin: resolve(__dirname, 'src/assets/scripts/spin.js'),
     nav: resolve(__dirname, 'src/assets/scripts/nav.js'),
     arrowPagination: resolve(__dirname, 'src/assets/scripts/arrow_pagination.js'),
-    truchet: resolve(__dirname, 'src/features/truchet/truchet_core.ts'),
     truchet_dom: resolve(__dirname, 'src/features/truchet/truchet_dom.ts'),
-    dateFormatting: resolve(__dirname, 'src/filters/date_formatting.ts'),
+    truchet: resolve(__dirname, 'src/features/truchet/truchet_core.js'),
+    dateFormatting: resolve(__dirname, 'src/filters/date_formatting.js'),
   },
 
   output: {
@@ -64,8 +64,8 @@ export default {
               searchPaths: [
                 'src/_templates/components',
               ], filters: {
-                dateHumanFormat: resolve('src/filters/date_formatting.ts'),
-                removeMD: resolve('src/filters/remove_MD.ts')
+                dateHumanFormat: resolve('src/filters/date_formatting.js'),
+                removeMD: resolve('src/filters/remove_MD.js')
               }
             }
           }

@@ -1,8 +1,7 @@
 
 import { truchetItem, truchetList } from '../features/truchet/truchet_shortcode.js'
 import slugify from '../filters/slugify.js'
-
-export const shortcodes = {
+export default {
   truchetItem: truchetItem,
   truchetList: truchetList,
   heading: function (level, className, label) {

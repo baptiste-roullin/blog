@@ -5,17 +5,17 @@ import pluginRss from '@11ty/eleventy-plugin-rss'
 import pluginNavigation from '@11ty/eleventy-navigation'
 import yaml from "js-yaml"
 import embedEverything from "eleventy-plugin-embed-everything"
-import EleventyRenderPlugin from "@11ty/eleventy/src/Plugins/RenderPlugin.js"
+import { EleventyRenderPlugin } from "@11ty/eleventy"
 
 import meta from './src/_data/meta.js'
 import picturesProcessing from './src/transforms/media_processing.js'
 import { collections } from './src/collections.js'
 import md from './src/markdown.js'
 
-import { pairedShortcodes } from './src/shortcodes/pairedShortcodes.js'
-import { asyncShortcodes } from './src/shortcodes/asyncShortcodes.js'
-import { shortcodes } from './src/shortcodes/shortcodes.js'
-import { filters } from './src/filters/filters.js'
+import pairedShortcodes  from './src/shortcodes/pairedShortcodes.js'
+import asyncShortcodes  from './src/shortcodes/asyncShortcodes.js'
+import  shortcodes  from './src/shortcodes/shortcodes.js'
+import filters  from './src/filters/filters.js'
 
 //import { Config, UserConfig } from './src/../types/eleventy'
 //import("./src/../types/eleventy").Config()

@@ -7,9 +7,7 @@ import { DateTime, Settings } from 'luxon'
 Settings.defaultLocale = "fr"
 import removeMD from './remove_MD.js'
 
-
-
-export const filters = {
+export default {
     /**
      * Filters
      * @link https://www.11ty.dev/docs/filters/

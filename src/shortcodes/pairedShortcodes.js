@@ -1,7 +1,7 @@
 
 import md from '../markdown.js'
 
-export const pairedShortcodes = {
+export default {
 
 	richpicture: function (data) {
 		let content = md.render(data)
