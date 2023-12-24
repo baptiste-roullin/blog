@@ -1,8 +1,4 @@
-/**
- * @typedef { import("@11ty/eleventy").UserConfig } UserConfig
- */
 
-//"npx ts-node --esm  node_modules/.bin/eleventy --config=.eleventy.js"
 //@todo : plus besoin de .eleventyignore en env de dev. https://www.11ty.dev/docs/ignores/#configuration-api
 
 import pluginRss from '@11ty/eleventy-plugin-rss'
@@ -24,8 +20,7 @@ import { filters } from './src/filters/filters.js'
 //import { Config, UserConfig } from './src/../types/eleventy'
 //import("./src/../types/eleventy").Config()
 
-/** @param {UserConfig} config */
-export default function conf(config) {
+export default async function conf(config) {
 
 	config.ignores?.add("./src/heroPages/portfolio/portfolioIntro.md")
 	config.ignores?.add("./src/features/zotero/zotero_component.njk")
@@ -73,26 +68,6 @@ cf. postcss.config.js pour le CSS
 		//config.addPassthroughCopy({ 'src/posts/**/* ': meta.assetsDir })
 		//config.addPassthroughCopy('src/assets/images')
 
-
-
-		/*	{
-
-					use: [
-						{
-							loader: 'simple-nunjucks-loader',
-							options: {
-								searchPaths: [
-									'src/_templates/components',
-								], filters: {
-									dateHumanFormat: resolve('src/filters/date_formatting.mjs'),
-									removeMD: resolve('src/filters/remove_MD.ts')
-								}
-							}
-						}
-					]
-			},
-	*/
-
 		config.addTransform(
 			'picturesProcessing',
 			(content, outputPath) => {
@@ -129,7 +104,6 @@ cf. postcss.config.js pour le CSS
 	})
 	config.addPlugin(pluginRss)
 	config.addPlugin(EleventyRenderPlugin)
-	config.addPlugin(pluginWebc)
 
 
 	/**
@@ -180,8 +154,6 @@ cf. postcss.config.js pour le CSS
 
 	config.setLibrary('md', md)
 
-
-
 	/**
  * Collections
  * ============================
@@ -192,10 +164,9 @@ cf. postcss.config.js pour le CSS
 		config.addCollection(colName, collections[colName])
 	})
 
-
 	return {
 		dir: {
-			input: 'build/src/',
+			input: 'src',
 			output: meta.outputDir,
 			includes: '_templates',
 			data: '_data',

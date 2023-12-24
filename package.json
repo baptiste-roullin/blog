@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "dev:webpack": "webpack  --mode development",
-    "dev:eleventy": "npx tsc && npx @11ty/eleventy --incremental  --serve --incremental",
+    "dev:eleventy": " npx @11ty/eleventy --incremental  --serve --incremental",
     "dev:postcss": "postcss src/assets/css/main.css -o dist/assets/css/main.css --watch",
     "dev": "npm-run-all --parallel dev:* --print-label",
     "build:webpack": "webpack  --mode production",
