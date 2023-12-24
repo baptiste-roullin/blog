@@ -13,6 +13,11 @@
     "build:search": "npx -y pagefind --site dist ",
     "build": "run-s build:* --print-label"
   },
+  "overrides": {
+    "@11ty/eleventy-plugin-vite": {
+      "vite": "^4.0.0"
+    }
+  },
   "devDependencies": {
     "@11ty/eleventy": "https://github.com/11ty/eleventy",
     "@11ty/eleventy-fetch": "4.0.0",
