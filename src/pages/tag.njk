@@ -9,7 +9,7 @@
   eleventyComputed: {
     title: function (data) {
       const tag = data.pagination.items[0]
-      if (tag === 'featuredPosts')  {
+      if (tag === 'featured')  {
         return 'Bafouilles dont je suis content'
       }
       else {
@@ -22,7 +22,7 @@
     size: 1,
     alias: "tag",
     before: function(paginationData, fullData) {
-      paginationData.push('featuredPosts')
+      paginationData.push('featured')
       return paginationData
 
     }

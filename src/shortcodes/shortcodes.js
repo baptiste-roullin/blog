@@ -1,8 +1,7 @@
 
-import { truchetItem, truchetList } from '../features/truchet/truchet_shortcode'
-import { slugifyFilter as slugify } from '../filters/slugify'
-
-export const shortcodes = {
+import { truchetItem, truchetList } from '../features/truchet/truchet_shortcode.js'
+import slugify from '../filters/slugify.js'
+export default {
   truchetItem: truchetItem,
   truchetList: truchetList,
   heading: function (level, className, label) {
@@ -30,6 +29,7 @@ export const shortcodes = {
               </a>
     </div>  `
   },
+
   /**
    * ===== SVGs =====
  * This shortcode is used in layouts and can be used in .md content.

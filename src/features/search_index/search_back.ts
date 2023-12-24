@@ -1,4 +1,4 @@
-import ElasticLunr from "elasticlunr";
+/*import ElasticLunr from "elasticlunr";
 import elasticlunr from "elasticlunr";
 require('./lunr.stemmer.support.js')(elasticlunr);
 require('./lunr.fr.js')(elasticlunr);
@@ -50,3 +50,4 @@ export default function search(collection) {
 	});
 	return JSON.stringify(index.toJSON());
 }
+*/

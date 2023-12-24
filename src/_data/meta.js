@@ -1,7 +1,8 @@
-require('dotenv').config()
-const { convertToBool } = require('../utils/convertToBool')
+import dotenv from 'dotenv'
+dotenv.config()
+import convertToBool from '../utils/convertToBool.js'
 
-module.exports = {
+export default {
 	env: process.env.NODE_ENV || 'production ',
 	siteURL: 'https://toutcequibouge.net',
 	siteName: "Tout ce qui bouge",

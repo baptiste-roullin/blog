@@ -2,16 +2,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {% set cleanedTitle = title | removeMD %}
 {% set cleanedDescription = description | removeMD %}
-<title>{{  cleanedTitle }}
-</title>
-{% if r/^post-?/g.test(layout) %}
+<title>{{  altTitle or cleanedTitle }} | {{meta.siteName}}</title>
+{% if (r/^post-?/g.test(layout) or  r/^heroPage?/g.test(layout)) %}
   {% set postImage = meta.siteURL + collatedHeroImage %}
   {% set pageURL = meta.siteURL + page.url %}
   <script type="application/ld+json" >
     {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
-      "headline": "{{cleanedTitle }}",
+      "headline": "{{altTitle or cleanedTitle }}",
       "image": "{{postImage}}",
       "publisher": {
         "@type": "Organization",
@@ -35,8 +34,8 @@
   </script>
 
   <meta property="og:image" content=" {{postImage}}"/>
-  <meta name="description" content="{{ cleanedDescription    }}"/>
-  <meta property="og:description" content="{{ cleanedDescription   }}"/>
+  <meta name="description" content="{{ cleanedDescription }}"/>
+  <meta property="og:description" content="{{ cleanedDescription }}"/>
   <meta property='og:type' content='article'/>
   <meta property='article:author' content='{{meta.author}}'/>
   <meta property='article:publisher' content='{{meta.siteURL}}'/>
@@ -66,17 +65,19 @@
 <link rel="icon" type="image/png" href="/assets/UI/favicon.png" sizes="32x32">
 
 <link type="application/atom+xml" rel="alternate"  title="RSS Feed for {{ meta.siteName }}"  href="/rss" title="{{ meta.siteName }} XML Feed">
-<link rel="stylesheet" href="/assets/css/{{hashes_css['main.css']}}"/>
+{#<link rel="stylesheet" href="/assets/css/{{hashes_css['main.css']}}"/>
+#}
+<link rel="stylesheet" href="/assets/css/main.css"/>
 <script  src="/assets/scripts/{{hashes_js['main.js']}}" defer></script>
 
 {# post intégrant des motifs de truchet en <canvas> #}
 {% if canvas === true %}
-  <script  src="/assets/scripts/{{hashes_js['truchet_dom.js']}}" defer></script>
+  <script type="module"  src="/assets/{{manifest['src/features/truchet/truchet_dom.js']}}" defer></script>
 {% endif %}
 {# post  #}
 {% if picture_lightbox === true %}
-  <script  src="/assets/scripts/{{hashes_js['picture_lightbox.js']}}" defer></script>
+  <script  type="module" src="/assets/{{manifest['src/assets/scripts/picture_lightbox.js']}}" defer></script>
 {% endif %}
 {% if 'blog\/' in page.url %}
-  <script  src="/assets/scripts/{{hashes_js['arrowPagination.js']}}" defer></script>
+  <script  type="module" src="/assets/{{manifest['src/assets/scripts/arrow_pagination.js']}}" defer></script>
 {% endif %}

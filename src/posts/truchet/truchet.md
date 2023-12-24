@@ -4,7 +4,7 @@ date: 2021-08-08
 tags:
   - "tout ce qui bouge"
   - "procédural"
-
+featured: true
 draft: false
 canvas: true
 description: "Générer procéduralement une image de substitution quand un article n'a pas d'image principale, par le truchement des motifs de Truchet."
