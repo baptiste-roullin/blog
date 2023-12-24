@@ -2,21 +2,18 @@
   "name": "tout-ce-qui-bouge",
   "type": "module",
   "scripts": {
-    "dev:webpack": "webpack  --mode development",
-    "dev:copy": "zsh copy.sh",
-    "dev:eleventy": " npx @11ty/eleventy --incremental  --serve --incremental --quiet",
+    "bundle:vite": "npx vite build ",
+    "bundle:copy": "zsh copy.sh",
+    "dev:bundle": "run-s bundle:* --print-label",
+    "dev:eleventy": "npx @11ty/eleventy --incremental  --serve --incremental --quiet",
     "dev:postcss": "postcss src/assets/css/main.css -o dist/assets/css/main.css --watch",
     "dev": "npm-run-all --parallel dev:* --print-label",
-    "build:webpack": "webpack  --mode production",
+    "vite": "npx vite build ",
+    "copy": "zsh copy.sh",
     "build:postcss": "cross-env NODE_ENV=production postcss --verbose src/assets/css/main.css -o dist/assets/css/main.css",
     "build:eleventy": " npx @11ty/eleventy --incremental --quiet",
     "build:search": "npx -y pagefind --site dist ",
     "build": "run-s build:* --print-label"
-  },
-  "overrides": {
-    "@11ty/eleventy-plugin-vite": {
-      "vite": "^4.0.0"
-    }
   },
   "devDependencies": {
     "@11ty/eleventy": "https://github.com/11ty/eleventy",
@@ -75,8 +72,8 @@
     "tailwindcss": "*",
     "ts-loader": "^9.4.1",
     "ts-node": "^10.9.1",
-    "webpack": "*",
-    "webpack-assets-manifest": "^5.1.0",
+    "vite": "^5.0.10",
+    "vite-plugin-nunjucks": "^0.2.0",
     "webpack-cli": "*",
     "zotero-api-client": "^0.43.1"
   },
@@ -84,6 +81,7 @@
     "canvas": "^2.10.2"
   },
   "dependencies": {
+    "glob": "^10.3.10",
     "photoswipe": "^5.3.4",
     "text-metrics": "^4.0.1",
     "tsx": "^4.1.1"

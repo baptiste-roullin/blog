@@ -14,7 +14,7 @@ import md from './src/markdown.js'
 
 import pairedShortcodes  from './src/shortcodes/pairedShortcodes.js'
 import asyncShortcodes  from './src/shortcodes/asyncShortcodes.js'
-import  shortcodes  from './src/shortcodes/shortcodes.js'
+import shortcodes  from './src/shortcodes/shortcodes.js'
 import filters  from './src/filters/filters.js'
 
 //import { Config, UserConfig } from './src/../types/eleventy'
@@ -53,8 +53,10 @@ export default async function conf(config) {
 cf. webpack.configs.js pour le JS
 cf. postcss.config.js pour le CSS
 */
-	//On copie tels quels les média avec chemins relatifs ou absolus dans /dist, qu'ils puissent être lus par du balisage non-transformé (sans srcset ou gif -> vidéo)
 
+	config.addPassthroughCopy({'src/assets/client_build/':'dist/assets/script'})
+
+	//On copie tels quels les média avec chemins relatifs ou absolus dans /dist, qu'ils puissent être lus par du balisage non-transformé (sans srcset ou gif -> vidéo)
 	config.addPassthroughCopy('src/robots.txt')
 	config.addPassthroughCopy('src/assets/css/fonts')
 	config.addPassthroughCopy('src/assets/UI')

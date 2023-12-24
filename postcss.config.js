@@ -15,7 +15,7 @@ export default {
   plugins: {
     'postcss-import': {},
     'tailwindcss/nesting': {},
-    tailwindcss: { config: './tailwind.config.mjs' },
+    tailwindcss: { config: './tailwind.config.js' },
     "autoprefixer": {},
     //    "postcss-hash": {},
     "cssnano": {}
