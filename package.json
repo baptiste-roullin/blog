@@ -3,6 +3,7 @@
   "type": "module",
   "scripts": {
     "dev:webpack": "webpack  --mode development",
+    "dev:copy": "zsh copy.sh",
     "dev:eleventy": " npx @11ty/eleventy --incremental  --serve --incremental --quiet",
     "dev:postcss": "postcss src/assets/css/main.css -o dist/assets/css/main.css --watch",
     "dev": "npm-run-all --parallel dev:* --print-label",

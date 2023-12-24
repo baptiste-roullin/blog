@@ -87,42 +87,7 @@ export default {
       output: '../../../src/_data/hashes_js.json'
     }),
     /* TODO https://www.npmjs.com/package/copyfiles */
-    new CopyPlugin({
-      patterns: [
-        //On copie média avec chemins relatifs ou absolus dans un dossier unique intermédiaire, que les scripts puissent processer
-        {
-          from: "posts/**/*.{png,webp,gif,mp4,jpg,jpeg}",
-          context: "src",
-          to({ context }) {
-            return `${context}/assets/imagesToProcess/[name][ext]`
-          },
-        },
-        /*       {
-                 from: "pages/portfolio/*.{png,webp,gif,mp4,jpg,jpeg}",
-                 context: "src",
-                 to({ context }) {
-                   return `${context}/assets/imagesToProcess/[name][ext]`;
-                 },
-               },*/
-        {
-          from: "assets/images/*",
-          context: "src",
-          to({ context }) {
-            return `${context}/assets/imagesToProcess/[name][ext]`
-          },
-        },
-        {
-          from: "assets/UI/*",
-          context: "src",
-          to({ context }) {
-            return `${context}/assets/imagesToProcess/[name][ext]`
-          },
-        },
-      ],
-      options: {
-        concurrency: 100,
-      },
-    })
+
 
   ],
 }
