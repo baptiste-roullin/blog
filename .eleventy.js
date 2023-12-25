@@ -51,7 +51,6 @@ export default async function conf(config) {
  * Passthrough File Copy
 */
 
-	//TODO : ces passthrough marche pas.
 	//On copie tels quels les média avec chemins relatifs ou absolus dans /dist, qu'ils puissent être lus par du balisage non-transformé (sans srcset ou gif -> vidéo)
 	config.addPassthroughCopy('src/robots.txt')
 	config.addPassthroughCopy('src/assets/css/fonts')
@@ -59,8 +58,10 @@ export default async function conf(config) {
 	config.setUseGitIgnore(false)
 
 	if (meta.pictures) {
+		if (meta.env === "production") {
+			console.log("if env var === production, pictures won't work outside of a server with URL rewriting for webp file extensions.")
+		}
 		config.addPassthroughCopy('src/assets/docs/')
-		config.addPassthroughCopy({ 'src/heroPages/portfolio/*': meta.assetsDir })
 		config.addPassthroughCopy({ 'src/assets/images/*.svg': meta.assetsDir })
 
 		//config.addPassthroughCopy({ 'src/posts/**/* ': meta.assetsDir })
@@ -111,7 +112,6 @@ export default async function conf(config) {
 	Object.keys(filters).forEach((filterName) => {
 		config.addFilter(filterName, filters[filterName])
 	})
-
 
 
 	/**

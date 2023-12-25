@@ -1,3 +1,4 @@
+//TODO : implémenter pagefind
 /*import ElasticLunr from "elasticlunr";
 import elasticlunr from "elasticlunr";
 require('./lunr.stemmer.support.js')(elasticlunr);
