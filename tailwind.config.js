@@ -22,7 +22,6 @@ const textShadow = plugin(function ({ addUtilities, e, theme, addVariant }) {
 			]
 		})
 	)
-	console.log(utilities)
 
 },
 	{
@@ -47,7 +46,9 @@ import colors from 'tailwindcss/colors'
 import typography from '@tailwindcss/typography'
 import nesting from 'tailwindcss/nesting'
 import forms from '@tailwindcss/forms'
-import util from 'markdown-it-blockquote-cite/dist/util'
+import textBalance from 'tailwindcss-text-balance'
+
+//import util from 'markdown-it-blockquote-cite/dist/util'
 
 export default {
 	darkMode: 'class',
@@ -246,6 +247,7 @@ export default {
 		nesting,
 		textShadow,
 		forms,
+		textBalance
 	]
 	,
 }

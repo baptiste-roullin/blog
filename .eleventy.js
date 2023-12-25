@@ -12,10 +12,10 @@ import picturesProcessing from './src/transforms/media_processing.js'
 import { collections } from './src/collections.js'
 import md from './src/markdown.js'
 
-import pairedShortcodes  from './src/shortcodes/pairedShortcodes.js'
-import asyncShortcodes  from './src/shortcodes/asyncShortcodes.js'
-import shortcodes  from './src/shortcodes/shortcodes.js'
-import filters  from './src/filters/filters.js'
+import pairedShortcodes from './src/shortcodes/pairedShortcodes.js'
+import asyncShortcodes from './src/shortcodes/asyncShortcodes.js'
+import shortcodes from './src/shortcodes/shortcodes.js'
+import filters from './src/filters/filters.js'
 
 //import { Config, UserConfig } from './src/../types/eleventy'
 //import("./src/../types/eleventy").Config()
@@ -49,12 +49,9 @@ export default async function conf(config) {
 
 	/**
  * Passthrough File Copy
-
-cf. webpack.configs.js pour le JS
-cf. postcss.config.js pour le CSS
 */
 
-
+	//TODO : ces passthrough marche pas.
 	//On copie tels quels les média avec chemins relatifs ou absolus dans /dist, qu'ils puissent être lus par du balisage non-transformé (sans srcset ou gif -> vidéo)
 	config.addPassthroughCopy('src/robots.txt')
 	config.addPassthroughCopy('src/assets/css/fonts')
