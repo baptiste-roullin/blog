@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-import fromPairs from 'lodash.frompairs'
-import map from 'lodash.map'
+
 
 import plugin from 'tailwindcss/plugin'
 
@@ -10,9 +9,11 @@ const textShadow = plugin(function ({ addUtilities, e, theme, addVariant }) {
 
 	//const textShadowVariants = addVariant('textShadow', []) //TODO : vérifier si vraiment inutile
 
-	const utilities = fromPairs(
-		map(textShadow, (value, modifier) => {
-			const className = modifier === 'default' ? 'text-shadow' : `${e(`text-shadow-${modifier}`)}`
+
+	const utilities = Object.fromEntries(
+		Object.entries(textShadow).map((array) => {
+			const [key, value] = array // key = modifier. value = css content.
+			const className = (key === 'default' ? 'text-shadow' : `${e(`text-shadow-${key}`)}`)
 			return [
 				`.${className}`,
 				{
@@ -21,8 +22,8 @@ const textShadow = plugin(function ({ addUtilities, e, theme, addVariant }) {
 			]
 		})
 	)
+	console.log(utilities)
 
-	addUtilities(utilities)
 },
 	{
 		theme: {
@@ -46,6 +47,7 @@ import colors from 'tailwindcss/colors'
 import typography from '@tailwindcss/typography'
 import nesting from 'tailwindcss/nesting'
 import forms from '@tailwindcss/forms'
+import util from 'markdown-it-blockquote-cite/dist/util'
 
 export default {
 	darkMode: 'class',
