@@ -54,7 +54,6 @@ cf. webpack.configs.js pour le JS
 cf. postcss.config.js pour le CSS
 */
 
-	config.addPassthroughCopy({'src/assets/client_build/':'dist/assets/script'})
 
 	//On copie tels quels les média avec chemins relatifs ou absolus dans /dist, qu'ils puissent être lus par du balisage non-transformé (sans srcset ou gif -> vidéo)
 	config.addPassthroughCopy('src/robots.txt')

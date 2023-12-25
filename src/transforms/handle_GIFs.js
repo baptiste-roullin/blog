@@ -1,10 +1,11 @@
-//TODO : marche pas
 import dotenv from 'dotenv'
 dotenv.config()
 import path from 'node:path'
+import { exec } from 'node:child_process'
+
 import { promisify } from "node:util"
-import child_process from "child_process"
-const exec = promisify(child_process.exec)
+const execute = promisify(exec)
+
 import pathToFfmpeg from "ffmpeg-static"
 import meta from '../_data/meta.js'
 import fileExists from '../utils/fileExists.js'
@@ -18,7 +19,7 @@ async function convertGIFs(name, convertedName, outPath) {
     }
     const command = `${pathToFfmpeg} -y -v error -i \"${path.join('src/assets/imagesToProcess', name)}\" -filter_complex \"[0:v] crop=trunc(iw/2)*2:trunc(ih/2)*2, fps=15\" -vsync 0 -f mp4 -pix_fmt yuv420p \"${path.join(outPath, convertedName)}\"`
     try {
-        await exec(command)
+        await execute(command)
     }
     catch (e) {
         if (e instanceof Error) {
