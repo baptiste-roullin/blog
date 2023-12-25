@@ -2,7 +2,6 @@ import dotenv from 'dotenv'
 dotenv.config()
 import path from 'node:path'
 import { exec } from 'node:child_process'
-
 import { promisify } from "node:util"
 const execute = promisify(exec)
 
@@ -12,7 +11,6 @@ import fileExists from '../utils/fileExists.js'
 
 /** @returns {Promise<any>} */
 async function convertGIFs(name, convertedName, outPath) {
-
 
     if (await fileExists(convertedName)) {
         return convertedName
@@ -27,7 +25,6 @@ async function convertGIFs(name, convertedName, outPath) {
         }
     }
 }
-;
 
 
 /** @returns {void} */

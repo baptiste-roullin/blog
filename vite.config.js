@@ -5,10 +5,6 @@ import date from './src/filters/date_formatting.js'
 import removeMD from './src/filters/remove_MD.js'
 import meta from './src/_data/meta.js'
 
-
-
-
-//TODO : finir chemin des scripts dans les fichiers .njk
 export default defineConfig({
 	plugins: [
 		nunjucks({
