@@ -1,12 +1,42 @@
-export {};
-
+//TODO : pré-compiler à la main postListItem.njk dans search_back.ts
+// puis en front => https://mozilla.github.io/nunjucks/fr/api.html#utilisation-dans-un-navigateur
 // @ts-nocheck
-/*
-import elasticlunr from "elasticlunr"
-import * as stemmer from './lunr.stemmer.support.js'
-stemmer(elasticlunr)
-import { lunr } from './lunr.fr.js'
-lunr(elasticlunr)
+async function m(n) {
+    n.preventDefault()
+    const o = n.target[0].value, { results: t }
+        = await pagefind.debouncedSearch(o), l = document.getElementById("noResultsFound"), a = document.querySelector(".post-wrapper"), s = a.children[0], e = a.children[1]
+    if (!o) console.log("champ vide"), s.style.display = "flex", e.style.display = "none"
+    else {
+        for (s.style.display = "none", e.style.display = "flex";
+            e.hasChildNodes();
+        )e.removeChild(e.lastChild)
+        t.length > 0 ? (l.style.display = "none", t.forEach(i => {
+            let { url: u, meta: d, description: f, date: c, fileSlug: y, collatedHeroImage: g }
+                = i.data()
+            console.log(i.data())
+            const r = createComponent({
+                postListItemStyle: { complete: "complete" }
+                , post: {
+                    data: {
+                        collatedHeroImage: d.image, title: d.title, page: { date: c }
+                    }
+                }
+            }
+            )
+            e.insertAdjacentHTML("beforeend", r)
+        }
+        )) : (console.log("no results"), l.style.display = "block")
+    }
+}
+document.addEventListener("DOMContentLoaded", async function () {
+    async function n() {
+        const t = new URL("/blog/pagefind/pagefind.js", import.meta.url).href
+        return await p(() => import(t), __vite__mapDeps([]))
+    }
+    (await n()).init(), document.getElementById("search-form").addEventListener("submit", m), document.getElementById("search-form").addEventListener("input", async function (t) { }
+    )
+}
+)
 
 
 //"use strict"
@@ -77,6 +107,7 @@ async function search(e) {
 
 };
 
+
 document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById("search-form")
@@ -92,4 +123,4 @@ document.addEventListener('DOMContentLoaded', function () {
         })
 
 })
-*/
+    * /

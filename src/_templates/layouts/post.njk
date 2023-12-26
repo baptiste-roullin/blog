@@ -2,7 +2,7 @@
 layout: base
 ---
 <div >
-  <article class="template-post image-responsiver">
+  <article class="template-post image-responsiver" data-pagefind-body>
     {% if hero.image %}
       {% include 'components/header_hero_image.njk' %}
     {% endif %}
@@ -12,7 +12,7 @@ layout: base
           <h1 class="m-auto text-gray-700 text-balance">{{ title }}</h1>
           {% if not hideMeta %}
             <div class="pt-4 text-sm sm:text-base not-prose">
-              <time datetime="{{ page.date | dateHumanFormat("yyyy-MM-dd") }}">
+              <time data-pagefind-meta="date[datetime]" datetime="{{ page.date | dateHumanFormat("yyyy-MM-dd") }}">
                 {{ page.date | dateHumanFormat("dd LLLL yyyy") }}
               </time>
               {% include "components/separator.njk" %}
@@ -21,7 +21,7 @@ layout: base
           {% endif %}
         </header>
       {% endif %}
-      <div class="my-16 post-main prose-tcqb">{{ content | safe }}</div>
+      <div class="my-16 post-main prose-tcqb " >{{ content | safe }}</div>
     </div>
   </article>
 

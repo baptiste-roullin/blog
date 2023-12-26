@@ -131,7 +131,6 @@ export default {
 				'lg-bis': "1.4rem"
 
 			},
-			// TODO https://github.com/tailwindlabs/tailwindcss-typography/releases/tag/v0.5.0
 			textShadow: {
 				"lg-blue": "3px 3px 6px rgb(0 0 0 / 46%), 0 0 5px rgb(15 3 86 / 42%)"
 			},
