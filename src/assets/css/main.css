@@ -6,6 +6,7 @@
 @import "./cards.scss";
 @import "./headings.scss";
 @import "./global.scss";
+@import "./photoswipe.css";
 @import "../../heroPages/portfolio/portfolio.scss";
 @import "../../features/truchet/truchet.scss";
 

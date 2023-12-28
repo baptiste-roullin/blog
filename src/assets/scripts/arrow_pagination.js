@@ -1,5 +1,5 @@
-//@ts-nocheck
-import * as textMetrics from 'text-metrics'
+
+import * as textMetrics from './text-metrics.mjs'
 
 
 function arrowPagination(e) {

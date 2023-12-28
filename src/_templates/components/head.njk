@@ -66,15 +66,18 @@
 #}
 <link rel="stylesheet" href="/assets/css/main.css"/>
 {#- SCRIPTS #}
-<script type="module" src="{{manifest['main.js']}}" defer></script>
+<script type="module" src="/assets/scripts/main.js" defer></script>
 {# post intégrant des motifs de truchet en <canvas> #}
 {% if canvas === true %}
-  <script type="module"  src="{{manifest['truchet_dom.js']}}" defer></script>
+  <script type="module"  src="/assets/scripts/truchet_dom.js" defer></script>
 {% endif %}
 {# post  #}
 {% if picture_lightbox === true %}
-  <script  type="module" src="{{manifest['picture_lightbox.js']}}" defer></script>
+
+
+ <script type="module" src="/assets/scripts/picture_lightbox.js" defer></script>
+
 {% endif %}
 {% if 'blog\/' in page.url %}
-  <script  type="module" src="{{manifest['arrow_pagination.js']}}" defer></script>
+  <script  type="module" src="/assets/scripts/arrow_pagination.js" defer></script>
 {% endif %}

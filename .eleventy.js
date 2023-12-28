@@ -27,7 +27,6 @@ export default async function conf(config) {
 
 	config.ignores?.add("src/heroPages/portfolio/portfolioIntro.md")
 	config.ignores?.add("src/features/zotero/zotero_component.njk")
-	config.watchIgnores.add("src/assets/scripts/*")
 
 
 	/**
@@ -68,6 +67,9 @@ export default async function conf(config) {
 	config.addPassthroughCopy('src/robots.txt')
 	config.addPassthroughCopy('src/assets/css/fonts')
 	config.addPassthroughCopy('src/assets/UI')
+	config.addPassthroughCopy('src/assets/scripts')
+	config.addPassthroughCopy('src/features/truchet/*')
+
 	config.setUseGitIgnore(false)
 
 	if (meta.pictures) {
