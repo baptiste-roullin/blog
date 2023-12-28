@@ -61,7 +61,7 @@
 		"./src/**/*.js",
 		"./src/**/*.mjs",
 		"./src/config/config.ts",
-		"tsconfig.front.json", "src/features/zotero/test.cjs", "src/features/zotero/zotero.cjs", "src/test.cjs",
+		"tsconfig.front.json", "src/features/zotero/test.cjs", "src/features/zotero/zotero.cjs", "src/test.cjs", "src/assets/scripts/search_front.cjs",
 	],
 	"exclude": [
 		"./src/assets/scripts",

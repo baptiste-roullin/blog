@@ -1,25 +1,14 @@
 //TODO migrate to rollup
 // TODO : use https://github.com/azerella/rollup-plugin-manifest-json
-
+import vitePluginRequire from "vite-plugin-require"
 import { glob } from 'glob'
 import { defineConfig } from 'vite'
-import nunjucks from 'vite-plugin-nunjucks'
-import date from './src/filters/date_formatting.js'
-import removeMD from './src/filters/remove_MD.js'
 import meta from './src/_data/meta.js'
 
+console.log(...glob.sync('src/assets/scripts/*'))
 export default defineConfig({
 	plugins: [
-		nunjucks({
-			variables: { 'src/_templates/components/posts_list_item.njk': {} },
-			nunjucksEnvironment: {
-
-				filters: {
-					dateHumanFormat: date,
-					removeMD: removeMD
-				}
-			}
-		}),
+		vitePluginRequire(),
 	],
 	server: {
 		origin: 'http://127.0.0.1:8080',
