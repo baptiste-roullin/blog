@@ -2,7 +2,7 @@
   "name": "tout-ce-qui-bouge",
   "type": "module",
   "scripts": {
-    "bundle:vite": "npx vite build ",
+    "bundle:vite": "npx rollup -c rollup.config.mjs",
     "bundle:copy": "zsh copy.sh",
     "dev:bundle": "run-s bundle:* --print-label",
     "dev:eleventy": "npx @11ty/eleventy --incremental  --serve --incremental --quiet",
@@ -63,7 +63,6 @@
     "postcss-cli": "^10.0.0",
     "postcss-hash": "https://github.com/keithamus/postcss-hash",
     "postcss-import": "^15.0.0",
-    "random-seed": "^0.3.0",
     "remove-markdown": "^0.5.0",
     "rollup": "^4.9.1",
     "rollup-plugin-output-manifest": "^2.0.0",

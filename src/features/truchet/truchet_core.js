@@ -1,6 +1,13 @@
-import makeRandomGenerator from 'random-seed'
 
+import { prng_alea } from 'esm-seedrandom'
+export function randIntBetween(min, max) {
 
+    return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
+export function randomSeed(seed) {
+    return prng_alea(seed)
+}
 /** @param {customCanvas} canvas
  * @param {customCanvas} tileCanvas
  * @param {Params} params
@@ -13,24 +20,23 @@ export default async function truchet(canvas, tileCanvas, params, mode) {
         // @ts-ignore
         const { createCanvas } = await import('canvas')
     }
-    const rand = makeRandomGenerator.create()
 
     /*
-        const should_shuffle = (rand.intBetween(0, 1) === 1 ? true : false)
+        const should_shuffle = (randIntBetween(0, 1) === 1 ? true : false)
         const tile_size = 30; // 32 viewport
-        const curve_thickness = rand.intBetween(1, 30)
-        const curves_per_tile = rand.intBetween(1, 10)
-        const twist = rand.intBetween(0, 50)
-        const scramble = rand.intBetween(0, 50)
+        const curve_thickness = randIntBetween(1, 30)
+        const curves_per_tile = randIntBetween(1, 10)
+        const twist = randIntBetween(0, 50)
+        const scramble = randIntBetween(0, 50)
     */
 
 
     var height = canvas.height = params?.height || 280
     var width = canvas.width = params?.width || 400
     var seed = params?.seed || Math.random()
-    var tile_size = params?.tile_size || rand.intBetween(40, 80)
+    var tile_size = params?.tile_size || randIntBetween(40, 80)
     var saturation = params?.saturation || 30
-    var hue_amplitude = params?.hue_amplitude || rand.intBetween(10, 80)
+    var hue_amplitude = params?.hue_amplitude || randIntBetween(10, 80)
     var hue_phase = params?.hue_phase || 210
     var background = params?.background || '#a18dbf'
     var background_phase = params?.background_phase || 180
@@ -41,7 +47,7 @@ export default async function truchet(canvas, tileCanvas, params, mode) {
     var scramble = (params?.scramble || 0) / 100
     var light = params?.light || (100 - saturation / 2)
     var curve_thickness = params?.curve_thickness || 1
-    var curves_per_tile = params?.curves_per_tile || rand.intBetween(3, 7)
+    var curves_per_tile = params?.curves_per_tile || randIntBetween(3, 7)
 
 
     var segments = curves_per_tile + 1
@@ -54,11 +60,12 @@ export default async function truchet(canvas, tileCanvas, params, mode) {
     const tileContext = tileCanvas.getContext('2d')
     tileCanvas.width = tile_size
     tileCanvas.height = tile_size
-    const rForm = makeRandomGenerator("form:" + seed)
-    const rScramble = makeRandomGenerator("scramble:" + seed)
-    const rScramble2 = makeRandomGenerator("scramble2:" + seed)
-    const rShuffle = makeRandomGenerator("shuffle:" + seed)
-    const rTwist = makeRandomGenerator("twist:" + seed)
+
+    const rForm = randomSeed("form:" + seed)()
+    const rScramble = randomSeed("scramble:" + seed)()
+    const rScramble2 = randomSeed("scramble2:" + seed)()
+    const rShuffle = randomSeed("shuffle:" + seed)()
+    const rTwist = randomSeed("twist:" + seed)()
 
     const curveWidth = Math.max(2, tile_size / segments * curve_thickness + 1)
 

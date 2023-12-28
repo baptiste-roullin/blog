@@ -14,8 +14,10 @@ document.querySelector("#contact")!.addEventListener('submit', async function (e
 		formId: 1,
 		answers: {}
 	}
-
-	for (let [key, value] of new FormData(target as HTMLFormElement).entries()) {
+	const form = new FormData(target as HTMLFormElement)
+	//@ts-ignore
+	const entries = form.entries()
+	for (let [key, value] of entries) {
 		// Chaque réoonse, même mono-valuée, doit être un tableau.
 		data.answers[key] = [value]
 	}
