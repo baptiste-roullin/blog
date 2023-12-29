@@ -1,34 +1,29 @@
-//TODO : pré-compiler à la main postListItem.njk dans search_back.ts
-// puis en front => https://mozilla.github.io/nunjucks/fr/api.html#utilisation-dans-un-navigateur
+
+import createComponent from '../../../src/_templates/components/posts_list_item.njk'
 
 
-
-//const { nunjucks } = require('nunjucks/browser/nunjucks-slim')
-
-//TODO : changer expiration js coté serveur
-import dateHumanFormat from './date_formatting.js'
-import removeMD from './remove_MD.js'
+//"use strict"
 
 async function search(e) {
+
+
     e.preventDefault()
-    try {
-        console.log(window.nunjucks)
-
-        const env = window.nunjucks.configure('', { autoescape: true, trimBlocks: true, lstripBlocks: true })
-        console.log(env)
-        env.addFilter("removeMD", removeMD)
-        env.addFilter("dateHumanFormat", dateHumanFormat)
-        var res = env.render('src/_templates/components/posts_list_item.njk', {})
-    } catch (error) {
-        console.log(error)
-    }
-
-
-    const pagefind = await import("/blog/pagefind/pagefind.js")
-    const search = await pagefind.debouncedSearch("static", {/* options */ }, 300)
     const value = e.target[0].value
-    const results = await pagefind.debouncedSearch(value)
+    const { results } = await pagefind.search(value)
+    //const results = await pagefind.debouncedSearch(value)
 
+    /*    const results = window
+            .searchIndex
+            .search(value, {
+                bool: "OR",
+                expand: true,
+                fields: {
+                    title: { boost: 8 },
+                    description: { boost: 5 },
+                    tags: { boost: 5 },
+                    content: { boost: 2 },
+                }
+            })*/
     const noResultsEl = document.getElementById("noResultsFound")
     const container = document.querySelector('.post-wrapper')
     const postList = container.children[0]
@@ -48,23 +43,23 @@ async function search(e) {
         if (results.length > 0) {
 
             noResultsEl.style.display = "none"
-            results.forEach((r) => {
-                const doc = window.searchIndex.documentStore.getDoc(r.ref)
+            results.forEach(async (r) => {
+                const doc = await r.data()
 
-                let { url, title, description, date, fileSlug, collatedHeroImage } = doc
+                let { url, meta, description } = doc
 
-                const el = nunjucks.render('src/_templates/components/posts_list_item.njk', {
+                const el = createComponent({
                     postListItemStyle: { complete: 'complete' },
                     post: {
                         url,
                         data: {
-                            collatedHeroImage: collatedHeroImage,
-                            title,
+                            collatedHeroImage: meta.collatedHeroImage,
+                            title: meta.title,
                             description,
                             page: {
-                                date,
+                                date: meta.date,
                                 description,
-                                fileSlug,
+                                url,
                             }
                         }
                     }
@@ -79,18 +74,20 @@ async function search(e) {
 
 };
 
-
-document.addEventListener('DOMContentLoaded', async function () {
-
+document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById("search-form")
         .addEventListener("submit", search)
 
     document.getElementById("search-form")
         .addEventListener("input", async function (e) {
+            if (!window.pagefind) {
 
+                const pagefind = await import(/* webpackIgnore: true */ "/blog/pagefind/pagefind.js")
+
+                window.pagefind = pagefind
+            }
 
         })
 
 })
-

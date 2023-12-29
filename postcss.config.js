@@ -1,11 +1,7 @@
-/*import * as autoprefixer from 'autoprefixer'
-import * as cssnano from 'cssnano'
-
-import * as postcssHash from 'postcss-hash'
-*/
+//TODO : refaire marcher
+//import * as cssnano from 'cssnano'
 
 //import meta from './src/_data/meta.js'
-
 
 //const nano = (meta.env === "production" ?  : ""),
 
@@ -17,6 +13,7 @@ export default {
     'tailwindcss/nesting': {},
     tailwindcss: { config: './tailwind.config.js' },
     "autoprefixer": {},
+    //TODO : refaire marcher
     //    "postcss-hash": {},
     "cssnano": {}
   }

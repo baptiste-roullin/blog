@@ -1,5 +1,5 @@
 
-import * as textMetrics from './text-metrics.mjs'
+import * as textMetrics from 'text-metrics'
 
 
 function arrowPagination(e) {

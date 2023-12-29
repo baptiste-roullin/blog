@@ -67,10 +67,7 @@ export default async function conf(config) {
 	config.addPassthroughCopy('src/robots.txt')
 	config.addPassthroughCopy('src/assets/css/fonts')
 	config.addPassthroughCopy('src/assets/UI')
-	config.addPassthroughCopy('src/assets/scripts')
-	config.addPassthroughCopy({ 'src/filters': '/assets/scripts/' })
 
-	config.addPassthroughCopy('src/features/truchet/*')
 
 	config.setUseGitIgnore(false)
 

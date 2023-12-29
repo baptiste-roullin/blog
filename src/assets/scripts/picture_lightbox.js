@@ -1,12 +1,9 @@
-
-import PhotoSwipeLightbox from './photoswipe-lightbox.esm.js'
-
-import photoswipe from './photoswipe.esm.min.js'
+import PhotoSwipeLightbox from 'photoswipe/lightbox'
 
 const lightbox = new PhotoSwipeLightbox({
 	gallery: '.rich-picture',
 	children: 'figure',
-	pswpModule: () => photoswipe
+	pswpModule: () => import('photoswipe')
 })
 
 lightbox.addFilter('uiElement', (element, data) => {

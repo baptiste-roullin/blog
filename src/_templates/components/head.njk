@@ -68,16 +68,15 @@
 {#- SCRIPTS #}
 <script type="module" src="/assets/scripts/main.js" defer></script>
 {# post intégrant des motifs de truchet en <canvas> #}
+
+  {# post intégrant des motifs de truchet en <canvas> #}
 {% if canvas === true %}
-  <script type="module"  src="/assets/scripts/truchet_dom.js" defer></script>
+  <script  src="/assets/scripts/{{hashes_js['truchet_dom.js']}}" defer></script>
 {% endif %}
 {# post  #}
 {% if picture_lightbox === true %}
-
-
- <script type="module" src="/assets/scripts/picture_lightbox.js" defer></script>
-
+  <script  src="/assets/scripts/{{hashes_js['picture_lightbox.js']}}" defer></script>
 {% endif %}
 {% if 'blog\/' in page.url %}
-  <script  type="module" src="/assets/scripts/arrow_pagination.js" defer></script>
+  <script  src="/assets/scripts/{{hashes_js['arrowPagination.js']}}" defer></script>
 {% endif %}

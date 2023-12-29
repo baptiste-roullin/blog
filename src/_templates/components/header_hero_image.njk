@@ -3,7 +3,7 @@
 	<div
         class="flex flex-col m-8 lg:justify-center lg:w-1/2 lg:text-left block-dark "
       >
-		<h1
+		<h1 data-pagefind-weight="9"
         class="mb-4 text-3xl font-semibold text-balance lg:whitespace-pre-line text-shadow-lg-dark sm:leading-none md:text-4xl xl:text-5xl"
           >
 			{{ title | markdownify | safe }}
@@ -22,7 +22,7 @@
         class="flex justify-center h-auto mx-auto lg:w-1/2 img-wrapper"
       >
 		<figure>
-			<img  data-pagefind-meta="image[src]" alt="{{hero.alt}}"
+			<img  " alt="{{hero.alt}}"
 					  title="{{hero.alt}}"
 					  class="shadow-lg-dark"
 					  src="{{collatedHeroImage}}"

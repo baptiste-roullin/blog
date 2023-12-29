@@ -9,10 +9,10 @@ layout: base
     <div class="my-20 post-main prose-tcqb article sm:px-4 xl:px-0 container-prose ">
       {% if not hero.image %}
         <header class="">
-          <h1 class="m-auto text-gray-700 text-balance">{{ title }}</h1>
+          <h1 data-pagefind-weight="8" class="m-auto text-gray-700 text-balance">{{ title }}</h1>
           {% if not hideMeta %}
             <div class="pt-4 text-sm sm:text-base not-prose">
-              <time data-pagefind-meta="date[datetime]" datetime="{{ page.date | dateHumanFormat("yyyy-MM-dd") }}">
+              <time  datetime="{{ page.date | dateHumanFormat("yyyy-MM-dd") }}">
                 {{ page.date | dateHumanFormat("dd LLLL yyyy") }}
               </time>
               {% include "components/separator.njk" %}
@@ -23,6 +23,12 @@ layout: base
       {% endif %}
       <div class="my-16 post-main prose-tcqb " >{{ content | safe }}</div>
     </div>
+    <aside data-pagefind-meta="description" style="display: none;">{{description}}</aside>
+    <aside data-pagefind-meta="collatedHeroImage"  style="display: none;">{{collatedHeroImage}}</aside>
+    <aside data-pagefind-meta="date" style="display: none;">{{page.date}}</aside>
+    {{"date"+page.date | log}}
+
+
   </article>
 
   {% set nextPost = collections.publishedPosts | getPreviousCollectionItem %}
