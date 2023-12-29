@@ -1,12 +1,19 @@
 //TODO : pré-compiler à la main postListItem.njk dans search_back.ts
 // puis en front => https://mozilla.github.io/nunjucks/fr/api.html#utilisation-dans-un-navigateur
 
+//const { nunjucks } = require('nunjucks/browser/nunjucks-slim')
+
 //TODO : changer expiration js coté serveur
 
 
 async function search(e) {
+    console.log(nunjucks)
 
+    nunjucks.configure('', { autoescape: true })
 
+    var res = nunjucks.render('precompiled.js')
+    const pagefind = await import("/blog/pagefind/pagefind.js")
+    const search = await pagefind.debouncedSearch("static", {/* options */ }, 300)
     e.preventDefault()
     const value = e.target[0].value
     const results = await pagefind.debouncedSearch(value)

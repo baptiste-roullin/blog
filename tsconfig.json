@@ -3,14 +3,12 @@
 		/* Basic Options */
 		"target": "ESNEXT" /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019' or 'ESNEXT'. */,
 		"module": "NodeNext" /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */,
-		"lib": [
-			"ES2016",
-			"ES2019",
-			"ES2017",
-			"ES2018",
+		/*"lib": [
+			"ESNext",
 			"DOM",
 			"DOM.Iterable",
-		] /* Specify library files to be included in the compilation. */,
+		],
+		*/
 		"checkJs": true /* Report errors in .js files. */,
 		"allowJs": true,
 		"skipLibCheck": true,
@@ -24,7 +22,7 @@
 		"incremental": true, /* Enable incremental compilation */
 		// "tsBuildInfoFile": "./",               /* Specify file to store incremental compilation information */
 		"removeComments": false, /* Do not emit comments to output. */
-		"noEmit": false /* Do not emit outputs.*/,
+		"noEmit": true /* Do not emit outputs.*/,
 		"importHelpers": false, /* Import emit helpers from 'tslib'. */
 		// "downlevelIteration": true,            /* Provide full support for iterables in 'for-of', spread, and destructuring when targeting 'ES5' or 'ES3'. */
 		// "isolatedModules": true,               /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */
@@ -61,7 +59,7 @@
 		"./src/**/*.js",
 		"./src/**/*.mjs",
 		"./src/config/config.ts",
-		"tsconfig.front.json", "src/features/zotero/test.cjs", "src/features/zotero/zotero.cjs", "src/test.cjs", "src/assets/scripts/search_front.cjs", "src/assets/scripts/contactjts", "src/assets/scripts/contactjts",
+		"tsconfig.front.json", "src/features/zotero/test.cjs", "src/features/zotero/zotero.cjs", "src/test.cjs", "src/assets/scripts/search_front.js", "src/assets/scripts/contactjts", "src/assets/scripts/contactjts",
 	],
 	"exclude": [
 		"./src/assets/scripts",
