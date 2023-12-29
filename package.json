@@ -11,7 +11,7 @@
     "build:postcss": "cross-env NODE_ENV=production postcss --verbose src/assets/css/main.css -o dist/assets/css/main.css",
     "build:search": "npx -y pagefind --site dist ",
     "build": "run-s build:* --print-label",
-    "pagefind": "npx pagefind --site dist/blog"
+    "search": "cross-env node src/features/search/precompile_search.cjs && npx pagefind --site dist/blog"
   },
   "devDependencies": {
     "@11ty/eleventy": "https://github.com/11ty/eleventy",
@@ -29,7 +29,6 @@
     "@types/markdown-it-container": "^2.0.5",
     "@types/node": "^20.8.10",
     "@types/nunjucks": "^3.2.1",
-    "@types/remove-markdown": "^0.3.1",
     "@types/webpack": "^5.28.0",
     "autoprefixer": "^10.4.13",
     "child_process": "^1.0.2",
@@ -61,7 +60,6 @@
     "postcss-cli": "^10.0.0",
     "postcss-hash": "https://github.com/keithamus/postcss-hash",
     "postcss-import": "^15.0.0",
-    "remove-markdown": "^0.5.0",
     "tailwindcss": "*",
     "zotero-api-client": "^0.43.1",
     "cpy-cli": "^5.0.0"

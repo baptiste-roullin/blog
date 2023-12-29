@@ -1,20 +1,31 @@
 //TODO : pré-compiler à la main postListItem.njk dans search_back.ts
 // puis en front => https://mozilla.github.io/nunjucks/fr/api.html#utilisation-dans-un-navigateur
 
+
+
 //const { nunjucks } = require('nunjucks/browser/nunjucks-slim')
 
 //TODO : changer expiration js coté serveur
-
+import dateHumanFormat from './date_formatting.js'
+import removeMD from './remove_MD.js'
 
 async function search(e) {
-    console.log(nunjucks)
+    e.preventDefault()
+    try {
+        console.log(window.nunjucks)
 
-    nunjucks.configure('', { autoescape: true })
+        const env = window.nunjucks.configure('', { autoescape: true, trimBlocks: true, lstripBlocks: true })
+        console.log(env)
+        env.addFilter("removeMD", removeMD)
+        env.addFilter("dateHumanFormat", dateHumanFormat)
+        var res = env.render('src/_templates/components/posts_list_item.njk', {})
+    } catch (error) {
+        console.log(error)
+    }
 
-    var res = nunjucks.render('precompiled.js')
+
     const pagefind = await import("/blog/pagefind/pagefind.js")
     const search = await pagefind.debouncedSearch("static", {/* options */ }, 300)
-    e.preventDefault()
     const value = e.target[0].value
     const results = await pagefind.debouncedSearch(value)
 
