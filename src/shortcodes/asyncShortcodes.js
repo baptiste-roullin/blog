@@ -2,7 +2,7 @@
 import dotenv from 'dotenv'
 dotenv.config()
 
-import zotero from '../features/zotero/zotero.cjs'
+import zotero from '../features/zotero/zotero.js'
 import meta from '../_data/meta.js'
 export default {
 	// @ts-ignore

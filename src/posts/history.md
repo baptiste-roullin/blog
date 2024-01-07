@@ -1,3 +1,9 @@
+---
+title: Discutons
+
+draft: true
+---
+
 ```mermaid
 flowchart TB
 	TS(Time sharing) ---> tty & dtss
@@ -14,12 +20,12 @@ flowchart TB
   NLS ---> alto
   ed ---> D(vi/vim)
 	e---> emacs
-  emacs(emacs) 
+  emacs(emacs)
   alto ---> Apple(Lisa Apple) & F(Oberon) & ...
   F ---> G(Canon Cat) & Acme
   G ---> Archy
-    
+
 
 ```
 
-##### 
+#####

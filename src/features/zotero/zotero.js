@@ -1,8 +1,8 @@
 
 // Documentation de l'API : https://www.zotero.org/support/dev/web_api/v3/basics
 // Client : 				https://github.com/tnajdek/zotero-api-client
-const { default: api } = require('zotero-api-client')
-const njk = require('nunjucks')
+import api from 'zotero-api-client'
+import * as njk from '../../../node_modules/nunjucks/index.js'
 
 
 /*
@@ -17,7 +17,7 @@ Comme promise.all, effectue des requête en parallèle et renvoie une promesse d
  * @param {...string} [requestedTags]
  * @returns {Promise<string | undefined>}
  */
-module.exports = async function zotero(collection, ...requestedTags) {
+export default async function zotero(collection, ...requestedTags) {
     const { default: pMap } = await import('p-map')
     const { default: cache } = await import('../../utils/caching.js')
     const { default: dateHumanFormat } = await import('../../filters/date_formatting.js')
