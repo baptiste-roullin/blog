@@ -11,8 +11,6 @@ const config: webpack.Configuration = {
     extensions: ['.ts', '.js'],
   },
   entry: {
-    snow: path.resolve(__dirname, 'node_modules/@zachleat/snow-fall/snow-fall.js'),
-    island: path.resolve(__dirname, 'node_modules/@11ty/is-land/is-land.js'),
     search_front: path.resolve(__dirname, 'src/assets/scripts/search_front.js'),
     contact: path.resolve(__dirname, 'src/assets/scripts/contact.js'),
     main: path.resolve(__dirname, 'src/assets/scripts/main.js'),
