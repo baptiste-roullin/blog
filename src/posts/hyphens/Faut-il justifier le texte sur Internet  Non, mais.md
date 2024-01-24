@@ -55,7 +55,7 @@ Mais ces problèmes de mise en page sont largement réduits en coupant les mots.
 
 On est d'accord que ce n'est pas parfait :
 
-1. les espaces restent un peu irréguliers, les algorithmes "H&J" (*hyphenation & justification*) des navigateurs restant plus basiques que ceux des deux stars du domaine (InDesign et Latex).
+1. les espaces restent un peu irrégulières, les algorithmes "H&J" (*hyphenation & justification*) des navigateurs restant plus basiques que ceux des deux stars du domaine (InDesign et Latex).
 
 2. La césure elle même est problématique. Elle complexifie la lecture et peut être gênante dans des contextes de basse vision ([source](https://w3c.github.io/low-vision-a11y-tf/requirements.html#hyphenation)).
 
@@ -67,7 +67,7 @@ Il est probable que les évolutions techniques réduisent le premier problème :
 
 ## 2. Le dentelage comme indice visuel
 
-Second argument contre la justification : l'aspect "dentelé" des fins de ligne permet au lecteur de se repérer. Chaque petite différence de longueur constitue autant d'indices visuels pour enchainer les lignes sans se tromper.
+Second argument contre la justification : l'aspect "dentelé" des fins de ligne permet au lecteur de se repérer. Chaque petite différence de longueur constitue autant d'indices visuels pour enchainer les lignes sans se tromper ou hésiter.
 
 Intuitivement ça me parait un bon argument. Cette fois-ci, ce n'est pas un problème d'implémentation ou de compromis, c'est inhérent à l'effet visuel.
 
@@ -81,7 +81,7 @@ Cela n'empêche pas de proposer aux lecteurs une option pour changer de style et
 
 Cela n'empêche pas non plus de continuer à expérimenter. Les limites web et des livres électroniques en matière de typographie par rapport à l'édition ne sont pas inéluctables.
 
-Note sur le RGAA : il y a juste un critère AAA (non obligatoire donc) qui oblige à avoir le texte à gauche par défaut ou via option.
+Note sur le RGAA : il y a juste un critère AAA ([1.4.8](https://accessibilite.numerique.gouv.fr/ressources/criteres-aaa/)) (non obligatoire donc) qui oblige à avoir le texte à gauche par défaut ou via option.
 
 ## Bibliographie
 
