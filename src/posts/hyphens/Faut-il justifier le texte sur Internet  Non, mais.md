@@ -7,7 +7,6 @@ tags:
   - "typographie"
 featured: true
 draft: false
-description: "Générer procéduralement une image de substitution quand un article n'a pas d'image principale, par le truchement des motifs de Truchet."
 ---
 
 
