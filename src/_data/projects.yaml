@@ -2,7 +2,7 @@
 
 - name: Méta Axure
   link: /blog/2015/12/meta-axure-un-outil-de-maquettage-cree-avec-un-outil-de-maquettage/
-  img: assets/UI/axure.png
+  img: /assets/UI/axure.png
   description: Une expérimentation pour maquetter… dans une maquette.
 
 - name: Bot invisible
