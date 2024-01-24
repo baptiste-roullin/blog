@@ -8,6 +8,7 @@ import { DateTime, Settings } from 'luxon'
 Settings.defaultLocale = "fr"
 import removeMD from './remove_MD'
 import meta from '../../src/_data/meta'
+import markdownify from './markdownify'
 
 
 
@@ -79,7 +80,7 @@ export const filters = {
 	searchIndex: (!meta.search ? () => "{'t':'RECHERCHE DÉSACTIVÉE'}" : search)
 	,
 
-	markdownify: (markdownString) => md.renderInline(markdownString),
+	markdownify: markdownify,
 
 	markdownifyBlock: (value) => {
 		if (!value) {

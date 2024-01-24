@@ -94,16 +94,26 @@ module.exports = {
 			typography: (theme) => ({
 				'xl': {
 					css: {
-						'line-height': '1.7',
+						p: {
+							"margin-top": "1.1em",
+							"margin-bottom": "1.1em"
+
+						},
+						'line-height': '1.6',
 						'ul > li:before':
 						{
 							top: '.8em !important'
 						}
 					}
+
 				},
 				'lg': {
 					css: {
-						'line-height': '1.6',
+						p: {
+							"margin-top": "1.1em",
+							"margin-bottom": "1.1em"
+						},
+						'line-height': '1.5',
 						'ul > li:before':
 						{
 							top: '.8em !important'

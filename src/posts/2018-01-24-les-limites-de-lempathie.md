@@ -3,7 +3,7 @@ title: "Les limites de l'empathie"
 date: 2018-01-24
 tags:
   - "recherche"
-  - "sciences cognitives"
+  - "cognition"
 featured: true
 ---
 

@@ -4,7 +4,7 @@ date: 2019-11-27
 tags:
   - "jeu vidéo"
   - "recherche"
-  - "sciences cognitives"
+  - "cognition"
   - "utilisateurs"
 hero:
   image: "bartle0.jpg"

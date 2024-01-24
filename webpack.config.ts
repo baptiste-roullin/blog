@@ -63,7 +63,9 @@ const config: webpack.Configuration = {
                 'src/_templates/components',
               ], filters: {
                 dateHumanFormat: path.resolve('src/filters/date_formatting.ts'),
-                removeMD: path.resolve('src/filters/remove_MD.ts')
+                removeMD: path.resolve('src/filters/remove_MD.ts'),
+                markdownify: path.resolve('src/filters/markdownify.js')
+
               }
             }
           }

@@ -18,6 +18,8 @@ Comme promise.all, effectue des requête en parallèle et renvoie une promesse d
 
 import cache from '../../utils/caching'
 import dateHumanFormat from "../../filters/date_formatting"
+import markdownify from "../../filters/markdownify"
+
 const meta = require("../../_data/meta")
 
 export default async function zotero(collection: string, ...requestedTags: string[]) {
@@ -169,6 +171,8 @@ export default async function zotero(collection: string, ...requestedTags: strin
 
 		// Ajout d'un filtre utilisé par zotero.njk
 		env.addFilter('dateHumanFormat', dateHumanFormat)
+		env.addFilter('markdownify', markdownify)
+
 
 		//génération du HTML
 		return await env.render('zotero_component.njk', { items: completedItems })

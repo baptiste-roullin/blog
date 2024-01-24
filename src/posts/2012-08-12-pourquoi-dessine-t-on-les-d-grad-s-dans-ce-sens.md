@@ -4,7 +4,7 @@ date: 2012-08-12
 tags:
   - "graphisme"
   - "recherche"
-  - "sciences cognitives"
+  - "cognition"
 
 ---
 
