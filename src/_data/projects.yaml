@@ -42,12 +42,12 @@
 
 - name: Table basse
   link: /blog/2020/12/jai-fait-un-truc/
-  img: /assets/images/tb_square.jpg
+  img: /assets/UI/tb_square.jpg
   description: Ma vie culturelle en mosaïque.
 
 - name: Ce blog
   link: /tags/tout-ce-qui-bouge/
-  img: /assets/images/moving_castle_square.png
+  img: /assets/UI/moving_castle_square.png
   description: Depuis 2012, la vache.
 
 - name: Photogrammes
