@@ -80,7 +80,7 @@ Cela n'empêche pas de proposer aux lecteurs une option pour changer de style et
 
 Cela n'empêche pas non plus de continuer à expérimenter. Les limites du web et des livres électroniques en matière de typographie par rapport à l'édition ne sont pas inéluctables.
 
-Note sur le RGAA : il y a juste un critère AAA ([1.4.8](https://accessibilite.numerique.gouv.fr/ressources/criteres-aaa/)) (non obligatoire donc) qui oblige à avoir le texte à gauche par défaut ou via option.
+Note sur le RGAA : il y a juste le critère ([1.4.8](https://accessibilite.numerique.gouv.fr/ressources/criteres-aaa/)) (AAA, non obligatoire donc) qui oblige à avoir le texte à gauche par défaut ou via option.
 
 ## Bibliographie
 
