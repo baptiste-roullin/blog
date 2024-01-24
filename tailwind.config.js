@@ -103,6 +103,9 @@ module.exports = {
 						'ul > li:before':
 						{
 							top: '.8em !important'
+						},
+						h1: {
+							lineHeight: '1.2'
 						}
 					}
 
