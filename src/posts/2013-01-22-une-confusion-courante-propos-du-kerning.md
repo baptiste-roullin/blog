@@ -3,6 +3,7 @@ title: "Une confusion courante à propos du kerning"
 date: 2013-01-22
 tags:
   - "graphisme"
+  - "typographie"
 
 ---
 
