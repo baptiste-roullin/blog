@@ -51,7 +51,7 @@ Mentionnons aussi que la justification peut créer des lézardes/rivières (ench
 
 Mais ces problèmes de mise en page sont largement réduits en coupant les mots. Cette fonctionnalité de césure est maintenant supportée en français par tous les navigateurs modernes et sur tous les OS.
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="hyphens césure" src="https://codepen.io/Saint_loup/embed/preview/vYPJPEQ?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true"></iframe>
+<iframe height="500" style="width: 100%;" scrolling="no" title="iframe d'une démo de la césure, sur Codepen" src="https://codepen.io/Saint_loup/embed/preview/vYPJPEQ?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true"></iframe>
 
 On est d'accord que ce n'est pas parfait :
 
