@@ -48,7 +48,6 @@
 
 - name: Photogrammes
   link: https://photogrammes.toutcequibouge.net
-  img: /assets/UI/photogrammes.png
   description: Journal visuel de ce qui passe sur mes écrans.
 
 - name: Flocon
