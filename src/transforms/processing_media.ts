@@ -30,7 +30,6 @@ export default function pictures_processing(html, outputPath) {
 		resizedImageUrl: reformatURL,
 		steps: 5,
 		classes: ['img-default'],
-		ignore: 'truchet-'
 	}
 
 
@@ -63,15 +62,19 @@ export default function pictures_processing(html, outputPath) {
 			}
 		});
 
-		[...document.querySelectorAll(listPagesSettings.selector)].forEach(async (image) => {
+		[...document.querySelectorAll(listPagesSettings.selector)].
+			filter((image) =>
+				!((new RegExp(listPagesSettings.ignore)).test(image.getAttribute('src')))
+			)
+			.forEach(async (image) => {
 
-			if (image.getAttribute('src').match(/\.gif$/)) {
-				await handleGIFs(image)
-			}
-			else {
-				handlePictures(image, document, listPagesSettings)
-			}
-		})
+				if (image.getAttribute('src').match(/\.gif$/)) {
+					await handleGIFs(image)
+				}
+				else {
+					handlePictures(image, document, listPagesSettings)
+				}
+			})
 
 		return document.toString()
 	}

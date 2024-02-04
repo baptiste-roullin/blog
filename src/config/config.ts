@@ -7,7 +7,7 @@ const embedEverything = require("eleventy-plugin-embed-everything")
 const { EleventyRenderPlugin } = require("@11ty/eleventy")
 
 const meta = require('../_data/meta')
-import picturesProcessing from '../transforms/media_processing'
+import picturesProcessing from '../transforms/processing_media'
 import { collections } from './collections'
 import { md } from './markdown'
 
@@ -64,21 +64,9 @@ cf. postcss.config.js pour le CSS
 		config.addPassthroughCopy({ 'src/heroPages/portfolio/*': meta.assetsDir })
 		config.addPassthroughCopy({ 'src/assets/images/*.svg': meta.assetsDir })
 
-		//config.addPassthroughCopy({ 'src/posts/**/* ': meta.assetsDir })
-		//config.addPassthroughCopy('src/assets/images')
-
 		config.addTransform(
 			'picturesProcessing',
-			(content, outputPath) => {
-				if (
-					outputPath &&
-					outputPath.endsWith('.html') &&
-					!(outputPath.startsWith('dist/tags/'))
-				) {
-					return picturesProcessing(content)
-				}
-				return content
-			}
+			picturesProcessing
 		)
 	}
 	else {
