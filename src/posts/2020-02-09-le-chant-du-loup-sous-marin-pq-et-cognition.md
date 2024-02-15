@@ -4,7 +4,7 @@ date: 2020-02-09
 tags:
   - "objets"
   - "recherche"
-  - "sciences cognitives"
+  - "cognition"
   - "systemes complexes"
 featured: true
 hero:

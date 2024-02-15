@@ -2,6 +2,44 @@
 
 ---
 references:
+
+  - title: Outil de déclaration de transport de marchandises dangereuses
+    logo: /assets/images/logo_mtes.png
+    description: |
+      * Le saviez-vous ? Si votre 35 tonnes a un accident et fuite des matières dangereuses, il faut le déclarer.
+      * J'étais donc embarqué dans une équipe Agile pour dématérialiser la déclaration et le suivi de ces accidents.
+    duration: 3 mois
+    tasks:
+      - Interview et présentation aux parties prenantes
+      - Parcours et prototype
+      - Priorisation des stories et vérification de la conformité métier
+    CTA: "Visiter le site"
+    CTALink: https://declaration-cstmd.din.developpement-durable.gouv.fr/
+    photos:
+      - url: /assets/images/tmd.png
+        alt: null
+
+  - title: Igesa, le comité d'entreprise des armées
+    logo: /assets/images/logo_igesa.svg
+    description: |
+      Igesa, c’est à la fois la CAF et le comité d’entreprise du ministère des armées. Il offre des prestations très variées (centres de vacances, prêts immobiliers, billetterie, préparation du BAFA) à des cibles tout aussi variées : militaires, civils, conjoint·es, retraités…
+      J’étais le lead UX pour refondre intégralement le portail principal, l’espace client et certains tunnels.
+      Tout l'enjeu était de trouver un équilibre entre valeurs sociales et objectifs marchands du client, ainsi que de créer un service à la fois accessible à tous les  publics et au goût du jour dans les codes ecommerce.
+    duration: 12 mois
+    tasks:
+      - Ateliers fonctionnels
+      - Entretiens et sondages
+      - Parcours et persona
+      - Arborescence et test d'arborescence
+      - wireframes et tests utilisateur
+    photos:
+      - url: /assets/images/igesa_persona.png
+        alt: null
+      - url: /assets/images/igesa_research.png
+        alt: null
+      - url: /assets/images/igesa_wireframe.jpg
+        alt: null
+
   - title: Michelin RoadConnect, un assistant mobile et réseau social pour les routiers
     name: Michelin
     logo: /assets/images/michelin.svg
@@ -76,6 +114,7 @@ references:
       - url:  /assets/images/aura1.png
         alt: null
 
+
   - title: Création d'un méga-site institutionnel pour Safran
     name: Safran
     logo: /assets/images/safran.svg
@@ -148,7 +187,6 @@ references:
           alt: null
 
 
-
   - title: "E-boutique pour Flunch Traiteur"
     description: Refonte de la boutique B2B et B2C pour moderniser la marque, clarifier la navigation dans le catalogue et recentrer l'expérience sur un parcours contextualisé d'organisation de mon évènement (quelle date, quel lieu, quels produits pour le type d'évènement).
     logo: /assets/images/flunch.png
@@ -166,7 +204,8 @@ references:
             alt: null
           - url: /assets/images/flunch3.png
             alt: null
-
+    CTA: "Visiter le site"
+    CTALink: https://www.flunch-traiteur.fr/
 
   - title: Concept de miroir connecté pour SEB
     name: SEB

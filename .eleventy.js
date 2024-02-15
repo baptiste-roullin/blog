@@ -10,7 +10,7 @@ import embedEverything from "eleventy-plugin-embed-everything"
 import { EleventyRenderPlugin } from "@11ty/eleventy"
 
 import meta from './src/_data/meta.js'
-import picturesProcessing from './src/transforms/media_processing.js'
+import img_transform from './src/transforms/processing_media.js'
 import { collections } from './src/collections.js'
 import md from './src/markdown.js'
 
@@ -82,17 +82,8 @@ export default async function conf(config) {
 		//config.addPassthroughCopy('src/assets/images')
 
 		config.addTransform(
-			'picturesProcessing',
-			(content, outputPath) => {
-				if (
-					outputPath &&
-					outputPath.endsWith('.html') &&
-					!(outputPath.startsWith('dist/tags/'))
-				) {
-					return picturesProcessing(content)
-				}
-				return content
-			}
+			'img_transform',
+			img_transform
 		)
 	}
 	else {

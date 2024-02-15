@@ -2,7 +2,7 @@
 
 - name: Méta Axure
   link: /blog/2015/12/meta-axure-un-outil-de-maquettage-cree-avec-un-outil-de-maquettage/
-  img: assets/UI/axure.png
+  img: /assets/UI/axure.png
   description: Une expérimentation pour maquetter… dans une maquette.
 
 - name: Bot invisible
@@ -12,10 +12,6 @@
 - name: Calculateur de ticket resto
   link: /blog/2016/05/lecons-ergonomiques-et-techniques-d-un-projet-perso/
   description: Un test de clavier mobile dédié pour aider au calcul des tickets resto.
-
-- name: Archive d'animations flash
-  link: https://misc.toutcequibouge.net/archive_flash/
-  description: Quelques animations Flash classiques, en voie de disparition et archivées ici.
 
 - name: Différence et répétition
   link:  https://difference--repetition.tumblr.com/
@@ -42,21 +38,25 @@
 
 - name: Table basse
   link: /blog/2020/12/jai-fait-un-truc/
-  img: /assets/images/tb_square.jpg
+  img: /assets/UI/tb_square.jpg
   description: Ma vie culturelle en mosaïque.
 
 - name: Ce blog
   link: /tags/tout-ce-qui-bouge/
-  img: /assets/images/moving_castle_square.png
+  img: /assets/UI/moving_castle_square.png
   description: Depuis 2012, la vache.
 
 - name: Photogrammes
   link: https://photogrammes.toutcequibouge.net
-  img: /assets/UI/photogrammes.png
   description: Journal visuel de ce qui passe sur mes écrans.
 
 - name: Flocon
   link: https://misc.toutcequibouge.net/flocon
   img: /assets/UI/flocon.png
   description: Génération procédurale de boutons. Un anti-_design system_ quoi.
+
+- name: Tweet-to-Toot
+  link: https://www.npmjs.com/package/tweet-to-toot
+  img: /assets/UI/totoot.svg
+  description: Outil d'export de fil Twitter vers Mastodon
 

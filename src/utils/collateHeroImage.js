@@ -16,9 +16,10 @@ export default async function (data) {
         //URL absolue
         finalName = `truchet-${slug}.png`
     }
-    else if (/\.gif$/.test(hero.image)) {
-        finalName = hero.image
-    }
+    //TODO : check
+    /*   else if (/\.gif$/.test(hero.image)) {
+           finalName = hero.image
+       }*/
 
     else {
         finalName = hero.image

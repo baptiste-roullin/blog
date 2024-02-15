@@ -1,19 +1,20 @@
 <li
-class="flex flex-col gap-4 p-5 text-center list-none transition-all duration-300 hover:shadow-flat card-base project lg:gap-6 lg:p-8"
+class="flex flex-row items-start justify-start gap-4 p-4 text-left list-none transition-all duration-300 hover:shadow-flat card-base project 2xl:gap-5"
 >
+{# TODO : passer image à gauche #}
   <img
     onclick="window.location.href='{{projet.link}}'"
         alt=""
         loading="lazy"
-        class="object-cover w-3/4 mx-auto cursor-pointer picture"
+        class="object-cover w-16 m-0 cursor-pointer lg:w-24 md:flex picture"
         src="{{projet.img}}">
 
-  <div class="flex flex-col justify-between h-full gap-4 lg:gap-6 ">
-    <h3 class=" cta-heading">
+  <div class="flex flex-col items-start justify-start h-full gap-2 lg:gap-3 md:w-2/3">
+    <h3 class=" cta-heading sm:text-xl xl:text-xl-bis">
       <a href="{{ projet.link }}" class="block hover:underline hover:text-brown-light">
         {{ projet.name }}
       </a>
     </h3>
-    <p class="m-0 label description">{{projet.description | markdownify | safe  }}</p>
+    <p class="m-0 text-lg description">{{projet.description | markdownify | safe  }}</p>
   </div>
 </li>

@@ -1,7 +1,7 @@
 # réglages spécifiques à Windows pour ne pas installer une dépendence et éviter des conflits
 .npmrc
 *.code-workspace
-
+.eleventyignore
 src/assets/imagesToProcess/*
 hashes.json
 .eleventyignore

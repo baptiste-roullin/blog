@@ -3,6 +3,7 @@
 // Client : 				https://github.com/tnajdek/zotero-api-client
 import api from 'zotero-api-client'
 import * as njk from '../../../node_modules/nunjucks/index.js'
+import markdownify from "../../filters/markdownify"
 
 
 /*
@@ -170,6 +171,8 @@ export default async function zotero(collection, ...requestedTags) {
 
         // Ajout d'un filtre utilisé par zotero.njk
         env.addFilter('dateHumanFormat', dateHumanFormat)
+        env.addFilter('markdownify', markdownify)
+
 
         //génération du HTML
         return await env.render('zotero_component.njk', { items: completedItems })

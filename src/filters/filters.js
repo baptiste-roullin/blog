@@ -6,6 +6,7 @@ import normalizeTag from './normalize_tag.js'
 import { DateTime, Settings } from 'luxon'
 Settings.defaultLocale = "fr"
 import removeMD from './remove_MD.js'
+import markdownify from './markdownify'
 
 export default {
     /**
@@ -71,7 +72,7 @@ export default {
 
         return newArray
     },
-    markdownify: (markdownString) => md.renderInline(markdownString),
+    markdownify: markdownify,
 
     markdownifyBlock: (value) => {
         if (!value) {

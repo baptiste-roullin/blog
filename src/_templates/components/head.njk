@@ -33,9 +33,10 @@
     }
   </script>
 
-  <meta property="og:image" content=" {{postImage}}"/>
-  <meta name="description" content="{{ cleanedDescription }}"/>
-  <meta property="og:description" content="{{ cleanedDescription }}"/>
+  <meta property="og:image" content="{{postImage}}"/>
+  <meta property="og:image:alt" content="{{hero.alt}}">
+  <meta name="description" content="{{ cleanedDescription    }}"/>
+  <meta property="og:description" content="{{ cleanedDescription   }}"/>
   <meta property='og:type' content='article'/>
   <meta property='article:author' content='{{meta.author}}'/>
   <meta property='article:publisher' content='{{meta.siteURL}}'/>

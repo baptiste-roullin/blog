@@ -41,7 +41,9 @@ export default {
 							], filters: {
 								// ne pas rajouter les extensions
 								dateHumanFormat: resolve('src/filters/date_formatting'),
-								removeMD: resolve('src/filters/remove_MD')
+								removeMD: resolve('src/filters/remove_MD'),
+								markdownify: resolve('src/filters/markdownify.js')
+
 							}
 						}
 					}

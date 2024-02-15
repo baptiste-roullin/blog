@@ -142,16 +142,29 @@ export default {
 			typography: (theme) => ({
 				'xl': {
 					css: {
-						'line-height': '1.7',
+						p: {
+							"margin-top": "1.1em",
+							"margin-bottom": "1.1em"
+
+						},
+						'line-height': '1.6',
 						'ul > li:before':
 						{
 							top: '.8em !important'
+						},
+						h1: {
+							lineHeight: '1.2'
 						}
 					}
+
 				},
 				'lg': {
 					css: {
-						'line-height': '1.6',
+						p: {
+							"margin-top": "1.1em",
+							"margin-bottom": "1.1em"
+						},
+						'line-height': '1.5',
 						'ul > li:before':
 						{
 							top: '.8em !important'
