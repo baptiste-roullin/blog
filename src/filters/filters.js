@@ -6,7 +6,7 @@ import normalizeTag from './normalize_tag.js'
 import { DateTime, Settings } from 'luxon'
 Settings.defaultLocale = "fr"
 import removeMD from './remove_MD.js'
-import markdownify from './markdownify'
+import markdownify from './markdownify.js'
 
 export default {
     /**

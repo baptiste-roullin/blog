@@ -1,8 +1,7 @@
 
 //@todo : plus besoin de .eleventyignore en env de dev. https://www.11ty.dev/docs/ignores/#configuration-api
 
-import njk from 'nunjucks'
-import fs from 'node:fs/promises'
+
 import pluginRss from '@11ty/eleventy-plugin-rss'
 import pluginNavigation from '@11ty/eleventy-navigation'
 import yaml from "js-yaml"
@@ -10,8 +9,8 @@ import embedEverything from "eleventy-plugin-embed-everything"
 import { EleventyRenderPlugin } from "@11ty/eleventy"
 
 import meta from './src/_data/meta.js'
-import img_transform from './src/transforms/processing_media.j
-'
+import findImg from './src/transforms/media_processing.js'
+
 import { collections } from './src/collections.js'
 import md from './src/markdown.js'
 
@@ -43,10 +42,16 @@ export default async function conf(config) {
 
 
 
+	//TODO : check si plus utile
 	/**
 	 *
 	 * Precompile Nunjucks component for search
-	 */
+	*/
+	/*
+
+	import njk from 'nunjucks'
+	import fs from 'node:fs/promises'
+
 	const env = njk.configure('src/_templates/components/',
 
 		// options, notamment pour supprimer les vides inutiles.
@@ -60,6 +65,7 @@ export default async function conf(config) {
 	const tmpl = njk.precompile('src/_templates/components/posts_list_item.njk', { env: env })
 
 	await fs.writeFile("precompiled.js", tmpl)
+	*/
 	/**
  * Passthrough File Copy
 */
@@ -84,7 +90,7 @@ export default async function conf(config) {
 
 		config.addTransform(
 			'img_transform',
-			img_transform
+			findImg
 		)
 	}
 	else {
