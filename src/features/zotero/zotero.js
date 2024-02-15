@@ -3,7 +3,7 @@
 // Client : 				https://github.com/tnajdek/zotero-api-client
 import api from 'zotero-api-client'
 import * as njk from '../../../node_modules/nunjucks/index.js'
-import markdownify from "../../filters/markdownify"
+import markdownify from "../../filters/markdownify.js"
 
 
 /*
