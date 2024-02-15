@@ -7,7 +7,7 @@ const embedEverything = require("eleventy-plugin-embed-everything")
 const { EleventyRenderPlugin } = require("@11ty/eleventy")
 
 const meta = require('../_data/meta')
-import picturesProcessing from '../transforms/processing_media'
+import img_transform from '../transforms/processing_media'
 import { collections } from './collections'
 import { md } from './markdown'
 
@@ -65,8 +65,8 @@ cf. postcss.config.js pour le CSS
 		config.addPassthroughCopy({ 'src/assets/images/*.svg': meta.assetsDir })
 
 		config.addTransform(
-			'picturesProcessing',
-			picturesProcessing
+			'img_transform',
+			img_transform
 		)
 	}
 	else {
