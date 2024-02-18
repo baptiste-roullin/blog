@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "dev:webpack": "npx webpack --watch  --mode development",
-    "dev:copy": "npx cpy-cli  --flat './src/posts/**/*.(png|webp|gif|mp4|jpg|jpeg)' './src/assets/images/*' './src/assets/UI/*'  ./src/assets/imagesToProcess/",
+    "dev:copy": "npx cpy-cli  --flat \"./src/posts/**/*\" \"./src/assets/images/*\" \"./src/assets/UI/*\"  ./src/assets/imagesToProcess/",
     "dev:eleventy": "npx @11ty/eleventy --incremental  --serve --quiet",
     "dev:postcss": "postcss src/assets/css/main.css -o dist/assets/css/main.css --watch",
     "dev": "npm-run-all --parallel dev:* --print-label",

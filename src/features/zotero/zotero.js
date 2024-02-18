@@ -1,9 +1,12 @@
 
 // Documentation de l'API : https://www.zotero.org/support/dev/web_api/v3/basics
 // Client : 				https://github.com/tnajdek/zotero-api-client
-import api from 'zotero-api-client'
-import * as njk from '../../../node_modules/nunjucks/index.js'
+import pMap from 'p-map'
+
 import markdownify from "../../filters/markdownify.js"
+import meta from '../../_data/meta.js'
+import dateHumanFormat from '../../filters/date_formatting.js'
+import cache from '../../utils/caching.js'
 
 
 /*
@@ -17,12 +20,12 @@ Comme promise.all, effectue des requête en parallèle et renvoie une promesse d
  * @param {string} collection
  * @param {...string} [requestedTags]
  * @returns {Promise<string | undefined>}
- */
+*/
 export default async function zotero(collection, ...requestedTags) {
-    const { default: pMap } = await import('p-map')
-    const { default: cache } = await import('../../utils/caching.js')
-    const { default: dateHumanFormat } = await import('../../filters/date_formatting.js')
-    const { default: meta } = await import('../../_data/meta.js')
+    const { default: njk } = await import('../../../node_modules/nunjucks/index.js')
+
+    const { default: zotero } = await import('zotero-api-client')
+    const api = zotero.default
 
     if (!meta.zoteroAPIKey) {
         console.log(new Error("La clé d'API pour Zotero est manquante"))

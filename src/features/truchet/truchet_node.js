@@ -7,25 +7,25 @@ const warning = debug('tcqb:warning')
 
 /** @returns {Promise<void>} */
 export default async function (slug, width, height) {
-    if (process.platform !== "win32") {
-        // @ts-ignore
-        const { createCanvas } = await import('canvas')
+    // if (process.platform !== "win32") {
+    // @ts-ignore
+    const { createCanvas } = await import('canvas')
 
-        const pipeline = promises.pipeline
+    const pipeline = promises.pipeline
 
-        const path = `${meta.outputDir}/${meta.assetsDir}/truchet-${slug}.png`
-        const tileCanvas = await truchet(createCanvas(width, height), createCanvas(width, height), { height: height, width: width }, 'node')
-        await pipeline(tileCanvas.createPNGStream({ compressionLevel: 2 }), fs.createWriteStream(path), (err) => {
-            if (err) {
-                console.error('Pipeline failed.', err)
-            }
-            else {
-                warning('truchet pipeline succeeded.')
-            }
-        })
-    }
-    else {
-        warning('truchet désactivé')
-
-    }
+    const path = `${meta.outputDir}/${meta.assetsDir}/truchet-${slug}.png`
+    const tileCanvas = await truchet(createCanvas(width, height), createCanvas(width, height), { height: height, width: width }, 'node')
+    await pipeline(tileCanvas.createPNGStream({ compressionLevel: 2 }), fs.createWriteStream(path), (err) => {
+        if (err) {
+            console.error('Pipeline failed.', err)
+        }
+        else {
+            warning('truchet pipeline succeeded.')
+        }
+    })
+    /*   }
+       else {
+           warning('truchet désactivé')
+   
+       }*/
 }
