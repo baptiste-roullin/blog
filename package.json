@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "dev:webpack": "npx webpack --watch  --mode development",
-    "dev:copy": "npx cpy-cli  --flat \"./src/posts/**/*\" \"./src/assets/images/*\" \"./src/assets/UI/*\"  ./src/assets/imagesToProcess/",
+    "dev:copy": "npx cpy-cli  --flat \"./src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}\" \"./src/assets/images/*\" \"./src/assets/UI/*\"  ./src/assets/imagesToProcess/",
     "dev:eleventy": "npx @11ty/eleventy --incremental  --serve --quiet",
     "dev:postcss": "postcss src/assets/css/main.css -o dist/assets/css/main.css --watch",
     "dev": "npm-run-all --parallel dev:* --print-label",
@@ -50,6 +50,7 @@
     "markdown-it-footnote": "^3.0.3",
     "markdown-it-highlightjs": "^4.0.1",
     "markdown-it-image-figures": "^2.1.0",
+    "node-polyfill-webpack-plugin": "^3.0.0",
     "npm-run-all": "^4.1.5",
     "p-map": "^6.0.0",
     "pagefind": "^1.0.4",

@@ -1,10 +1,5 @@
 
-import createComponent from '../../../src/_templates/components/posts_list_item.njk'
-
-
-//"use strict"
-
-async function search(e) {
+export async function search(e) {
 
 
     e.preventDefault()
@@ -13,17 +8,17 @@ async function search(e) {
     //const results = await pagefind.debouncedSearch(value)
 
     /*    const results = window
-            .searchIndex
-            .search(value, {
-                bool: "OR",
-                expand: true,
-                fields: {
-                    title: { boost: 8 },
-                    description: { boost: 5 },
-                    tags: { boost: 5 },
-                    content: { boost: 2 },
-                }
-            })*/
+    .searchIndex
+    .search(value, {
+        bool: "OR",
+        expand: true,
+        fields: {
+            title: { boost: 8 },
+            description: { boost: 5 },
+            tags: { boost: 5 },
+            content: { boost: 2 },
+        }
+    })*/
     const noResultsEl = document.getElementById("noResultsFound")
     const container = document.querySelector('.post-wrapper')
     const postList = container.children[0]
@@ -47,6 +42,8 @@ async function search(e) {
                 const doc = await r.data()
 
                 let { url, meta, description } = doc
+
+                const createComponent = await import('../../_templates/components/posts_list_item.njk')
 
                 const el = createComponent({
                     postListItemStyle: { complete: 'complete' },
@@ -83,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .addEventListener("input", async function (e) {
             if (!window.pagefind) {
 
-                const pagefind = await import(/* webpackIgnore: true */ "/blog/pagefind/pagefind.js")
+                const pagefind = await import(/* webpackIgnore: true */ "/pagefind/pagefind.js")
 
                 window.pagefind = pagefind
             }

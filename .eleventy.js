@@ -25,8 +25,8 @@ import filters from './src/filters/filters.js'
 
 export default async function conf(config) {
 
-	config.ignores?.add("src/heroPages/portfolio/portfolioIntro.md")
-	config.ignores?.add("src/features/zotero/zotero_component.njk")
+	config.ignores.add("src/heroPages/portfolio/portfolioIntro.md")
+	config.ignores.add("src/features/zotero/zotero_component.njk")
 
 
 	/**

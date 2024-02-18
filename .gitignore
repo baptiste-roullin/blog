@@ -3,7 +3,7 @@
 *.code-workspace
 .eleventyignore
 src/assets/imagesToProcess/*
-hashes.json
+hashes_js.json
 .eleventyignore
 
 dist

@@ -27,7 +27,7 @@ On peut voir la métaphore sous un autre angle : le bureau comme outil complet d
 
 La preuve dans cette photo, tirée du livre d'histoire [Designing Interactions](http://www.designinginteractions.com/chapters/1)
 
-![]()
+![](ch_1.jpg)
 
 Cette vision était plus proche du [Wooton](https://en.wikipedia.org/wiki/Wooton_desk) du XIXe siècle que du plateau minimaliste du XXIe. Non pas une collection d'outils mais un appareil complet fournissant tout le nécessaire au travailleur.
 

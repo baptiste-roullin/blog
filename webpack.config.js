@@ -1,7 +1,8 @@
-import { resolve, dirname } from 'node:path'
+import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
+import NodePolyfillPlugin from 'node-polyfill-webpack-plugin'
 import WebpackAssetsManifest from 'webpack-assets-manifest'
 import dotenv from 'dotenv'
 dotenv.config()
@@ -12,7 +13,7 @@ export default {
 
 	entry: {
 		search_front: resolve(__dirname, 'src/assets/scripts/search_front.js'),
-		contact: resolve(__dirname, 'src/assets/scripts/contact.js'),
+		nunjucks: resolve(__dirname, 'src/assets/scripts/nunjucks.js'),
 		main: resolve(__dirname, 'src/assets/scripts/main.js'),
 		picture_lightbox: resolve(__dirname, 'src/assets/scripts/picture_lightbox.js'),
 		spin: resolve(__dirname, 'src/assets/scripts/spin.js'),
@@ -40,9 +41,9 @@ export default {
 								'src/_templates/components',
 							], filters: {
 								// Don't put file extensions.
-								dateHumanFormat: resolve('src/filters/date_formatting'),
-								removeMD: resolve('src/filters/remove_MD'),
-								markdownify: resolve('src/filters/markdownify')
+								dateHumanFormat: resolve(__dirname, 'src/filters/date_formatting.js'),
+								removeMD: resolve(__dirname, 'src/filters/remove_MD.js'),
+								markdownify: resolve(__dirname, 'src/filters/markdownify.js')
 
 							}
 						}
@@ -52,16 +53,17 @@ export default {
 		],
 	},
 	plugins: [
-		new WebpackAssetsManifest({
-			customize(entry) {
+/*		new NodePolyfillPlugin({ includeAliases: ['url', "path"] }),
+*/		new WebpackAssetsManifest({
+		customize(entry) {
 
-				// l'otpion fileExtRegex devrait servir à ça, mais pas réussi à la faire marcher.
-				if (!(entry.key.endsWith('.js'))) {
-					return false
-				}
-				return entry
-			},
-			output: '../../../src/_data/hashes_js.json'
-		}),
+			// l'otpion fileExtRegex devrait servir à ça, mais pas réussi à la faire marcher.
+			if (!(entry.key.endsWith('.js'))) {
+				return false
+			}
+			return entry
+		},
+		output: '../../../src/_data/hashes_js.json'
+	}),
 	],
 }
