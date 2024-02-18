@@ -1,12 +1,11 @@
 import markdownIt from 'markdown-it'
-
 import MarkdownItContainer from 'markdown-it-container'
 import footnote from 'markdown-it-footnote'
 import bracketedSpans from 'markdown-it-bracketed-spans'
 import attrs from 'markdown-it-attrs'
 import blockquoteCite from 'markdown-it-blockquote-cite'
 import imageFigures from 'markdown-it-image-figures'
-import highlightjs from "../node_modules/markdown-it-highlightjs/index.js"
+import highlightjs from "markdown-it-highlightjs"
 
 import slugify from './filters/slugify.js'
 

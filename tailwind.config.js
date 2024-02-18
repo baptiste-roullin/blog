@@ -46,7 +46,6 @@ import colors from 'tailwindcss/colors'
 import typography from '@tailwindcss/typography'
 import nesting from 'tailwindcss/nesting'
 import forms from '@tailwindcss/forms'
-import textBalance from 'tailwindcss-text-balance'
 
 //import util from 'markdown-it-blockquote-cite/dist/util'
 
@@ -259,7 +258,6 @@ export default {
 		nesting,
 		textShadow,
 		forms,
-		textBalance
 	]
 	,
 }

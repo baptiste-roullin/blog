@@ -1,11 +1,11 @@
 import { resolve, dirname } from 'node:path'
-
 import { fileURLToPath } from 'url'
-
 const __dirname = dirname(fileURLToPath(import.meta.url))
+
 import WebpackAssetsManifest from 'webpack-assets-manifest'
 import dotenv from 'dotenv'
 dotenv.config()
+
 import meta from './src/_data/meta.js'
 
 export default {
@@ -39,10 +39,10 @@ export default {
 							searchPaths: [
 								'src/_templates/components',
 							], filters: {
-								// ne pas rajouter les extensions
+								// Don't put file extensions.
 								dateHumanFormat: resolve('src/filters/date_formatting'),
 								removeMD: resolve('src/filters/remove_MD'),
-								markdownify: resolve('src/filters/markdownify.js')
+								markdownify: resolve('src/filters/markdownify')
 
 							}
 						}
