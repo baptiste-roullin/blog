@@ -4,6 +4,7 @@
 .eleventyignore
 src/assets/imagesToProcess/*
 hashes_js.json
+hashes_css.json
 .eleventyignore
 
 dist
