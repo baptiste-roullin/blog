@@ -1,7 +1,14 @@
 
+import dotenv from 'dotenv'
+dotenv.config()
+
 import { truchetItem, truchetList } from '../features/truchet/truchet_shortcode.js'
 import slugify from '../filters/slugify.js'
+import zotero from '../features/zotero/zotero.js'
+import meta from '../_data/meta.js'
+
 export default {
+  zotero: (!meta.zotero ? async () => "[ZOTÉRO DÉSACTIVÉ]" : zotero),
   truchetItem: truchetItem,
   truchetList: truchetList,
   heading: function (level, className, label) {

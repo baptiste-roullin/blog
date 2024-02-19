@@ -15,7 +15,6 @@ import { collections } from './src/collections.js'
 import md from './src/markdown.js'
 
 import pairedShortcodes from './src/shortcodes/pairedShortcodes.js'
-import asyncShortcodes from './src/shortcodes/asyncShortcodes.js'
 import shortcodes from './src/shortcodes/shortcodes.js'
 import filters from './src/filters/filters.js'
 
@@ -129,6 +128,7 @@ export default async function conf(config) {
 	/**
 	 * Shortcodes
 	 */
+	//TODO : test si les shortcodes async continuent à marcher
 	Object.keys(shortcodes).forEach((shortcodeName) => {
 		config.addShortcode(shortcodeName, shortcodes[shortcodeName])
 	})
@@ -139,13 +139,6 @@ export default async function conf(config) {
 	Object.keys(pairedShortcodes).forEach((shortcodeName) => {
 		config.addPairedShortcode(shortcodeName, pairedShortcodes[shortcodeName]
 		)
-	})
-
-	/**
-	 * Add async shortcodes
-	 */
-	Object.keys(asyncShortcodes).forEach((shortcodeName) => {
-		config.addNunjucksAsyncShortcode(shortcodeName, asyncShortcodes[shortcodeName])
 	})
 
 
