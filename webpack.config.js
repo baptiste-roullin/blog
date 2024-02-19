@@ -13,8 +13,8 @@ export default {
 
 	entry: {
 		search_front: resolve(__dirname, 'src/assets/scripts/search_front.js'),
-		nunjucks: resolve(__dirname, 'src/assets/scripts/nunjucks.js'),
-		main: resolve(__dirname, 'src/assets/scripts/main.js'),
+/*		nunjucks: resolve(__dirname, 'src/assets/scripts/nunjucks.js'),
+*/		main: resolve(__dirname, 'src/assets/scripts/main.js'),
 		picture_lightbox: resolve(__dirname, 'src/assets/scripts/picture_lightbox.js'),
 		spin: resolve(__dirname, 'src/assets/scripts/spin.js'),
 		nav: resolve(__dirname, 'src/assets/scripts/nav.js'),
@@ -41,9 +41,9 @@ export default {
 								'src/_templates/components',
 							], filters: {
 								// Don't put file extensions.
-								dateHumanFormat: resolve(__dirname, 'src/filters/date_formatting.js'),
-								removeMD: resolve(__dirname, 'src/filters/remove_MD.js'),
-								markdownify: resolve(__dirname, 'src/filters/markdownify.js')
+								dateHumanFormat: resolve(__dirname, 'src/filters/date_formatting'),
+								removeMD: resolve(__dirname, 'src/filters/remove_MD'),
+								markdownify: resolve(__dirname, 'src/filters/markdownify')
 
 							}
 						}
