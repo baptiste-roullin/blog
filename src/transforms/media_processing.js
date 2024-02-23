@@ -154,8 +154,13 @@ function handleImg(image, document, globalSettings) {
 		image.dataset.pristine = imageSrc
 		image.setAttribute("loading", "lazy")
 		let options = {
-			animated: true,
+			sharpOptions: {
+				animated: true,
+			},
 			sharpWebpOptions: {
+				effort: 4, // 0-6, effort 6 takes a very long time just to save a little bit of space
+				loop: 0, // animations loop forever, default
+				force: true,
 				quality: 90,
 			},
 			widths: widthsList,
@@ -165,7 +170,7 @@ function handleImg(image, document, globalSettings) {
 					?
 					['webp']
 					:
-					['jpg']
+					['webp']
 			),
 			urlPath: '/assets/imagesToProcess/',
 			outputDir: `./${meta.outputDir}/${meta.assetsDir}/`,
