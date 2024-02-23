@@ -1,6 +1,6 @@
 ---
 title: "Faut-il justifier le texte sur une page Web ? Non, mais"
-permalink: "blog/2024/01/faut-il-justifier-le-texte-sur-internet-non-mais"
+permalink: "blog/2024/01/faut-il-justifier-le-texte-sur-internet-non-mais/index.html"
 date: 2024-01-24
 tags:
   - "recherche"
