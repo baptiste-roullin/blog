@@ -1,6 +1,55 @@
-const colors = require('tailwindcss/colors')
+/** @type {import('tailwindcss').Config} */
 
-module.exports = {
+
+
+import plugin from 'tailwindcss/plugin'
+
+const textShadow = plugin(function ({ addUtilities, e, theme, addVariant }) {
+	const textShadow = theme('textShadow', {})
+
+	//const textShadowVariants = addVariant('textShadow', []) //TODO : vérifier si vraiment inutile
+
+
+	const utilities = Object.fromEntries(
+		Object.entries(textShadow).map((array) => {
+			const [key, value] = array // key = modifier. value = css content.
+			const className = (key === 'default' ? 'text-shadow' : `${e(`text-shadow-${key}`)}`)
+			return [
+				`.${className}`,
+				{
+					'text-shadow': value,
+				},
+			]
+		})
+	)
+
+},
+	{
+		theme: {
+			textShadow: {
+				default: '0px 0px 1px rgb(0 0 0 / 20%), 0px 0px 1px rgb(1 0 5 / 10%)',
+				sm: '1px 1px 3px rgb(36 37 47 / 25%)',
+				md: '0px 1px 2px rgb(30 29 39 / 19%), 1px 2px 4px rgb(54 64 147 / 18%)',
+				lg: '3px 3px 6px rgb(0 0 0 / 26%), 0 0 5px rgb(15 3 86 / 22%)',
+				xl: '1px 1px 3px rgb(0 0 0 / 29%), 2px 4px 7px rgb(73 64 125 / 35%)',
+				none: 'none',
+			},
+		},
+		variants: {
+			textShadow: ['responsive', 'hover', 'focus'],
+		}
+	})
+
+
+import colors from 'tailwindcss/colors'
+
+import typography from '@tailwindcss/typography'
+import nesting from 'tailwindcss/nesting'
+import forms from '@tailwindcss/forms'
+
+//import util from 'markdown-it-blockquote-cite/dist/util'
+
+export default {
 	darkMode: 'class',
 	corePlugins: {
 	},
@@ -9,7 +58,6 @@ module.exports = {
 		'./src/**/*.html',
 		'./src/**/*.njk',
 		'./src/**/*.md',
-		'./src/_data/structure.ts',
 		'./src/filters/*.{ts,js}',
 		'./src/shortcodes/*.{ts,js}',
 	],
@@ -82,7 +130,6 @@ module.exports = {
 				'lg-bis': "1.4rem"
 
 			},
-			// TODO https://github.com/tailwindlabs/tailwindcss-typography/releases/tag/v0.5.0
 			textShadow: {
 				"lg-blue": "3px 3px 6px rgb(0 0 0 / 46%), 0 0 5px rgb(15 3 86 / 42%)"
 			},
@@ -207,10 +254,10 @@ module.exports = {
 
 	},
 	plugins: [
-		require('@tailwindcss/typography'),
-		require('tailwindcss/nesting'),
-		require('tailwindcss-textshadow'),
-		require('@tailwindcss/forms'),
+		typography,
+		nesting,
+		textShadow,
+		forms,
 	]
 	,
 }

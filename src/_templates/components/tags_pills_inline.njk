@@ -1,7 +1,7 @@
 <ul class="inline tagpills">
   {% for tag in tags %}
       <li class="inline-block my-auto">
-        <a title="mot clé {{ tag }}" aria-label="mot clé {{ tag }}" href="{{ '/tags/' | url}}{{tag | slugify  }}/"
+        <a data-pagefind-weight="5"title="mot clé {{ tag }}" aria-label="mot clé {{ tag }}" href="{{ '/tags/' | url}}{{tag | slugify  }}/"
         class="link-hover">{{ tag | normalizeTag}}</a>
 					{% include "components/separator.njk" %}
       </li>

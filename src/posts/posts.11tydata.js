@@ -1,7 +1,7 @@
-import collateHeroImage from '../utils/collateHeroImage'
+import collateHeroImage from '../utils/collateHeroImage.js'
 
 
-module.exports = {
+export default {
   layout: "post",
   permalink: "blog/{{ page.date | dateHumanFormat('yyyy/MM') }}/{{ title | slugify }}/index.html",
   contentType: "post",
