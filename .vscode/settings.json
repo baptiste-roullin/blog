@@ -1,3 +1,8 @@
 {
-  "scss.lint.unknownAtRules": "ignore"
+  "scss.lint.unknownAtRules": "ignore",
+  "terminal.integrated.profiles.osx": {
+    "zsh (x86-64)": {
+        "path": "arch",
+        "args": ["-x86_64", "/bin/zsh"]
+    }
 }
