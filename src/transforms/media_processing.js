@@ -184,15 +184,7 @@ function handleImg(image, document, globalSettings) {
 		catch (e) {
 			console.log("debug images-resp: " + intermediaryPath + "  " + e)
 		}
-		// TODO : check
-		// on fait tourner la conversion une seconde fois pour juste compresser l'image, sans changement de format et avec une seule largeur.
-		/*		// surtout pour la page /blog
-				options.widths = [originalWidth]
-				options.formats = [(path.extname(imageSrc)).replace('\.', '')]
-				options.filenameFormat = function (id, src, width, format) {
-					return path.basename(src)
-				}
-				convertPictures(intermediaryPath, options)*/
+
 
 		prepareForLighbox(image, document)
 	} catch (e) {
