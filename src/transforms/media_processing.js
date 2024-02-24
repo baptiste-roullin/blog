@@ -158,9 +158,6 @@ function handleImg(image, document, globalSettings) {
 				animated: true,
 			},
 			sharpWebpOptions: {
-				effort: 4, // 0-6, effort 6 takes a very long time just to save a little bit of space
-				loop: 0, // animations loop forever, default
-				force: true,
 				quality: 90,
 			},
 			widths: widthsList,
@@ -170,14 +167,13 @@ function handleImg(image, document, globalSettings) {
 					?
 					['webp']
 					:
-					['webp']
+					['jpg']
 			),
 			urlPath: '/assets/imagesToProcess/',
 			outputDir: `./${meta.outputDir}/${meta.assetsDir}/`,
 			filenameFormat: function (id, src, width, format, options) {
 				const extension = path.extname(src)
 				const name = path.basename(src, extension)
-				//const modifiedFormat = (format === 'jpeg' ? 'jpg' : format)
 				return `${name}-${width}.${options.formats[0]}`
 			}
 		}
