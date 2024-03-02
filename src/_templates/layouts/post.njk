@@ -2,7 +2,7 @@
 layout: base
 ---
 <div >
-  <article class="template-post image-responsiver-content" data-pagefind-body>
+  <article class="template-post image-responsiver-content" {{ "data-pagefind-body" if  not draft}}>
     {% if hero.image %}
       {% include 'components/header_hero_image.njk' %}
     {% endif %}
