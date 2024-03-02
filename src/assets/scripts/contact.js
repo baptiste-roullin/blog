@@ -31,7 +31,7 @@ document.querySelector("#contact").addEventListener('submit', async function (e)
     // FETCHEZ LA VACHE
     // L'API Fetch se charge du pre-flight check avec une requête OPTIONS
     fetch('https://nuage.toutcequibouge.net/ocs/v2.php/apps/forms/api/v2.4/submission/insert', {
-        method: 'PUT',
+        method: 'POST',
         mode: 'cors',
         "credentials": "omit",
         headers: {
