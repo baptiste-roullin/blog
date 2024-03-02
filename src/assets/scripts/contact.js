@@ -22,7 +22,7 @@ document.querySelector("#contact").addEventListener('submit', async function (e)
     const form = new FormData(target)
     const entries = form.entries()
     for (let [key, value] of entries) {
-        key = key + 14 // offset because questions IDs are global for every form.
+        key = key
         // Chaque réoonse, même mono-valuée, doit être un tableau.
         data.answers[key] = [value]
     }
