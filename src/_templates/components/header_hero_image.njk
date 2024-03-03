@@ -22,10 +22,12 @@
         class="flex justify-center h-auto mx-auto lg:w-1/2 img-wrapper"
       >
 		<figure>
-			<img  " alt="{{hero.alt}}"
-					  title="{{hero.alt}}"
-					  class="shadow-lg-dark"
-					  src="{{collatedHeroImage}}"
+			<img
+				alt="{{hero.alt}}"
+				title="{{hero.alt}}"
+				class="shadow-lg-dark"
+				data-hero="true"
+				src="{{collatedHeroImage}}"
 			/>
 			{% if hero.caption %}
 				<figcaption class="mt-2 text-base">
