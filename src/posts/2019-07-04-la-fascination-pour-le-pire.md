@@ -24,13 +24,13 @@ Mais pour aller au fond de la nullité et creuser encore, il faut la créer soi-
 
 ![](/assets/images/pugHH9i.gif)
 
-[Des gens sur Reddit](https://www.designernews.co/stories/84443-redditors-design-worst-volume-sliders-possible) ont remis ça, autour d'un variateur de volume. Magnifique et totalement pataphysique.
+[Des gens sur Reddit](https://www.designernews.co/stories/84443-redditors-design-worst-volume-sliders-possible) ont remis ça, autour d'un variateur de volume. Magnifique et totalement pataphysique. Ça a même donné une [communauté dédiée](https://www.reddit.com/r/badUIbattles/top/?t=all).
 
 ![](/assets/images/PassionateOddballBlueandgoldmackaw.gif)
 
 Il y aussi sur cette expérimentation autour [du choix des cookies](https://twitter.com/kevinvennitti/status/1144293130222624768?s=20)
 
-Et enfin, le petit dernier : un [formulaire absolument atroce](https://userinyerface.com/game.html). Ce n'est plus un dark pattern, c'est un trou noir.
+Et enfin, le petit dernier : un [formulaire satirique absolument atroce](https://userinyerface.com/game.html). Ce n'est plus un dark pattern, c'est un trou noir.
 
 ![](/assets/images/2019-07-04_00h19_54.jpg)
 
