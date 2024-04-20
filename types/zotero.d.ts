@@ -1,18 +1,18 @@
 
 export interface MultiReadResponse {
-	raw: RawItem[];
+	raw: RawItem[]
 	response: Response
 	getData: () => []
 
 }
 
 export interface RawItem {
-	key: string;
-	version: number;
-	library: Object;
-	links: Object;
-	meta: {};
-	data: { [key: string]: string | Object };
+	key: string
+	version: number
+	library: Object
+	links: Object
+	meta: {}
+	data: { [key: string]: string | Object }
 }
 //MultiReadResponse {
 //	raw: [

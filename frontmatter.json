@@ -11,6 +11,63 @@
       "path": "[[workspace]]/src/assets/images"
     }
   ],
+
+
+
+"frontMatter.taxonomy.contentTypes": [
+  {
+    "name": "post",
+    "pageBundle": false,
+    "fields": [
+      {
+        "title": "Title",
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "title": "Description",
+        "name": "description",
+        "type": "string"
+      },
+      {
+        "title": "Publishing date",
+        "name": "date",
+        "type": "datetime",
+        "default": "{{now}}",
+        "isPublishDate": true
+      },
+      {
+        "title": "Is in draft",
+        "name": "draft",
+        "type": "draft",
+        "default": "true"
+      },
+      {
+        "title": "Tags",
+        "name": "tags",
+        "type": "tags"
+      },
+      {
+        "title": "Hero image",
+        "name": "hero",
+        "type": "fields",
+        "fields": [
+          {
+        "title": "Alternate description",
+        "name": "alt",
+        "type": "string"
+          },
+        {
+        "title": "image path",
+        "name": "image",
+        "type": "string"
+          }
+
+        ]
+      }
+    ]
+  }
+],
   "frontMatter.taxonomy.tags": [
     "Agile ",
     "Architecture ",
@@ -105,5 +162,6 @@
     "web",
     "windows"
   ],
-  "frontMatter.taxonomy.categories": []
+  "frontMatter.preview.host": "https://localhost:8080",
+  "frontMatter.git.enabled": true
 }
