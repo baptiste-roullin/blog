@@ -19,6 +19,8 @@ export default {
 	twitterThread: convertToBool(process.env.TWITTER_THREAD),
 	search: convertToBool(process.env.SEARCH),
 	pictures: convertToBool(process.env.PICTURES),
+	//sharp: convertToBool(process.env.PICTURES),
+
 	zoteroProfileID: process.env.zoteroProfileID || '',
 	zoteroAPIKey: process.env.zoteroAPIKey || ''
 

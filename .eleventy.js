@@ -41,33 +41,12 @@ export default async function conf(config) {
 
 
 
-	//TODO : check si plus utile
-	/**
-	 *
-	 * Precompile Nunjucks component for search
-	*/
-	/*
-
-	import njk from 'nunjucks'
-	import fs from 'node:fs/promises'
-
-	const env = njk.configure('src/_templates/components/',
-
-		// options, notamment pour supprimer les vides inutiles.
-		{ autoescape: true, trimBlocks: true, lstripBlocks: true })
-
-	env.addFilter('dateHumanFormat', filters['dateHumanFormat'])
-	env.addFilter('removeMD', filters['RemoveMarkdown'])
-
-
-	//génération du HTML
-	const tmpl = njk.precompile('src/_templates/components/posts_list_item.njk', { env: env })
-
-	await fs.writeFile("precompiled.js", tmpl)
-	*/
 	/**
  * Passthrough File Copy
 */
+
+
+	config.setServerPassthroughCopyBehavior("passthrough")
 
 	//On copie tels quels les média avec chemins relatifs ou absolus dans /dist, qu'ils puissent être lus par du balisage non-transformé (sans srcset ou gif -> vidéo)
 	config.addPassthroughCopy('src/robots.txt')
@@ -92,10 +71,10 @@ export default async function conf(config) {
 			findImg
 		)
 	}
-	else {
-		config.addPassthroughCopy('src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}')
-		config.addPassthroughCopy('src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}')
-	}
+	//else {
+	//	config.addPassthroughCopy({ 'src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}': `./${meta.outputDir}/${meta.assetsDir}/` })
+	//	config.addPassthroughCopy({ 'src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}': `./${meta.outputDir}/${meta.assetsDir}/` })
+	//}
 
 	/**
 	 * Add layout aliases

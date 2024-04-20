@@ -11,99 +11,62 @@
       "path": "[[workspace]]/src/assets/images"
     }
   ],
-  "frontMatter.taxonomy.tags": [
-    "Agile ",
-    "Architecture ",
-    "Architecture de l'information ",
-    "Bureau ",
-    "Concept ",
-    "Conception ",
-    "Critique ",
-    "Données ",
-    "Droit ",
-    "Eleventy ",
-    "Futur ",
-    "Graphisme ",
-    "Histoire ",
-    "Hypertexte ",
-    "Inclusion ",
-    "Jeu vidéo ",
-    "Litterature ",
-    "Mac ",
-    "Mobile ",
-    "Objets ",
-    "Place du concepteur ",
-    "Politique ",
-    "Procédural ",
-    "Projets ",
-    "Prototypage ",
-    "RGPD",
-    "RGPD ",
-    "Recherche ",
-    "Responsive ",
-    "Réflexions ",
-    "Répétition ",
-    "Sciences cognitives ",
-    "Sketch ",
-    "Stratégie ",
-    "Systemes complexes ",
-    "Sécurité ",
-    "Tout ce qui bouge ",
-    "Typographie ",
-    "UX",
-    "UX ",
-    "Utilisateurs ",
-    "VR",
-    "VR ",
-    "Veille ",
-    "Vie privée ",
-    "Ville ",
-    "Web ",
-    "Windows ",
-    "Windows phone",
-    "Windows phone ",
-    "agile",
-    "architecture",
-    "architecture de l'information",
-    "bureau",
-    "concept",
-    "conception",
-    "critique",
-    "données",
-    "droit",
-    "eleventy",
-    "futur",
-    "graphisme",
-    "histoire",
-    "hypertexte",
-    "inclusion",
-    "jeu vidéo",
-    "litterature",
-    "mac",
-    "mobile",
-    "objets",
-    "place du concepteur",
-    "politique",
-    "procédural",
-    "projets",
-    "prototypage",
-    "recherche",
-    "responsive",
-    "réflexions",
-    "répétition",
-    "cognition",
-    "sketch",
-    "stratégie",
-    "systemes complexes",
-    "sécurité",
-    "tout ce qui bouge",
-    "typographie",
-    "utilisateurs",
-    "veille",
-    "vie privée",
-    "ville",
-    "web",
-    "windows"
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "post",
+      "pageBundle": false,
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "Publishing date",
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "Is in draft",
+          "name": "draft",
+          "type": "draft",
+          "default": "true"
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags"
+        },
+        {
+          "title": "Hero image",
+          "name": "hero",
+          "type": "fields",
+          "fields": [
+            {
+              "title": "Alternate description",
+              "name": "alt",
+              "type": "string",
+              "default": null
+            },
+            {
+              "title": "image path",
+              "name": "image",
+              "type": "string",
+              "default": null
+            }
+          ]
+        }
+      ]
+    }
   ],
-  "frontMatter.taxonomy.categories": []
+  "frontMatter.preview.host": "https://localhost:8080",
+  "frontMatter.git.enabled": true,
+  "frontMatter.framework.startCommand": "npm run dev"
 }
