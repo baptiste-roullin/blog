@@ -23,6 +23,7 @@ import filters from './src/filters/filters.js'
 //import("./src/../types/eleventy").Config()
 
 export default async function conf(config) {
+	config.setUseGitIgnore(false)
 
 	config.ignores.add("src/heroPages/portfolio/portfolioIntro.md")
 	config.ignores.add("src/features/zotero/zotero_component.njk")
@@ -48,13 +49,11 @@ export default async function conf(config) {
 
 	config.setServerPassthroughCopyBehavior("passthrough")
 
-	//On copie tels quels les média avec chemins relatifs ou absolus dans /dist, qu'ils puissent être lus par du balisage non-transformé (sans srcset ou gif -> vidéo)
 	config.addPassthroughCopy('src/robots.txt')
 	config.addPassthroughCopy('src/assets/css/fonts')
+
+	//On copie tels quels les média avec chemins relatifs ou absolus dans /dist, qu'ils puissent être lus par du balisage non-transformé (sans srcset)
 	config.addPassthroughCopy('src/assets/UI')
-
-
-	config.setUseGitIgnore(false)
 
 	if (meta.pictures) {
 		if (meta.env === "production") {

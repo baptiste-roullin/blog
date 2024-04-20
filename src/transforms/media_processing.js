@@ -10,12 +10,17 @@ const warning = debug('pictures:warning')
 import meta from '../_data/meta.js'
 
 function reformatURL(src, width) {
-	const fullPath = `/${meta.assetsDir}/${path.basename(src)}`
 
+	const extension = path.extname(src)
+	const name = path.basename(src, extension)
+	return `/${meta.assetsDir}/${name}-${width}.webp`
+
+	/*		const fullPath = `/${meta.assetsDir}/${path.basename(src)}`
+	
 	return fullPath.
-		replace(
-			/^(.*)(\.[^\.]+)$/,
-			'$1-' + width + '.jpg')
+			replace(
+				/^(.*)(\.[^\.]+)$/,
+				'$1-' + width + '.webp')*/
 }
 
 
