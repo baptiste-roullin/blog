@@ -11,7 +11,7 @@ export default async function (data) {
     const hero = data.hero
     let finalName
     if (meta.pictures && typeof hero !== "object"
-        || typeof hero?.image !== "string" || hero?.image !== null || hero?.image !== "") {
+        || typeof hero?.image !== "string" || hero?.image === null || hero?.image === "") {
         await truchetNode(slug, 400, 280).catch(console.error)
         //URL absolue
         finalName = `truchet-${slug}.png`

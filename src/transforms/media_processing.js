@@ -158,13 +158,7 @@ function handleImg(image, document, globalSettings) {
 			},
 			widths: widthsList,
 			dryRun: false,
-			formats: (
-				meta.env === "production"
-					?
-					['webp']
-					:
-					['jpg']
-			),
+			formats: ['webp'],
 			urlPath: '/assets/imagesToProcess/',
 			outputDir: `./${meta.outputDir}/${meta.assetsDir}/`,
 			filenameFormat: function (id, src, width, format, options) {
