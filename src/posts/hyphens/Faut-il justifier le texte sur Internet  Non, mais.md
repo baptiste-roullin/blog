@@ -6,6 +6,7 @@ tags:
   - "recherche"
   - "cognition"
   - "typographie"
+  - "dev web"
 featured: true
 draft: false
 description: Dyslexie, cognition et algorithmes de césure
