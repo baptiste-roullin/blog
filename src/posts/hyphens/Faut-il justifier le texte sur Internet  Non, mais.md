@@ -6,6 +6,7 @@ tags:
   - "recherche"
   - "cognition"
   - "typographie"
+  - "dev web"
 featured: true
 draft: false
 description: Dyslexie, cognition et algorithmes de césure
@@ -66,7 +67,7 @@ Il est probable que les évolutions techniques réduisent le premier problème :
 - Des [expérimentations existent](https://vimeo.com/330954099) avec les polices variables pour jouer sur un critère supplémentaire : la largeur des caractères. On arrive à des variations d'espaces très faibles, tandis que l'ajustement des caractères est à peine remarquable.  Le passage essentiel de la conférence est vers 20m40.
 - Le créateur d'un site peut remplacer coté client l'algorithme du navigateur [par un autre](https://github.com/mnater/Hyphenopoly).
 
-## 2. Le dentelage comme indice visuel
+### 2. Le dentelage comme indice visuel
 
 Second argument contre la justification : l'aspect "dentelé" des fins de ligne permet au lecteur de se repérer. Chaque petite différence de longueur constitue autant d'indices visuels pour enchainer les lignes sans se tromper ou hésiter.
 

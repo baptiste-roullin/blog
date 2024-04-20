@@ -100,8 +100,6 @@ function generateSrcList(imageSettings, imageWidth, imageSrc) {
 
 
 function prepareForLighbox(image, document) {
-	//image.setAttribute('src', image.dataset.responsiveruRL);
-	//let caption = image.getAttribute("title");
 	if (image.closest('.rich-picture')) {
 		const link = document.createElement("a")
 		link.setAttribute("data-pswp-srcset", image.getAttribute('srcset'))
@@ -136,9 +134,6 @@ function handleImg(image, document, globalSettings) {
 		let { widthsList, srcsetList } = generateSrcList(imageSettings, imageWidth, imageSrc)
 		widthsList.push(originalWidth)
 
-		if (imageSettings.classes.length > 0) {
-			image.classList.add(...imageSettings.classes)
-		}
 		if (imageSettings.fallbackWidth) {
 			image.setAttribute(
 				'src',
@@ -148,11 +143,12 @@ function handleImg(image, document, globalSettings) {
 		image.setAttribute('srcset', srcsetList.join(', '))
 		// add sizes attribute
 		image.setAttribute('sizes', imageSettings.sizes)
-		image.dataset.responsiver = image.className
-		image.dataset.size = image.className
+		image.dataset.responsiver = image.dataAttribute
 		// add 'data-pristine' attribute with URL of the pristine image
 		image.dataset.pristine = imageSrc
-		image.setAttribute("loading", "lazy")
+		if (!image.getAttribute("data-hero")) {
+			image.setAttribute("loading", "lazy")
+		}
 		let options = {
 			sharpOptions: {
 				animated: true,
@@ -203,7 +199,7 @@ export default function findImg(html, outputPath) {
 		sizes: '(max-width: 60rem) 90vw, 60rem',
 		resizedImageUrl: reformatURL,
 		steps: 5,
-		classes: ['img-default'],
+		dataAttribute: 'img-content-page',
 	}
 
 
@@ -214,7 +210,7 @@ export default function findImg(html, outputPath) {
 		sizes: '(max-width: 60rem) 90vw, 60rem',
 		resizedImageUrl: reformatURL,
 		steps: 2,
-		classes: ['img-default'],
+		dataAttribute: 'img-list-page',
 		ignore: 'truchet-'
 	}
 

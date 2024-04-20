@@ -6,10 +6,13 @@ tags:
   - "projets"
 ---
 
+::: info-block
+{% ctaLink "Tweet To Toot", "https://www.npmjs.com/package/tweet-to-toot"  %}
+:::
 
 **EDIT** : Ma technique [utilisée ici](/threads/) est maintenant impossible (ou prohibitive) depuis l'énorme serrage de vis sur les API de Twitter par leur nouveau PDG (son nom m'échappe...).
 
-**EDIT 2** : J'ai développé [cet outil](https://github.com/baptiste-roullin/tweet-to-toot) pour republier des fils sur Mastodon à partir d'une archive. Ça a quelques limites par rapport à l'ancienne technique, mais aussi l'énorme avantage que les fils peuvent maintenant vivre sur une nouvelle plateforme.
+**EDIT 2** : J'ai développé [Tweet To Toot](https://github.com/baptiste-roullin/tweet-to-toot) pour republier des fils sur Mastodon à partir d'une archive. Ça a quelques limites par rapport à l'ancienne technique, mais aussi l'énorme avantage que les fils peuvent maintenant vivre sur une nouvelle plateforme.
 
 
 ________

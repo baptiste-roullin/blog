@@ -7,8 +7,6 @@ const warning = debug('tcqb:warning')
 
 /** @returns {Promise<void>} */
 export default async function (slug, width, height) {
-    // if (process.platform !== "win32") {
-    // @ts-ignore
     const { createCanvas } = await import('canvas')
 
     const pipeline = promises.pipeline
@@ -26,6 +24,6 @@ export default async function (slug, width, height) {
     /*   }
        else {
            warning('truchet désactivé')
-   
+
        }*/
 }

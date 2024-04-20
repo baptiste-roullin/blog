@@ -13,6 +13,8 @@ export default {
 
 	entry: {
 		search_front: resolve(__dirname, 'src/assets/scripts/search_front.js'),
+		contact: resolve(__dirname, 'src/assets/scripts/contact.js'),
+
 		main: resolve(__dirname, 'src/assets/scripts/main.js'),
 		picture_lightbox: resolve(__dirname, 'src/assets/scripts/picture_lightbox.js'),
 		spin: resolve(__dirname, 'src/assets/scripts/spin.js'),

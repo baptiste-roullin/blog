@@ -21,7 +21,10 @@ Comme promise.all, effectue des requête en parallèle et renvoie une promesse d
  * @param {...string} [requestedTags]
  * @returns {Promise<string | undefined>}
 */
+
 export default async function zotero(collection, ...requestedTags) {
+    //supports only one tag.
+
     const { default: njk } = await import('../../../node_modules/nunjucks/index.js')
 
     const { default: zotero } = await import('zotero-api-client')
@@ -122,7 +125,7 @@ export default async function zotero(collection, ...requestedTags) {
                     throw error
                 }
             }
-            const colls = await cache("collections", "4w", 'json', collectionsCallback)
+            const colls = await cache("collections-" + collection, "4w", 'json', collectionsCallback)
 
             const collectionObject = colls.filter(coll => coll.name === collection)[0]
             if (!collectionObject) {
@@ -151,7 +154,7 @@ export default async function zotero(collection, ...requestedTags) {
 
         if (totalCount) {
             if (totalCount > options.limit) {
-                items = await cache("allPages", "4w", "json", getOtherPages.bind(null, totalCount, options))
+                items = await cache(`allPages-${collection}-${requestedTags[0]}`, "4w", "json", getOtherPages.bind(null, totalCount, options))
             }
             else {
                 items = firstPageItems.raw
@@ -168,7 +171,6 @@ export default async function zotero(collection, ...requestedTags) {
 
         // base du chemin utilisé ensuite par render()
         const env = njk.configure('./src/features/zotero',
-
             // options, notamment pour supprimer les vides inutiles.
             { autoescape: true, trimBlocks: true, lstripBlocks: true })
 
@@ -178,7 +180,9 @@ export default async function zotero(collection, ...requestedTags) {
 
 
         //génération du HTML
-        return await env.render('zotero_component.njk', { items: completedItems })
+
+        const compt = await env.render('zotero_component.njk', { items: completedItems })
+        return compt
 
     }
     catch (error) {

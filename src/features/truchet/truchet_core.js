@@ -15,10 +15,7 @@ export function randIntBetween(min, max) {
  */
 export default async function truchet(canvas, tileCanvas, params, mode) {
     const d3 = await import("d3-color")
-    if (process.platform !== "win32") {
-        // @ts-ignore
-        const { createCanvas } = await import('canvas')
-    }
+    const { createCanvas } = await import('canvas')
 
     /*
         const should_shuffle = (randIntBetween(0, 1) === 1 ? true : false)
