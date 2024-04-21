@@ -1,5 +1,5 @@
 ---
-title: Panorama de techniques CSS méconnues de certains designers
+title: Panorama de techniques CSS parfois méconnues de designers
 description: ""
 date: 2024-04-20T14:55:58.457Z
 draft: false
