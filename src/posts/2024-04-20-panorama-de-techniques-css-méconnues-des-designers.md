@@ -24,11 +24,10 @@ Je me suis limité à :
 # Techniques possibles depuis des années
 
 ## Soulignement
-`text-decoration-skip-ink` pour qu’une barre de soulignement évite les jambages du texte.
+`text-decoration-skip-ink` pour qu’une barre de soulignement évite les <u>jambages</u> du texte.
 Par défaut (**normalement)**.
 
-[https://codepen.io/johndjameson/pen/QEzLrJ](https://codepen.io/johndjameson/pen/QEzLrJ)
-
+[Référence sur MDN](https://developer.mozilla.org/fr/docs/Web/CSS/text-decoration-skip-ink)
 
 ## Images responsive
 
@@ -41,6 +40,7 @@ Par défaut (**normalement)**.
 	src="elva-fairy-800w.jpg"
 	 />
 ```
+
 Cas d’usage :
 - Qualité variable des images : haute résolution sur grand écran et petite sur téléphone.
 - Ce que certains appellent "direction artistique". Disons un choix iconographique pour adapter l'image au contexte.
@@ -49,16 +49,24 @@ Dans l'exemple suivant, on zoome plus sur la personne en format vignette pour é
 
 {% richpicture %}
 
-- ![](/assets/images/resp2.png 'Obama faisant un discours. On voit la scène autour de lui')
-- ![](/assets/images/resp3.png 'Obama faisant un discours. Photo centrée sur lui.')
+!['Obama faisant un discours. On voit la scène autour de lui'](/assets/images/resp2.png )
+
+!['Obama faisant un discours. Photo centrée sur lui.'](/assets/images/resp3.png )
 {% endrichpicture %}
 
 Ou encore, ici la photo est croppée différemment sur les petits écrans.
 
-![](/assets/images/resp0.gif 'GIF montrant une page de ecommerce à différentes tailes de fenêtre. Sur grand écran, une photo de personne est au centre. Sur écran moyen, la photo est calée à gauche et la personne est coupée à la taille.')
+!['GIF montrant une page de ecommerce à différentes tailes de fenêtre. Sur grand écran, une photo de personne est au centre. Sur écran moyen, la photo est calée à gauche et la personne est coupée à la taille.'](/assets/images/resp1.gif )
 
+[Référence sur MDN](https://developer.mozilla.org/fr/docs/Web/CSS/text-decoration-skip-ink)
+
+
+::: info-block
+{% ctaLink "Référence sur MDN", "https://developer.mozilla.org/fr/docs/Web/CSS/text-decoration-skip-ink"  %}
+:::
 
 ## Scroll-snap
+
 Enfin une manière de guider le mouvement de scroll, sans le prendre en otage et casser les habitudes et comportements natifs.
 A la fin d’un mouvement de scroll, ajuste la position d’un item dans une liste scrollable.
 Deux valeurs possibles :
@@ -71,8 +79,16 @@ Voici une démo :
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
 
+::: info-block
+{% ctaLink "Référence sur MDN", "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap"  %}
+:::
 
-## Filtres sur les images
+
+
+## Traitement des images
+
+Il existe plein d'effets de post-processing
+
 ```CSS
 img {
   filter:
@@ -87,13 +103,19 @@ img {
 ```
 [https://codepen.io/spaceninja/pen/oNEOXRZ](https://codepen.io/spaceninja/pen/oNEOXRZ)
 
+https://bennettfeely.com/image-effects/
 
 
+::: info-block
+{% ctaLink "Référence pour blend-mode", "https://developer.mozilla.org/fr/docs/Web/CSS/blend-mode"  %}
+{% ctaLink "Et pour filter", "https://developer.mozilla.org/fr/docs/Web/CSS/filter-function"  %}
+:::
 
 ## Clip-path
-```JavaScript
+```css
 clip-path:
-	polygon(0 0, 100% 0, 100% 100%, calc(50% + var(--g) / 4) 100%, 0 calc(50% - var(--g) / 4))
+	polygon(0 0, 100% 0, 100% 100%, calc(50% + var(--g) / 4) 100%,
+  0 calc(50% - var(--g) / 4));
 ```
 
 [https://codepen.io/t_afif/pen/abGvYVX](https://codepen.io/t_afif/pen/abGvYVX)
