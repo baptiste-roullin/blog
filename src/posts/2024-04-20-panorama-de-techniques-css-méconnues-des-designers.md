@@ -16,7 +16,7 @@ type: post
 On dirait que pas mal de techniques CSS ne sont pas assez connues de nombreux designers. Voici donc un compilation que j'alimenterai au cours du temp.
 
 Je me suis limité à :
-- Des techniques relativement simples, parce que l'implantation demande quelques lignes de CSS soit ou que c'est une amélioration locale et additive.
+- Des techniques relativement simples, parce que l'implantation demande quelques lignes de CSS ou que c'est une amélioration locale et additive.
 - Uniquement du CSS, donc pas de SVG, pas de [polices variables](https://variablefonts.io/about-variable-fonts/), pas de [variantes OpenType](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Fonts/OpenType_fonts_guide), pas de [polices colorées](https://design.tutsplus.com/articles/the-beginners-guide-to-color-fonts--cms-29861)
 - Des effets visuels (pas de [requêtes par conteneur](https://developer.mozilla.org/en-US/blog/getting-started-with-css-container-queries/))
 - Des techniques bien supportées par les navigateurs modernes  (_evergreen), ou en cours de généralisation.
@@ -33,7 +33,7 @@ Par défaut (**normalement)**.
 
 ### Images responsive
 
-Avec l'attribut `srcset` ou l'élément `<sources>`, on peut afficher des images différentes selon la largeur de la fenêtre.
+Avec l'attribut `srcset` ou l'élément `<source>`, on peut afficher des images différentes selon la largeur de la fenêtre.
 
 ```html
 <img
