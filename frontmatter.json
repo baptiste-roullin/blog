@@ -5,12 +5,9 @@
     {
       "title": "posts",
       "path": "[[workspace]]/src/posts"
-    },
-    {
-      "title": "images",
-      "path": "[[workspace]]/src/assets/images"
     }
   ],
+  "frontMatter.content.publicFolder": "src/assets/images",
   "frontMatter.taxonomy.contentTypes": [
     {
       "name": "post",
@@ -37,7 +34,7 @@
           "title": "Is in draft",
           "name": "draft",
           "type": "draft",
-          "default": "true"
+          "default": true
         },
         {
           "title": "Tags",

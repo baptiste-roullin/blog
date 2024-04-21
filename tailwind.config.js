@@ -139,6 +139,7 @@ export default {
 					"0 1.3px 1.9px rgba(0, 0, 0, 0.1),  0 3.3px 4.9px rgba(0, 0, 0, 0.133),  0 6.7px 9.9px rgba(0, 0, 0, 0.167),  0 13.9px 20.4px rgba(0, 0, 0, 0.207),  0 38px 56px rgba(0, 0, 0, 0.2);"
 			},
 			typography: (theme) => ({
+
 				'xl': {
 					css: {
 						p: {
@@ -179,6 +180,14 @@ export default {
 				DEFAULT: {
 
 					css: {
+						'code::before': {
+							content: 'none', // don’t generate the pseudo-element
+							//                content: '""', // this is an alternative: generate pseudo element using an empty string
+						},
+						'code::after': {
+							content: 'none'
+						},
+
 						color: theme('colors.gray.900'),
 						'ul': {
 							marginTop: '1.2em',
