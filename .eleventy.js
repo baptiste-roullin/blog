@@ -65,9 +65,7 @@ export default async function conf(config) {
 	config.addPassthroughCopy('src/assets/UI')
 
 	if (meta.pictures) {
-		if (meta.env === "production") {
-			console.log("if env var === production, pictures won't work outside of a server with URL rewriting for webp file extensions.")
-		}
+
 		config.addPassthroughCopy('src/assets/docs/')
 		config.addPassthroughCopy({ 'src/assets/images/*.svg': meta.assetsDir })
 
