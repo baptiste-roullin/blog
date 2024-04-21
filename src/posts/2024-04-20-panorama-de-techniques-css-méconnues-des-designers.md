@@ -1,6 +1,6 @@
 ---
 title: Panorama de techniques CSS parfois méconnues des designers
-description: ""
+description: "Maçonnerie, équilibrage des titres, magnétisme au scroll…"
 date: 2024-04-20T14:55:58.457Z
 draft: false
 tags:
@@ -161,7 +161,7 @@ text-wrap: balance
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
 
-## Éviter les veuves
+### Éviter les veuves
 
 ```css
 text-wrap: pretty
@@ -175,7 +175,7 @@ text-wrap: pretty
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
 
-## Césure des mots
+### Césure des mots
 
 [Mais attention](https://toutcequibouge.net/blog/2024/01/faut-il-justifier-le-texte-sur-internet-non-mais/)
 
