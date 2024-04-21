@@ -13,7 +13,7 @@ hero:
 type: post
 ---
 
-On dirait que pas mal de techniques CSS ne sont pas assez connues de nombreux designers. Voici donc un compilation que j'alimenterai au cours du temp.
+On dirait que pas mal de techniques CSS ne sont pas assez connues de nombreux designers. Voici donc un compilation que j'alimenterai au cours du temps.
 
 Je me suis limité à :
 - Des techniques relativement simples, parce que l'implantation demande quelques lignes de CSS ou que c'est une amélioration locale et additive.
@@ -88,7 +88,7 @@ Voici une démo :
 
 ### Traitement des images
 
-On peut faire [énormément de choses](https://bennettfeely.com/image-effects/) en terme de post-processing d'images. La terminologie est assez proche de celle de Photoshop : les filtres permettent de modifier une image et les modes de fusion spécifient l'interaction entre plusieurs couches. Avec `mix-blend-mode`, les couches sont plusieurs éléments HTML et avec `background-blend-mode`les couches sont plusieurs `background` CSS dans un même élément.
+On peut faire [énormément de choses](https://bennettfeely.com/image-effects/) en terme de post-processing d'images. La terminologie est assez proche de celle de Photoshop : les filtres permettent de modifier une image et les modes de fusion spécifient l'interaction entre plusieurs couches. Avec `mix-blend-mode`, les couches sont plusieurs éléments HTML et avec `background-blend-mode` elles sont plusieurs `background` CSS dans un même élément.
 
 On peut créer des effets très simples…
 
@@ -201,13 +201,13 @@ Démo fonctionnelle sous Chrome, ou avec Firefox si flag activé ([cf détails](
 {% ctaLink "Documentation", "[url](https://developer.chrome.com/docs/css-ui/scroll-driven-animations?hl=fr)"  %}
 :::
 
-À ne pas confondre avec les [transitions entre écrans](https://http203-playlist.netlify.app/). Elles requierent forcément du Javascript.
+À ne pas confondre avec les [transitions entre écrans](https://http203-playlist.netlify.app/). Et celles-ci requierent forcément du Javascript.
 
 ### Effet de tuilage ou de maçonnerie
 
 !["Page avec une grille de photo. Chaque photo est décalée verticalement des photos à gauche et droite."](/assets/images/grid-masonry.png)
 
-Voir aussi cet [article récent](https://www.webkit.org/blog/15269/help-us-invent-masonry-layouts-for-css-grid-level-3/#the-debate) par des devs de Safari, avec un débat passionnant sur "mais au fond, qu'est-ce qu'une grille de mise en page".
+Voir aussi cet [article récent](https://www.webkit.org/blog/15269/help-us-invent-masonry-layouts-for-css-grid-level-3/#the-debate) par des devs de Safari, avec un intéressant débat sur "mais au fond, qu'est-ce qu'une grille de mise en page".
 
 ::: info-block
 {% ctaLink "Voir sur MDN", "[url](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Masonry_layout)"  %}
