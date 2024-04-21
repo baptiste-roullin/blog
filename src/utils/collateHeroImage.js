@@ -27,10 +27,7 @@ export default async function (data) {
         const source = process.cwd() + "/src/assets/imagesToProcess/" + hero.image
         const dest = `${process.cwd()}/${meta.outputDir}/${meta.assetsDir}/${hero.image}`
         await fsp.copyFile(source, dest)
-
     }
-
-
 
     return `/${meta.assetsDir}/${path.basename(finalName)}`
 }

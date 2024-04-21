@@ -16,7 +16,7 @@ function reformatURL(src, width) {
 	return `/${meta.assetsDir}/${name}-${width}.webp`
 
 	/*		const fullPath = `/${meta.assetsDir}/${path.basename(src)}`
-	
+
 	return fullPath.
 			replace(
 				/^(.*)(\.[^\.]+)$/,
@@ -197,7 +197,7 @@ export default function findImg(html, outputPath) {
 		maxWidth: 1920,
 		sizes: '(max-width: 60rem) 90vw, 60rem',
 		resizedImageUrl: reformatURL,
-		steps: 5,
+		steps: (meta.env === "dev" ? 2 : 5),
 		dataAttribute: 'img-content-page',
 	}
 

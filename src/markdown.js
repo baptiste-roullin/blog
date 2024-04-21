@@ -5,7 +5,7 @@ import bracketedSpans from 'markdown-it-bracketed-spans'
 import attrs from 'markdown-it-attrs'
 import blockquoteCite from 'markdown-it-blockquote-cite'
 import imageFigures from 'markdown-it-image-figures'
-import highlightjs from "markdown-it-highlightjs"
+import highlightjs from "./utils/highlightPlugin.js"
 
 import slugify from './filters/slugify.js'
 
@@ -63,7 +63,6 @@ let options = {
 }
 
 
-const hljs = await import("../node_modules/markdown-it-highlightjs/index.js")
 export default markdownIt(options)
     .disable('code')
     .use(highlightjs)
