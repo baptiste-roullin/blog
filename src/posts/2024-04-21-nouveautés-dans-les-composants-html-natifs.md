@@ -50,7 +50,7 @@ Dispo depuis longtemps sur Chrome, mais très lent d'adoption car il posait plei
 
 ### Accordéon
 
-Allez je triche et j'ajoute l'élément `<details>`, pratique pour ajouter un accordéon basique sans trop besoins de personnalisation
+Allez je triche et j'ajoute le pas tout jeune mais méconnu élément `<details>`, pratique pour ajouter un accordéon basique si vous n'avez pas besoin de personnalisation.
 
 <details>
 <summary style="cursor:pointer;">Membres des Beatles</summary>
