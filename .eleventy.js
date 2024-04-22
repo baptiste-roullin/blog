@@ -68,6 +68,7 @@ export default async function conf(config) {
 
 		config.addPassthroughCopy('src/assets/docs/')
 		config.addPassthroughCopy({ 'src/assets/images/*.svg': meta.assetsDir })
+		config.addPassthroughCopy({ 'src/assets/images/*.mp4': meta.assetsDir })
 
 		//config.addPassthroughCopy({ 'src/posts/**/* ': meta.assetsDir })
 		//config.addPassthroughCopy('src/assets/images')

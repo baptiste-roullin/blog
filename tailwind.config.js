@@ -153,10 +153,13 @@ export default {
 							top: '.8em !important'
 						},
 						h1: {
-							lineHeight: '1.2'
-						}
+							lineHeight: '1.2',
+						},
+						h3: {
+							marginTop: "1.4em",
+							color: theme('colors.gray.700')
+						},
 					}
-
 				},
 				'lg': {
 					css: {
@@ -174,7 +177,10 @@ export default {
 							color: 'inherit',
 							fontSize: '2.2em',
 							lineHeight: '1.1'
-						}
+						},
+						h3: {
+							marginTop: "1.4em",
+						},
 					}
 				},
 				DEFAULT: {
@@ -230,6 +236,7 @@ export default {
 							color: theme('colors.gray.700')
 						},
 						h3: {
+							marginTop: "1.4em",
 							color: theme('colors.gray.700')
 						},
 						h4: {

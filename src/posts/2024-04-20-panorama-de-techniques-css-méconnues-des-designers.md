@@ -7,6 +7,7 @@ tags:
 - dev web
 - graphisme
 - typographie
+- interface utilisateur
 hero:
   alt: null
   image: null
@@ -320,4 +321,4 @@ code.hljs {
     font-weight: bold
   }
 }
-  </style
+  </style>
