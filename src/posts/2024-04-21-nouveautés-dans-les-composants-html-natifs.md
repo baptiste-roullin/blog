@@ -2,7 +2,7 @@
 title: "Nouveautés dans les éléments HTML natifs"
 description: "Inventaire des éléments récemment ajoutés ou en cours d'étude"
 date: 2024-04-21T18:38:55.735Z
-draft: true
+draft: false
 tags: [ "dev web", "design system", "interface utilisateur"]
 hero:
   alt: null
@@ -40,7 +40,6 @@ l'élément `dialog` permet d'afficher un panneau modal au sein d'une page, avec
 uniqueDialog.addEventListener("click", () => {
 uniqueDialog.close();
 });
-
 </script>
 
 
