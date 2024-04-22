@@ -32,7 +32,7 @@ Similaire à un élément `<nav>` mais pour un composant de recherche, l'éléme
 
 ### Popin
 
-l'élément `dialog` permet d'afficher un panneau modal au sein d'une page, avec juste un peu de Javascript et de bons comportements par défaut (notamment la navigation au clavier). Exemple :
+L'élément `dialog` permet d'afficher un panneau modal au sein d'une page, avec juste un peu de Javascript et de bons comportements par défaut (notamment la navigation au clavier). Exemple :
 
 <dialog id="uniqueDialog" style="padding:2em;"><p>Bonjour ! je suis une boite de dialogue</p></dialog>
 <button id="open" style="border: 1px solid grey;padding:.5em">Ouvrir la boite de dialogue</button>
