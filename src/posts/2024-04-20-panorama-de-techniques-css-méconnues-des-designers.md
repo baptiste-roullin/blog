@@ -191,7 +191,7 @@ text-wrap: pretty
 
 ### *Vraiment* centrer le texte dans un bouton
 
-`text-box-trim` permet  de centrer le texte et les pictos dans un conteneur quelconque en supprimant l'espacement généré et spécifique à chaque police de caractères. Ca arrivera pas tout de suite, mais on peut espérer. A ne pas confondondre avec `margin-trim`.
+`text-box-trim` permet  de centrer le texte et les pictos dans un conteneur quelconque en supprimant l'espacement vertical généré et spécifique à chaque police de caractères. Ca arrivera pas tout de suite, mais on peut espérer. A ne pas confondondre avec `margin-trim`.
 
 ![](/assets/images/text-trim.webp)
 
