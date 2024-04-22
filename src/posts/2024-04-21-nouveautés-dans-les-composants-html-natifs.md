@@ -11,7 +11,7 @@ type: post
 ---
 
 
-Si vous consultez la [liste des éléments](https://developer.mozilla.org/fr/docs/Web/HTML/Element), à moins d'être expert vous pouvez être à peu près sûr d'en découvrir un certain nombre. (les plus intrigants pour moi ? [`<ruby>`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/ruby) et [`kbd`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/kbd)).
+Si vous consultez la [liste des éléments](https://developer.mozilla.org/fr/docs/Web/HTML/Element), à moins d'être expert vous pouvez être à peu près sûr d'en découvrir un certain nombre. (Les plus fascinants pour moi ? [`<ruby>`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/ruby) et [`kbd`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/kbd).)
 
 Si on étend la liste à tous les éléments proposés pour ajout à la norme HTML, elle sera bien plus longue. Et cela soulève des débat passionnants : quel pattern mérite d'être un élément à part entière, ou juste un attribut d'un élément existant, ou juste un [Composant Web](https://developer.mozilla.org/fr/docs/Web/API/Web_Components) fourni par une bibliothèque ?
 
