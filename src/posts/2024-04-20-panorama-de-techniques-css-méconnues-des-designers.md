@@ -189,6 +189,19 @@ text-wrap: pretty
 
 ## Techniques possibles un jour
 
+### *Vraiment* centrer le texte dans un bouton
+
+`text-box-trim` permet  de centrer le texte et les pictos dans un conteneur quelconque en supprimant l'espacement généré et spécifique à chaque police de caractères. Ca arrivera pas tout de suite, mais on peut espérer. A ne pas confondondre avec `margin-trim`.
+
+![](/assets/images/text-trim.webp)
+
+::: info-block
+{% ctaLink "Documentation", "https://github.com/jantimon/text-box-trim-examples"  %}
+{% ctaLink "Bibliothèque pour émuler le comportement", "https://seek-oss.github.io/capsize/"  %}
+:::
+
+https://seek-oss.github.io/capsize/
+
 ### Transitions au scroll
 
 Démo fonctionnelle sous Chrome, ou avec Firefox si flag activé ([cf détails](https://developer.mozilla.org/fr/docs/Web/CSS/animation-timeline#compatibilit%C3%A9_des_navigateurs) sur l'état du support) :
