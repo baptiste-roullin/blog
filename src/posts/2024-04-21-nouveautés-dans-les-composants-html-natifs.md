@@ -68,7 +68,7 @@ Allez je triche et j'ajoute le pas tout jeune mais méconnu élément `<details>
 
 ## Pas encore disponibles
 
-### Interrupteur (switch ou toggle)
+### Interrupteur (switch, toggle)
 
 Il semble y avoir deux propositions différentes : [l'une](https://github.com/whatwg/html/pull/9546) pour qu'un interrupteur soit un type particulier de case à cocher, [l'autre](https://open-ui.org/components/switch.explainer/) pour créer un nouvel élément plus complet et personnalisable. Le cas d'usage étant de représenter des paramètres à prise d'effet instantanée, à l'opposé des cases à cocher d'un formulaire déclaratif.
 
