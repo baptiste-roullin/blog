@@ -200,8 +200,6 @@ text-wrap: pretty
 {% ctaLink "Bibliothèque pour émuler le comportement", "https://seek-oss.github.io/capsize/"  %}
 :::
 
-https://seek-oss.github.io/capsize/
-
 ### Transitions au scroll
 
 Démo fonctionnelle sous Chrome, ou avec Firefox si flag activé ([cf détails](https://developer.mozilla.org/fr/docs/Web/CSS/animation-timeline#compatibilit%C3%A9_des_navigateurs) sur l'état du support) :
