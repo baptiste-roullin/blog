@@ -145,6 +145,7 @@ function handleImg(image, document, globalSettings) {
 				imageSettings.resizedImageUrl(imageSrc, imageSettings.fallbackWidth)
 			)
 		}
+		//migre vers élément source pour éviter CLS ?
 		image.setAttribute('srcset', srcsetList.join(', '))
 		// add sizes attribute
 		image.setAttribute('sizes', imageSettings.sizes)
