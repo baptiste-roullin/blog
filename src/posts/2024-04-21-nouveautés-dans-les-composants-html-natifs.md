@@ -15,7 +15,7 @@ Si vous consultez la [liste des éléments](https://developer.mozilla.org/fr/doc
 
 Si on étend la liste à tous les éléments proposés pour ajout à la norme HTML, la liste est bien plus longue. Et cela soulève des débat passionnants : quel pattern mérite d'être un élément à part entière, ou juste un attribut d'un élément existant, ou juste un [Composant Web](https://developer.mozilla.org/fr/docs/Web/API/Web_Components) fourni par une bibliothèque ?
 
-Plus fondamentalement la question : quel sont les mots de base du langage qu'est le web ? Est-ce qu'[un toaster](https://github.com/jackbsteinberg/) est suffisamment commun et standardisé pour mériter un élément ? et un [bloc de spoiler](https://discourse.wicg.io/t/standardized-spoiler-tag/5814/) ? Comme tout langage, il faut partir des usages réels ; le groupe de travail OpenUI a d'ailleurs fait un travail impressionnant [de recensement ](https://open-ui.org/research/component-matrix/) en ce sens. Mais il faut aussi ajouter une dose de prescription : y a-t-il vraiment besoin d'ajouter une mauvaise idée telle qu'un [accordéon exclusif](https://open-ui.org/components/accordion.explainer/) sous prétexte qu'on peut trouver quelques occurrences ?  &lt;spoiler&gt;Pour moi, non&lt;/spoiler&gt;.
+Plus fondamentalement la question : quel sont les mots de base du langage qu'est le web ? Est-ce qu'[un toaster](https://github.com/jackbsteinberg/) est suffisamment commun et standardisé pour mériter un élément ? et un [bloc de spoiler](https://discourse.wicg.io/t/standardized-spoiler-tag/5814/) ? Comme tout langage, il faut partir des usages réels ; le groupe de travail OpenUI a d'ailleurs fait un travail impressionnant [de recensement](https://open-ui.org/research/component-matrix/) en ce sens. Mais il faut aussi ajouter une dose de prescription : y a-t-il vraiment besoin d'ajouter une mauvaise idée telle qu'un [accordéon exclusif](https://open-ui.org/components/accordion.explainer/) sous prétexte qu'on peut trouver quelques occurrences ?  &lt;spoiler&gt;Pour moi, non&lt;/spoiler&gt;.
 
 Bref, voici un tour d'horizon, dans la lignée de mon [précédent article orienté CSS](https://toutcequibouge.net/blog/2024/04/panorama-de-techniques-css-parfois-meconnues-des-designers/).
 
@@ -66,7 +66,7 @@ Allez je triche et j'ajoute le pas tout jeune mais méconnu élément `<details>
 [Documentation ici](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details)
 
 
-## Pas encoe disponibles
+## Pas encore disponibles
 
 ### Interrupteur (switch ou toggle)
 
