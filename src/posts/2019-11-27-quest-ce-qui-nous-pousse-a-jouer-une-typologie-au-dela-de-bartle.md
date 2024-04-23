@@ -6,6 +6,7 @@ tags:
   - "recherche"
   - "cognition"
   - "utilisateurs"
+  - "statistiques"
 hero:
   image: "bartle0.jpg"
   alt: "Les quatre profils du modèle de Bartle : Tueur, Social, Explorateur, Collectionneur"

@@ -5,6 +5,7 @@ tags:
   - "conception"
   - "histoire"
   - "utilisateurs"
+  - "interface utilisateur"
 featured: true
 hero:
   image: "souris_btn.png"

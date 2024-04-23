@@ -10,12 +10,17 @@ const warning = debug('pictures:warning')
 import meta from '../_data/meta.js'
 
 function reformatURL(src, width) {
-	const fullPath = `/${meta.assetsDir}/${path.basename(src)}`
+
+	const extension = path.extname(src)
+	const name = path.basename(src, extension)
+	return `/${meta.assetsDir}/${name}-${width}.webp`
+
+	/*		const fullPath = `/${meta.assetsDir}/${path.basename(src)}`
 
 	return fullPath.
-		replace(
-			/^(.*)(\.[^\.]+)$/,
-			'$1-' + width + '.jpg')
+			replace(
+				/^(.*)(\.[^\.]+)$/,
+				'$1-' + width + '.webp')*/
 }
 
 
@@ -140,6 +145,7 @@ function handleImg(image, document, globalSettings) {
 				imageSettings.resizedImageUrl(imageSrc, imageSettings.fallbackWidth)
 			)
 		}
+		//migre vers élément source pour éviter CLS ?
 		image.setAttribute('srcset', srcsetList.join(', '))
 		// add sizes attribute
 		image.setAttribute('sizes', imageSettings.sizes)
@@ -158,13 +164,7 @@ function handleImg(image, document, globalSettings) {
 			},
 			widths: widthsList,
 			dryRun: false,
-			formats: (
-				meta.env === "production"
-					?
-					['webp']
-					:
-					['jpg']
-			),
+			formats: ['webp'],
 			urlPath: '/assets/imagesToProcess/',
 			outputDir: `./${meta.outputDir}/${meta.assetsDir}/`,
 			filenameFormat: function (id, src, width, format, options) {
@@ -198,7 +198,7 @@ export default function findImg(html, outputPath) {
 		maxWidth: 1920,
 		sizes: '(max-width: 60rem) 90vw, 60rem',
 		resizedImageUrl: reformatURL,
-		steps: 5,
+		steps: (meta.env === "dev" ? 2 : 5),
 		dataAttribute: 'img-content-page',
 	}
 

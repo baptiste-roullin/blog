@@ -12,6 +12,7 @@
 	}
 	a,li a,dd a {
 	text-decoration-skip-ink: auto;
+	text-decoration-thickness: 2px !important;
 	}
 }
 
@@ -57,7 +58,11 @@
 		@apply text-lg font-normal leading-6 lg:leading-7 lg:text-xl text-brown-light
 	}
 
+	/*
+	gestion responsive en colonne
+	 */
 	.cta-link {
 		@apply text-xl font-medium leading-7 lg:text-2xl hover:underline hover:text-orange
 	}
+
 }

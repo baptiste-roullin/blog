@@ -4,7 +4,12 @@ import md from '../markdown.js'
 export default {
 
 	richpicture: function (data) {
+
 		let content = md.render(data)
+		if (content.match('^<ul>')) {
+			console.log('Beware: richPicture shortcode must be a flat succession of img')
+
+		}
 		let width = ''
 		if (data.match(/\!\[/g).length > 1) {
 			width = 'container-wide'

@@ -23,9 +23,19 @@ import filters from './src/filters/filters.js'
 //import("./src/../types/eleventy").Config()
 
 export default async function conf(config) {
+	config.setUseGitIgnore(false)
 
-	config.ignores.add("src/heroPages/portfolio/portfolioIntro.md")
-	config.ignores.add("src/features/zotero/zotero_component.njk")
+	config.ignores.add("/src/heroPages/portfolio/portfolioIntro.md")
+	config.ignores.add("/src/features/zotero/zotero_component.njk")
+	config.ignores.add("/src/features/zotero/zotero_component.njk")
+
+	if (meta.env === "dev") {
+		config.ignores.add("./src/posts/201*")
+		config.ignores.add("./src/posts/2020*")
+		config.ignores.add("./src/posts/2021*")
+		config.ignores.add("./src/posts/2022*")
+		config.ignores.add("./src/posts/2023*")
+	}
 
 
 	/**
@@ -41,48 +51,24 @@ export default async function conf(config) {
 
 
 
-	//TODO : check si plus utile
-	/**
-	 *
-	 * Precompile Nunjucks component for search
-	*/
-	/*
-
-	import njk from 'nunjucks'
-	import fs from 'node:fs/promises'
-
-	const env = njk.configure('src/_templates/components/',
-
-		// options, notamment pour supprimer les vides inutiles.
-		{ autoescape: true, trimBlocks: true, lstripBlocks: true })
-
-	env.addFilter('dateHumanFormat', filters['dateHumanFormat'])
-	env.addFilter('removeMD', filters['RemoveMarkdown'])
-
-
-	//génération du HTML
-	const tmpl = njk.precompile('src/_templates/components/posts_list_item.njk', { env: env })
-
-	await fs.writeFile("precompiled.js", tmpl)
-	*/
 	/**
  * Passthrough File Copy
 */
 
-	//On copie tels quels les média avec chemins relatifs ou absolus dans /dist, qu'ils puissent être lus par du balisage non-transformé (sans srcset ou gif -> vidéo)
+
+	config.setServerPassthroughCopyBehavior("passthrough")
+
 	config.addPassthroughCopy('src/robots.txt')
 	config.addPassthroughCopy('src/assets/css/fonts')
+
+	//On copie tels quels les média avec chemins relatifs ou absolus dans /dist, qu'ils puissent être lus par du balisage non-transformé (sans srcset)
 	config.addPassthroughCopy('src/assets/UI')
 
-
-	config.setUseGitIgnore(false)
-
 	if (meta.pictures) {
-		if (meta.env === "production") {
-			console.log("if env var === production, pictures won't work outside of a server with URL rewriting for webp file extensions.")
-		}
+
 		config.addPassthroughCopy('src/assets/docs/')
 		config.addPassthroughCopy({ 'src/assets/images/*.svg': meta.assetsDir })
+		config.addPassthroughCopy({ 'src/assets/images/*.mp4': meta.assetsDir })
 
 		//config.addPassthroughCopy({ 'src/posts/**/* ': meta.assetsDir })
 		//config.addPassthroughCopy('src/assets/images')
@@ -92,10 +78,10 @@ export default async function conf(config) {
 			findImg
 		)
 	}
-	else {
-		config.addPassthroughCopy('src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}')
-		config.addPassthroughCopy('src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}')
-	}
+	//else {
+	//	config.addPassthroughCopy({ 'src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}': `./${meta.outputDir}/${meta.assetsDir}/` })
+	//	config.addPassthroughCopy({ 'src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}': `./${meta.outputDir}/${meta.assetsDir}/` })
+	//}
 
 	/**
 	 * Add layout aliases

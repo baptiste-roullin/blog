@@ -11,7 +11,7 @@ Loin de moi le désir de lancer un débat du type “depuis la mort de Jobs, App
 
 Voyons d’abord le panneau général :
 
-![Panneau des préférences générales](/assets/images/general.png " Panneau des préférences générales")
+![Panneau des préférences générales](/assets/images/general.png "Panneau des préférences générales")
 
 D’abord, le libellé en (1) est foutu n’importe comment : il n’est pas centré sur le premier bouton radio, il dépasse vers le haut et du coup il est trop proche de la section supérieure. Ensuite la section en (2) a deux alignements différents, qui ne correspondent à rien d’autre dans la fenêtre. Résultat : ça fait fouillis. Enfin, le principe des panneau de préférences dans Mac OS est de se redimensionner automatiquement selon la quantité de choses à afficher. Ici, une fenêtre un peu plus grande n’aurait pas été pas été du luxe.
 

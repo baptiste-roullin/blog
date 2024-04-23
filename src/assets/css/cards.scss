@@ -1,7 +1,7 @@
 @layer components {
-.card-base:hover a {
-		text-decoration-color: inherit;
-	}
+	.card-base:hover a {
+			text-decoration-color: inherit;
+		}
 
 	.card-shadow-hover {
 		@apply hover:shadow-flat
@@ -22,7 +22,9 @@
 		@apply gap-16
 	}
 
-	 .info-block{
-		@apply bg-cream flex justify-center gap-16 py-4
- 	}
+		.info-block{
+		@apply flex flex-col p-6 gap-6  my-8 justify-center items-start;
+		@apply md:flex-row md:px-0 md:gap-16 md:items-center;
+		@apply bg-cream flex justify-center
+	}
 }

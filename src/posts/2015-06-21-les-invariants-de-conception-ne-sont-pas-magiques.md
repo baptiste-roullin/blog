@@ -1,10 +1,11 @@
 ---
-title: "Les invariants de conception ne sont pas magiques"
+title: "Statistiquement les gens sont tous différents et il y a beaucoup de différences différentes"
 date: 2015-06-21
 tags:
   - "mobile"
   - "objets"
   - "utilisateurs"
+  - "statistiques"
 
 ---
 
