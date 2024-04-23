@@ -93,7 +93,7 @@ Il semble y avoir deux propositions différentes : [l'une](https://github.com/wh
 
 Il y avait une proposition pour créer un nouvel élément, indépendant du `<select>` actuel qui serait conservé pour des raisons de rétro-comptabilité : [selectmenu ou selectlist](https://css-tricks.com/the-selectmenu-element/).
 
-Finalement la proposition parait être est d'ajouter [un attribut](https://open-ui.org/components/selectlist/) au `<select>` et qui ouvrirait plein de possibilités de personnalisation.
+Finalement la proposition parait être d'ajouter [un attribut](https://open-ui.org/components/selectlist/) au `<select>` et qui ouvrirait plein de possibilités de personnalisation.
 
 !["démo montrant des listes déroulantes avec des styles différents et des photos ou pictogrammes élégamment intégrés dans chaque option."](/select.gif)
 
