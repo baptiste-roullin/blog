@@ -31,11 +31,10 @@ layout: base
 <aside data-pagefind-meta="date" style="display: none;">{{date | dateHumanFormat("yyyy-MM-dd") }} </aside>
 
   </article>
-
   {% set nextPost = collections.publishedPosts | getPreviousCollectionItem %}
   {% set previousPost = collections.publishedPosts | getNextCollectionItem %}
   {% if nextPost or previousPost %}
-    <footer class="relative mt-16 text-xl d-mb-10 md:text-2xl lg:3xl ">
+    <footer class="relative mt-16 text-xl md:text-2xl">
       <div class="h-full decor-dark bg-blue-light"></div>
       {# ===== Previous and Next =====  #}
 

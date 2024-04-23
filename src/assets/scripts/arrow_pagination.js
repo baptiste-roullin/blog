@@ -3,7 +3,6 @@ import * as textMetrics from 'text-metrics'
 
 
 function arrowPagination(e) {
-	//const root = document.querySelector<HTMLElement>('.post-pagination ');
 	const left = document.querySelector('#pagination-left a > p ')
 	const right = document.querySelector('#pagination-right  a > p')
 

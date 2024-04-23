@@ -8,7 +8,7 @@ eleventyNavigation:
   order: 1
 pagination:
   data: collections.publishedPosts
-  size: 30
+  size: 10
   alias: posts
   reverse: true
 postListItemStyle:
@@ -24,7 +24,7 @@ permalink: "/{{page.fileSlug}}/{% if pagination.pageNumber %}{{ pagination.pageN
 </noscript>
 <form class="search " id="search-form" aria-controls="post-list">
   <div class="flex flex-col sm:w-1/2 field">
-    <label for="searchField" class="mt-0 label">Rechercher</label>
+    <label for="searchField" class="mt-0 label">Rechercher par mot-clé</label>
     <div class="relative">
       <input type="search"  class="w-full p-2 border-gray-600 rounded-md " placeholder="" id="searchField"/>
       <input type="image" name="submit" src="/assets/UI/search.svg" alt="" class="absolute h-10 p-2 right-2">
@@ -34,14 +34,19 @@ permalink: "/{{page.fileSlug}}/{% if pagination.pageNumber %}{{ pagination.pageN
       Aucun résultat.
     </p>
 </form>
+
+ <details class=" ">
+    <summary class="label">Ou par thématique    </summary>
+    {% set tags = collections.tagList %}
+    {% include "components/tags_pills.njk" %}
+</details>
+
+
+
 {% set postslist = posts %}
 
-{% include 'components/posts_list.njk' %}
-<div class=" 2xl:container-wide">
-  <h1 class="mt-16 mb-6 text-gray-700">Tous les thèmes</h1>
-  {% set tags = collections.tagList %}
-  {% include "components/tags_pills.njk" %}
-</div>
+  {% include 'components/posts_list.njk' %}
+
 </div>
 
 <script  src="/assets/scripts/{{hashes_js['search_front.js']}}" defer></script>
