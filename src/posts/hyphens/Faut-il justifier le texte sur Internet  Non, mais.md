@@ -20,7 +20,7 @@ Voici le résultat de quelques recherches et réflexions sur la question du text
 Il y a très peu d'études empiriques spécifiques sur ce sujet. J'ai trouvé deux papiers de Ling & Van Schaik, vieux mais intéressants ([résumés ici](https://techcomm.nz/Story?Action=View&Story_id=156)). Ils confirment que le texte aligné à gauche est plus lisible. Plus précisément :
 
 - Le panel était composé de gens sans troubles de l'apprentissage (ou en tout cas pas plus que dans la population générale). On peut supposer que l'effet serait pire sur un panel de dyslexiques.
-- Les gens préféraient spontanément le texte justifié même s'ils étaient plus efficaces mieux avec du texte ferré à gauche (question d'habitude et d'aspect "rangé", j'imagine).
+- Les gens préféraient spontanément le texte justifié même s'ils étaient plus efficaces avec du texte ferré à gauche (question d'habitude et d'aspect "rangé", j'imagine).
 
 Je n'ai rien trouvé de sérieux sur la dyslexie, alors que c'est le coeur du sujet (il y a peut-être d'autres *dys* concernées mais je vais me concentrer sur la dyslexie pour pas parler dans le flou). Même les articles en apparence bien documentés reprennent des recommandations tirées d'autres articles pas plus étayés, si bien qu'on tourne vite en rond : les designers invoquent des universitaires qui invoquent des guides institutionnels qui invoquent des designers.
 
