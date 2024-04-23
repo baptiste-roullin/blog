@@ -2,7 +2,6 @@
 title: "La génération procédurale dans le jeu vidéo"
 date: 2014-09-13
 tags:
-
   - "jeu vidéo"
   - "procédural"
 featured: true
@@ -46,6 +45,3 @@ L’approche procédurale change aussi beaucoup la manière de jouer. Certains j
 Plus généralement, le centre de gravité se déplace du créateur vers la création elle-même. Dans beaucoup de jeux classiques, le joueur essaye de composer avec ce qu’il devine des intentions du créateur, en essayant de prédire où un piège a été placé, ou quel va être le prochain rebondissement dans l'intrigue. Dans un jeu généré procéduralement, on cherche plutôt la logique qui gouverne la génération de ces structures variées. Passé l’émerveillement initial, on cherche la nécessité derrière la contingence apparente des formes.
 
 L’approche procédurale est ainsi très prometteuse. Il existe même des travaux qui tentent de rendre automatisable la génération des règles elles-mêmes, notamment [Angelina](http://www.develop-online.net/features/1537/Games-built-by-computers), un moteur aléatoire de création de jeux. Toutefois, étant donné les limitations de conception, ne sont envisageables que des méthodes où seul un aspect du jeu est procédural.
-
-* * *
-

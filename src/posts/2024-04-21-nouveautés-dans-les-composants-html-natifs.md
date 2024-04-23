@@ -3,7 +3,7 @@ title: "Nouveautés dans les éléments HTML natifs"
 description: "Popover, switch, search, combobox..."
 date: 2024-04-21T18:38:55.735Z
 draft: false
-tags: [ "dev web", "design system", "interface utilisateur"]
+tags: [ "dev web", "interface utilisateur"]
 hero:
   alt: null
   image: null
@@ -45,7 +45,10 @@ uniqueDialog.close();
 
 Dispo depuis longtemps sur Chrome, mais très lent d'adoption car il posait plein de [problèmes d'accessibilité](https://www.scottohara.me/blog/2019/03/05/open-dialog.html), dont [la plupart ont été résolus](https://a11y-dialog.netlify.app/further-reading/dialog-element/).
 
-[Documentation ici](https://developer.mozilla.org/fr/docs/Web/HTML/Element/dialog)
+::: info-block
+{% ctaLink "Pour aller plus loin", "https://developer.mozilla.org/fr/docs/Web/HTML/Element/dialog"  %}
+:::
+
 
 ### Accordéon
 
@@ -63,7 +66,9 @@ Allez je triche et j'ajoute le pas tout jeune mais méconnu élément `<details>
 </details>
 
 
-[Documentation ici](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details)
+::: info-block
+{% ctaLink "Pour aller plus loin", "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details"  %}
+:::
 
 
 ## Pas encore disponibles
@@ -93,10 +98,13 @@ Il semble y avoir deux propositions différentes : [l'une](https://github.com/wh
 
 Il y avait une proposition pour créer un nouvel élément, indépendant du `<select>` actuel qui serait conservé pour des raisons de rétro-comptabilité : [selectmenu ou selectlist](https://css-tricks.com/the-selectmenu-element/).
 
-Finalement la proposition parait être d'ajouter [un attribut](https://open-ui.org/components/selectlist/) au `<select>` et qui ouvrirait plein de possibilités de personnalisation.
+Finalement la proposition parait être d'ajouter un attribut au `<select>` et qui ouvrirait plein de possibilités de personnalisation.
 
 !["démo montrant des listes déroulantes avec des styles différents et des photos ou pictogrammes élégamment intégrés dans chaque option."](/select.gif)
 
+::: info-block
+{% ctaLink "Documentation ici", "https://open-ui.org/components/selectlist/"  %}
+:::
 
 ### Portail
 
@@ -104,26 +112,30 @@ Permet d'embarquer une version non-interactive d'une page dans une autre page, t
 
 <video alt="" src="/assets/images/portals.mp4" controls="true"></video>
 
-
-Documentation [ici](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/portal)
-
-[Source de la vidéo](https://web.dev/articles/hands-on-portals)
-
 À ne pas confondre avec [`<fencedframe>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fencedframe), qui est en gros la version moderne et sécurisée du bon vieux iframe.
 
+::: info-block
+{% ctaLink "Documentation ici", "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/portal"  %}
+
+{% ctaLink "Et source de la vidéo", "https://web.dev/articles/hands-on-portals"  %}
+:::
 
 ### Autocomplétion
 
 L’élément [datalist](https://developer.mozilla.org/fr/docs/Web/HTML/Element/datalisthttps:_developer.mozilla.org/fr/docs/Web/HTML/Element/datalist) étant très limité, laissez-moi vous présenter le futur potentiel élément `<combobox>`.
 
-[Documentation ici](https://open-ui.org/components/combobox.explainer/)
-
+::: info-block
+{% ctaLink "Documentation ici", "https://open-ui.org/components/combobox.explainer/"  %}
+:::
 
 ### Modèle
 
 Mentionnons aussi rapidement `<model>`, utilisé pour afficher des modèles 3D et standardiser certains comportements (interactivité, etc.). C'est la partie émergée d'une [initiative plus large](https://github.com/immersive-web) pour apporter la réalité virtuelle et augmentée sur le web.
 
-[Documentation ici](https://immersive-web.github.io/model-element/)
+
+::: info-block
+{% ctaLink "Documentation ici", "https://immersive-web.github.io/model-element/"  %}
+:::
 
 ## Bonus : popover
 
@@ -133,8 +145,9 @@ Techniquement ce n'est pas un élément mais un attribut et une API mais Firefox
 
 <video controls alt="Exemple avec plusieurs bulless'ouvrant au clic de manière radiale et élégante autour d'un bouton rond" src="/assets/images/popover.mp4"></video>
 
-[Documentation ici](https://developer.chrome.com/blog/introducing-popover-api/)
-
+::: info-block
+{% ctaLink "Documentation ici", "https://developer.chrome.com/blog/introducing-popover-api/"  %}
+:::
 
 
 

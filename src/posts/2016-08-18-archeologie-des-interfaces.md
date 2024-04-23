@@ -4,7 +4,7 @@ date: 2016-08-18
 tags:
   - "critique"
   - "histoire"
-  - "windows"
+  - "interface utilisateur"
 
 ---
 

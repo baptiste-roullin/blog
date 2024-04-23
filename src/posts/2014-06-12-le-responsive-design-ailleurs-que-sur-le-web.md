@@ -4,7 +4,7 @@ date: 2014-06-12
 tags:
   - "conception"
   - "responsive"
-
+  - "interface utilisateur"
 ---
 
 Les applications natives mobiles, sur [Android](https://developer.android.com/training/multiscreen/index.html) (et [Apple](http://alistapart.com/blog/post/apple-and-responsive-design) depuis peu) ont accès à des fonctions responsive, mais sur desktop la pratique est moins fréquente. Non seulement les interfaces ont rarement des agencements différents selon la taille de la fenêtre, mais en plus elles ne sont pas toujours fluides, c'est-à-dire que tailles et marges des éléments ne sont pas redimensionnées. Certains logiciels bloquent également la largeur minimale de la fenêtre, parfois drastiquement. C'est dommage, car ce serait l'occasion de mieux prendre en compte les petits écrans (cf. par exemple les distributions de Linux visant spécifiquement les notetbooks) et toutes les manières d'utiliser un OS fenêtré.
