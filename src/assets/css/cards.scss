@@ -23,7 +23,7 @@
 	}
 
 		.info-block{
-		@apply flex flex-col p-6 gap-6  my-8 justify-center items-start;
+		@apply flex flex-col p-4 gap-4  my-6 justify-center items-start;
 		@apply md:flex-row md:px-0 md:gap-16 md:items-center;
 		@apply bg-cream flex justify-center
 	}
