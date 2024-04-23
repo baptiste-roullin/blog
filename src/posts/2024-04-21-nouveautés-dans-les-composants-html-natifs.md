@@ -27,8 +27,9 @@ Sauf erreur de ma part il y en a deux.
 
 Similaire à un élément `<nav>` mais pour un composant de recherche, l'élément `<search>` ajoute un point de repère à la page (*landmark*, utile notamment pour les technologies d'assistance), comme si on ajoutait `role=search` à un conteneur. À tester pour vérifier si c'est bien reconnu par les lecteurs d'écran, donc il faut mieux doublonner `<search role="search">` comme pour `main`.
 
-[Documentation ici](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search)
-
+::: info-block
+{% ctaLink "Pour aller plus", "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search"  %}
+:::
 
 ### Popin
 
