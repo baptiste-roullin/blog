@@ -1,14 +1,14 @@
 ---
 title: Tous les articles
 date: 2020-08-05
-layout: page
+layout: base
 eleventyNavigation:
   key: main
   title: Textes
   order: 1
 pagination:
   data: collections.publishedPosts
-  size: 10
+  size: 20
   alias: posts
   reverse: true
 postListItemStyle:
@@ -16,37 +16,46 @@ postListItemStyle:
   showPagination: true
 permalink: "/{{page.fileSlug}}/{% if pagination.pageNumber %}{{ pagination.pageNumber}}/{% endif %}"
 ---
-<div class="blog-wrapper">
 
-  <noscript>
-    <p>Désolé, la recherche requiert Javascript pour fonctionner.</a>
-  </p>
-</noscript>
-<form class="search " id="search-form" aria-controls="post-list">
-  <div class="flex flex-col sm:w-1/2 field">
-    <label for="searchField" class="mt-0 label">Rechercher par mot-clé</label>
-    <div class="relative">
-      <input type="search"  class="w-full p-2 border-gray-600 rounded-md " placeholder="" id="searchField"/>
-      <input type="image" name="submit" src="/assets/UI/search.svg" alt="" class="absolute h-10 p-2 right-2">
-    </div>
-  </div>
-  <p id="noResultsFound" class="hidden py-4 text-base" role="alert">
-      Aucun résultat.
+<div class="max-w-6xl mt-16 lg:mx-auto lg:max-w-7xl 2xl:max-w-9xl">
+
+  <h1 class="my-8 text-3xl text-gray-700 lg:my-26 md:my-12 lg:text-5xl ">{{ title }}
+  </h1>
+
+
+  <div class="blog-wrapper">
+
+
+    <noscript>
+      <p>Désolé, la recherche requiert Javascript pour fonctionner.</a>
     </p>
-</form>
+  </noscript>
+  <form class="search " id="search-form" aria-controls="post-list">
+    <div class="flex flex-col sm:w-1/2 field">
+      <label for="searchField" class="mt-0 label">Rechercher par mot-clé</label>
+      <div class="relative">
+        <input type="search"  class="w-full p-2 border-gray-600 rounded-md " placeholder="" id="searchField"/>
+        <input type="image" name="submit" src="/assets/UI/search.svg" alt="" class="absolute h-10 p-2 right-2">
+      </div>
+    </div>
+    <p id="noResultsFound" class="hidden py-4 text-base " role="alert">
+        Aucun résultat.
+      </p>
+  </form>
 
- <details class=" ">
-    <summary class="label">Ou par thématique    </summary>
-    {% set tags = collections.tagList %}
-    {% include "components/tags_pills.njk" %}
-</details>
+   <details class="py-4 ">
+      <summary class="cursor-pointer select-none label">Ou par thématique    </summary>
+      {% set tags = collections.tagList %}
+      {% include "components/tags_pills.njk" %}
+  </details>
 
 
 
-{% set postslist = posts %}
+  {% set postslist = posts %}
 
-  {% include 'components/posts_list.njk' %}
+    {% include 'components/posts_list.njk' %}
 
+  </div>
 </div>
 
 <script  src="/assets/scripts/{{hashes_js['search_front.js']}}" defer></script>

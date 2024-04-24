@@ -3,10 +3,9 @@ import * as textMetrics from 'text-metrics'
 
 
 function arrowPagination(e) {
-	const left = document.querySelector('#pagination-left a > p ')
-	const right = document.querySelector('#pagination-right  a > p')
+	const left = document.querySelector('#pagination-left a > span ')
+	const right = document.querySelector('#pagination-right  a > span')
 
-	//const width = window.getComputedStyle(left).width.slice(0, -2)
 
 	if (left) {
 		const widthLeft = textMetrics.init(left).width(left.textContent, { multiline: true })

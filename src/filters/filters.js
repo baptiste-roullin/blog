@@ -108,6 +108,11 @@ export default {
      */
     dateHumanFormat: dateFormatting,
 
+    year: function year(date) {
+        const test = DateTime.fromJSDate(date).year
+        return test
+    },
+
     /**
    // Universal slug filter strips unsafe chars from URLs
    */

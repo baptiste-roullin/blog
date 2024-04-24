@@ -2,8 +2,8 @@
 	#pagination-left a:before {
 		content: "";
 		position: absolute;
-		width: var(--pagination-length-left);
-		height: 2.5px;
+		width: calc(var(--pagination-length-left) - 4px);
+		height: 2px;
 		background: white;
 		bottom: 8px;
 		left: 2px;
@@ -13,7 +13,7 @@
 		right: 4px;
 		content: "";
 		position: absolute;
-		width: var(--pagination-length-right);
+		width: calc( var(--pagination-length-right) - 4px);
 		height: 2px;
 		background: white;
 		bottom: 8px;
