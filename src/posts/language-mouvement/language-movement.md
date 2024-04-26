@@ -11,8 +11,6 @@ hero:
   caption: "The OA"
 ---
 
-
-
 Une marotte des philosophes et autres théoriciens, c'est d'inventer un langage parfait et universel. Puisqu'il est doit être parfait, ce language s'abstrait souvent des écritures courantes et invente son propre système graphique.
 
 Il y a le LoCos inventé par Yukio Ota, l'Isotype de Neurath, la sémantographie de Bliss… J'avais fait un petit [fil à ce sujet](https://twitter.com/Saint_loup/status/1274720385028800513).
