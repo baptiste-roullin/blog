@@ -108,6 +108,8 @@ export default {
      */
     dateHumanFormat: dateFormatting,
 
+
+    // TODO: refacto et fusionner filtres
     year: function year(date) {
         const test = DateTime.fromJSDate(date).year
         return test

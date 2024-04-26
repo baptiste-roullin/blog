@@ -13,6 +13,7 @@ export default function dateHumanFormat(date, format) {
             zone: 'utc',
         }).toFormat(String(format))
     }
+    // Date is objet. Returned by Eleventy, even in templates
     else {
         return DateTime.fromJSDate(date, {
             zone: 'utc',
