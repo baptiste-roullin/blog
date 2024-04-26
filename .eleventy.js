@@ -114,7 +114,6 @@ export default async function conf(config) {
 	/**
 	 * Shortcodes
 	 */
-	//TODO : test si les shortcodes async continuent à marcher
 	Object.keys(shortcodes).forEach((shortcodeName) => {
 		config.addShortcode(shortcodeName, shortcodes[shortcodeName])
 	})
