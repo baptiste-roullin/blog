@@ -10,8 +10,8 @@
 		</h1>
 		{% if not hideMeta %}
 			<div class="pt-4 label-sm metadata not-prose ">
-				<time datetime="{{ page.date | dateHumanFormat("yyyy-MM-dd") }}">
-					{{ page.date | dateHumanFormat("dd LLL yyyy") }}
+				<time datetime="{{ page.date | dateFormatting("yyyy-MM-dd") }}">
+					{{ page.date | dateFormatting("dd LLL yyyy") }}
 				</time>
 				{% include "components/separator.njk" %}
 				{% include "components/tags_pills_inline.njk" %}

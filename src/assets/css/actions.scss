@@ -36,7 +36,6 @@
 	}
 
 
-	/* TODO :  créer style "gros lien" qui n'ait pas une gueule de bouton */
 	.cta {
 		@apply text-center mx-auto md:mx-0 block w-5/6 sm:w-1/3 py-4 text-lg no-underline font-bold tracking-wide text-white transition-all duration-75 active:text-blue active:bg-gray-200 rounded-lg shadow-lg bg-blue-light hover:bg-blue-lighter hover:shadow-xl max-w-[576px];
 	}

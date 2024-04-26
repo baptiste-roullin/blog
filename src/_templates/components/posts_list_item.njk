@@ -28,8 +28,8 @@
     {% if postListItemStyle.complete %}
 
       <div class="">
-        <time class="text-base label lg:my-2" datetime="{{ post.data.page.date | dateHumanFormat("yyyy-MM-dd") }}">
-          {{ post.data.page.date | dateHumanFormat("dd LLLL yyyy") }}
+        <time class="text-base label lg:my-2" datetime="{{ post.data.page.date | dateFormatting("yyyy-MM-dd") }}">
+          {{ post.data.page.date | dateFormatting("dd LLLL yyyy") }}
         </time>
         {% if post.data.description or post.data.page.description %}
           <span aria-hidden="true" class="inline mx-1 text-xl font-light text-gray-500 md:mx-2 " >~</span>

@@ -12,8 +12,8 @@ layout: base
           <h1 data-pagefind-weight="9" class="m-auto text-gray-700 text-balance">{{ title }}</h1>
           {% if not hideMeta %}
             <div class="pt-4 text-sm sm:text-base not-prose">
-              <time  datetime="{{ page.date | dateHumanFormat("yyyy-MM-dd") }}">
-                {{ page.date | dateHumanFormat("dd LLLL yyyy") }}
+              <time  datetime="{{ page.date | dateFormatting("yyyy-MM-dd") }}">
+                {{ page.date | dateFormatting("dd LLLL yyyy") }}
               </time>
               {% include "components/separator.njk" %}
               {% include "components/tags_pills_inline.njk" %}
@@ -28,7 +28,7 @@ layout: base
 
 
 
-<aside data-pagefind-meta="date" style="display: none;">{{date | dateHumanFormat("yyyy-MM-dd") }} </aside>
+<aside data-pagefind-meta="date" style="display: none;">{{date | dateFormatting("yyyy-MM-dd") }} </aside>
 
   </article>
   {% set nextPost = collections.publishedPosts | getPreviousCollectionItem %}

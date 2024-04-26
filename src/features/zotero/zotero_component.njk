@@ -7,7 +7,7 @@
 				<a href="{{item.url}}" class="text-base underline lg:text-lg sm:no-underline hover:underline" >{{item.title}}  ➡️</a>
 				<div class="flex gap-2 pt-2 text-base zotero-metadata lg:pt-1">
 					{% if item.parsedDate and item.itemType !== "webpage" %}
-						<span>{{item.parsedDate | dateHumanFormat("yyyy") }}</span>
+						<span>{{item.parsedDate | dateFormatting("yyyy") }}</span>
 						<span aria-hidden="true" class=" last:hidden first:hidden">~</span>
 					{% endif %}
 					{% if item.attachmentURL %}

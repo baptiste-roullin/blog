@@ -42,7 +42,7 @@ export default {
 								'src/_templates/components',
 							], filters: {
 								// Don't put file extensions.
-								dateHumanFormat: resolve(__dirname, 'src/filters/date_formatting'),
+								dateFormatting: resolve(__dirname, 'src/filters/date_formatting'),
 								removeMD: resolve(__dirname, 'src/filters/remove_MD'),
 								markdownify: resolve(__dirname, 'src/filters/markdownify')
 
@@ -54,17 +54,16 @@ export default {
 		],
 	},
 	plugins: [
-/*		new NodePolyfillPlugin({ includeAliases: ['url', "path"] }),
-*/		new WebpackAssetsManifest({
-		customize(entry) {
+		new WebpackAssetsManifest({
+			customize(entry) {
 
-			// l'otpion fileExtRegex devrait servir à ça, mais pas réussi à la faire marcher.
-			if (!(entry.key.endsWith('.js'))) {
-				return false
-			}
-			return entry
-		},
-		output: '../../../src/_data/hashes_js.json'
-	}),
+				// l'otpion fileExtRegex devrait servir à ça, mais pas réussi à la faire marcher.
+				if (!(entry.key.endsWith('.js'))) {
+					return false
+				}
+				return entry
+			},
+			output: '../../../src/_data/hashes_js.json'
+		}),
 	],
 }

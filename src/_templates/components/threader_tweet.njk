@@ -1,6 +1,6 @@
 <article class="flex flex-col lg:flex-row lg:gap-16 ">
     <div class="flex flex-col gap-2 lg:w-1/4 prose-tcqb tweet-left">
-{% set humanDate = tweet.created_at  | dateHumanFormat("dd LLLL yyyy")  %}
+{% set humanDate = tweet.created_at  | dateFormatting("dd LLLL yyyy")  %}
 {% set sluggedDate = tweet.created_at  | slugify  %}
 
         <h2 class="m-0 thread-heading " id="{{sluggedDate}}">
@@ -33,7 +33,7 @@
             <div class="flex flex-row justify-between w-full gap-6 bg-gray-100 border border-gray-100 rounded-md row h-36">
                 <div class="flex-col gap-4 mt-4">
                     <a class="block font-medium" href="{{link.url}}">{{link.title}}</a>
-                    <span class="block text-base label">{{link.date | dateHumanFormat("dd LLLL yyyy")}} ~  {{link.publisher}}</span>
+                    <span class="block text-base label">{{link.date | dateFormatting("dd LLLL yyyy")}} ~  {{link.publisher}}</span>
                 </div>
                 <div class="w-1/4 bg-gray-200 border-none ">
                     <img loading="lazy" class="object-cover w-full h-full m-0 rounded-l-md"   src="{{link.image}}" alt="">

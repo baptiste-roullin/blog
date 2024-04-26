@@ -84,11 +84,6 @@ export default {
 
     removeMD: removeMD,
 
-    dateToPermalink: function (date) {
-        return DateTime.fromJSDate(date, {
-            zone: 'utc',
-        }).toFormat('yyyy/MM')
-    },
 
     dateISOFormat: function (date) {
         if (!date) {
@@ -99,20 +94,17 @@ export default {
     },
 
     /**
-     * dateHumanFormat allows specifiying display format at point of use.
-     * Example in footer: {{ build.timestamp | dateHumanFormat('yyyy') }} uses .timestamp
-     *  from the _data/build.js export and formats it via dateHumanFormat.
-     * Another usage example used in layouts: {{ post.date | dateHumanFormat("LLL dd, yyyy") }}
+     * dateFormatting allows specifiying display format at point of use.
+     * Example in footer: {{ build.timestamp | dateFormatting('yyyy') }} uses .timestamp
+     *  from the _data/build.js export and formats it via dateFormatting.
+     * Another usage example used in layouts: {{ post.date | dateFormatting("LLL dd, yyyy") }}
      * And finally, example used in /src/posts/posts.json to format the permalink
      *  when working with old /yyyy/MM/dd/slug format from Wordpress exports
      */
-    dateHumanFormat: dateFormatting,
+    dateFormatting: dateFormatting,
 
-
-    // TODO: refacto et fusionner filtres
     year: function year(date) {
-        const test = DateTime.fromJSDate(date).year
-        return test
+        return DateTime.fromJSDate(date).year
     },
 
     /**
