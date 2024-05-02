@@ -1,19 +1,19 @@
-<ul class="flex flex-wrap items-center mb-8 tagpills">
+<ul class="flex flex-wrap items-center tagpills">
   {% for tagName, tagCount in tags %}
 
-    <li class="inline-flex gap-2 sm:my-2 min-w-1/2 sm:min-w-min">
-      <div>
-        <a  href="{{ '/tags/' | url}}{{tagName | slugify  }}/"
-          class=" hover:text-red-700 hover:underline label text-brown-light">{{ tagName | normalizeTag }}
-        </a>
-        <span class="">❨{{tagCount}}❩</span>
-      </div>
+  <li class="inline-flex gap-2 my-2 min-w-1/2 sm:min-w-min">
+    <div class="">
+      <a href="{{ '/tags/' | url}}{{tagName | slugify  }}/"
+        class=" hover:text-red-700 hover:underline label text-brown-light">{{ tagName | normalizeTag }}
+      </a>
+      <span class="">❨{{tagCount}}❩</span>
+    </div>
 
-      <div class="hidden sm:inline">
-				{% include "components/separator.njk" %}
-      </div>
+    <div class="hidden sm:inline">
+      {% include "components/separator.njk" %}
+    </div>
 
-    </li>
+  </li>
 
   {% endfor %}
 </ul>
