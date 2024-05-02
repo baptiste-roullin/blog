@@ -186,7 +186,6 @@ export default async function zotero(collection, ...requestedTags) {
 
     }
     catch (error) {
-        // TODO : avertir plus précisément des erreur
         //403 : mauvaises infos de connexion
         // 500 : requête mal formée
         console.log(error)

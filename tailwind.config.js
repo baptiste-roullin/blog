@@ -7,7 +7,7 @@ import plugin from 'tailwindcss/plugin'
 const textShadow = plugin(function ({ addUtilities, e, theme, addVariant }) {
 	const textShadow = theme('textShadow', {})
 
-	//const textShadowVariants = addVariant('textShadow', []) //TODO : vérifier si vraiment inutile
+	//const textShadowVariants = addVariant('textShadow', [])
 
 
 	const utilities = Object.fromEntries(
@@ -88,8 +88,11 @@ export default {
 			red: colors.red,
 			'blue': {
 				DEFAULT: 'hsl(202, 78%, 16%)',
+				light: 'hsl(202, 70%, 20%)',
 				lighter: 'hsl(217,32%,32%)',
-				light: 'hsl(202, 70%, 20%)'
+				bluer: 'hsl(210, 83%, 22%)',
+				bluest: 'hsl(210, 86%, 25%)',
+
 			},
 			/*			'red': 'hsl(5, 77%, 37%)',*/
 			"brown": {

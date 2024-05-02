@@ -3,12 +3,8 @@
 			text-decoration-color: inherit;
 		}
 
-	.card-shadow-hover {
-		@apply hover:shadow-flat
-	}
-
 	.card-base {
-		@apply flex items-center p-0 rounded-md  gap-6 lg:gap-10 bg-cream shadow-md transition-all duration-300
+		@apply flex items-center p-0 rounded-md  gap-4 lg:gap-10 bg-cream shadow-sm transition-all duration-300
 	}
 
 	.card-item {

@@ -1,13 +1,14 @@
-<section id="post-list"  class="mt-8 post-wrapper ">
+<section id="post-list" class="mt-8 post-wrapper ">
 	<div class=post-list-wrapper>
-		<ul class="flex flex-col gap-8 my-10 post-list ">
+		<ul class="flex flex-col gap-6 my-10 post-list ">
 			{% for post in postslist %}
-				{% include 'components/posts_list_item.njk' %}
+			{% include 'components/posts_list_item.njk' %}
 			{% endfor %}
 		</ul>
 
 		{% if (collections.publishedPosts.length > pagination.size) and (postListItemStyle.showPagination) %}
-			{% include "components/pagination.njk" %}
+		{% include "components/pagination.njk" %}
 		{% endif %}
 	</div>
-<ul class="flex-col hidden gap-8 my-10 search-list post-list" ></section>
+	<ul class="flex-col hidden gap-8 my-10 search-list post-list">
+</section>
