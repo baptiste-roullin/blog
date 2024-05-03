@@ -2,7 +2,6 @@ import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
-import NodePolyfillPlugin from 'node-polyfill-webpack-plugin'
 import WebpackAssetsManifest from 'webpack-assets-manifest'
 import dotenv from 'dotenv'
 dotenv.config()
