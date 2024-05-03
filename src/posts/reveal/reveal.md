@@ -6,10 +6,10 @@ tags:
 ---
 
 ::: info-block
-{% ctaLink "Voir le kit", "https://github.com/baptiste-roullin/boilerplate-asciidoc-revealjs"  %}
+{% ctaLink "Voir le kit de démarrage", "https://github.com/baptiste-roullin/boilerplate-asciidoc-revealjs"  %}
 :::
 
-Un retour sur mon expérience d'écrire un gros support de cours avec Reveal.js/Asciidoc et dans un éditeur de texte. Ainsi que sur le petit [kit de démarrage](https://github.com/baptiste-roullin/boilerplate-asciidoc-revealjs) que j'en ai tiré.
+Un retour sur mon expérience d'écrire un gros support de cours avec Reveal.js/Asciidoc et dans un éditeur de texte.
 
 <!-- excerpt -->
 
