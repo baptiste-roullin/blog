@@ -18,9 +18,7 @@ C'est moins exotique que ça en a l'air : les pédales sont utilisés dans des o
 
 Encore aujourd'hui, le pied se retrouve un peu partout. Si vous ne me croyez pas, je vous conseille la lecture de [cette somme](/assets/docs/FootInteraction_AuthorCameraReady.pdf) sur le sujet (trente pages, une véritable somme podologique !). Il identifie notamment une gamme de gestes, utilisés principalement dans des expériences artistiques ou académiques. De manière plus populaire, on retrouve les tapis des jeux de danse, les pédaliers des jeux de course, mais aussi différents plateaux d'équilibre, initiés dès 1982 par le [Joyboard d'Amiga](https://en.wikipedia.org/wiki/Joyboard) (en photo plus haut).
 
-Ensuite, le pied se retrouve un peu partout. Si vous ne me croyez pas, je vous conseille la lecture de [cette somme](/assets/docs/FootInteraction_AuthorCameraReady.pdf) sur le sujet (trente pages, une véritable somme podologique !). Il identifie notamment une gamme de gestes, utilisés principalement dans des expériences artistiques ou académiques. De manière plus populaire, on retrouve les tapis des jeux de danse, les pédaliers des jeux de course, mais aussi différents plateaux d'équilibre, initiés dès 1982 par le [Joyboard d'Amiga](https://en.wikipedia.org/wiki/Joyboard) (en photo plus haut).
-
-![](/assets/images/Sans-titre-3.png)
+![](/assets/images/Sans-titre-3.png "Gamme de gestes")
 
 Quoi d'autre ? On peut parler de l'industrie, où les risques d'activation intempestive ([analysés ici](assets/docs/TOERGJ-2-13.pdf)) exigent des pédales avec des clapets et autres garde-fous.
 
