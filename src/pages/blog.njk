@@ -3,17 +3,17 @@ title: Tous les articles
 date: 2020-08-05
 layout: base
 eleventyNavigation:
-key: main
-title: Textes
-order: 1
+  key: main
+  title: Textes
+  order: 1
 pagination:
-data: collections.publishedPosts
-size: 20
-alias: posts
-reverse: true
+  data: collections.publishedPosts
+  size: 20
+  alias: posts
+  reverse: true
 postListItemStyle:
-complete: true
-showPagination: true
+  complete: true
+  showPagination: true
 permalink: "/{{page.fileSlug}}/{% if pagination.pageNumber %}{{ pagination.pageNumber}}/{% endif %}"
 ---
 
@@ -43,7 +43,7 @@ permalink: "/{{page.fileSlug}}/{% if pagination.pageNumber %}{{ pagination.pageN
       </p>
     </form>
 
-    <details class="pt-3  pb:0 md:py-4">
+    <details class="pt-3 pb:0 md:py-4">
       <summary class="cursor-pointer select-none label">Ou par thématique </summary>
       {% set tags = collections.tagList %}
       {% include "components/tags_pills.njk" %}
