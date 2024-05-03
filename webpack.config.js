@@ -21,7 +21,7 @@ export default {
 		arrowPagination: resolve(__dirname, 'src/assets/scripts/arrow_pagination.js'),
 		truchet: resolve(__dirname, 'src/features/truchet/truchet_core.js'),
 		truchet_dom: resolve(__dirname, 'src/features/truchet/truchet_dom.js'),
-		dateFormatting: resolve(__dirname, 'src/filters/date_formatting.js'),
+		dateFormatting: resolve(__dirname, 'src/filters/dateFormatting.js'),
 	},
 
 	output: {
@@ -41,7 +41,7 @@ export default {
 								'src/_templates/components',
 							], filters: {
 								// Don't put file extensions.
-								dateFormatting: resolve(__dirname, 'src/filters/date_formatting'),
+								dateFormatting: resolve(__dirname, 'src/filters/dateFormatting'),
 								removeMD: resolve(__dirname, 'src/filters/remove_MD'),
 								markdownify: resolve(__dirname, 'src/filters/markdownify')
 

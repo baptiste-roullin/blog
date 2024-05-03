@@ -1,6 +1,6 @@
 import slugify from './slugify.js'
 import md from '../markdown.js'
-import dateFormatting from './date_formatting.js'
+import dateFormatting from './dateFormatting.js'
 import normalizeTag from './normalize_tag.js'
 
 import { DateTime, Settings } from 'luxon'

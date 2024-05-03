@@ -5,7 +5,7 @@ import pMap from 'p-map'
 
 import markdownify from "../../filters/markdownify.js"
 import meta from '../../_data/meta.js'
-import dateHumanFormat from '../../filters/date_formatting.js'
+import dateFormatting from '../../filters/dateFormatting.js'
 import cache from '../../utils/caching.js'
 
 
@@ -175,7 +175,7 @@ export default async function zotero(collection, ...requestedTags) {
             { autoescape: true, trimBlocks: true, lstripBlocks: true })
 
         // Ajout d'un filtre utilisé par zotero.njk
-        env.addFilter('dateHumanFormat', dateHumanFormat)
+        env.addFilter('dateFormatting', dateFormatting)
         env.addFilter('markdownify', markdownify)
 
 

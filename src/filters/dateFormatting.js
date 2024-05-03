@@ -2,7 +2,7 @@ import { DateTime, Settings } from 'luxon'
 Settings.defaultLocale = "fr"
 
 /** @returns {string} */
-export default function dateHumanFormat(date, format) {
+export default function dateFormatting(date, format) {
 
     if (typeof date === 'string') {
         if (!date) {
