@@ -10,7 +10,7 @@ tags:
 featured: true
 draft: false
 hero:
-  image: slide_75.jpg
+  image: slide_44.jpg
 description: Dyslexie, cognition et algorithmes de césure
 ---
 
@@ -70,9 +70,10 @@ Il est probable que les évolutions techniques réduisent le premier problème :
 
 {% richpicture %}
 
+![](assets/images/slide_44.jpg)
+
 ![](assets/images/slide_75.jpg)
 
-![](assets/images/slide_44.jpg)
 
 {% endrichpicture %}
 

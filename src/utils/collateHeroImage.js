@@ -17,7 +17,6 @@ export default async function (data) {
         finalName = `truchet-${slug}.png`
     }
 
-
     else {
         finalName = hero.image
         //for search
