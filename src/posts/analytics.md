@@ -3,6 +3,8 @@ title: Une  meilleure représentation des tailles de navigateur populaires
   avec Google Analytics
 date: 2022-08-15
 draft: false
+hero:
+  image: ga-viz.png
 tags:
   - projets
   - "utilisateurs"

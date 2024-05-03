@@ -1,6 +1,7 @@
 ---
 title: "Des langages pour le mouvement"
 date: 2023-09-05
+featured: true
 tags:
   - "histoire"
   - "graphisme"

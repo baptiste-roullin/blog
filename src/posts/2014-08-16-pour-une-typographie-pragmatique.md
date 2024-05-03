@@ -16,8 +16,12 @@ Pourtant, si on vous demande quelle est la taille idéale pour lire du texte, la
 
 Plus généralement, je dirais que la typographie est contextuelle à trois niveaux :
 
-- les interactions entre éléments. C'est ce qui fait, par exemple, que l’interlignage peut être diminué si la justification (la longueur de la ligne) est réduite [^Jason Santa-Maria, On Web Typography, p. 131]. Un choix ne doit jamais être fait isolément mais toujours de manière systémique.
+- les interactions entre éléments. C'est ce qui fait, par exemple, que l’interlignage peut être diminué si la justification (la longueur de la ligne) est réduite [^1]. Un choix ne doit jamais être fait isolément mais toujours de manière systémique.
 - L’usage. Par exemple, un panneau de signalisation dans le métro risque d'être lu de loin, de biais et dans une faible lumière.
-- Enfin, le type de contenu. Il permet de choisir entre plusieurs conventions. Par exemple, on peut arguer que séparer les paragraphes par un simple alinéa convient mieux à des textes fluides (fiction, dialogue), alors qu'une ligne vierge mettre mieux en valeur les étapes d’une argumentation. [^Idem, p. 134.]
+- Enfin, le type de contenu. Il permet de choisir entre plusieurs conventions. Par exemple, on peut arguer que séparer les paragraphes par un simple alinéa convient mieux à des textes fluides (fiction, dialogue), alors qu'une ligne vierge mettre mieux en valeur les étapes d’une argumentation. [^2]
 
 Deux de ces exemples viennent d'un ouvrage récent, [_On Web Typography_](http://www.abookapart.com/products/on-web-typography), que je recommande justement pour son caractère pragmatique et non dogmatique.
+
+[^1]: Jason Santa-Maria, On Web Typography, p. 131
+
+[^2]: Idem, p. 134.

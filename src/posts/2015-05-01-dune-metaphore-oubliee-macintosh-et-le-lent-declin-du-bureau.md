@@ -2,16 +2,16 @@
 title: "D'une métaphore oubliée : Macintosh et le lent déclin du bureau"
 date: 2015-05-01
 tags:
-
   - "histoire"
   - "mac"
   - "bureau"
 featured: true
+hero:
+  image: wooton.png
+  alt: Bureau Wooton, station de travail tout-en-un
 ---
 
 Les raisons du succès des interfaces graphiques sont bien connues : des objets visuels simples (fenêtre, icônes, menus et pointeurs), permettant un panel d'actions limitées et explicites, organisés par une métaphore cohérente : des documents rassemblés en dossier, posés sur le bureau pour les affaires courantes et rangés dans des casiers pour le reste.
-
-![wooton](/assets/images/wooton.png " Bureau Wooton, station de travail tout-en-un")
 
 ## Un dossier = une fenêtre
 
