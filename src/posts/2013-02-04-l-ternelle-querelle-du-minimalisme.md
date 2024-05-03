@@ -4,8 +4,8 @@ date: 2013-02-04
 featured: true
 tags: ["histoire", "objets", "interface"]
 hero:
-  -image: sony_building_by_david_shankbone_crop.jpg
-  -caption: Bâtiment de Philipp Johnson. Photo de David Shankbone, [CC-BY-SA-3.0](http://creativecommons.org/licenses/by-sa/3.0/), via Wikimedia Commons.
+  image: sony_building_by_david_shankbone_crop.jpg
+  caption: "Bâtiment de Philipp Johnson. Photo de David Shankbone, CC-BY-SA-3.0, via Wikimedia Commons."
 ---
 
 S’il y a une chose dont manquent les débats actuels sur le skeuomorphisme et ce qu’on appelle le _flat design_, c’est de recul historique.
