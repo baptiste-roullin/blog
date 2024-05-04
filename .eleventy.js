@@ -96,7 +96,9 @@ export default async function conf(config) {
 	 */
 	config.addPlugin(pluginNavigation)
 	config.addPlugin(embedEverything, {
-		use: ['vimeo', 'youtube', 'twitter'], twitter: { options: { align: 'center' } }
+		//use: ['vimeo', 'youtube', 'twitter'], twitter: { options: { align: 'center' } }
+		use: ['twitter'], twitter: { options: { align: 'center' } }
+
 	})
 	config.addPlugin(pluginRss)
 	config.addPlugin(EleventyRenderPlugin)
