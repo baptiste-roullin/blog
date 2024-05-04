@@ -65,6 +65,7 @@ let options = {
 
 export default markdownIt(options)
     .disable('code')
+    // faire marcher l'import auto de CSS
     .use(highlightjs)
     .use(MarkdownItContainer, 'info-block')
     //.use(markdownItHeadingLevel, { firstLevel: 2 })
