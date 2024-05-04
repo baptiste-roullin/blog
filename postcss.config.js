@@ -1,11 +1,9 @@
 
 
-//import meta from './src/_data/meta.js'
-
-//const nano = (meta.env === "production" ?  : ""),
+import meta from './src/_data/meta.js'
 
 
-import path from "node:path"
+
 export default {
   plugins: {
     'postcss-import': {},
@@ -16,6 +14,6 @@ export default {
       manifest: "./src/_data/hashes_css.json",
       /*name: function ({ dir, name, hash, ext }) { return path.join(dir, name + '.' + hash + ext) }*/
     },
-    "cssnano": {}
+    "cssnano": (meta.env === "production" ? {} : false)
   }
 }
