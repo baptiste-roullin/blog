@@ -22,7 +22,7 @@ import filters from './src/filters/filters.js'
 //import { Config, UserConfig } from './src/../types/eleventy'
 //import("./src/../types/eleventy").Config()
 
-export default async function conf(config) {
+export default async function (config) {
 	config.setUseGitIgnore(false)
 
 	config.ignores.add("/src/heroPages/portfolio/portfolioIntro.md")
