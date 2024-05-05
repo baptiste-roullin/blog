@@ -6,7 +6,7 @@ import attrs from 'markdown-it-attrs'
 import blockquoteCite from 'markdown-it-blockquote-cite'
 import imageFigures from 'markdown-it-image-figures'
 import highlightjs from "./utils/highlightPlugin.js"
-import french_nbsp from './french_nbsp.js'
+import french_nnbsp from './french_nnbsp.js'
 import slugify from './filters/slugify.js'
 
 /** @returns {void} */
@@ -51,7 +51,7 @@ export default markdownIt(options)
     .disable('code')
     // faire marcher l'import auto de CSS
     .use(highlightjs)
-    .use(french_nbsp)
+    .use(french_nnbsp)
     .use(MarkdownItContainer, 'info-block')
     //.use(markdownItHeadingLevel, { firstLevel: 2 })
     .use(footnote)
