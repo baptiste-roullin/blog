@@ -18,7 +18,6 @@ import pairedShortcodes from './src/shortcodes/pairedShortcodes.js'
 import shortcodes from './src/shortcodes/shortcodes.js'
 import filters from './src/filters/filters.js'
 
-
 //import { Config, UserConfig } from './src/../types/eleventy'
 //import("./src/../types/eleventy").Config()
 

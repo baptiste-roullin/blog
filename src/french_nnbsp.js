@@ -32,7 +32,7 @@ export default (md) => {
 			for (let j = state.tokens[i].children.length - 1; j >= 0; j--) {
 				if (state.tokens[i].children[j].type !== 'text') { continue }
 
-				state.tokens[i].children[j].content = state.tokens[i].children[j].content.replace(NBSP_DOUBLE_PUNCTUATION, (match, $1, $2, $3, $4) => {
+				state.tokens[i].children[j].content = state.tokens[i].children[j].content.replace(NNBSP_DOUBLE_PUNCTUATION, (match, $1, $2, $3, $4) => {
 					return $1 + NNBSP + $2
 				})
 			}
