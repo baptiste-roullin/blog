@@ -37,22 +37,31 @@ const anchor = (md) => {
 }
 
 
-//TODO : manque ortho-typo pour ? et !
-// https://github.com/markdown-it/markdown-it/blob/master/lib/rules_core/replacements.js
-
+//espaces fines insécables avant ? ! ; :'
 /** @returns {void} */
-/*const double_punctuation = (md) => {
-    const NBSP_DOUBLE_PUNCTUATION = /(\w+(?:\s?»)?)(\s?)([?!;:])(\s|$)/gu;
-    const NNBSP = '\u202F'; // narrow non breakable space
+const double_punctuation = (md) => {
+    //(\s|$|\n)
+    const NBSP_DOUBLE_PUNCTUATION = /(\w+(?:\s?»)?)(\s?)([?!;:])/gu
+    const NNBSP = '\u202F' // narrow non breakable space
 
-    md.inline.ruler.push('double_punctuation', (state) => {
-        state.replace(NBSP_DOUBLE_PUNCTUATION, (match, $1, $2, $3, $4) => {
-            console.log('espaces fines insécables avant ? ! ; :');
-            return $1 + NNBSP + $3 + $4;
-        });
-    });
-};*/
+    md.core.ruler.push('double_punctuation', (state) => {
 
+        if (!state.md.options.typographer) { return }
+
+        for (let index = state.tokens.length - 1; index >= 0; index--) {
+
+            if (state.tokens[index].type !== 'inline') { continue }
+
+            console.log(state.tokens[index].children)
+            for (let j = state.tokens[index].children.length - 1; j >= 0; j--) {
+                state.tokens[index].children[j].content = state.tokens[index].children[j].content.replace(NBSP_DOUBLE_PUNCTUATION, (match, $1, $2, $3, $4) => {
+                    // console.log($1 + NNBSP + $3 + $4)
+                    return $1 + NNBSP + $3
+                })
+            }
+        }
+    })
+}
 
 let options = {
     html: true,
@@ -67,11 +76,11 @@ export default markdownIt(options)
     .disable('code')
     // faire marcher l'import auto de CSS
     .use(highlightjs)
+    .use(double_punctuation)
     .use(MarkdownItContainer, 'info-block')
     //.use(markdownItHeadingLevel, { firstLevel: 2 })
     .use(footnote)
     .use(anchor)
-    //	.use(double_punctuation)
     .use(bracketedSpans)
     .use(attrs)
     .use(blockquoteCite)
