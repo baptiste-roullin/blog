@@ -1,11 +1,17 @@
 {# PAS DE LIGNE VIDE OU D'ESPACES CONSÉCUTIFS #}
 {# Cela évite que le HTML généré soit détecté comme du markdown #}
+{# corner cases:
+-  too long authors names
+- several zotero widgets in the same page. no problems right since it's always the same calculations.#}
 <ul class="mb-5 zotero-list sm:mb-3 not-prose">
 	{% for item in items %}
 		<li >
 			<div class="my-4 first:mt-2">
 				<a href="{{item.url}}" class="text-base underline lg:text-lg sm:no-underline hover:underline" >{{item.title}}  ➡️</a>
 				<div class="flex gap-2 pt-2 text-base zotero-metadata lg:pt-1">
+					{% if item.parsedDate %}
+						<span class="whitespace-nowrap">{{item.author}}</span>
+					{% endif %}
 					{% if item.parsedDate and item.itemType !== "webpage" %}
 						<span>{{item.parsedDate | dateFormatting("yyyy") }}</span>
 						<span aria-hidden="true" class=" last:hidden first:hidden">~</span>
@@ -16,8 +22,8 @@
 					{% endif %}
 					{% if item.abstractNote %}
 					<details>
-						<summary class="text-gray-600 underline cursor-pointer">Résumé</summary>
-						<span class="relative mt-0 text-base details-content" hidden="until-found">{{item.abstractNote | markdownify }}</span>
+						<summary class="text-gray-600 underline cursor-pointer decoration-2">Résumé</summary>
+						<p class="relative mt-0 text-base details-content" hidden="until-found">{{item.abstractNote | markdownify }}</p>
 					</details>
 					{% endif %}
 				</div>
@@ -26,26 +32,30 @@
 	{% endfor %}
 </ul>
 <script>
+function zoteroSummary() {
+	function cb(e, detailsEl) {
+		const elX = e.currentTarget.getBoundingClientRect().x
+		const details = detailsEl.querySelector('.details-content')
+		details.style.left = (0 - elX + refX) + 'px'
+		details.style.width = document.querySelector('.container-prose').getBoundingClientRect().width + 'px'
+	}
+	const metadata = document.querySelector('.zotero-metadata')
+	const refX = metadata.getBoundingClientRect().x;
+	[...document.querySelectorAll(' details')].forEach(detailsEl => {
+		// events happens when content found with ctrl+F. No support for firefox.
+		if (!('onbeforematch' in document.body)) {
+			detailsEl.querySelector('.details-content').removeAttribute('hidden')
+		}
+		const summary = detailsEl.querySelector('summary')
+		const abstract = detailsEl.querySelector('p')
+		summary.addEventListener('click', (e) => cb(e, detailsEl))
+		window.addEventListener('resize', (e) => cb(e, detailsEl))
+	})
+}
 window.addEventListener('load', function () {
 	if (!window.zoteroSummary) {
-		window.zoteroSummary = function () {
-		const metada = document.querySelector('.zotero-metadata')
-		const refX = metada.getBoundingClientRect().x;
-			[...document.querySelectorAll(' details')].forEach(el => {
-					if (!('onbeforematch' in document.body) ) {
-						el.querySelector('.details-content').removeAttribute('hidden')
-					}
-			const summary = el.querySelector('summary')
-			const abstract = el.querySelector('p')
-			summary.addEventListener('click', function (e) {
-				//console.log(refX)
-				const elX = e.currentTarget.getBoundingClientRect().x
-				el.querySelector('.details-content').style.left = (0 - elX + refX) + 'px'
-			})
-			})
+		window.zoteroSummary = zoteroSummary
 	}
-		window.zoteroSummary()
-	}
-	}
- )
+	window.zoteroSummary()
+})
 </script>
