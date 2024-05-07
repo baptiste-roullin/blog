@@ -52,7 +52,7 @@ export default async function zotero(collection, ...requestedTags) {
                     const firstName = (author?.firstName ? author?.firstName.slice(0, 1).toUpperCase() : "")
                     const lastName = author?.lastName
                     if (lastName) {
-                        item.data.author = firstName + '. ' + lastName + "et al. ~"
+                        item.data.author = firstName + '. ' + lastName + " et al. ~"
                     }
                 }
                 if (item.meta.numChildren) {
@@ -186,7 +186,7 @@ export default async function zotero(collection, ...requestedTags) {
         //génération du HTML
 
 
-        const compt = await env.render('zotero_component.njk', {  items: completedItems })
+        const compt = await env.render('zotero_component.njk', { items: completedItems })
         return compt
 
     }

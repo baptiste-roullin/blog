@@ -33,23 +33,22 @@
 </ul>
 <script>
 function zoteroSummary() {
-	function cb(e, detailsEl) {
-		const elX = e.currentTarget.getBoundingClientRect().x
+	function cb(target, detailsEl) {
+		const elX = target.getBoundingClientRect().x
 		const details = detailsEl.querySelector('.details-content')
 		details.style.left = (0 - elX + refX) + 'px'
 		details.style.width = document.querySelector('.container-prose').getBoundingClientRect().width + 'px'
 	}
 	const metadata = document.querySelector('.zotero-metadata')
 	const refX = metadata.getBoundingClientRect().x;
-	[...document.querySelectorAll(' details')].forEach(detailsEl => {
+	[...document.querySelectorAll('details')].forEach(detailsEl => {
 		// events happens when content found with ctrl+F. No support for firefox.
 		if (!('onbeforematch' in document.body)) {
 			detailsEl.querySelector('.details-content').removeAttribute('hidden')
 		}
 		const summary = detailsEl.querySelector('summary')
 		const abstract = detailsEl.querySelector('p')
-		summary.addEventListener('click', (e) => cb(e, detailsEl))
-		window.addEventListener('resize', (e) => cb(e, detailsEl))
+		summary.addEventListener('click', (e) => cb(e.currentTarget, detailsEl))
 	})
 }
 window.addEventListener('load', function () {
