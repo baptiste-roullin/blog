@@ -2,12 +2,11 @@
 // Documentation de l'API : https://www.zotero.org/support/dev/web_api/v3/basics
 // Client : 				https://github.com/tnajdek/zotero-api-client
 import pMap from 'p-map'
-
 import markdownify from "../../filters/markdownify.js"
 import meta from '../../_data/meta.js'
 import dateFormatting from '../../filters/dateFormatting.js'
 import cache from '../../utils/caching.js'
-
+import api from '../../../node_modules/zotero-api-client/src/main.js'
 
 /*
 Comme promise.all, effectue des requête en parallèle et renvoie une promesse de tableau de résultats. Avec en plus des options, notamment une pour limiter le nombre de requêtes parallèles
@@ -26,10 +25,6 @@ export default async function zotero(collection, ...requestedTags) {
     //supports only one tag.
 
     const { default: njk } = await import('../../../node_modules/nunjucks/index.js')
-
-    const { default: zotero } = await import('zotero-api-client')
-    const api = zotero.default
-
     if (!meta.zoteroAPIKey) {
         console.log(new Error("La clé d'API pour Zotero est manquante"))
         return
@@ -48,9 +43,18 @@ export default async function zotero(collection, ...requestedTags) {
 
     async function addDataToItems(items) {
 
+
         async function mapper(item) {
             try {
                 item.data.parsedDate = item.meta.parsedDate
+                if (item.data.creators) {
+                    const author = item.data?.creators[0]
+                    const firstName = (author?.firstName ? author?.firstName.slice(0, 1).toUpperCase() : "")
+                    const lastName = author?.lastName
+                    if (lastName) {
+                        item.data.author = firstName + '. ' + lastName + " et al. ~"
+                    }
+                }
                 if (item.meta.numChildren) {
                     const attachments =
 
@@ -181,6 +185,7 @@ export default async function zotero(collection, ...requestedTags) {
 
         //génération du HTML
 
+
         const compt = await env.render('zotero_component.njk', { items: completedItems })
         return compt
 
@@ -194,5 +199,4 @@ export default async function zotero(collection, ...requestedTags) {
 }
 
 // TODO	Afficher auteurs
-// TODO	Rendre paramétrable infos d'articles à afficher
-// TODO	Format biblio APA https://www.npmjs.com/package/citation-js
+// Idée :	Format biblio APA https://www.npmjs.com/package/citation-js

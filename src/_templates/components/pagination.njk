@@ -5,7 +5,7 @@
     <div class="h-full decor-dark bg-blue-light"></div>
 
 
-    <div id="pagination-left" class="w-1/2 p-4 md:py-6 md:px-0">
+    <div id="pagination-left" class="w-1/2 px-2 py-8 md:py-6 md:px-0">
         {% if pagination.href.previous %}
 
             {% set startYear = pagination.page.previous[0].date %}
@@ -24,7 +24,7 @@
 
 
 
-    <div id="pagination-right" class="w-1/2 p-4 md:py-6 md:px-0">
+    <div id="pagination-right" class="w-1/2 px-2 py-8 md:py-6 md:px-0">
     {% if pagination.href.next %}
 
       {% set startYear = pagination.page.next[0].date %}

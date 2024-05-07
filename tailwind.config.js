@@ -148,7 +148,6 @@ export default {
 						p: {
 							"margin-top": "1.1em",
 							"margin-bottom": "1.1em"
-
 						},
 						'line-height': '1.6',
 						'ul > li:before':
@@ -180,6 +179,10 @@ export default {
 							color: 'inherit',
 							fontSize: '2.2em',
 							lineHeight: '1.1'
+						},
+						h2: {
+							marginTop: "1.3em",
+							marginBottom: "0.5em"
 						},
 						h3: {
 							marginTop: "1.4em",
@@ -236,7 +239,8 @@ export default {
 							lineHeight: '1.1'
 						},
 						h2: {
-							color: theme('colors.gray.700')
+							marginTop: "1.5em",
+
 						},
 						h3: {
 							marginTop: "1.4em",

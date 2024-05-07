@@ -18,21 +18,19 @@ C'est moins exotique que ça en a l'air : les pédales sont utilisés dans des o
 
 Encore aujourd'hui, le pied se retrouve un peu partout. Si vous ne me croyez pas, je vous conseille la lecture de [cette somme](/assets/docs/FootInteraction_AuthorCameraReady.pdf) sur le sujet (trente pages, une véritable somme podologique !). Il identifie notamment une gamme de gestes, utilisés principalement dans des expériences artistiques ou académiques. De manière plus populaire, on retrouve les tapis des jeux de danse, les pédaliers des jeux de course, mais aussi différents plateaux d'équilibre, initiés dès 1982 par le [Joyboard d'Amiga](https://en.wikipedia.org/wiki/Joyboard) (en photo plus haut).
 
-Ensuite, le pied se retrouve un peu partout. Si vous ne me croyez pas, je vous conseille la lecture de [cette somme](/assets/docs/FootInteraction_AuthorCameraReady.pdf) sur le sujet (trente pages, une véritable somme podologique !). Il identifie notamment une gamme de gestes, utilisés principalement dans des expériences artistiques ou académiques. De manière plus populaire, on retrouve les tapis des jeux de danse, les pédaliers des jeux de course, mais aussi différents plateaux d'équilibre, initiés dès 1982 par le [Joyboard d'Amiga](https://en.wikipedia.org/wiki/Joyboard) (en photo plus haut).
-
-![](/assets/images/Sans-titre-3.png)
+!["Gamme de gestes"](/assets/images/Sans-titre-3.png )
 
 Quoi d'autre ? On peut parler de l'industrie, où les risques d'activation intempestive ([analysés ici](assets/docs/TOERGJ-2-13.pdf)) exigent des pédales avec des clapets et autres garde-fous.
 
-![Pédale industrielle](/assets/images/s-l1600.jpg "Pédale industrielle")
+![Pédale industrielle](/assets/images/s-l1600.jpg )
 
 Les utilisateurs avec des problèmes de posture ou de motricité peuvent utiliser toute sorte de "[souris à pied](https://en.wikipedia.org/wiki/Footmouse)", comme cette fascinante [Souris-Sandale](http://www.yankodesign.com/2010/04/07/flip-flop-mouse/).
 
-![Souris-sandale ou toe-mouse](/assets/images/toe_mouse.jpg "Souris-sandale ou toe-mouse")
+![Souris-sandale ou toe-mouse](/assets/images/toe_mouse.jpg )
 
 Toujours dans l'édition de texte, la [VIM Clutch](https://github.com/alevchuk/vim-clutch) constitue un exemple intéressant de convergence entre matériel et logiciel. L'éditeur de texte VIM fonctionne par modes : un mode normal, un pour l'insertion, un pour la sélection de texte, etc. Ça parait bizarre mais c'est beaucoup plus [sensé](http://www.viemu.com/a-why-vi-vim.html). Un maitre-nerd a donc bricolé une pédale qui permet, tant qu'on la maintient, de rester dans le mode le plus courant.
 
-![](/assets/images/Sholesglidden2.png "Sholes and Glidden typewriter")
+!["Sholes and Glidden typewriter"](/assets/images/Sholesglidden2.png )
 
 Citons aussi les chaussures intelligentes, avec [uniquement des senseurs](https://www.wareable.com/running/smart-shoes-875), ou carrément avec [des actuateurs](https://en.wikipedia.org/wiki/Adidas_1) modifiant le niveau d'amorti.
 
