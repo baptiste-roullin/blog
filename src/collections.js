@@ -55,15 +55,15 @@ export const collections = {
     projectsList: async function (collectionAPI) {
         const projects = collectionAPI.items[0].data.projects
 
-        const collatedProjects = await Promise.all(projects.map(async (projet) => {
+        const collatedProjects = await Promise.all(projects.map(async (project) => {
             if (meta.pictures) {
-                if (!projet.img) {
-                    await truchetNode(projet.name, 400, 400).catch(console.error)
+                if (!project.img) {
+                    await truchetNode(project.name, 400, 400).catch(console.error)
                     //chemin absolu
-                    projet.img = `/${meta.assetsDir}/truchet-${projet.name}.png`
+                    project.img = `/${meta.assetsDir}/truchet-${project.name}.png`
                 }
             }
-            return projet
+            return project
         }))
         return collatedProjects
     },

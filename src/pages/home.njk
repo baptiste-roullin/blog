@@ -52,7 +52,7 @@ postListItemStyle:
     </div>
 
     <ul class="max-w-lg gap-6 m-auto sm:gap-8 md:gap-6 post-list 2xl:gap-8 md:m-0 md:max-w-none card-container project-list">
-      {% for projet in projects | reverse | slice(0, 6) %}
+      {% for project in projects | reverse | slice(0, 6) %}
         	{% include 'components/project.njk' %}
 
     {% endfor %}

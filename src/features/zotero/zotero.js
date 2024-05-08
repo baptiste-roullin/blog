@@ -198,5 +198,4 @@ export default async function zotero(collection, ...requestedTags) {
 
 }
 
-// TODO	Afficher auteurs
 // Idée :	Format biblio APA https://www.npmjs.com/package/citation-js

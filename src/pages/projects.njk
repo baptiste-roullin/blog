@@ -1,5 +1,6 @@
 ---
 title: Projets, bidouilles, trucs
+permalink: /projets/index.html
 date: 2020-08-05
 layout: page
 eleventyNavigation:
@@ -12,7 +13,7 @@ eleventyNavigation:
 {# TODO : permettre de citer un projet unitaire dans un article #}
 
 <ul class="max-w-lg gap-6 m-auto 2xl:gap-8 md:m-0 md:max-w-none card-container project-list">
-	{% for projet in collections.projectsList | reverse %}
+	{% for project in collections.projectsList | reverse %}
 		{% include 'components/project.njk' %}
 	{% endfor %}
 </ul>

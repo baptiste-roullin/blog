@@ -26,7 +26,6 @@ export default async function (config) {
 
 	config.ignores.add("/src/heroPages/portfolio/portfolioIntro.md")
 	config.ignores.add("/src/features/zotero/zotero_component.njk")
-	config.ignores.add("/src/features/zotero/zotero_component.njk")
 
 	if (meta.env === "dev") {
 		config.ignores.add("./src/posts/201*")

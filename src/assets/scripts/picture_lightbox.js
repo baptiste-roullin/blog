@@ -36,4 +36,4 @@ lightbox.init();
 
 
 
-/* TODO : a11y transformer lien en button */
+/* TODO : a11y transformer lien en button ou image-lien*/

@@ -57,7 +57,8 @@
 @layer utilities {
 
 
-	.cta-heading {
+	.cta-heading, .prose .cta-heading, .prose-tcqb .cta-heading {
+		margin: inherit;
 		@apply text-brown text-lg-bis md:text-3xl font-medium leading-7 2xl:leading-10 2xl:text-4xl
 	}
 

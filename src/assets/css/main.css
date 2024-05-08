@@ -1,11 +1,11 @@
+@import "./global.scss";
 @import "./fonts.css";
+@import "./nav.scss";
 @import "./post.scss";
 @import "./images.scss";
-@import "./nav.scss";
 @import "./actions.scss";
 @import "./cards.scss";
 @import "./headings.scss";
-@import "./global.scss";
 @import "./photoswipe.css";
 @import "../../heroPages/portfolio/portfolio.scss";
 @import "../../features/truchet/truchet.scss";
