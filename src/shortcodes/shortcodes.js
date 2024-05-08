@@ -1,16 +1,50 @@
+import fs from 'node:fs/promises'
+import path from 'node:path'
 
+import { dirname } from 'node:path'
+import { fileURLToPath } from 'url'
 import dotenv from 'dotenv'
 dotenv.config()
+import yaml from "js-yaml"
+import { EleventyRenderPlugin } from '@11ty/eleventy'
+
 
 import { truchetItem, truchetList } from '../features/truchet/truchet_shortcode.js'
 import slugify from '../filters/slugify.js'
 import zotero from '../features/zotero/zotero.js'
 import meta from '../_data/meta.js'
 
+import markdownify from '../filters/markdownify.js'
+
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const RenderManager = EleventyRenderPlugin.RenderManager
+
 export default {
   zotero: (!meta.zotero ? async () => "[ZOTÉRO DÉSACTIVÉ]" : zotero),
+
   truchetItem: truchetItem,
+
   truchetList: truchetList,
+
+  projectSingle: async function (projectName) {
+    const contents = await fs.readFile(path.join(__dirname, '../_data/projects.yaml'), { encoding: 'utf8' })
+    const projects = await yaml.load(contents)
+    const project = projects.filter(project => project.name === projectName)[0]
+
+    const renderManager = new RenderManager()
+    renderManager.config(function (eleventyConfig) {
+      eleventyConfig.addFilter("markdownify", markdownify)
+    })
+    const content = await fs.readFile(path.join(__dirname, "../_templates/components/project.njk"), { encoding: 'utf-8' })
+    const render = await renderManager.compile(content, "njk")
+
+    return `
+    <div class='project-single md:max-w-2/3 m-auto'>
+      ${await render({ project: project })}
+    </div>`
+
+  },
   heading: function (level, className, label) {
     if (typeof label === "object") {
       label = label.val
