@@ -39,11 +39,7 @@ export default {
     const content = await fs.readFile(path.join(__dirname, "../_templates/components/project.njk"), { encoding: 'utf-8' })
     const render = await renderManager.compile(content, "njk")
 
-    return `
-    <div class='project-single md:max-w-2/3 m-auto'>
-      ${await render({ project: project })}
-    </div>`
-
+    return `<div class='project-single md:max-w-2/3 m-auto'>${await render({ project: project })}</div>`
   },
   heading: function (level, className, label) {
     if (typeof label === "object") {
