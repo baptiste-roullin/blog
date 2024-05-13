@@ -1,6 +1,7 @@
 
 //@todo : plus besoin de .eleventyignore en env de dev. https://www.11ty.dev/docs/ignores/#configuration-api
 
+import { parseHTML } from 'linkedom'
 
 import pluginRss from '@11ty/eleventy-plugin-rss'
 import pluginNavigation from '@11ty/eleventy-navigation'
@@ -9,14 +10,15 @@ import embedEverything from "eleventy-plugin-embed-everything"
 import { EleventyRenderPlugin } from "@11ty/eleventy"
 
 import meta from './src/_data/meta.js'
-import findImg from './src/transforms/media_processing.js'
+import findImg, { reformatURL } from './src/transforms/media_processing.js'
 
 import { collections } from './src/collections.js'
 import md from './src/markdown.js'
-
+import fsp from 'node:fs/promises'
 import pairedShortcodes from './src/shortcodes/pairedShortcodes.js'
 import shortcodes from './src/shortcodes/shortcodes.js'
 import filters from './src/filters/filters.js'
+import path from 'node:path'
 
 //import { Config, UserConfig } from './src/../types/eleventy'
 //import("./src/../types/eleventy").Config()
@@ -62,7 +64,15 @@ export default async function (config) {
 	//On copie tels quels les média avec chemins relatifs ou absolus dans /dist, qu'ils puissent être lus par du balisage non-transformé (sans srcset)
 	config.addPassthroughCopy('src/assets/UI')
 
-	if (meta.pictures) {
+	const imagePath = `${process.cwd()}/${meta.outputDir}/${meta.assetsDir}/`
+	try {
+		await fsp.access(imagePath)
+
+	} catch (error) {
+		await fsp.mkdir(imagePath, { recursive: true })
+	}
+
+	if (meta.env === "production") {
 
 		config.addPassthroughCopy('src/assets/docs/')
 		config.addPassthroughCopy({ 'src/assets/images/*.svg': meta.assetsDir })
@@ -76,10 +86,43 @@ export default async function (config) {
 			findImg
 		)
 	}
-	//else {
-	//	config.addPassthroughCopy({ 'src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}': `./${meta.outputDir}/${meta.assetsDir}/` })
-	//	config.addPassthroughCopy({ 'src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}': `./${meta.outputDir}/${meta.assetsDir}/` })
-	//}
+	else {
+
+		function img_transform_dev(html, outputPath) {
+
+			function reformatURL(src) {
+				const name = path.basename(src)
+				return `/${meta.assetsDir}/${name}`
+			}
+
+			if (outputPath && outputPath.endsWith('.html')) {
+				const { document } = parseHTML(html);
+
+				[...document.querySelectorAll(".image-responsiver-content img[src]:not([srcset]):not([src$='.svg'])")].forEach(async (image) => {
+
+					const imageSrc = image.getAttribute('src')
+
+					image.setAttribute("src", reformatURL(imageSrc))
+				})
+
+				return document.toString()
+			}
+			else { return html }
+		}
+		config.on("eleventy.before", async () => {
+			//config.addPassthroughCopy({ 'src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}': `./${meta.outputDir}/${meta.assetsDir}/` })
+			console.log("testtestsetse")
+			config.addPassthroughCopy('assets/images')
+		})
+
+		/*	config.addTransform(
+				'img_transform',
+				img_transform_dev
+			)*/
+	}
+
+
+
 
 	/**
 	 * Add layout aliases
@@ -93,11 +136,11 @@ export default async function (config) {
 	 * Plugins
 	 */
 	config.addPlugin(pluginNavigation)
-	config.addPlugin(embedEverything, {
-		//use: ['vimeo', 'youtube', 'twitter'], twitter: { options: { align: 'center' } }
-		use: ['twitter'], twitter: { options: { align: 'center' } }
+	/*	config.addPlugin(embedEverything, {
+			//use: ['vimeo', 'youtube', 'twitter'], twitter: { options: { align: 'center' } }
+			use: ['twitter'], twitter: { options: { align: 'center' } }
 
-	})
+		})*/
 	config.addPlugin(pluginRss)
 	config.addPlugin(EleventyRenderPlugin)
 

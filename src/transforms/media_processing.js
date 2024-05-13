@@ -9,11 +9,11 @@ const warning = debug('pictures:warning')
 
 import meta from '../_data/meta.js'
 
-function reformatURL(src, width) {
+export function reformatURL(src, width) {
 
 	const extension = path.extname(src)
 	const name = path.basename(src, extension)
-	return `/${meta.assetsDir}/${name}-${width}.webp`
+	return `/${meta.assetsDir}/${name}-${width}.${extension}`
 
 	/*		const fullPath = `/${meta.assetsDir}/${path.basename(src)}`
 
@@ -80,13 +80,8 @@ function generateSrcList(imageSettings, imageWidth, imageSrc) {
 			if (imageWidth !== null && stepWidth >= imageWidth) {
 				warning(`The image is smaller than maxWidth: ${imageWidth} < ${imageSettings.maxWidth}`)
 				widthsList.push(imageWidth)
-
-				srcsetList.push(
-					`${imageSettings.resizedImageUrl(
-						imageSrc,
-						imageWidth
-					)} ${imageWidth}w`
-				)
+				const url = imageSettings.reformatURL(imageSrc, imageWidth)
+				srcsetList.push(`${url} ${imageWidth}w`)
 				break
 			}
 			if (stepWidth === previousStepWidth) {
@@ -95,7 +90,7 @@ function generateSrcList(imageSettings, imageWidth, imageSrc) {
 			}
 			previousStepWidth = stepWidth
 			widthsList.push(stepWidth)
-			const url = imageSettings.resizedImageUrl(imageSrc, stepWidth)
+			const url = imageSettings.reformatURL(imageSrc, stepWidth)
 			srcsetList.push(`${url} ${stepWidth}w`)
 		}
 	}
@@ -120,6 +115,8 @@ function prepareForLighbox(image, document) {
 
 function handleImg(image, document, globalSettings) {
 
+
+
 	try {
 		let originalPath = path.normalize(image.getAttribute('src'))
 		const intermediaryPath = "src/assets/imagesToProcess/" + path.basename(originalPath)
@@ -142,7 +139,7 @@ function handleImg(image, document, globalSettings) {
 		if (imageSettings.fallbackWidth) {
 			image.setAttribute(
 				'src',
-				imageSettings.resizedImageUrl(imageSrc, imageSettings.fallbackWidth)
+				imageSettings.reformatURL(imageSrc, imageSettings.fallbackWidth)
 			)
 		}
 		//migre vers élément source pour éviter CLS ?
@@ -197,9 +194,10 @@ export default function findImg(html, outputPath) {
 		minWidth: 400,
 		maxWidth: 1920,
 		sizes: '(max-width: 60rem) 90vw, 60rem',
-		resizedImageUrl: reformatURL,
+		reformatURL: reformatURL,
 		steps: (meta.env === "dev" ? 2 : 5),
 		dataAttribute: 'img-content-page',
+		//format: (meta.env === "production" ? "webp" : "")
 	}
 
 
@@ -208,7 +206,7 @@ export default function findImg(html, outputPath) {
 		minWidth: 300,
 		maxWidth: 600,
 		sizes: '(max-width: 60rem) 90vw, 60rem',
-		resizedImageUrl: reformatURL,
+		reformatURL: reformatURL,
 		steps: 2,
 		dataAttribute: 'img-list-page',
 		ignore: 'truchet-'
