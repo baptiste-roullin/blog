@@ -9,6 +9,10 @@ import removeMD from './remove_MD.js'
 import markdownify from './markdownify.js'
 
 export default {
+
+
+    //TODO: ajouter contrôle pour tous les filtres, avec try catch throw
+    //TODO : logger this.page ou this.ctx pour de meilleurs messages d'erreur
     /**
      * Filters
      * @link https://www.11ty.dev/docs/filters/
