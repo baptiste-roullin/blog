@@ -109,20 +109,15 @@ export default async function (config) {
 			}
 			else { return html }
 		}
-		config.on("eleventy.before", async () => {
-			//config.addPassthroughCopy({ 'src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}': `./${meta.outputDir}/${meta.assetsDir}/` })
-			console.log("testtestsetse")
-			config.addPassthroughCopy('assets/images')
-		})
+		config.addPassthroughCopy({ 'src/posts/*.{png,webp,gif,mp4,jpg,jpeg}': `/${meta.assetsDir}/` })
+		config.addPassthroughCopy({ 'src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}': `/${meta.assetsDir}/` })
 
-		/*	config.addTransform(
-				'img_transform',
-				img_transform_dev
-			)*/
+
+		config.addTransform(
+			'img_transform',
+			img_transform_dev
+		)
 	}
-
-
-
 
 	/**
 	 * Add layout aliases

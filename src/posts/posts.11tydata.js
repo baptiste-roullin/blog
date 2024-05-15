@@ -8,7 +8,6 @@ export default {
   author: "{{ meta.author }}",
   picture_lightbox: true,
   eleventyComputed: {
-
     collatedHeroImage: collateHeroImage
   }
 }
