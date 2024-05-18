@@ -4,7 +4,6 @@ date: 2021-04-25
 tags:
   - "tout ce qui bouge"
   - "eleventy"
-picture_lightbox: false
 
 hero:
   #  options: carousel, graphic, video, split (text & image)

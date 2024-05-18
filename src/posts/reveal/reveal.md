@@ -24,13 +24,13 @@ J'ai donc pensé à [Reveal.js](https://revealjs.com/), une bibliothèque permet
 - Une métaphore spatiale intéressante pour structurer le cours : on peut créer des groupes de slides qui vont défiler verticalement.
 - Avec quelques plugins, une navigation puissante : table des matière automatique, recherche dans le texte, ou mode panorama.
 
-{% richpicture  %}
+{% gallery  %}
 
 ![](reveal1.png)
 
 ![reveal3](reveal3.png)
 
-{% endrichpicture %}
+{% endgallery %}
 
 Problème : la rédaction reste très verbeuse. On doit écrire dans le fichier HTML directement et même en tirant parti du support de Markdown on se retrouve vite avec ce genre de charabia [^1] :
 

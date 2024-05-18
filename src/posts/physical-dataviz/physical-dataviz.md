@@ -23,7 +23,7 @@ Panorama foutraque de ce que l'on appelle parfois la physicalisation de données
 
 On n'a pas attendu l'informatique pour représenter des données. Les [premières traces](https://en.wikipedia.org/wiki/History_of_writing#Recorded_history) de l'écriture c'est un peu ça : un jeton pour une vache, un deuxième pour une seconde vache.  Les systèmes graphiques plus aboutis étaient utilisées avec des buts similaires, puisqu'on retrouve beaucoup d'inscription parlant de taille de troupeaux, d'aire de parcelles ou de volumes de récoltes. Parfois en utilisant à plein la spatialité de la surface, comme en témoignent ces deux tablettes babyloniennes :  un problème de géométrie et le plan d'un grand bâtiment.
 
-{% richpicture %}
+{% gallery %}
 
 ![Tablette d'argile décrivant un losange et un problème de géométrie associé. Coté recto.](tablette2.jpg "[Source](https://fr.wikipedia.org/wiki/YBC_7289)")
 
@@ -31,15 +31,15 @@ On n'a pas attendu l'informatique pour représenter des données. Les [première
 
 
 
-{% endrichpicture %}
+{% endgallery %}
 
 
 
-{% richpicture %}
+{% gallery %}
 
 ![Plan d'un bâtiment de six pièces, un sanctuaire ou une maison privée. Fin du IIIe millénaire](Building_plans_Louvre_AO338.jpg "Plan d'un bâtiment de six pièces, un sanctuaire ou une maison privée. Fin du IIIe millénaire. [Source](https://fr.wikipedia.org/wiki/Fichier:Building_plans_Louvre_AO338.jpg).")
 
-{% endrichpicture %}
+{% endgallery %}
 
 
 
@@ -79,13 +79,13 @@ Au début du XXe, le volume de données produites explose. Comment les récupér
 
 Par exemple, comment présenter un enchainement de graphiques à un auditoire, quand on n'a même pas de rétroprojecteur ? C'est pas compliqué : créer une véritable bibliothèque de diapositives sous la forme de grands panneaux de bois imprimés et montés sur rail. J'en ai [déjà parlé ici](https://toutcequibouge.net/blog/2016/02/les-ancetres-d-excel-et-de-powerpoint/#powerpoint).
 
-{% richpicture %}
+{% gallery %}
 
 ![](/assets/images/1974298\_001.jpg "1919 : première version.")
 
 ![](/assets/images/2005273\_0001-e145540648863.jpg "1950 : ver­sion plus évo­luée.")
 
-{% endrichpicture %}
+{% endgallery %}
 
 
 
@@ -93,7 +93,7 @@ Autre exemple : [ce système de fiches](https://gravyanecdote.com/uncategorized/
 
 D'autant que le système était pensé de bout en bout. Il y avait des "méta-fiches" pour indexer le contenu et le retrouver facilement, la partie gauche était laissée vide si l'utilisateur voulait ajouter une annotation et chaque fiche avait un bleu (*blueprint*) pour la dupliquer et la partager facilement.
 
-{% richpicture %}
+{% gallery %}
 
 
 
@@ -101,7 +101,7 @@ D'autant que le système était pensé de bout en bout. Il y avait des "méta-fi
 
 ![](indexcards2.jpg)
 
-{% endrichpicture %}
+{% endgallery %}
 
 
 

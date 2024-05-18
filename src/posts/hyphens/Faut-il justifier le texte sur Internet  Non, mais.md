@@ -42,13 +42,13 @@ Plus encore, il faudrait décorréler la question de la justification dans l'abs
 
 Voici deux graphiques ([source](https://www.sciencedirect.com/science/article/abs/pii/0028393281900440)) assez parlants comparant les trajectoires d'une personne non-dyslexique (à gauche) et dyslexique (à droite). Les lignes horizontales représentent une fixation sur un point, les lignes verticales représentent des mouvements en avant ou arrière dans le texte. Le graphique du bas est beaucoup plus irrégulier, avec des retours en arrière plus fréquents.
 
-{% richpicture %}
+{% gallery %}
 
 ![ "trajectoires visuelle d'une personne non-dyslexique. Les lignes horizontales représentent une fixation sur un point, les lignes verticales représentent des mouvements en avant ou arrière dans le texte. Le graphique présente une forme de série d'escaliers vus de coté, assez réguliers"](image-20240124200641974.png)
 
 ![ "trajectoires d'une personne dyslexique. Les lignes horizontales représentent une fixation sur un point, les lignes verticales représentent des mouvements en avant ou arrière dans le texte. Ce graphique est beaucoup plus irrégulier que le précédent"](image-20240124200655669.png)
 
-{% endrichpicture %}
+{% endgallery %}
 
 Mentionnons aussi que la justification peut créer des lézardes/rivières (enchainement vertical de larges espaces), mais c'est surtout notable avec un colonnage réduit.
 
@@ -68,14 +68,14 @@ Il est probable que les évolutions techniques réduisent le premier problème :
 - Des [expérimentations existent](https://vimeo.com/330954099) avec les polices variables pour jouer sur un critère supplémentaire : la largeur des caractères. On arrive à des variations d'espaces très faibles, tandis que l'ajustement des caractères est à peine remarquable.  Le passage essentiel de la conférence est vers 20m40. Voir aussi [cet article](https://finaltype.de/en/topics/better-justification-for-the-web).
 - Le créateur d'un site peut remplacer coté client l'algorithme du navigateur [par un autre](https://github.com/mnater/Hyphenopoly).
 
-{% richpicture %}
+{% gallery %}
 
 ![](assets/images/slide_44.jpg)
 
 ![](assets/images/slide_75.jpg)
 
 
-{% endrichpicture %}
+{% endgallery %}
 
 
 ### 2. Le dentelage comme indice visuel

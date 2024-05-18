@@ -52,12 +52,12 @@ Cas d’usage :
 
 Dans l'exemple suivant, on zoome plus sur la personne en format vignette pour éviter qu'elle se retrouve minuscule .
 
-{% richpicture %}
+{% gallery %}
 
 !['Obama faisant un discours. On voit la scène autour de lui'](/assets/images/resp2.png )
 
 !['Obama faisant un discours. Photo centrée sur lui.'](/assets/images/resp3.png )
-{% endrichpicture %}
+{% endgallery %}
 
 Ou encore, ici la photo est croppée différemment sur les petits écrans.
 

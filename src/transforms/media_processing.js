@@ -100,7 +100,7 @@ function generateSrcList(imageSettings, imageWidth, imageSrc) {
 
 
 function prepareForLighbox(image, document) {
-	if (image.closest('.rich-picture')) {
+	if (image.closest('.picture-gallery')) {
 		const link = document.createElement("a")
 		link.setAttribute("data-pswp-srcset", image.getAttribute('srcset'))
 

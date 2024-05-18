@@ -1,7 +1,7 @@
 import PhotoSwipeLightbox from 'photoswipe/lightbox'
 
 const lightbox = new PhotoSwipeLightbox({
-	gallery: '.rich-picture',
+	gallery: '.picture-gallery',
 	children: 'figure',
 	pswpModule: () => import('photoswipe')
 })

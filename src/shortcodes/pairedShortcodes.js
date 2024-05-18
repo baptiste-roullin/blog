@@ -15,4 +15,5 @@ export default {
 			width = 'container-wide'
 		}
 		return `<div class=" picture-gallery ${width} " >${content}</div>`
-	},
+	}
+}

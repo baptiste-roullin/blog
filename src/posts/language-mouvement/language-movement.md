@@ -16,7 +16,7 @@ Une marotte des philosophes et autres théoriciens, c'est d'inventer un langage 
 
 Il y a le LoCos inventé par Yukio Ota, l'Isotype de Neurath, la sémantographie de Bliss… J'avais fait un petit [fil à ce sujet](https://twitter.com/Saint_loup/status/1274720385028800513).
 
-{% richpicture %}
+{% gallery %}
 
 ![](locos.png "Exemples de symboles en LoCos : chose, ceci, cela, pensée, matin, après-midi…")
 
@@ -24,7 +24,7 @@ Il y a le LoCos inventé par Yukio Ota, l'Isotype de Neurath, la sémantographie
 
 ![](bliss.png "Je veux aller au cinéma en sémantographie")
 
-{% endrichpicture %}
+{% endgallery %}
 
 
 
@@ -40,7 +40,7 @@ Au 18e siècle, la danse baroque d'inspiration française est une part important
 
 Pour aller plus, vous pouvez lire cette [page Wikipedia](https://fr.wikipedia.org/wiki/Notation_du_mouvement) et [cet article](https://www.journals.uchicago.edu/doi/full/10.1086/693783). Tufte y consacre aussi une page dans son célèbtre [*Envisioning Information*](https://www.labster8.net/wp-content/uploads/2013/11/tufte-Esc-Flatland.pdf) (PDF, p. 27).
 
-{% richpicture %}
+{% gallery %}
 
 ![Schéma montrant une portée musicale classique et en dessous des mouvements de danse : une ligne verticale composée de différents symboles, traversée par une autre ligne en forme de S. ](tomlinson0.jpg)
 
@@ -48,19 +48,19 @@ Pour aller plus, vous pouvez lire cette [page Wikipedia](https://fr.wikipedia.or
 
 ![Schéma montrnat les mouvements d'un danseur et d'une danseuse. Le danseur est à l'arrière-plan.](tomlinson2.jpg)
 
-{% endrichpicture %}
+{% endgallery %}
 
 
 
 Au 20e siècle apparaissent des systèmes beaucoup plus complets. Il semble que les principaux soient la [cinétographie](https://fr.wikipedia.org/wiki/Cin%C3%A9tographie_Laban) de Laban et la [choréologie](https://fr.wikipedia.org/wiki/Chor%C3%A9ologie) de Benesh.
 
-{% richpicture %}
+{% gallery %}
 
 ![Schéma montrant deux lignes verticales de cinétographie](laban2.png)
 
 ![Schéma montrant les différentes parties du corps et comment elles doivent se placer sur un schéma de cinétographie.](laban.jpg)
 
-{% endrichpicture %}
+{% endgallery %}
 
 
 

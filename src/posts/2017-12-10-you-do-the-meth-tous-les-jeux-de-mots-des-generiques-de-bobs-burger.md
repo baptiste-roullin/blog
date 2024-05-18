@@ -16,7 +16,7 @@ Il y a 126 photogrammes pour 134 épisodes (de la S1 au milieu de la S8), ce qui
 
 
 
-{% richpicture %}
+{% gallery %}
 
 ![](/assets/images/Bobs-Burgers-S01E01-Human-Flesh.png '')
 
@@ -272,6 +272,6 @@ Il y a 126 photogrammes pour 134 épisodes (de la S1 au milieu de la S8), ce qui
 
 ![](/assets/images/Bobs-Burgers-S08E05-Thanks-Hoarding.png '')
 
-{% endrichpicture %}
+{% endgallery %}
 
 Et c'est tout.

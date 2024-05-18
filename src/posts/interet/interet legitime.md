@@ -27,12 +27,12 @@ C'est un raisonnement utilisé dans les politiques de confidentialité d'un nomb
 Par exemple chez [Nestle Belgique](https://web.archive.org/web/20210117130247/https://www.nestle.be/fr/info/yourdata), c'est une base légale invoquée dans chacune des lignes du tableau. La dernière colonne apporte quelques détails : "gagner en efficacité", déterminer les types de consommateurs pour les nouveaux produits et services", etc. Ce sont des choses banales et je ne vois pas ce qui justifie une base légale exceptionnelle.
 
 
-    {% richpicture %}
+    {% gallery %}
 
     ![Politique de confidentialité de Nestle.be](nestle_be.png)
 
 
-    {% endrichpicture %}
+    {% endgallery %}
 
 
 
@@ -42,13 +42,13 @@ Par exemple chez [Nestle Belgique](https://web.archive.org/web/20210117130247/ht
 
 Première complication : il faut croiser cette base légale avec le principe  d'opposition : le visiteur peut quand même s'opposer à cette récolte. Certains  sites incluent même une case à cocher pour ça, sélectionnée par défaut. C'est tordu : l'intérêt légitime devient dans une  espèce de consentement dédoublé, mais en opt-out et plus ou moins  planqué. Dans les deux exemples ci-dessous, il est demandé pour chaque info si on consent au recueil ET si on s'y oppose. Bref, deux fois la même question, sous un angle techniquement différent.
 
-{% richpicture %}
+{% gallery %}
 
 ![Une finalité appelée "mesurer la performance du contenu" et en dessous deux case à cocher : consentementent et intérêt légitime](Eruu8c_XEAIHKKz.png)
 
 ![Deux onglets, consentement et intérêt légitime, et pour chaque onglet une liste de finalité de traitement de la donnée.](EruvX35W8AURa07.jpg)
 
-{% endrichpicture %}
+{% endgallery %}
 
 C'est une conception totalement scolaire du droit où on  imbrique chaque pièce sans souci de la logique d'ensemble, pour aboutir à une usine à gaz. On pourrait presque croire que c'est une forme de grève du zèle pour rendre ce genre de popin encore plus imbuvable.
 

@@ -1,21 +1,21 @@
 
 /* Image Grid */
-.rich-picture-gallery {
+.picture-gallery {
   grid-column: 1;
 }
 
-.tmpl-post .rich-picture-gallery figure {
+.tmpl-post .picture-gallery figure {
   grid-column: unset;
   margin: 0;
 }
 
 @media (min-width: 45rem) {
-  .rich-picture-gallery {
+  .picture-gallery {
     grid-column: content-gutter-start / content-gutter-end;
   }
 }
 
-.rich-picture-gallery  {
+.picture-gallery  {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(450px, max-content));
   padding: 1.2em 0;
@@ -25,21 +25,21 @@
 
 
 @media (max-width: 449px) {
-  .rich-picture-gallery {
+  .picture-gallery {
     display: flex;
     flex-direction: column;
 
 }
 }
 
-.rich-picture-gallery figure > a {
+.picture-gallery figure > a {
   display: block;
   line-height: 0;
  /* height: 200px;
   max-height: 200px;*/
 }
 
-.rich-picture-gallery  > figure img {
+.picture-gallery  > figure img {
   min-width: 100%;
   height: 100%;
   max-height: 80vh;
@@ -47,7 +47,7 @@
   object-position: 50% 50%;
 }
 
-.rich-picture-gallery figure {
+.picture-gallery figure {
   margin: 0;
 }
 
@@ -55,13 +55,13 @@
   display: none;
 }
 
-.prose .rich-picture-gallery li:before, .prose .rich-picture-gallery li:marker
+.prose .picture-gallery li:before, .prose .picture-gallery li:marker
 {
 content:none
 
 }
 
-.prose .rich-picture-gallery li
+.prose .picture-gallery li
 {
 list-style:none
 
@@ -70,17 +70,17 @@ list-style:none
 
 
 @supports (grid-template-rows: masonry) {
-  .rich-picture-gallery {
+  .picture-gallery {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: masonry;
   }
 
-  .rich-picture-gallery figure a {
+  .picture-gallery figure a {
     height: unset;
     max-height: unset;
   }
 
-  .rich-picture-gallery > figure  img {
+  .picture-gallery > figure  img {
     width: unset;
     height: unset;
     max-height: unset;
