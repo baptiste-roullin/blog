@@ -1,9 +1,5 @@
 Tout les fonctionnalités du blog, même les plus basiques (à compléter)
 
-
-La page d'accueil charge en ~250ms. Environnement : Firefox 89, pas de cache, réseau émulant une "[bonne 3G](https://developer.mozilla.org/fr/docs/Tools/Network_Monitor/Throttling)".
-
-
 ## Divers
 - HTTPS
 - Cache busting du JS et du CSS
@@ -23,7 +19,7 @@ La page d'accueil charge en ~250ms. Environnement : Firefox 89, pas de cache, r�
 ## Texte
 
 - Insertion auto de guillemets bas et d'espaces fines non-sécables.
-- Insertion facile de n	otes de bas de pages
+- Insertion facile de notes de bas de pages.
 - Liens profonds : Dans un article, survoler un inter-titre fait apparaitre un lien. Ce lien fournit une ancre permettant d'ouvrir la page directement à ce titre.
 
 
