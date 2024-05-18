@@ -8,6 +8,7 @@ import { parseHTML } from 'linkedom'
 const warning = debug('pictures:warning')
 
 import meta from '../_data/meta.js'
+import setAttributes from '../utils/setAttributes.js'
 
 export function reformatURL(src, width) {
 
@@ -102,20 +103,19 @@ function generateSrcList(imageSettings, imageWidth, imageSrc) {
 function prepareForLighbox(image, document) {
 	if (image.closest('.picture-gallery')) {
 		const link = document.createElement("a")
-		link.setAttribute("data-pswp-srcset", image.getAttribute('srcset'))
-
-		link.setAttribute("href", image.getAttribute('src'))
+		setAttributes(link, {
+			"data-pswp-srcset": image.getAttribute('srcset'),
+			"href": image.getAttribute('src'),
+			'data-pswp-width': image.width,
+			'data-pswp-height': image.height
+		})
 		link.appendChild(image.cloneNode(true))
-		link.setAttribute('data-pswp-width', image.width)
-		link.setAttribute('data-pswp-height', image.height)
 		image.replaceWith(link)
 	}
 }
 
 
 function handleImg(image, document, globalSettings) {
-
-
 
 	try {
 		let originalPath = path.normalize(image.getAttribute('src'))
@@ -124,8 +124,10 @@ function handleImg(image, document, globalSettings) {
 
 		const imageDimensions = convertPicturesLibrary.statsSync(intermediaryPath, { statsOnly: true, formats: ["webp"] })
 		const originalWidth = imageDimensions.webp[0].width
-		image.setAttribute('width', originalWidth)
-		image.setAttribute('height', imageDimensions.webp[0].height)
+		setAttributes(image, {
+			'width': originalWidth,
+			'height': imageDimensions.webp[0].height
+		})
 
 
 		const imageSrc = image.getAttribute('src')
@@ -142,10 +144,14 @@ function handleImg(image, document, globalSettings) {
 				imageSettings.reformatURL(imageSrc, imageSettings.fallbackWidth)
 			)
 		}
-		//migre vers élément source pour éviter CLS ?
-		image.setAttribute('srcset', srcsetList.join(', '))
-		// add sizes attribute
-		image.setAttribute('sizes', imageSettings.sizes)
+		setAttributes(image,
+			{
+				//migre vers élément source pour éviter CLS ?
+				'srcset': srcsetList.join(', '),
+				// add sizes attribute
+				'sizes': imageSettings.sizes
+			}
+		)
 		image.dataset.responsiver = image.dataAttribute
 		// add 'data-pristine' attribute with URL of the pristine image
 		image.dataset.pristine = imageSrc
@@ -171,14 +177,11 @@ function handleImg(image, document, globalSettings) {
 			}
 		}
 		try {
-
 			convertPicturesLibrary(intermediaryPath, options)
-
 		}
 		catch (e) {
 			console.log("debug images-resp: " + intermediaryPath + "  " + e)
 		}
-
 
 		prepareForLighbox(image, document)
 	} catch (e) {
@@ -187,7 +190,7 @@ function handleImg(image, document, globalSettings) {
 	}
 }
 
-export default function findImg(html, outputPath) {
+export function findImg(html, outputPath) {
 
 	const contentPagesSettings = {
 		selector: `.image-responsiver-content img[src]:not([srcset]):not([src$='.svg'])`,
@@ -195,7 +198,7 @@ export default function findImg(html, outputPath) {
 		maxWidth: 1920,
 		sizes: '(max-width: 60rem) 90vw, 60rem',
 		reformatURL: reformatURL,
-		steps: (meta.env === "dev" ? 2 : 5),
+		steps: 5,
 		dataAttribute: 'img-content-page',
 		//format: (meta.env === "production" ? "webp" : "")
 	}
@@ -233,3 +236,24 @@ export default function findImg(html, outputPath) {
 }
 
 
+
+export function findImgInDevEnv(html, outputPath) {
+
+	function reformatURL(src) {
+		const name = path.basename(src)
+		return `/${meta.assetsDir}/${name}`
+	}
+
+	if (outputPath && outputPath.endsWith('.html')) {
+		const { document } = parseHTML(html);
+
+		[...document.querySelectorAll(".image-responsiver-content img[src]:not([srcset]):not([src$='.svg'])")].forEach(async (image) => {
+			const imageSrc = image.getAttribute('src')
+			image.setAttribute("src", reformatURL(imageSrc))
+			prepareForLighbox(image, document)
+		})
+
+		return document.toString()
+	}
+	else { return html }
+}

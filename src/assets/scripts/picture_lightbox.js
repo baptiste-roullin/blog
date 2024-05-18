@@ -31,7 +31,6 @@ lightbox.addFilter('uiElement', (element, data) => {
 	return element
 })
 
-
 lightbox.init();
 
 
