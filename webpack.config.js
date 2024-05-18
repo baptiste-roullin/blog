@@ -41,7 +41,7 @@ export default {
 							], filters: {
 								// Don't put file extensions.
 								dateFormatting: resolve(__dirname, 'src/filters/dateFormatting'),
-								removeMD: resolve(__dirname, 'src/filters/remove_MD'),
+								removeMD: resolve(__dirname, 'src/filters/removeMD'),
 								markdownify: resolve(__dirname, 'src/filters/markdownify')
 
 							}

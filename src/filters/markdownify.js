@@ -1,2 +1,2 @@
 import md from '../markdown.js'
-export default function (markdownString) { return md.renderInline(markdownString) }
+export default function markdownify(markdownString) { return md.renderInline(markdownString) }
