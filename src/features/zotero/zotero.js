@@ -183,7 +183,6 @@ export default async function zotero(collection, ...requestedTags) {
             { items: completedItems },
             [dateFormatting, markdownify]
         )
-        console.log(html)
 
         return html
     }
