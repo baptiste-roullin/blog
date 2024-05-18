@@ -2,6 +2,7 @@
 
 import meta from './_data/meta.js'
 import truchetNode from './features/truchet/truchet_node.js'
+import fileExists from './utils/fileExists.js'
 
 
 /** @returns {boolean} */
@@ -58,9 +59,12 @@ export const collections = {
         const collatedProjects = await Promise.all(projects.map(async (project) => {
             //TODO ajouter cache
             if (!project.img) {
+            }
+            //chemin absolu
+            project.img = `/${meta.assetsDir}/truchet-${project.name}.png`
+            const projectExists = await fileExists(process.cwd() + project.img)
+            if (!projectExists) {
                 await truchetNode(project.name, 400, 400).catch(console.error)
-                //chemin absolu
-                project.img = `/${meta.assetsDir}/truchet-${project.name}.png`
             }
             return project
         }))
