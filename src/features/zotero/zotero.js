@@ -15,10 +15,9 @@ import { dirname } from 'node:path'
 import { fileURLToPath } from 'url'
 import dotenv from 'dotenv'
 dotenv.config()
-import { EleventyRenderPlugin } from '@11ty/eleventy'
+import renderNunjucks from '../../utils/renderNunjucks.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const RenderManager = EleventyRenderPlugin.RenderManager
 
 
 /*
@@ -175,22 +174,18 @@ export default async function zotero(collection, ...requestedTags) {
             }
         }
 
-
         // Cette fonction récupère des données supplémentaires
         // - une date parsée par Zotero, qu'on espère plus propre que le champ d'origine
         // - un lien direct vers un PDF, tiré des pièces jointes.
         const completedItems = await addDataToItems(items)
 
-        const renderManager = new RenderManager()
-        renderManager.config(function (eleventyConfig) {
-            eleventyConfig.addFilter("markdownify", markdownify)
-            eleventyConfig.addFilter("dateFormatting", dateFormatting)
-        })
-        const content = await fs.readFile(path.join(__dirname, './zotero_component.njk'), { encoding: 'utf-8' })
-        const render = await renderManager.compile(content, "njk")
-        //console.log(await render(content, { items: completedItems }))
-        return await render(content, { items: completedItems })
+        const html = await renderNunjucks("features/zotero/zotero_component.njk",
+            { items: completedItems },
+            [dateFormatting, markdownify]
+        )
+        console.log(html)
 
+        return html
     }
     catch (error) {
         //403 : mauvaises infos de connexion

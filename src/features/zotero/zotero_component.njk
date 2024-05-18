@@ -5,32 +5,21 @@
 - several zotero widgets in the same page. no problems right since it's always the same calculations.#}
 <ul class="mb-5 zotero-list sm:mb-3 not-prose">
 	{% for item in items %}
-		<li >
-			<div class="my-4 first:mt-2">
-				<a href="{{item.url}}" class="text-base underline lg:text-lg sm:no-underline hover:underline" >{{item.title}}  ➡️</a>
-				<div class="flex gap-2 pt-2 text-base zotero-metadata lg:pt-1">
-					{% if item.parsedDate %}
-						<span class="whitespace-nowrap">{{item.author}}</span>
-					{% endif %}
-					{% if item.parsedDate and item.itemType !== "webpage" %}
-						<span>{{item.parsedDate | dateFormatting("yyyy") }}</span>
-						<span aria-hidden="true" class=" last:hidden first:hidden">~</span>
-					{% endif %}
-					{% if item.attachmentURL %}
-							<a class="text-gray-600 underline sm:pt-0" href="{{item.attachmentURL}}">PDF</a>
-						<span aria-hidden="true" class=" last:hidden first:hidden">~</span>
-					{% endif %}
-					{% if item.abstractNote %}
-					<details>
-						<summary class="text-gray-600 underline cursor-pointer decoration-2">Résumé</summary>
-						<p class="relative mt-0 text-base details-content" hidden="until-found">{{item.abstractNote | markdownify }}</p>
-					</details>
-					{% endif %}
-				</div>
-			</div>
-		</li>
-	{% endfor %}
-</ul>
+		<li class="block my-4 first:mt-2"><a href="{{item.url}}" class="text-base underline lg:text-lg sm:no-underline hover:underline" >{{item.title}} ➡️</a>
+			<div class="flex gap-2 pt-2 text-base zotero-metadata lg:pt-1">
+				{% if item.parsedDate %}
+					<span class="whitespace-nowrap">{{item.author}}</span>
+				{% endif %}
+				{% if item.parsedDate and item.itemType !== "webpage" %}
+					<span>{{item.parsedDate | dateFormatting("yyyy") }}</span>
+					<span aria-hidden="true" class=" last:hidden first:hidden">~</span>
+				{% endif %}
+				{% if item.attachmentURL %}
+						<a class="text-gray-600 underline sm:pt-0" href="{{item.attachmentURL}}">PDF</a>
+					<span aria-hidden="true" class=" last:hidden first:hidden">~</span>
+				{% endif %}
+				{% if item.abstractNote %}
+				<details><summary class="text-gray-600 underline cursor-pointer decoration-2">Résumé</summary><div class="relative mt-0 text-base details-content" hidden="until-found">{{item.abstractNote | safe }}</div></details>{% endif %}</div></li>{% endfor %}</ul>
 <script>
 function zoteroSummary() {
 	function cb(target, detailsEl) {
