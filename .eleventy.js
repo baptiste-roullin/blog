@@ -10,7 +10,7 @@ import embedEverything from "eleventy-plugin-embed-everything"
 import { EleventyRenderPlugin } from "@11ty/eleventy"
 
 import meta from './src/_data/meta.js'
-import findImg, { reformatURL } from './src/transforms/media_processing.js'
+import { findImg, findImgInDevEnv } from './src/transforms/media_processing.js'
 
 import { collections } from './src/collections.js'
 import md from './src/markdown.js'
@@ -19,9 +19,8 @@ import pairedShortcodes from './src/shortcodes/pairedShortcodes.js'
 import shortcodes from './src/shortcodes/shortcodes.js'
 import filters from './src/filters/filters.js'
 import path from 'node:path'
+import fileExists from './src/utils/fileExists.js'
 
-//import { Config, UserConfig } from './src/../types/eleventy'
-//import("./src/../types/eleventy").Config()
 
 export default async function (config) {
 	config.setUseGitIgnore(false)
@@ -55,7 +54,7 @@ export default async function (config) {
  * Passthrough File Copy
 */
 
-
+	// doesn't work with {source: dest} copy pattern.
 	config.setServerPassthroughCopyBehavior("passthrough")
 
 	config.addPassthroughCopy('src/robots.txt')
@@ -65,10 +64,7 @@ export default async function (config) {
 	config.addPassthroughCopy('src/assets/UI')
 
 	const imagePath = `${process.cwd()}/${meta.outputDir}/${meta.assetsDir}/`
-	try {
-		await fsp.access(imagePath)
-
-	} catch (error) {
+	if (!(await fileExists(imagePath))) {
 		await fsp.mkdir(imagePath, { recursive: true })
 	}
 
@@ -81,42 +77,13 @@ export default async function (config) {
 		//config.addPassthroughCopy({ 'src/posts/**/* ': meta.assetsDir })
 		//config.addPassthroughCopy('src/assets/images')
 
-		config.addTransform(
-			'img_transform',
-			findImg
-		)
+		config.addTransform('img_transform', findImg)
 	}
 	else {
 
-		function img_transform_dev(html, outputPath) {
-
-			function reformatURL(src) {
-				const name = path.basename(src)
-				return `/${meta.assetsDir}/${name}`
-			}
-
-			if (outputPath && outputPath.endsWith('.html')) {
-				const { document } = parseHTML(html);
-
-				[...document.querySelectorAll(".image-responsiver-content img[src]:not([srcset]):not([src$='.svg'])")].forEach(async (image) => {
-
-					const imageSrc = image.getAttribute('src')
-
-					image.setAttribute("src", reformatURL(imageSrc))
-				})
-
-				return document.toString()
-			}
-			else { return html }
-		}
-		config.addPassthroughCopy({ 'src/posts/*.{png,webp,gif,mp4,jpg,jpeg}': `/${meta.assetsDir}/` })
+		config.addPassthroughCopy({ 'src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}': `/${meta.assetsDir}/` })
 		config.addPassthroughCopy({ 'src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}': `/${meta.assetsDir}/` })
-
-
-		config.addTransform(
-			'img_transform',
-			img_transform_dev
-		)
+		config.addTransform('findImgInDevEnv', findImgInDevEnv)
 	}
 
 	/**
@@ -197,7 +164,6 @@ export default async function (config) {
 			includes: '_templates',
 			data: '_data',
 		},
-		passthroughFileCopy: true,
 		templateFormats: ['html', 'njk', 'md'],
 		htmlTemplateEngine: 'njk',
 		markdownTemplateEngine: 'njk'

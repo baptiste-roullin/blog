@@ -8,6 +8,19 @@ import dateFormatting from '../../filters/dateFormatting.js'
 import cache from '../../utils/caching.js'
 import api from '../../../node_modules/zotero-api-client/src/main.js'
 
+import fs from 'node:fs/promises'
+import path from 'node:path'
+
+import { dirname } from 'node:path'
+import { fileURLToPath } from 'url'
+import dotenv from 'dotenv'
+dotenv.config()
+import { EleventyRenderPlugin } from '@11ty/eleventy'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const RenderManager = EleventyRenderPlugin.RenderManager
+
+
 /*
 Comme promise.all, effectue des requête en parallèle et renvoie une promesse de tableau de résultats. Avec en plus des options, notamment une pour limiter le nombre de requêtes parallèles
 @param input — Iterated over concurrently in the mapper function.
@@ -20,11 +33,9 @@ Comme promise.all, effectue des requête en parallèle et renvoie une promesse d
  * @param {...string} [requestedTags]
  * @returns {Promise<string | undefined>}
 */
-
 export default async function zotero(collection, ...requestedTags) {
     //supports only one tag.
 
-    const { default: njk } = await import('../../../node_modules/nunjucks/index.js')
     if (!meta.zoteroAPIKey) {
         console.log(new Error("La clé d'API pour Zotero est manquante"))
         return
@@ -42,7 +53,6 @@ export default async function zotero(collection, ...requestedTags) {
     const lib = await api(meta.zoteroAPIKey).library('user', meta.zoteroProfileID)
 
     async function addDataToItems(items) {
-
 
         async function mapper(item) {
             try {
@@ -171,23 +181,15 @@ export default async function zotero(collection, ...requestedTags) {
         // - un lien direct vers un PDF, tiré des pièces jointes.
         const completedItems = await addDataToItems(items)
 
-        // Ce templating étant à part d'Eleventy, on doit recréer un environnement Nunjucks
-
-        // base du chemin utilisé ensuite par render()
-        const env = njk.configure('./src/features/zotero',
-            // options, notamment pour supprimer les vides inutiles.
-            { autoescape: true, trimBlocks: true, lstripBlocks: true })
-
-        // Ajout d'un filtre utilisé par zotero.njk
-        env.addFilter('dateFormatting', dateFormatting)
-        env.addFilter('markdownify', markdownify)
-
-
-        //génération du HTML
-
-
-        const compt = await env.render('zotero_component.njk', { items: completedItems })
-        return compt
+        const renderManager = new RenderManager()
+        renderManager.config(function (eleventyConfig) {
+            eleventyConfig.addFilter("markdownify", markdownify)
+            eleventyConfig.addFilter("dateFormatting", dateFormatting)
+        })
+        const content = await fs.readFile(path.join(__dirname, './zotero_component.njk'), { encoding: 'utf-8' })
+        const render = await renderManager.compile(content, "njk")
+        //console.log(await render(content, { items: completedItems }))
+        return await render(content, { items: completedItems })
 
     }
     catch (error) {
