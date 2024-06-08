@@ -103,6 +103,9 @@ export default async function (config) {
 			use: ['twitter'], twitter: { options: { align: 'center' } }
 
 		})*/
+	//TODO: add renderTransform et ne plus avoir à utiliser mon fork du plugin ? 
+	// https://github.com/11ty/eleventy/issues/3294
+	// https://github.com/11ty/eleventy-plugin-rss/issues/47
 	config.addPlugin(pluginRss)
 	config.addPlugin(EleventyRenderPlugin)
 
