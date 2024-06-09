@@ -1,24 +1,20 @@
 
 //@todo : plus besoin de .eleventyignore en env de dev. https://www.11ty.dev/docs/ignores/#configuration-api
 
-import { parseHTML } from 'linkedom'
+import fsp from 'node:fs/promises'
 
 import pluginRss from '@11ty/eleventy-plugin-rss'
 import pluginNavigation from '@11ty/eleventy-navigation'
 import yaml from "js-yaml"
-import embedEverything from "eleventy-plugin-embed-everything"
-import { EleventyRenderPlugin } from "@11ty/eleventy"
 
 import meta from './src/_data/meta.js'
 import { findImg, findImgInDevEnv } from './src/transforms/media_processing.js'
 
 import { collections } from './src/collections.js'
 import md from './src/markdown.js'
-import fsp from 'node:fs/promises'
 import pairedShortcodes from './src/shortcodes/pairedShortcodes.js'
 import shortcodes from './src/shortcodes/shortcodes.js'
 import filters from './src/filters/filters.js'
-import path from 'node:path'
 import fileExists from './src/utils/fileExists.js'
 
 
@@ -98,16 +94,12 @@ export default async function (config) {
 	 * Plugins
 	 */
 	config.addPlugin(pluginNavigation)
-	/*	config.addPlugin(embedEverything, {
-			//use: ['vimeo', 'youtube', 'twitter'], twitter: { options: { align: 'center' } }
-			use: ['twitter'], twitter: { options: { align: 'center' } }
 
-		})*/
-	//TODO: add renderTransform et ne plus avoir à utiliser mon fork du plugin ? 
+	//TODO: add renderTransform et ne plus avoir à utiliser mon fork du plugin ?
 	// https://github.com/11ty/eleventy/issues/3294
 	// https://github.com/11ty/eleventy-plugin-rss/issues/47
 	config.addPlugin(pluginRss)
-	config.addPlugin(EleventyRenderPlugin)
+	config.addPlugin(config.resolvePlugin("@11ty/eleventy"))
 
 
 	/**
