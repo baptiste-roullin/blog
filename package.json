@@ -38,6 +38,7 @@
     "eleventy-plugin-embed-everything": "^1.14",
     "esm-seedrandom": "^3.0.5",
     "full-icu": "^1.5.0",
+    "highlight.js": "^11.9.0",
     "js-yaml": "^4.1.0",
     "linkedom": "^0.16.1",
     "lodash.clonedeep": "^4.5.0",
@@ -62,12 +63,12 @@
     "webpack": "^5.89.0",
     "webpack-assets-manifest": "^5.1.0",
     "webpack-cli": "^5.1.4",
-    "zotero-api-client": "^0.43.1",
-    "highlight.js": "^11.9.0"
+    "zotero-api-client": "^0.43.1"
   },
   "dependencies": {
     "photoswipe": "^5.4.3",
-    "text-metrics": "^4.0.1"
+    "text-metrics": "^4.0.1",
+    "typescript": "^5.4.5"
   },
   "browserslist": [
     "> 1%",

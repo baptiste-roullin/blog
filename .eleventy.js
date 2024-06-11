@@ -18,18 +18,20 @@ import filters from './src/filters/filters.js'
 import fileExists from './src/utils/fileExists.js'
 
 
+/** @param {import("@11ty/eleventy").UserConfig} config */
+
 export default async function (config) {
 	config.setUseGitIgnore(false)
 
-	config.ignores.add("/src/heroPages/portfolio/portfolioIntro.md")
-	config.ignores.add("/src/features/zotero/zotero_component.njk")
+	config.ignores?.add("/src/heroPages/portfolio/portfolioIntro.md")
+	config.ignores?.add("/src/features/zotero/zotero_component.njk")
 
 	if (meta.env === "dev") {
-		config.ignores.add("./src/posts/201*")
-		config.ignores.add("./src/posts/2020*")
-		config.ignores.add("./src/posts/2021*")
-		config.ignores.add("./src/posts/2022*")
-		config.ignores.add("./src/posts/2023*")
+		config.ignores?.add("./src/posts/201*")
+		config.ignores?.add("./src/posts/2020*")
+		config.ignores?.add("./src/posts/2021*")
+		config.ignores?.add("./src/posts/2022*")
+		config.ignores?.add("./src/posts/2023*")
 	}
 
 
