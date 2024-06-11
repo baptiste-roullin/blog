@@ -43,7 +43,6 @@ export default async function (config) {
 	config.addWatchTarget('./src/assets/scripts/')
 	config.addWatchTarget('./src/**/*.js')
 	config.addWatchTarget('./tailwind.config.js')
-	config.setWatchThrottleWaitTime(200)
 	config.setWatchJavaScriptDependencies(true)
 
 
@@ -101,7 +100,7 @@ export default async function (config) {
 	// https://github.com/11ty/eleventy/issues/3294
 	// https://github.com/11ty/eleventy-plugin-rss/issues/47
 	config.addPlugin(pluginRss)
-	config.addPlugin(config.resolvePlugin("@11ty/eleventy"))
+	config.addPlugin(await config.resolvePlugin("@11ty/eleventy/render-plugin"))
 
 
 	/**
