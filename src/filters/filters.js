@@ -52,33 +52,57 @@ export default {
         })
     },
 
+    /**
+     *
+     * @param {array} arr
+     * @param {number} a
+     * @param {number} b
+     * @returns {array}
+     */
     slice: function (arr, a, b = 5) {
+
         return arr.slice(a, b)
     },
 
+    /**
+     *
+     * @param {array} array
+     * @returns {array}
+     */
     shuffle: function (array) {
 
-        const newArray = [...array]
-        var currentIndex = newArray.length
-        var temporaryValue, randomIndex
+        try {
+            if (!(Array.isArray(array))) {
+                throw new Error("should be array")
+            }
 
-        // While there remain elements to shuffle...
-        while (0 !== currentIndex) {
-            // Pick a remaining element...
-            randomIndex = Math.floor(Math.random() * currentIndex)
-            currentIndex -= 1
+            const newArray = [...array]
+            var currentIndex = newArray.length
+            var temporaryValue, randomIndex
 
-            // And swap it with the current element.
-            temporaryValue = newArray[currentIndex]
-            newArray[currentIndex] = newArray[randomIndex]
-            newArray[randomIndex] = temporaryValue
+            // While there remain elements to shuffle...
+            while (0 !== currentIndex) {
+                // Pick a remaining element...
+                randomIndex = Math.floor(Math.random() * currentIndex)
+                currentIndex -= 1
+
+                // And swap it with the current element.
+                temporaryValue = newArray[currentIndex]
+                newArray[currentIndex] = newArray[randomIndex]
+                newArray[randomIndex] = temporaryValue
+            }
+
+            return newArray
+
+
+        } catch (error) {
+            console.log(error)
+            console.log(this.inputPath)
         }
-
-        return newArray
     },
     markdownify: markdownify,
 
-    markdownifyBlock: (value) => {
+    markdownifyBlock: function (value) {
         if (!value) {
             console.log("markdownifyBlock: empty string")
             return ''
@@ -114,8 +138,10 @@ export default {
     /**
    // Universal slug filter strips unsafe chars from URLs
    */
-    slugify: (string) => {
-        return slugify(string)
+    slugify: function (string) {
+
+        const inputPath = this.page.inputPath
+        return slugify(string, inputPath)
     },
 
 }

@@ -1,39 +1,37 @@
 
 //@todo : plus besoin de .eleventyignore en env de dev. https://www.11ty.dev/docs/ignores/#configuration-api
 
-import { parseHTML } from 'linkedom'
+import fsp from 'node:fs/promises'
 
 import pluginRss from '@11ty/eleventy-plugin-rss'
 import pluginNavigation from '@11ty/eleventy-navigation'
 import yaml from "js-yaml"
-import embedEverything from "eleventy-plugin-embed-everything"
-import { EleventyRenderPlugin } from "@11ty/eleventy"
 
 import meta from './src/_data/meta.js'
 import { findImg, findImgInDevEnv } from './src/transforms/media_processing.js'
 
 import { collections } from './src/collections.js'
 import md from './src/markdown.js'
-import fsp from 'node:fs/promises'
 import pairedShortcodes from './src/shortcodes/pairedShortcodes.js'
 import shortcodes from './src/shortcodes/shortcodes.js'
 import filters from './src/filters/filters.js'
-import path from 'node:path'
 import fileExists from './src/utils/fileExists.js'
 
+
+/** @param {import("@11ty/eleventy").UserConfig} config */
 
 export default async function (config) {
 	config.setUseGitIgnore(false)
 
-	config.ignores.add("/src/heroPages/portfolio/portfolioIntro.md")
-	config.ignores.add("/src/features/zotero/zotero_component.njk")
+	config.ignores?.add("/src/heroPages/portfolio/portfolioIntro.md")
+	config.ignores?.add("/src/features/zotero/zotero_component.njk")
 
 	if (meta.env === "dev") {
-		config.ignores.add("./src/posts/201*")
-		config.ignores.add("./src/posts/2020*")
-		config.ignores.add("./src/posts/2021*")
-		config.ignores.add("./src/posts/2022*")
-		config.ignores.add("./src/posts/2023*")
+		config.ignores?.add("./src/posts/201*")
+		config.ignores?.add("./src/posts/2020*")
+		config.ignores?.add("./src/posts/2021*")
+		config.ignores?.add("./src/posts/2022*")
+		config.ignores?.add("./src/posts/2023*")
 	}
 
 
@@ -45,7 +43,6 @@ export default async function (config) {
 	config.addWatchTarget('./src/assets/scripts/')
 	config.addWatchTarget('./src/**/*.js')
 	config.addWatchTarget('./tailwind.config.js')
-	config.setWatchThrottleWaitTime(200)
 	config.setWatchJavaScriptDependencies(true)
 
 
@@ -110,7 +107,7 @@ export default async function (config) {
 			}
 		})*/
 	config.addPlugin(pluginRss)
-	config.addPlugin(EleventyRenderPlugin)
+	config.addPlugin(await config.resolvePlugin("@11ty/eleventy/render-plugin"))
 
 
 	/**

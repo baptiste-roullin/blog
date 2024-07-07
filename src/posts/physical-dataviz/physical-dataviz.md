@@ -109,11 +109,9 @@ D'autant que le système était pensé de bout en bout. Il y avait des "méta-fi
 
 Finissons par un exercice sous contraintes intéressant : des "photoviz" qui utilisent des objets triviaux pour figurer des quantités et liés au thème de la donnée représentée. Garanti sans triche ni redimensionnement.
 
-https://twitter.com/JulesGrandin/status/1163371189487722496
+![](grandin.jpg)
 
-https://twitter.com/JulesGrandin/status/1164093612172427264
-
-
+Source et autre exemple [ici](https://twitter.com/JulesGrandin/status/1163371189487722496) et [là](https://twitter.com/JulesGrandin/status/1164093612172427264)
 
 
 

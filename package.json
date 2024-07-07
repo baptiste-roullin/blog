@@ -2,13 +2,14 @@
   "name": "tout-ce-qui-bouge",
   "type": "module",
   "scripts": {
-    "dev:webpack": "npx webpack --watch  --mode development",
-    "dev:eleventy": "npx @11ty/eleventy --incremental  --serve --quiet",
+    "dev:webpack": "npx webpack --watch --mode development",
+    "dev:eleventy": "npx @11ty/eleventy --incremental  --ignore-initial --serve --quiet",
     "dev:postcss": "postcss src/assets/css/main.css -o dist/assets/css/main.css --watch",
     "dev": "npm-run-all --parallel dev:* --print-label",
+    "//": "build copy à supprimer ?",
     "build:copy": "npx cpy-cli  --flat \"./src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}\" \"./src/assets/images/*\" \"./src/assets/UI/*\"  ./src/assets/imagesToProcess/",
     "build:webpack": "npx webpack  --mode production",
-    "build:eleventy": " npx @11ty/eleventy --incremental --quiet",
+    "build:eleventy": " npx @11ty/eleventy  --quiet",
     "build:postcss": "postcss --verbose src/assets/css/main.css -o dist/assets/css/main.css",
     "build:search": "npx pagefind --site dist ",
     "build": "run-s build:* --print-label"
@@ -38,6 +39,7 @@
     "eleventy-plugin-embed-everything": "^1.14",
     "esm-seedrandom": "^3.0.5",
     "full-icu": "^1.5.0",
+    "highlight.js": "^11.9.0",
     "js-yaml": "^4.1.0",
     "linkedom": "^0.16.1",
     "lodash.clonedeep": "^4.5.0",
@@ -62,8 +64,7 @@
     "webpack": "^5.89.0",
     "webpack-assets-manifest": "^5.1.0",
     "webpack-cli": "^5.1.4",
-    "zotero-api-client": "^0.43.1",
-    "highlight.js": "^11.9.0"
+    "zotero-api-client": "^0.43.1"
   },
   "dependencies": {
     "photoswipe": "^5.4.3",
