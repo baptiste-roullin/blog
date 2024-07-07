@@ -99,9 +99,15 @@ export default async function (config) {
 	 */
 	config.addPlugin(pluginNavigation)
 	/*	config.addPlugin(embedEverything, {
-			//use: ['vimeo', 'youtube', 'twitter'], twitter: { options: { align: 'center' } }
-			use: ['twitter'], twitter: { options: { align: 'center' } }
-
+			use: ['twitter', 'youtube'],
+			twitter: {
+				options: { align: 'center' },
+				youtube: {
+					options: {
+						lite: true
+					}
+				}
+			}
 		})*/
 	config.addPlugin(pluginRss)
 	config.addPlugin(EleventyRenderPlugin)
