@@ -5,6 +5,7 @@ import truchetNode from './features/truchet/truchet_node.js'
 import fileExists from './utils/fileExists.js'
 
 
+// TODO: remplacer par preprocessing https://github.com/11ty/eleventy/issues/188
 /** @returns {boolean} */
 const published = (post) => { return !post.data.draft }
 
