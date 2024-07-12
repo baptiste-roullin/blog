@@ -12,25 +12,13 @@ export default {
 
 
     //TODO: ajouter contrôle pour tous les filtres, avec try catch throw
-    //TODO : logger this.page ou this.ctx pour de meilleurs messages d'erreur
+    // logger this.page ou this.ctx pour de meilleurs messages d'erreur
     /**
      * Filters
      * @link https://www.11ty.dev/docs/filters/
      */
 
     normalizeTag: normalizeTag,
-
-    published: function (collection) {
-        //const pub = collections['publishedPosts']
-        return collection.filter((post) => {
-            if (post.draft) {
-                if (post.draft === true) {
-                    return false
-                }
-            }
-            return true
-        })
-    },
 
     cleanHeaderAnchors: (content) => {
         if (content === undefined) {
