@@ -1,57 +1,51 @@
-//import normalizeTag from '../filters/normalize_tag'
-
 import meta from './_data/meta.js'
 import truchetNode from './features/truchet/truchet_node.js'
 import fileExists from './utils/fileExists.js'
 
 
-// TODO: remplacer par preprocessing https://github.com/11ty/eleventy/issues/188
-/** @returns {boolean} */
-const published = (post) => { return !post.data.draft }
-
 /** @param {boolean | string} value
  * @returns {any}
  */
-function getbyField(collectionAPI, field, value) {
+function getPublishedByField(collectionAPI, field, value) {
 
     return collectionAPI.getAllSorted().
         filter((item) => item.data[field] === value).
-        filter(published)
+        // addPreprocessor n'est en fait pas plus dans mon contexte. https://github.com/11ty/eleventy/issues/188
+        filter((post) => !post.data.draft)
 }
 export const collections = {
 
     publishedPosts: function (collectionAPI) {
-        return getbyField(collectionAPI, 'type', 'post')
+        return getPublishedByField(collectionAPI, 'type', 'post')
     },
 
     tagList: function (collectionAPI) {
         let tagDictionary = {}
 
-        getbyField(collectionAPI, 'type', 'post').forEach(function (item) {
+        getPublishedByField(collectionAPI, 'type', 'post')
+            .forEach(function (item) {
+                if ('tags' in item.data) {
+                    let tags = item.data.tags
 
-
-            if ('tags' in item.data) {
-                let tags = item.data.tags
-
-                // Compteur du nombre d'articles associés à un tag
-                for (let tag of tags) {
-                    if (tag in tagDictionary) {
-                        const oldValue = tagDictionary[tag]
-                        tagDictionary[tag] = oldValue + 1
-                    }
-                    else {
-                        tagDictionary[tag] = 1
+                    // Compteur du nombre d'articles associés à un tag
+                    for (let tag of tags) {
+                        if (tag in tagDictionary) {
+                            const oldValue = tagDictionary[tag]
+                            tagDictionary[tag] = oldValue + 1
+                        }
+                        else {
+                            tagDictionary[tag] = 1
+                        }
                     }
                 }
-            }
-        })
+            })
         const sortedtags = Object.entries(tagDictionary).sort((a, b) => b[1] - a[1])
 
         return Object.fromEntries(sortedtags)
     },
 
     featured: function (collectionAPI) {
-        return getbyField(collectionAPI, 'featured', true)
+        return getPublishedByField(collectionAPI, 'featured', true)
     },
 
     projectsList: async function (collectionAPI) {

@@ -6,7 +6,7 @@
     "dev:eleventy": "npx @11ty/eleventy --incremental  --ignore-initial --serve --quiet",
     "dev:postcss": "postcss src/assets/css/main.css -o dist/assets/css/main.css --watch",
     "dev": "npm-run-all --parallel dev:* --print-label",
-    "//": "build copy à supprimer ?",
+    "// TODO": "build copy à supprimer ?",
     "build:copy": "npx cpy-cli  --flat \"./src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}\" \"./src/assets/images/*\" \"./src/assets/UI/*\"  ./src/assets/imagesToProcess/",
     "build:webpack": "npx webpack  --mode production",
     "build:eleventy": " npx @11ty/eleventy  --quiet",
