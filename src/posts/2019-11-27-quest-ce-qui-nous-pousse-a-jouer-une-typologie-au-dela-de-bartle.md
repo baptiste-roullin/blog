@@ -138,3 +138,9 @@ Sécurité
 Plaisir
 Sens
 Popularité
+
+## Ajout 2024 : le modèle DEEP
+
+Les chercheurs ont créé un site complet sur leur modèle, avec [une page de vulgarisation](https://www.the-deepmodel.fr/infos) et un questionnaire.
+
+![](/assets/images/deep_model.png)
