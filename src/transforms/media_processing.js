@@ -14,7 +14,7 @@ export function reformatURL(src, width) {
 
 	const extension = path.extname(src)
 	const name = path.basename(src, extension)
-	return `/${meta.assetsDir}/${name}-${width}.${extension}`
+	return `/${meta.assetsDir}/${name}-${width}${extension}`
 
 	/*		const fullPath = `/${meta.assetsDir}/${path.basename(src)}`
 

@@ -12,6 +12,7 @@ layout: base
           <h1 data-pagefind-weight="9" class="m-auto text-gray-700 text-balance">{{ title }}</h1>
           {% if not hideMeta %}
             <div class="pt-4 text-sm sm:text-base not-prose">
+            {# TODO: ajouter 'première date de publication' #}
               <time  datetime="{{ page.date | dateFormatting("yyyy-MM-dd") }}">
                 {{ page.date | dateFormatting("dd LLLL yyyy") }}
               </time>
