@@ -138,3 +138,10 @@ Sécurité
 Plaisir
 Sens
 Popularité
+
+## Ajout 2024 : le modèle DEEP
+
+![/assets/images/](/deep_model.png)
+
+
+https://www.the-deepmodel.fr/infos
