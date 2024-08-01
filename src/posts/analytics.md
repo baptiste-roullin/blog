@@ -1,6 +1,6 @@
 ---
-title: Une  meilleure représentation des tailles de navigateur populaires
-  avec Google Analytics
+title: Une  meilleure représentation des tailles d'écran
+  avec des données Analytics
 date: 2022-08-15
 draft: false
 hero:
