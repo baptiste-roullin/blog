@@ -19,6 +19,7 @@ import renderNunjucks from '../../utils/renderNunjucks.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
+//TODO : shadow DOM https://github.com/11ty/eleventy/issues/3402
 
 /*
 Comme promise.all, effectue des requête en parallèle et renvoie une promesse de tableau de résultats. Avec en plus des options, notamment une pour limiter le nombre de requêtes parallèles
