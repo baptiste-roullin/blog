@@ -145,6 +145,20 @@ export default {
 			},
 			typography: (theme) => ({
 
+				'sm': {
+					css: {
+						h4: {
+							marginBottom: '0px'
+						}
+					}
+				},
+				'md': {
+					css: {
+						h4: {
+							marginBottom: '0px'
+						}
+					}
+				},
 				'xl': {
 					css: {
 						p: {
@@ -163,6 +177,9 @@ export default {
 							marginTop: "1.4em",
 							color: theme('colors.gray.700')
 						},
+						h4: {
+							marginBottom: '0px'
+						}
 					}
 				},
 				'lg': {
@@ -189,6 +206,9 @@ export default {
 						h3: {
 							marginTop: "1.4em",
 						},
+						h4: {
+							marginBottom: '0px'
+						}
 					}
 				},
 				DEFAULT: {
@@ -249,7 +269,8 @@ export default {
 							color: theme('colors.gray.700')
 						},
 						h4: {
-							color: theme('colors.gray.700')
+							color: theme('colors.gray.700'),
+							marginBottom: '0px'
 						}
 					},
 				},
