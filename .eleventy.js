@@ -74,12 +74,11 @@ export default async function (config) {
 		//config.addPassthroughCopy({ 'src/posts/**/* ': meta.assetsDir })
 		//config.addPassthroughCopy('src/assets/images')
 
-		config.addTransform('img_transform', findImg)
+		config.addTransform('findImg', findImg)
 	}
 	else {
-
 		config.addPassthroughCopy({ 'src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}': `/${meta.assetsDir}/` })
-		config.addPassthroughCopy({ 'src/assets/images/*.{png,webp,gif,mp4,jpg,jpeg}': `/${meta.assetsDir}/` })
+		config.addPassthroughCopy('src/assets/images/')
 		config.addTransform('findImgInDevEnv', findImgInDevEnv)
 	}
 
