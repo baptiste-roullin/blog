@@ -1,0 +1,1 @@
+/Users/broullin/Nextcloud/Coffre Obsidian/Idées/Comment invoquer la psychologie sans dire de bêtises.md
