@@ -1,5 +1,5 @@
 
-//@todo : plus besoin de .eleventyignore en env de dev. https://www.11ty.dev/docs/ignores/#configuration-api
+//TODO : plus besoin de .eleventyignore en env de dev. https://www.11ty.dev/docs/ignores/#configuration-api
 
 import fsp from 'node:fs/promises'
 
