@@ -11,7 +11,7 @@ export default function (string, inputPath) {
     else {
         try {
             if (!string) {
-                throw new Error("slugify: slug string is empty")
+                throw new Error("slugify: slug string is empty \n" + inputPath)
             }
 
             if (typeof string !== 'string') {
@@ -19,7 +19,7 @@ export default function (string, inputPath) {
             }
             let slug = slugifyLib(string, {
                 decamelize: false,
-                customReplacements: [['%', ' '], ["'", '']],
+                customReplacements: [['%', ' '], ["'", ''], ['’', '']],
             })
             memoizedSlugs[string] = slug
             return slug
@@ -29,5 +29,4 @@ export default function (string, inputPath) {
         }
 
     }
-}
-;
+};

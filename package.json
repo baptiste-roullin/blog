@@ -67,6 +67,7 @@
     "zotero-api-client": "^0.43.1"
   },
   "dependencies": {
+    "markdown-it-table-of-contents": "^0.8.0",
     "photoswipe": "^5.4.3",
     "text-metrics": "^4.0.1"
   },

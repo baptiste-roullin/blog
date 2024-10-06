@@ -243,6 +243,7 @@ export default {
 						},
 						blockquote: {
 							fontWeight: 'normal',
+							quotes: 'none',
 						},
 						code: {
 							fontSize: '.8em',
