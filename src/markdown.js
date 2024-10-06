@@ -3,7 +3,9 @@ import MarkdownItContainer from 'markdown-it-container'
 import footnote from 'markdown-it-footnote'
 import bracketedSpans from 'markdown-it-bracketed-spans'
 import attrs from 'markdown-it-attrs'
-import blockquoteCite from 'markdown-it-blockquote-cite'
+
+// Conflit avec markdown-it-attrs
+//import blockquoteCite from 'markdown-it-blockquote-cite'
 import imageFigures from 'markdown-it-image-figures'
 import highlightjs from "./utils/highlightPlugin.js"
 import french_nnbsp from './french_nnbsp.js'
@@ -58,5 +60,4 @@ export default markdownIt(options)
     .use(anchor)
     .use(bracketedSpans)
     .use(attrs)
-    .use(blockquoteCite)
     .use(imageFigures, { figcaption: true })
