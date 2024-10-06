@@ -28,7 +28,7 @@ Rassurez-vous mon but n'est pas de faire un article sur l'état de notre culture
 2. Un problème avec la prolifération de "biais" sur tout et n'importe quoi.
 
 
-## 1. Entre 30 et 50% des résultats en psychologie n'ont pas de valeur scientifiques
+## 1. Entre 30 et 50% des résultats en psychologie n'ont pas de valeur scientifique
 
 Ce qu'on appelle la crise de la reproductibilité, c'est la découverte que de nombreux travaux importants, principalement en médecine et en psychologie, sont impossibles à reproduire si on essaye de répéter la même expérience mais en respectant les exigences méthodologiques et statistiques. Des efforts collectifs de réplication systématique ont tenté de mesurrer l'étendue du problème et ont conclu que jusqu'à la moitié des papiers contrôlés ne pouvaient être reproduits.
 
