@@ -30,13 +30,13 @@ Rassurez-vous mon but n'est pas de faire un article sur l'état de notre culture
 
 ## 1. Entre 30 et 50% des résultats en psychologie n'ont pas de valeur scientifique
 
-Ce qu'on appelle la crise de la reproductibilité, c'est la découverte que de nombreux travaux importants, principalement en médecine et en psychologie, sont impossibles à reproduire si on essaye de répéter la même expérience mais en respectant les exigences méthodologiques et statistiques. Des efforts collectifs de réplication systématique ont tenté de mesurrer l'étendue du problème et ont conclu que jusqu'à la moitié des papiers contrôlés ne pouvaient être reproduits.
+Ce qu'on appelle la crise de la reproductibilité, c'est la découverte que de nombreux travaux importants, principalement en médecine et en psychologie, sont impossibles à reproduire si on essaye de répéter la même expérience mais en respectant les exigences méthodologiques et statistiques. Des efforts collectifs de réplication systématique ont tenté de mesurer l'étendue du problème et ont conclu que jusqu'à la moitié des papiers contrôlés ne pouvaient être reproduits.
 
 Les causes sont nombreuses et énumérées [sur Wikipedia](https://en.wikipedia.org/wiki/Replication_crisis). Citons notamment : la pression à la publication, la rareté des études de reproduction (dans l'idée que ça n'apporte rien de tester ce qui a déjà été, théoriquement, prouvé), les panels composés d'étudiants américains peu représentatifs, une culture permettant les mauvaises pratiques et le triturage de données, voire la fraude pure et simple.
 
 Il y a aussi un problème spécifique aux psychologies sociales et cognitives : elles s'intéressent à des phénomènes difficiles à isoler en laboratoire. Étudier des phénomènes de bas niveau comme les temps de réaction ou les seuils de détection n'est pas extrêmement compliqué : les méthodes, les données et ce qu'on peut en conclure sont [assez standardisées](https://en.wikipedia.org/wiki/Psychophysics). Mais affronter des thèmes comme le lien entre relations sociales et cognition, la personnalité, ou la foi, c'est plus compliqué.
 
-Par exemple, il y a un gros programme de recherche autour des stéréotypes inconscients : à quel point les gens ont des représentations sexistes ou racistes, indépendamment de leur tolérance déclarée. Cela pose plein de questions [méthodologiques](https://en.wikipedia.org/wiki/Implicit-association_test#Criticism_and_controversy) et [épistémologiques](https://plato.stanford.edu/entrieS/implicit-bias/) : comment tester ces biais, qu'appelle-t-on inconscient, qu'appelle-t-on stéréotype, quel effet sur le comportement réel, etc. Aujourd'hui, le le protocole classique de test est largement [remis en cause](https://journals.sagepub.com/doi/full/10.1177/1745691619826015).
+Par exemple, il y a un gros programme de recherche autour des stéréotypes inconscients : à quel point les gens ont des représentations sexistes ou racistes, indépendamment de leur tolérance déclarée. Cela pose plein de questions [méthodologiques](https://en.wikipedia.org/wiki/Implicit-association_test#Criticism_and_controversy) et [épistémologiques](https://plato.stanford.edu/entrieS/implicit-bias/) : comment tester ces biais, qu'appelle-t-on inconscient, qu'appelle-t-on stéréotype, quel effet sur le comportement réel, etc. Aujourd'hui, le protocole classique de test est largement [remis en cause](https://journals.sagepub.com/doi/full/10.1177/1745691619826015).
 
 Avant de donner d'autres exemples, deux remarques :
 - Résultat "non-reproduit" ne veut pas dire "faux". Selon les cas, l'effet peut subsister mais moins fort que prévu, ou avec un périmètre différent, ou avec un cadre théorique différent. Par exemple, [l'effet Hawthorne](https://en.wikipedia.org/wiki/Hawthorne_effect) (l'influence d'un  scientifique du fait de sa simple présence dans une expérience) est très critiqué, mais plus largement il reste que notre comportement est différent [quand on est observé](https://en.wikipedia.org/wiki/Reactivity_(psychology)).
@@ -65,13 +65,13 @@ Une autre [source ici](https://www.mcgill.ca/oss/article/critical-thinking/dunni
 
 L'amorçage est l'idée que l'exposition à un stimulus peut influencer la réponse à un second stimulus ou à nos actions. Cela va d'effets assez intuitifs (on aura plus tendance à penser à des animaux qu'à des chaises si on a été pré-exposé au mot "chien") à plus contestable : être exposé à des mots relevant du champ sémantique de l'intelligence ("professeur" plutôt que "hooligan") améliorait les résultats à un exercice de réflexion.
 
-C'est tout un champ de recherche, où l'amorçage a finit par avoir des significations très variées. Cf. [Wikipedia](https://en.wikipedia.org/w/index.php?title=Priming_(psychology)#Replicability_controversy) et ces deux articles ([ici](https://www.nature.com/articles/497016a) et [là](https://nuage.toutcequibouge.net/s/5y782Fk9HGaRW6W)).
+C'est tout un champ de recherche, où l'amorçage finit par avoir des significations très variées. Cf. [Wikipedia](https://en.wikipedia.org/w/index.php?title=Priming_(psychology)#Replicability_controversy) et ces deux articles ([ici](https://www.nature.com/articles/497016a) et [là](https://nuage.toutcequibouge.net/s/5y782Fk9HGaRW6W)).
 
 #### Épuisement de l'égo
 
 L'idée que la volonté est fragile et limitée parait intuitive, une donnée fondamentale de la condition humaine. Mais ça devient plus compliqué si on va jusqu'à la considérer comme une jauge unique d'énergie, qui baisse de manière identique quelque soit l'activité, qu'on assimile "faire" et "se retenir de faire", et qu'on veut tester tout ça en laboratoire.
 
-Bref, je vous laisse lire [Wikipedia](https://www.slate.com/articles/health_and_science/cover_story/2016/03/ego_depletion_an_influential_theory_in_psychology_may_have_just_been_debunked.html) et [cet article](https://www.slate.com/articles/health_and_science/cover_story/2016/03/ego_depletion_an_influential_theory_in_psychology_may_have_just_been_debunked.html).
+Bref, je vous laisse lire [Wikipedia](https://en.wikipedia.org/wiki/Ego_depletion#Criticism) et [cet article](https://www.slate.com/articles/health_and_science/cover_story/2016/03/ego_depletion_an_influential_theory_in_psychology_may_have_just_been_debunked.html).
 
 ####  Avantages cognitifs du bilinguisme
 
@@ -107,7 +107,7 @@ Plus précisément, cette débauche de biais finit par créer deux problèmes.
 
 (Titre adapté d'une [maxime](https://wiki.c2.com/?AboutFace) d'Alan Cooper à propos des utilisateurs)
 
-Chez de nombreux auteurs et vulgarisateurs, parler des biais est vue une entreprise de démystification : vous vous vous croyez le sommet de l'évolution ? On va vous montrez que vous êtes irrationnel et incapable de résoudre des problèmes de probabilité si basiques que vous pourriez les croiser au quotidien.
+Chez de nombreux auteurs et vulgarisateurs, parler des biais est une entreprise de démystification : vous vous croyez le sommet de l'évolution ? On va vous montre que vous êtes irrationnel et incapable de résoudre des problèmes de probabilité si basiques que vous pourriez les croiser au quotidien.
 
 !["Couverture du livre Vous n'êtes pas si intelligent"](notSmart.jpg)
 
@@ -119,7 +119,7 @@ Bref, ces heuristiques font des compromis entre effort mental, vitesse, et exact
 
 ### 2.2 Un modèle plus général
 
-En cataloguant des biais, on n'explique pas grand chose, à part part décrire des phénomènes locaux et isolés. Plusieurs auteurs tentent de trouver un modèle plus général.
+En cataloguant des biais, on n'explique pas grand chose, à part décrire des phénomènes locaux et isolés. Plusieurs auteurs tentent de trouver un modèle plus général.
 
 #### Un biais pour les gouverner tous
 
@@ -130,7 +130,7 @@ Kahneman (auteur de *Thinking, fast and slow*) propose que la plupart des biais 
 Il y a [trois conditions](https://en.wikipedia.org/w/index.php?title=Heuristic_(psychology)&useskin=vector#Theories) :
 1. La vraie question est difficilement accessible
 2. Une question sémantiquement liée l'est beaucoup plus
-3. Notre raisonnement conscient et délibératif (le fameux [système 2](https://en.wikipedia.org/wiki/Dual_process_theory)) exercice difficilement son rôle de contrôle sur le système 1 (intuitif).
+3. Notre raisonnement conscient et délibératif (le fameux [système 2](https://en.wikipedia.org/wiki/Dual_process_theory)) exerce difficilement son rôle de contrôle sur le système 1 (intuitif).
 
 #### Une boite à outils d'heuristiques
 
@@ -138,4 +138,4 @@ Gigerenzer, grand adversaire de Kahneman, trouve ce biais trop flou, car substit
 
 ### Remarque personnelle
 
-Ces deux théories ont chacune leur limites, exactement oppposées. Celle de Kahneman est générale mais floue, à l'inverse celle de Gigerenzer risque de monter en épingle des heuristiques très spécifiques et difficilement généralisable. Il y a l'exemple des sportifs cité plus haut, ou celui de l'athlète [pistant la trajectoire](https://en.wikipedia.org/wiki/Gaze_heuristic) d'une balle en l'accompagnant par son propre mouvement. C'est une [question passionnante](https://psycnet.apa.org/record/2017-08451-001), du sport à l'aviation, mais aussi une vraie tarte à la crème [dans la littérature sur la cognition écologique ou incarnée](https://scholar.google.fr/scholar?cites=12955323164662477226&as_sdt=2005&sciodt=0,5&hl=fr). Les heuristiques ont aussi le risque d'être difficlement formalisables, au-delà des cas les plus simples. Par exemple, comment "computationnaliser" le recours à des heuristiques de conformisme social [citées ici](https://onlinelibrary.wiley.com/doi/full/10.1111/j.1756-8765.2008.01006.x#t2) ?
+Ces deux théories ont chacune leur limites, exactement oppposées. Celle de Kahneman est générale mais floue, à l'inverse celle de Gigerenzer risque de monter en épingle des heuristiques très spécifiques et difficilement généralisables. Il y a l'exemple des sportifs cité plus haut, ou celui de l'athlète [pistant la trajectoire](https://en.wikipedia.org/wiki/Gaze_heuristic) d'une balle en l'accompagnant par son propre mouvement. C'est une [question passionnante](https://psycnet.apa.org/record/2017-08451-001), du sport à l'aviation, mais aussi une vraie tarte à la crème [dans la littérature sur la cognition écologique ou incarnée](https://scholar.google.fr/scholar?cites=12955323164662477226&as_sdt=2005&sciodt=0,5&hl=fr). Les heuristiques ont aussi le risque d'être difficlement formalisables, au-delà des cas les plus simples. Par exemple, comment "computationnaliser" le recours à des heuristiques de conformisme social [citées ici](https://onlinelibrary.wiley.com/doi/full/10.1111/j.1756-8765.2008.01006.x#t2) ?
