@@ -99,7 +99,7 @@ Il existe une palanquée de biais cognitifs répertoriés, car ce n'est pas trè
 
 !["diagramme montrant des dizaines de biais de manière vaguement organisée"](biasIndex.png)
 
-Plus précisément, cette débauche de biais finit par deux problèmes.
+Plus précisément, cette débauche de biais finit par créer deux problèmes.
 1. Sous-entendre que les gens sont totalement irrationnels
 2. Démultiplier les biais sans rien expliquer.
 
