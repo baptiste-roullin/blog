@@ -50,7 +50,7 @@ Bref, il faut juste être vigilant et ne pas tomber dans une défiance facile et
 
 #### Effet marshmallow
 
-[C'est l'idée](https://en.wikipedia.org/wiki/Stanford_marshmallow_experiment) que le contrôle de soi d'un enfant (mesuré par la capacité à se retenir de manger une sucrerie en échange de deux sucreries plus tard) prédirait son succès dans la vie. [Des recherches](https://www.theatlantic.com/family/archive/2018/06/marshmallow-test/561779/) tendent à montrer que l'effet existe mais s'explique surtout par des facteurs socio-économiques. [Un papier](https://srcd.onlinelibrary.wiley.com/doi/10.1111/cdev.14129) plus récent suggère que l'effet n'existe pas.
+[C'est l'idée](https://en.wikipedia.org/wiki/Stanford_marshmallow_experiment) que le contrôle de soi d'un enfant (mesuré par la capacité à se retenir de manger une sucrerie en échange de deux sucreries plus tard) prédirait son succès dans la vie. [Des recherches](https://www.theatlantic.com/family/archive/2018/06/marshmallow-test/561779/) tendent à montrer que l'effet existe mais s'explique surtout par des facteurs socio-économiques. [Un papier](https://srcd.onlinelibrary.wiley.com/doi/10.1111/cdev.14129) plus récent suggère même que l'effet n'existe pas.
 
 #### Effet Dunning-kruger
 
