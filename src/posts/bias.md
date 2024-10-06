@@ -103,7 +103,7 @@ Plus précisément, cette débauche de biais finit par créer deux problèmes.
 1. Sous-entendre que les gens sont totalement irrationnels
 2. Démultiplier les biais sans rien expliquer.
 
-### A.  Les gens sont très intelligents mais juste pressés
+### 2.1  Les gens sont très intelligents mais juste pressés
 
 (Titre adapté d'une [maxime](https://wiki.c2.com/?AboutFace) d'Alan Cooper à propos des utilisateurs)
 
@@ -117,7 +117,7 @@ Cela montre la limite de certaines expériences célèbres pensées comme de pur
 
 Bref, ces heuristiques font des compromis entre effort mental, vitesse, et exactitude. On peut aller plus loin : [certaines](https://en.wikipedia.org/w/index.php?title=Heuristic_(psychology)#Formal_models_of_heuristics) sont même meilleures si elles limitent à des règles simples et à peu d'informations. Cela parait contre-intuitif, mais prenons un exemple certes limité : supposons qu'on vous demande quel est le meilleur joueur entre Roger Federer et Alexandre Müller. Si vous avez entendu parler du premier et pas du second, c'est probablement qu'il est plus connu, donc meilleur. Si vous connaissez les deux, il faut utiliser un raisonnement plus complexe et incertain.
 
-### B. Un modèle plus général
+### 2.2 Un modèle plus général
 
 En cataloguant des biais, on n'explique pas grand chose, à part part décrire des phénomènes locaux et isolés. Plusieurs auteurs tentent de trouver un modèle plus général.
 
