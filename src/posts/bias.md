@@ -1,6 +1,6 @@
 ---
 title: "Cognition et design : quand tout est biais plus rien n'est biais"
-description: "Comment invoquer la psychologie en tant que designer, face à un problème de fiabilité de la recherche et à une avalanche d'effets et de biais disparates"
+description: "Comment invoquer la psychologie en tant que designer, face à un problème de fiabilité de la recherche et à une avalanche d'effets et de biais disparates."
 date: 2024-10-05T22:26:14.343Z
 draft: false
 tags:
