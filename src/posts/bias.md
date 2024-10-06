@@ -90,7 +90,7 @@ Si vous voulez en savoir plus sur cette crise qui a déjà quelques années, je 
 
 {% zotero "Cognition", "yong", "replication" %}
 
-## Notre biais pour les biais
+## 2. Notre biais pour les biais
 
 Il existe une palanquée de biais cognitifs répertoriés, car ce n'est pas très compliqué de monter une expérience pour prouver un effet spécifique et l'ajouter à la liste. On se retrouve donc avec une nébuleuse (voir ces listes [ici](https://cognitivebiasindex.com/) ou [là](https://en.wikipedia.org/wiki/List_of_cognitive_biases)) de biais éparses et parfois similaires entre eux. Cela n'aide pas à naviguer dans la littérature, ni à se former un modèle clair de l'esprit humain, ni à analyser un cas particulier :
 
