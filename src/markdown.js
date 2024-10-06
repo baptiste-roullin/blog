@@ -21,7 +21,7 @@ const anchor = (md) => {
 
         const slug = customSlug(contentToken.content)
 
-        if (tokens[index].tag === 'h2') {
+        if (tokens[index].tag.match(/h[234]/)) {
             return `
 	        <${tokens[index].tag} id="${slug}">
 			<a class="header-anchor" href="#${slug}">
