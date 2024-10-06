@@ -47,7 +47,6 @@
     "markdown-it": "^14.0.0",
     "markdown-it-anchor": "^8.6.5",
     "markdown-it-attrs": "^4.1.4",
-    "markdown-it-blockquote-cite": "github:baptiste-roullin/markdown-it-blockquote-cite",
     "markdown-it-bracketed-spans": "^1.0.1",
     "markdown-it-container": "^4.0.0",
     "markdown-it-footnote": "^4.0.0",
