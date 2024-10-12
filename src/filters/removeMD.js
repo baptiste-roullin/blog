@@ -98,7 +98,7 @@ function remove(md, options) {
 }
 
 /** @returns {string} */
-export default function removeMD(string) {
+export function removeMD(string) {
     if (!string) {
         //warning(string + "removeMD: slug string is empty")
         return ""
