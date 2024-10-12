@@ -5,17 +5,22 @@ import fsp from 'node:fs/promises'
 
 import pluginRss from '@11ty/eleventy-plugin-rss'
 import pluginNavigation from '@11ty/eleventy-navigation'
+import { feedPlugin } from "@11ty/eleventy-plugin-rss"
 import yaml from "js-yaml"
+import glob from "fast-glob"
 
 import meta from './src/_data/meta.js'
 import { findImg, findImgInDevEnv } from './src/transforms/media_processing.js'
-
 import { collections } from './src/collections.js'
+import zotero from './src/features/zotero/zoteroShortcode.js'
+import { truchetItem, truchetList } from './src/features/truchet/truchet_shortcode.js'
 import md from './src/markdown.js'
-import pairedShortcodes from './src/shortcodes/pairedShortcodes.js'
-import shortcodes from './src/shortcodes/shortcodes.js'
-import filters from './src/filters/filters.js'
 import fileExists from './src/utils/fileExists.js'
+
+
+import { dirname, resolve } from 'node:path'
+import { fileURLToPath } from 'url'
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 
 /** @param {import("@11ty/eleventy").UserConfig} config */
@@ -113,25 +118,50 @@ export default async function (config) {
 	 * Filters
 	 */
 
-	Object.keys(filters).forEach((filterName) => {
-		config.addFilter(filterName, filters[filterName])
-	})
+	let files = await glob.async(resolve(__dirname, 'src/filters/*.js'))
+
+	await Promise.all(files.map(async (file) => {
+		const filters = await import(file)
+
+		for (const [name, filter] of Object.entries(filters)) {
+			config.addFilter(name, filter)
+		}
+	}))
 
 
 	/**
 	 * Shortcodes
 	 */
-	Object.keys(shortcodes).forEach((shortcodeName) => {
-		config.addShortcode(shortcodeName, shortcodes[shortcodeName])
-	})
+
+
+	files = await glob.async(resolve(__dirname, 'src/shortcodes/*.js'))
+
+	await Promise.all(files.map(async (file) => {
+		const shortcodes = await import(file)
+
+		for (const [name, filter] of Object.entries(shortcodes)) {
+			config.addShortcode(name, filter)
+		}
+		config.addShortcode("zotero", zotero)
+		config.addShortcode("truchetItem", truchetItem)
+		config.addShortcode("truchetList", truchetList)
+
+	}))
 
 	/**
 	 * Paired Shortcodes
 	 */
-	Object.keys(pairedShortcodes).forEach((shortcodeName) => {
-		config.addPairedShortcode(shortcodeName, pairedShortcodes[shortcodeName]
-		)
-	})
+
+
+	files = await glob.async(resolve(__dirname, 'src/pairedShortcodes/*.js'))
+
+	await Promise.all(files.map(async (file) => {
+		const pairedShortcodes = await import(file)
+
+		for (const [name, filter] of Object.entries(pairedShortcodes)) {
+			config.addPairedShortcode(name, filter)
+		}
+	}))
 
 
 	/**

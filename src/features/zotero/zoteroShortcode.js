@@ -2,11 +2,11 @@
 // Documentation de l'API : https://www.zotero.org/support/dev/web_api/v3/basics
 // Client : 				https://github.com/tnajdek/zotero-api-client
 import pMap from 'p-map'
-import markdownify from "../../filters/markdownify.js"
+import { markdownify } from "../../filters/markdownify.js"
 import meta from '../../_data/meta.js'
-import dateFormatting from '../../filters/dateFormatting.js'
+import { dateFormatting } from '../../filters/dateFormatting.js'
 import cache from '../../utils/caching.js'
-import api from '../../../node_modules/zotero-api-client/src/main.js'
+import api from 'zotero-api-client/src/main.js'
 
 import fs from 'node:fs/promises'
 import path from 'node:path'
