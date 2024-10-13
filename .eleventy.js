@@ -5,7 +5,7 @@ import fsp from 'node:fs/promises'
 
 import pluginRss from '@11ty/eleventy-plugin-rss'
 import pluginNavigation from '@11ty/eleventy-navigation'
-import { feedPlugin } from "@11ty/eleventy-plugin-rss"
+import { EleventyHtmlBasePlugin } from "@11ty/eleventy"
 import yaml from "js-yaml"
 import glob from "fast-glob"
 
@@ -112,7 +112,7 @@ export default async function (config) {
 		})*/
 	config.addPlugin(pluginRss)
 	config.addPlugin(await config.resolvePlugin("@11ty/eleventy/render-plugin"))
-
+	config.addPlugin(EleventyHtmlBasePlugin)
 
 	/**
 	 * Filters
