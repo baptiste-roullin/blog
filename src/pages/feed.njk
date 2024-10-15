@@ -1,7 +1,6 @@
 ---json
 {
   "permalink": "feed.xml",
-  "eleventyAllowMissingExtension": true,
   "eleventyExcludeFromCollections": true
 }
 ---
@@ -17,15 +16,15 @@
 	<author>
 		<name>{{ meta.author }}</name>
 	</author>
-	{%- for post in collections.publishedPosts | reverse  %}
-		{% set absolutePostUrl %}{{ post.url | url | absoluteUrl(meta.siteURL) }}{% endset %}
-		{% set imageURL %}{{ meta.assetsDir | url | absoluteUrl(meta.siteURL) }}{% endset %}
+	{{collections.publishedPosts | log}}
+	{%- for post in collections.publishedPosts | reverse   %}
+		{% set absolutePostUrl %}{{ post.url | htmlBaseUrl(meta.siteURL) }}{% endset %}
 		<entry>
 			<title>{{ post.data.title }}</title>
 			<link href="{{ absolutePostUrl }}"/>
 			<updated>{{ post.date | dateToRfc3339 }}</updated>
 			<id>{{ absolutePostUrl }}</id>
-			<content type="text/html" >{{ post.templateContent | cleanHeaderAnchors  |  renderTransforms(post.data.page, meta.siteURL) | safe }}</content>
+			<content type="text/html" >{{ post.templateContent |  renderTransforms(post.data.page, meta.siteURL) | cleanHeaderAnchors    }}</content>
 		</entry>
 	{%- endfor %}
 </feed>
