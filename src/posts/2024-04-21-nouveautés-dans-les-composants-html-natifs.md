@@ -111,7 +111,7 @@ Finalement la proposition parait être d'ajouter un attribut au `<select>` et qu
 
 Permet d'embarquer une version non-interactive d'une page dans une autre page, typiquement pour afficher une prévisualisation de la page au clic sur un lien.
 
-<video alt="" src="/assets/images/portals.mp4" controls="true"></video>
+<video alt="" src="https://toutcequibouge.net/assets/images/portals.mp4" controls="true"></video>
 
 À ne pas confondre avec [`<fencedframe>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fencedframe), qui est en gros la version moderne et sécurisée du bon vieux iframe.
 

@@ -1,31 +1,30 @@
 ---json
 {
-  "permalink": "rss",
-  "eleventyAllowMissingExtension": true,
+  "permalink": "feed.xml",
   "eleventyExcludeFromCollections": true
 }
 ---
 
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="fr">
 	<title>{{ meta.siteName }}</title>
 	<subtitle>{{ meta.siteDescription }}</subtitle>
 	<link href="{{ meta.siteURL }}"/>
-	<link href="{{ meta.siteURL }}/rss" rel="self"/>
-	<updated>{{ collections.publishedPosts | rssLastUpdatedDate }}</updated>
+	<link href="{{ meta.siteURL }}/feed.xml" rel="self"/>
+	<updated>{{ collections.publishedPosts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
 	<id>{{ meta.siteURL }}</id>
 	<author>
 		<name>{{ meta.author }}</name>
 	</author>
-	{%- for post in collections.publishedPosts | reverse | slice(0, 20) %}
-		{% set absolutePostUrl %}{{ post.url | url | absoluteUrl(meta.siteURL) }}{% endset %}
-		{% set imageURL %}{{ meta.assetsDir | url | absoluteUrl(meta.siteURL) }}{% endset %}
+	{{collections.publishedPosts | log}}
+	{%- for post in collections.publishedPosts | reverse   %}
+		{% set absolutePostUrl %}{{ post.url | htmlBaseUrl(meta.siteURL) }}{% endset %}
 		<entry>
 			<title>{{ post.data.title }}</title>
 			<link href="{{ absolutePostUrl }}"/>
 			<updated>{{ post.date | dateToRfc3339 }}</updated>
 			<id>{{ absolutePostUrl }}</id>
-			<content type="text/html" >{{ post.templateContent | cleanHeaderAnchors  | htmlToAbsoluteUrls(imageURL) | safe }}</content>
+			<content type="text/html" >{{ post.templateContent |  renderTransforms(post.data.page, meta.siteURL) | cleanHeaderAnchors    }}</content>
 		</entry>
 	{%- endfor %}
 </feed>

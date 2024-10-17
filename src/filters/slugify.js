@@ -4,7 +4,10 @@ import slugifyLib from '@sindresorhus/slugify'
 let memoizedSlugs = {}
 
 /** @returns {any} */
-export default function (string, inputPath) {
+export default function (string) {
+
+    const inputPath = this?.page?.inputPath
+
     if (string in memoizedSlugs) {
         return memoizedSlugs[string]
     }

@@ -1,5 +1,5 @@
 import md from '../markdown.js'
-export default function markdownify(string) {
+export function markdownify(string) {
 
 	try {
 		if (!string) {
