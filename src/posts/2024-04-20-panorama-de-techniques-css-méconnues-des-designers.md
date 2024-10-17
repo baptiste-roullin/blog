@@ -54,14 +54,14 @@ Dans l'exemple suivant, on zoome plus sur la personne en format vignette pour é
 
 {% gallery %}
 
-!['Obama faisant un discours. On voit la scène autour de lui'](/assets/images/resp2.png )
+!['Obama faisant un discours. On voit la scène autour de lui'](resp2.png )
 
-!['Obama faisant un discours. Photo centrée sur lui.'](/assets/images/resp3.png )
+!['Obama faisant un discours. Photo centrée sur lui.'](resp3.png )
 {% endgallery %}
 
 Ou encore, ici la photo est croppée différemment sur les petits écrans.
 
-!['GIF montrant une page de ecommerce à différentes tailes de fenêtre. Sur grand écran, une photo de personne est au centre. Sur écran moyen, la photo est calée à gauche et la personne est coupée à la taille.'](/assets/images/resp1.gif )
+!['GIF montrant une page de ecommerce à différentes tailes de fenêtre. Sur grand écran, une photo de personne est au centre. Sur écran moyen, la photo est calée à gauche et la personne est coupée à la taille.'](resp1.gif )
 
 
 ::: info-block
@@ -194,7 +194,7 @@ text-wrap: pretty
 
 `text-box-trim` permet  de centrer le texte et les pictos dans un conteneur quelconque en supprimant l'espacement vertical généré et spécifique à chaque police de caractères. Ca arrivera pas tout de suite, mais on peut espérer. A ne pas confondondre avec `margin-trim`.
 
-![](/assets/images/text-trim.webp)
+![](text-trim.webp)
 
 ::: info-block
 {% ctaLink "Documentation", "https://github.com/jantimon/text-box-trim-examples"  %}
@@ -217,7 +217,7 @@ Démo fonctionnelle sous Chrome, ou avec Firefox si flag activé ([cf détails](
 
 ### Effet de tuilage ou de maçonnerie
 
-!["Page avec une grille de photo. Chaque photo est décalée verticalement des photos à gauche et droite."](/assets/images/grid-masonry.png)
+!["Page avec une grille de photo. Chaque photo est décalée verticalement des photos à gauche et droite."](grid-masonry.png)
 
 Voir aussi cet [article récent](https://www.webkit.org/blog/15269/help-us-invent-masonry-layouts-for-css-grid-level-3/#the-debate) par des devs de Safari, avec un intéressant débat sur "mais au fond, qu'est-ce qu'une grille de mise en page".
 

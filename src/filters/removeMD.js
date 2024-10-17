@@ -1,6 +1,6 @@
 //import debug from 'debug'
 //const warning = debug('warning')
-function remove(md, options) {
+export function remove(md, options) {
     options = options || {}
     options.listUnicodeChar = options.hasOwnProperty('listUnicodeChar') ? options.listUnicodeChar : false
     options.stripListLeaders = options.hasOwnProperty('stripListLeaders') ? options.stripListLeaders : true

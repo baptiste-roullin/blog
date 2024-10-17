@@ -5,7 +5,7 @@
     * @param {number} b
     * @returns {array}
     */
-function slice(arr, a, b = 5) {
+export function slice(arr, a, b = 5) {
 
     return arr.slice(a, b)
 }

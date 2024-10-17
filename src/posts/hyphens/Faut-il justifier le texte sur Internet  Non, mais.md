@@ -70,9 +70,9 @@ Il est probable que les évolutions techniques réduisent le premier problème :
 
 {% gallery %}
 
-![](assets/images/slide_44.jpg)
+![](slide_44.jpg)
 
-![](assets/images/slide_75.jpg)
+![](slide_75.jpg)
 
 
 {% endgallery %}

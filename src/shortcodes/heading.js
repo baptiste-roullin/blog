@@ -1,4 +1,4 @@
-import slugify from '../filters/slugify.js'
+import { slugify } from '../filters/slugify.js'
 
 export function heading(level, className, label) {
 	if (typeof label === "object") {
