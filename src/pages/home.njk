@@ -18,8 +18,7 @@ postListItemStyle:
       {% ctaLink "Voir tout", "/blog" %}
     </div>
 
-      {% set postslist = collections.publishedPosts | reverse  %}
-  {{postslist.length | log}}
+      {% set postslist = collections.publishedPosts | reverse | slice(0, 3)  %}
     <ul class="flex flex-col gap-6 sm:gap-8 md:gap-6 post-list">
     {%- for post in postslist -%}
     	{% include 'components/posts_list_item.njk' %}
