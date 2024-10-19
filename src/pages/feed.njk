@@ -15,7 +15,7 @@
 	<author>
 		<name>{{ meta.author }}</name>
 	</author>
-	{%- for post in collections.publishedPosts | reverse   %}
+	{%- for post in collections.publishedPosts | reverse | slice(0,20)  %}
 		{% set absolutePostUrl %}{{ post.url | htmlBaseUrl(meta.siteURL) }}{% endset %}
 		<entry>
 			<title>{{ post.data.title }}</title>
