@@ -37,6 +37,6 @@ En jouant avec la manière dont les fluides sont retenus ou repoussés selon la 
 
 ![](cup.jpg)
 
-[Un autre exemple de tasse](https://www.rit.edu/vignellicenter/product-timecapsule/nasa-capillary-cup?utm_source=pocket_shared) fonctionnant par capillarité. Celle-ci a l'avantage d'avoir été inventée par un astronaute, d'avoir testée in situ et même d'avoir été conçue et fabriquée *à bord* de la station (pour le prototype).
+[Un autre exemple de tasse](https://www.rit.edu/vignellicenter/product-timecapsule/nasa-capillary-cup) fonctionnant par capillarité. Celle-ci a l'avantage d'avoir été inventée par un astronaute, d'avoir testée in situ et même d'avoir été conçue et fabriquée *à bord* de la station (pour le prototype).
 
 <video controls src="/assets/images/cup.mp4">
