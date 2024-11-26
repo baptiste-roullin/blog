@@ -28,6 +28,15 @@ En jouant avec la manière dont les fluides sont retenus ou repoussés selon la 
 ::: info-block
 {% ctaLink "Chez Strabic", "http://strabic.fr/Octave-De-Gaulle-Distiller"  %}
 
-{% ctaLink "Chez Strabic", "https://www.lemonde.fr/m-design-deco/article/2016/02/03/octave-de-gaulle-le-designer-a-la-conquete-de-l-espace_4858515_4497702.html"  %}
+{% ctaLink "Sur le monde", "https://www.lemonde.fr/m-design-deco/article/2016/02/03/octave-de-gaulle-le-designer-a-la-conquete-de-l-espace_4858515_4497702.html"  %}
 :::
 
+
+
+## Mise à jour en 2024
+
+![cup.jpg]()
+
+[Un autre exemple de tasse](https://www.rit.edu/vignellicenter/product-timecapsule/nasa-capillary-cup?utm_source=pocket_shared) fonctionnant par capillarité. Celle-ci a l'avantage d'avoir été conçue par un astronaute et d'avoir testée *in situ*.
+
+<video controls src="cup.mp4">
