@@ -16,7 +16,7 @@ On fait souvent de cette opposition une tendance actuelle, alors que l’histoir
 
 En 2006, les créateurs de Rogue Amoeba (un éditeur de logiciels pour Mac) plaidaient pour la simplicité et l’intemporalité et raillaient la surenchère d’effets graphiques dans les produits de leurs concurrents. Il y a même une [quelques articles](https://www.wired.com/2007/06/core-anim/) sur ces interfaces qu’ils appelèrent, non sans ironie, « délicieuses ». Ils faisaient référence, par exemple, à la fumée se dégageant de la fenêtre du logiciel de gravure Disco.
 
-![](/images/assets/disco.jpeg)
+![](/assets/images/disco.jpeg)
 
 En 2001 sortait Mac OS X, avec ses boutons bleus reluisants et ses animations. Alors que Jobs vantait un graphisme qu’on avait envie de lécher (je cite), on cria au “_style over substance_”, on reprocha aux designers d’Apple de se faire plaisir et on rappela que l’esthétique pouvait desservir l’utilisabilité. Aujourd’hui, on rappelle que Jony Ive, chantre du design épuré, a commis des coques d’iMac dans ce genre :
 

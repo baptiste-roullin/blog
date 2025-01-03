@@ -101,7 +101,7 @@ Il y avait une proposition pour créer un nouvel élément, indépendant du `<se
 
 Finalement la proposition parait être d'ajouter un attribut au `<select>` et qui ouvrirait plein de possibilités de personnalisation.
 
-!["démo montrant des listes déroulantes avec des styles différents et des photos ou pictogrammes élégamment intégrés dans chaque option."](/select.gif)
+!["démo montrant des listes déroulantes avec des styles différents et des photos ou pictogrammes élégamment intégrés dans chaque option."](select.gif)
 
 ::: info-block
 {% ctaLink "Documentation ici", "https://open-ui.org/components/selectlist/"  %}
