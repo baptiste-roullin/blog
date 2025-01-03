@@ -13,9 +13,10 @@ export default async function (data) {
         || typeof hero?.image !== "string" || hero?.image === null || hero?.image === "") {
         finalName = `truchet-${slug}.png`
         //utile uniquement sur Windows ${process.cwd()}
-        const truchetExists = await fileExists(`/${meta.outputDir}/${meta.assetsDir}/${finalName}`)
-        if (!truchetExists) {
-            await truchetNode(slug, 400, 280).catch(console.error)
+        //const truchetExists = await fileExists(`/${meta.outputDir}/${meta.assetsDir}/${finalName}`)
+        //if (!truchetExists) {
+        if (true) {
+            await truchetNode(400, 280, `${meta.outputDir}/${meta.assetsDir}/${finalName}`).catch(console.error)
         }
     }
 
@@ -30,6 +31,8 @@ export default async function (data) {
         }
     }
 
-    //URL absolue
-    return `/${meta.assetsDir}/${path.basename(finalName)}`
+    ////URL absolue
+
+    // return `/${meta.assetsDir}/${path.basename(finalName)}`
+    return finalName
 }

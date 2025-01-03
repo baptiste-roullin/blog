@@ -55,10 +55,11 @@ export const collections = {
             if (!project.img) {
 
                 //chemin absolu
-                project.img = `/${meta.assetsDir}/truchet-${project.name}.png`
-                const projectExists = await fileExists(process.cwd() + project.img)
-                if (!projectExists) {
-                    await truchetNode(project.name, 400, 400).catch(console.error)
+                project.img = `${meta.outputDir}/${meta.assetsDir}/truchet-${project.name}.png`
+                //const projectExists = await fileExists(process.cwd() + project.img)
+                //if (!projectExists) {
+                if (true) {
+                    await truchetNode(400, 400, project.img).catch(console.error)
                 }
             }
             return project

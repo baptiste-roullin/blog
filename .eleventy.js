@@ -8,9 +8,9 @@ import pluginNavigation from '@11ty/eleventy-navigation'
 import { EleventyHtmlBasePlugin } from "@11ty/eleventy"
 import yaml from "js-yaml"
 import glob from "fast-glob"
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img"
 
 import meta from './src/_data/meta.js'
-import { findImg, findImgInDevEnv } from './src/transforms/media_processing.js'
 import { collections } from './src/collections.js'
 import zotero from './src/features/zotero/zoteroShortcode.js'
 import { truchetItem, truchetList } from './src/features/truchet/truchet_shortcode.js'
@@ -70,27 +70,57 @@ export default async function (config) {
 		await fsp.mkdir(imagePath, { recursive: true })
 	}
 
+	config.addPlugin(eleventyImageTransformPlugin, {
+		// which file extensions to process
+		extensions: "html",
+
+		// Add any other Image utility options here:
+
+		// optional, output image formats
+		formats: ["webp"],
+
+		// optional, output image widths
+		widths: [200, "auto"],
+		outputDir: '/assets/img',
+		useCache: "true",
+		// optional, attributes assigned on <img> override these values.
+		defaultAttributes: {
+			loading: "lazy",
+			decoding: "async",
+			sizes: "auto",
+		},
+	})
 	if (meta.env === "production") {
 
 		config.addPassthroughCopy('src/assets/docs/')
 		//config.addPassthroughCopy({ 'src/assets/images/*.svg': meta.assetsDir })
 		//config.addPassthroughCopy({ 'src/assets/images/*.mp4': meta.assetsDir })
-		config.addPassthroughCopy("**/*.{png,webp,gif,mp4,jpg,jpeg}", {
-			mode: "html-relative",
-			paths: [], // additional fallback directories to look for source files
-			failOnError: true, // throw an error when a path matches (via `match`) but not found on file system
-			copyOptions: { dot: false }, // `recursive-copy` copy options
-		})
+		//config.addPassthroughCopy("**/*.{png,webp,gif,mp4,jpg,jpeg}", {
+		//		mode: "html-relative",
+		//		paths: [], // additional fallback directories to look for source files
+		//		failOnError: true, // throw an error when a path matches (via `match`) but not found on file system
+		//		copyOptions: { dot: false }, // `recursive-copy` copy options
+		//	})
+
+
+
+
+
+
+
+
 
 		//config.addPassthroughCopy({ 'src/posts/**/* ': meta.assetsDir })
 		//config.addPassthroughCopy('src/assets/images')
 
-		config.addTransform('findImg', findImg)
+		//	config.addTransform('findImg', findImg)
 	}
 	else {
-		config.addPassthroughCopy({ 'src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}': `/${meta.assetsDir}/` })
-		config.addPassthroughCopy('src/assets/images/')
-		config.addTransform('findImgInDevEnv', findImgInDevEnv)
+
+
+		//config.addPassthroughCopy({ 'src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}': `/${meta.assetsDir}/` })
+		//	config.addPassthroughCopy('src/assets/images/')
+		//	config.addTransform('findImgInDevEnv', findImgInDevEnv)
 	}
 
 	/**
@@ -155,7 +185,7 @@ export default async function (config) {
 	}))
 
 	/**
-	 * Paired Shortcodes
+	 * p Shortcodes
 	 */
 
 

@@ -7,10 +7,11 @@ const warning = debug('tcqb:warning')
 import { Canvas } from 'skia-canvas'
 
 /** @returns {Promise<void>} */
-export default async function (slug, width, height) {
+export default async function (width, height, path) {
 
     try {
-        const path = `${meta.outputDir}/${meta.assetsDir}/truchet-${slug}.png`
+        //const path = `${meta.outputDir}/${meta.assetsDir}/truchet-${slug}.png`
+        //const path = `$/truchet-${slug}.png`
         const tileCanvas = await truchet(
             new Canvas(width, height),
             new Canvas(width, height),
