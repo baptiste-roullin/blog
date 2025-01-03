@@ -5,7 +5,7 @@ tags:
   - "histoire"
   - "utilisateurs"
 hero:
-  image: 2019-09-14_01h56_51.jpg
+  image: /assets/images/2019-09-14_01h56_51.jpg
   alt: "Une enseignante et ses élèves autour d'un terminal Teletype. Crédits : Computer History Museum"
   title: "Une enseignante et ses élèves autour d'un terminal Teletype. Crédits : Computer History Museum"
 ---

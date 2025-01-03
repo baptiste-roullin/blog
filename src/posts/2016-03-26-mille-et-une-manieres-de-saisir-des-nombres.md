@@ -5,7 +5,7 @@ tags:
   - "histoire"
   - "objets"
 hero:
-  image: Curta_II.jpg
+  image: /assets/images/Curta_II.jpg
 
 ---
 

@@ -29,8 +29,6 @@ On n'a pas attendu l'informatique pour représenter des données. Les [première
 
 ![Tablette d'argile décrivant un losange et un problème de géométrie associé. Coté verso.](tablette1.jpg)
 
-
-
 {% endgallery %}
 
 

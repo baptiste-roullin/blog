@@ -4,7 +4,7 @@ date: 2014-09-17
 tags:
   - "objets"
 hero:
-  image: distiller_02.jpg
+  image: /assets/images/distiller_02.jpg
   alt: "La bouteille – Crédits photo : Tanguy Masson, Basile de Gaulle"
   caption: "La bouteille – Crédits photo : Tanguy Masson, Basile de Gaulle"
 ---

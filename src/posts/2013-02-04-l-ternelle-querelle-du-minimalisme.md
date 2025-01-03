@@ -4,7 +4,7 @@ date: 2013-02-04
 featured: true
 tags: ["histoire", "objets", "interface"]
 hero:
-  image: sony_building_by_david_shankbone_crop.jpg
+  image: /assets/images/sony_building_by_david_shankbone_crop.jpg
   caption: "Bâtiment de Philipp Johnson. Photo de David Shankbone, CC-BY-SA-3.0, via Wikimedia Commons."
 ---
 

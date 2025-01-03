@@ -6,7 +6,7 @@ tags:
   - "projets"
   - "répétition"
 hero:
-  image: Bobs-Burgers-S07E17-Zero-Larp-Thirty.png
+  image: /assets/images/Bobs-Burgers-S07E17-Zero-Larp-Thirty.png
 ---
 
 

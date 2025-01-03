@@ -6,7 +6,7 @@ tags:
   - "réflexions"
 featured: true
 hero:
-  image: "falcon.gif"
+  image: "/assets/images/falcon.gif"
   alt: "Han Solo tape sur un panneau du cockpit du Millenium Falcon pour le faire fonctionner."
 
 

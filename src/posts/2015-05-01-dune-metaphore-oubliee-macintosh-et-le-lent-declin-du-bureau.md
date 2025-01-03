@@ -7,7 +7,7 @@ tags:
   - "bureau"
 featured: true
 hero:
-  image: wooton.png
+  image: /assets/images/wooton.png
   alt: Bureau Wooton, station de travail tout-en-un
 ---
 

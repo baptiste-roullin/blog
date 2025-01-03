@@ -6,7 +6,7 @@ tags:
   - "litterature"
 featured: true
 hero:
-  image: "furtifs.jpg"
+  image: "/assets/images/furtifs.jpg"
 ---
 
 Alors que j'avais dévoré La Horde du contrevent, le nouveau roman d’Alain Damasio m’est tombé des mains. Voici une tentative de critique.

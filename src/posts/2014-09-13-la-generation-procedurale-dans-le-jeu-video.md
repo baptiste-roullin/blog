@@ -2,7 +2,7 @@
 title: "La génération procédurale dans le jeu vidéo"
 date: 2014-09-13
 hero:
-  image: minecraft.png
+  image: /assets/images/minecraft.png
   caption: Far lands dans Minecraft
 tags:
   - "jeu vidéo"

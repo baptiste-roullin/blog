@@ -6,7 +6,7 @@ tags:
   - "projets"
 
 hero:
-  image: "Icon_ombre2.png"
+  image: "/assets/images/Icon_ombre2.png"
 
 ---
 

@@ -4,7 +4,7 @@ title: Une  meilleure représentation des tailles d'écran
 date: 2022-08-15
 draft: false
 hero:
-  image: ga-viz.png
+  image: /assets/images/ga-viz.png
 tags:
   - projets
   - "utilisateurs"

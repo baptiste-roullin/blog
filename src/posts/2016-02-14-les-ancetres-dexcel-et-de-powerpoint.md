@@ -5,7 +5,7 @@ tags:
   - "histoire"
   - "objets"
 hero:
-  image: large_the_apartment_blu-ray_1.jpg
+  image: /assets/images/large_the_apartment_blu-ray_1.jpg
 ---
 
 

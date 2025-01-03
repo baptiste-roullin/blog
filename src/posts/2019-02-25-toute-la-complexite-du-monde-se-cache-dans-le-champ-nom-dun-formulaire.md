@@ -8,7 +8,7 @@ tags:
   - "interface utilisateur"
 featured: true
 hero:
-  image: "janewu.png"
+  image: "/assets/images/janewu.png"
 ---
 
 
