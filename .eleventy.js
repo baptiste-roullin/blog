@@ -73,8 +73,14 @@ export default async function (config) {
 	if (meta.env === "production") {
 
 		config.addPassthroughCopy('src/assets/docs/')
-		config.addPassthroughCopy({ 'src/assets/images/*.svg': meta.assetsDir })
-		config.addPassthroughCopy({ 'src/assets/images/*.mp4': meta.assetsDir })
+		//config.addPassthroughCopy({ 'src/assets/images/*.svg': meta.assetsDir })
+		//config.addPassthroughCopy({ 'src/assets/images/*.mp4': meta.assetsDir })
+		config.addPassthroughCopy("**/*.{png,webp,gif,mp4,jpg,jpeg}", {
+			mode: "html-relative",
+			paths: [], // additional fallback directories to look for source files
+			failOnError: true, // throw an error when a path matches (via `match`) but not found on file system
+			copyOptions: { dot: false }, // `recursive-copy` copy options
+		})
 
 		//config.addPassthroughCopy({ 'src/posts/**/* ': meta.assetsDir })
 		//config.addPassthroughCopy('src/assets/images')

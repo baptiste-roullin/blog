@@ -81,7 +81,8 @@ function generateSrcList(imageSettings, imageWidth, imageSrc) {
 			if (imageWidth !== null && stepWidth >= imageWidth) {
 				warning(`The image is smaller than maxWidth: ${imageWidth} < ${imageSettings.maxWidth}`)
 				widthsList.push(imageWidth)
-				const url = imageSettings.reformatURL(imageSrc, imageWidth)
+				//const url = imageSettings.reformatURL(imageSrc, imageWidth)
+				const url = imageSrc
 				srcsetList.push(`${url} ${imageWidth}w`)
 				break
 			}
@@ -91,7 +92,8 @@ function generateSrcList(imageSettings, imageWidth, imageSrc) {
 			}
 			previousStepWidth = stepWidth
 			widthsList.push(stepWidth)
-			const url = imageSettings.reformatURL(imageSrc, stepWidth)
+			//const url = imageSettings.reformatURL(imageSrc, stepWidth)
+			const url = imageSrc
 			srcsetList.push(`${url} ${stepWidth}w`)
 		}
 	}
@@ -121,11 +123,12 @@ function prepareForLighbox(image, document) {
 function handleImg(image, document, globalSettings) {
 
 	try {
-		let originalPath = path.normalize(image.getAttribute('src'))
+		let originalPath = "src/" + path.normalize(image.getAttribute('src'))
 		const intermediaryPath = "src/assets/imagesToProcess/" + path.basename(originalPath)
 		let imageSettings = clonedeep(globalSettings)
 
-		const imageDimensions = convertPicturesLibrary.statsSync(intermediaryPath, { statsOnly: true, formats: ["webp"] })
+		//const imageDimensions = convertPicturesLibrary.statsSync(intermediaryPath, { statsOnly: true, formats: ["webp"] })
+		const imageDimensions = convertPicturesLibrary.statsSync(originalPath, { statsOnly: true, formats: ["webp"] })
 		const originalWidth = imageDimensions.webp[0].width
 		setAttributes(image, {
 			'width': originalWidth,
@@ -144,7 +147,8 @@ function handleImg(image, document, globalSettings) {
 		if (imageSettings.fallbackWidth) {
 			image.setAttribute(
 				'src',
-				imageSettings.reformatURL(imageSrc, imageSettings.fallbackWidth)
+				imageSrc
+				//imageSettings.reformatURL(imageSrc, imageSettings.fallbackWidth)
 			)
 		}
 		setAttributes(image,
@@ -180,7 +184,8 @@ function handleImg(image, document, globalSettings) {
 			}
 		}
 		try {
-			convertPicturesLibrary(intermediaryPath, options)
+			//convertPicturesLibrary(intermediaryPath, options)
+			convertPicturesLibrary(originalPath, options)
 		}
 		catch (e) {
 			console.log("debug images-resp: " + intermediaryPath + "  " + e)
@@ -252,7 +257,8 @@ export function findImgInDevEnv(html, outputPath) {
 
 		[...document.querySelectorAll(".image-responsiver-content img[src]:not([srcset]):not([src$='.svg'])")].forEach(async (image) => {
 			const imageSrc = image.getAttribute('src')
-			image.setAttribute("src", reformatURL(imageSrc))
+			//image.setAttribute("src", reformatURL(imageSrc))
+			image.setAttribute("src", imageSrc)
 			prepareForLighbox(image, document)
 		})
 
