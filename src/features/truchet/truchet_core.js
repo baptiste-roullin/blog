@@ -1,21 +1,11 @@
 import { prng_alea } from 'esm-seedrandom'
-
-
-
 export function randIntBetween(min, max) {
 
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
-/** @param {customCanvas} canvas
- * @param {customCanvas} tileCanvas
- * @param {Params} params
- * @param {string} mode
- * @returns {Promise<customCanvas>}
- */
 export default async function truchet(canvas, tileCanvas, params, mode) {
     const d3 = await import("d3-color")
-    const { createCanvas } = await import('canvas')
 
     /*
         const should_shuffle = (randIntBetween(0, 1) === 1 ? true : false)
@@ -202,9 +192,7 @@ export default async function truchet(canvas, tileCanvas, params, mode) {
     }
 }
 
-/** @typedef {Object} customCanvas
- * @property {Function} createPNGStream
- */
+
 /** @typedef {Object} Params
  * @property {number} height
  * @property {number} width

@@ -1,26 +1,28 @@
 import debug from 'debug'
 import truchet from './truchet_core.js'
 import meta from '../../_data/meta.js'
-import fs from 'fs'
-import promises from 'stream'
+
 const warning = debug('tcqb:warning')
+
+import { Canvas } from 'skia-canvas'
 
 /** @returns {Promise<void>} */
 export default async function (slug, width, height) {
-    const { createCanvas } = await import('canvas')
 
-    const pipeline = promises.pipeline
+    try {
+        const path = `${meta.outputDir}/${meta.assetsDir}/truchet-${slug}.png`
+        const tileCanvas = await truchet(
+            new Canvas(width, height),
+            new Canvas(width, height),
+            { height: height, width: width }, 'node')
 
-    const path = `${meta.outputDir}/${meta.assetsDir}/truchet-${slug}.png`
-    const tileCanvas = await truchet(createCanvas(width, height), createCanvas(width, height), { height: height, width: width }, 'node')
-    await pipeline(tileCanvas.createPNGStream({ compressionLevel: 2 }), fs.createWriteStream(path), (err) => {
-        if (err) {
-            console.error('Pipeline failed.', err)
-        }
-        else {
-            warning('truchet pipeline succeeded.')
-        }
-    })
+        await tileCanvas.saveAs(path)
+
+
+    } catch (error) {
+        console.log(error)
+
+    }
     /*   }
        else {
            warning('truchet désactivé')
