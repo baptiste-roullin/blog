@@ -4,7 +4,6 @@ date: 2019-02-07
 tags:
   - "prototypage"
   - "projets"
-
 hero:
   image: "/assets/images/Icon_ombre2.png"
 

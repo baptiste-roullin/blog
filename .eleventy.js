@@ -73,14 +73,12 @@ export default async function (config) {
 	config.addPlugin(eleventyImageTransformPlugin, {
 		// which file extensions to process
 		extensions: "html",
-
-		// Add any other Image utility options here:
-
-		// optional, output image formats
 		formats: ["webp"],
-
+		sharpOptions: {
+			animated: true,
+		},
 		// optional, output image widths
-		widths: [200, "auto"],
+		widths: [400, 800, 1200, 1920, "auto"],
 		outputDir: '/assets/img',
 		useCache: "true",
 		// optional, attributes assigned on <img> override these values.
@@ -101,13 +99,6 @@ export default async function (config) {
 		//		failOnError: true, // throw an error when a path matches (via `match`) but not found on file system
 		//		copyOptions: { dot: false }, // `recursive-copy` copy options
 		//	})
-
-
-
-
-
-
-
 
 
 		//config.addPassthroughCopy({ 'src/posts/**/* ': meta.assetsDir })

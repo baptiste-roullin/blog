@@ -4,7 +4,7 @@ date: 2020-04-10
 tags:
   - "projets"
 hero:
-  image: "screenshot.png"
+  image: "/assets/images/screenshot.png"
   alt: "screenshot de l'interface du minuteur"
 ---
 

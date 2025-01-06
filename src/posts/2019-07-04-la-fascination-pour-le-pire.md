@@ -5,7 +5,7 @@ tags:
   - "conception"
   - "interface utilisateur"
 hero:
-  image: "012cukejqs1z.png"
+  image: "/assets/images/012cukejqs1z.png"
 ---
 
 

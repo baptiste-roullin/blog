@@ -5,7 +5,6 @@ tags:
   - "tout ce qui bouge"
   - "concept"
   - "interface utilisateur"
-
 ---
 
 _Résumé : sur mobile j'ai changé la barre de menu du blog._

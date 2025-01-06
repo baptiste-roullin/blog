@@ -29,7 +29,7 @@ Deux plugins d'organisation automatiquement des plans de travail : [Artboard M
 **Cliquer sur l'animation pour l'arrêter**
 
 <figure>
-<img id="#freezegif" src="/assets/images/28533105-3a1586ca-709c-11e7-8544-87d2bb0ad4f1.gif">
+<img id="#freezegif" alt="" src="/assets/images/28533105-3a1586ca-709c-11e7-8544-87d2bb0ad4f1.gif">
 	<figcaption>Exemple d'arrangement automatique des blocs avec Artboard manager</figcaption>
 </figure>
 

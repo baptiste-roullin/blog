@@ -56,7 +56,7 @@ Première solution : décliner le produit **en plusieurs tailles** afin de cou
 Deuxième solution : rendre le produit **ajustable**, lors de l'installation ou de l'utilisation. Par exemple on peut changer la hauteur, l'avancement… d'un siège de voiture. Ce serait compliqué pour un téléphone, mais on peut citer le Galaxy Note 3, doté d'un mode assez curieux permettant réduire la surface utile de l'image d'un geste (cliquez pour arrêter l'animation) :
 
 <figure>
-<img id="#freezegif" src="/assets/images/note-3-shrink-15fps.gif">
+<img alt="" id="#freezegif" src="/assets/images/note-3-shrink-15fps.gif">
 	<figcaption>Un geste de va-et-vient réduit la taille de l'écran. (Source : Android Central </figcaption>
 </figure>
 

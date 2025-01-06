@@ -5,7 +5,7 @@ tags:
   - "objets"
 featured: true
 hero:
-  image: joyboard2.jpg
+  image: /assets/images/joyboard2.jpg
 ---
 
 Lors de deux moments importants pour l'histoire de l'informatique, on trouve une personne assise à une machine et utilisant autant ses pieds que ses mains.

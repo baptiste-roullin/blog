@@ -56,6 +56,7 @@ export const collections = {
 
                 //chemin absolu
                 project.img = `${meta.outputDir}/${meta.assetsDir}/truchet-${project.name}.png`
+                //TODO
                 //const projectExists = await fileExists(process.cwd() + project.img)
                 //if (!projectExists) {
                 if (true) {
