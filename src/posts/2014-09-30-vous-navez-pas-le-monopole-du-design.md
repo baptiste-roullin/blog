@@ -27,7 +27,7 @@ Enfin, le design (et par extension le design UX) peut être vu comme une respons
 
 Un avis ?
 
-![VGE, wink wink](/assets/images/VGE.png "[Source](http://www.ina.fr/video/I00017840)")
+![VGE, wink wink](/img/VGE.png "[Source](http://www.ina.fr/video/I00017840)")
 
 ## Pour aller plus loin
 

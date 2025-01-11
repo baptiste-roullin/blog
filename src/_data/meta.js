@@ -13,7 +13,7 @@ export default {
 	author: 'Baptiste Roullin',
 	authorEmail: '',
 	outputDir: "dist",
-	assetsDir: 'assets/images',
+	assetsDir: 'img',
 	zotero: convertToBool(process.env.ZOTERO),
 	twitterBearer: process.env.TWITTER_BEARER,
 	twitterThread: convertToBool(process.env.TWITTER_THREAD),

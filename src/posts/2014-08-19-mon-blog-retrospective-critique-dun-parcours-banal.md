@@ -12,30 +12,30 @@ Je suis tombé sur de vieilles captures d'écran du blog et c'est assez drôle. 
 
 pas de design. Je voulais surtout ouvrir un blog donc j'ai rapidement trouvé un thème tout fait. Bien sûr, choisir un thème est déjà une décision esthétique, mais je n'ai pas mis les mains dans le cambouis ni rien créé à proprement parler.
 
-![Circa 2012](/assets/images/toutCeQuiBouge-0.png "Niveau 1, circa 2012")
+![Circa 2012](/img/toutCeQuiBouge-0.png "Niveau 1, circa 2012")
 
 ## Niveau 2 
 
 Design décoratif. Je découvrais le potentiel du CSS, ne voulais pas avoir un blog-de-designer tout blanc et me fichais de supporter de vieux navigateurs, donc j'ai eu la main lourde sur les effets. Ombres, gradients et textures à tous les étages.
 
-![Niveau 2, circa 2013](/assets/images/toutCeQuiBouge-1.png " Niveau 2, circa 2013")
+![Niveau 2, circa 2013](/img/toutCeQuiBouge-1.png " Niveau 2, circa 2013")
 
 ## Niveau 2.1
 
 
-![Circa 2013](/assets/images/toutCeQuiBouge-2.png "Niveau 2.1, circa 2013")
+![Circa 2013](/img/toutCeQuiBouge-2.png "Niveau 2.1, circa 2013")
 
 ## Niveau 3 
 
 Design hiératique. Une approche minimaliste, fondée sur le contenu, avec du texte fort et souvent centré. Le résultat est imposant, manque de souplesse et finalement n'est guère plus subtil que le niveau précédent. C'est simplement une autre esthétique et une palette d'effets différents. Sans compter qu'on tombe dans le blog à l'élégance générique que je voulais éviter.
 
-![Niveau 3, printemps 2013](/assets/images/toutcequiBouge-3.png "Niveau 3, printemps 2014")
+![Niveau 3, printemps 2013](/img/toutcequiBouge-3.png "Niveau 3, printemps 2014")
 
 Pour un archétype du design hiératique, allez voir le blog de [Information Architects](http://ia.net/blog/the-web-is-all-about-typography-period/). Y a pas photo, c'est moins tristoune et beaucoup plus réussi que le mien, mais il y a un coté « Déclaration des droits de l’homme dans ta face » un peu étouffant.
 
 ## Niveau 3.1
 
-![Aout 2014](/assets/images/ToutCeQuiBouge-4.png  "Niveau 3.1, aout 2014")
+![Aout 2014](/img/ToutCeQuiBouge-4.png  "Niveau 3.1, aout 2014")
 
 
 ## Réflexions
@@ -46,4 +46,4 @@ Deux réflexions en guise de conclusion : cette échelle improvisée ne s’ar
 ## Mise à jour
 
 
-![février 2022](/assets/images/toutcequibouge5.png  "Niveau ?, février 2022")
+![février 2022](/img/toutcequibouge5.png  "Niveau ?, février 2022")

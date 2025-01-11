@@ -2,7 +2,7 @@
 title: "La génération procédurale dans le jeu vidéo"
 date: 2014-09-13
 hero:
-  image: /assets/images/minecraft.png
+  image: /img/minecraft.png
   caption: Far lands dans Minecraft
 tags:
   - "jeu vidéo"
@@ -22,11 +22,11 @@ Il y a globalement deux familles de techniques : celles des grammaires de form
 
 Les _grammaires de formes_ sont héritées des grammaires formelles, qui permettent de décrire avec un jeu de règles l’ensemble des phrases correctes d’un langage donné. On procède en générant toutes les phrases possibles à partir d’un alphabet et de règles de transition. Par, exemple, à partir de l’alphabet {a, b} et de la règlea => b, on peut générer le langage {a, ab, abb, abbb…}. Cette idée fut d’abord utilisée pour modéliser des phénomènes de croissance naturelle (feuilles, colonies de bactérie), puis étendue à l’architecture. En prenant des formes géométriques simples comme alphabet de base, on peut créer des façades, des bâtiments, voire des villes entières.
 
-![Système L](/assets/images/System-L.jpg)
+![Système L](/img/System-L.jpg)
 
 Passons aux _fonctions de bruit._ On commence par placer des points dont les valeurs sont générées de façon pseudo-aléatoire, puis à effectuer une interpolation entre eux afin d’obtenir une courbe. Faire la somme de plusieurs de ces courbes permet d’en obtenir une d’aspect plus fractal, compliqué et naturel. On peut faire la même chose en deux dimensions, ce qui donne alors une texture. Le passage à la troisième dimension permet d’obtenir un terrain, ce qui est relativement trivial : il suffit d’interpréter la valeur du niveau de gris comme une hauteur.
 
-![Bruit de Perlin en dimensions 1, 2 et 3](/assets/images/Perlin.png " Bruit de Perlin en dimensions 1, 2 et 3")
+![Bruit de Perlin en dimensions 1, 2 et 3](/img/Perlin.png " Bruit de Perlin en dimensions 1, 2 et 3")
 
 ## Un nouveau processus de conception
 

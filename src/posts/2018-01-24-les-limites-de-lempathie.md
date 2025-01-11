@@ -6,7 +6,7 @@ tags:
   - "cognition"
 featured: true
 hero:
-  image: /assets/images/empathy.png
+  image: /img/empathy.png
 ---
 
 L'empathie c'est bien mais ce n'est pas une panacée. On essaye de se mettre à la place de l'autre mais on y trouve surtout ce qu'il y a de plus de similaire àsoi, de plus émotionnellement facile. Et tout ça quel but exactement ?

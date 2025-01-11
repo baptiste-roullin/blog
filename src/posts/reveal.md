@@ -26,9 +26,9 @@ J'ai donc pensé à [Reveal.js](https://revealjs.com/), une bibliothèque permet
 
 {% gallery  %}
 
-![](reveal1.png)
+![](/img/reveal1.png)
 
-![reveal3](reveal3.png)
+![](/img/reveal3.png)
 
 {% endgallery %}
 
@@ -53,7 +53,7 @@ Problème : la rédaction reste très verbeuse. On doit écrire dans le fichier 
 
 Arrive Asciidoc. C'est un format un peu plus ancien que Markdown, et aussi un peu plus riche (donc complexe). [Une extension](https://docs.asciidoctor.org/reveal.js-converter/) permet de générer une présentation complète à partir d'un fichier. L'avantage est d'écrire dans un éditeur de texte, sans se soucier de mise en forme ni de détails techniques. Dans VS Code ça donne quelque chose ça :
 
-![reveal2](reveal2.png)
+![](/img/reveal2.png)
 
 
 Chaque titre est un slide. La hiérarchie de titres, signifiée par le nombre de `=`, permet de générer la table des matières à gauche et aussi de créer les rubriques "verticales" mentionnées plus haut. Globalement, c'est assez génial pour réfléchir à l'enchainement des idées et déplacer rapidement du contenu d'un endroit à l'autre.

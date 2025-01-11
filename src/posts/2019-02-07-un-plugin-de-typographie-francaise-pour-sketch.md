@@ -5,7 +5,7 @@ tags:
   - "prototypage"
   - "projets"
 hero:
-  image: "/assets/images/Icon_ombre2.png"
+  image: "/img/Icon_ombre2.png"
 
 ---
 
@@ -19,7 +19,7 @@ Résumé : j'ai créé un [plugin Sketch](https://github.com/baptiste-roullin/
 
 Tout a commencé par une interface comme celle-ci :
 
-![screenshot de boite de dialogue](/assets/images/dialog-1-e1549493962289.png)
+![screenshot de boite de dialogue](/img/dialog-1-e1549493962289.png)
 
 ... Dans le titre, un magnifique point d'exclamation seul sur sa ligne, problème récurrent dans une application mobile sur laquelle je travaillais. Je me suis demandé comment résoudre ce problème, sans demander aux développeurs de mémoriser chaque règle et d'insérer systématiquement des caractères spéciaux à la main. Ces caractères, ce sont les espaces insécables, qui collent la ponctuation au signe précédent. Sur le web ça implique de taper des choses sympathiques comme `&nbsp;` ou d'utiliser d'obscurs raccourcis clavier.
 

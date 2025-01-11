@@ -4,7 +4,7 @@ date: 2020-04-10
 tags:
   - "projets"
 hero:
-  image: "/assets/images/screenshot.png"
+  image: "/img/screenshot.png"
   alt: "screenshot de l'interface du minuteur"
 ---
 
@@ -15,7 +15,7 @@ J'ai fait un minuteur, il est joli, il est cool.
 :::
 
 
-[![](/assets/images/screenshot.png)](https://misc.toutcequibouge.net/Timer/)
+[![](/img/screenshot.png)](https://misc.toutcequibouge.net/Timer/)
 
 **Quoi qu'est-ce que c'est ?**
 
@@ -29,7 +29,7 @@ Mais il est parfait pour minuter du collage de post-it.
 - D'après mes tests, il fonctionne même sans réseau.
 - Via Chrome, il peut être installé en cliquant sur l’icône "plus" dans la barre d'adresse et apparaitra comme n'importe quelle application locale.
 
-![](/assets/images/install.png)
+![](/img/install.png)
 
 **Pourquoi ?**
 

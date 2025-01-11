@@ -12,7 +12,7 @@ Très naturellement je me suis dit : «  hey avec ça on peut communiquer en
 
 En faisant mes recherches, je suis tombé sur un hack assez différent mais encore plus jouissif : utiliser l'accéléromètre d'un ordi portable pour détecter quand on toque dessus. Certains ordinateurs ont un capteur de ce genre pour détecter une chute et désactiver le disque dur, mais on peut en tirer parti pour [jouer](http://lifehacker.com/181203/gaming-with-the-macbooks-accelerometer), [enregistrer les séismes](https://www.technologyreview.com/s/409999/laptops-as-earthquake-sensors/) ou détecter des coups. On peut ainsi sortir son ordinateur de veille avec un [rythme de coups qu'on aura défini](http://www.ibm.com/developerworks/library/l-knockage/index.html#resources).
 
-![knockToUnlock](/assets/images/knockToUnlock.png)
+![knockToUnlock](/img/knockToUnlock.png)
 
 L'idée du _secret knock_ a été reprise par [des apps](http://www.gizmag.com/sesame-smart-lock-secret-knock/36275/) de déverrouillage de porte. Plus largement, on peut taper pour allumer l'écran de son [smartphone LG](http://www.lg.com/fr/knockcode), pour déverrouiller son ordinateur [depuis son téléphone](http://www.knocktounlock.com/) (en photo), etc.
 

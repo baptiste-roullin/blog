@@ -13,7 +13,7 @@ _Résumé : il faut se battre pour l'URL mais il faut aussi améliorer la barr
 
 Google expérimente en ce moment une nouvelle fonctionnalité pour Chrome : faire disparaitre l'URL de la barre d'adresse. Il ne subsisterait que le nom de domaine dans un cadre, afin de mieux le mettre en avant et lutter contre le phishing ([source](https://news.ycombinator.com/item?id=7694146)). Cela permettrait de mieux distinguer `amazon.com` de `amazon.siteChelou.com`. Pour voir l'URL et l'éditer, il faudrait cliquer sur le nom de domaine.
 
-![](/assets/images/hidden-url.gif " Animation empruntée à [Usability Post](http://usabilitypost.com/2014/05/03/killing-the-url/)")
+![](/img/hidden-url.gif " Animation empruntée à [Usability Post](http://usabilitypost.com/2014/05/03/killing-the-url/)")
 
 Beaucoup se sont élevés contre cette idée ([notamment](http://www.allenpike.com/2014/burying-the-url/)), l'URL étant le concept fondateur du web. Grâce à elle, un document est accessible universellement et sans ambiguïté. À cela, on peut répondre que bien des appareils fonctionnent parce que leur technologie est invisible pour l'utilisateur. Après tout, on ne lui révèle pas l'adresse IP d'un site ou le header d'une requête HTTP, alors que ce sont des protocoles fondamentaux et porteurs d'information. De plus, les URL sont souvent une suite de caractères incompréhensibles et inutilisables.
 
@@ -25,7 +25,7 @@ Elle permet de situer la page dans l'arborescence du site et de signaler comment
 
 On pourrait aller plus loin et imaginer que chaque niveau de l'URL soit manipulable, comme cela se fait dans l'explorateur de fichiers de Windows ou dans certains éditeurs de code. Par exemple, dans Coda, cliquer sur un dossier du chemin ouvre un menu permettant d'accéder aux autres dossiers de même niveau. Cliquer sur le fichier ouvert permet également d'accéder aux différentes fonctions que celui-ci inclut, ce qui facilite la navigation dans le corps du document. Dans une page web, par exemple, on pourrait imaginer que changer de langue se fasse depuis l'URL, par un menu dédié, au lieu de chercher désespérément le lien dans la page (cela m'arrive souvent dans des bases documentaires).
 
-![interactive path for Coda 2](/assets/images/coda.png)
+![interactive path for Coda 2](/img/coda.png)
 
 Plus généralement, je trouve toujours dommage qu'on essaye de cacher un système puissant, sous prétexte qu'il est complexe et mal utilisé. Il faudrait plutôt domestiquer cette complexité et la rendre plus accessible aux utilisateurs. La barre d'adresse d'un navigateur est aujourd'hui un des rares endroits où l'on est confronté au concept d'interface en ligne de commande. C'est aussi une interface vers énormément de choses : historique, favoris, recherche, etc. Organiser et retrouver du contenu, opérer un service… Il y a là un gros potentiel et une bonne occasion de faire progresser les interfaces en ligne de commande et d'y habituer les gens.
 

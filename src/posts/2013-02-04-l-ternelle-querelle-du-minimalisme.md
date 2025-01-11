@@ -4,7 +4,7 @@ date: 2013-02-04
 featured: true
 tags: ["histoire", "objets", "interface"]
 hero:
-  image: /assets/images/sony_building_by_david_shankbone_crop.jpg
+  image: /img/sony_building_by_david_shankbone_crop.jpg
   caption: "Bâtiment de Philipp Johnson. Photo de David Shankbone, CC-BY-SA-3.0, via Wikimedia Commons."
 ---
 
@@ -16,11 +16,11 @@ On fait souvent de cette opposition une tendance actuelle, alors que l’histoir
 
 En 2006, les créateurs de Rogue Amoeba (un éditeur de logiciels pour Mac) plaidaient pour la simplicité et l’intemporalité et raillaient la surenchère d’effets graphiques dans les produits de leurs concurrents. Il y a même une [quelques articles](https://www.wired.com/2007/06/core-anim/) sur ces interfaces qu’ils appelèrent, non sans ironie, « délicieuses ». Ils faisaient référence, par exemple, à la fumée se dégageant de la fenêtre du logiciel de gravure Disco.
 
-![](/assets/images/disco.jpeg)
+![](/img/disco.jpeg)
 
 En 2001 sortait Mac OS X, avec ses boutons bleus reluisants et ses animations. Alors que Jobs vantait un graphisme qu’on avait envie de lécher (je cite), on cria au “_style over substance_”, on reprocha aux designers d’Apple de se faire plaisir et on rappela que l’esthétique pouvait desservir l’utilisabilité. Aujourd’hui, on rappelle que Jony Ive, chantre du design épuré, a commis des coques d’iMac dans ce genre :
 
-![iMac kitsch](/assets/images/iMac-kitsch.png)
+![iMac kitsch](/img/iMac-kitsch.png)
 
 En 1928, Jan Tschichold publiait _The New Typography_, ouvrage où il appelle de ses vœux la naissance d’une [typographie moderne](http://en.wikipedia.org/wiki/Modern_typography)[^1]. Cela signifiait pour lui une « rupture complète avec la typographie ancienne » et impliquait de « se débarrasser de tout concepts décoratifs et de se tourner vers le design fonctionnel » (je cite, p. 64). Il s’oppose particulièrement à la copie servile de styles classiques (par exemple de la part du mouvement _Arts & Crafts_) et à l’inventivité désordonnée et surchargée de l’Art Nouveau. À la place, il propose la recherche de formes simples, rationnelles et en phase avec leur temps. Il ne faut pas entendre ce modernisme de manière abstraite : il ne s’agit pas de prétexter un « esprit du temps » commode et évanescent, mais d’être en adéquation avec la technique et les besoins de l’époque.
 
@@ -34,11 +34,11 @@ Il y a en architecture un principe très proche de ce respect des matériaux: «
 
 Sans vouloir pousser le bouchon trop loin, on pourrait remonter jusqu’à l’opposition entre classique et baroque. Que ce soit dans [l’alternance](http://web.archive.org/web/20130323034614/http://www.lepanoptique.com/sections/histoire/classicisme-contre-baroque-un-combat-d%E2%80%99exces) des deux styles en histoire de l’art ou dans le couple de concepts développés _a posteriori_ (notamment par [Wölfflin](http://en.wikipedia.org/wiki/Heinrich_W%C3%B6lfflin#Principles_of_Art_History)), il y a à mon sens un même mouvement de balancier. Du coté du classique, la recherche de la simplicité, de l’harmonieux et du vraisemblable, de l’autre un goût pour l’excès, la contradiction et l’illusion. Ainsi, de nos jours, le classicisme serait plutôt contre l’utilisation d’ombres incurvées utilisées pour créer un effet de coin relevé, parce que c’est un _truc_ qui ne sert à rien et qui ne fonctionne qu’en trompant le cerveau. Dans cet esprit, une ombre portée habituelle serait plus acceptable : c’est aussi une illusion mais elle a sa cohérence propre (ce n’est pas une forme impossible) et elle permet de distinguer plusieurs plans.
 
-![](/assets/images/CurvedThumb.jpg)
+![](/img/CurvedThumb.jpg)
 
 Pourtant, du coté baroque, bien des effets graphiques sont des illusions (par exemple la perspective forcée), l’important est que l’œil n’y voie que du feu. Par exemple, le relief sous le titre ci-après n’est en fait qu’une ombre portée, en zoomant sur le [site d’origine](http://bjango.com/articles/) on voit un jeu entre les deux niveaux de couleur. On utilise le médium au-delà de ce qui a été prévu, mais qu’importe.
 
-![](/assets/images/tumblr_inline_mhbsgyTiG31qz4rgp.png)
+![](/img/tumblr_inline_mhbsgyTiG31qz4rgp.png)
 
 Il est évidemment contestable de lire tous ces évènements selon une grille unique, comme s’il y avait une dichotomie intemporelle entre classicisme et baroque qui s’incarnait partout de la même façon. Comme le montre le cas du mouvement _Arts & Crafts_, on peut lutter contre le kitsch et cinquante ans après être rangé dans le camp du mauvais goût. Il y a pourtant des similarités frappantes : d’un coté une conception fonctionnaliste et minimaliste, de l’autre une approche beaucoup plus permissive, qui refuse de se soumettre à des règles rigides et qui utilise tous les moyens d’expression à sa disposition (y compris, donc, l’ornementation).
 

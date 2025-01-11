@@ -21,7 +21,7 @@ On considère classiquement que c'est une technique utile mais à manier avec pr
 
 Si on veut avoir le beurre et l'argent du beurre, Jeff Raskin recommande l'utilisation de ce qu'il appelle des [quasi-modes](http://en.wikipedia.org/wiki/Mode_%28computer_interface%29#Quasimodes), c'est-à-dire des modes qui demandent une intervention constante de la part de l’utilisateur. Citons le cas du pédalier d’un piano ou la touche Shift d’un clavier : elle n’a pas d’effet si elle n'est pas pressée. Cela demande plus de coordination motrice, mais en contrepartie les deux actions (ici, shift + lettres) sont liées et concomitantes. L'utilisateur a ainsi plus de contrôle sur le système et cela diminue les risques de rester dans un mode sans s'en rendre compte.
 
-![Dishonored](/assets/images/Dishonored.jpg)
+![Dishonored](/img/Dishonored.jpg)
 
 Dishonored (ZeniMax / Arkane Studios, 2012)
 
@@ -36,7 +36,7 @@ Le interface utilisateurs pourrait s'inspirer de cette idée. Cela fait longtemp
 Je trouve l'idée particulièrement adaptée aux écrans tactiles, donc j'ai en tête un modèle d'interaction de ce genre : presser deux doigts pour faire apparaitre un menu, puis les faire glisser vers l'item désiré. Décoller les doigts de l'écran suffit à sélectionner ce dernier. L'interaction conjugue la facilité des gestes tactiles et l'immédiateté du feedback visuel. Le résultat est fluide puisque les doigts ne quittent pas l'écran. Dans l'animation ci-après (oui c'est juste un Gif pourri), le menu apparait vers le haut pour ne pas être caché par la main. L'exemple est assez limité (partager un article vers divers services), mais au-delà ce genre d'interaction me semble prometteur.
 
 
- ![""](/assets/images/2x_Press_Hold.gif)
+ ![""](/img/2x_Press_Hold.gif)
 
 
 Cela pourrait être utilisé soit comme menu contextuel, soit comme menu global (ie qui permettrait d'accéder aux même actions quelque soit l'endroit où j'appuie). Le premier cas serait utile avec beaucoup de cibles potentielles distinctes (par exemple une page pleine de liens), tandis que le second serait plus avantageux avec des actions répétitives (par exemple accéder à une palette d'outils dans une application de dessin). Je suis preneur d'avis et de critiques. L'utilisabilité aussi bien que l'utilité de cette proposition sont certainement critiquables et j'ai pu passer à coté de travaux semblables.

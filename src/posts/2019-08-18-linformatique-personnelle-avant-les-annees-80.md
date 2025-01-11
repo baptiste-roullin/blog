@@ -5,7 +5,7 @@ tags:
   - "histoire"
   - "utilisateurs"
 hero:
-  image: /assets/images/2019-09-14_01h56_51.jpg
+  image: /img/2019-09-14_01h56_51.jpg
   alt: "Une enseignante et ses élèves autour d'un terminal Teletype. Crédits : Computer History Museum"
   title: "Une enseignante et ses élèves autour d'un terminal Teletype. Crédits : Computer History Museum"
 ---
@@ -57,6 +57,6 @@ A noter que le chapitre 2 est consacré à l'influence de la culture "jock" et m
 - [When Women Stopped Coding](https://www.npr.org/sections/money/2014/10/21/357629765/when-women-stopped-coding?t=1566130798081)
 - [Pourquoi les filles ont délaissé l’informatique](https://theconversation.com/pourquoi-les-filles-ont-delaisse-linformatique-110940)
 
-![Enfants autour d'un terminal PLATO. utilisé dans une campagne de publicité.](/assets/images/2019-12-03_20h31_49.jpg)
+![Enfants autour d'un terminal PLATO. utilisé dans une campagne de publicité.](/img/2019-12-03_20h31_49.jpg)
 
 Enfants autour d'un terminal PLATO. utilisé dans une campagne de publicité.

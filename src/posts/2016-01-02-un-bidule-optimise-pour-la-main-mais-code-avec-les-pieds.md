@@ -16,4 +16,4 @@ Avertissement : on parle d'un truc optimisé pour la main mais codé avec les 
 
 [C'est ici](http://misc.toutcequibouge.net/TR/index.html).
 
-[![Screenshot_2016-01-03-00-05-00](/assets/images/Screenshot_2016-01-03-00-05-00-e1451777220269.png)](http://misc.toutcequibouge.net/TR/index.html)
+[![Screenshot_2016-01-03-00-05-00](/img/Screenshot_2016-01-03-00-05-00-e1451777220269.png)](http://misc.toutcequibouge.net/TR/index.html)

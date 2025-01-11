@@ -94,7 +94,7 @@ Il existe une palanquée de biais cognitifs répertoriés, car ce n'est pas trè
 > Suppose you are studying a person deciding on their retirement savings plans. You want to help them make a better decision (assuming you can define it). So which biases could lead them to err? Will they be loss averse? Present biased? Regret averse? Ambiguity averse? Overconfident? Will they neglect the base rate? Are they hungry? From a predictive point of view, you have a range of countervailing biases that you need to disentangle. From a diagnostic point of view, you have an explanation no matter what decision they make. And if you can explain everything, you explain nothing.
 > [Source](https://worksinprogress.co/issue/biases-the-wrong-model/) {lang=en}
 
-!["diagramme montrant des dizaines de biais de manière vaguement organisée"](biasIndex.png)
+!["diagramme montrant des dizaines de biais de manière vaguement organisée"](/img/biasIndex.png)
 
 Plus précisément, cette débauche de biais finit par créer deux problèmes.
 1. Sous-entendre que les gens sont totalement irrationnels
@@ -106,7 +106,7 @@ Plus précisément, cette débauche de biais finit par créer deux problèmes.
 
 Chez de nombreux auteurs et vulgarisateurs, parler des biais est une entreprise de démystification : vous vous croyez le sommet de l'évolution ? On va vous montre que vous êtes irrationnel et incapable de résoudre des problèmes de probabilité si basiques que vous pourriez les croiser au quotidien.
 
-!["Couverture du livre Vous n'êtes pas si intelligent"](notSmart.jpg)
+!["Couverture du livre Vous n'êtes pas si intelligent"](/img/notSmart.jpg)
 
 Il faut adopter une grille de lecture différente, pas pour sauver notre égo mais parce que sans elle on ne comprend pas que ces biais existent pour une raison : nous permettre de prendre des décisions rapidement et facilement. Ce sont plus des heuristiques que des biais, car la plupart du temps elles remplissent leur but. Nous évoluons dans des contextes où nous cherchons le plus souvent des réponses acceptables plutôt que parfaites, pour agir plutôt  que pour délibérer.
 

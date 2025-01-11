@@ -11,19 +11,19 @@ Loin de moi le désir de lancer un débat du type “depuis la mort de Jobs, App
 
 Voyons d’abord le panneau général :
 
-![Panneau des préférences générales](/assets/images/general.png "Panneau des préférences générales")
+![Panneau des préférences générales](/img/general.png "Panneau des préférences générales")
 
 D’abord, le libellé en (1) est foutu n’importe comment : il n’est pas centré sur le premier bouton radio, il dépasse vers le haut et du coup il est trop proche de la section supérieure. Ensuite la section en (2) a deux alignements différents, qui ne correspondent à rien d’autre dans la fenêtre. Résultat : ça fait fouillis. Enfin, le principe des panneau de préférences dans Mac OS est de se redimensionner automatiquement selon la quantité de choses à afficher. Ici, une fenêtre un peu plus grande n’aurait pas été pas été du luxe.
 
-Dans le même esprit, on peut voir que dans les différents onglets du panneau du trackpad, le contenu se déplace légèrement au lieu de redimensionner la fenêtre. Voir ce [Gif](/assets/images/trackpad.gif).
+Dans le même esprit, on peut voir que dans les différents onglets du panneau du trackpad, le contenu se déplace légèrement au lieu de redimensionner la fenêtre. Voir ce [Gif](/img/trackpad.gif).
 
 Notez également le manque de structure des boutons dans le panneau Sécurité :
 
-![Panneau des préférences de sécurité](/assets/images/s__curit__.png " Panneau des préférences de sécurité")
+![Panneau des préférences de sécurité](/img/s__curit__.png " Panneau des préférences de sécurité")
 
 Enfin, admirez comme la troisième case à cocher dépasse d’un poil vers la gauche dans le panneau Utilisateurs :
 
-![panneau des préférences, section "utilisateurs"](/assets/images/utilisateurs.png)
+![panneau des préférences, section "utilisateurs"](/img/utilisateurs.png)
 
 Je suis peut-être maniaque, mais à Cupertino on est censé être _encore_ plus maniaque. A noter que ce n’est pas une liste exhaustive et que je me suis concentré sur les points les plus incontestables. On pourrait aussi parler de la nomenclature incohérente (entre un libellé et d’un menu déroulant, il y a parfois un double point, parfois non), des menus déroulants à deux items, des options pour le trackpad mal fichues…
 

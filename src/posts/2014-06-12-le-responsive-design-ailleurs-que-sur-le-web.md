@@ -11,7 +11,7 @@ Les applications natives mobiles, sur [Android](https://developer.android.com/tr
 
 Il y a évidemment des contre-exemples : en mode album, iTunes ajuste le nombre de colonnes et la taille des jaquettes. Depuis des années, Microsoft adapte intelligemment son fameux « ribbon », avec un grand nombre de points de rupture au fur et à mesure qu'on réduit la fenêtre.
 
-![ribbon microsoft word en responsive design ](/assets/images/2016-10-30_16h32_25.png)
+![ribbon microsoft word en responsive design ](/img/2016-10-30_16h32_25.png)
 
 Dans mon expérience, ce n’est pourtant pas fréquent. Il y a évidemment de bonnes raisons pour ces limitations. D'une, dans la plupart des cas on a affaire à un viewport dont le contenu est par définition fixe (exemple : une page Word). On peut alors seulement jouer sur l’UI (comme dans l’exemple d’Office). De deux, on retombe sur le grand problème du « device-agnostic responsive design » (concevoir pour une largeur donnée, sans préjuger de l'appareil utilisé) : il est difficile de prédire les préférences des gens. Si je redimensionne la fenêtre, serais-je content d'avoir un agencement adapté et sans scroll horizontal, ou au contraire énervé qu'on m'impose quelque chose ? Suivant les cas et les raisons du redimensionnement, la réponse varie.
 

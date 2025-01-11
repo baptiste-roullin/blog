@@ -6,7 +6,7 @@ tags:
   - "litterature"
 featured: true
 hero:
-  image: "/assets/images/furtifs.jpg"
+  image: "/img/furtifs.jpg"
 ---
 
 Alors que j'avais dévoré La Horde du contrevent, le nouveau roman d’Alain Damasio m’est tombé des mains. Voici une tentative de critique.
@@ -23,7 +23,7 @@ Mais à part ça niveau prospective, c'est un peu court. Megacorps, hackers, mar
 
 Rien sur le dérèglement climatique. Sérieusement, une des _deux seules_ occurrences de "climatique" c'est pour dire "cool il fait beau en avril". C’est un peu con de faire un roman anti-spéciste mais pas du tout environnementaliste.
 
-![recherche de "climatique" dans le texte](/assets/images/2019-06-30_22h20_23.png)
+![recherche de "climatique" dans le texte](/img/2019-06-30_22h20_23.png)
 
 recherche de "climatique" dans le texte
 
@@ -47,7 +47,7 @@ Vers la fin du roman se trouvent de courts inserts, des sortes de fragments de m
 
 3\. L'histoire finit carrément par une révolution quasi-généralisée (ville par ville et hors mégalopoles, attention on est municipaliste) catalysée par les furtifs. C'est mon dernier point : l’humanité découvre une nouvelle forme de vie et paf ça fait le Grand soir. Dans [un entretien](https://next.liberation.fr/livres/2019/04/12/a-la-zad-et-a-tarnac-j-ai-fait-l-eponge-rencontre-avec-alain-damasio_1720985) l'auteur déclare vouloir “proposer des micro-révolutions à la fin, pas un seul basculement révolutionnaire”. Ben raté, c’est ce qui se passe.
 
-![Recherche pour le mot "déter"](/assets/images/2019-07-08_23h12_00.png)
+![Recherche pour le mot "déter"](/img/2019-07-08_23h12_00.png)
 
 Recherche pour le mot "déter".
 

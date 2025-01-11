@@ -101,7 +101,7 @@ Il y avait une proposition pour créer un nouvel élément, indépendant du `<se
 
 Finalement la proposition parait être d'ajouter un attribut au `<select>` et qui ouvrirait plein de possibilités de personnalisation.
 
-!["démo montrant des listes déroulantes avec des styles différents et des photos ou pictogrammes élégamment intégrés dans chaque option."](select.gif)
+!["démo montrant des listes déroulantes avec des styles différents et des photos ou pictogrammes élégamment intégrés dans chaque option."](/img/select.gif)
 
 ::: info-block
 {% ctaLink "Documentation ici", "https://open-ui.org/components/selectlist/"  %}
@@ -111,7 +111,7 @@ Finalement la proposition parait être d'ajouter un attribut au `<select>` et qu
 
 Permet d'embarquer une version non-interactive d'une page dans une autre page, typiquement pour afficher une prévisualisation de la page au clic sur un lien.
 
-<video alt="" src="https://toutcequibouge.net/assets/images/portals.mp4" controls="true"></video>
+<video alt="" src="https://toutcequibouge.net/img/portals.mp4" controls="true"></video>
 
 À ne pas confondre avec [`<fencedframe>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fencedframe), qui est en gros la version moderne et sécurisée du bon vieux iframe.
 
@@ -144,7 +144,7 @@ Mentionnons aussi rapidement `<model>`, utilisé pour afficher des modèles 3D e
 Techniquement ce n'est pas un élément mais un attribut et une API mais Firefox vient de rejoindre les navigateurs compatibles et ça s'annonce sacrément utile. La fonctionnalité permet d'ajout un panneau non-modal en gérant finement le positionnement ainsi qu'en facilitant la gestion de la fermeture, de la navigation au clavier et du z-index.
 
 
-<video controls alt="Exemple avec plusieurs bulless'ouvrant au clic de manière radiale et élégante autour d'un bouton rond" src="/assets/images/popover.mp4"></video>
+<video controls alt="Exemple avec plusieurs bulless'ouvrant au clic de manière radiale et élégante autour d'un bouton rond" src="/img/popover.mp4"></video>
 
 ::: info-block
 {% ctaLink "Documentation ici", "https://developer.chrome.com/blog/introducing-popover-api/"  %}

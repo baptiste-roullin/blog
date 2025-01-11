@@ -10,7 +10,7 @@ tags:
 featured: true
 draft: false
 hero:
-  image: slide_44.jpg
+  image: /img/slide_44.jpg
 description: Dyslexie, cognition et algorithmes de césure
 ---
 
@@ -44,9 +44,9 @@ Voici deux graphiques ([source](https://www.sciencedirect.com/science/article/ab
 
 {% gallery %}
 
-![ "trajectoires visuelle d'une personne non-dyslexique. Les lignes horizontales représentent une fixation sur un point, les lignes verticales représentent des mouvements en avant ou arrière dans le texte. Le graphique présente une forme de série d'escaliers vus de coté, assez réguliers"](image-20240124200641974.png)
+![ "trajectoires visuelle d'une personne non-dyslexique. Les lignes horizontales représentent une fixation sur un point, les lignes verticales représentent des mouvements en avant ou arrière dans le texte. Le graphique présente une forme de série d'escaliers vus de coté, assez réguliers"](/img/image-20240124200641974.png)
 
-![ "trajectoires d'une personne dyslexique. Les lignes horizontales représentent une fixation sur un point, les lignes verticales représentent des mouvements en avant ou arrière dans le texte. Ce graphique est beaucoup plus irrégulier que le précédent"](image-20240124200655669.png)
+![ "trajectoires d'une personne dyslexique. Les lignes horizontales représentent une fixation sur un point, les lignes verticales représentent des mouvements en avant ou arrière dans le texte. Ce graphique est beaucoup plus irrégulier que le précédent"](/img/image-20240124200655669.png)
 
 {% endgallery %}
 
@@ -70,9 +70,9 @@ Il est probable que les évolutions techniques réduisent le premier problème :
 
 {% gallery %}
 
-![](slide_44.jpg)
+![](/img/slide_44.jpg)
 
-![](slide_75.jpg)
+![](/img/slide_75.jpg)
 
 
 {% endgallery %}

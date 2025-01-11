@@ -9,7 +9,7 @@ Il y a quelques mois j'ai publié un outil pour calculer une addition en terme d
 
 Vous pouver [l'ouvrir ici](https://misc.toutcequibouge.net/TR/), de préférence depuis votre ordiphone préféré.
 
-![](/assets/images/TR.png)
+![](/img/TR.png)
 
 <iframe title="démonstration de l'outil dans un iframe" class="TR" style="border: none;border-radius:5px;display:none; margin:auto; background-color:black;" src="https://misc.toutcequibouge.net/TR/" width="400" height="600"></iframe>
 

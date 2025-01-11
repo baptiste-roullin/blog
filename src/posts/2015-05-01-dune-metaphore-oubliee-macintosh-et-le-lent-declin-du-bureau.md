@@ -7,7 +7,7 @@ tags:
   - "bureau"
 featured: true
 hero:
-  image: /assets/images/wooton.png
+  image: /img/wooton.png
   alt: Bureau Wooton, station de travail tout-en-un
 ---
 
@@ -28,11 +28,11 @@ En résumé, le Finder « spatial » tentait de faire fonctionner le bureau 
 
 Ce modèle pouvait être assez contraignant. Notamment, ouvrir un dossier faisait forcément apparaître une nouvelle fenêtre (_la_ fenêtre de _ce_ dossier). Pour éviter de se retrouver avec des dizaines ouvertes, il fallait déplier l'arborescence du dossier (comme dans Mac OS X aujourd'hui), ou bien utiliser Alt+click, ce qui fermait la fenêtre d'origine et ouvrait la nouvelle en même temps.
 
-![Un dossier dans un dossier dans un… (Mac OS 9 "](/assets/images/macOS9.png "Un dossier dans un dossier dans un… (Mac OS 9)")
+![Un dossier dans un dossier dans un… (Mac OS 9 "](/img/macOS9.png "Un dossier dans un dossier dans un… (Mac OS 9)")
 
 Pourtant, d'après ce que j'ai pu lire et tester, ça marchait pas mal. D'abord, ces dossiers superposés dans tous les sens ne faisaient que reproduire le rangement classique d'un bureau, dans ce qu'il peut avoir d'idiosyncrasique et d'apparement chaotique. Ensuite, l'OS était organisé autour de ce modèle. Par exemple, plutôt que de minimiser une fenêtre, on pouvait double-cliquer sur la barre de titre pour ne laisser que celle-ci et cacher tout le reste. Cette fonction de « stores » (_shades_) suivait, une fois encore, un principe de spatialité : la fenêtre restait à sa place.
 
-![Exemple de deux fenêtres réduites à leur barre de titres](/assets/images/MacOS9-shades.png " Exemple de deux fenêtres réduites à leur barre de titres")
+![Exemple de deux fenêtres réduites à leur barre de titres](/img/MacOS9-shades.png " Exemple de deux fenêtres réduites à leur barre de titres")
 
 Ensuite, la cible d'Apple était moins experte que le public typique de l'époque et n'était probablement pas à l'aise avec l'abstraction d'un système de fichiers arborescent. Enfin, les ordinateurs d'alors avaient peu de mémoire, peu de fichiers et peu d'applications, peu de mémoire et avaient donc moins besoin de manipuler des quantités énormes d'information.
 

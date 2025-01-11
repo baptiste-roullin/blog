@@ -8,7 +8,7 @@ tags:
 
 ---
 
-![illus écosystème apps](/assets/images/groove-music.jpg)
+![illus écosystème apps](/img/groove-music.jpg)
 
 La double erreur de Windows 8, c'était de vouloir forcer un paradigme tactile sur un OS classique et en plus de le faire cohabiter avec une interface de type desktop. Cela entrainait des [trucs aberrants](http://www.thewindowsclub.com/windows-store-apps-windows-taskbar) comme les applications "Metro" ouvertes et pourtant absentes de la barre des tâches du bureau.
 
@@ -24,7 +24,7 @@ Prenez OneNote : non seulement les boutons du ruban deviennent plus compacts q
 
 Le problème, c'est que le travail d'adaptation a été minime pour beaucoup des nouvelles applications natives. Par exemple, dans une fenêtre étroite Groove Music marche très bien -- normal, elle est très proche de sa contrepartie sur Windows 10 Mobile. Mais redimensionner la fenêtre ne tire pas du tout partie de la taille d'écran. Le contenu est découpé en plein de vues étriquées : pour se faire une idée globale de ce que j'ai d'un artiste en local, je dois ouvrir sa fiche, puis cliquer sur un album ou sur "Vue Morceaux". N'importe quel lecteur de musique digne de ce nom montre deux niveaux à la fois : des artistes et leurs albums respectifs, ou les albums d'un artiste avec ses chansons. iTunes montre même les trois niveaux : artistes, albums et chansons.
 
-![iTunes Artist View](/assets/images/artists-view-100017932-orig.png)
+![iTunes Artist View](/img/artists-view-100017932-orig.png)
 
 Plus généralement, j'ai relevé trois problèmes presque systématiques dans ces nouvelles applications.
 
@@ -43,7 +43,7 @@ Oui, c'est bien le Menu démarrer, même lui y a droit. Un menu de navigation av
 
 La barre de commandes comprend une icône en points de suspension. C’est encore un décalque du mobile, qui transgresse au passage des conventions desktop, sans gain évident. Elle ouvre des commandes supplémentaires et fait apparaitre le nom de toutes les cônes.
 
-![2016-10-25_00h34_01.png](/assets/images/2016-10-25_00h34_01.png)
+![2016-10-25_00h34_01.png](/img/2016-10-25_00h34_01.png)
 
 Elle présente quatre problèmes :
 
@@ -52,7 +52,7 @@ Elle présente quatre problèmes :
 3. Il n'y a parfois qu'une seule entrée dans le menu (Cf. les apps Téléphone et Messages)
 4. Il n'y a parfois aucun menu et cliquer dessus affiche juste les libellés. Le plus ridicule est qu'il n'y a parfois qu'une seule icone et donc qu'un seul libellé à afficher.
 
-![2016-10-24_20h08_13.png](/assets/images/2016-10-24_20h08_13.png)
+![2016-10-24_20h08_13.png](/img/2016-10-24_20h08_13.png)
 
 <video width="1112" height="176">
 <source src="assets/docs/ellipse2.mp4"      type="video/mp4">
@@ -75,4 +75,4 @@ Plus fondamentalement, ce bouton retour est gênant dans son principe. Dans un e
 
 Contrairement aux problèmes précédents, cette fonction est moins une erreur basique qu'une réponse inadaptée à une question compliquée. J’aurais simplement préféré que Microsoft ajoute ce bouton au cas par cas, quand c'était vraiment nécessaire : Word et Courrier n'en ont pas, Groove Music n'aurait pas dû en avoir, mais le Store en a un et c'est justifié vu la profondeur de son arborescence. Voici comment Apple ajoute un bouton retour global à certaines applications (Photos, Mac App Store).
 
-![](/assets/images/photos_01_mac.png)
+![](/img/photos_01_mac.png)

@@ -18,7 +18,7 @@ Pour avoir un plein écran, il faut masquer les barre d'onglets, d'outil, d'adre
 - Pressez les touches Ctrl+Shift+A ;
 - Allez dans l'onglet de Stylish et cliquez sur "Créer un nouveau style".
 
-![2015-12-29_15h40_30](/assets/images/2015-12-29_15h40_30.png)
+![2015-12-29_15h40_30](/img/2015-12-29_15h40_30.png)
 
 - Dans la nouvelle fenêtre, recopiez le code suivant et enregistrer.
 
@@ -41,7 +41,7 @@ Voici également le code si vous voulez cacher les ascenseurs. :
 
 Le résultat ressemble à ça :
 
-![2015-12-29_15h42_12](/assets/images/2015-12-29_15h42_12.png)
+![2015-12-29_15h42_12](/img/2015-12-29_15h42_12.png)
 
 Quand vous voudrez désactivez la personnalisation, réappuyez sur Ctrl+Shift+A et cliquez sur "Désactiver".
 
@@ -55,4 +55,4 @@ Pour Axure, la solution la plus simple (OK tout est relatif) est de créer un pa
 
 Dans Windows, configurez la position des deux écrans (Bureau > Clic droit > Résolution de l'écran) en fonction de la manière dont l'utilisateur sera réellement installé à son poste. Quelque chose comme ça :
 
-![2015-12-29_09h59_17](/assets/images/2015-12-29_09h59_17.png)
+![2015-12-29_09h59_17](/img/2015-12-29_09h59_17.png)

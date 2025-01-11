@@ -14,7 +14,7 @@ Dans une maquette, le texte peut servir à plein de choses :
 
 Mais en premier lieu ça sert à dire "là il y a aura du texte". Une manière stylisée et minimale de signaler cette présence sans induire de connotation indésirable est d'utiliser un effet de "griffonnage" avec une [police spéciale](https://github.com/christiannaths/Redacted-Font).
 
-[![screenshot](/assets/images/redacted.png " Cliquer pour voir une démo")](https://misc.toutcequibouge.net/Redacted/home.html)
+[![screenshot](/img/redacted.png " Cliquer pour voir une démo")](https://misc.toutcequibouge.net/Redacted/home.html)
 
 La procédure à suivre pour intégrer une web font en local avec Axure est un peu tordue. La voici (version 7 requise) :
 

@@ -12,13 +12,13 @@ En 2007, [Michael Beirut](http://designobserver.com/feature/youre-so-intelligent
 
 > The client asks you to design a business card. You respond that the problem is really the client's logo. The client asks you to design a logo. You say the problem is the entire identity system. The client asks you to design the identity. You say that the problem is the client's business plan. And so forth. One or two steps later, you can claim whole industries and vast historical forces as your purview. The problem isn't making something look pretty, you fool, it's world hunger!
 
-![Boy that escalated quickly](/assets/images/Boy-that-escalated-quickly.jpg)
+![Boy that escalated quickly](/img/Boy-that-escalated-quickly.jpg)
 
 ## Toute la SNCF dans un papelard
 
 Dans ce mille-feuilles d'enjeux, les couches supérieures structurent celles du dessous. Dans les cas extrêmes, un objet anodin encapsule une bonne partie de la complexité de tout l'édifice. Exemple : les 36 données présentes sur un billet de la SNCF, commentées [ici](http://tarification.blogspot.fr/2011/11/titre-de-transports-billets-papier.html).
 
-![Billet SNCF](/assets/images/billet_explique.png)
+![Billet SNCF](/img/billet_explique.png)
 
 Dans le même genre, j'ai récemment aidé à concevoir d'un outil permettant aux encadrants d'une entreprise de saisir un nombre, lequel était syndicalement et politiquement sensible. Potentiellement, l'outil aurait pu se résumer à un champ et un bouton de validation : chacun saisit le nombre pour son périmètre, qui sera agrégé en une stat global -- et basta. Dans les faits, tout a été discuté : quand doit-il être saisi, avec quelle régularité, selon quelle méthode d'estimation (le corpus juridique fournissant seulement un cadre général), comment inciter les gens à le faire sans perdre en rigueur, etc.
 

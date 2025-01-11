@@ -6,7 +6,7 @@ tags:
   - "histoire"
 ---
 
-![](/assets/images/dave_donut.png "")
+![](/img/dave_donut.png "")
 
 ::: info-block
 {% ctaLink "Voir les animations", "https://misc.toutcequibouge.net/archive_flash/"  %}

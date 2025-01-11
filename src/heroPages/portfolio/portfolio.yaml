@@ -4,7 +4,7 @@
 references:
 
   - title: Outil de déclaration de transport de marchandises dangereuses
-    logo: /assets/images/logo_mtes.png
+    logo: /img/logo_mtes.png
     description: |
       * Le saviez-vous ? Si votre 35 tonnes a un accident et fuite des matières dangereuses, il faut le déclarer.
       * J'étais donc embarqué dans une équipe Agile pour dématérialiser la déclaration et le suivi de ces accidents.
@@ -16,11 +16,11 @@ references:
     CTA: "Visiter le site"
     CTALink: https://declaration-cstmd.din.developpement-durable.gouv.fr/
     photos:
-      - url: /assets/images/tmd.png
+      - url: /img/tmd.png
         alt: null
 
   - title: Igesa, le comité d'entreprise des armées
-    logo: /assets/images/logo_igesa.svg
+    logo: /img/logo_igesa.svg
     description: |
       Igesa, c’est à la fois la CAF et le comité d’entreprise du ministère des armées. Il offre des prestations très variées (centres de vacances, prêts immobiliers, billetterie, préparation du BAFA) à des cibles tout aussi variées : militaires, civils, conjoint·es, retraités…
       J’étais le lead UX pour refondre intégralement le portail principal, l’espace client et certains tunnels.
@@ -33,16 +33,16 @@ references:
       - Arborescence et test d'arborescence
       - wireframes et tests utilisateur
     photos:
-      - url: /assets/images/igesa_persona.png
+      - url: /img/igesa_persona.png
         alt: null
-      - url: /assets/images/igesa_research.png
+      - url: /img/igesa_research.png
         alt: null
-      - url: /assets/images/igesa_wireframe.jpg
+      - url: /img/igesa_wireframe.jpg
         alt: null
 
   - title: Michelin RoadConnect, un assistant mobile et réseau social pour les routiers
     name: Michelin
-    logo: /assets/images/michelin.svg
+    logo: /img/michelin.svg
     description: |
       Issu d’un hackaton et piloté par un pôle d’innovation de Michelin, c’est une application mobile permettant :
 
@@ -62,18 +62,18 @@ references:
     CTA: Voir le site
     CTALink: https://truckfly.com/
     photos:
-      - url: /assets/images/michelin1.png
+      - url: /img/michelin1.png
         alt: null
-      - url:  /assets/images/michelin2.png
+      - url:  /img/michelin2.png
         alt: null
-      - url:  /assets/images/michelin3.png
+      - url:  /img/michelin3.png
         alt: null
-      - url:  /assets/images/michelin4.png
+      - url:  /img/michelin4.png
         alt: null
 
   - title: Étude sur le consentement pour la MAIF
     name: MAIF
-    logo: /assets/images/maif.svg
+    logo: /img/maif.svg
     description: |
       Une étude sur l'état de l'art en matière de recueil et de gestion du consentement, avec un focus mobile.
 
@@ -85,17 +85,17 @@ references:
       - Synthèse de la littérature et benchmark d'applis de tous pays
       - Restitution en webinar devant 80 personnes, dont le DPO de la MAIF.
     photos:
-      - url: /assets/images/maif1.png
+      - url: /img/maif1.png
         alt: null
-      - url: /assets/images/maif2.png
+      - url: /img/maif2.png
         alt: null
-      - url: /assets/images/maif3.png
+      - url: /img/maif3.png
         alt: null
-      - url: /assets/images/maif4.png
+      - url: /img/maif4.png
         alt: null
 
   - title: Refonte de l'écosystème numérique d'Auvergne-Rhone-Alpes
-    logo: /assets/images/aura.svg
+    logo: /img/aura.svg
     description: |
       * Évolution de l’écosystème numérique de la Région. En collaboration avec une agence AMOA :
         * Réflexion transverse sur la navigation
@@ -111,13 +111,13 @@ references:
     CTA: "Visiter le site"
     CTALink: https://www.auvergnerhonealpes.fr/
     photos:
-      - url:  /assets/images/aura1.png
+      - url:  /img/aura1.png
         alt: null
 
 
   - title: Création d'un méga-site institutionnel pour Safran
     name: Safran
-    logo: /assets/images/safran.svg
+    logo: /img/safran.svg
     description: |
       Fusion de 27 sites institutionnels en un site monde.
 
@@ -131,16 +131,16 @@ references:
     duration: 8 mois
     tasks: null
     photos:
-      - url: /assets/images/safran1.png
+      - url: /img/safran1.png
         alt: null
-      - url: /assets/images/safran2.png
+      - url: /img/safran2.png
         alt: null
-      - url: /assets/images/safran3.png
+      - url: /img/safran3.png
         alt: null
 
   - title: Refonte du site vitrine et catalogue de Studi
     name: Studi
-    logo: /assets/images/studi.svg
+    logo: /img/studi.svg
     description: |
       Gros acteur du elearning à la croissance explosive, vous les avez peut-être vu à la télé.
 
@@ -155,20 +155,20 @@ references:
       - Parcours
       - Wireframes
     photos:
-      - url: /assets/images/studi1.png
+      - url: /img/studi1.png
         alt: null
-      - url: /assets/images/studi2.png
+      - url: /img/studi2.png
         alt: null
-      - url: /assets/images/studi3.png
+      - url: /img/studi3.png
         alt: null
-      - url: /assets/images/studi4.png
+      - url: /img/studi4.png
         alt: null
 
 
 
   - title: "Outil de suivi des mouvements sociaux à la SNCF"
     description: Outil à vocation de transparence, permettant la saisie décentralisée des chiffres de préavis et de grève et un suivi quantitatif et qualitatif à tous les échelons.
-    logo: /assets/images/sncf.png
+    logo: /img/sncf.png
     duration: 3 mois
     tasks:
       - Régie à mi-temps au siège de la SNCF
@@ -177,19 +177,19 @@ references:
       - Démos en fin de sprint devant des représentants métier
     name: SNCF
     photos:
-        - url: /assets/images/sncf1.png
+        - url: /img/sncf1.png
           alt: null
-        - url: /assets/images/sncf2.png
+        - url: /img/sncf2.png
           alt: null
-        - url: /assets/images/sncf3.png
+        - url: /img/sncf3.png
           alt: null
-        - url: /assets/images/sncf4.png
+        - url: /img/sncf4.png
           alt: null
 
 
   - title: "E-boutique pour Flunch Traiteur"
     description: Refonte de la boutique B2B et B2C pour moderniser la marque, clarifier la navigation dans le catalogue et recentrer l'expérience sur un parcours contextualisé d'organisation de mon évènement (quelle date, quel lieu, quels produits pour le type d'évènement).
-    logo: /assets/images/flunch.png
+    logo: /img/flunch.png
     duration: 3 mois
     tasks:
       - Entretiens avec des profils B2B
@@ -198,18 +198,18 @@ references:
       - 20 wireframes
     name: Flunch
     photos:
-          - url: /assets/images/flunch1.png
+          - url: /img/flunch1.png
             alt: null
-          - url: /assets/images/flunch2.png
+          - url: /img/flunch2.png
             alt: null
-          - url: /assets/images/flunch3.png
+          - url: /img/flunch3.png
             alt: null
     CTA: "Visiter le site"
     CTALink: https://www.flunch-traiteur.fr/
 
   - title: Concept de miroir connecté pour SEB
     name: SEB
-    logo: /assets/images/seb.png
+    logo: /img/seb.png
     description: |
       SEB réfléchissait à créer des services numériques intégrés au quotidien et complémentaire des produits existants (sèche-cheveux, rasoirs...). Nous devions donc interroger les gens sur leur rapport au "soin de soi", imaginer des concepts et les tester avec un prototype papier.
     tasks:
@@ -218,7 +218,7 @@ references:
       - Tests utilisateur
     duration: 2 mois
     photos:
-      - url: /assets/images/seb1.png
+      - url: /img/seb1.png
         alt: null
 
 

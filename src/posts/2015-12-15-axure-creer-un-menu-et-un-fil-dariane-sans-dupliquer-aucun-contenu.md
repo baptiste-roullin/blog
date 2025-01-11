@@ -23,14 +23,14 @@ Les styles d'interactions sont des variations visuelles qui s'activent lorsqu'un
 - Le style lui-même. Ici, ça peut être que le libellé passe en gras. Une fois ajouté, il apparait dans le panneau « Widget properties ».
 - L'action qui le déclenche.
 
-![Axure tuto 1](/assets/images/Sans-titre.png)
-![Axure tuto 2](/assets/images/Sans-titre-2.png)
+![Axure tuto 1](/img/Sans-titre.png)
+![Axure tuto 2](/img/Sans-titre-2.png)
 
 ## Second ingrédient : onPageLoad
 
 Axure permet d'exécuter des actions au chargement d'une page, dans l'onglet « Page interactions » du panneau « Page properties ». Ici, cela permet d'activer un item du menu différent à chaque page, même s'il est dans un master.
 
-![sans titre 5](/assets/images/sans-titre-5.png)
+![sans titre 5](/img/sans-titre-5.png)
 
 Un [tutoriel sur Axure.com](https://www.axure.com/learn/basic/interactions/navigation-menu-tutorial) avec un fichier source pour essayer.
 
@@ -44,4 +44,4 @@ Un [tutoriel plus complet](http://www.axure.com/learn/dynamic-panels/basic/tab-c
 
 Un fil d'Ariane, c'est encore un objet constant à travers les pages mais dont un aspect change. Pour que la page sélectionnée soit en gras, il suffit de suivre les explications plus haut. Mais comment faire pour le nom de la page qui change à chaque fois. La solution, c'est d'utiliser un master pour le fil d'ariane et d'ajouter à chaque chargement de page une action « Set text », avec la valeur \[\[PageName\]\]. Cette variable prédéfinie par Axure correspond au titre de la page tel que défini dans votre arborescence, donc si elle s'appelle « 04-b », le fil d'Ariane comportera « 04-b ».
 
-![Axure tuto 4](/assets/images/sans-titre-4.png)
+![Axure tuto 4](/img/sans-titre-4.png)

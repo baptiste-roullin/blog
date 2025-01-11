@@ -8,7 +8,7 @@ tags:
   - "interface utilisateur"
 featured: true
 hero:
-  image: "/assets/images/janewu.png"
+  image: "/img/janewu.png"
 ---
 
 
@@ -20,7 +20,7 @@ C'est un problème classique d'écart entre le territoire et la carte. Un concep
 
 Les noms sont déjà complexes, alors imaginez une notion comme la famille. Par exemple le service Google Play Family impose des règles qui forment une [définition implicite](https://twitter.com/edent/status/846270908138426369).
 
-![](/assets/images/C76O4a6W0AENhCT.jpg-large.jpg)
+![](/img/C76O4a6W0AENhCT.jpg-large.jpg)
 
 Admettons que ce sont surtout des limites commerciales pensées pour que les gens n'abusent pas du système en ajoutant trois cent personnes du monde entier à leur "famille". Mais quand même. Qui est Google pour dire qu'une famille ne peut être composée de nombreuses personnes vivant dans plusieurs pays ? Ensuite, ça influe forcément sur la vie des gens : le service devient intriqué avec leur quotidien et définit quels films peut regarder un enfant, avec qui et sur quel appareil. Tout ça dans un contexte d'objets toujours plus présents et connectés, où la famille peut avoir un appareil Google dans chaque pièce et plus d'appareils que de membre.
 

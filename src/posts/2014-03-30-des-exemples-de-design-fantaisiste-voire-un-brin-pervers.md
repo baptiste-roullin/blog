@@ -7,7 +7,7 @@ tags:
 
 ---
 
-![Noodles coolers](/assets/images/noodleCooler.png)
+![Noodles coolers](/img/noodleCooler.png)
 
 - [Un classique : Le Catalogue des objets introuvables](http://www.apreslapub.fr/article-le-catalogue-des-idees-improbables-102758609.html) (qui est d'ailleurs lui-même difficilement trouvable).
 

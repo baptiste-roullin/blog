@@ -4,7 +4,7 @@ date: 2014-09-17
 tags:
   - "objets"
 hero:
-  image: /assets/images/distiller_02.jpg
+  image: /img/distiller_02.jpg
   alt: "La bouteille – Crédits photo : Tanguy Masson, Basile de Gaulle"
   caption: "La bouteille – Crédits photo : Tanguy Masson, Basile de Gaulle"
 ---
@@ -15,7 +15,7 @@ Par certains aspects (surtout pour ce qui est de l'analyse de l'activité et du 
 
 Quant à la conception, elle est largement exotique. Pour tester le bon fonctionnement des objets, ils utilisent des nacelles en chute libre dont l'intérieur est filmé. Apparemment la méthode est de leur cru (ils citent des inspirations mais je ne trouve pas de sources). Pas le plus commode mais c'est fascinant. Je me suis pris à rêver à des processus d'itération plus souples. À quand le premier designer dans l'espace, équipé de machines à prototypage rapide ?
 
-![" Le verre – Crédits photo : Tanguy Masson, Basile de Gaulle"](/assets/images/distiller_verre_02-2.jpg )
+![" Le verre – Crédits photo : Tanguy Masson, Basile de Gaulle"](/img/distiller_verre_02-2.jpg )
 
 L'absence de gravité change le moindre geste et influe sur bien des aspects de la physique. Mais il faut en tirer parti :
 
@@ -35,8 +35,8 @@ En jouant avec la manière dont les fluides sont retenus ou repoussés selon la 
 
 ## Mise à jour en 2024
 
-![](/assets/images/cup.jpg)
+![](/img/cup.jpg)
 
 [Un autre exemple de tasse](https://www.rit.edu/vignellicenter/product-timecapsule/nasa-capillary-cup) fonctionnant par capillarité. Celle-ci a l'avantage d'avoir été inventée par un astronaute, d'avoir testée in situ et même d'avoir été conçue et fabriquée *à bord* de la station (pour le prototype).
 
-<video controls src="/assets/images/cup.mp4">
+<video controls src="/img/cup.mp4">

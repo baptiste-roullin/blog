@@ -4,7 +4,7 @@ date: 2019-04-23
 tags:
   - "prototypage"
 hero:
-  image: "/assets/images/2019-04-23_19h12_30.png"
+  image: "/img/2019-04-23_19h12_30.png"
 ---
 
 _Design system_, moodboard, création de maquette avec Studio... Invision est devenue une plateforme complète. Voici pourtant trois fonctions que vous avez peut-être manqué.
@@ -17,7 +17,7 @@ _Design system_, moodboard, création de maquette avec Studio... Invision est de
 
 **Comment** : Ajouter un commentaire et changer son type en cliquant en haut à gauche du panneau (cf. screenshot).
 
-![ajout d'une étape de visite guidée](/assets/images/2019-03-04_20h55_44.png)
+![ajout d'une étape de visite guidée](/img/2019-03-04_20h55_44.png)
 
 ## Export local
 
@@ -29,18 +29,18 @@ _Design system_, moodboard, création de maquette avec Studio... Invision est de
 
 Démonstration :
 
-![Démonstration d'accès à la fonction d'export](/assets/images/Export.gif)
+![Démonstration d'accès à la fonction d'export](/img/Export.gif)
 
 ## Gestion de projet
 
 Vite ! A quoi sert le rond bleu en bas en à droite quand vous consultez une maquette ?
 
-![Screenshot de la barre d'outils en bas de l'écran quand on visualise une maquette dans Invision](/assets/images/2019-04-23_19h08_53.png)
+![Screenshot de la barre d'outils en bas de l'écran quand on visualise une maquette dans Invision](/img/2019-04-23_19h08_53.png)
 
 C'est assez discret mais cela correspond au statut de l'écran. Invision possède en effet un système assez complet de gestion de projet. De base cela permet d'assigner un statut à une maquette (en attente, en cours, validé, etc.) et de changer de changer en changeant la maquette de colonne.
 
 S'y ajoutent des fonctions plus avancées. on peut notamment associer échéance, personne et tâches à chaque maquette.
 
-![Screenshot des colonnes de statut de maquettes dans Invision](/assets/images/2019-04-23_19h12_30.png)
+![Screenshot des colonnes de statut de maquettes dans Invision](/img/2019-04-23_19h12_30.png)
 
 [Plus de détails ici](https://support.invisionapp.com/hc/en-us/articles/206318755-Introduction-to-Workflow)

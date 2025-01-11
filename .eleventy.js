@@ -80,7 +80,7 @@ export default async function (config) {
 		},
 		failOnError: true,
 		widths: [400, 800, 1200, 1920, "auto"],
-		//		urlPath: '/assets/images/',
+		//		urlPath: '/img/',
 
 		//useCache: "true",
 		// optional, attributes assigned on <img> override these values.
@@ -97,8 +97,8 @@ export default async function (config) {
 
 		config.addPassthroughCopy('src/assets/docs/')
 		config.addPassthroughCopy('src/assets/UI')
-		//config.addPassthroughCopy({ 'src/assets/images/*.svg': meta.assetsDir })
-		//config.addPassthroughCopy({ 'src/assets/images/*.mp4': meta.assetsDir })
+		//config.addPassthroughCopy({ 'src/img/*.svg': meta.assetsDir })
+		//config.addPassthroughCopy({ 'src/img/*.mp4': meta.assetsDir })
 		//config.addPassthroughCopy("**/*.{png,webp,gif,mp4,jpg,jpeg}", {
 		//		mode: "html-relative",
 		//		paths: [], // additional fallback directories to look for source files
@@ -108,7 +108,7 @@ export default async function (config) {
 
 
 		//config.addPassthroughCopy({ 'src/posts/**/* ': meta.assetsDir })
-		//config.addPassthroughCopy('src/assets/images')
+		//config.addPassthroughCopy('src/img')
 
 		//	config.addTransform('findImg', findImg)
 	}
@@ -116,7 +116,7 @@ export default async function (config) {
 
 
 		//config.addPassthroughCopy({ 'src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}': `/${meta.assetsDir}/` })
-		//	config.addPassthroughCopy('src/assets/images/')
+		//	config.addPassthroughCopy('src/img/')
 		//	config.addTransform('findImgInDevEnv', findImgInDevEnv)
 	}
 

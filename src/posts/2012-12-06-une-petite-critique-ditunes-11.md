@@ -11,7 +11,7 @@ Je prends habituellement soin de rester à l’écart des discussions sur la con
 
 J’ai voulu essayer le menu en « popover » qui apparait au survol près d’une chanson, d’un album ou d’un artiste. Je voulais mettre une chanson dans une playlist, donc j’ai passé le curseur sur « ajouter à ». Là, rien ne s’est passé. J’ai commencé à imaginer des trucs, par exemple qu’iTunes avait perdu mes playlists, d’ailleurs la flèche a l’air grisé, d’ailleurs au démarrage un message m’avait dit que ma bibliothèque devait être convertie. La solution est la plus bête qui soit : il faut cliquer pour accéder au sous-menu.
 
-[menu contextuel dans iTunes](/assets/images/itunes.png)]
+[menu contextuel dans iTunes](/img/itunes.png)]
 
 C’est un cas d’école de ce qu’il ne faut pas faire : tromper les attentes de l’utilisateur. Ce menu a la même fonction qu’un menu contextuel et y ressemble au premier abord, mais en fait non : le sous-menu apparait dans la même fenêtre au lieu de surgir à droite. Cela évite le problème classique des menus et de la trajectoire subtile qu’il demandent, mais on perd à tous les autres niveaux :
 

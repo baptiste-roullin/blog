@@ -13,7 +13,7 @@ tags:
 
 _[Le manuel du parfait germaphobe pour acheter un ticket de métro](http://nextcity.org/features/view/what-is-the-best-way-to-sell-a-train-ticket)_ est un magnifique travail d’enquête sur une interface omniprésente dans les villes : le distributeur automatique. L’auteur, agacé de la lourdeur du processus pour créditer sa carte à New-York (11 étapes contre 3 à San Francisco), est allé discuté avec les créateurs de ces systèmes pour comprendre leurs motivations. C’est un très bon exemple d'interface frustrante cachant des compromis datant d'une autre époque et à une volonté d'être accessible à des profils d'utilisation très différents.
 
-![Photo de Aaron Reiss, auteur de l'article](/assets/images/Smudge2_860_642_80.jpg " Photo de Aaron Reiss, auteur de l'article")
+![Photo de Aaron Reiss, auteur de l'article](/img/Smudge2_860_642_80.jpg " Photo de Aaron Reiss, auteur de l'article")
 
 Mais c'est l'origine de l'article qui m’a le plus fascinée : la légère germaphobie de l'auteur. Sa peur des microbes le rend sensible à tout contact physique, surtout dans un environnement aussi hygiéniquement douteux qu'une grande ville et cela l’a conduit à compter le nombre de fois qu’il doit toucher un objet particulièrement horrifiant à ses yeux : l’écran tactile d’un distributeur de billets.
 

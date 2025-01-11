@@ -9,7 +9,7 @@ draft: false
 canvas: true
 description: "Générer procéduralement une image de substitution quand un article n'a pas d'image principale, par le truchement des motifs de Truchet."
 hero:
-  image: demo-truchet.png
+  image: /img/demo-truchet.png
 ---
 
 Quand un post comprend une jolie image, je la spécifie comme "mise en avant" et elle se retrouve en vignette dans la [page de liste](/blog). Que faire quand il n'y a pas d'image ? Laisser un vide ou avoir une image par défaut, toujours la même, ne serait pas très élégant. Pour obtenir des images variées mais avec une unité de style,  la génération procédurale est l'approche parfaite. Elle permet de générer des formes en alliant une trame de base et des paramètres aléatoires. On va l'appliquer à une technique bien connue en histoire de l'art : le pavage d'un espace en le remplissant avec des carreaux de base.
@@ -20,12 +20,12 @@ Ici on utilise des motifs dits de Truchet, du nom du savant éponyme : [Sébasti
 
 Revenons à notre pavage. Chez Truchet, il y avait quatre carreaux de base :
 
-![seb](seb-tile.png)
+![seb](/img/seb-tile.png)
 
 Comme on le voit, c'est une variation toute bête autour d'un simple triangle. Mais avec ça, il obtenait déjà des formes variées, en les regroupant en bandes, en losange, ou en alternant noirs et blancs.
 
 
-![seb](seb-scan.png)
+![seb](/img/seb-scan.png)
 
 
 ## Chez bibi
@@ -54,11 +54,11 @@ Voici d'autres résultats très différents, obtenus uniquement en jouant sur qu
 
 {% gallery %}
 
-![truchet2](truchet2.png)
+![truchet2](/img/truchet2.png)
 
-![truchet3](truchet3.png)
+![truchet3](/img/truchet3.png)
 
-![truchet4](truchet4.png)
+![truchet4](/img/truchet4.png)
 
 {% endgallery %}
 

@@ -9,7 +9,7 @@ tags:
 
 [Pocket](https://getpocket.com/) est un service de lecture différée plutôt chouette et disponible officiellement sur cinq plateformes. Hélas, les interfaces de ces différentes plateformes souffrent d'un certain manque d'homogénéité. C'est même carrément le bordel. J'ai fait un tableau de ces incohérences.
 
-![Dans l'ordre, la barre de navigation des versions Web, Android, Windows et Mac](/assets/images/pocket.png " Dans l'ordre, la barre de navigation des versions Web, Android, Windows et Mac")
+![Dans l'ordre, la barre de navigation des versions Web, Android, Windows et Mac](/img/pocket.png " Dans l'ordre, la barre de navigation des versions Web, Android, Windows et Mac")
 
 Notez bien que :
 

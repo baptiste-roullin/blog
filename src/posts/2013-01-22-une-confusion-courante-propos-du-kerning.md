@@ -15,6 +15,6 @@ Le crénage (_kerning_), c’est une variation sur cet espacement, effectuée au
 
 Dans l’imprimerie à caractère mobile, on faisait dépasser la lettre de la pièce pour qu’elle chevauche sa voisine.
 
-![caractère mobile en métal avec une partie de la forme de la lettre qui dépasse de la pièce](/assets/images/f-kern.jpg)
+![caractère mobile en métal avec une partie de la forme de la lettre qui dépasse de la pièce](/img/f-kern.jpg)
 
 Les deux peuvent être facteurs de [blagues et de gêne](http://www.11points.com/Web-Tech/11_Photos_Made_Raunchy_With_Bad_Kerning), mais ce n’est pas la même chose.

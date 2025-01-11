@@ -11,7 +11,7 @@ Y a en gros quatre étapes :
 
 Notamment parce que connaitre ses cibles et leur dédier des services adaptés, ça marche. Un contre-exemple : les [lignes de désir](https://fr.wikipedia.org/wiki/Ligne_de_d%C3%A9sir) et les vaines tentatives pour les encadrer.
 
-!['barrière posée devant un chemin naturellement creusé à travers une pelouse'](/assets/images/ligne_desir.jpg)
+!['barrière posée devant un chemin naturellement creusé à travers une pelouse'](/img/ligne_desir.jpg)
 
 ## Et moi là-dedans
 

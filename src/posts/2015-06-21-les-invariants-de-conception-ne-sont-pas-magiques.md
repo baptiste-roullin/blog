@@ -9,7 +9,7 @@ tags:
 
 ---
 
-![Tiré de La Mesure de l'homme, par Henry Dreyfuss (un des fondateurs de l'ergonomie scientifique " ](/assets/images/hand-dimensions.png "Tiré de _La Mesure de l'homme_ de Henry Dreyfuss, un des fondateurs de l'ergonomie scientifique")
+![Tiré de La Mesure de l'homme, par Henry Dreyfuss (un des fondateurs de l'ergonomie scientifique " ](/img/hand-dimensions.png "Tiré de _La Mesure de l'homme_ de Henry Dreyfuss, un des fondateurs de l'ergonomie scientifique")
 
 L'honorable Raphaël « iErgo » Yharrassarry aime à rappeler que la conception est encadrée par certains invariants :
 
@@ -21,7 +21,7 @@ C'est éminemment vrai, au sens qu'avant de concevoir un service ou un objet, il
 
 Reprenons l'exemple du téléphone : quelle dimension doit-il avoir pour être utilisable ? On peut prendre pour cible la taille moyenne des mains de notre population cible, mais c'est trop approximatif. Une même moyenne peut cacher des distributions très différentes, comme dans ce graphique.
 
-![Moyenne identique, écart-type très différent](/assets/images/Comparison_standard_deviations.png " Moyenne identique, écart-type très différent")
+![Moyenne identique, écart-type très différent](/img/Comparison_standard_deviations.png " Moyenne identique, écart-type très différent")
 
 Pour une même moyenne, les gens peuvent avoir des mains très semblables ou au contraire dissemblables. Sans donnée plus fine, on ne peut pas savoir quelle proportion de gens pourront correctement utiliser le téléphone.
 
@@ -43,7 +43,7 @@ Compliquons encore les choses : on a fait comme si seule la longueur de la mai
 
 Ces mesures ne sont pas forcément parfaitement corrélées entre elles. Pour schématiser, des mains de bucherons et de pianistes sont longues mais pas de la même manière. Résultat : même si le téléphone couvre 95% des utilisateurs selon une mesure, il peut en exclure d'autres selon d'autres mesures. Plus on ajoute de critères, plus on risque d'exclure de gens. C'est ce qui est arrivé aux chaises ergonomiques d'Herman-Miller. Dans un [article passionnant](http://www.hermanmiller.com/research/solution-essays/anthropometrics-of-fit.html), ils expliquent qu'en croisant sept mesures, leur chaise pouvait être inconfortable pour un tiers des personnes selon au moins une de ces mesures.
 
-![ant](/assets/images/se_the_anthropometrics_of_fig1.jpg)
+![ant](/img/se_the_anthropometrics_of_fig1.jpg)
 
 EDIT : dans les années 50, l'armée américaine a découvert le même problème [pour les cockpits d'avions](https://www.thestar.com/news/insight/2016/01/16/when-us-air-force-discovered-the-flaw-of-averages.html) : « _Out of 4,063 pilots, not a single airman fit within the average range on all 10 dimension_s ».
 
@@ -56,7 +56,7 @@ Première solution : décliner le produit **en plusieurs tailles** afin de cou
 Deuxième solution : rendre le produit **ajustable**, lors de l'installation ou de l'utilisation. Par exemple on peut changer la hauteur, l'avancement… d'un siège de voiture. Ce serait compliqué pour un téléphone, mais on peut citer le Galaxy Note 3, doté d'un mode assez curieux permettant réduire la surface utile de l'image d'un geste (cliquez pour arrêter l'animation) :
 
 <figure>
-<img alt="" id="#freezegif" src="/assets/images/note-3-shrink-15fps.gif">
+<img alt="" id="#freezegif" src="/img/note-3-shrink-15fps.gif">
 	<figcaption>Un geste de va-et-vient réduit la taille de l'écran. (Source : Android Central </figcaption>
 </figure>
 
@@ -69,7 +69,7 @@ Il y a une dernière complication : au-delà des critères physiques, les usag
 
 D'abord, il y a plusieurs manières de tenir son appareil. Au minimum on peut distinguer la prise à une main (une moitié des usages observés), la prise en berceau (plus de 15%) et la prise à deux mains (un petit tiers). Je tire ces chiffres de cette [passionnante présentation](http://fr.slideshare.net/orsoral/comportements-mobiles-vrais-challenges-ides-reues) de Cornelia Laros à Paris Web, qui contient bien d'autres données (portrait vs paysage, changements de prise en main, influence du contexte, etc.).
 
-![Prises en main du téléphone](/assets/images/Sans-titre.png)
+![Prises en main du téléphone](/img/Sans-titre.png)
 
 Ensuite, les gens sont prêts à différents compromis selon des facteurs externes à l'objet lui-même. Citons :
 

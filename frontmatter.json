@@ -7,7 +7,7 @@
       "path": "[[workspace]]/src/posts"
     }
   ],
-  "frontMatter.content.publicFolder": "src/assets/images",
+  "frontMatter.content.publicFolder": "src/img",
   "frontMatter.taxonomy.contentTypes": [
     {
       "name": "post",
