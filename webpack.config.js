@@ -40,9 +40,9 @@ export default {
 								'src/_templates/components',
 							], filters: {
 								// Don't put file extensions.
-								dateFormatting: resolve(__dirname, 'src/filters/dateFormatting.js'),
-								removeMD: resolve(__dirname, 'src/filters/removeMD.js'),
-								markdownify: resolve(__dirname, 'src/filters/markdownify.js')
+								dateFormatting: resolve(__dirname, 'src/filters/dateFormatting'),
+								removeMD: resolve(__dirname, 'src/filters/removeMD'),
+								markdownify: resolve(__dirname, 'src/filters/markdownify')
 
 							}
 						}
