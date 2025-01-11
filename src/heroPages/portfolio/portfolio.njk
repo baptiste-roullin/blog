@@ -32,7 +32,7 @@ eleventyNavigation:
 			{% for tool in tools %}
 				<div class="flex flex-col items-center justify-between gap-2 ">
 					<span class="leading-5 text-center label w-min">{{tool.name}}</span>
-					<img eleventy:ignore loading="lazy" class="w-[5.5rem] md:w-24 shadow-sm rounded-[22px]" src="{{tool.logo}}"
+					<img eleventy:ignore  loading="lazy" class="w-[5.5rem] md:w-24 shadow-sm rounded-[22px]" src="{{tool.logo}}"
 					alt="">
 				</div>
 			{% endfor %}
@@ -82,7 +82,7 @@ eleventyNavigation:
 
 						{# TOOD: fix taille logo sur mobile #}
 
-						<img eleventy:ignore src="{{ref.logo}}" class="w-24 h-auto order-0 sm:order-1 md:w-32" alt="{{ref.name}}">
+						<img  eleventy:ignore src="{{ref.logo}}" class="w-24 h-auto order-0 sm:order-1 md:w-32" alt="{{ref.name}}">
 					</div>
 
 					{# DÉTAILS #}
@@ -139,7 +139,7 @@ eleventyNavigation:
 						</div>
 						<div class="flex flex-row flex-wrap gap-3 m-auto picture-gallery ">
 							{% for photo in ref.photos %}
-								<figure class=""><img loading="lazy" class="w-auto shadow-sm" src="{{photo.url}}"
+								<figure class=""><img eleventy:ignore loading="lazy" class="w-auto shadow-sm" src="{{photo.url}}"
 								alt="{{photo.alt}}"></figure>
 							{% endfor %}
 

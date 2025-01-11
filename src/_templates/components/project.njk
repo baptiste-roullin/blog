@@ -1,19 +1,19 @@
 <li
 class="flex flex-row items-start justify-start gap-4 p-4 m-auto text-left list-none transition-all duration-300 hover:shadow-flat card-base project 2xl:gap-5"
 >
-  <img
-  eleventy:ignore
+	<img
+
     onclick="window.location.href='{{project.link}}'"
         alt=""
         loading="lazy"
         class="object-cover w-16 m-0 cursor-pointer lg:w-24 md:flex picture"
-        src="{{project.img}}">
-  <div class="flex flex-col items-start justify-start h-full gap-2 md:w-2/3">
-    <h3 class=" cta-heading sm:text-xl xl:text-xl-bis">
-      <a href="{{ project.link }}" class="block no-underline hover:underline hover:text-brown-light">
-        {{ project.name }}
-      </a>
-    </h3>
-    <p class="m-0 text-lg description">{{project.description | markdownify | safe  }}</p>
-  </div>
+       {# src="{{project.img}}"#}>
+	<div class="flex flex-col items-start justify-start h-full gap-2 md:w-2/3">
+		<h3 class=" cta-heading sm:text-xl xl:text-xl-bis">
+			<a href="{{ project.link }}" class="block no-underline hover:underline hover:text-brown-light">
+				{{ project.name }}
+			</a>
+		</h3>
+		<p class="m-0 text-lg description">{{project.description | markdownify | safe  }}</p>
+	</div>
 </li>

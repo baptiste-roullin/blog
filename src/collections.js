@@ -60,7 +60,7 @@ export const collections = {
                 //const projectExists = await fileExists(process.cwd() + project.img)
                 //if (!projectExists) {
                 if (true) {
-                    await truchetNode(400, 400, project.img).catch(console.error)
+                    //  await truchetNode(400, 400, project.img).catch(console.error)
                 }
             }
             return project

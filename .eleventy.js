@@ -2,12 +2,15 @@
 //TODO : plus besoin de .eleventyignore en env de dev. https://www.11ty.dev/docs/ignores/#configuration-api
 
 import fsp from 'node:fs/promises'
+import { dirname, resolve } from 'node:path'
+import { fileURLToPath } from 'url'
+
+import yaml from "js-yaml"
+import glob from "fast-glob"
 
 import pluginRss from '@11ty/eleventy-plugin-rss'
 import pluginNavigation from '@11ty/eleventy-navigation'
 import { EleventyHtmlBasePlugin } from "@11ty/eleventy"
-import yaml from "js-yaml"
-import glob from "fast-glob"
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img"
 
 import meta from './src/_data/meta.js'
@@ -18,8 +21,6 @@ import md from './src/markdown.js'
 import fileExists from './src/utils/fileExists.js'
 
 
-import { dirname, resolve } from 'node:path'
-import { fileURLToPath } from 'url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 
@@ -65,10 +66,10 @@ export default async function (config) {
 	//On copie tels quels les média avec chemins relatifs ou absolus dans /dist, qu'ils puissent être lus par du balisage non-transformé (sans srcset)
 	config.addPassthroughCopy('src/assets/UI')
 
-	const imagePath = `${process.cwd()}/${meta.outputDir}/${meta.assetsDir}/`
-	if (!(await fileExists(imagePath))) {
-		await fsp.mkdir(imagePath, { recursive: true })
-	}
+	/*	const imagePath = `${process.cwd()}/${meta.outputDir}/${meta.assetsDir}/`
+		if (!(await fileExists(imagePath))) {
+			await fsp.mkdir(imagePath, { recursive: true })
+		}*/
 
 	config.addPlugin(eleventyImageTransformPlugin, {
 		// which file extensions to process
@@ -77,20 +78,25 @@ export default async function (config) {
 		sharpOptions: {
 			animated: true,
 		},
-		// optional, output image widths
+		failOnError: true,
 		widths: [400, 800, 1200, 1920, "auto"],
-		outputDir: '/assets/img',
-		useCache: "true",
+		//		urlPath: '/assets/images/',
+
+		//useCache: "true",
 		// optional, attributes assigned on <img> override these values.
-		defaultAttributes: {
-			loading: "lazy",
-			decoding: "async",
-			sizes: "auto",
+
+		htmlOptions: {
+			imgAttributes: {
+				loading: "lazy",
+				decoding: "async",
+				sizes: "(max-width: 60rem) 90vw, 60rem",
+			}
 		},
 	})
 	if (meta.env === "production") {
 
 		config.addPassthroughCopy('src/assets/docs/')
+		config.addPassthroughCopy('src/assets/UI')
 		//config.addPassthroughCopy({ 'src/assets/images/*.svg': meta.assetsDir })
 		//config.addPassthroughCopy({ 'src/assets/images/*.mp4': meta.assetsDir })
 		//config.addPassthroughCopy("**/*.{png,webp,gif,mp4,jpg,jpeg}", {
@@ -144,7 +150,6 @@ export default async function (config) {
 	/**
 	 * Filters
 	 */
-
 	let files = await glob.async(resolve(__dirname, 'src/filters/*.js'))
 
 	await Promise.all(files.map(async (file) => {
@@ -159,8 +164,6 @@ export default async function (config) {
 	/**
 	 * Shortcodes
 	 */
-
-
 	files = await glob.async(resolve(__dirname, 'src/shortcodes/*.js'))
 
 	await Promise.all(files.map(async (file) => {
@@ -176,10 +179,8 @@ export default async function (config) {
 	}))
 
 	/**
-	 * p Shortcodes
+	 * paired Shortcodes
 	 */
-
-
 	files = await glob.async(resolve(__dirname, 'src/pairedShortcodes/*.js'))
 
 	await Promise.all(files.map(async (file) => {
@@ -207,10 +208,10 @@ export default async function (config) {
 	config.setLibrary('md', md)
 
 	/**
- * Collections
- * ============================
+	 * Collections
+	 * ============================
 
- */
+	*/
 
 	Object.keys(collections).forEach((colName) => {
 		config.addCollection(colName, collections[colName])

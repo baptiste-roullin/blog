@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "dev:webpack": "npx webpack --watch --mode development",
-    "dev:eleventy": "npx @11ty/eleventy --incremental  --ignore-initial --serve --quiet",
+    "dev:eleventy": "npx @11ty/eleventy --serve --incremental  --ignore-initial --quiet",
     "dev:postcss": "postcss src/assets/css/main.css -o dist/assets/css/main.css --watch",
     "dev": "npm-run-all --parallel dev:* --print-label",
     "build:webpack": "npx webpack  --mode production",
@@ -14,8 +14,8 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "github:11ty/eleventy",
-    "@11ty/eleventy-fetch": "^5.0.0",
-    "@11ty/eleventy-img": "6.0.0-beta.2",
+    "@11ty/eleventy-fetch": "^5.0.2",
+    "@11ty/eleventy-img": "^6.0.0",
     "@11ty/eleventy-navigation": "^0.3.5",
     "@11ty/eleventy-plugin-directory-output": "^1.0.1",
     "@11ty/eleventy-plugin-rss": "2.0.2",
@@ -28,7 +28,6 @@
     "@types/nunjucks": "^3.2.1",
     "@types/webpack": "^5.28.0",
     "autoprefixer": "^10.4.13",
-    "cpy-cli": "^5.0.0",
     "cssnano": "^7.0.0  ",
     "d3-color": "^3.1.0",
     "debug": "^4.3.4",
@@ -58,7 +57,7 @@
     "simple-nunjucks-loader": "github:baptiste-roullin/nunjucks-loader",
     "skia-canvas": "^2.0.1",
     "tailwindcss": "^3.4.3",
-    "webpack": "^5.89.0",
+    "webpack": "^5.90.0",
     "webpack-assets-manifest": "^5.1.0",
     "webpack-cli": "^6.0.1",
     "zotero-api-client": "^0.46.0"
