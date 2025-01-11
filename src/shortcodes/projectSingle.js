@@ -8,7 +8,7 @@ dotenv.config()
 import yaml from "js-yaml"
 
 import renderNunjucks from '../utils/renderNunjucks.js'
-import { markdownify } from '../filters/markdownify.js'
+import markdownify from '../filters/markdownify.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
