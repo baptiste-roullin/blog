@@ -6,9 +6,6 @@ draft: false
 tags:
  - "cognition"
  - "recherche"
-hero:
-alt:
-image:
 fmContentType: post
 ---
 
