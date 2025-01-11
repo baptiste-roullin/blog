@@ -30,11 +30,8 @@ export async function gallery(data) {
 			"data-pswp-height": imageDimensions.webp[0].height
 		})
 		link.appendChild(img.cloneNode(true))
-		link.replaceWith(img)
+		img.replaceWith(link)
 	}
-
-
-
 
 	let width = ''
 	if (data.match(/\!\[/g).length > 1) {
