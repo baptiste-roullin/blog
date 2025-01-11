@@ -153,11 +153,9 @@ export default async function (config) {
 	let files = await glob.async(resolve(__dirname, 'src/filters/*.js'))
 
 	await Promise.all(files.map(async (file) => {
-		const filters = await import(file)
 
-		for (const [name, filter] of Object.entries(filters)) {
-			config.addFilter(name, filter)
-		}
+		const { default: func } = await import(file)
+		config.addFilter(func.name, func)
 	}))
 
 
@@ -187,6 +185,8 @@ export default async function (config) {
 		const pairedShortcodes = await import(file)
 
 		for (const [name, filter] of Object.entries(pairedShortcodes)) {
+			console.log(name)
+
 			config.addPairedShortcode(name, filter)
 		}
 	}))

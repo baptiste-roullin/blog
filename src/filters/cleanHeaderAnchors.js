@@ -2,7 +2,7 @@ import { DateTime, Settings } from 'luxon'
 Settings.defaultLocale = "fr"
 
 /** @returns {string} */
-export function cleanHeaderAnchors(content) {
+export default function cleanHeaderAnchors(content) {
     if (content === undefined) {
         return ''
     }

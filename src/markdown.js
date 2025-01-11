@@ -10,7 +10,8 @@ import toc from 'markdown-it-table-of-contents'
 import imageFigures from 'markdown-it-image-figures'
 import highlightjs from "./utils/highlightPlugin.js"
 import french_nnbsp from './french_nnbsp.js'
-import { slugify as customSlug } from './filters/slugify.js'
+import { default as customSlug } from './filters/slugify.js'
+
 
 /** @returns {void} */
 const anchor = (md) => {

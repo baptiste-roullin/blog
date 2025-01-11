@@ -1,5 +1,5 @@
 import { DateTime, Settings } from 'luxon'
 Settings.defaultLocale = "fr"
-export function year(date) {
+export default function year(date) {
 	return DateTime.fromJSDate(date).year
 }

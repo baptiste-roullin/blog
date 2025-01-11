@@ -3,7 +3,7 @@
 	 * @param {array} array
 	 * @returns {array}
 	 */
-export function shuffle(array) {
+export default function shuffle(array) {
 
 	try {
 		if (!(Array.isArray(array))) {

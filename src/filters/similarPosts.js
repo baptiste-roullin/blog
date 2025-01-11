@@ -1,4 +1,4 @@
-export function similarPosts(collection, path, categories) {
+export default function similarPosts(collection, path, categories) {
 
     const getSimilarCategories = function (categoriesA, categoriesB) {
         return categoriesA.filter(Set.prototype.has, new Set(categoriesB)).length

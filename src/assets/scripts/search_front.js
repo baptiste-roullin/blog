@@ -1,10 +1,12 @@
+
+
 import createComponent from '../../_templates/components/posts_list_item.njk'
 
 export async function search(e) {
 
     e.preventDefault()
     const value = e.target[0].value
-    const { results } = await pagefind.search(value)
+    const { results } = await window.pagefind.search(value)
 
     const noResultsEl = document.getElementById("noResultsFound")
     const container = document.querySelector('.post-wrapper')
@@ -63,8 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("search-form")
         .addEventListener("input", async function (e) {
             if (!window.pagefind) {
-                const pagefind = await import(/* webpackIgnore: true */ "/pagefind/pagefind.js")
-                window.pagefind = pagefind
+                window.pagefind = await import(/* webpackIgnore: true */ "/pagefind/pagefind.js")
                 window.pagefind.preload(e.target.value)
             }
 

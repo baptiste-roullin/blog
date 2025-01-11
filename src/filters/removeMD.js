@@ -1,6 +1,4 @@
-//import debug from 'debug'
-//const warning = debug('warning')
-export function remove(md, options) {
+export default function removeMD(md, options) {
     options = options || {}
     options.listUnicodeChar = options.hasOwnProperty('listUnicodeChar') ? options.listUnicodeChar : false
     options.stripListLeaders = options.hasOwnProperty('stripListLeaders') ? options.stripListLeaders : true
@@ -9,11 +7,12 @@ export function remove(md, options) {
     options.abbr = options.hasOwnProperty('abbr') ? options.abbr : false
     options.replaceLinksWithURL = options.hasOwnProperty('replaceLinksWithURL') ? options.replaceLinksWithURL : false
     options.htmlTagsToSkip = options.hasOwnProperty('htmlTagsToSkip') ? options.htmlTagsToSkip : []
+    options.throwError = options.hasOwnProperty('throwError') ? options.throwError : false
 
     var output = md || ''
 
     // Remove horizontal rules (stripListHeaders conflict with this rule, which is why it has been moved to the top)
-    output = output.replace(/^(-\s*?|\*\s*?|_\s*?){3,}\s*/gm, '')
+    output = output.replace(/^ {0,3}((?:-[\t ]*){3,}|(?:_[ \t]*){3,}|(?:\*[ \t]*){3,})(?:\n+|$)/gm, '')
 
     try {
         if (options.stripListLeaders) {
@@ -37,21 +36,14 @@ export function remove(md, options) {
             // Remove abbreviations
             output = output.replace(/\*\[.*\]:.*\n/, '')
         }
-        output = output
-            // Remove HTML tags
-            .replace(/<[^>]*>/g, '')
 
-        var htmlReplaceRegex = new RegExp('<[^>]*>', 'g')
-        if (options.htmlTagsToSkip.length > 0) {
-            // Using negative lookahead. Eg. (?!sup|sub) will not match 'sup' and 'sub' tags.
-            var joinedHtmlTagsToSkip = '(?!' + options.htmlTagsToSkip.join("|") + ')'
-
-            // Adding the lookahead literal with the default regex for html. Eg./<(?!sup|sub)[^>]*>/ig
+        let htmlReplaceRegex = /<[^>]*>/g
+        if (options.htmlTagsToSkip && options.htmlTagsToSkip.length > 0) {
+            // Create a regex that matches tags not in htmlTagsToSkip
+            const joinedHtmlTagsToSkip = options.htmlTagsToSkip.join('|')
             htmlReplaceRegex = new RegExp(
-                '<' +
-                joinedHtmlTagsToSkip +
-                '[^>]*>',
-                'ig'
+                `<(?!\/?(${joinedHtmlTagsToSkip})(?=>|\s[^>]*>))[^>]*>`,
+                'g',
             )
         }
 
@@ -68,12 +60,12 @@ export function remove(md, options) {
             // Remove inline links
             .replace(/\[([^\]]*?)\][\[\(].*?[\]\)]/g, options.replaceLinksWithURL ? '$2' : '$1')
             // Remove blockquotes
-            .replace(/^\s{0,3}>\s?/gm, '')
+            .replace(/^(\n)?\s{0,3}>\s?/gm, '$1')
             // .replace(/(^|\n)\s{0,3}>\s?/g, '\n\n')
             // Remove reference-style links?
             .replace(/^\s{1,2}\[(.*?)\]: (\S+)( ".*?")?\s*$/g, '')
             // Remove atx-style headers
-            .replace(/^(\n)?\s{0,}#{1,6}\s+| {0,}(\n)?\s{0,}#{0,} #{0,}(\n)?\s{0,}$/gm, '$1$2$3')
+            .replace(/^(\n)?\s{0,}#{1,6}\s*( (.+))? +#+$|^(\n)?\s{0,}#{1,6}\s*( (.+))?$/gm, '$1$3$4$6')
             // Remove * emphasis
             .replace(/([\*]+)(\S)(.*?\S)??\1/g, '$2$3')
             // Remove _ emphasis. Unlike *, _ emphasis gets rendered only if
@@ -91,22 +83,11 @@ export function remove(md, options) {
             // Replace strike through
             .replace(/~(.*?)~/g, '$1')
     } catch (e) {
-        console.error(e)
+        if (options.throwError) throw e
+
+        console.error("remove-markdown encountered error: %s", e)
         return md
     }
     return output
-}
+};
 
-/** @returns {string} */
-export function removeMD(string) {
-    if (!string) {
-        //warning(string + "removeMD: slug string is empty")
-        return ""
-    }
-    return remove(
-        // cas spécial, par exemple pour evelyn.md
-        string.replace(/\[(.*)\]\{.*\}/g, "$1")
-            .replace(/&NewLine;/g, "")
-            .replace(/::: info-block\n.*\n:::\n/, ''))
-
-}
