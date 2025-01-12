@@ -12,7 +12,8 @@ export async function gallery(data) {
 	}
 	const { document } = parseHTML(content)
 
-	for await (const img of document.querySelectorAll('img')) {
+	for await (const figure of document.querySelectorAll('figure')) {
+		const img = figure.querySelector('img')
 		const link = document.createElement("a")
 		const src = img.getAttribute("src")
 		const path = (
@@ -29,8 +30,9 @@ export async function gallery(data) {
 			"data-pswp-width": imageDimensions.webp[0].width,
 			"data-pswp-height": imageDimensions.webp[0].height
 		})
-		link.appendChild(img.cloneNode(true))
-		img.replaceWith(link)
+		link.replaceChildren(figure.childNodes[0], figure.childNodes[1])
+		figure.replaceChildren(link)
+
 	}
 
 	let width = ''

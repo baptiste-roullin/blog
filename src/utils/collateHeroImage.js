@@ -15,13 +15,18 @@ export default async function (data) {
     let url
     if (typeof hero !== "object"
         || typeof hero?.image !== "string" || hero?.image === null || hero?.image === "") {
+
+        ////URL absolue
         finalName = `/${meta.assetsDir}/truchet-${slug}.png`
-        //TODO
+
         //utile uniquement sur Windows ${process.cwd()}
-        //const truchetExists = await fileExists(`/${meta.outputDir}/${meta.assetsDir}/${finalName}`)
-        //if (!truchetExists) {
-        if (true) {
-            await truchetNode(400, 280, "src/" + finalName).catch(console.error)
+        const truchetExists = await fileExists(`src/${finalName}`)
+        if (!truchetExists) {
+            if (true) {
+                console.log("file exists")
+
+                await truchetNode(400, 280, "src/" + finalName).catch(console.error)
+            }
         }
 
         return finalName
@@ -33,17 +38,12 @@ export default async function (data) {
         //for search
         if (meta.env === "production ") {
             const source = "process.cwd() " + hero.image
-
             const dest = `${process.cwd()}/${meta.outputDir}/${meta.assetsDir}/${hero.image}`
             await fsp.copyFile(source, dest)
             return `${finalName}`
         }
-
-
-        ////URL absolue
         //TODO
         return finalName
-        //console.log(`/${meta.assetsDir}/${finalName}`)
 
     }
 }

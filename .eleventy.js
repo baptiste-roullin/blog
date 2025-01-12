@@ -10,7 +10,7 @@ import glob from "fast-glob"
 
 import pluginRss from '@11ty/eleventy-plugin-rss'
 import pluginNavigation from '@11ty/eleventy-navigation'
-import { EleventyHtmlBasePlugin } from "@11ty/eleventy"
+import EleventyHtmlBasePlugin from "./node_modules/@11ty/eleventy/src/Plugins/HtmlBasePlugin.js"
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img"
 
 import meta from './src/_data/meta.js'
@@ -71,32 +71,36 @@ export default async function (config) {
 			await fsp.mkdir(imagePath, { recursive: true })
 		}*/
 
-	config.addPlugin(eleventyImageTransformPlugin, {
-		// which file extensions to process
-		extensions: "html",
-		formats: ["webp"],
-		sharpOptions: {
-			animated: true,
-		},
-		failOnError: true,
-		widths: [400, 800, 1200, 1920, "auto"],
-		//		urlPath: '/img/',
+	const formats = (meta.env === "production"
+		? ["webp", "jpg"]
+		: ["webp"]
+	)
+	try {
+		config.addPlugin(eleventyImageTransformPlugin, {
+			extensions: "html",
+			formats: ["webp"],
+			sharpOptions: {
+				animated: true,
+			},
+			failOnError: false,
+			widths: [400, 800, 1200, 1920, "auto"],
+			useCache: "true",
+			htmlOptions: {
+				imgAttributes: {
+					loading: "lazy",
+					decoding: "async",
+					sizes: "(max-width: 60rem) 90vw, 60rem",
+				}
+			},
+		})
 
-		//useCache: "true",
-		// optional, attributes assigned on <img> override these values.
+	} catch (error) {
+		console.log(error)
 
-		htmlOptions: {
-			imgAttributes: {
-				loading: "lazy",
-				decoding: "async",
-				sizes: "(max-width: 60rem) 90vw, 60rem",
-			}
-		},
-	})
+	}
+	config.addPassthroughCopy('src/assets/docs/')
+	config.addPassthroughCopy('src/assets/UI')
 	if (meta.env === "production") {
-
-		config.addPassthroughCopy('src/assets/docs/')
-		config.addPassthroughCopy('src/assets/UI')
 		//config.addPassthroughCopy({ 'src/img/*.svg': meta.assetsDir })
 		//config.addPassthroughCopy({ 'src/img/*.mp4': meta.assetsDir })
 		//config.addPassthroughCopy("**/*.{png,webp,gif,mp4,jpg,jpeg}", {
@@ -113,8 +117,6 @@ export default async function (config) {
 		//	config.addTransform('findImg', findImg)
 	}
 	else {
-
-
 		//config.addPassthroughCopy({ 'src/posts/**/*.{png,webp,gif,mp4,jpg,jpeg}': `/${meta.assetsDir}/` })
 		//	config.addPassthroughCopy('src/img/')
 		//	config.addTransform('findImgInDevEnv', findImgInDevEnv)
@@ -183,10 +185,7 @@ export default async function (config) {
 
 	await Promise.all(files.map(async (file) => {
 		const pairedShortcodes = await import(file)
-
 		for (const [name, filter] of Object.entries(pairedShortcodes)) {
-			console.log(name)
-
 			config.addPairedShortcode(name, filter)
 		}
 	}))

@@ -4,7 +4,7 @@ import slugifyLib from '@sindresorhus/slugify'
 let memoizedSlugs = {}
 
 /** @returns {any} */
-export default function slify(string) {
+export default function slugify(string) {
 
     const inputPath = this?.page?.inputPath
 
