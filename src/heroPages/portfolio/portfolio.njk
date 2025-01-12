@@ -23,16 +23,18 @@ eleventyNavigation:
 	{# TOOLS #}
 	<section class="tools">
 		<div class="prose-tcqb container-prose">
-			{% heading "2", "", "Mes outils" %}
+			{% heading "2",
+			"",
+			"Mes outils" %}
 		</div>
 
 		<div class="flex flex-wrap justify-start gap-10 md:justify-center md:flex-row layout-wide">
 			{% for tool in tools %}
-			<div class="flex flex-col items-center justify-between gap-2 ">
-				<span class="leading-5 text-center label w-min">{{tool.name}}</span>
-				<img loading="lazy" class="w-[5.5rem] md:w-24 shadow-sm rounded-[22px]" src="{{tool.logo}}"
+				<div class="flex flex-col items-center justify-between gap-2 ">
+					<span class="leading-5 text-center label w-min">{{tool.name}}</span>
+					<img loading="lazy" class="w-[5.5rem] md:w-24 shadow-sm rounded-[22px]" src="{{tool.logo}}"
 					alt="">
-			</div>
+				</div>
 			{% endfor %}
 		</div>
 	</section>
@@ -40,23 +42,25 @@ eleventyNavigation:
 	{# CLIENTS #}
 	<section class="clients">
 		<div class="prose-tcqb container-prose">
-			{% heading "2", "", "Clients principaux" %}
+			{% heading "2",
+			"",
+			"Clients principaux" %}
 		</div>
 		<div class="flex-col items-start p-7 lg:p-12 card-base hover:shadow layout-wide">
 			<ul class="flex flex-col items-start gap-8 ">
 				{% for client in clients %}
-				<li class="flex flex-col w-full gap-3 m-0 list-none lg:gap-4 md:flex-row md:gap-7">
-					<span class=" label-attribute md:text-right sector basis-1/4 shrink-0">{{client.sector}}</span>
-					<ul
+					<li class="flex flex-col w-full gap-3 m-0 list-none lg:gap-4 md:flex-row md:gap-7">
+						<span class=" label-attribute md:text-right sector basis-1/4 shrink-0">{{client.sector}}</span>
+						<ul
 						class="flex flex-row flex-wrap m-0 md:items-center gap-y-1 lg:gap-y-2 gap-x-2 xl:gap-x-3 ">
-						{% for item in client.list %}
-						<li class="m-0 list-none label ">
-							{{item}}
-						</li>
-						{% include "components/separator.njk" %}
-						{% endfor %}
-					</ul>
-				</li>
+							{% for item in client.list %}
+								<li class="m-0 list-none label ">
+									{{item}}
+								</li>
+								{% include "components/separator.njk" %}
+							{% endfor %}
+						</ul>
+					</li>
 				{% endfor %}
 			</ul>
 		</div>
@@ -65,81 +69,84 @@ eleventyNavigation:
 	{# PROJETS #}
 	<section class="">
 		<div class="prose-tcqb container-prose">
-			{% heading "2", "", "Quelques projets" %}
+			{% heading "2",
+			"",
+			"Quelques projets" %}
 		</div>
 		<ul class="flex flex-col gap-8 m-auto md:gap-16 post-list layout-wide project-list">
 			{% for ref in references%}
-			<li class="flex-col gap-0 card-base p-7 lg:p-12 ">
-				<div class="w-full gap-4 m-0 md:gap-0 block-heading-split">
-					<h3 class="order-1 sm:order-0 cta-heading">{{ref.title}}</h3>
-					{# TOOD: supprimer soit margin-bottom, soit gap #}
+				<li class="flex-col gap-0 card-base p-7 lg:p-12 ">
+					<div class="w-full gap-4 m-0 md:gap-0 block-heading-split">
+						<h3 class="order-1 sm:order-0 cta-heading">{{ref.title}}</h3>
+						{# TOOD: supprimer soit margin-bottom, soit gap #}
 
-					{# TOOD: fix taille logo sur mobile #}
+						{# TOOD: fix taille logo sur mobile #}
 
-					<img src="{{ref.logo}}" class="w-24 h-auto order-0 sm:order-1 md:w-32" alt="{{ref.name}}">
-				</div>
+						<img src="{{ref.logo}}" class="w-24 h-auto order-0 sm:order-1 md:w-32" alt="{{ref.name}}">
+					</div>
 
-				{# DÉTAILS #}
-				<div class="flex flex-col justify-between gap-6 md:grid lg:gap-8 details ">
-					<div class="flex flex-col gap-5 lg:gap-7">
-						{% if ref.description %}
-						<dl>
-							<dt>C'est quoi</dt>
-							<dd>{{ref.description | markdownifyBlock | safe}}</dd>
-						</dl>
-						{% endif %}
+					{# DÉTAILS #}
+					<div class="flex flex-col justify-between gap-6 md:grid lg:gap-8 details ">
+						<div class="flex flex-col gap-5 lg:gap-7">
+							{% if ref.description %}
+								<dl>
+									<dt>C'est quoi</dt>
+									<dd>{{ref.description | markdownifyBlock | safe}}</dd>
+								</dl>
+							{% endif %}
 
-						{% if ref.duration %}
-						<dl>
-							<dt>Durée</dt>
-							<dd>{{ref.duration if ref.duration}}</dd>
-						</dl>
-						{% endif %}
+							{% if ref.duration %}
+								<dl>
+									<dt>Durée</dt>
+									<dd>{{ref.duration if ref.duration}}</dd>
+								</dl>
+							{% endif %}
 
-						{% if ref.tasks %}
-						<dl>
-							<dt>Ce que j'ai fait</dt>
-							<dd>
-								<ul class="inline tagpills">
-									{% for task in ref.tasks %}
-									<li class="inline-block my-auto">
-										{{ task }}
-										{% include "components/separator.njk" %}
-									</li>
-									{% endfor %}
-								</ul>
-							</dd>
-						</dl>
-						{% endif %}
+							{% if ref.tasks %}
+								<dl>
+									<dt>Ce que j'ai fait</dt>
+									<dd>
+										<ul class="inline tagpills">
+											{% for task in ref.tasks %}
+												<li class="inline-block my-auto">
+													{{ task }}
+													{% include "components/separator.njk" %}
+												</li>
+											{% endfor %}
+										</ul>
+									</dd>
+								</dl>
+							{% endif %}
 
-						{% if ref.note %}
-						<dl>
-							<dt>Remarque</dt>
-							<dd>{{ref.note if ref.note}}</dd>
-						</dl>
-						{% endif %}
+							{% if ref.note %}
+								<dl>
+									<dt>Remarque</dt>
+									<dd>{{ref.note if ref.note}}</dd>
+								</dl>
+							{% endif %}
 
-						<div class="not-prose">
-							{% if ref.CTA %}
-							<a href="{{ref.CTALink}}"
+							<div class="not-prose">
+								{% if ref.CTA %}
+									<a href="{{ref.CTALink}}"
 								class="w-full mx-auto sm:w-3/5 lg:w-2/5 cta">{{ref.CTA}}</a>
-							{%else %}
-							<div
+								{%else %}
+									<div
 								class="w-full mx-auto text-gray-800 bg-gray-300 sm:w-3/5 lg:w-2/5 hover:bg-gray-400 cta">
 								En cours ou confidentiel</div>
-							{% endif %}
+								{% endif %}
+							</div>
+
 						</div>
-
-					</div>
-					<div class="flex flex-row flex-wrap gap-3 m-auto picture-gallery ">
-						{% for photo in ref.photos %}
-						<figure class=""><img loading="lazy" class="w-auto shadow-sm" src="{{photo.url}}"
+						{# TODO: fix colonne par régulière #}
+						<div class="flex flex-row flex-wrap gap-3 m-auto picture-gallery ">
+							{% for photo in ref.photos %}
+								<figure class=""><img loading="lazy" class="w-auto shadow-sm" src="{{photo.url}}"
 								alt="{{photo.alt}}"></figure>
-						{% endfor %}
+							{% endfor %}
 
+						</div>
 					</div>
-				</div>
-			</li>
+				</li>
 
 			{% endfor %}
 		</ul>
