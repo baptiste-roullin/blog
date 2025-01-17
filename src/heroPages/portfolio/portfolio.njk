@@ -1,7 +1,7 @@
 ---
 title: "Baptiste,&NewLine; 36 ans ½,&NewLine; designer [ux]{.small-caps}"
 hero:
-  image: banner.png
+  image: /img/banner.png
   alt: "échelles de note montrant mes compétences. 'Test utilisateur' est bien noté, 'design graphique' est mal noté,  'faire valider une page d'accueil du premier coup' est très bien noté. Et 'modestie' est même noté 6/5"
 picture_lightbox: true
 permalink: "/portfolio/index.html"
@@ -32,7 +32,7 @@ eleventyNavigation:
 			{% for tool in tools %}
 				<div class="flex flex-col items-center justify-between gap-2 ">
 					<span class="leading-5 text-center label w-min">{{tool.name}}</span>
-					<img eleventy:ignore  loading="lazy" class="w-[5.5rem] md:w-24 shadow-sm rounded-[22px]" src="{{tool.logo}}"
+					<img   loading="lazy" class="w-[5.5rem] md:w-24 shadow-sm rounded-[22px]" src="{{tool.logo}}"
 					alt="">
 				</div>
 			{% endfor %}
@@ -82,7 +82,6 @@ eleventyNavigation:
 
 						{# TOOD: fix taille logo sur mobile #}
 
-						<img  eleventy:ignore src="{{ref.logo}}" class="w-24 h-auto order-0 sm:order-1 md:w-32" alt="{{ref.name}}">
 						<img src="{{ref.logo}}" class="w-24 h-auto order-0 sm:order-1 md:w-32" alt="{{ref.name}}">
 					</div>
 

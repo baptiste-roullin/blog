@@ -266,19 +266,19 @@ clients:
     - Ministère du travail
 
 tools:
-  - name: Figma
+  - name: /img/Figma
     logo: tool-1.png
-  - name: Sketch
+  - name: /img/Sketch
     logo: tool-2.png
-  - name: Axure
+  - name: /img/Axure
     logo: tool-3.png
-  - name: Miro
+  - name: /img/Miro
     logo: tool-4.png
-  - name: Hotjar
+  - name: /img/Hotjar
     logo: tool-5.png
-  - name: Optimal Workshop
+  - name: /img/Optimal Workshop
     logo: tool-6.png
-  - name: Google Analytics
+  - name: /img/Google Analytics
     logo: tool-7.png
-  - name: Lookback
+  - name: /img/Lookback
     logo: tool-8.png

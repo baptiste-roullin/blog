@@ -13,35 +13,38 @@ export default async function (data) {
     const hero = data.hero
     let finalName
     let url
-    if (typeof hero !== "object"
-        || typeof hero?.image !== "string" || hero?.image === null || hero?.image === "") {
+    try {
 
-        ////URL absolue
-        finalName = `/${meta.assetsDir}/truchet-${slug}.png`
+        if (typeof hero !== "object" || typeof hero?.image !== "string" || hero?.image === null || hero?.image === "") {
 
-        //utile uniquement sur Windows ${process.cwd()}
-        const truchetExists = await fileExists(`src/${finalName}`)
-        if (!truchetExists) {
-            if (true) {
-                await truchetNode(400, 280, "src/" + finalName).catch(console.error)
+            ////URL absolue
+            finalName = `/${meta.assetsDir}/truchet-${slug}.png`
+
+            //utile uniquement sur Windows ${process.cwd()}
+            const truchetExists = await fileExists(`src/${finalName}`)
+            if (!truchetExists) {
+                if (true) {
+                    await truchetNode(400, 280, "src/" + finalName).catch(console.error)
+                }
             }
+            hero.image = `/img/truchet-${slug}.png`
+
         }
 
-        return finalName
-    }
-
-    else {
-        finalName = hero.image
+        else {
+            finalName = hero.image
+        }
 
         //for search
-        if (meta.env === "production ") {
-            const source = "process.cwd() " + hero.image
-            const dest = `${process.cwd()}/${meta.outputDir}/${meta.assetsDir}/${hero.image}`
+        if (meta.env === "production") {
+            const source = process.cwd() + "/src/" + hero.image
+            const dest = `${process.cwd()}/${meta.outputDir}/${hero.image}`
+
             await fsp.copyFile(source, dest)
-            return `${finalName}`
         }
-        //TODO
         return finalName
+    } catch (error) {
+        console.log(error)
 
     }
 }

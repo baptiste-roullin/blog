@@ -53,13 +53,12 @@ export const collections = {
 
         const collatedProjects = await Promise.all(projects.map(async (project) => {
             if (!project.img) {
-
-                //chemin absolu
-                project.img = `${meta.outputDir}/${meta.assetsDir}/truchet-${project.name}.png`
-
+                const path = `${meta.assetsDir}/truchet-${project.name}.png`
                 if (true) {
-                    await truchetNode(400, 400, project.img).catch(console.error)
+                    await truchetNode(400, 400, "src/" + path).catch(console.error)
                 }
+                project.img = "/" + path
+
             }
             return project
         }))

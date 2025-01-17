@@ -62,9 +62,9 @@ export default async function (config) {
 
 	config.addPassthroughCopy('src/robots.txt')
 	config.addPassthroughCopy('src/assets/css/fonts')
-
-	//On copie tels quels les média avec chemins relatifs ou absolus dans /dist, qu'ils puissent être lus par du balisage non-transformé (sans srcset)
 	config.addPassthroughCopy('src/assets/UI')
+	config.addPassthroughCopy('src/assets/docs')
+
 
 	/*	const imagePath = `${process.cwd()}/${meta.outputDir}/${meta.assetsDir}/`
 		if (!(await fileExists(imagePath))) {

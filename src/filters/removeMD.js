@@ -82,6 +82,8 @@ export default function removeMD(md, options) {
             // .replace(/(\S+)\n\s*(\S+)/g, '$1 $2')
             // Replace strike through
             .replace(/^\[(.*)\]{lang='en'}$/g, '$1')
+            .replace(/^\[(.*)\]{.*}$/g, '$1')
+            .replace(/&NewLine;/g, '')
 
     } catch (e) {
         if (options.throwError) throw e
