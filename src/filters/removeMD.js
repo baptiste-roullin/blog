@@ -81,7 +81,8 @@ export default function removeMD(md, options) {
             // // Remove newlines in a paragraph
             // .replace(/(\S+)\n\s*(\S+)/g, '$1 $2')
             // Replace strike through
-            .replace(/~(.*?)~/g, '$1')
+            .replace(/^\[(.*)\]{lang='en'}$/g, '$1')
+
     } catch (e) {
         if (options.throwError) throw e
 

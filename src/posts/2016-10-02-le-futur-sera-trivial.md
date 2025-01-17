@@ -6,7 +6,7 @@ tags:
   - "réflexions"
 featured: true
 hero:
-  image: "/img/falcon.gif"
+  image: "/img/falcon.png"
   alt: "Han Solo tape sur un panneau du cockpit du Millenium Falcon pour le faire fonctionner."
 
 
@@ -35,3 +35,6 @@ On peut interpréter ce concept de plusieurs manières :
 - L'idée que certains micro-phénomènes sont plus révélateurs de changement que les jetpacks et autres voitures volantes.
 
 A ce sujet, on pourra aussi lire le chapitre "Futurs au quotidien" de [ce livre](http://www.moutons-electriques.fr/futurs) par Nicolas Nova -- d'ailleurs un collègue de Foster.
+
+
+![](img/falcon.gif)

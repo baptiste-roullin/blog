@@ -2,8 +2,6 @@
 
 import meta from './src/_data/meta.js'
 
-
-
 export default {
   plugins: {
     'postcss-import': {},

@@ -23,8 +23,6 @@ export default async function (data) {
         const truchetExists = await fileExists(`src/${finalName}`)
         if (!truchetExists) {
             if (true) {
-                console.log("file exists")
-
                 await truchetNode(400, 280, "src/" + finalName).catch(console.error)
             }
         }
