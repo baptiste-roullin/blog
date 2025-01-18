@@ -1,6 +1,6 @@
 import debug from 'debug'
 import truchet from './truchet_core.js'
-import meta from '../../_data/meta.js'
+import meta from '../_data/meta.js'
 
 const warning = debug('tcqb:warning')
 

@@ -2,10 +2,10 @@
 // Documentation de l'API : https://www.zotero.org/support/dev/web_api/v3/basics
 // Client : 				https://github.com/tnajdek/zotero-api-client
 import pMap from 'p-map'
-import markdownify from "../../filters/markdownify.js"
-import meta from '../../_data/meta.js'
-import dateFormatting from '../../filters/dateFormatting.js'
-import cache from '../../utils/caching.js'
+import markdownify from '../filters/markdownify.js'
+import meta from '../_data/meta.js'
+import dateFormatting from '../filters/dateFormatting.js'
+import cache from '../utils/caching.js'
 import api from 'zotero-api-client/src/main.js'
 
 import fs from 'node:fs/promises'
@@ -15,7 +15,7 @@ import { dirname } from 'node:path'
 import { fileURLToPath } from 'url'
 import dotenv from 'dotenv'
 dotenv.config()
-import renderNunjucks from '../../utils/renderNunjucks.js'
+import renderNunjucks from '../utils/renderNunjucks.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -180,7 +180,7 @@ export default async function zotero(collection, ...requestedTags) {
         // - un lien direct vers un PDF, tiré des pièces jointes.
         const completedItems = await addDataToItems(items)
 
-        const html = await renderNunjucks("features/zotero/zotero_component.njk",
+        const html = await renderNunjucks("shortcodes/zotero_component.njk",
             { items: completedItems },
             [dateFormatting, markdownify]
         )
