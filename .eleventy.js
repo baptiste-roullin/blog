@@ -1,6 +1,4 @@
 
-//TODO : plus besoin de .eleventyignore en env de dev. https://www.11ty.dev/docs/ignores/#configuration-api
-
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'url'
 
