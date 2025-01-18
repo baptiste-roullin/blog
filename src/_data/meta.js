@@ -11,13 +11,9 @@ export default {
 	lang: 'fr',
 	locale: 'fr_FR',
 	author: 'Baptiste Roullin',
-	authorEmail: '',
 	outputDir: "dist",
 	assetsDir: 'img',
 	zotero: convertToBool(process.env.ZOTERO),
-	twitterBearer: process.env.TWITTER_BEARER,
-	twitterThread: convertToBool(process.env.TWITTER_THREAD),
-
 	zoteroProfileID: process.env.zoteroProfileID || '',
 	zoteroAPIKey: process.env.zoteroAPIKey || ''
 

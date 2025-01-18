@@ -1,7 +1,6 @@
 
 //TODO : plus besoin de .eleventyignore en env de dev. https://www.11ty.dev/docs/ignores/#configuration-api
 
-import fsp from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'url'
 
@@ -15,22 +14,18 @@ import { eleventyImageTransformPlugin } from "@11ty/eleventy-img"
 
 import meta from './src/_data/meta.js'
 import { collections } from './src/collections.js'
-import zotero from './src/features/zotero/zoteroShortcode.js'
-import { truchetItem, truchetList } from './src/features/truchet/truchet_shortcode.js'
+import zotero from './src/shortcodes/zoteroShortcode.js'
+import { truchetItem, truchetList } from './src/truchet/truchet_shortcode.js'
 import md from './src/markdown.js'
-import fileExists from './src/utils/fileExists.js'
-
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
-
 /** @param {import("@11ty/eleventy").UserConfig} config */
-
 export default async function (config) {
 	config.setUseGitIgnore(false)
 
-	config.ignores?.add("/src/heroPages/portfolio/portfolioIntro.md")
-	config.ignores?.add("/src/features/zotero/zotero_component.njk")
+	config.ignores?.add("./src/portfolio/portfolioIntro.md")
+	config.ignores?.add("./src/shortcodes/zotero_component.njk")
 
 	if (meta.env === "dev") {
 		config.ignores?.add("./src/posts/201*")
@@ -209,7 +204,6 @@ export default async function (config) {
 	/**
 	 * Collections
 	 * ============================
-
 	*/
 
 	Object.keys(collections).forEach((colName) => {

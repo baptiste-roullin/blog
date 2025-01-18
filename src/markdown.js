@@ -9,7 +9,7 @@ import toc from 'markdown-it-table-of-contents'
 //import blockquoteCite from 'markdown-it-blockquote-cite'
 import imageFigures from 'markdown-it-image-figures'
 import highlightjs from "./utils/highlightPlugin.js"
-import french_nnbsp from './french_nnbsp.js'
+import french_nnbsp from './utils/french_nnbsp.js'
 import { default as customSlug } from './filters/slugify.js'
 
 

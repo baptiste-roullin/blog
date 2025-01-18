@@ -6,6 +6,6 @@ export default {
   hideMeta: true,
   author: "{{ meta.author }}",
   eleventyComputed: {
-    // collatedHeroImage: collateHeroImage
+    collatedHeroImage: collateHeroImage
   }
 }

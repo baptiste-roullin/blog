@@ -7,8 +7,9 @@
 @import "./cards.scss";
 @import "./headings.scss";
 @import "./photoswipe.css";
-@import "../../heroPages/portfolio/portfolio.scss";
-@import "../../features/truchet/truchet.scss";
+
+@import "../../portfolio/portfolio.css"
+@import "../../truchet/truchet.scss";
 
 @tailwind base;
 @tailwind components;

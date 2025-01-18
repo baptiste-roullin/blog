@@ -18,8 +18,8 @@ export default {
 		spin: resolve(__dirname, 'src/assets/scripts/spin.js'),
 		nav: resolve(__dirname, 'src/assets/scripts/nav.js'),
 		arrowPagination: resolve(__dirname, 'src/assets/scripts/arrow_pagination.js'),
-		truchet: resolve(__dirname, 'src/features/truchet/truchet_core.js'),
-		truchet_dom: resolve(__dirname, 'src/features/truchet/truchet_dom.js'),
+		truchet: resolve(__dirname, 'src/truchet/truchet_core.js'),
+		truchet_dom: resolve(__dirname, 'src/truchet/truchet_dom.js'),
 		dateFormatting: resolve(__dirname, 'src/filters/dateFormatting.js'),
 	},
 

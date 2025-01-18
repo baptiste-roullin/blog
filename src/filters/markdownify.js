@@ -1,17 +1,12 @@
 import md from '../markdown.js'
 export default function markdownify(string) {
 
-	try {
-		if (!string) {
-			throw new Error()
-		}
-		if (typeof string !== "string") {
-			throw new Error("should be string")
-		}
-
-		return md.renderInline(string)
-	} catch (error) {
-		console.log(error)
-		console.log(this.inputPath)
+	if (!string) {
+		throw new Error("input is null" + this.page.inputPath)
 	}
+	if (typeof string !== "string") {
+		throw new Error("should be string" + this.page.inputPath)
+	}
+
+	return md.renderInline(string)
 }

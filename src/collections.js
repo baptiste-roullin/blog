@@ -1,5 +1,5 @@
 import meta from './_data/meta.js'
-import truchetNode from './features/truchet/truchet_node.js'
+import truchetNode from './truchet/truchet_node.js'
 import fileExists from './utils/fileExists.js'
 
 
