@@ -1,6 +1,7 @@
 
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'url'
+import fsp from 'node:fs/promises'
 
 import yaml from "js-yaml"
 import glob from "fast-glob"
@@ -15,6 +16,7 @@ import { collections } from './src/collections.js'
 import zotero from './src/shortcodes/zoteroShortcode.js'
 import { truchetItem, truchetList } from './src/truchet/truchet_shortcode.js'
 import md from './src/markdown.js'
+import fileExists from './src/utils/fileExists.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -64,10 +66,10 @@ export default async function (config) {
 			await fsp.mkdir(imagePath, { recursive: true })
 		}*/
 
-	const formats = (meta.env === "production"
-		? ["webp", "jpg"]
-		: ["webp"]
-	)
+	const imagePath = `${process.cwd()}/${meta.outputDir}/${meta.assetsDir}/`
+	if (!(await fileExists(imagePath))) {
+		await fsp.mkdir(imagePath, { recursive: true })
+	}
 	try {
 		config.addPlugin(eleventyImageTransformPlugin, {
 			extensions: "html",

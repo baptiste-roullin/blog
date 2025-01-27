@@ -41,7 +41,6 @@ export default async function (data) {
             inputPath = `src/${finalName}`
             outputPath = `${meta.outputDir}/${finalName}`
             url = `/${finalName}`
-
         }
 
         //for search

@@ -8,7 +8,7 @@
 @import "./headings.scss";
 @import "./photoswipe.css";
 
-@import "../../portfolio/portfolio.css"
+@import "../../portfolio/portfolio.scss"
 @import "../../truchet/truchet.scss";
 
 @tailwind base;
