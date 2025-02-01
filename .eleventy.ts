@@ -6,6 +6,7 @@ import fsp from 'node:fs/promises'
 import yaml from "js-yaml"
 import glob from "fast-glob"
 
+import type UserConfig from "./node_modules/@11ty/eleventy/src/UserConfig.js"
 import pluginRss from '@11ty/eleventy-plugin-rss'
 import pluginNavigation from '@11ty/eleventy-navigation'
 import EleventyHtmlBasePlugin from "./node_modules/@11ty/eleventy/src/Plugins/HtmlBasePlugin.js"
@@ -18,10 +19,10 @@ import { truchetItem, truchetList } from './src/truchet/truchet_shortcode.js'
 import md from './src/markdown.js'
 import fileExists from './src/utils/fileExists.js'
 
+
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
-/** @param {import("@11ty/eleventy").UserConfig} config */
-export default async function (config) {
+export default async function (config: UserConfig) {
 	config.setUseGitIgnore(false)
 
 	config.ignores?.add("./src/portfolio/portfolioIntro.md")
@@ -43,6 +44,7 @@ export default async function (config) {
 	*/
 	config.addWatchTarget('./src/assets/scripts/')
 	config.addWatchTarget('./src/**/*.js')
+	config.addWatchTarget('./src/**/*.ts')
 	config.addWatchTarget('./tailwind.config.js')
 	config.setWatchJavaScriptDependencies(true)
 
@@ -147,7 +149,7 @@ export default async function (config) {
 	/**
 	 * Filters
 	 */
-	let files = await glob.async(resolve(__dirname, 'src/filters/*.js'))
+	let files = await glob.async(resolve(__dirname, 'src/filters/*s'))
 
 	await Promise.all(files.map(async (file) => {
 
@@ -159,7 +161,7 @@ export default async function (config) {
 	/**
 	 * Shortcodes
 	 */
-	files = await glob.async(resolve(__dirname, 'src/shortcodes/*.js'))
+	files = await glob.async(resolve(__dirname, 'src/shortcodes/*s'))
 
 	await Promise.all(files.map(async (file) => {
 		const shortcodes = await import(file)
@@ -176,7 +178,7 @@ export default async function (config) {
 	/**
 	 * paired Shortcodes
 	 */
-	files = await glob.async(resolve(__dirname, 'src/pairedShortcodes/*.js'))
+	files = await glob.async(resolve(__dirname, 'src/pairedShortcodes/*s'))
 
 	await Promise.all(files.map(async (file) => {
 		const pairedShortcodes = await import(file)
