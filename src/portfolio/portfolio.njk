@@ -15,7 +15,7 @@ eleventyNavigation:
 	<section class="flex flex-col prose-tcqb">
 		{% heading "2", "", "C'est quoi un designer <span class='small-caps'>ux</span> ?" | safe %}
 		{% include "components/portfolio_tabs.njk" %}
-		<div class="w-full max-w-screen-xl gap-6 m-auto prose-tcqb container-prose lg:max-w-prose">
+		<div class="w-full max-w-(--breakpoint-xl) gap-6 m-auto prose-tcqb container-prose lg:max-w-prose">
 			{% renderFile "./src/portfolio/portfolioIntro.md" %}
 		</div>
 	</section>
@@ -32,7 +32,7 @@ eleventyNavigation:
 			{% for tool in tools %}
 				<div class="flex flex-col items-center justify-between gap-2 ">
 					<span class="leading-5 text-center label w-min">{{tool.name}}</span>
-					<img   loading="lazy" class="w-[5.5rem] md:w-24 shadow-sm rounded-[22px]" src="{{tool.logo}}"
+					<img   loading="lazy" class="w-[5.5rem] md:w-24 shadow-2xs rounded-[22px]" src="{{tool.logo}}"
 					alt="">
 				</div>
 			{% endfor %}
@@ -46,7 +46,7 @@ eleventyNavigation:
 			"",
 			"Clients principaux" %}
 		</div>
-		<div class="flex-col items-start p-7 lg:p-12 card-base hover:shadow layout-wide">
+		<div class="flex-col items-start p-7 lg:p-12 card-base hover:shadow-2xs layout-wide">
 			<ul class="flex flex-col items-start gap-8 ">
 				{% for client in clients %}
 					<li class="flex flex-col w-full gap-3 m-0 list-none lg:gap-4 md:flex-row md:gap-7">
@@ -140,7 +140,7 @@ eleventyNavigation:
 						{# TODO: fix colonne par régulière #}
 						<div class="flex flex-row flex-wrap gap-3 m-auto picture-gallery ">
 							{% for photo in ref.photos %}
-								<figure class=""><img loading="lazy" class="w-auto shadow-sm" src="{{photo.url}}"
+								<figure class=""><img loading="lazy" class="w-auto shadow-2xs" src="{{photo.url}}"
 								alt="{{photo.alt}}"></figure>
 							{% endfor %}
 

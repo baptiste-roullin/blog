@@ -44,15 +44,10 @@ const textShadow = plugin(function ({ addUtilities, e, theme, addVariant }) {
 import colors from 'tailwindcss/colors'
 
 import typography from '@tailwindcss/typography'
-import nesting from 'tailwindcss/nesting'
 import forms from '@tailwindcss/forms'
-
-//import util from 'markdown-it-blockquote-cite/dist/util'
 
 export default {
 	darkMode: 'class',
-	corePlugins: {
-	},
 	safelist: ['sr-only'],
 	content: [
 		'./src/**/*.html',
@@ -302,9 +297,8 @@ export default {
 	},
 	plugins: [
 		typography,
-		nesting,
-		textShadow,
 		forms,
+		/*textShadow,*/
 	]
 	,
 }
