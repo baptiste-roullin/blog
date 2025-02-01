@@ -1,14 +1,16 @@
-<section id="post-list" class="mt-8 post-wrapper ">
-	<div class=post-list-wrapper>
-		<ul class="flex flex-col gap-6 my-10 sm:gap-8 md:gap-6 post-list ">
-			{% for post in postslist %}
-			{% include 'components/posts_list_item.njk' %}
-			{% endfor %}
-		</ul>
+<section id="post-list-container" class="mt-8 ">
 
-		{% if (collections.publishedPosts.length > pagination.size) and (postListItemStyle.showPagination) %}
+	<ul class="flex flex-col gap-6 my-10 sm:gap-8 md:gap-6 post-list ">
+		{% for post in postslist %}
+			{% include 'components/posts_list_item.njk' %}
+		{% endfor %}
+	</ul>
+
+	{# hook for search results populated by search_front.js  #}
+	<ul class="flex-col hidden my-10 md:gap-6 post-list"></ul>
+
+	{% if (collections.publishedPosts.length > pagination.size) and (postListItemStyle.showPagination) %}
 		{% include "components/pagination.njk" %}
-		{% endif %}
-	</div>
-	<ul class="flex-col hidden my-10 md:gap-6 search-list post-list">
+	{% endif %}
+
 </section>
