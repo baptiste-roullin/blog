@@ -7,10 +7,10 @@
 	</ul>
 
 	{# hook for search results populated by search_front.js  #}
-	<ul class="flex-col hidden my-10 md:gap-6  post-list">
+	<ul class="flex-col hidden my-10 md:gap-6 post-list"></ul>
 
-		{% if (collections.publishedPosts.length > pagination.size) and (postListItemStyle.showPagination) %}
-			{% include "components/pagination.njk" %}
-		{% endif %}
+	{% if (collections.publishedPosts.length > pagination.size) and (postListItemStyle.showPagination) %}
+		{% include "components/pagination.njk" %}
+	{% endif %}
 
-	</section>
+</section>
