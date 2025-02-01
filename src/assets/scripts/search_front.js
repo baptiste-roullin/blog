@@ -9,20 +9,20 @@ export async function search(e) {
     const { results } = await window.pagefind.search(value)
 
     const noResultsEl = document.getElementById("noResultsFound")
-    const container = document.querySelector('.post-wrapper')
-    const postList = container.children[0]
-    const searchList = container.children[1]
+    const container = document.querySelector('#post-list-container')
+    const staticPostList = container.children[0]
+    const dynamicPostList = container.children[1]
 
     if (!value) {
         console.log('champ vide')
-        postList.style.display = 'flex'
-        searchList.style.display = 'none'
+        staticPostList.style.display = 'flex'
+        dynamicPostList.style.display = 'none'
     }
     else {
-        postList.style.display = 'none'
-        searchList.style.display = 'flex'
-        while (searchList.hasChildNodes()) {
-            searchList.removeChild(searchList.lastChild)
+        staticPostList.style.display = 'none'
+        dynamicPostList.style.display = 'flex'
+        while (dynamicPostList.hasChildNodes()) {
+            dynamicPostList.removeChild(dynamicPostList.lastChild)
         }
         if (results.length > 0) {
 
@@ -33,7 +33,7 @@ export async function search(e) {
                 let { url, meta, description } = doc
 
                 const el = createComponent({
-                    postListItemStyle: { complete: 'complete' },
+                    staticPostListItemStyle: { complete: 'complete' },
                     post: {
                         url,
                         data: {
@@ -48,7 +48,7 @@ export async function search(e) {
                         }
                     }
                 })
-                searchList.insertAdjacentHTML('beforeend', el)
+                dynamicPostList.insertAdjacentHTML('beforeend', el)
             })
         } else {
             console.log('no results')
