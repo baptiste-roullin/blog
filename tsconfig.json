@@ -28,6 +28,7 @@
 		// "isolatedModules": true,               /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */
 		/* Strict Type-Checking Options */
 		"strict": false /* Enable all strict type-checking options. */,
+		"allowImportingTsExtensions":true,
 		/* Additional Checks */
 		"noUnusedLocals": false /* Report errors on unused locals. */,
 		"noUnusedParameters": false /* Report errors on unused parameters. */,

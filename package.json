@@ -3,11 +3,11 @@
   "type": "module",
   "scripts": {
     "dev:webpack": "npx webpack --watch --mode development",
-    "dev:eleventy": "npx @11ty/eleventy --serve --incremental  --ignore-initial --quiet",
+    "dev:eleventy": "node --env-file=.env --experimental-strip-types node_modules/.bin/eleventy --config=.eleventy.js --serve --incremental  --ignore-initial --quiet",
     "dev:postcss": "postcss src/assets/css/main.css -o dist/assets/css/main.css --watch",
     "dev": "npm-run-all --parallel dev:* --print-label",
     "build:webpack": "npx webpack  --mode production",
-    "build:eleventy": " npx @11ty/eleventy  --quiet",
+    "build:eleventy": "node --env-file=.env --experimental-strip-types node_modules/.bin/eleventy --config=.eleventy.js  --quiet",
     "build:postcss": "postcss --verbose src/assets/css/main.css -o dist/assets/css/main.css",
     "build:search": "npx pagefind --site dist ",
     "build": "run-s build:* --print-label"
@@ -31,7 +31,6 @@
     "cssnano": "^7.0.0  ",
     "d3-color": "^3.1.0",
     "debug": "^4.3.4",
-    "dotenv": "^16.0.3",
     "eleventy-plugin-embed-everything": "^1.14",
     "esm-seedrandom": "^3.0.5",
     "full-icu": "^1.5.0",

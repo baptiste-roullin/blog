@@ -1,7 +1,7 @@
 
 import md from '../markdown.js'
 import { parseHTML } from 'linkedom'
-import setAttributes from '../utils/setAttributes.js'
+import setAttributes from '../utils/setAttributes.ts'
 import Image from "@11ty/eleventy-img"
 import pathUtils from "node:path"
 export async function gallery(data) {

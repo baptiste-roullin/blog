@@ -40,7 +40,8 @@ export default async function (data) {
             // "img" already in name
             inputPath = `src/${finalName}`
             outputPath = `${meta.outputDir}/${finalName}`
-            url = `/${finalName}`
+            // first slash and full path already in frontmatter in .md files
+            url = `${finalName}`
         }
 
         //for search

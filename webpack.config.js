@@ -3,8 +3,6 @@ import { fileURLToPath } from 'url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 import WebpackAssetsManifest from 'webpack-assets-manifest'
-import dotenv from 'dotenv'
-dotenv.config()
 
 import meta from './src/_data/meta.js'
 

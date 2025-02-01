@@ -1,5 +1,4 @@
-import dotenv from 'dotenv'
-dotenv.config()
+
 import convertToBool from '../utils/convertToBool.js'
 
 export default {
