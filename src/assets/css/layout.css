@@ -1,5 +1,4 @@
-@config "../../../tailwind.config.mjs";
-@plugin "@tailwindcss/typography";
+
 
 @theme {
 	--max-w-9xl: 100rem;
