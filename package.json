@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "dev:webpack": "npx webpack --watch --mode development",
-    "dev:eleventy": "node --env-file=.env --experimental-strip-types node_modules/.bin/eleventy --config=.eleventy.ts --serve --incremental  --ignore-initial",
+    "dev:eleventy": "node --env-file=.env --experimental-strip-types node_modules/.bin/eleventy --config=.eleventy.ts --serve --incremental",
     "dev:postcss": "postcss src/assets/css/main.css -o dist/assets/css/main.css --watch",
     "dev": "npm-run-all --parallel dev:* --print-label",
     "build:webpack": "npx webpack  --mode production",

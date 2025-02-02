@@ -1,20 +1,21 @@
 @import "tailwindcss";
 @config "../../../tailwind.config.js";
-@import "./global.scss";
 
 
 @theme {
-	--colors-roi: 'hsl(202, 78%, 16%)';
-	--colors-roi-light: 'hsl(202, 70%, 20%)';
-	--colors-roi-lighter: 'hsl(217,32%,32%)';
-	--colors-roi-bluer: 'hsl(210, 83%, 22%)';
-	--colors-roi-bluest: 'hsl(210, 86%, 25%)';
-	--colors-vermillon: 'hsl(5, 77%, 37%)';
-	--colors-marron: 'hsl(30.8, 95%, 17.3%)';
-	--colors-marron-light: 'hsl(31, 67%, 34%)';
-	--colors-orange: 'hsl(36, 100%, 50%)';
-	--colors-creme: '#fff4ed'
+	--color-roi: hsl(202, 78%, 16%);
+	--color-roi-light: hsl(202, 70%, 20%);
+	--color-roi-lighter: hsl(217,32%,32%);
+	--color-roi-bluer: hsl(210, 83%, 22%);
+	--color-roi-bluest: hsl(210, 86%, 25%);
+	--color-vermillon: hsl(5, 77%, 37%);
+	--color-marron: hsl(30.8, 95%, 17.3%);
+	--color-marron-light: hsl(31, 67%, 34%);
+	--color-orange: hsl(36, 100%, 50%);
+	--color-creme: #fff4ed
 }
+
+@import "./global.scss";
 
 @import "./fonts.css";
 @import "./nav.scss";

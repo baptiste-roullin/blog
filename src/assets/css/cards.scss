@@ -4,7 +4,8 @@
 		}
 
 	.card-base {
-		@apply flex items-center p-0 rounded-md  gap-4 lg:gap-10 bg-cream shadow-sm transition-all duration-300
+		@apply flex items-center p-0 rounded-md  gap-4 lg:gap-10 shadow-sm transition-all duration-300;
+		background-color: var(--bg-cream);
 	}
 
 	.card-item {
@@ -17,10 +18,9 @@
 		margin-bottom: 2rem;
 		@apply gap-16
 	}
-
 		.info-block{
 		@apply flex flex-col p-4 gap-4  my-6 justify-center items-start;
-		@apply md:flex-row md:px-0 md:gap-16 md:items-center;
-		@apply bg-cream flex justify-center
+		@apply md:flex-row md:px-0 md:gap-16 md:items-center flex justify-center;
+		background-color: var(--bg-cream)
 	}
 }

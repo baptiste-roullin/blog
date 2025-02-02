@@ -20,7 +20,10 @@
 @layer components {
 
 	.input {
-		@apply block w-full focus:border-roi px-4 py-3 mt-1 mb-6 text-lg placeholder-gray-500 transition-all duration-150 ease-in-out rounded-md shadow-sm lg:mb-8
+		@apply block w-full px-4 py-3 mt-1 mb-6 text-lg placeholder-gray-500 transition-all duration-150 ease-in-out rounded-md shadow-sm lg:mb-8;
+	}
+	.input:focus {
+		border-color: var(--border-roi);
 	}
 
 	.label {
@@ -28,7 +31,8 @@
 	}
 
 	.label-attribute {
-		@apply font-medium text-marron text-lg md:text-xl
+		@apply font-medium text-lg md:text-xl;
+		color: var(--text-marron)
 	}
 
 	.label-sm {
@@ -37,8 +41,15 @@
 
 
 	.cta {
-		@apply text-center mx-auto md:mx-0 block w-5/6 sm:w-1/3 py-4 text-lg no-underline font-bold tracking-wide text-white transition-all duration-75 rounded-lg shadow-lg bg-roi-light max-w-[576px];
-		@apply active:text-roi active:bg-roi-roist  hover:bg-roi-roir hover:shadow-xl ;
+		@apply text-center mx-auto md:mx-0 block w-5/6 sm:w-1/3 py-4 text-lg no-underline font-bold tracking-wide text-white transition-all duration-75 rounded-lg shadow-lg max-w-[576px];
+		background-color: var(--bg-roi-light);
+		@apply hover:shadow-xl ;
+	}
+	.cta:hover {
+		background-color: var(--bg-roi-lighter);
+	}
+	.cta:active {
+		color: var(--text-roi)
 	}
 
 
@@ -48,19 +59,32 @@
 	}
 
 	.cta-secondary {
-		@apply relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-600 transition duration-150 ease-in-out border border-gray-300 rounded-md hover:text-marron-light hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 focus:border-marron-light
+		@apply relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-600 transition duration-150 ease-in-out border border-gray-300 rounded-md hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100
+	}
+
+	.cta-secondary:hover {
+		color: var(--text-marron-lght)
+	}
+
+	.cta-secondary:focus {
+		color: var(--text-marron-lght)
 	}
 
 
 	.cta-card {
-		@apply text-lg font-normal leading-6 lg:leading-7 lg:text-xl text-marron-light
+		@apply text-lg font-normal leading-6 lg:leading-7 lg:text-xl;
+		color: var(--text-marron-light)
 	}
 
 	/*
 	gestion responsive en colonne
 	 */
 	.cta-link {
-		@apply text-xl font-medium leading-7 lg:text-xl hover:underline hover:text-orange
+		@apply text-xl font-medium leading-7 lg:text-xl hover:underline;
+	}
+	.cta-link:hover {
+		color: var(--text-orange)
+
 	}
 
 }
