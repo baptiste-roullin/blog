@@ -17,6 +17,19 @@ p>code {
 }
 
 
+@layer base  {
+    	dt {
+		font-weight: bold;
+		color: var(--color-marron);
+	}
+
+	dl {
+		display: flex;
+		flex-direction: column;
+		gap: 0rem;
+	}
+}
+
 
 
 /***********  Texte et image en vis à vis  ************/

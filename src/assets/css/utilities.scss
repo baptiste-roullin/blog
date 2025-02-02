@@ -1,74 +1,12 @@
 @layer base {
-
-	.container-page {
-		@apply max-w-6xl my-16 lg:mx-auto lg:max-w-7xl 2xl:max-w-9xl
-	}
-
-	.container-prose {
-		@apply max-w-screen-xl m-auto lg:max-w-prose;
-	}
-
-	.prose-tcqb {
-		@apply prose lg:prose-lg prose-md;
-	}
-
-	.layout-wide {
-		@apply max-w-6xl m-auto lg:max-w-7xl 2xl:max-w-9xl md:max-w-none
-	}
-
-
-	.container-wide {
-		margin-left: calc(30% - 30vw);
-		margin-right: calc(30% - 30vw);
-		position: relative;
-
-		img {
-			width: auto;
-			margin: 0
-		}
-	}
-
-	#content {
-		min-height: 20em;
-	}
-
-	.container-full {
-		width: 100vw;
-		position: relative;
-		margin-left: -50vw;
-		left: 50%;
-	}
-
-
-	body {
-		background-color: #fdfcfb;
-		overflow-x: hidden;
-		h1,
-		h2,
-		h3,
-		h3,
-		h5 {
-			padding: 0;
-			font-family: "Brandon Display, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,	'Segoe UI',	Roboto,	'Helvetica Neue',Arial,'Noto Sans',sans-serif"
-		}
-
-	}
-
-	dt {
-		font-weight: bold;
-		color: var(--text-marron);
-	}
-
-	dl {
-		display: flex;
-		flex-direction: column;
-		gap: 0rem;
-	}
-
-
 	[x-cloak] {
 		display: none !important;
 	}
+}
+
+@theme {
+	--text-xl-bis: 1.65rem;
+	--text-lg-bis: .4rem
 }
 
 @layer utilities {
@@ -82,7 +20,7 @@
 		}
 
 		& a:hover {
-			color: var(--text-orange);
+			color: var(--color-orange);
 		}
 	}
 
@@ -140,7 +78,16 @@
 		text-shadow:'1px 1px 3px rgb(0 0 0 / 29%), 2px 4px 7px rgb(73 64 125 / 35%)';
 	}
 
+	.text-shadow-lg-blue {
+		text-shadow:  3px 6px rgb(0 0 0 / 46%), 0 0 5px rgb(15 3 86 / 42%)}
+
+
+	.hover:shadow-flat {
+		box-shadow: 0 4px 5px 0px rgba(100,0,0,0.25);
+	}
 
 }
+/*	.shadow-lg-blue	{
+		box-shadow:  1.3px 1.9px rgba(0, 0, 0, 0.1),  0 3.3px 4.9px rgba(0, 0, 0, 0.133),  0 6.7px 9.9px rgba(0, 0, 0, 0.167),  0 13.9px 20.4px rgba(0, 0, 0, 0.207),  0 38px 56px rgba(0, 0, 0, 0.2);}
 
-
+	}*/

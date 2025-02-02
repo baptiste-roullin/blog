@@ -5,7 +5,7 @@
 
 	.card-base {
 		@apply flex items-center p-0 rounded-md  gap-4 lg:gap-10 shadow-sm transition-all duration-300;
-		background-color: var(--bg-cream);
+		background-color: var(--color-creme);
 	}
 
 	.card-item {
@@ -21,6 +21,6 @@
 		.info-block{
 		@apply flex flex-col p-4 gap-4  my-6 justify-center items-start;
 		@apply md:flex-row md:px-0 md:gap-16 md:items-center flex justify-center;
-		background-color: var(--bg-cream)
+		background-color: var(--color-creme)
 	}
 }

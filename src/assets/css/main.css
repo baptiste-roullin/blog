@@ -2,22 +2,10 @@
 @config "../../../tailwind.config.js";
 
 
-@theme {
-	--color-roi: hsl(202, 78%, 16%);
-	--color-roi-light: hsl(202, 70%, 20%);
-	--color-roi-lighter: hsl(217,32%,32%);
-	--color-roi-bluer: hsl(210, 83%, 22%);
-	--color-roi-bluest: hsl(210, 86%, 25%);
-	--color-vermillon: hsl(5, 77%, 37%);
-	--color-marron: hsl(30.8, 95%, 17.3%);
-	--color-marron-light: hsl(31, 67%, 34%);
-	--color-orange: hsl(36, 100%, 50%);
-	--color-creme: #fff4ed
-}
 
-@import "./global.scss";
-
+@import "./colors.css";
 @import "./fonts.css";
+@import "./utilities.scss";
 @import "./nav.scss";
 @import "./post.scss";
 @import "./images.scss";

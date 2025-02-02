@@ -4,7 +4,6 @@ import forms from '@tailwindcss/forms'
 
 export default {
 	darkMode: 'class',
-	safelist: ['sr-only'],
 	content: [
 		'./src/**/*.html',
 		'./src/**/*.njk',
@@ -14,47 +13,12 @@ export default {
 	],
 	theme: {
 		extend: {
-
-			maxWidth: {
-				'8xl': '90rem',
-				'9xl': '100rem',
-				'1/4': '25%',
-				'1/3': '33%',
-				'1/2': '50%',
-				'2/3': '66%'
-			},
-			borderRadius: {
-				'4xl': '3rem'
-			},
-			minHeight: {
-				'1/4h': '25vh',
-				'1/2h': '50vh',
-				'3/4h': '75vh',
-				'full': '100vh',
-			},
-			minWidth: {
-				'1/4': '25%',
-				'1/2': '50%',
-				'3/4': '75%',
-			},
+			/* TODO: Gérer différemment ?? */
 			spacing: {
 				'per': '4%',
 			},
-			fontSize: {
-				'xl-bis': '1.65rem',
-				'lg-bis': "1.4rem"
 
-			},
-			textShadow: {
-				"lg-blue": "3px 3px 6px rgb(0 0 0 / 46%), 0 0 5px rgb(15 3 86 / 42%)"
-			},
-			boxShadow: {
-				"flat": "0 4px 5px 0px rgba(100,0,0,0.25)",
-				"lg-blue":
-					"0 1.3px 1.9px rgba(0, 0, 0, 0.1),  0 3.3px 4.9px rgba(0, 0, 0, 0.133),  0 6.7px 9.9px rgba(0, 0, 0, 0.167),  0 13.9px 20.4px rgba(0, 0, 0, 0.207),  0 38px 56px rgba(0, 0, 0, 0.2);"
-			},
 			typography: (theme) => ({
-
 				'sm': {
 					css: {
 						h4: {
@@ -187,28 +151,8 @@ export default {
 				},
 
 			}),
-			opacity: (theme) => ({
-				5: '.05',
-				10: '.1',
-				15: '.15',
-				20: '.2',
-			}),
-			height: (theme) => ({
-				'1/2': '50vh',
-				'3/4': '75vh',
-				'9/10': '90vh',
-				'1/1': '100vh',
-				/*				'1/3': 'calc(100vh / 3)',*/
-				'2/3': '66vh',
-				/*				'1/4': 'calc(100vh / 4)',
-								'1/5': 'calc(100vh / 5)',*/
-				'17/20': '85%',
-				96: '24rem',
-				128: '32rem',
-			}),
+
 		},
-
-
 	},
 	plugins: [
 		typography,

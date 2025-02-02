@@ -1,0 +1,51 @@
+
+
+@layer base  {
+	.container-page {
+		@apply max-w-6xl my-16 lg:mx-auto lg:max-w-7xl 2xl:max-w-9xl
+	}
+
+	.container-prose {
+		@apply max-w-screen-xl m-auto lg:max-w-prose;
+	}
+
+	.prose-tcqb {
+		@apply prose lg:prose-lg prose-md;
+	}
+
+	.layout-wide {
+		@apply max-w-6xl m-auto lg:max-w-7xl 2xl:max-w-9xl md:max-w-none
+	}
+
+
+	.container-wide {
+		margin-left: calc(30% - 30vw);
+		margin-right: calc(30% - 30vw);
+		position: relative;
+
+		img {
+			width: auto;
+			margin: 0
+		}
+	}
+
+	#content {
+		min-height: 20em;
+	}
+
+	.container-full {
+		width: 100vw;
+		position: relative;
+		margin-left: -50vw;
+		left: 50%;
+	}
+
+
+
+	.max-w-8xl {max-width:90rem;}
+
+	.max-w-9xl {max-width:100rem;}
+
+
+
+}

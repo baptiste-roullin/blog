@@ -19,6 +19,13 @@
 		@apply text-lg font-bold text-gray-500;
 	}
 
+	h1,
+	h2,
+	h3,
+	h3,
+	h5 {
+		font-family: "Brandon display";
+	}
 
 	@media only screen and (min-width:640px) {
 		#content {
@@ -37,7 +44,7 @@
 				left: 0.5em;
 				display: none;
 				font-size: .85em;
-				color: var(--text-marron-light)
+				color: var(--color-marron-light)
 
 			}
 		}
@@ -61,19 +68,19 @@
 	.cta-heading, .prose .cta-heading, .prose-tcqb .cta-heading {
 		margin: inherit;
 		@apply text-lg-bis md:text-3xl font-medium leading-7 2xl:leading-10 2xl:text-4xl;
-		color: var(--text-marron)
+		color: var(--color-marron)
 
 	}
 
 	.cta-heading2 {
 		@apply text-lg-bis md:text-2xl font-medium leading-6 md:leading-6 xl:leading-7 lg:text-3xl;
-		color: var(--text-marron)
+		color: var(--color-marron)
 
 	}
 
 	.cta-heading3 {
 		@apply text-2xl font-medium leading-7 hover:underline;
-		color: var(--text-marron)
+		color: var(--color-marron)
 
 	}
 
@@ -83,13 +90,13 @@
 
 	.page-portflio	section h2 {
 		@apply  text-2xl lg:text-3xl font-bold;
-		color: var(--text-roi-lighter)
+		color: var(--color-roi-lighter)
 
 	}
 
 	.page-portflio h1 {
 		line-height: 1.2 !important;
-		font-family:  brandon !important;
+		font-family:  Brandon !important;
 
 	}
 }
