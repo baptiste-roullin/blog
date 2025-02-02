@@ -4,15 +4,15 @@
 @plugin "@tailwindcss/forms";
 
 @import "./layout.css";
-@import "./colors.css";
-@import "./fonts.css";
 @import "./utilities.css";
 @import "./nav.css";
-@import "./post.css";
+@import "./headings.css";
+@import "./colors.css";
+@import "./fonts.css";
+@import "./typography.css";
 @import "./images.css";
 @import "./actions.css";
 @import "./cards.css";
-@import "./headings.css";
 @import "./photoswipe.css";
 
 @import "../../portfolio/portfolio.scss"

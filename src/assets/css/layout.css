@@ -4,6 +4,9 @@
 	--max-w-9xl: 100rem;
 	--max-w-8xl: 90rem;
 
+	--spacing-per: '4%';
+
+
 }
 
 @layer base  {
@@ -15,9 +18,7 @@
 		@apply max-w-screen-xl mx-auto lg:max-w-prose;
 	}
 
-	.prose-tcqb {
-		@apply prose lg:prose-lg prose-md;
-	}
+
 
 	.layout-wide {
 		@apply max-w-6xl m-auto lg:max-w-7xl 2xl:max-w-(--max-w-9xl) md:max-w-none

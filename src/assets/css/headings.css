@@ -1,35 +1,120 @@
 @layer base {
-	h1 {
-		@apply font-bold text-gray-700 text-4xl;
+
+
+/* TITRAILLE DE BASE */
+
+    h1 {
+        @apply font-bold text-gray-700 text-4xl;
+    }
+
+    h2 {
+        @apply font-bold text-gray-700 pt-12 text-2xl lg:text-3xl;
+    }
+
+    h3 {
+        @apply text-2xl font-bold text-gray-700;
+    }
+
+    h4 {
+        @apply text-xl font-bold text-gray-500;
+    }
+
+    h5 {
+        @apply text-lg font-bold text-gray-500;
+    }
+
+    h1,
+    h2,
+    h3,
+    h3,
+    h5 {
+        font-family: "Brandon display";
+    }
+
+
+
+/* titraille alternative pour titres cliquables  */
+
+
+@layer utilities {
+
+	.cta-heading, .prose .cta-heading, .prose-tcqb .cta-heading {
+		margin: inherit;
+		@apply text-lg-bis md:text-3xl font-medium leading-7 2xl:leading-10 2xl:text-4xl;
+		color: var(--color-marron)
 	}
 
-	h2 {
-		@apply font-bold text-gray-700 pt-12 text-2xl lg:text-3xl;
+	.cta-heading2 {
+		@apply text-lg-bis md:text-2xl font-medium leading-6 md:leading-6 xl:leading-7 lg:text-3xl;
+		color: var(--color-marron)
+
 	}
 
-	h3 {
-		@apply text-2xl font-bold text-gray-700;
-	}
+	.cta-heading3 {
+		@apply text-2xl font-medium leading-7 hover:underline;
+		color: var(--color-marron)
 
+	}
+}
+
+
+@utility prose {
 	h4 {
-		@apply text-xl font-bold text-gray-500;
-	}
+        margin-bottom:0
+    }
 
-	h5 {
-		@apply text-lg font-bold text-gray-500;
+	h1 {
+		color: inherit;
+		font-size: 2em;
+		line-height: 1.1;
 	}
+	h2 {
+		margin-top: 1.5em;
 
-	h1,
-	h2,
-	h3,
-	h3,
-	h5 {
-		font-family: "Brandon display";
 	}
+	h3 {
+		margin-top: 1.4em;
+		color: var(--colors-gray-700);
+	}
+	h4 {
+		color: var(--colors-gray-700);
+
+	}
+}
+
+
+@utility prose-xl {
+	h1 {
+		line-height: 1.2;
+	}
+	h3 {
+		margin-top: 1.4em;
+		color: var(--color-gray-700)
+	}
+}
+
+@utility prose-lg {
+
+	h1 {
+		color: inherit;
+		font-size: 2.2em;
+		line-height: 1.1
+	}
+	h2 {
+		margin-top: 1.3em;
+		margin-bottom: 0.5em
+	}
+	h3 {
+		margin-top: 1.4em;
+	}
+}
+
+
+    /* HEADINGS ANCHORS */
 
 	@media only screen and (min-width:640px) {
 		#content {
-			h2 , h3 , h4  {
+			h2, h3, h4  {
 				position: relative;
 				left: -2em;
 				padding-left: 2em;
@@ -38,7 +123,6 @@
 					display: inline-block;
 				}
 			}
-
 			.header-anchor {
 				position: absolute;
 				left: 0.5em;
@@ -58,45 +142,5 @@
 				display: none;
 			}
 		}
-	}
-}
-
-
-@layer utilities {
-
-
-	.cta-heading, .prose .cta-heading, .prose-tcqb .cta-heading {
-		margin: inherit;
-		@apply text-lg-bis md:text-3xl font-medium leading-7 2xl:leading-10 2xl:text-4xl;
-		color: var(--color-marron)
-
-	}
-
-	.cta-heading2 {
-		@apply text-lg-bis md:text-2xl font-medium leading-6 md:leading-6 xl:leading-7 lg:text-3xl;
-		color: var(--color-marron)
-
-	}
-
-	.cta-heading3 {
-		@apply text-2xl font-medium leading-7 hover:underline;
-		color: var(--color-marron)
-
-	}
-
-	.thread-heading {
-		@apply text-3xl font-medium text-gray-700;
-	}
-
-	.page-portflio	section h2 {
-		@apply  text-2xl lg:text-3xl font-bold;
-		color: var(--color-roi-lighter)
-
-	}
-
-	.page-portflio h1 {
-		line-height: 1.2 !important;
-		font-family:  Brandon !important;
-
 	}
 }
