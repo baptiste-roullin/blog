@@ -4,12 +4,12 @@
     {% for item in ailleurs %}
       <li class="list-none ">
         <a
-            class="cta-heading3 hover:text-brown-light"
+            class="cta-heading3 hover:text-marron-light"
             href="{{item.link}}" rel="me">{{item.name}}</a>
       </li>
       <div class="hidden sm:inline">
-					{% include "components/separator.njk" %}
-        </div>
+        {% include "components/separator.njk" %}
+      </div>
 
     {% endfor %}
   </ul>

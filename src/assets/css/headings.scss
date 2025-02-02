@@ -37,7 +37,7 @@
 				left: 0.5em;
 				display: none;
 				font-size: .85em;
-				@apply text-brown-light;
+				@apply text-marron-light;
 			}
 		}
 	}
@@ -59,15 +59,15 @@
 
 	.cta-heading, .prose .cta-heading, .prose-tcqb .cta-heading {
 		margin: inherit;
-		@apply text-brown text-lg-bis md:text-3xl font-medium leading-7 2xl:leading-10 2xl:text-4xl
+		@apply text-marron text-lg-bis md:text-3xl font-medium leading-7 2xl:leading-10 2xl:text-4xl
 	}
 
 	.cta-heading2 {
-		@apply text-brown text-lg-bis md:text-2xl font-medium leading-6 md:leading-6 xl:leading-7 lg:text-3xl
+		@apply text-marron text-lg-bis md:text-2xl font-medium leading-6 md:leading-6 xl:leading-7 lg:text-3xl
 	}
 
 	.cta-heading3 {
-		@apply text-2xl font-medium leading-7 text-brown hover:underline;
+		@apply text-2xl font-medium leading-7 text-marron hover:underline;
 	}
 
 	.thread-heading {
@@ -75,7 +75,7 @@
 	}
 
 	.page-portflio	section h2 {
-		@apply text-blue-lighter text-2xl lg:text-3xl font-bold
+		@apply text-roi-lighter text-2xl lg:text-3xl font-bold
 	}
 
 	.page-portflio h1 {

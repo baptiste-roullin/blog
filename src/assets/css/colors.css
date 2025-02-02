@@ -1,8 +1,3 @@
-@import "tailwindcss";
-@config "../../../tailwind.config.js";
-@import "./global.scss";
-
-
 @theme {
 	--colors-roi: 'hsl(202, 78%, 16%)';
 	--colors-roi-light: 'hsl(202, 70%, 20%)';
@@ -15,15 +10,3 @@
 	--colors-orange: 'hsl(36, 100%, 50%)';
 	--colors-creme: '#fff4ed'
 }
-
-@import "./fonts.css";
-@import "./nav.scss";
-@import "./post.scss";
-@import "./images.scss";
-@import "./actions.scss";
-@import "./cards.scss";
-@import "./headings.scss";
-@import "./photoswipe.css";
-
-@import "../../portfolio/portfolio.scss"
-@import "../../truchet/truchet.scss";

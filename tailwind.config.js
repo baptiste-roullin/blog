@@ -1,48 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-
-
-
-import plugin from 'tailwindcss/plugin'
-
-const textShadow = plugin(function ({ addUtilities, e, theme, addVariant }) {
-	const textShadow = theme('textShadow', {})
-
-	//const textShadowVariants = addVariant('textShadow', [])
-
-
-	const utilities = Object.fromEntries(
-		Object.entries(textShadow).map((array) => {
-			const [key, value] = array // key = modifier. value = css content.
-			const className = (key === 'default' ? 'text-shadow' : `${e(`text-shadow-${key}`)}`)
-			return [
-				`.${className}`,
-				{
-					'text-shadow': value,
-				},
-			]
-		})
-	)
-
-},
-	{
-		theme: {
-			textShadow: {
-				default: '0px 0px 1px rgb(0 0 0 / 20%), 0px 0px 1px rgb(1 0 5 / 10%)',
-				sm: '1px 1px 3px rgb(36 37 47 / 25%)',
-				md: '0px 1px 2px rgb(30 29 39 / 19%), 1px 2px 4px rgb(54 64 147 / 18%)',
-				lg: '3px 3px 6px rgb(0 0 0 / 26%), 0 0 5px rgb(15 3 86 / 22%)',
-				xl: '1px 1px 3px rgb(0 0 0 / 29%), 2px 4px 7px rgb(73 64 125 / 35%)',
-				none: 'none',
-			},
-		},
-		variants: {
-			textShadow: ['responsive', 'hover', 'focus'],
-		}
-	})
-
-
-import colors from 'tailwindcss/colors'
-
 import typography from '@tailwindcss/typography'
 import forms from '@tailwindcss/forms'
 
@@ -57,47 +13,6 @@ export default {
 		'./src/shortcodes/*.{ts,js}',
 	],
 	theme: {
-		fontFamily: {
-			sans: [
-				'Brandon',
-				'ui-sans-serif',
-				'system-ui',
-				'-apple-system',
-				'BlinkMacSystemFont',
-				'"Segoe UI"',
-				'Roboto',
-				'"Helvetica Neue"',
-				'Arial',
-				'"Noto Sans"',
-				'sans-serif',
-			],
-		},
-		colors: {
-			/* passer aux couleurs tailwind, potentiellement en les tweakant */
-			transparent: 'transparent',
-			current: 'currentColor',
-			black: colors.black,
-			white: colors.white,
-			gray: colors.gray,
-			indigo: colors.indigo,
-			red: colors.red,
-			'blue': {
-				DEFAULT: 'hsl(202, 78%, 16%)',
-				light: 'hsl(202, 70%, 20%)',
-				lighter: 'hsl(217,32%,32%)',
-				bluer: 'hsl(210, 83%, 22%)',
-				bluest: 'hsl(210, 86%, 25%)',
-
-			},
-			/*			'red': 'hsl(5, 77%, 37%)',*/
-			"brown": {
-				DEFAULT: 'hsl(30.8, 95%, 17.3%)',
-				'light': 'hsl(31, 67%, 34%)',
-			},
-			'orange': 'hsl(36, 100%, 50%)',
-			'cream': '#fff4ed'
-		},
-
 		extend: {
 
 			maxWidth: {
@@ -298,7 +213,7 @@ export default {
 	plugins: [
 		typography,
 		forms,
-		/*textShadow,*/
+
 	]
 	,
 }
