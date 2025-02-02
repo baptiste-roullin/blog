@@ -1,15 +1,20 @@
 @import "tailwindcss";
-@config "../../../tailwind.config.mjs";
 @plugin "@tailwindcss/typography";
 @plugin "@tailwindcss/forms";
 
 @import "./layout.css";
 @import "./utilities.css";
 @import "./nav.css";
-@import "./headings.css";
 @import "./colors.css";
 @import "./fonts.css";
-@import "./typography.css";
+
+@layer base    {
+	.prose-tcqb {
+        @apply prose lg:prose-lg;
+    }}
+
+@import "./typo-headings.css";
+@import "./typo-body.css";
 @import "./images.css";
 @import "./actions.css";
 @import "./cards.css";

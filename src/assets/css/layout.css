@@ -1,15 +1,9 @@
 
-
-@theme {
-	--max-w-9xl: 100rem;
-	--max-w-8xl: 90rem;
-
-	--spacing-per: '4%';
-
-
-}
-
 @layer base  {
+	#content {
+		min-height: 20em;
+	}
+
 	.container-page {
 		@apply max-w-6xl my-16 lg:mx-auto lg:max-w-7xl 2xl:max-w-(--max-w-9xl)
 	}
@@ -17,8 +11,6 @@
 	.container-prose {
 		@apply max-w-screen-xl mx-auto lg:max-w-prose;
 	}
-
-
 
 	.layout-wide {
 		@apply max-w-6xl m-auto lg:max-w-7xl 2xl:max-w-(--max-w-9xl) md:max-w-none
@@ -36,9 +28,6 @@
 		}
 	}
 
-	#content {
-		min-height: 20em;
-	}
 
 	.container-full {
 		width: 100vw;
@@ -49,4 +38,13 @@
 
 }
 
+
+@theme {
+	--max-w-9xl: 100rem;
+	--max-w-8xl: 90rem;
+
+	--spacing-per: '4%';
+
+
+}
 

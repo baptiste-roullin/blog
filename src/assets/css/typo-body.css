@@ -1,0 +1,97 @@
+@utility prose {
+
+    .prose {
+        color: var(--color-gray-900);
+    }
+
+    a {
+        font-weight: normal;
+        transition: all .15s ease-in;
+        &:hover {
+            color: var(--colors-brown-light);
+        }
+    }
+
+    ul, ol {
+        margin-top: 1.2em;
+        margin-bottom: 1.2em;
+    }
+
+    dt {
+        font-weight: bold;
+		color: var(--color-marron);
+	}
+
+	dl {
+        display: flex;
+		flex-direction: column;
+		gap: 0rem;
+	}
+
+    li > code, p > code {
+        @apply bg-transparent border-0 rounded-none;
+    }
+
+    .zotero-list {
+        padding-left: 0
+    }
+
+    .zotero-list>li::marker {
+        content: none;
+        padding-left: 0;
+    }
+
+    figcaption {
+        text-align: center
+    }
+    blockquote {
+        font-weight: normal ;
+        quotes: none
+    }
+
+    code {
+        font-size: .8em;
+        border: none;
+        padding: .3rem;
+        font-weight: normal;
+        border-radius: 3px;
+        background-color: rgba(229, 231, 235, .5);
+        font-family: unset;
+        &:before { content: none !important }
+        &:after { content: none !important }
+    }
+}
+
+
+@utility prose-xl {
+    p {
+        margin-top: 1.1em;
+        margin-bottom: 1.1em
+    }
+    .prose {
+        line-height: 1.6;
+    }
+    ul > li:before {
+        top: .8em !important
+    }
+}
+
+
+@utility prose-mg {
+
+    p {
+        margin-top: 1.1em;
+        margin-bottom: 1.1em
+    }
+    .prose {
+        line-height: 1.5;
+    }
+    ul > li:before {
+        top: .8em !important
+    }
+}
+
+
+
+
+
