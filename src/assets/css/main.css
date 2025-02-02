@@ -2,12 +2,6 @@
 @plugin "@tailwindcss/typography";
 @plugin "@tailwindcss/forms";
 
-@import "./layout.css";
-@import "./utilities.css";
-@import "./nav.css";
-@import "./colors.css";
-@import "./fonts.css";
-
 @layer base    {
 	.prose-tcqb {
         @apply prose lg:prose-lg;
@@ -15,10 +9,16 @@
 
 @import "./typo-headings.css";
 @import "./typo-body.css";
+@import "./effects.css";
+@import "./colors.css";
+@import "./fonts.css";
 @import "./images.css";
 @import "./actions.css";
 @import "./cards.css";
 @import "./photoswipe.css";
+
+@import "./layout.css";
+@import "./nav.css";
 
 @import "../../portfolio/portfolio.scss"
 @import "../../truchet/truchet.scss";

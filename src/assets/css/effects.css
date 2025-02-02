@@ -1,13 +1,4 @@
-@layer base {
-	[x-cloak] {
-		display: none !important;
-	}
-}
 
-@theme {
-	--text-xl-bis: 1.65rem;
-	--text-lg-bis: 1.4rem
-}
 
 @layer utilities {
 
@@ -46,21 +37,6 @@
 		background: #fcf3ed
 	}
 
-	.thread article p:first-child {
-		margin-top: 0;
-	}
-
-	.thread .QT-list .tweet-left {
-		@apply lg:pl-12
-	}
-
-	.block-heading-split {
-		@apply flex flex-col items-start sm:items-center justify-between mb-4 md:mb-6 sm:flex-row
-	}
-
-	.small-caps {
-		font-variant: small-caps !important;
-	}
 
 	.text-shadow-default {
 		text-shadow:'0px 0px 1px rgb(0 0 0 / 20%), 0px 0px 1px rgb(1 0 5 / 10%)';

@@ -1,3 +1,16 @@
+@theme {
+	--text-xl-bis: 1.65rem;
+	--text-lg-bis: 1.4rem
+}
+
+
+@layer utilities {
+    .small-caps {
+		font-variant: small-caps !important;
+	}
+}
+
+
 @utility prose {
 
     .prose {
@@ -64,13 +77,16 @@
 
 
 @utility prose-xl {
+
     p {
         margin-top: 1.1em;
         margin-bottom: 1.1em
     }
+
     .prose {
         line-height: 1.6;
     }
+
     ul > li:before {
         top: .8em !important
     }
@@ -90,8 +106,3 @@
         top: .8em !important
     }
 }
-
-
-
-
-

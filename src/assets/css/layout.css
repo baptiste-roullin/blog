@@ -36,6 +36,11 @@
 		left: 50%;
 	}
 
+	.block-heading-split {
+		@apply flex flex-col items-start sm:items-center justify-between mb-4 md:mb-6 sm:flex-row
+	}
+
+
 }
 
 
