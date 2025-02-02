@@ -1,17 +1,18 @@
 @import "tailwindcss";
-@config "../../../tailwind.config.js";
+@config "../../../tailwind.config.mjs";
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
 
-
-
+@import "./layout.css";
 @import "./colors.css";
 @import "./fonts.css";
-@import "./utilities.scss";
-@import "./nav.scss";
-@import "./post.scss";
-@import "./images.scss";
-@import "./actions.scss";
-@import "./cards.scss";
-@import "./headings.scss";
+@import "./utilities.css";
+@import "./nav.css";
+@import "./post.css";
+@import "./images.css";
+@import "./actions.css";
+@import "./cards.css";
+@import "./headings.css";
 @import "./photoswipe.css";
 
 @import "../../portfolio/portfolio.scss"

@@ -29,7 +29,7 @@
 
 	@media only screen and (min-width:640px) {
 		#content {
-			h2, h3, h4 {
+			h2 , h3 , h4  {
 				position: relative;
 				left: -2em;
 				padding-left: 2em;

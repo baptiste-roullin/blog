@@ -1,0 +1,34 @@
+.prose {
+
+    .zotero-list {
+        padding-left: 0
+    }
+
+    .zotero-list>li::marker {
+        content: none;
+        padding-left: 0;
+    }
+}
+
+
+li>code,
+p>code {
+    @apply bg-transparent border-0 rounded-none;
+}
+
+
+@layer base  {
+
+    dt {
+		font-weight: bold;
+		color: var(--color-marron);
+	}
+
+	dl {
+		display: flex;
+		flex-direction: column;
+		gap: 0rem;
+	}
+}
+
+

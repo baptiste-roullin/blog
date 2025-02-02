@@ -6,7 +6,7 @@
 
 @theme {
 	--text-xl-bis: 1.65rem;
-	--text-lg-bis: .4rem
+	--text-lg-bis: 1.4rem
 }
 
 @layer utilities {

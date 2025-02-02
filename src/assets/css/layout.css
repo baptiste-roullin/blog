@@ -1,12 +1,19 @@
+@config "../../../tailwind.config.mjs";
+@plugin "@tailwindcss/typography";
 
+@theme {
+	--max-w-9xl: 100rem;
+	--max-w-8xl: 90rem;
+
+}
 
 @layer base  {
 	.container-page {
-		@apply max-w-6xl my-16 lg:mx-auto lg:max-w-7xl 2xl:max-w-9xl
+		@apply max-w-6xl my-16 lg:mx-auto lg:max-w-7xl 2xl:max-w-(--max-w-9xl)
 	}
 
 	.container-prose {
-		@apply max-w-screen-xl m-auto lg:max-w-prose;
+		@apply max-w-screen-xl mx-auto lg:max-w-prose;
 	}
 
 	.prose-tcqb {
@@ -14,7 +21,7 @@
 	}
 
 	.layout-wide {
-		@apply max-w-6xl m-auto lg:max-w-7xl 2xl:max-w-9xl md:max-w-none
+		@apply max-w-6xl m-auto lg:max-w-7xl 2xl:max-w-(--max-w-9xl) md:max-w-none
 	}
 
 
@@ -23,7 +30,7 @@
 		margin-right: calc(30% - 30vw);
 		position: relative;
 
-		img {
+		img & {
 			width: auto;
 			margin: 0
 		}
@@ -40,12 +47,6 @@
 		left: 50%;
 	}
 
-
-
-	.max-w-8xl {max-width:90rem;}
-
-	.max-w-9xl {max-width:100rem;}
-
-
-
 }
+
+

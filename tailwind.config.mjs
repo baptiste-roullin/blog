@@ -17,8 +17,7 @@ export default {
 			spacing: {
 				'per': '4%',
 			},
-
-			typography: (theme) => ({
+			typography: ({ theme }) => ({
 				'sm': {
 					css: {
 						h4: {
