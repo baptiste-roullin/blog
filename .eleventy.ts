@@ -11,6 +11,7 @@ import pluginRss from '@11ty/eleventy-plugin-rss'
 import pluginNavigation from '@11ty/eleventy-navigation'
 import EleventyHtmlBasePlugin from "./node_modules/@11ty/eleventy/src/Plugins/HtmlBasePlugin.js"
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img"
+import dirOutputPlugin from "@11ty/eleventy-plugin-directory-output"
 
 import meta from './src/_data/meta.js'
 import { collections } from './src/collections.js'
@@ -25,6 +26,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 export default async function (config: UserConfig) {
 	config.setUseGitIgnore(false)
 
+	config.setQuietMode(true)
+	config.addPlugin(dirOutputPlugin)
 	config.ignores?.add("./src/portfolio/portfolioIntro.md")
 	config.ignores?.add("./src/shortcodes/zotero_component.njk")
 
