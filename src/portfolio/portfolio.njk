@@ -12,17 +12,17 @@ eleventyNavigation:
 ---
 
 <div class="flex flex-col gap-8 sections ">
-	<section class="flex flex-col prose-tcqb">
+	<section class="flex flex-col prose-tcqb-bigger m-auto">
 		{% heading "2", "", "C'est quoi un designer <span class='small-caps'>ux</span> ?" | safe %}
 		{% include "components/portfolio_tabs.njk" %}
-		<div class="w-full max-w-screen-xl gap-6 m-auto prose-tcqb container-prose lg:max-w-prose">
+		<div class="w-full max-w-screen-xl gap-6 m-auto prose-tcqb-bigger container-prose lg:max-w-prose">
 			{% renderFile "./src/portfolio/portfolioIntro.md" %}
 		</div>
 	</section>
 
 	{# TOOLS #}
 	<section class="tools">
-		<div class="prose-tcqb container-prose">
+		<div class="prose-tcqb-bigger container-prose">
 			{% heading "2",
 			"",
 			"Mes outils" %}
@@ -41,7 +41,7 @@ eleventyNavigation:
 
 	{# CLIENTS #}
 	<section class="clients">
-		<div class="prose-tcqb container-prose">
+		<div class="prose-tcqb-bigger container-prose">
 			{% heading "2",
 			"",
 			"Clients principaux" %}
@@ -68,7 +68,7 @@ eleventyNavigation:
 
 	{# PROJETS #}
 	<section class="">
-		<div class="prose-tcqb container-prose">
+		<div class="prose-tcqb-bigger container-prose">
 			{% heading "2",
 			"",
 			"Quelques projets" %}
