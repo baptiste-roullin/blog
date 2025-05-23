@@ -1,11 +1,12 @@
-.page-portfolio  {
 
-	.prose-tcqb {
+	.prose-tcqb-bigger {
 			@apply prose  2xl:prose-xl  prose-lg
 		}
 
-	.sections > * {
-			margin: auto !important;
+.page-portfolio  {
+
+	.sections section {
+			margin: auto;
 		}
 
 	input[type="radio"]:checked + label {

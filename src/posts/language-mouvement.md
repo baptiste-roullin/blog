@@ -12,6 +12,8 @@ hero:
   caption: "The OA"
 ---
 
+*Date de mise à jour : avril 2025*
+
 Une marotte des philosophes et autres théoriciens, c'est d'inventer un langage parfait et universel. Puisqu'il est doit être parfait, ce language s'abstrait souvent des écritures courantes et invente son propre système graphique.
 
 Il y a le LoCos inventé par Yukio Ota, l'Isotype de Neurath, la sémantographie de Bliss… J'avais fait un petit [fil à ce sujet](https://twitter.com/Saint_loup/status/1274720385028800513).
@@ -77,6 +79,21 @@ Fidèle à l'esprit scientifique de l'époque, les Gilbreth ont une approche emp
 Notons que l'influence des méthodes des Gilbreth se fait encore sentir aujourd'hui en facteur humain et en ergonomie, notamment dans l'usage de diagramme pour [l'analyse de l'activité](https://flconsultants.fr/lean-manufacturing/diagramme-gilbreth/).
 
 
+## …En passant par la langue des signes
+
+[SignWriting](https://en.wikipedia.org/wiki/SignWriting) permet d'encoder de manière fine la langue des signes : mouvements des mains, mais aussi mouvements du haut du corps, points de contact, expressions faciales, etc. Ces symboles sont maintenant référencés dans la norme Unicode.
+
+La créatrice a aussi créé des [système cousins](https://en.wikipedia.org/w/index.php?title=International_Movement_Writing_Alphabet) pour d'autres types de mouvement : danse à nouveau, artisanat, mime, gymnastique.
+
+
+{% gallery %}
+
+![page d'un manuel montrant la représentation de mouvements du torse. Une barre épaisse horizontale représente le torse, plus ou moins inclinée pour montrer son orientation. De chaque coté de cette barre, des flèches montrent des mouvements ou des va-et-vients](/img/mvt1.jpg)
+
+![Un schéma montrant une personne de dos, avec sa main gauche près de la tempe. A coté, la repréentation graphique : un cercle vide signifie la la tête, une flèche à moitié noircie montre que la main est de profil, deux astérisques signifient que la main touche la tête deux fois.](/img/mvt2.jpg)
+
+
+{% endgallery %}
 
 ## Et au-delà ?
 

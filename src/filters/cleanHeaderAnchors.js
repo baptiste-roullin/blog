@@ -1,5 +1,3 @@
-import { DateTime, Settings } from 'luxon'
-Settings.defaultLocale = "fr"
 
 /** @returns {string} */
 export default function cleanHeaderAnchors(content) {
