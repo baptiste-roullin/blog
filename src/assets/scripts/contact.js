@@ -15,8 +15,8 @@ document.querySelector("#contact").addEventListener('submit', async function (e)
     isNonNull(target, "no target")
 
     let data = {
-        formId: 7,
-        shareHash: "Mgd7YcXtT4RebpypTRqKdxCg",
+        formId: 1,
+        shareHash: "xZyJNdqxtGYMR3qPNKdmZYJk",
         answers: {}
     }
     const form = new FormData(target)
