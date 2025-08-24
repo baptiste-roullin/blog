@@ -16,7 +16,7 @@ document.querySelector("#contact").addEventListener('submit', async function (e)
 
     let data = {
         formId: 1,
-        shareHash: "xZyJNdqxtGYMR3qPNKdmZYJk",
+        shareHash: "Lcd5fwJGGrPykDybkxsjRrLx",
         answers: {}
     }
     const form = new FormData(target)
