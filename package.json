@@ -4,12 +4,12 @@
   "scripts": {
     "dev:webpack": "npx webpack --watch --mode development",
     "dev:eleventy": "node --env-file=.env --experimental-strip-types node_modules/.bin/eleventy --config=.eleventy.ts --serve --incremental",
-    "dev:postcss": "postcss src/assets/css/main.css -o dist/assets/css/main.css --watch",
+    "dev:postcss": "postcss src/assets/css/main.css -o www/assets/css/main.css --watch",
     "dev": "npm-run-all --parallel dev:* --print-label",
     "build:webpack": "npx webpack  --mode production",
     "build:eleventy": "node --env-file=.env --experimental-strip-types node_modules/.bin/eleventy --config=.eleventy.ts",
-    "build:postcss": "postcss --verbose src/assets/css/main.css -o dist/assets/css/main.css",
-    "build:search": "npx pagefind --site dist ",
+    "build:postcss": "postcss --verbose src/assets/css/main.css -o www/assets/css/main.css",
+    "build:search": "npx pagefind --site www ",
     "build": "run-s build:* --print-label"
   },
   "devDependencies": {

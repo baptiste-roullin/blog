@@ -8,6 +8,7 @@ hashes_css.json
 .eleventyignore
 src/img/truchet-*
 dist
+www
 
 .cache
 

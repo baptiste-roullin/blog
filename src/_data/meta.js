@@ -10,7 +10,7 @@ export default {
 	lang: 'fr',
 	locale: 'fr_FR',
 	author: 'Baptiste Roullin',
-	outputDir: "dist",
+	outputDir: "www",
 	assetsDir: 'img',
 	zotero: convertToBool(process.env.ZOTERO),
 	zoteroProfileID: process.env.zoteroProfileID || '',
