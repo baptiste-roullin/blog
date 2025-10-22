@@ -2,7 +2,7 @@ import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
-import WebpackAssetsManifest from 'webpack-assets-manifest'
+import { WebpackAssetsManifest } from 'webpack-assets-manifest'
 
 import meta from './src/_data/meta.js'
 
