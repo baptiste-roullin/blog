@@ -194,7 +194,7 @@ export default async function (config: UserConfig) {
 	/**
 	MARKDOWN
 	*/
-	config.addDataExtension("yaml", contents => yaml.load(contents))
+	config.addDataExtension("yaml", (content: Record<string, any>) => yaml.load(content))
 
 	config.setFrontMatterParsingOptions({
 		excerpt: true,
@@ -211,9 +211,26 @@ export default async function (config: UserConfig) {
 	 * ============================
 	*/
 
-	Object.keys(collections).forEach((colName) => {
-		config.addCollection(colName, collections[colName])
+	// Drafts, see also _data/eleventyDataSchema.js
+	config.addPreprocessor("drafts", "*", (data: Record<string, any>, content: Record<string, any>) => {
+		if (data.draft) {
+			data.title = `${data.title} (draft)`
+		}
+		// process.env.ELEVENTY_RUN_MODE
+		if (data.draft && meta.env === "production") {
+			return false
+		}
 	})
+
+
+
+	Object.keys(collections).forEach((colName) => {
+		const col = collections[colName]
+
+		config.addCollection(colName,)
+	})
+
+
 
 	return {
 		dir: {
