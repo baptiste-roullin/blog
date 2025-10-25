@@ -17,7 +17,7 @@ export default async function (width, height, path) {
             new Canvas(width, height),
             { height: height, width: width }, 'node')
 
-        await tileCanvas.saveAs(path)
+        await tileCanvas.toFile(path)
 
 
     } catch (error) {

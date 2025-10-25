@@ -225,9 +225,9 @@ export default async function (config: UserConfig) {
 
 
 	Object.keys(collections).forEach((colName) => {
-		const col = collections[colName]
+		const cols = collections[colName]
 
-		config.addCollection(colName,)
+		config.addCollection(colName, cols)
 	})
 
 
