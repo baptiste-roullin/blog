@@ -13,12 +13,12 @@ import EleventyHtmlBasePlugin from "./node_modules/@11ty/eleventy/src/Plugins/Ht
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img"
 import dirOutputPlugin from "@11ty/eleventy-plugin-directory-output"
 
-import meta from './src/_data/meta.js'
-import { collections } from './src/collections.js'
-import zotero from './src/shortcodes/zoteroShortcode.js'
-import { truchetItem, truchetList } from './src/truchet/truchet_shortcode.js'
-import md from './src/markdown.js'
-import fileExists from './src/utils/fileExists.js'
+import meta from './src/_data/meta.ts'
+import { collections } from './src/collections.ts'
+import zotero from './src/shortcodes/zoteroShortcode.ts'
+import { truchetItem, truchetList } from './src/truchet/truchet_shortcode.ts'
+import md from './src/markdown.ts'
+import fileExists from './src/utils/fileExists.ts'
 
 
 const __dirname = dirname(fileURLToPath(import.meta.url))

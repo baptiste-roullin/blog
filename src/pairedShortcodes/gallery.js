@@ -1,5 +1,5 @@
 
-import md from '../markdown.js'
+import md from '../markdown.ts'
 import { parseHTML } from 'linkedom'
 import setAttributes from '../utils/setAttributes.ts'
 import Image from "@11ty/eleventy-img"

@@ -4,7 +4,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 
 import WebpackAssetsManifest from 'webpack-assets-manifest'
 
-import meta from './src/_data/meta.js'
+import meta from './src/_data/meta.ts'
 
 export default {
 
@@ -16,7 +16,7 @@ export default {
 		spin: resolve(__dirname, 'src/assets/scripts/spin.js'),
 		nav: resolve(__dirname, 'src/assets/scripts/nav.js'),
 		arrowPagination: resolve(__dirname, 'src/assets/scripts/arrow_pagination.js'),
-		truchet: resolve(__dirname, 'src/truchet/truchet_core.js'),
+		truchet: resolve(__dirname, 'src/truchet/truchet_core.ts'),
 		truchet_dom: resolve(__dirname, 'src/truchet/truchet_dom.js'),
 		dateFormatting: resolve(__dirname, 'src/filters/dateFormatting.js'),
 	},

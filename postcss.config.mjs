@@ -1,4 +1,4 @@
-import meta from './src/_data/meta.js'
+import meta from './src/_data/meta.ts'
 
 export default {
   plugins: {

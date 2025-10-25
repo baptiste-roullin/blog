@@ -8,8 +8,8 @@ import toc from 'markdown-it-table-of-contents'
 // Conflit avec markdown-it-attrs
 //import blockquoteCite from 'markdown-it-blockquote-cite'
 import imageFigures from 'markdown-it-image-figures'
-import highlightjs from "./utils/highlightPlugin.js"
-import french_nnbsp from './utils/french_nnbsp.js'
+import highlightjs from "./utils/highlightPlugin.ts"
+import french_nnbsp from './utils/french_nnbsp.ts'
 import { default as customSlug } from './filters/slugify.js'
 
 

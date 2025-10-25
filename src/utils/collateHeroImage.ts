@@ -4,8 +4,8 @@
 import fsp from "node:fs/promises"
 import path from "node:path"
 
-import truchetNode from '../truchet/truchet_node.js'
-import meta from '../_data/meta.js'
+import truchetNode from '../truchet/truchet_node.ts'
+import meta from '../_data/meta.ts'
 import fileExists from './fileExists.ts'
 
 /** @returns {Promise<string>} */

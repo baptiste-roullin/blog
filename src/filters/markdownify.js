@@ -1,4 +1,4 @@
-import md from '../markdown.js'
+import md from '../markdown.ts'
 export default function markdownify(string) {
 
 	if (!string) {

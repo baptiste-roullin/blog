@@ -1,5 +1,5 @@
 
-import convertToBool from '../utils/convertToBool.js'
+import convertToBool from '../utils/convertToBool.ts'
 
 export default {
 	env: process.env.NODE_ENV || 'production',

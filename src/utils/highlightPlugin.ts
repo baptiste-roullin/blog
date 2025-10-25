@@ -1,5 +1,5 @@
 import hljs from 'highlight.js'
-import core from './highlight-core.js'
+import core from './highlight-core.ts'
 
 export default function highlightjs(md, opts) {
 	opts = { ...highlightjs.defaults, ...opts }

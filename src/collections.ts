@@ -1,5 +1,5 @@
-import meta from './_data/meta.js'
-import truchetNode from './truchet/truchet_node.js'
+import meta from './_data/meta.ts'
+import truchetNode from './truchet/truchet_node.ts'
 
 /** @param {boolean | string} value
  * @returns {any}

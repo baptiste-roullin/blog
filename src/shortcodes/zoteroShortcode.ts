@@ -3,9 +3,9 @@
 // Client : 				https://github.com/tnajdek/zotero-api-client
 import pMap from 'p-map'
 import markdownify from '../filters/markdownify.js'
-import meta from '../_data/meta.js'
+import meta from '../_data/meta.ts'
 import dateFormatting from '../filters/dateFormatting.js'
-import cache from '../utils/caching.js'
+import cache from '../utils/caching.ts'
 import api from 'zotero-api-client/src/main.js'
 
 import fs from 'node:fs/promises'
@@ -13,7 +13,7 @@ import path from 'node:path'
 
 import { dirname } from 'node:path'
 import { fileURLToPath } from 'url'
-import renderNunjucks from '../utils/renderNunjucks.js'
+import renderNunjucks from '../utils/renderNunjucks.ts'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
