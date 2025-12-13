@@ -3,15 +3,16 @@ import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'url'
 import fsp from 'node:fs/promises'
 
-import yaml from "js-yaml"
-import glob from "fast-glob"
+import yaml from 'js-yaml'
+import { glob } from "tinyglobby"
 
-import type UserConfig from "./node_modules/@11ty/eleventy/src/UserConfig.js"
+import type UserConfig from '@11ty/eleventy/UserConfig'
 import pluginRss from '@11ty/eleventy-plugin-rss'
 import pluginNavigation from '@11ty/eleventy-navigation'
-import EleventyHtmlBasePlugin from "./node_modules/@11ty/eleventy/src/Plugins/HtmlBasePlugin.js"
-import { eleventyImageTransformPlugin } from "@11ty/eleventy-img"
-import dirOutputPlugin from "@11ty/eleventy-plugin-directory-output"
+import { HtmlBasePlugin } from '@11ty/eleventy'
+import { eleventyImageTransformPlugin } from '@11ty/eleventy-img'
+import dirOutputPlugin from '@11ty/eleventy-plugin-directory-output'
+import { RenderPlugin } from '@11ty/eleventy'
 
 import meta from './src/_data/meta.ts'
 import { collections } from './src/collections.ts'
@@ -146,17 +147,17 @@ export default async function (config: UserConfig) {
 			}
 		})*/
 	config.addPlugin(pluginRss)
-	config.addPlugin(await config.resolvePlugin("@11ty/eleventy/render-plugin"))
-	config.addPlugin(EleventyHtmlBasePlugin)
+	config.addPlugin(RenderPlugin)
+	config.addPlugin(HtmlBasePlugin)
 
 	/**
 	 * Filters
 	 */
-	let files = await glob.async(resolve(__dirname, 'src/filters/*s'))
+	let files = await glob('./src/filters/*s')
 
 	await Promise.all(files.map(async (file) => {
 
-		const { default: func } = await import(file)
+		const { default: func } = await import('./' + file)
 		config.addFilter(func.name, func)
 	}))
 
@@ -164,10 +165,10 @@ export default async function (config: UserConfig) {
 	/**
 	 * Shortcodes
 	 */
-	files = await glob.async(resolve(__dirname, 'src/shortcodes/*s'))
+	files = await glob('src/shortcodes/*s')
 
 	await Promise.all(files.map(async (file) => {
-		const shortcodes = await import(file)
+		const shortcodes = await import('./' + file)
 
 		for (const [name, filter] of Object.entries(shortcodes)) {
 			config.addShortcode(name, filter)
@@ -181,10 +182,10 @@ export default async function (config: UserConfig) {
 	/**
 	 * paired Shortcodes
 	 */
-	files = await glob.async(resolve(__dirname, 'src/pairedShortcodes/*s'))
+	files = await glob('src/pairedShortcodes/*s')
 
 	await Promise.all(files.map(async (file) => {
-		const pairedShortcodes = await import(file)
+		const pairedShortcodes = await import('./' + file)
 		for (const [name, filter] of Object.entries(pairedShortcodes)) {
 			config.addPairedShortcode(name, filter)
 		}
