@@ -4,7 +4,7 @@
  * @param data
  */
 export default async function (pathToComponent, data, filters) {
-	const { default: njk } = await import('nunjucks')
+	const { default: njk } = await import('@11ty/nunjucks')
 
 	const env = njk.configure('./src/',
 		// options, notamment pour supprimer les vides inutiles.
