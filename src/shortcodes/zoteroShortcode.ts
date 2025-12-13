@@ -34,6 +34,11 @@ Comme promise.all, effectue des requête en parallèle et renvoie une promesse d
 export default async function zotero(collection, ...requestedTags) {
     //supports only one tag.
 
+
+    if (!meta.zotero) {
+        return "biblio Zotero désactivée "
+    }
+
     if (!meta.zoteroAPIKey) {
         console.log(new Error("La clé d'API pour Zotero est manquante"))
         return
