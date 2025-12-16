@@ -3,8 +3,8 @@ import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'url'
 import fsp from 'node:fs/promises'
 
-import yaml from 'js-yaml'
-import { glob } from "tinyglobby"
+import YAML from "yaml"
+import { readdir } from 'node:fs/promises'
 
 import type UserConfig from '@11ty/eleventy/UserConfig'
 import pluginRss from '@11ty/eleventy-plugin-rss'
@@ -16,8 +16,6 @@ import { RenderPlugin } from '@11ty/eleventy'
 
 import meta from './src/_data/meta.ts'
 import { collections } from './src/collections.ts'
-import zotero from './src/shortcodes/zoteroShortcode.ts'
-import { truchetItem, truchetList } from './src/truchet/truchet_shortcode.ts'
 import md from './src/markdown.ts'
 import fileExists from './src/utils/fileExists.ts'
 
@@ -26,11 +24,12 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export default async function (config: UserConfig) {
 	config.setUseGitIgnore(false)
-
+	config.addExtension("11ty.ts", {
+		key: "11ty.js",
+	})
 	config.setQuietMode(true)
 	config.addPlugin(dirOutputPlugin)
 	config.ignores?.add("./src/portfolio/portfolioIntro.md")
-	config.ignores?.add("./src/shortcodes/zotero_component.njk")
 
 	if (meta.env === "dev") {
 		config.ignores?.add("./src/posts/201*")
@@ -153,11 +152,12 @@ export default async function (config: UserConfig) {
 	/**
 	 * Filters
 	 */
-	let files = await glob('./src/filters/*s')
+	let filterPath = './src/filters'
+	let filtersFiles = await readdir(filterPath)
 
-	await Promise.all(files.map(async (file) => {
 
-		const { default: func } = await import('./' + file)
+	await Promise.all(filtersFiles.map(async (file) => {
+		const { default: func } = await import(`${filterPath}/${file}`)
 		config.addFilter(func.name, func)
 	}))
 
@@ -165,37 +165,31 @@ export default async function (config: UserConfig) {
 	/**
 	 * Shortcodes
 	 */
-	files = await glob('src/shortcodes/*s')
+	let shortcodesPath = './src/shortcodes'
+	const shortcodesFiles = await readdir(shortcodesPath)
 
-	await Promise.all(files.map(async (file) => {
-		const shortcodes = await import('./' + file)
-
-		for (const [name, filter] of Object.entries(shortcodes)) {
-			config.addShortcode(name, filter)
-		}
-		config.addShortcode("zotero", zotero)
-		config.addShortcode("truchetItem", truchetItem)
-		config.addShortcode("truchetList", truchetList)
+	await Promise.all(shortcodesFiles.map(async (file) => {
+		const { default: func } = await import(`${shortcodesPath}/${file}`)
+		config.addShortcode(func.name, func)
 
 	}))
 
 	/**
 	 * paired Shortcodes
 	 */
-	files = await glob('src/pairedShortcodes/*s')
+	let pairedShortcodespath = './src/pairedShortcodes'
+	const pairedShortcodesFiles = await readdir(pairedShortcodespath)
 
-	await Promise.all(files.map(async (file) => {
-		const pairedShortcodes = await import('./' + file)
-		for (const [name, filter] of Object.entries(pairedShortcodes)) {
-			config.addPairedShortcode(name, filter)
-		}
+	await Promise.all(pairedShortcodesFiles.map(async (file) => {
+		const { default: func } = await import(`${pairedShortcodespath}/${file}`)
+		config.addPairedShortcode(func.name, func)
 	}))
 
 
 	/**
 	MARKDOWN
 	*/
-	config.addDataExtension("yaml", (content: Record<string, any>) => yaml.load(content))
+	config.addDataExtension("yaml", (contents: string) => YAML.parse(contents))
 
 	config.setFrontMatterParsingOptions({
 		excerpt: true,

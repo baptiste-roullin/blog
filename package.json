@@ -62,8 +62,7 @@
   },
   "dependencies": {
     "photoswipe": "^5.4.4",
-    "text-metrics": "^4.0.1",
-    "tinyglobby": "^0.2.15"
+    "text-metrics": "^4.0.1"
   },
   "browserslist": [
     "> 1%",
