@@ -2,9 +2,9 @@
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'url'
 import fsp from 'node:fs/promises'
+import { readdir } from 'node:fs/promises'
 
 import YAML from "yaml"
-import { readdir } from 'node:fs/promises'
 
 import type UserConfig from '@11ty/eleventy/UserConfig'
 import pluginRss from '@11ty/eleventy-plugin-rss'
@@ -18,9 +18,6 @@ import meta from './src/_data/meta.ts'
 import { collections } from './src/collections.ts'
 import md from './src/markdown.ts'
 import fileExists from './src/utils/fileExists.ts'
-
-
-const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export default async function (config: UserConfig) {
 	config.setUseGitIgnore(false)
@@ -186,20 +183,6 @@ export default async function (config: UserConfig) {
 	}))
 
 
-	/**
-	MARKDOWN
-	*/
-	config.addDataExtension("yaml", (contents: string) => YAML.parse(contents))
-
-	config.setFrontMatterParsingOptions({
-		excerpt: true,
-		// Optional, default is "---"
-		excerpt_alias: 'description',
-		//Si <!-- excerpt --> est présent, sa valeur remplit le tag description, pas page.description.
-		excerpt_separator: "<!-- excerpt -->"
-	})
-
-	config.setLibrary('md', md)
 
 	/**
 	 * Collections
@@ -217,13 +200,29 @@ export default async function (config: UserConfig) {
 		}
 	})
 
-
-
 	Object.keys(collections).forEach((colName) => {
 		const cols = collections[colName]
 
 		config.addCollection(colName, cols)
 	})
+
+
+	/**
+MARKDOWN
+ * ============================
+*/
+	config.addDataExtension("yaml", (contents: string) => YAML.parse(contents))
+
+	config.setFrontMatterParsingOptions({
+		excerpt: true,
+		// Optional, default is "---"
+		excerpt_alias: 'description',
+		//Si <!-- excerpt --> est présent, sa valeur remplit le tag description, pas page.description.
+		excerpt_separator: "<!-- excerpt -->"
+	})
+
+	config.setLibrary('md', md)
+
 
 
 
