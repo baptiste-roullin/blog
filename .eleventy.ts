@@ -59,6 +59,7 @@ export default async function (config: UserConfig) {
 
 	config.addPassthroughCopy('src/robots.txt')
 	config.addPassthroughCopy('src/assets/css/fonts')
+	config.addPassthroughCopy('src/assets/css/prism.css')
 	config.addPassthroughCopy('src/assets/UI')
 	config.addPassthroughCopy('src/assets/docs')
 
