@@ -16,7 +16,6 @@ import { default as customSlug } from './filters/slugify.js'
 /** @returns {void} */
 const anchor = (md) => {
 
-
     md.renderer.rules.heading_open = function (tokens, index) {
         const contentToken = tokens[index + 1]
 

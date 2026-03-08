@@ -176,7 +176,7 @@ export default async function zotero(collection, ...requestedTags) {
         // - un lien direct vers un PDF, tiré des pièces jointes.
         const completedItems = await addDataToItems(items)
 
-        const html = await renderNunjucks("shortcodes/zotero_component.njk",
+        const html = await renderNunjucks("_templates/components/zotero.njk",
             { items: completedItems },
             [dateFormatting, markdownify]
         )
