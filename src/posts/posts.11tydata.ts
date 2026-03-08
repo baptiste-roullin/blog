@@ -1,4 +1,4 @@
-import collateHeroImage from '../utils/collateHeroImage.js'
+import collateHeroImage from '../utils/collateHeroImage.ts'
 
 
 export default {
@@ -6,7 +6,7 @@ export default {
   permalink: "blog/{{ page.date | dateFormatting('yyyy/MM') }}/{{ title | slugify }}/index.html",
   type: "post",
   author: "{{ meta.author }}",
-  picture_lightbox: true,
+  isAnArticle: true,
   eleventyComputed: {
     collatedHeroImage: collateHeroImage
   }

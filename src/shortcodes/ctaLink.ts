@@ -1,4 +1,4 @@
-export function ctaLink(label, url, size, className) {
+export default function ctaLink(label, url, size, className) {
 	if (size) {
 		className = className + " "
 	}

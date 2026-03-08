@@ -4,12 +4,12 @@ import footnote from 'markdown-it-footnote'
 import bracketedSpans from 'markdown-it-bracketed-spans'
 import attrs from 'markdown-it-attrs'
 import toc from 'markdown-it-table-of-contents'
+import prism from 'markdown-it-prism'
 
 // Conflit avec markdown-it-attrs
 //import blockquoteCite from 'markdown-it-blockquote-cite'
 import imageFigures from 'markdown-it-image-figures'
-import highlightjs from "./utils/highlightPlugin.js"
-import french_nnbsp from './utils/french_nnbsp.js'
+import french_nnbsp from './utils/french_nnbsp.ts'
 import { default as customSlug } from './filters/slugify.js'
 
 
@@ -54,8 +54,7 @@ let options = {
 
 export default markdownIt(options)
     .disable('code')
-    // faire marcher l'import auto de CSS
-    .use(highlightjs)
+    .use(prism)
     .use(french_nnbsp)
     .use(MarkdownItContainer, 'info-block')
     //.use(markdownItHeadingLevel, { firstLevel: 2 })

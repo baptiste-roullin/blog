@@ -4,9 +4,9 @@
 import fsp from "node:fs/promises"
 import path from "node:path"
 
-import truchetNode from '../truchet/truchet_node.js'
-import meta from '../_data/meta.js'
-import fileExists from './fileExists.js'
+import truchetNode from '../truchet/truchet_node.ts'
+import meta from '../_data/meta.ts'
+import fileExists from './fileExists.ts'
 
 /** @returns {Promise<string>} */
 export default async function (data) {
@@ -27,7 +27,8 @@ export default async function (data) {
             outputPath = `/${meta.outputDir}/${meta.assetsDir}/${finalName}`
             url = `/${meta.assetsDir}/${finalName}`
             //utile uniquement sur Windows ${process.cwd()}
-            const truchetExists = await fileExists()
+            //TODO: check
+            const truchetExists = await fileExists(inputPath)
             if (!truchetExists) {
                 if (true) {
                     await truchetNode(400, 280, inputPath).catch(console.error)

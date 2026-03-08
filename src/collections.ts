@@ -1,28 +1,25 @@
-import meta from './_data/meta.js'
-import truchetNode from './truchet/truchet_node.js'
-import fileExists from './utils/fileExists.js'
-
+import meta from './_data/meta.ts'
+import truchetNode from './truchet/truchet_node.ts'
 
 /** @param {boolean | string} value
  * @returns {any}
  */
-function getPublishedByField(collectionAPI, field, value) {
+function getByField(collectionAPI, field, value) {
 
     return collectionAPI.getAllSorted().
-        filter((item) => item.data[field] === value).
-        // addPreprocessor n'est en fait pas plus dans mon contexte. https://github.com/11ty/eleventy/issues/188
-        filter((post) => !post.data.draft)
+        filter((item) => item.data[field] === value)
+    //.filter((post) => !post.data.draft)
 }
-export const collections = {
+export const collections: Record<string, Function> = {
 
-    publishedPosts: function (collectionAPI) {
-        return getPublishedByField(collectionAPI, 'type', 'post')
+    blogPosts: function (collectionAPI) {
+        return getByField(collectionAPI, 'type', 'post')
     },
 
     tagList: function (collectionAPI) {
         let tagDictionary = {}
 
-        getPublishedByField(collectionAPI, 'type', 'post')
+        getByField(collectionAPI, 'type', 'post')
             .forEach(function (item) {
                 if ('tags' in item.data) {
                     let tags = item.data.tags
@@ -39,13 +36,17 @@ export const collections = {
                     }
                 }
             })
-        const sortedtags = Object.entries(tagDictionary).sort((a, b) => b[1] - a[1])
+        const sortedtags = Object
+            .entries(tagDictionary)
+            .sort(
+                (a: [string, number], b: [string, number]) => b[1] - a[1]
+            )
 
         return Object.fromEntries(sortedtags)
     },
 
     featured: function (collectionAPI) {
-        return getPublishedByField(collectionAPI, 'featured', true)
+        return getByField(collectionAPI, 'featured', true)
     },
 
     projectsList: async function (collectionAPI) {

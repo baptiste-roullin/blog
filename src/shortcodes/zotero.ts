@@ -1,30 +1,23 @@
 
 // Documentation de l'API : https://www.zotero.org/support/dev/web_api/v3/basics
 // Client : 				https://github.com/tnajdek/zotero-api-client
+
 import pMap from 'p-map'
 import markdownify from '../filters/markdownify.js'
-import meta from '../_data/meta.js'
+import meta from '../_data/meta.ts'
 import dateFormatting from '../filters/dateFormatting.js'
-import cache from '../utils/caching.js'
+import cache from '../utils/caching.ts'
 import api from 'zotero-api-client/src/main.js'
 
-import fs from 'node:fs/promises'
-import path from 'node:path'
 
 import { dirname } from 'node:path'
 import { fileURLToPath } from 'url'
-import renderNunjucks from '../utils/renderNunjucks.js'
+import renderNunjucks from '../utils/renderNunjucks.ts'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 //TODO : shadow DOM https://github.com/11ty/eleventy/issues/3402
 
-/*
-Comme promise.all, effectue des requête en parallèle et renvoie une promesse de tableau de résultats. Avec en plus des options, notamment une pour limiter le nombre de requêtes parallèles
-@param input — Iterated over concurrently in the mapper function.
-@param mapper — Function which is called for every item in input. Expected to return a Promise or value.
-@returns — A Promise that is fulfilled when all promises in input and ones returned from mapper are fulfilled, or rejects if any of the promises reject. The fulfilled value is an Array of the fulfilled values returned from mapper in input order.
-*/
 
 /**
  * @param {string} collection
@@ -33,6 +26,11 @@ Comme promise.all, effectue des requête en parallèle et renvoie une promesse d
 */
 export default async function zotero(collection, ...requestedTags) {
     //supports only one tag.
+
+
+    if (!meta.zotero) {
+        return "biblio Zotero désactivée "
+    }
 
     if (!meta.zoteroAPIKey) {
         console.log(new Error("La clé d'API pour Zotero est manquante"))

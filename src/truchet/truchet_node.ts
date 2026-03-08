@@ -1,6 +1,6 @@
 import debug from 'debug'
-import truchet from './truchet_core.js'
-import meta from '../_data/meta.js'
+import truchet from './truchet_core.ts'
+import meta from '../_data/meta.ts'
 
 const warning = debug('tcqb:warning')
 
@@ -17,7 +17,7 @@ export default async function (width, height, path) {
             new Canvas(width, height),
             { height: height, width: width }, 'node')
 
-        await tileCanvas.saveAs(path)
+        await tileCanvas.toFile(path)
 
 
     } catch (error) {

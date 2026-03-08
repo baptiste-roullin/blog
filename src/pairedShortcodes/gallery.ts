@@ -1,16 +1,16 @@
 
-import md from '../markdown.js'
-import { parseHTML } from 'linkedom'
+import md from '../markdown.ts'
+import { parser } from 'posthtml-parser'
 import setAttributes from '../utils/setAttributes.ts'
 import Image from "@11ty/eleventy-img"
 import pathUtils from "node:path"
-export async function gallery(data) {
+export default async function gallery(data) {
 
 	let content = md.render(data)
 	if (content.match('^<ul>')) {
 		console.log('Beware: gallery shortcode must be a flat succession of img without paragraph breaks')
 	}
-	const { document } = parseHTML(content)
+	const { document } = parser(content)
 
 	for await (const figure of document.querySelectorAll('figure')) {
 		const img = figure.querySelector('img')

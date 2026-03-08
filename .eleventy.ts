@@ -2,34 +2,31 @@
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'url'
 import fsp from 'node:fs/promises'
+import { readdir } from 'node:fs/promises'
 
-import yaml from "js-yaml"
-import glob from "fast-glob"
+import YAML from "yaml"
 
-import type UserConfig from "./node_modules/@11ty/eleventy/src/UserConfig.js"
+import type UserConfig from '@11ty/eleventy/UserConfig'
 import pluginRss from '@11ty/eleventy-plugin-rss'
 import pluginNavigation from '@11ty/eleventy-navigation'
-import EleventyHtmlBasePlugin from "./node_modules/@11ty/eleventy/src/Plugins/HtmlBasePlugin.js"
-import { eleventyImageTransformPlugin } from "@11ty/eleventy-img"
-import dirOutputPlugin from "@11ty/eleventy-plugin-directory-output"
+import { HtmlBasePlugin } from '@11ty/eleventy'
+import { eleventyImageTransformPlugin } from '@11ty/eleventy-img'
+import dirOutputPlugin from '@11ty/eleventy-plugin-directory-output'
+import { RenderPlugin } from '@11ty/eleventy'
 
-import meta from './src/_data/meta.js'
-import { collections } from './src/collections.js'
-import zotero from './src/shortcodes/zoteroShortcode.js'
-import { truchetItem, truchetList } from './src/truchet/truchet_shortcode.js'
-import md from './src/markdown.js'
-import fileExists from './src/utils/fileExists.js'
-
-
-const __dirname = dirname(fileURLToPath(import.meta.url))
+import meta from './src/_data/meta.ts'
+import { collections } from './src/collections.ts'
+import md from './src/markdown.ts'
+import fileExists from './src/utils/fileExists.ts'
 
 export default async function (config: UserConfig) {
 	config.setUseGitIgnore(false)
-
+	config.addExtension("11ty.ts", {
+		key: "11ty.js",
+	})
 	config.setQuietMode(true)
 	config.addPlugin(dirOutputPlugin)
 	config.ignores?.add("./src/portfolio/portfolioIntro.md")
-	config.ignores?.add("./src/shortcodes/zotero_component.njk")
 
 	if (meta.env === "dev") {
 		config.ignores?.add("./src/posts/201*")
@@ -62,6 +59,7 @@ export default async function (config: UserConfig) {
 
 	config.addPassthroughCopy('src/robots.txt')
 	config.addPassthroughCopy('src/assets/css/fonts')
+	config.addPassthroughCopy('src/assets/css/prism.css')
 	config.addPassthroughCopy('src/assets/UI')
 	config.addPassthroughCopy('src/assets/docs')
 
@@ -146,17 +144,18 @@ export default async function (config: UserConfig) {
 			}
 		})*/
 	config.addPlugin(pluginRss)
-	config.addPlugin(await config.resolvePlugin("@11ty/eleventy/render-plugin"))
-	config.addPlugin(EleventyHtmlBasePlugin)
+	config.addPlugin(RenderPlugin)
+	config.addPlugin(HtmlBasePlugin)
 
 	/**
 	 * Filters
 	 */
-	let files = await glob.async(resolve(__dirname, 'src/filters/*s'))
+	let filterPath = './src/filters'
+	let filtersFiles = await readdir(filterPath)
 
-	await Promise.all(files.map(async (file) => {
 
-		const { default: func } = await import(file)
+	await Promise.all(filtersFiles.map(async (file) => {
+		const { default: func } = await import(`${filterPath}/${file}`)
 		config.addFilter(func.name, func)
 	}))
 
@@ -164,37 +163,56 @@ export default async function (config: UserConfig) {
 	/**
 	 * Shortcodes
 	 */
-	files = await glob.async(resolve(__dirname, 'src/shortcodes/*s'))
+	let shortcodesPath = './src/shortcodes'
+	const shortcodesFiles = await readdir(shortcodesPath)
 
-	await Promise.all(files.map(async (file) => {
-		const shortcodes = await import(file)
-
-		for (const [name, filter] of Object.entries(shortcodes)) {
-			config.addShortcode(name, filter)
-		}
-		config.addShortcode("zotero", zotero)
-		config.addShortcode("truchetItem", truchetItem)
-		config.addShortcode("truchetList", truchetList)
+	await Promise.all(shortcodesFiles.map(async (file) => {
+		const { default: func } = await import(`${shortcodesPath}/${file}`)
+		config.addShortcode(func.name, func)
 
 	}))
 
 	/**
 	 * paired Shortcodes
 	 */
-	files = await glob.async(resolve(__dirname, 'src/pairedShortcodes/*s'))
+	let pairedShortcodespath = './src/pairedShortcodes'
+	const pairedShortcodesFiles = await readdir(pairedShortcodespath)
 
-	await Promise.all(files.map(async (file) => {
-		const pairedShortcodes = await import(file)
-		for (const [name, filter] of Object.entries(pairedShortcodes)) {
-			config.addPairedShortcode(name, filter)
-		}
+	await Promise.all(pairedShortcodesFiles.map(async (file) => {
+		const { default: func } = await import(`${pairedShortcodespath}/${file}`)
+		config.addPairedShortcode(func.name, func)
 	}))
 
 
+
 	/**
-	MARKDOWN
+	 * Collections
+	 * ============================
 	*/
-	config.addDataExtension("yaml", contents => yaml.load(contents))
+
+	// Drafts, see also _data/eleventyDataSchema.js
+	config.addPreprocessor("drafts", "*", (data: Record<string, any>, content: Record<string, any>) => {
+		if (data.draft) {
+			data.title = `${data.title} (draft)`
+		}
+		// process.env.ELEVENTY_RUN_MODE
+		if (data.draft && meta.env === "production") {
+			return false
+		}
+	})
+
+	Object.keys(collections).forEach((colName) => {
+		const cols = collections[colName]
+
+		config.addCollection(colName, cols)
+	})
+
+
+	/**
+MARKDOWN
+ * ============================
+*/
+	config.addDataExtension("yaml", (contents: string) => YAML.parse(contents))
 
 	config.setFrontMatterParsingOptions({
 		excerpt: true,
@@ -206,14 +224,8 @@ export default async function (config: UserConfig) {
 
 	config.setLibrary('md', md)
 
-	/**
-	 * Collections
-	 * ============================
-	*/
 
-	Object.keys(collections).forEach((colName) => {
-		config.addCollection(colName, collections[colName])
-	})
+
 
 	return {
 		dir: {

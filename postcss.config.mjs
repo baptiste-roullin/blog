@@ -1,4 +1,4 @@
-import meta from './src/_data/meta.js'
+import meta from './src/_data/meta.ts'
 
 export default {
   plugins: {
@@ -7,6 +7,6 @@ export default {
       manifest: "./src/_data/hashes_css.json",
       /*name: function ({ dir, name, hash, ext }) { return path.join(dir, name + '.' + hash + ext) }*/
     },
-    "cssnano": (meta.env === "production" ? {} : false)
+    "clean": (meta.env === "production" ? {} : false)
   }
 }

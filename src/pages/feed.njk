@@ -10,12 +10,12 @@
 	<subtitle>{{ meta.siteDescription }}</subtitle>
 	<link href="{{ meta.siteURL }}"/>
 	<link href="{{ meta.siteURL }}/feed.xml" rel="self"/>
-	<updated>{{ collections.publishedPosts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+	<updated>{{ collections.blogPosts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
 	<id>{{ meta.siteURL }}</id>
 	<author>
 		<name>{{ meta.author }}</name>
 	</author>
-	{%- for post in collections.publishedPosts | reverse | slice(0,20)  %}
+	{%- for post in collections.blogPosts | reverse | slice(0,20)  %}
 		{% set absolutePostUrl %}{{ post.url | htmlBaseUrl(meta.siteURL) }}{% endset %}
 		<entry>
 			<title>{{ post.data.title }}</title>

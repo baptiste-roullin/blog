@@ -32,8 +32,8 @@ layout: base
 		</aside>
 
 	</article>
-	{% set nextPost = collections.publishedPosts | getPreviousCollectionItem %}
-	{% set previousPost = collections.publishedPosts | getNextCollectionItem %}
+	{% set nextPost = collections.blogPosts | getPreviousCollectionItem %}
+	{% set previousPost = collections.blogPosts | getNextCollectionItem %}
 	{% if nextPost or previousPost %}
 		<footer class="relative mt-16 text-xl md:text-2xl">
 			<div class="h-full decor-dark bg-roi-light"></div>
