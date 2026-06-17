@@ -6,7 +6,7 @@ export default {
   permalink: "blog/{{ page.date | dateFormatting('yyyy/MM') }}/{{ title | slugify }}/index.html",
   type: "post",
   author: "{{ meta.author }}",
-  isAnArticle: true,
+  isArticle: true,
   eleventyComputed: {
     collatedHeroImage: collateHeroImage
   }

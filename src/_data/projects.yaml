@@ -9,10 +9,6 @@
   link: 'https://github.com/baptiste-roullin/botinvisible'
   description: Le seul bot appeliste de la planète.
 
-- name: Calculateur de ticket resto
-  link: /blog/2016/05/lecons-ergonomiques-et-techniques-d-un-projet-perso/
-  description: Un test de clavier mobile dédié pour aider au calcul des tickets resto.
-
 - name: Différence et répétition
   link:  https://difference--repetition.tumblr.com/
   description: Catalogage de variations visuelles
@@ -59,4 +55,10 @@
   link: https://www.npmjs.com/package/tweet-to-toot
   img: /assets/UI/totoot.svg
   description: Outil d'export de fil Twitter vers Mastodon
+
+
+- name: P5-multi-editor
+  link: https://codeberg.org/baptiste-roullin/p5-multi-editor
+  img: /assets/UI/P5.svg
+  description: Un petit éditeur pour P5.js
 

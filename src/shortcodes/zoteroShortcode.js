@@ -2,13 +2,14 @@
 // Documentation de l'API : https://www.zotero.org/support/dev/web_api/v3/basics
 // Client : 				https://github.com/tnajdek/zotero-api-client
 
-import pMap from 'p-map'
 import markdownify from '../filters/markdownify.js'
 import meta from '../_data/meta.ts'
 import dateFormatting from '../filters/dateFormatting.js'
 import cache from '../utils/caching.ts'
 import api from 'zotero-api-client/src/main.js'
 
+import fs from 'node:fs/promises'
+import path from 'node:path'
 
 import { dirname } from 'node:path'
 import { fileURLToPath } from 'url'
@@ -19,18 +20,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 //TODO : shadow DOM https://github.com/11ty/eleventy/issues/3402
 
 
-/**
- * @param {string} collection
- * @param {...string} [requestedTags]
- * @returns {Promise<string | undefined>}
-*/
 export default async function zotero(collection, ...requestedTags) {
     //supports only one tag.
-
-
-    if (!meta.zotero) {
-        return "biblio Zotero désactivée "
-    }
 
     if (!meta.zoteroAPIKey) {
         console.log(new Error("La clé d'API pour Zotero est manquante"))
@@ -50,7 +41,7 @@ export default async function zotero(collection, ...requestedTags) {
 
     async function addDataToItems(items) {
 
-        async function mapper(item) {
+        return Promise.allSettled(items.map(async (item) => {
             try {
                 item.data.parsedDate = item.meta.parsedDate
                 if (item.data.creators) {
@@ -63,7 +54,6 @@ export default async function zotero(collection, ...requestedTags) {
                 }
                 if (item.meta.numChildren) {
                     const attachments =
-
                         await cache("attachments-" + item.key, "4w", 'json', async function () {
                             return await lib.items(item.key).children().get({ itemType: 'attachment' })
                         })
@@ -75,13 +65,12 @@ export default async function zotero(collection, ...requestedTags) {
                         }
                     })
                 }
-                return item.data
+                return new Promise(() => { return () => { return item.data } })
             }
             catch (error) {
 
             }
-        }
-        return await pMap(items, mapper, { concurrency: 20 })
+        }))
     }
 
     async function getOtherPages(totalCount, options) {
@@ -176,7 +165,7 @@ export default async function zotero(collection, ...requestedTags) {
         // - un lien direct vers un PDF, tiré des pièces jointes.
         const completedItems = await addDataToItems(items)
 
-        const html = await renderNunjucks("_templates/components/zotero.njk",
+        const html = await renderNunjucks("shortcodes/zotero.njk",
             { items: completedItems },
             [dateFormatting, markdownify]
         )

@@ -12,7 +12,6 @@ export default {
 		search_front: resolve(__dirname, 'src/assets/scripts/search_front.js'),
 		contact: resolve(__dirname, 'src/assets/scripts/contact.js'),
 		main: resolve(__dirname, 'src/assets/scripts/main.js'),
-		isAnArticle: resolve(__dirname, 'src/assets/scripts/isAnArticle.js'),
 		spin: resolve(__dirname, 'src/assets/scripts/spin.js'),
 		nav: resolve(__dirname, 'src/assets/scripts/nav.js'),
 		arrowPagination: resolve(__dirname, 'src/assets/scripts/arrow_pagination.js'),
@@ -23,7 +22,6 @@ export default {
 
 	output: {
 		path: resolve(__dirname, meta.outputDir + '/assets/scripts'),
-
 		filename: () => (meta.env === "production" ? '[name].[contenthash].js' : '[name].js')
 	},
 	module: {
