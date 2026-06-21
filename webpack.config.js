@@ -14,6 +14,7 @@ export default {
 		main: resolve(__dirname, 'src/assets/scripts/main.js'),
 		spin: resolve(__dirname, 'src/assets/scripts/spin.js'),
 		nav: resolve(__dirname, 'src/assets/scripts/nav.js'),
+		picture_lightbox: resolve(__dirname, 'src/assets/scripts/picture_lightbox.js'),
 		arrowPagination: resolve(__dirname, 'src/assets/scripts/arrow_pagination.js'),
 		truchet: resolve(__dirname, 'src/truchet/truchet_core.ts'),
 		truchet_dom: resolve(__dirname, 'src/truchet/truchet_dom.js'),
