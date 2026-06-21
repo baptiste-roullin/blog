@@ -3,11 +3,11 @@
   "type": "module",
   "scripts": {
     "dev:webpack": "npx webpack --watch --mode development",
-    "dev:eleventy": "node --env-file=.env node_modules/.bin/eleventy --quiet --config=.eleventy.ts --serve --incremental",
+    "dev:bawesome": "node --env-file=.env node_modules/.bin/eleventy --quiet --config=.eleventy.ts --serve --incremental",
     "dev:postcss": "postcss src/assets/css/main.css -o www/assets/css/main.css --watch",
     "dev": "npm-run-all --parallel dev:* --print-label",
     "build:webpack": "npx webpack  --mode production",
-    "build:eleventy": "node --env-file=.env node_modules/.bin/eleventy --config=.eleventy.ts",
+    "build:bawesome": "node --env-file=.env node_modules/.bin/eleventy --config=.eleventy.ts",
     "build:postcss": "postcss --verbose src/assets/css/main.css -o www/assets/css/main.css",
     "build:search": "npx pagefind --site www ",
     "build": "run-s build:* --print-label"
@@ -32,6 +32,7 @@
     "debug": "^4.3.4",
     "esm-seedrandom": "^3.0.5",
     "highlight.js": "^11.9.0",
+    "linkedom": "^0.3.5",
     "lodash.clonedeep": "^4.5.0",
     "luxon": "^3.1.0",
     "markdown-it": "^14.0.0",
@@ -50,7 +51,6 @@
     "postcss-clean": "^1.2.2",
     "postcss-cli": "^11.0.0",
     "postcss-hash": "^3.0.0",
-    "posthtml-parser": "^0.12.1",
     "simple-nunjucks-loader": "github:baptiste-roullin/nunjucks-loader#dev",
     "skia-canvas": "^3.0.8",
     "tailwindcss": "^4.1.15",
@@ -62,8 +62,6 @@
   },
   "dependencies": {
     "photoswipe": "^5.4.4",
-    "posthtml": "^0.16.7",
-    "posthtml-pug": "^1.0.2",
     "text-metrics": "^4.0.1"
   },
   "browserslist": [
