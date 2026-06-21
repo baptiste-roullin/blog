@@ -26,8 +26,9 @@ export default async function (config: UserConfig) {
 	})
 	config.setQuietMode(true)
 	config.addPlugin(dirOutputPlugin)
-	config.ignores?.add("./src/portfolio/portfolioIntro.md")
 
+	config.watchIgnores.add("./src/_data/hashes*")
+	config.ignores?.add("./src/portfolio/portfolioIntro.md")
 	if (meta.env === "dev") {
 		config.ignores?.add("./src/posts/201*")
 		config.ignores?.add("./src/posts/2020*")

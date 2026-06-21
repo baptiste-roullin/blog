@@ -1,25 +1,23 @@
-@layer base {
-
-
+@import "tailwindcss";
 /* TITRAILLE DE BASE */
-
-    h1 {
+@layer base {
+    body h1 {
         @apply font-bold text-gray-700 text-4xl;
     }
 
-    h2 {
-        @apply font-bold text-gray-700 pt-12 text-2xl lg:text-3xl;
+    body h2 {
+        @apply font-bold text-gray-700 text-2xl lg:text-3xl;
     }
 
-    h3 {
+    body h3 {
         @apply text-2xl font-bold text-gray-700;
     }
 
-    h4 {
+    body h4 {
         @apply text-xl font-bold text-gray-500;
     }
 
-    h5 {
+    body h5 {
         @apply text-lg font-bold text-gray-500;
     }
 
@@ -116,7 +114,7 @@
 
 @layer utilities{
 	@media only screen and (min-width:640px) {
-		#content {
+		.template-post, .page-portfolio{
 			h2, h3, h4  {
 				position: relative;
 				left: -2em;

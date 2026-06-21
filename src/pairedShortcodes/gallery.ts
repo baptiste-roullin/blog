@@ -9,8 +9,8 @@ export default async function gallery(data) {
 	/*
    on veut obtenir :
 	div.picture-gallery
-	   a
-		   figure
+		figure
+			 a
 			   img
 			   caption (optional)
 	*/
