@@ -44,7 +44,7 @@ Il y a d'abord la table de navigation, utilisée avec feutre effaçable, rapport
 
 ![](/img/EQPVwmDX0Ac83Jy.jpg)
 
-![](/img/EQPVwnmXYAASuGE.jpg )
+![](/img/EQPVwnmXYAASuGE.jpg)
 
 {% endgallery %}
 
@@ -61,7 +61,7 @@ Admirez aussi le tableau lumineux, les feuillets suspendus et le rouleau de scot
 
 {% gallery %}
 
-![](/img/vlcsnap-2020-02-08-14h18m13s710.png '')
+![](/img/vlcsnap-2020-02-08-14h18m13s710.png)
 
 ![](/img/vlcsnap-2020-02-08-14h09m56s011-1.png)
 
@@ -102,7 +102,7 @@ L'oreille d'or a le trackball dans une main, le casque sur une seule oreille pen
 
 ![](/img/vlcsnap-2020-02-08-14h07m47s689-e1581169306219.png)
 
-## **Système socio-technique**
+## lSystème socio-technique
 
 Voici quelques interfaces montrées dans le film (probablement non-contractuelles). Mais c'est la partie émergée de l'iceberg. D'une certaine manière dans un sous-marin tout est interface entre l'être humain et des fonctions critiques. Tout est pensé pour aider les sous-mariniers à écouter et exécuter des ordres, à marcher, se tenir, ou respirer. Par exemple quand l'atmosphère est compromise, ils peuvent se brancher à intervalle régulier à des arrivées d'air.
 

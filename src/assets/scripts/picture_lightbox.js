@@ -1,6 +1,17 @@
 import PhotoSwipeLightbox from 'photoswipe/lightbox'
+const target = document.querySelectorAll(".picture-gallery img")
+const dataList = [...target].map(el => {
+	return {
+		src: el?.getAttribute("src"),
+		width: el?.getAttribute("width"),
+		height: el?.getAttribute("height"),
+		alt: el?.getAttribute("alt")
+	}
+}
+)
 
 const lightbox = new PhotoSwipeLightbox({
+	dataSource: dataList,
 	gallery: '.picture-gallery',
 	children: 'figure',
 	pswpModule: () => import('photoswipe')
