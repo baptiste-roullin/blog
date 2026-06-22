@@ -33,11 +33,9 @@ On n'a pas attendu l'informatique pour représenter des données. Les [première
 
 
 
-{% gallery %}
-
 ![Plan d'un bâtiment de six pièces, un sanctuaire ou une maison privée. Fin du IIIe millénaire](/img/Building_plans_Louvre_AO338.jpg "Plan d'un bâtiment de six pièces, un sanctuaire ou une maison privée. Fin du IIIe millénaire. [Source](https://fr.wikipedia.org/wiki/Fichier:Building_plans_Louvre_AO338.jpg).")
 
-{% endgallery %}
+
 
 
 

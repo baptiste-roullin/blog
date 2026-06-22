@@ -64,12 +64,7 @@ export default async function (config: UserConfig) {
 	config.addPassthroughCopy('src/assets/UI')
 	config.addPassthroughCopy('src/assets/docs')
 
-
-	/*	const imagePath = `${process.cwd()}/${meta.outputDir}/${meta.assetsDir}/`
-		if (!(await fileExists(imagePath))) {
-			await fsp.mkdir(imagePath, { recursive: true })
-		}*/
-
+	// création du dossier img la première fois.
 	const imagePath = `${process.cwd()}/${meta.outputDir}/${meta.assetsDir}/`
 	if (!(await fileExists(imagePath))) {
 		await fsp.mkdir(imagePath, { recursive: true })

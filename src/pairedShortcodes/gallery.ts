@@ -24,7 +24,8 @@ export default async function gallery(data) {
 
 	for await (const figure of document.querySelectorAll('figure')) {
 		const img = figure.querySelector('img')
-		const link = document.createElement("a")
+		// must be a link
+		const button = document.createElement("a")
 		const src = img.getAttribute("src")
 		const path = (
 			pathUtils.isAbsolute(src)
@@ -35,14 +36,18 @@ export default async function gallery(data) {
 		)
 		const imageDimensions = await Image(pathUtils.join(path, src), { statsOnly: true, formats: ["webp"] })
 
-		setAttributes(link, {
-			"href": src,
+		setAttributes(button, {
+			//must have url even if not used
+			"data-pswp-src": src,
+			"role": "button",
+			"tabindex": "0",
+			"style": "cursor:pointer",
 			"data-pswp-width": imageDimensions.webp[0].width,
 			"data-pswp-height": imageDimensions.webp[0].height
 		})
 
-		link.replaceChildren(...figure.childNodes)
-		figure.replaceChildren(link)
+		button.replaceChildren(...figure.childNodes)
+		figure.replaceChildren(button)
 
 
 	}
