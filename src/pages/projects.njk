@@ -10,7 +10,7 @@ eleventyNavigation:
 
 ---
 
-<ul class="max-w-lg gap-6 m-auto 2xl:gap-8 md:m-0 md:max-w-none card-container project-list">
+<ul class="gap-6 m-auto 2xl:gap-8 md:m-0 md:max-w-none card-container project-list">
 	{% for project in collections.projectsList | reverse %}
 		{% include 'components/project.njk' %}
 	{% endfor %}
